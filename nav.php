@@ -13,7 +13,6 @@
             <!--   Loged User   -->
                 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="skin/users/vio.jpg" class="userloginimg"> Violeta Raffin <b class="caret"></b></a>
-                    
                     <ul class="dropdown-menu menuuser">
                         <li><a href="#"><i class="fa fa-fw fa-user"></i> Perfil</a></li>
                         <li><a href="#"><i class="fa fa-fw fa-power-off"></i> Desconectar</a></li>
@@ -22,9 +21,9 @@
             </ul>
             <!-- Lateral Nav Menu -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
+                <ul class="navimgback nav navbar-nav side-nav">
                     <li><a href="inicio.php"><i class="fa fa-fw fa-home"></i> Inicio</a></li>
-                    <li><a href="productos.php"><i class="fa fa-fw fa-tree"></i> Productos</a></li>                 
+                    <li><a href="items.php"><i class="fa fa-fw fa-tree"></i> Productos</a></li>                 
                       <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#ddmenu1"><i class="fa fa-fw fa-gear"></i> Administraci&oacute;n<i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="ddmenu1" class="collapse">

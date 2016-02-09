@@ -2,11 +2,18 @@
 
 // Filters
 .filterdiv
+    width: auto
     background-color: #d7d7e0
-    padding: 30px 20px 0 20px
-    margin-bottom: 25px
-    padding: 20px 10px 10px 10px
-    border: 1px solid #ccc 
+    border: 1px solid #ccc
+    // text-align: center
+    padding-bottom: 5px
+.filterformdiv
+    margin-left: 10px
+    padding-top: 15px
+    
+.filtertit
+    margin-right: 15px
+    
 .form-controlit
     display: block
     width: 100%
@@ -27,22 +34,67 @@ option
     padding-left: 15px 
 option
     padding-left: 15px 
-.searchbtn
-    height: 30px
-    width: 100px
-    padding: 5px 10px
-    margin-left: 15px
-    border-radius: 0
-    -webkit-transition: all 0.5s ease 0s
-    transition: all 0.5s ease 0s 
-.searchbtn:hover
-    background-color: #39465B
-    color: #fff
-    -webkit-box-shadow: 8px 9px 24px -12px rgba(0,0,0,0.68)
-    -moz-box-shadow: 8px 9px 24px -12px rgba(0,0,0,0.68)
-    box-shadow: 8px 9px 24px -12px rgba(0,0,0,0.68) 
+
+.inputsgral
+    padding: 0 5px
+        
+// Add Item Button
+.additembtn
+    color: #FFFFFF
+    background-color: #457C99
+    transition: 0.5s
+ 
+.additembtn:hover, 
+.additembtn:focus, 
+.additembtn:active, 
+.additembtn.active, 
+.open .dropdown-toggle.additembtn
+    color: #FFFFFF
+    background-color: #77668F
+    
+.additembtn:active,
+.additembtn.active,
+.open .dropdown-toggle.additembtn
+    background-image: none 
+
+    
+// Add Item Button
+@media(max-width:768px)
+    .itemsearchbtn
+        margin-top: 15px
+        margin-left: 0
+    
+.itemsearchbtn
+    color: #FFFFFF
+    background-color: #457C99
+    transition: 0.5s
+    margin-left: 10px
+ 
+.itemsearchbtn:hover, 
+.itemsearchbtn:focus, 
+.itemsearchbtn:active, 
+.itemsearchbtn.active, 
+.open .dropdown-toggle.itemsearchbtn
+    color: #FFFFFF
+    background-color: #77668F
+    
+.itemsearchbtn:active,
+.itemsearchbtn.active,
+.open .dropdown-toggle.itemsearchbtn
+    background-image: none 
+    
 
 // Item (Square)
+
+.p1gral
+    background-color: #fff
+    width: 250px
+    text-align: center
+    margin: 20px 10px
+    padding: 0
+    -webkit-box-shadow: 11px 16px 43px -41px rgba(0,0,0,0.99)
+    -moz-box-shadow: 11px 16px 43px -41px rgba(0,0,0,0.99)
+    box-shadow: 11px 16px 43px -41px rgba(0,0,0,0.99)
     
 .itemdiv
     background-color: #fff
@@ -79,6 +131,8 @@ option
 .card1:hover .card_content
     background-color: #fff
     bottom: 0 
+
+
 
 .itemtit
     margin: 15px 0 0 
@@ -147,14 +201,26 @@ option
 // Item Creation Window
 .additemtit
     text-align: center
-    background-color: #5ea8ab
-    padding-bottom: 10px
-    margin-bottom: 25px
-    max-width: 600px
+    background-color: #688494
+    padding: 1px 0 10px 0
+    margin-top: -15px
+    margin-bottom: 30px
+    -webkit-box-shadow: 4px 2px 18px -6px rgba(0,0,0,0.69)
+    -moz-box-shadow: 4px 2px 18px -6px rgba(0,0,0,0.69)
+    box-shadow: 4px 2px 18px -6px rgba(0,0,0,0.69)
+.additemtit h3
+    color: #fff
 .additemdiv
     max-width: 600px
+    background-color: #fff
+    background-image: url(../skin/body/imgboxes.jpg)
+    margin-top: 20px
+    -webkit-box-shadow: 4px 2px 18px -6px rgba(0,0,0,0.69)
+    -moz-box-shadow: 4px 2px 18px -6px rgba(0,0,0,0.69)
+    box-shadow: 4px 2px 18px -6px rgba(0,0,0,0.69)
+        
 .addprodimgdiv
     padding-top: 30px
 .productimg
     padding: 20px 0
-
+     
