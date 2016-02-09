@@ -4,10 +4,10 @@
         <?php include('nav.php'); ?> <!-- Navegación -->
         <?php include('delpopup.php'); ?> <!-- Del PopUp Window -->
 <div id="page-wrapper">
-    <div class="addprodtit"><h3>Agregar Nuevo Usuario</h3></div><br>
+    <div class="userstitulo"><h3>Agregar Nuevo Usuario</h3></div><br>
 <!-- Filtros -->
 <!-- New Prod-->
-<div class="container addproddiv">
+<div class="container itemdiv">
         <div class="col-sm-12 form-box">
 	                  <div class="row">
                           <div class="col-md-6 form-group animated fadeIn">

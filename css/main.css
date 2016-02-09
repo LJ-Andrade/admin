@@ -1,77 +1,982 @@
-/*
-Error: Undefined mixin 'placeholder'.
-        on line 70 of _extras.sass, in `placeholder'
-        from line 70 of _extras.sass
-        from line 10 of main.sass
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+.pad0 {
+  padding: 0; }
 
-Backtrace:
-_extras.sass:70:in `placeholder'
-_extras.sass:70
-main.sass:10
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:349:in `block in visit_mixin'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/stack.rb:98:in `block in with_mixin'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/stack.rb:115:in `with_frame'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/stack.rb:98:in `with_mixin'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:347:in `visit_mixin'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/stack.rb:79:in `block in with_base'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/stack.rb:115:in `with_frame'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/stack.rb:79:in `with_base'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `visit'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:431:in `block (2 levels) in visit_rule'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:431:in `map'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:431:in `block in visit_rule'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:429:in `visit_rule'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/stack.rb:79:in `block in with_base'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/stack.rb:115:in `with_frame'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/stack.rb:79:in `with_base'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `visit'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:326:in `block (2 levels) in visit_import'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:326:in `map'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:326:in `block in visit_import'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/stack.rb:88:in `block in with_import'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/stack.rb:115:in `with_frame'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/stack.rb:88:in `with_import'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:323:in `visit_import'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/stack.rb:79:in `block in with_base'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/stack.rb:115:in `with_frame'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/stack.rb:79:in `with_base'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `visit'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:52:in `map'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:157:in `visit'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:8:in `visit'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/tree/root_node.rb:36:in `css_tree'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/engine.rb:378:in `_render_with_sourcemap'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/engine.rb:295:in `render_with_sourcemap'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:490:in `update_stylesheet'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:209:in `each'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:471:in `on_file_changed'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:328:in `block in watch'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/vendor/listen/lib/listen/listener.rb:252:in `call'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/vendor/listen/lib/listen/listener.rb:252:in `on_change'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/vendor/listen/lib/listen/adapters/polling.rb:48:in `call'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/vendor/listen/lib/listen/adapters/polling.rb:48:in `poll_changed_directories'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.21/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Undefined mixin 'placeholder'.\A         on line 70 of _extras.sass, in `placeholder'\A         from line 70 of _extras.sass\A         from line 10 of main.sass"; }
+.mar0 {
+  margin: 0; }
+
+.centrarimg {
+  margin: 0 auto; }
+
+.centrartxt {
+  text-align: center; }
+
+p {
+  font-family: "Open Sans", sans-serif; }
+
+h1, h2, h3, h4, h5 {
+  font-family: "Open Sans", sans-serif; }
+
+body {
+  margin-top: 100px;
+  background-color: #222;
+  font-family: "Open Sans", sans-serif;
+  background-color: #c2c5c9; }
+
+@media(min-width:768px) {
+  body {
+    margin-top: 50px; }
+
+  a:link {
+    text-decoration: none; } }
+#wrapper {
+  padding-left: 0; }
+
+#page-wrapper {
+  width: 100%;
+  min-height: 1020px;
+  padding: 0;
+  background-color: #e5e5e5;
+  background-image: url(../skin/body/noiseback.png); }
+
+.huge {
+  font-size: 50px;
+  line-height: normal; }
+
+@media(min-width:768px) {
+  #wrapper {
+    padding-left: 225px; }
+
+  #page-wrapper {
+    padding: 10px; }
+
+  #wrapperlogin {
+    padding-left: 0; } }
+@media(max-width:1300px) {
+  .row-centered {
+    text-align: center; }
+
+  .col-centered {
+    display: inline-block;
+    float: none;
+    text-align: left;
+    margin-right: -4px; } }
+.centrarbtn {
+  margin: 0;
+  Background-color: transparent;
+  text-align: center; }
+
+.txtcenter {
+  text-align: center; }
+
+.login {
+  height: 100%;
+  width: 100%; }
+
+.login1 {
+  top: 50%;
+  width: 500px; }
+
+.loginbtn {
+  margin: 35px 0;
+  width: 150px;
+  max-width: 100%;
+  height: 40px;
+  border-radius: 0;
+  margin-left: 22%;
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s; }
+
+.loginbtn:hover {
+  background-color: #39465b;
+  color: #fff;
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5); }
+
+body#login {
+  background-image: url(../skin/body/loginback.jpg); }
+
+*, *:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0; }
+
+.main {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  margin-top: 200px; }
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+.log-in {
+  text-align: center; }
+
+.logindatos {
+  margin: 25px 0; }
+
+.logusuario {
+  margin-bottom: 30px; }
+
+.formulog {
+  width: 300px;
+  margin: 60px auto 30px;
+  padding: 15px;
+  position: relative;
+  background: rgba(57, 70, 91, 0.6);
+  color: #fff; }
+
+.formulog label {
+  display: block;
+  padding: 0 0 5px 2px;
+  text-transform: uppercase;
+  font-size: 14px; }
+
+.formulog label i {
+  margin-right: 5px;
+  display: inline-block;
+  width: 10px;
+  color: #ccd4e2;
+  margin-right: 25px; }
+
+.dropdown-menu label i {
+  margin-right: 10px; }
+
+.formulog input[type=text],
+.formulog input[type=password] {
+  font-size: 13px;
+  color: #000;
+  font-weight: 400;
+  display: block;
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 5px;
+  border: 3px solid #ccc;
+  border-radius: 5px;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out; }
+
+.formulog input[type=text]:hover,
+.formulog input[type=password]:hover {
+  border-color: #fff; }
+
+.formulog label:hover ~ input {
+  border-color: #fff; }
+
+.formulog input[type=text]:focus,
+.formulog input[type=password]:focus {
+  border-color: #455568;
+  outline: none; }
+
+.dropdown-menu .fa {
+  margin-right: 26px;
+  margin-left: 5px; }
+
+.marca {
+  font-size: 12px; }
+
+.dropdown-menu {
+  padding: 0; }
+
+/* User Loged Img */
+.userloginimg {
+  height: 40px;
+  border-radius: 100%;
+  margin: 0 15px; }
+
+.top-nav {
+  padding: 0 15px; }
+
+.top-nav > li {
+  display: inline-block;
+  float: left; }
+
+.top-nav > li > a {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  line-height: 20px;
+  color: #fff;
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s; }
+
+.top-nav li a:hover {
+  color: #7a8496;
+  background-color: #d7d7e0; }
+
+.top-nav li a:hover, .top-nav > li > a:focus, .top-nav > .open > a, .top-nav > .open > a:hover, .top-nav > .open > a:focus {
+  background-color: #d7d7e0;
+  color: #7a8496; }
+
+.top-nav > li > a {
+  padding: 0;
+  padding-top: 6px;
+  padding-bottom: 5px; }
+
+.top-nav > .open > .dropdown-menu {
+  float: left;
+  position: absolute;
+  margin-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  background-color: #fff;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175); }
+
+.top-nav > .open > .dropdown-menu > li > a {
+  white-space: normal; }
+
+ul.message-dropdown {
+  padding: 0;
+  max-height: 250px;
+  overflow-x: hidden;
+  overflow-y: auto; }
+
+.dropdown-menu {
+  border-radius: 0; }
+
+/* Width User logged */
+.dropdown {
+  width: 219px; }
+
+.dropdown-menu > li {
+  color: #fff; }
+
+.dropdown-menu > li > a {
+  min-width: 218px;
+  color: #39465B; }
+
+.dropdown-menu > li:hover {
+  background-color: #39465B;
+  color: #fff; }
+
+.dropdown-menu > li > a:hover {
+  background-color: #39465B;
+  color: #fff; }
+
+li.message-preview {
+  width: 275px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15); }
+
+li.message-preview > a {
+  padding-top: 15px;
+  padding-bottom: 15px; }
+
+li.message-footer {
+  margin: 5px 0; }
+
+ul.alert-dropdown {
+  width: 200px; }
+
+.navbar-inverse .navbar-brand {
+  color: #fff; }
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+  background-color: #2b3340; }
+
+.navbar-inverse .navbar-nav > li > a {
+  color: #fff; }
+
+.navbar-inverse .navbar-nav > li > a {
+  color: #fff; }
+
+@media(min-width:768px) {
+  .side-nav {
+    position: fixed;
+    top: 51px;
+    left: 225px;
+    width: 225px;
+    margin-left: -225px;
+    border: none;
+    border-radius: 0;
+    overflow-y: auto;
+    background-color: #39465b;
+    bottom: 0;
+    overflow-x: hidden;
+    padding-bottom: 40px; } }
+.side-nav > li > a {
+  width: 225px; }
+
+.side-nav li a:hover,
+.side-nav li a:focus {
+  outline: none;
+  background-color: #d7d7e0 !important; }
+
+.side-nav > li > ul {
+  padding: 0; }
+
+.side-nav > li > ul > li > a {
+  display: block;
+  padding: 10px 15px 10px 38px;
+  text-decoration: none;
+  color: #999; }
+
+.side-nav > li > ul > li > a:hover {
+  color: #fff; }
+
+.side-nav > li > ul li:hover a.before {
+  color: #fff;
+  background: #9A437A; }
+
+.side-nav > li > a:hover, .side-nav > li > a:focus, .side-nav > .open > a, .side-nav > .open > a:hover, .side-nav > .open > a:focus {
+  background-color: #d7d7e0;
+  color: #7a8496; }
+
+#ddmenu2 li a {
+  padding: 10px 15px 10px 44px;
+  display: block;
+  color: #fff;
+  text-decoration: none; }
+
+.side-nav > li > ul > li > a {
+  color: #fff; }
+
+.navbar-inverse .navbar-nav > li > a:focus, .navbar-inverse .navbar-nav > li > a:hover {
+  background-color: #d7d7e0;
+  color: #000; }
+
+.filterdiv {
+  background-color: #d7d7e0;
+  padding: 30px 20px 0 20px;
+  margin-bottom: 25px;
+  padding: 20px 10px 10px 10px;
+  border: 1px solid #ccc; }
+
+.form-controlit {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857;
+  max-width: 250px;
+  color: #555;
+  background-color: #FFF;
+  background-image: none;
+  border: 1px solid #CCC;
+  border-radius: 4px;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  display: inline; }
+
+option {
+  padding-left: 15px; }
+
+option {
+  padding-left: 15px; }
+
+.searchbtn {
+  height: 30px;
+  width: 100px;
+  padding: 5px 10px;
+  margin-left: 15px;
+  border-radius: 0;
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s; }
+
+.searchbtn:hover {
+  background-color: #39465B;
+  color: #fff;
+  -webkit-box-shadow: 8px 9px 24px -12px rgba(0, 0, 0, 0.68);
+  -moz-box-shadow: 8px 9px 24px -12px rgba(0, 0, 0, 0.68);
+  box-shadow: 8px 9px 24px -12px rgba(0, 0, 0, 0.68); }
+
+.itemdiv {
+  background-color: #fff;
+  width: 250px;
+  text-align: center;
+  margin: 20px 10px;
+  padding: 0;
+  -webkit-box-shadow: 11px 16px 43px -41px rgba(0, 0, 0, 0.99);
+  -moz-box-shadow: 11px 16px 43px -41px rgba(0, 0, 0, 0.99);
+  box-shadow: 11px 16px 43px -41px rgba(0, 0, 0, 0.99);
+  padding: 0; }
+
+.card {
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+  position: relative; }
+
+.card_content {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 10px;
+  position: absolute;
+  bottom: -280px;
+  width: 250px;
+  transition: all 0.5s ease; }
+
+.card_content h3 {
+  font-size: 1.5em;
+  margin-bottom: 0.5em; }
+
+.card:hover .card_content {
+  background-color: #fff;
+  bottom: 0; }
+
+.card1:hover .card_content {
+  background-color: #fff;
+  bottom: 0; }
+
+.itemtit {
+  margin: 15px 0 0; }
+
+.itemtxt {
+  text-align: center; }
+
+.itemrow2 {
+  padding: 0 10px; }
+
+.itemtxtcolor {
+  font-size: 12px; }
+
+.prodicos ul {
+  list-style-type: none;
+  text-align: center; }
+
+.prodicos li {
+  display: inline;
+  text-align: center;
+  margin: 0 15px; }
+
+.itemicos {
+  background-color: transparent; }
+
+.itemicos ul {
+  list-style-type: none;
+  text-align: center; }
+
+.itemicos li {
+  display: inline;
+  text-align: center;
+  margin: 0 15px; }
+
+.prodicoadd ul {
+  margin-left: -25px;
+  border: 1px solid blue; }
+
+.prodfilediv {
+  background-color: #fff;
+  padding: 30px 20px 0 20px;
+  margin-bottom: 25px;
+  padding: 10px;
+  padding-left: 0; }
+
+.prodfileimg {
+  width: 100px;
+  height: 100px;
+  max-height: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  -webkit-box-shadow: 0 12px 12px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.175);
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s; }
+
+.prodfileimg:hover {
+  box-shadow: none; }
+
+.colprod {
+  margin-top: 10px; }
+
+.colprodtit {
+  margin-top: 10px;
+  text-align: center; }
+
+.colprod1 {
+  margin-top: 10px;
+  text-align: center; }
+
+.colprodico {
+  margin-top: 25px; }
+
+.additemtit {
+  text-align: center;
+  background-color: #5ea8ab;
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+  max-width: 600px; }
+
+.additemdiv {
+  max-width: 600px; }
+
+.addprodimgdiv {
+  padding-top: 30px; }
+
+.productimg {
+  padding: 20px 0; }
+
+.itemdiv {
+  width: 500px;
+  text-align: center;
+  margin: 20px 10px;
+  padding: 0;
+  -webkit-box-shadow: 11px 16px 43px -41px rgba(0, 0, 0, 0.99);
+  -moz-box-shadow: 11px 16px 43px -41px rgba(0, 0, 0, 0.99);
+  box-shadow: 11px 16px 43px -41px rgba(0, 0, 0, 0.99);
+  padding: 0; }
+
+.userstitulo {
+  text-align: center; }
+
+.useradd {
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s; }
+
+.useradd:hover {
+  -webkit-box-shadow: 10px 10px 21px -14px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 21px -14px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 21px -14px rgba(0, 0, 0, 0.75); }
+
+.usergral {
+  max-width: 220px;
+  padding-top: 20px;
+  margin: 20px 10px; }
+
+.usimg {
+  border-radius: 100%;
+  max-width: 150px;
+  cursor: pointer;
+  margin: 0 auto; }
+
+.usernamediv {
+  text-align: center;
+  margin-top: 15px; }
+
+.usernamediv a {
+  text-decoration: none; }
+
+.userback {
+  background-color: none;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  -ms-transition: 0.5s; }
+
+.userback:hover {
+  background-color: #fff;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175); }
+
+.userbtn {
+  margin: 20px 5px;
+  height: 40px;
+  border-radius: 0;
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s; }
+
+.userbtnedit {
+  margin: 20px 5px;
+  height: 40px;
+  border-radius: 0;
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s; }
+
+.userbtn:hover {
+  background-color: #d9534f;
+  color: #fff; }
+
+.userbtnedit:hover {
+  background-color: #2f435b;
+  color: #fff; }
+
+#hover-content {
+  display: none; }
+
+#hover-me:hover #hover-content {
+  display: block; }
+
+#transhover {
+  opacity: 0;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  -ms-transition: 0.5s;
+  transition: 0.5s; }
+
+#trans:hover #transhover {
+  opacity: 1; }
+
+.fa-trash:before {
+  font-size: 25px;
+  color: #c54e4e; }
+
+.fa-pencil:before {
+  font-size: 25px; }
+
+.usericos ul {
+  list-style-type: none;
+  text-align: center; }
+
+.usericos li {
+  display: inline;
+  text-align: center;
+  margin: 0 15px; }
+
+.usericoadd ul {
+  margin-left: -25px;
+  border: 1px solid blue; }
+
+.userimg {
+  padding: 25px 0; }
+
+.buttonadduser {
+  width: 200px;
+  height: 50px;
+  margin: 0;
+  padding: 0 20px;
+  vertical-align: middle;
+  background: #39465B;
+  border: 0;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 50px;
+  color: #fff;
+  -moz-border-radius: 0px;
+  text-align: center;
+  border-radius: 0px;
+  text-shadow: none;
+  box-shadow: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s; }
+
+.buttonadduser:hover {
+  opacity: 0.6;
+  color: #fff; }
+
+.buttonadduser:active {
+  outline: 0;
+  opacity: 0.6;
+  color: #fff;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+
+.buttonadduser:focus {
+  outline: 0;
+  opacity: 0.6;
+  background: #66d6c5;
+  color: #fff; }
+
+.buttonadduser:active:focus, button.btn.active:focus {
+  outline: 0;
+  opacity: 0.6;
+  background: #66d6c5;
+  color: #fff; }
+
+.adduserlabel {
+  ont-weight: 400;
+  font-size: 16px; }
+
+.useraddimg {
+  border-radius: 100%;
+  width: 150px;
+  margin: 0 auto; }
+
+.addimg {
+  margin-bottom: 15px; }
+
+.addprodico {
+  text-align: center;
+  font-size: 35px;
+  padding: 0; }
+
+.addimgbtn {
+  border-radius: 0; }
+
+.adduserimgdiv {
+  padding-top: 30px; }
+
+.addusertit {
+  text-align: center;
+  padding-bottom: 10px; }
+
+.adduserpop {
+  position: fixed;
+  font-family: Arial, sans-serif;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 99999;
+  opacity: 0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  pointer-events: none;
+  text-align: center;
+  font-family: "Open Sans", sans-serif; }
+
+.adduserpop:target {
+  opacity: 1;
+  pointer-events: auto; }
+
+.adduserpopbox {
+  width: 400px;
+  height: 550px;
+  position: relative;
+  padding: 20px 20px 13px 20px;
+  background: #fff;
+  -webkit-transition: all 500ms ease-in;
+  -moz-transition: all 500ms ease-in;
+  transition: all 500ms ease-in;
+  -webkit-box-shadow: 10px 10px 23px 7px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 23px 7px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 23px 7px rgba(0, 0, 0, 0.75); }
+
+.movedownaddus {
+  margin: 0 auto;
+  margin-top: 100px; }
+
+.resize {
+  margin: 10% auto;
+  width: 0;
+  height: 0; }
+
+.adduserpopbox:target .movedownaddus {
+  margin: 10% auto; }
+
+.close {
+  color: red;
+  line-height: 25px;
+  position: absolute;
+  right: 1px;
+  text-align: center;
+  top: 1px;
+  width: 24px;
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 24px;
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s; }
+
+.close:hover {
+  color: black; }
+
+.txtconfirm h4 {
+  font-weight: 300;
+  font-size: 14px; }
+
+.txtconfirm {
+  margin: 30px; }
+
+.btnconfdiv {
+  margin-bottom: 20px; }
+
+.modalmask {
+  position: fixed;
+  font-family: Arial, sans-serif;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 99999;
+  opacity: 0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  pointer-events: none;
+  text-align: center;
+  font-family: "Open Sans", sans-serif; }
+
+.modalmask:target {
+  opacity: 1;
+  pointer-events: auto; }
+
+.modalbox {
+  width: 400px;
+  position: relative;
+  padding: 5px 20px 13px 20px;
+  background: #fff;
+  -webkit-transition: all 500ms ease-in;
+  -moz-transition: all 500ms ease-in;
+  transition: all 500ms ease-in;
+  -webkit-box-shadow: 10px 10px 23px 7px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 23px 7px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 23px 7px rgba(0, 0, 0, 0.75);
+  border: 3px solid black; }
+
+.movedown {
+  margin: 0 auto; }
+
+.resize {
+  margin: 10% auto;
+  width: 0;
+  height: 0; }
+
+.modalmask:target .movedown {
+  margin: 10% auto; }
+
+.close {
+  color: red;
+  line-height: 25px;
+  position: absolute;
+  right: 1px;
+  text-align: center;
+  top: 1px;
+  width: 24px;
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 24px;
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s; }
+
+.close:hover {
+  color: black; }
+
+.btnconfirmspc {
+  margin-right: 70px; }
+
+.btnconfirm {
+  background-color: #57687c;
+  color: #fff;
+  height: 45px;
+  padding: 0 25px;
+  text-align: right;
+  border-radius: 0;
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s; }
+
+.btnconfirm:hover {
+  background-color: #2f435b;
+  color: #fff; }
+
+.btncancel {
+  background-color: #ad6666;
+  color: #fff;
+  height: 45px;
+  padding: 0 25px;
+  border-radius: 0;
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s; }
+
+.btncancel:hover {
+  background-color: #bf4a4a;
+  color: #fff; }
+
+@media(max-width:400px) {
+  .modalbox {
+    width: 250px; }
+
+  .btnconfirmspc {
+    margin-right: 0;
+    margin-bottom: 5px;
+    text-align: center; } }
+.form-controlusers {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857;
+  color: #555;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  max-width: 100%;
+  border: 0;
+  border-bottom: 2px solid #39465B;
+  background-color: transparent; }
+
+.divaddusers {
+  float: left;
+  margin-left: 25px;
+  width: 400px;
+  background-color: rgba(57, 70, 91, 0.2);
+  margin-bottom: 25px;
+  padding: 20px 20px;
+  max-width: 100%;
+  -webkit-box-shadow: 10px 10px 28px -15px rgba(0, 0, 0, 0.29);
+  -moz-box-shadow: 10px 10px 28px -15px rgba(0, 0, 0, 0.29);
+  box-shadow: 10px 10px 28px -15px rgba(0, 0, 0, 0.29); }
+
+.textareausers {
+  height: 150px; }
+
+.form-control, .formadduser {
+  border-radius: 0; }
+
+.form-control, .formadduser {
+  border-radius: 0; }
+
+.fa-tree:before {
+  font-size: 25px;
+  color: #5ea8ab; }
+
+.fa-user:before {
+  font-size: 25px;
+  color: #5ea8ab; }
+
+.fa-arrows-v:be {
+  font-size: 25px;
+  color: #5ea8ab; }
+
+.fa-shopping-ca {
+  font-size: 25px;
+  color: #5ea8ab; }
+
+.fa-unlock:befo {
+  font-size: 25px;
+  color: #5ea8ab; }
+
+.fa-home:before {
+  font-size: 25px;
+  color: #5ea8ab; }
+
+.fa-gear:before {
+  font-size: 25px;
+  color: #5ea8ab; }
+
+.navbar-inverse .navbar-nav > li > a .fa-gear {
+  margin-right: 10px; }
+
+.navbar-inverse .navbar-nav > li > a .fa-tree {
+  margin-right: 10px; }
+
+.navbar-inverse .navbar-nav > li > a .fa-user {
+  margin-right: 10px; }
+
+.navbar-inverse .navbar-nav > li > a .fa-arrows-v {
+  margin-right: 10px; }
+
+.navbar-inverse .navbar-nav > li > a .fa-shopping-cart {
+  margin-right: 10px; }
+
+.navbar-inverse .navbar-nav > li > a .fa-home {
+  margin-right: 10px; }
+
+.hvr-shadow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 2px transparent;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow;
+  transition-property: box-shadow; }
+
+.hvr-shadow:hover, .hvr-shadow:focus, .hvr-shadow:active {
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5); }
+
+.sombradiv {
+  -webkit-box-shadow: 10px 10px 28px -15px rgba(0, 0, 0, 0.29);
+  -moz-box-shadow: 10px 10px 28px -15px rgba(0, 0, 0, 0.29);
+  box-shadow: 10px 10px 28px -15px rgba(0, 0, 0, 0.29); }
+
+/*# sourceMappingURL=main.css.map */

@@ -52,12 +52,13 @@
                                 </div>
                             </div>    
                         </div> 
-                        <!--    User 3    -->
+                        <!--    Add User    -->
                         <div class="container col-lg-3 col-sm-6 col-xs-6 col-centered usergral userback animated fadeIn">
-                            <div id="trans">
+                            <div id="">
+                                <a href="nuevousuario.php">
                                 <img src="skin/users/mas.jpg" class="img-responsive centrarimg usimg useradd">
                                 <div class="usernamediv"><p><b>Agregar Usuario</b></p></div>
-                                <br><br>
+                                </a>
                             </div>    
                         </div>  
                 </div><!-- End Of Row  -->

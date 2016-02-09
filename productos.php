@@ -8,37 +8,22 @@
             <div class="userstitulo"><h3>Administrador de Productos</h3></div><br>
             <!-- Filters -->
                 <div class="row filterdiv">
-                     <div class="col-md-3 col-sm-6 form-group">
-                         <label>Categor&iacute;a</label>
-                         <select class="form-controlit">
-                             <option>Cocina</option>
-                             <option>Ba&ntilde;o</option>
-                             <option>Dormitorio</option>
-                             <option>Living</option>
-                             <option>Retro</option>
-                         </select>
-                     </div>
-                     <div class="col-md-3 col-sm-6 form-group">
-                         <label>Por Precio</label>
-                         <select class="form-controlit">
-                             <option>Hasta &#36;500</option>
-                             <option>M&aacute;s de &#36;500</option>
-                         </select>
-                     </div>
-                     <div class="col-md-3 col-sm-6 form-group">
-                         
-                         <div class="form-group">
-                         <label>Por C&oacute;digo</label>
-                         <input type="email" class="form-controlit" id="exampleInputEmail1" placeholder="Email">
-                         <i class="fa fa-fw fa-search fa-fw "></i>
-                         </div>
-                     </div>
-                     <div class="col-md-3 col-sm-6 form-group txtcenter">
-                         <label>Agregar Producto</label>
-                         <div class="form-group addprodico">
-                         <a href="nuevoproducto.php"><i class="fa fa-fw fa-plus-square-o fa-fw"></i></a>
-                         </div>
-                     </div>              
+                    <form class="form-inline" role="form">
+                        <div class="form-group">    
+                            <div class="input-group">                       
+                                <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+                                <input type="email" class="form-control" placeholder="Enter email"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                                <input type="password" class="form-control" placeholder="Choose password"/>
+                            </div>
+                        </div>                          
+                        <button type="submit" class="btn btn-default">Create account</button>
+                    </form>
                 </div>
                 <!-- Item (Square) -->
                 <div class="row row-centered">
