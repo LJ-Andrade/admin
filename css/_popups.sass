@@ -1,0 +1,162 @@
+// Pop Ups
+
+.addusertit
+    text-align: center
+    padding-bottom: 10px
+.adduserpop
+    position: fixed
+    font-family: Arial, sans-serif
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    background: rgba(0,0,0,0.8)
+    z-index: 99999
+    opacity: 0
+    -webkit-transition: opacity 400ms ease-in
+    -moz-transition: opacity 400ms ease-in
+    transition: opacity 400ms ease-in
+    pointer-events: none
+    text-align: center
+    font-family: 'Open Sans', sans-serif 
+    
+.adduserpop:target
+    opacity: 1
+    pointer-events: auto
+.adduserpopbox
+    width: 400px
+    height: 550px
+    position: relative
+    padding: 20px 20px 13px 20px
+    background: #fff
+    -webkit-transition: all 500ms ease-in
+    -moz-transition: all 500ms ease-in
+    transition: all 500ms ease-in
+    -webkit-box-shadow: 10px 10px 23px 7px rgba(0,0,0,0.75)
+    -moz-box-shadow: 10px 10px 23px 7px rgba(0,0,0,0.75)
+    box-shadow: 10px 10px 23px 7px rgba(0,0,0,0.75) 
+.movedownaddus
+    margin: 0 auto
+    margin-top: 100px 
+.resize
+    margin: 10% auto
+    width: 0
+    height: 0 
+.adduserpopbox:target .movedownaddus
+    margin: 10% auto 
+.close
+    color: red
+    line-height: 25px
+    position: absolute
+    right: 1px
+    text-align: center
+    top: 1px
+    width: 24px
+    text-decoration: none
+    font-weight: 300
+    font-size: 24px
+    -webkit-transition: all 0.5s ease 0s
+    transition: all 0.5s ease 0s
+    
+.close:hover
+    color: black 
+    
+    
+// Elimination modal popup
+
+.txtconfirm h4
+    font-weight: 300
+    font-size: 14px 
+.txtconfirm
+    margin: 30px 
+.btnconfdiv
+    margin-bottom: 20px 
+.modalmask
+    position: fixed
+    font-family: Arial, sans-serif
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    background: rgba(0,0,0,0.8)
+    z-index: 99999
+    opacity: 0
+    -webkit-transition: opacity 400ms ease-in
+    -moz-transition: opacity 400ms ease-in
+    transition: opacity 400ms ease-in
+    pointer-events: none
+    text-align: center
+    font-family: 'Open Sans', sans-serif 
+.modalmask:target
+    opacity: 1
+    pointer-events: auto
+.modalbox
+    width: 400px
+    position: relative
+    padding: 5px 20px 13px 20px
+    background: #fff
+    -webkit-transition: all 500ms ease-in
+    -moz-transition: all 500ms ease-in
+    transition: all 500ms ease-in
+    -webkit-box-shadow: 10px 10px 23px 7px rgba(0,0,0,0.75)
+    -moz-box-shadow: 10px 10px 23px 7px rgba(0,0,0,0.75)
+    box-shadow: 10px 10px 23px 7px rgba(0,0,0,0.75)
+    border: 3px solid black 
+.movedown
+    margin: 0 auto 
+.resize
+    margin: 10% auto
+    width: 0
+    height: 0 
+.modalmask:target .movedown
+    margin: 10% auto 
+.close
+    color: red
+    line-height: 25px
+    position: absolute
+    right: 1px
+    text-align: center
+    top: 1px
+    width: 24px
+    text-decoration: none
+    font-weight: 300
+    font-size: 24px
+    -webkit-transition: all 0.5s ease 0s
+    transition: all 0.5s ease 0s 
+.close:hover
+    color: black 
+.btnconfirmspc
+    margin-right: 70px
+.btnconfirm
+    background-color: #57687c
+    color: #fff
+    height: 45px
+    padding: 0 25px
+    text-align: right
+    border-radius: 0
+    -webkit-transition: all 0.5s ease 0s
+    transition: all 0.5s ease 0s
+    
+.btnconfirm:hover
+    background-color: #2f435b
+    color: #fff 
+.btncancel
+    background-color: #ad6666
+    color: #fff
+    height: 45px
+    padding: 0 25px
+    border-radius: 0
+    -webkit-transition: all 0.5s ease 0s
+    transition: all 0.5s ease 0s 
+
+.btncancel:hover
+    background-color: #bf4a4a
+    color: #fff 
+
+@media(max-width:400px) 
+    .modalbox
+        width: 250px
+    .btnconfirmspc
+        margin-right: 0
+        margin-bottom: 5px
+        text-align: center 
