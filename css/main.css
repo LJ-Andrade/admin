@@ -599,27 +599,25 @@ option {
 .colprodico {
   margin-top: 25px; }
 
-.additemtit {
-  text-align: center;
-  background-color: #688494;
-  padding: 1px 0 10px 0;
-  margin-top: -15px;
-  margin-bottom: 30px;
-  -webkit-box-shadow: 4px 2px 18px -6px rgba(0, 0, 0, 0.69);
-  -moz-box-shadow: 4px 2px 18px -6px rgba(0, 0, 0, 0.69);
-  box-shadow: 4px 2px 18px -6px rgba(0, 0, 0, 0.69); }
-
-.additemtit h3 {
-  color: #fff; }
-
 .additemdiv {
   max-width: 600px;
   background-color: #fff;
   background-image: url(../skin/body/imgboxes.jpg);
-  margin-top: 20px;
+  margin-top: 30px;
   -webkit-box-shadow: 4px 2px 18px -6px rgba(0, 0, 0, 0.69);
   -moz-box-shadow: 4px 2px 18px -6px rgba(0, 0, 0, 0.69);
   box-shadow: 4px 2px 18px -6px rgba(0, 0, 0, 0.69); }
+
+.additemtit {
+  text-align: center;
+  background-color: rgba(77, 108, 126, 0.5);
+  border-radius: 5px;
+  padding: 5px 0 10px 0;
+  margin-top: -20px;
+  margin-bottom: 30px; }
+
+.additemtit h3 {
+  color: #fff; }
 
 .addprodimgdiv {
   padding-top: 30px; }
