@@ -9,20 +9,25 @@
             <!-- Filters -->
                 <div class="row filterdiv">
                     <form class="form-inline" role="form">
-                        <div class="form-group">    
-                            <div class="input-group">                       
-                                <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
-                                <input type="email" class="form-control" placeholder="Enter email"/>
-                            </div>
-                        </div>
-
                         <div class="form-group">
                             <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
-                                <input type="password" class="form-control" placeholder="Choose password"/>
+                                <span class="input-group-addon"><i class="fa fa-bookmark-o fa-fw"></i></span>
+                                <input type="password" class="form-control" placeholder="Nombre"/>
                             </div>
-                        </div>                          
-                        <button type="submit" class="btn btn-default">Create account</button>
+                        </div> 
+                        <div class="form-group">    
+                            <div class="input-group">         
+                                <span class="input-group-addon"><i class="fa fa-usd fa-fw"></i></span>
+                                <input type="email" class="form-control" placeholder="Precio"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">         
+                                <span class="input-group-addon"><i class="fa fa-qrcode fa-fw"></i></span>
+                                <input type="email" class="form-control" placeholder="C&oacute;digo \ Modelo"/>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-default"><i class="fa fa-search fa-fw"></i> Buscar</button>
                     </form>
                 </div>
                 <!-- Item (Square) -->
@@ -35,7 +40,6 @@
                                   <div class="col-md-12 itemtit">
                                       <p><b>Cama de 6 plazas - F128</b></p>
                                   </div>
-
                               <div class="card_content">
                                  <div class="col-md-12 itemtit">
                                       <p><b>Cama de 6 plazas</b></p>
