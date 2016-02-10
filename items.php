@@ -9,9 +9,7 @@
             <!-- Filters -->
                 <div class="row filterdiv">
                     <form class="form-inline filterformdiv" role="form">
-                        <div class="form-group col-lg-2 col-sm-12">
-                        <label class="filtertit"><h4>Filtrar por</h4></label>
-                        </div>
+                    <div class="row">
                         <div class="form-group inputsgral">
                             <div class="input-group">
                                <span class="input-group-addon"><i class="fa fa-folder-o fa-fw"></i></span>
@@ -42,11 +40,14 @@
                                 <input type="email" class="form-control" placeholder="C&oacute;digo \ Modelo"/>
                             </div>
                         </div>
-                        <div class="form-group inputsgral">
-                        <button type="submit" class="btn btn-default itemsearchbtn"><i class="fa fa-search fa-fw"></i> Buscar</button>
                         </div>
-                        <div class="form-group inputsgral">
-                            <a href="nuevoitem.php" class="btn additembtn" role="button"><i class="fa fa-plus-square fa-fw"></i> Nuevo Producto</a>
+                        <div class="row">
+                            <div class="form-group inputsgral">
+                            <button type="submit" class="btn btn-default itemsearchbtn"><i class="fa fa-search fa-fw"></i> Buscar</button>
+                            </div>
+                            <div class="form-group inputsgral">
+                                <a href="nuevoitem.php" class="btn additembtn" role="button"><i class="fa fa-plus-square fa-fw"></i> Nuevo Producto</a>
+                            </div>
                         </div>
                     </form>
                 </div>

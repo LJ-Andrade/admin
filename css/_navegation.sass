@@ -17,24 +17,16 @@
     color: #fff 
 // color del top (buscar como meter en variable)
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form
-    background: rgba(112,142,158,1)
-    background: -moz-linear-gradient(left, rgba(112,142,158,1) 0%, rgba(61,81,92,1) 100%)
-    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(112,142,158,1)), color-stop(100%, rgba(61,81,92,1)))
-    background: -webkit-linear-gradient(left, rgba(112,142,158,1) 0%, rgba(61,81,92,1) 100%)
-    background: -o-linear-gradient(left, rgba(112,142,158,1) 0%, rgba(61,81,92,1) 100%)
-    background: -ms-linear-gradient(left, rgba(112,142,158,1) 0%, rgba(61,81,92,1) 100%)
-    background: linear-gradient(to right, rgba(112,142,158,1) 0%, rgba(61,81,92,1) 100%)
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#708e9e', endColorstr='#3d515c', GradientType=1 )
+    background-color: $top
  
 .navbar-inverse .navbar-nav > li > a
     color: #fff 
 .navbar-inverse .navbar-nav > li > a
     color: #fff 
 
-  
 @media(min-width:768px)
     .navimgback
-        background-image: url(../skin/body/side.jpg)
+        // background-image: $sideimg
 
 @media(min-width:768px) 
     .side-nav

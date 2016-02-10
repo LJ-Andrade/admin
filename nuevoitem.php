@@ -47,7 +47,7 @@
                       <div class="row">
                           <div class="form-group animated bounceInDown">
                               <div class="col-md-12">
-                                    <textarea class="form-controlusers textareausers" rows="4" name="message" placeholder="Descripci&oacute;n"></textarea>
+                                    <textarea class="form-controlitems textareaitems" rows="4" name="message" placeholder="Descripci&oacute;n"></textarea>
                               </div>
                           </div>
                       </div>
