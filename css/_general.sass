@@ -1,4 +1,8 @@
 // General Styles
+*
+    margin: 0
+    padding: 0
+    
 
 .pad0
     padding: 0
@@ -14,10 +18,19 @@ h1, h2, h3, h4, h5,
     font-family: $mainfont
 body
     margin-top: 100px
-    background-color: #222
+    background-color: #464646
     font-family: $mainfont
-    background-color: #c2c5c9 
-
+    background-image: url(../skin/body/back1.jpg)
+    background-repeat: no-repeat
+    background-attachment: fixed
+    background-position: center center
+    background-size: cover
+    //    background-image: url(../skin/body/back5.jpg)
+    //    background-image: url(../skin/body/back8.jpg)
+    //    background-image: url(../skin/body/back12.jpg)
+    //    background-image: url(../skin/body/back1.jpg)
+    //    background-image: url(../skin/body/back3.jpg)
+    //    background-image: url(../skin/body/back4.jpg) (Ver iconos y titulos)
 @media(min-width:768px)
     body
         margin-top: 50px
@@ -27,10 +40,30 @@ body
     padding-left: 0
 #page-wrapper
     width: 100%
-    min-height: 950px
     padding: 0
-    background-color: #e5e5e5
-    background-image: url(../skin/body/noiseback.png)
+    margin-top: 80px
+    
+@media(min-width:768px)
+    #page-wrapper
+        min-height: 800px
+        
+@media(max-width:768px)
+    #page-wrapper
+        margin-top: 150px
+    
+// Rearrange subtop in XS cels    
+@media(max-width:341px)
+    #page-wrapper
+        padding-top: 50px
+        .subtop1
+            float: none
+            text-align: center
+            padding: 5px 0 2px 0
+        .subtop2
+            float: none
+            text-align: center
+            padding: 2px 0
+    
 .huge
     font-size: 50px
     line-height: normal
@@ -59,3 +92,11 @@ body
     text-align: center
 .txtcenter
     text-align: center
+    
+// Pagination
+.paginat
+    text-align: center
+.pagination > li > a, .pagination > li > span
+    background-color: rgba($pagbk, .5)
+    border-color: rgba($pagborder, .3)
+    color: $pagtxt

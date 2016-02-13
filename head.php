@@ -7,13 +7,13 @@
     <title>Administrador</title>
     <meta name="description" content="">
     <meta name="author" content="Studio Vimana">
+    <!-- Icons -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- Styles -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
-<!--    <link href="css/estilosadmin.css" rel="stylesheet">-->
-    <link href="css/main.css" rel="stylesheet">
-    <!-- Icons -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!--    <link href="css/estilosadmin.css" rel="stylesheet">-->
+    <link href="css/main.css" rel="stylesheet">  
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

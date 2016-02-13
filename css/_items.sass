@@ -1,12 +1,17 @@
 // Items (Products, articles, people, etc.)
 
 // Filters
+#itemfilters
+    display: none
+
 .filterdiv
     width: auto
-    background-color: #d7d7e0
-    border: 1px solid #ccc
-    // text-align: center
-    padding-bottom: 5px
+    background-color: rgba(0,0,0, .1)
+    padding: 0 20px 5px 5px
+    text-align: center
+    padding-bottom: 15px
+    margin-bottom: 30px
+    
 .filterformdiv
     margin-left: 10px
     padding-top: 15px
@@ -37,67 +42,22 @@ option
 
 .inputsgral
     padding: 0 5px
-        
-// Add Item Button
-.additembtn
-    color: #FFFFFF
-    background-color: #457C99
-    transition: 0.5s
- 
-.additembtn:hover, 
-.additembtn:focus, 
-.additembtn:active, 
-.additembtn.active, 
-.open .dropdown-toggle.additembtn
-    color: #FFFFFF
-    background-color: #77668F
-    
-.additembtn:active,
-.additembtn.active,
-.open .dropdown-toggle.additembtn
-    background-image: none 
-
-    
-// Add Item Button
-@media(max-width:768px)
-    .itemsearchbtn
-        margin-top: 15px
-        margin-left: 0
-    
-.itemsearchbtn
-    color: #FFFFFF
-    background-color: #457C99
-    transition: 0.5s
-    margin-left: 10px
- 
-.itemsearchbtn:hover, 
-.itemsearchbtn:focus, 
-.itemsearchbtn:active, 
-.itemsearchbtn.active, 
-.open .dropdown-toggle.itemsearchbtn
-    color: #FFFFFF
-    background-color: #77668F
-    
-.itemsearchbtn:active,
-.itemsearchbtn.active,
-.open .dropdown-toggle.itemsearchbtn
-    background-image: none 
     
 
 // Item (Square)
 
-.p1gral
-    background-color: #fff
-    width: 250px
-    text-align: center
-    margin: 20px 10px
-    padding: 0
-    -webkit-box-shadow: 11px 16px 43px -41px rgba(0,0,0,0.99)
-    -moz-box-shadow: 11px 16px 43px -41px rgba(0,0,0,0.99)
-    box-shadow: 11px 16px 43px -41px rgba(0,0,0,0.99)
+//.p1gral
+//    background-color: #fff
+//    width: 250px
+//    text-align: center
+//    margin: 20px 10px
+//    padding: 0
+//    -webkit-box-shadow: 11px 16px 43px -41px rgba(0,0,0,0.99)
+//    -moz-box-shadow: 11px 16px 43px -41px rgba(0,0,0,0.99)
+//    box-shadow: 11px 16px 43px -41px rgba(0,0,0,0.99)
     
 .itemdiv
-    background-color: #fff
+    background-color: $itemdiv
     width: 250px
     text-align: center
     margin: 20px 10px
@@ -115,7 +75,7 @@ option
     overflow: hidden
     position: relative 
 .card_content
-    background-color: rgba(255,255,255,0.5)
+    background-color: $cardcontent
     padding: 10px
     position: absolute
     bottom: -280px
@@ -126,7 +86,7 @@ option
     font-size: 1.5em
     margin-bottom: 0.5em 
 .card:hover .card_content
-    background-color: #fff
+    background-color: $cardcontent
     bottom: 0 
 .card1:hover .card_content
     background-color: #fff
@@ -171,15 +131,14 @@ option
 
 .prodfilediv
     background-color: #fff
-    padding: 30px 20px 0 20px
-    margin-bottom: 25px
-    padding: 10px
-    padding-left: 0 
+    padding: 10px 5px
+    margin: 20px 10px
+
 .prodfileimg
     width: 100px
     height: 100px
-    max-height: 100%
     max-width: 100%
+    height: auto
     margin: 0 auto
     -webkit-box-shadow: 0 12px 12px rgba(0,0,0,.175)
     box-shadow: 0 6px 6px rgba(0,0,0,.175)
@@ -202,8 +161,7 @@ option
 
 .additemdiv
     max-width: 600px
-    background-color: #fff
-    background-image: url(../skin/body/imgboxes.jpg)
+    background-color: rgba(255,255,255,.2)
     margin-top: 30px
     -webkit-box-shadow: 4px 2px 18px -6px rgba(0,0,0,0.69)
     -moz-box-shadow: 4px 2px 18px -6px rgba(0,0,0,0.69)
@@ -221,19 +179,3 @@ option
 .productimg
     padding: 20px 0
     
-
-.form-controlitems
-    display: block
-    width: 100%
-    height: 34px
-    padding: 6px 12px
-    font-size: 14px
-    line-height: 1.42857
-    color: #555
-    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s
-    max-width: 100%
-    border: 0
-    border-bottom: 2px solid #39465B
-    background-color: transparent
-.textareaitemsS
-    min-height: 65px

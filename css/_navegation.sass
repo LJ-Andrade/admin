@@ -1,48 +1,4 @@
 // Navegation
-.navbar-inverse
-    background: rgba(112,142,158,1)
-    background: -moz-linear-gradient(left, rgba(112,142,158,1) 0%, rgba(61,81,92,1) 100%)
-    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(112,142,158,1)), color-stop(100%, rgba(61,81,92,1)))
-    background: -webkit-linear-gradient(left, rgba(112,142,158,1) 0%, rgba(61,81,92,1) 100%)
-    background: -o-linear-gradient(left, rgba(112,142,158,1) 0%, rgba(61,81,92,1) 100%)
-    background: -ms-linear-gradient(left, rgba(112,142,158,1) 0%, rgba(61,81,92,1) 100%)
-    background: linear-gradient(to right, rgba(112,142,158,1) 0%, rgba(61,81,92,1) 100%)
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#708e9e', endColorstr='#3d515c', GradientType=1 )
-    border-color: transparent
-    
-.navbar-nav > li
-    border-bottom: 0.5px solid $sidenavlines
-    
-.navbar-inverse .navbar-brand
-    color: #fff 
-// color del top (buscar como meter en variable)
-.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form
-    background-color: $top
- 
-.navbar-inverse .navbar-nav > li > a
-    color: #fff 
-.navbar-inverse .navbar-nav > li > a
-    color: #fff 
-
-@media(min-width:768px)
-    .navimgback
-        // background-image: $sideimg
-
-@media(min-width:768px) 
-    .side-nav
-        position: fixed
-        top: 51px
-        left: 225px
-        width: 225px
-        margin-left: -225px
-        border: none
-        border-radius: 0
-        overflow-y: auto
-        background-color: rgba($side, .9)
-        bottom: 0
-        overflow-x: hidden
-        padding-bottom: 40px
-
 .side-nav > li > a
     width: 225px 
 @media(max-width:768px)
@@ -51,15 +7,15 @@
 .side-nav li a:hover,
 .side-nav li a:focus
     outline: none
-    background-color: rgba($hoverside, .7) !important 
-.side-nav>li>ul
+    background-color: rgba($hoverside, .4) !important 
+.side-nav > li > ul
     padding: 0 
-.side-nav>li>ul>li>a
+.side-nav > li > ul > li > a
     display: block
     padding: 10px 15px 10px 38px
     text-decoration: none
     color: #999 
-.side-nav>li>ul>li>a:hover
+.side-nav > li > ul > li > a:hover
     color: #fff 
 .side-nav > li > ul li:hover a.before
     color: #fff
@@ -67,9 +23,8 @@
 .side-nav > li > a:hover, .side-nav> li > a:focus, .side-nav > .open > a, .side-nav > .open > a:hover, .side-nav > .open > a:focus
     background-color: #d7d7e0
     color: #fff
-// Drop down menu and icons
 
-    
+// Drop down menu and icons    
 #ddmenu1 li a
     padding: 10px 5px 10px 44px
     display: block
@@ -97,3 +52,135 @@
 .navbar-inverse .navbar-nav > li > a:focus, .navbar-inverse .navbar-nav > li > a:hover
     background-color: #d7d7e0
     color: $hoversidetxt 
+
+// Top bar
+.navbar-inverse
+    background-color: rgba($top, .3)
+    border-color: transparent
+    
+.navbar-nav > li
+    border-bottom: 0.5px solid rgba($sidenavlines, .1)
+    
+.navbar-inverse .navbar-brand
+    color: #fff 
+// color del top (buscar como meter en variable)
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form
+    background-color: rgba($top, .3)
+ 
+.navbar-inverse .navbar-nav > li > a
+    color: #fff 
+.navbar-inverse .navbar-nav > li > a
+    color: #fff 
+
+@media(min-width:768px)
+    .navimgback
+        // background-image: $sideimg
+
+@media(min-width:768px) 
+    .side-nav
+        position: fixed
+        top: 52px
+        left: 225px
+        width: 225px
+        margin-left: -225px
+        border: none
+        border-radius: 0
+        overflow-y: auto
+        background-color: rgba($side, .4)
+        bottom: 0
+        overflow-x: hidden
+        padding-bottom: 40px
+        box-shadow: 3px 42px 3px -1px rgba(0,0,0,0.53)
+
+
+// Top bar / Logged User
+.dropdown-menu .fa
+    margin-right: 26px
+    margin-left: 5px
+.marca
+    font-size: 12px 
+.dropdown-menu
+    padding: 0
+
+/* User Loged Img */
+.userloginimg
+    height: 40px
+    border-radius: 100%
+    margin: 0 15px 
+.top-nav
+    padding: 0 15px
+.top-nav>li
+    display: inline-block
+    float: left 
+.top-nav>li>a
+    padding-top: 15px
+    padding-bottom: 15px
+    line-height: 20px
+    color: $username
+    -webkit-transition: all 0.5s ease 0s
+    transition: all 0.5s ease 0s 
+.top-nav
+    li
+        a:hover
+            color: #7a8496
+            background-color: #d7d7e0
+.top-nav li a:hover, .top-nav > li > a:focus, .top-nav > .open > a, .top-nav > .open > a:hover, .top-nav > .open > a:focus
+    background-color: $usernamehover
+    color: $usernametxthover
+
+.top-nav > li > a
+    padding: 0
+    padding-top: 6px
+    padding-bottom: 5px 
+.top-nav > .open > .dropdown-menu
+    float: left
+    position: absolute
+    margin-top: 0
+    border-top-left-radius: 0
+    border-top-right-radius: 0
+    background-color: #fff
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175)
+    box-shadow: 0 6px 12px rgba(0,0,0,.175)
+    // Capa de Dropdown User
+    z-index: 9999
+
+.top-nav > .open > .dropdown-menu > li > a
+    background-color: rgba($side, .3)
+    color: $userdd
+
+.top-nav > .open > .dropdown-menu > li > a:hover
+    background-color: $userddhover
+    color: $userddtxthover
+    
+ul.message-dropdown
+    padding: 0
+    max-height: 250px
+    overflow-x: hidden
+    overflow-y: auto 
+.dropdown-menu
+    border-radius: 0 
+
+/* Width User logged */
+.dropdown
+    width: 219px
+.dropdown-menu > li
+    color: #fff  
+.dropdown-menu > li > a
+    min-width: 218px
+    color: #39465B
+.dropdown-menu > li:hover
+    background-color: #39465B
+    color: #fff
+.dropdown-menu > li > a:hover
+    background-color: #39465B
+    color: #fff
+li.message-preview
+    width: 275px
+    border-bottom: 1px solid rgba(0,0,0,.15) 
+li.message-preview > a
+    padding-top: 15px
+    padding-bottom: 15px 
+li.message-footer
+    margin: 5px 0 
+ul.alert-dropdown
+    width: 200px 

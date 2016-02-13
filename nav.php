@@ -63,4 +63,27 @@
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
+    <!-- Sub Top Bar -->
+    <div class="container-fluid subtop">
+        <div class="subtop1">   
+            <?php
+                $dias = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","S&aacute;bado");
+                $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+
+                echo $dias[date('w')]." ".date('d')." de ".$meses[date('n')-1]. " del ".date('Y') ;
+            ?>
+        </div>
+        <div class="subtop2">
+            <ul><!-- View Icons -->
+                <li id="volverprod" class="animated fadeIn"><a href="items.php" class="btn subitbtn" role="button"><i class="fa fa-caret-left fa-fw"></i> Volver</a></li>
+                <li id="viewlist" class="animated fadeIn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-th-list  fa-fw"></i> Lista </a></li>
+                <li id="viewsquare" class="animated fadeIn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-th  fa-fw"></i> Cuadros </a></li>
+                <!-- Search -->
+                <li id="showitemfilters" class="animated fadeIn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-search fa-fw"></i> Buscar</a></li>
+                <!-- Add New Item -->
+                <li><a href="nuevoitem.php?test=321" class="btn subitbtn" role="button"><i class="fa fa-plus-square fa-fw"></i> Nuevo Producto</a></li>
+                
+            </ul>
+        </div>
+    </div>
 </nav>

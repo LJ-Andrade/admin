@@ -1,9 +1,11 @@
 <?php include('head.php'); ?>
+
 <body>
     <div id="wrapper">
        <?php include('nav.php'); ?> <!-- Nav -->
        <?php include('delpopup.php'); ?> <!-- Del PopUp Window -->
         <div id="page-wrapper">
+  
         <!-- Filtros -->
             <div class="container additemdiv animated fadeIn">
                 <div class="col-sm-12 form-box">
@@ -72,5 +74,10 @@
         </div>
 <!-- /#wrapper -->
 <?php include('foot.php'); ?>
+<script>
+$(document).ready(function() {  
+    $('#volverprod').show();
+ });
+</script>
 </body>
 </html>

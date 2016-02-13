@@ -1,0 +1,68 @@
+// Reft Icons 
+.subtop
+    background-color: rgba($subtop, .3)
+    position: fixed
+    right: 0
+    left: 225px
+    padding-top: 10px
+    z-index: 1030
+    margin-top: 1px
+    // Shadow Subtop
+    box-shadow: 1px 4px 5px -2px rgba(0,0,0,0.55)
+    
+@media(max-width:768px)
+    .subtop
+        left: 0
+        
+@media(max-width:400px)
+    .subtop1 .subtop2
+        text-align: center
+        
+.subtop2
+    float: right
+    color: #ffffff
+    ul
+        padding: 0
+        list-style: none
+        li
+            display: inline-block
+            margin-right: 10px
+            a
+                text-align: center
+                padding: 0px 4px
+                font-size: 14px
+                display: block
+                color: $subtopictxt
+                -webkit-transition: all 0.3s ease-in-out
+                -moz-transition: all 0.3s ease-in-out
+                -o-transition: all 0.3s ease-in-out
+                transition: all 0.3s ease-in-out
+                &:hover
+                    color: $subtopictxthover
+                    text-decoration: none
+                    
+.subtop2 ul li:last-child
+    margin-right: 0
+    
+.itemsviewOff
+    visibility: hidden
+
+.itemsviewOn
+    visibility: visible
+    
+    
+
+    
+// Left icons
+.subtop1
+    float: left
+    color: $datetxt
+    
+#panel-oculto
+    display: none
+    position: fixed
+    top: 0
+    width: 100%
+    height: 200px
+    z-index: 1000
+    background-color: #222

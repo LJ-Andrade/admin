@@ -1,3 +1,4 @@
+<!-- Delete Confirmation Pop Up   -->
 <div id="modal1" class="modalmask">
     <div class="modalbox movedown">
             <a href="#close" title="Close" class="close">x</a>
@@ -7,7 +8,8 @@
             <h4>Desea continuar?</h4>
         </div>
         <div class="btnconfdiv">
-            <button class="btn btnconfirm btnconfirmspc  hvr-shadow">Confirmar</button>
+            <input type="hidden" value="" id="delval" /> 
+            <button class="btn btnconfirm btnconfirmspc hvr-shadow" id="confirmdelelem">Confirmar</button>
             <a href="#close"><button class="btn btncancel hvr-shadow">Cancelar</button></a>
         </div>
     </div>

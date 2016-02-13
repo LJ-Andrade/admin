@@ -78,7 +78,7 @@
     right: 0
     bottom: 0
     left: 0
-    background: rgba(0,0,0,0.8)
+    background: rgba(0,0,0, .9)
     z-index: 99999
     opacity: 0
     -webkit-transition: opacity 400ms ease-in
@@ -94,14 +94,13 @@
     width: 400px
     position: relative
     padding: 5px 20px 13px 20px
-    background: #fff
+    background: $popupbck
     -webkit-transition: all 500ms ease-in
     -moz-transition: all 500ms ease-in
     transition: all 500ms ease-in
     -webkit-box-shadow: 10px 10px 23px 7px rgba(0,0,0,0.75)
     -moz-box-shadow: 10px 10px 23px 7px rgba(0,0,0,0.75)
     box-shadow: 10px 10px 23px 7px rgba(0,0,0,0.75)
-    border: 3px solid black 
 .movedown
     margin: 0 auto 
 .resize
@@ -125,33 +124,42 @@
     transition: all 0.5s ease 0s 
 .close:hover
     color: black 
+
 .btnconfirmspc
     margin-right: 70px
 .btnconfirm
-    background-color: #57687c
-    color: #fff
+    background-color: $confirmbtn
+    color: $confirmbtntxt
     height: 45px
     padding: 0 25px
     text-align: right
     border-radius: 0
+    -webkit-box-shadow: 4px 4px 17px -6px rgba(0,0,0,0.75)
+    -moz-box-shadow: 4px 4px 17px -6px rgba(0,0,0,0.75)
+    box-shadow: 4px 4px 17px -6px rgba(0,0,0,0.75)
     -webkit-transition: all 0.5s ease 0s
     transition: all 0.5s ease 0s
-    
 .btnconfirm:hover
-    background-color: #2f435b
-    color: #fff 
+    background-color: $confirmbtnhover
+    color: $confirmbtnhovertxt
+    box-shadow: none
+    
 .btncancel
-    background-color: #ad6666
-    color: #fff
+    background-color: $deletebtn
+    color: $deletebtntxt
     height: 45px
     padding: 0 25px
     border-radius: 0
+    -webkit-box-shadow: 4px 4px 17px -6px rgba(0,0,0,0.75)
+    -moz-box-shadow: 4px 4px 17px -6px rgba(0,0,0,0.75)
+    box-shadow: 4px 4px 17px -6px rgba(0,0,0,0.75)
     -webkit-transition: all 0.5s ease 0s
     transition: all 0.5s ease 0s 
 
 .btncancel:hover
-    background-color: #bf4a4a
-    color: #fff 
+    background-color: $deletebtnhover
+    color: $deletebtnhovertxt
+    box-shadow: none
 
 @media(max-width:400px) 
     .modalbox
