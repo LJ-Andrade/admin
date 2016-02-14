@@ -75,6 +75,9 @@ body
         padding: 10px
     #wrapperlogin
         padding-left: 0
+        
+.lastcol
+    margin-right: 0
 
 // Center cols when < 1300px
 @media(max-width:1300px)
@@ -96,6 +99,10 @@ body
 // Pagination
 .paginat
     text-align: center
+.pagination > li:last-child > a, .pagination > li:last-child > span
+    border-radius: 0
+.pagination > li:first-child > a, .pagination > li:first-child > span
+    border-radius: 0
 .pagination > li > a, .pagination > li > span
     background-color: rgba($pagbk, .5)
     border-color: rgba($pagborder, .3)

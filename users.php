@@ -8,14 +8,6 @@
             <div class="container-fluid">
                 <div class="userstitulo"><h3>Administrador de Usuarios</h3></div>
                     <div class="row adminrow row-centered"> 
-               
-                       
-                       
-                       
-                
-                       
-                       
-                       
                         <!--    User 1   -->
                         <div id="delelem1" class="container col-lg-3 col-sm-6 col-xs-6 col-centered usergral userback animated fadeIn">
                             <div id="trans">
@@ -62,7 +54,7 @@
                             </div>    
                         </div> 
                         <!--   Add User  -->
-                        <div class="container col-lg-3 col-sm-6 col-xs-6 col-centered usergral animated fadeIn">
+                        <div class="container col-lg-3 col-sm-6 col-xs-6 col-centered usergral animated fadeIn lastcol">
                             <div id="trans">
                                <a href="nuevousuario.php"><img src="skin/users/mas.jpg" class="img-responsive centrarimg usimg useradd">
                                 <div id="transhover">

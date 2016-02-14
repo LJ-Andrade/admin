@@ -47,18 +47,18 @@
         </div><!-- Container Filters -->
         <div class="container-fluid">
                 <!-- Item (Square) -->
-                <div id="viewcards" class="row">
+                <div id="viewcards" class="row row-centered">
                     <!--    Item 1   -->
                     <div id="delelem1" class="col-md-2 col-sm-6 col-xs-12 col-centered itemdiv card animated bounceInUp">
                               <div>
                                   <img src="skin/images/products/cod1.jpg" alt="" class="img-responsive">
                               </div>
                                   <div class="col-md-12 itemtit">
-                                      <p><b>Cama Loca - F128</b></p>
+                                      <p>Cama Loca - F128</p>
                                   </div>
                               <div class="card_content">
                                  <div class="col-md-12 itemtit">
-                                      <p><b>Cama de 6 plazas</b></p>
+                                      <p><b>Cama Loca</b></p>
                                   </div>
                                   <p>Descripci&oacute;n: Es una cama muy buena, blabla Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque temporibus labore, nostrum non</p>
                                   <div class="row itemrow2">
@@ -74,8 +74,10 @@
                                   </div>
                                   <div class="col-md-12 itemicos">
                                         <ul>
-                                            <li><a href=""><i class="fa fa-fw fa-pencil prodicoadd"></i></a></li>
-                                            <li><a href="#modal1" id="1" class="deleteelem"><i class="fa fa-fw fa-trash"></i></a></li>
+                                            <li><a href="#"  class="btn btn-default btnmod"><i class="fa fa-fw fa-pencil"></i></a>
+                                            </li>
+                                            <li><a href="#modal1" id="1" class="btn btn-default btndel deleteelem"><i class="fa fa-fw fa-trash"></i></a>
+                                            </li>
                                         </ul>                
                                   </div>
                               </div>
@@ -87,7 +89,7 @@
                                   <img src="skin/images/products/cod2.jpg" alt="" class="img-responsive">
                               </div>
                                   <div class="col-md-12 itemtit">
-                                      <p><b>Octamueble - F128</b></p>
+                                      <p>Octamueble - F128</p>
                                   </div>
                               <div class="card_content">
                                  <div class="col-md-12 itemtit">
@@ -114,99 +116,90 @@
                               </div>
                     </div>
                     <!--    End Item 2   -->
+                    <!--    Item 3   -->
+                    <div id="delelem3" class="col-md-2 col-sm-6 col-xs-12 col-centered itemdiv card animated bounceInUp">
+                              <div>
+                                  <img src="skin/images/products/cod3.jpg" alt="" class="img-responsive">
+                              </div>
+                                  <div class="col-md-12 itemtit">
+                                      <p>Mueble Loco</p>
+                                  </div>
+                              <div class="card_content">
+                                 <div class="col-md-12 itemtit">
+                                      <p>Mueble Loco</p>
+                                  </div>
+                                  <p>Descripci&oacute;n: Es una cama muy buena, blabla Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque temporibus labore, nostrum non</p>
+                                  <div class="row itemrow2">
+                                  <div class="col-md-4 col-xs-4">
+                                      <p>Modelo<br><span class="itemtxtcolor"><b>F128</b></span></p>
+                                  </div>
+                                  <div class="col-md-4 col-xs-4">
+                                      <p>Medida<br><span class="itemtxtcolor"><b>10x4 mt</b></span></p>
+                                  </div>
+                                  <div class="col-md-4 col-xs-4">
+                                      <p>Precio<br><span class="itemtxtcolor"><b>$1280,50</b></span></p>
+                                  </div>
+                                  </div>
+                                  <div class="col-md-12 itemicos">
+                                        <ul>
+                                            <li><a href=""><i class="fa fa-fw fa-pencil prodicoadd"></i></a></li>
+                                            <li><a href="#modal1" id="3" class="deleteelem"><i class="fa fa-fw fa-trash"></i></a></li>
+                                        </ul>                
+                                  </div>
+                              </div>
+                    </div>
+                    <!--    End Item 3   -->
                 </div>  <!-- Item (Square) end -->
                 
                 
                 
                 <!-- Alternative Visualization - Products -->
                 <!-- Prod 1-->
-                <div id="delelemf1" class="row animated bounceInUp">
-                     <div class="container-fluid prodfilediv">
-                     <div class="col-md-1 col-sm-12 col-xs-12">
+                
+                <div id="delelemf1" class="row animated bounceInUp prodfilediv">
+                     <div class="col-md-2 col-sm-3 col-xs-4">
                         <img src="skin/images/products/cod1.jpg" class="img-responsive prodfileimg">
                      </div>
-                     <div class="col-md-2 col-sm-12 col-xs-12 colprod1">
+                     <div class="col-md-1 col-sm-3 col-xs-2 colprod1">
                         <div class="colprodtit">
-                        <p><b>Cama Loca</b></p>
+                        <p>T&iacute;tulo<br></brt><b>Cama</b></p>
                         </div>    
                      </div>
-                     <div class="col-md-2 col-sm-4 col-xs-4 colprod1">
+                     <div class="col-md-1 col-sm-2 col-xs-2 colprod1">
                         <div class="colprod">
                         <p>Modelo<br></brt><b>F.128</b></p>
                         </div>  
                      </div>
-                     <div class="col-md-2 col-sm-4 col-xs-4  colprod1">
+                     <div class="col-md-1 col-sm-2 col-xs-2  colprod1">
                         <div class="colprod">
                         <p>Medida<br><b>10x4cm</b></p>
                         </div>
                      </div>
-                     <div class="col-md-1 col-sm-4 col-xs-4  colprod1">
+                     <div class="col-md-1 col-sm-2 col-xs-2  colprod1">
                         <div class="colprod">
                         <p><p>Precio<br><b>$128</b></p>
                         </div>
                      </div>
-                     <div class="col-md-3 col-sm-12 col-xs-12 colprod1">
+                     <div class="col-md-4 col-sm-12 col-xs-12 colprod1">
                         <div class="colprod">
                         Es una cama muy buena. Sirve para domir. Tiene 4 patas. Almohada de madera. Todo de madera.
                         </div> 
                         </div>
-                     <div class="col-md-1 col-sm-12 col-xs-12  colprod1">
+                     <div class="col-md-2 col-sm-12 col-xs-12  colprod1">
                       <div class="colprodico">
                        <div class="prodicos">
                                 <ul>
-                                    <li><a href=""><i class="fa fa-fw fa-pencil prodicoadd"></i></a></li>
-                                    <li><a href="#modal1" id="1"><i class="fa fa-fw fa-trash"></i></a></li>
+                                    <li><a href="#"  class="btn btn-default btn"><i class="fa fa-fw fa-pencil"></i></a>
+                                    </li>
+                                    <li><a href="#modal1" id="1" class="btn btn-default btn deleteelem"><i class="fa fa-fw fa-trash"></i></a>
+                                    </li>
                                 </ul>                
                             </div>
                         </div>
                      </div>
-                     </div>
                 </div>
+                
                 <!-- End Prod 1-->
-                <!-- Prod 2-->
-                <div id="delelemf2" class="row animated bounceInUp">
-                     <div class="container-fluid prodfilediv">
-                     <div class="col-md-1 col-sm-12 col-xs-12">
-                        <img src="skin/images/products/cod2.jpg" class="img-responsive prodfileimg">
-                     </div>
-                     <div class="col-md-2 col-sm-12 col-xs-12 colprod1">
-                        <div class="colprodtit">
-                        <p><b>Octamueble</b></p>
-                        </div>    
-                     </div>
-                     <div class="col-md-2 col-sm-4 col-xs-4 colprod1">
-                        <div class="colprod">
-                        <p>Modelo<br></brt><b>F.128</b></p>
-                        </div>  
-                     </div>
-                     <div class="col-md-2 col-sm-4 col-xs-4  colprod1">
-                        <div class="colprod">
-                        <p>Medida<br><b>10x4cm</b></p>
-                        </div>
-                     </div>
-                     <div class="col-md-1 col-sm-4 col-xs-4  colprod1">
-                        <div class="colprod">
-                        <p><p>Precio<br><b>$128</b></p>
-                        </div>
-                     </div>
-                     <div class="col-md-3 col-sm-12 col-xs-12 colprod1">
-                        <div class="colprod">
-                        Es una cama muy buena. Sirve para domir. Tiene 4 patas. Almohada de madera. Todo de madera.
-                        </div> 
-                        </div>
-                     <div class="col-md-1 col-sm-12 col-xs-12  colprod1">
-                      <div class="colprodico">
-                       <div class="prodicos">
-                                <ul>
-                                    <li><a href=""><i class="fa fa-fw fa-pencil prodicoadd"></i></a></li>
-                                    <li><a href="#modal1" id="2"><i class="fa fa-fw fa-trash"></i></a></li>
-                                </ul>                
-                            </div>
-                        </div>
-                     </div>
-                     </div>
-                </div>
-                <!-- End Prod 2-->
                 <!-- End Alt Vis Prod-->
                 <!-- /.container-fluid -->
         </div>
@@ -214,7 +207,7 @@
     </div>
     <!-- /#wrapper -->
     <!--Pagination-->
-    <div class="paginat">
+    <div class="paginat animated slideInUp">
         <ul class="pagination">
           <li><a href="#">&laquo;</a></li>
           <li><a href="#">1</a></li>
@@ -260,6 +253,7 @@ $('#viewsquare').hide();
         $("#viewlist").show();
 	 });
 
+    
 </script>
 </body>
 </html>

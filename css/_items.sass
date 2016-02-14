@@ -71,14 +71,14 @@ option
     height: 300px
     overflow: hidden
     position: relative
-    height: 250px
+    height: 280px
     overflow: hidden
     position: relative 
 .card_content
-    background-color: $cardcontent
+    background-color: rgba($cardcontent, .9)
     padding: 10px
     position: absolute
-    bottom: -280px
+    bottom: -290px
     width: 250px
     transition: all 0.5s ease
 
@@ -86,7 +86,7 @@ option
     font-size: 1.5em
     margin-bottom: 0.5em 
 .card:hover .card_content
-    background-color: $cardcontent
+    background-color: rgba($cardcontent, .9)
     bottom: 0 
 .card1:hover .card_content
     background-color: #fff
@@ -95,7 +95,7 @@ option
 
 
 .itemtit
-    margin: 15px 0 0 
+    margin: 30px 0 0 
 .itemtxt
     text-align: center
 .itemrow2
@@ -113,6 +113,7 @@ option
     margin: 0 15px 
 .itemicos
     background-color: transparent
+    margin-top: 10px
     
 .itemicos
     ul
@@ -130,9 +131,9 @@ option
         border: 1px solid blue 
 
 .prodfilediv
-    background-color: #fff
+    background-color: rgba($itemfilediv, .3)
     padding: 10px 5px
-    margin: 20px 10px
+    margin: 20px 0
 
 .prodfileimg
     width: 100px
@@ -143,7 +144,8 @@ option
     -webkit-box-shadow: 0 12px 12px rgba(0,0,0,.175)
     box-shadow: 0 6px 6px rgba(0,0,0,.175)
     -webkit-transition: all 0.5s ease 0s
-    transition: all 0.5s ease 0s 
+    transition: all 0.5s ease 0s
+
 .prodfileimg:hover
     box-shadow: none 
 .colprod
@@ -153,9 +155,9 @@ option
     text-align: center 
 .colprod1
     margin-top: 10px
-    text-align: center 
+    text-align: center
 .colprodico
-    margin-top: 25px
+    margin-top: 7px
 
 // Item Creation Window
 
