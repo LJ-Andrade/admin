@@ -11,5 +11,11 @@
         </div><!-- /#page-wrapper -->
     </div><!-- /#wrapper -->
 <?php include('foot.php'); ?>
+<script>
+$(document).ready(function() {
+    $('#newuser').show( 500 );
+    $('#newprod').show( 500 );
+});    
+</script>
 </body>
 </html>

@@ -49,4 +49,7 @@ function delprod(id){
     
 }
 
+$(".redirect").click(function(){
+    location.href="users.php?msg=delete";
+});
 

@@ -3,7 +3,7 @@
 // Filters
 #itemfilters
     display: none
-
+    
 .filterdiv
     width: auto
     background-color: rgba(0,0,0, .1)
@@ -46,16 +46,6 @@ option
 
 // Item (Square)
 
-//.p1gral
-//    background-color: #fff
-//    width: 250px
-//    text-align: center
-//    margin: 20px 10px
-//    padding: 0
-//    -webkit-box-shadow: 11px 16px 43px -41px rgba(0,0,0,0.99)
-//    -moz-box-shadow: 11px 16px 43px -41px rgba(0,0,0,0.99)
-//    box-shadow: 11px 16px 43px -41px rgba(0,0,0,0.99)
-    
 .itemdiv
     background-color: $itemdiv
     width: 250px
@@ -67,6 +57,14 @@ option
     box-shadow: 11px 16px 43px -41px rgba(0,0,0,0.99)
     padding: 0
 
+.itemstatus
+    padding-top: 10px
+.itemstattxt
+    text-align: right
+.itemstatswitch
+    padding-right: 1px
+ 
+
 .card
     height: 300px
     overflow: hidden
@@ -75,24 +73,31 @@ option
     overflow: hidden
     position: relative 
 .card_content
-    background-color: rgba($cardcontent, .9)
+    background: rgba(255,255,255,1)
+    background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(245,245,245,1) 62%, rgba(217,217,217,1) 100%)
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255,255,255,1)), color-stop(62%, rgba(245,245,245,1)), color-stop(100%, rgba(217,217,217,1)))
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(245,245,245,1) 62%, rgba(217,217,217,1) 100%)
+    background: -o-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(245,245,245,1) 62%, rgba(217,217,217,1) 100%)
+    background: -ms-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(245,245,245,1) 62%, rgba(217,217,217,1) 100%)
+    background: radial-gradient(ellipse at center, rgba(255,255,255,1) 0%, rgba(245,245,245,1) 62%, rgba(217,217,217,1) 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#d9d9d9', GradientType=1 )
+
     padding: 10px
     position: absolute
-    bottom: -290px
+    bottom: -300px
     width: 250px
     transition: all 0.5s ease
+    color: $carttxt
 
 .card_content h3
     font-size: 1.5em
     margin-bottom: 0.5em 
 .card:hover .card_content
-    background-color: rgba($cardcontent, .9)
+    background-color: $cardcontent
     bottom: 0 
 .card1:hover .card_content
     background-color: #fff
     bottom: 0 
-
-
 
 .itemtit
     margin: 30px 0 0 
@@ -131,7 +136,7 @@ option
         border: 1px solid blue 
 
 .prodfilediv
-    background-color: rgba($itemfilediv, .3)
+    background-color: rgba($itemfilediv, .5)
     padding: 10px 5px
     margin: 20px 0
 
@@ -147,7 +152,8 @@ option
     transition: all 0.5s ease 0s
 
 .prodfileimg:hover
-    box-shadow: none 
+    box-shadow: none
+    
 .colprod
     margin-top: 10px 
 .colprodtit
@@ -157,27 +163,9 @@ option
     margin-top: 10px
     text-align: center
 .colprodico
-    margin-top: 7px
+    margin-top: 10px
 
-// Item Creation Window
-
-.additemdiv
-    max-width: 600px
-    background-color: rgba(255,255,255,.2)
-    margin-top: 30px
-    -webkit-box-shadow: 4px 2px 18px -6px rgba(0,0,0,0.69)
-    -moz-box-shadow: 4px 2px 18px -6px rgba(0,0,0,0.69)
-    box-shadow: 4px 2px 18px -6px rgba(0,0,0,0.69)
-.additemtit
-    text-align: center
-    padding: 5px 0 10px 0
-    margin-top: 5px
-    margin-bottom: 30px
-.additemtit h3
-    color: $additemtit
-        
-.addprodimgdiv
-    padding-top: 30px
-.productimg
-    padding: 20px 0
     
+.itemdiv .bootstrap-switch
+    border: 1px solid #ccc
+

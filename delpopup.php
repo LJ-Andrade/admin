@@ -8,8 +8,8 @@
             <h4>Desea continuar?</h4>
         </div>
         <div class="btnconfdiv">
-            <input type="hidden" value="" id="delval" /> 
-            <button class="btn btnconfirm btnconfirmspc hvr-shadow" id="confirmdelelem">Confirmar</button>
+            <input type="hidden" value="" id="delval" />
+            <button class="btn btnconfirm btnconfirmspc hvr-shadow redirect" id="confirmdelelem"> Confirmar</button>
             <a href="#close"><button class="btn btncancel hvr-shadow">Cancelar</button></a>
         </div>
     </div>

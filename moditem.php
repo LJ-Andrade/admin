@@ -10,25 +10,25 @@
             <div class="container additemdiv animated fadeIn">
                 <div class="col-sm-12 form-box formitems">
                   <div class="additemtit">
-                       <h3>Agregar Nuevo Usuario</h3>
+                       <h3>Agregar Nuevo Producto</h3>
                   </div>
                       <div class="row">
                           <div class="col-md-6 form-group animated bounceInLeft">
-                               <input type="text" name="form-first-name" placeholder="Nombre de Usuario" 
+                               <input type="text" name="form-first-name" placeholder="Nombre de Prod." 
                                class="form-first-name form-controlusers" id="form-first-name">
                           </div>
                           <div class="col-md-6 form-group animated bounceInRight">
-                               <input type="password" name="form-first-name" placeholder="Contrase&ntilde;a"  
+                               <input type="text" name="form-first-name" placeholder="C&oacute;digo"  
                                class="form-first-name form-controlusers" id="form-first-name">
                           </div>
                       </div>
                       <div class="row">
                           <div class="col-md-6 form-group animated bounceInLeft">
-                               <input type="text" name="form-first-name" placeholder="Nombre" 
+                               <input type="text" name="form-first-name" placeholder="Modelo" 
                                class="form-first-name form-controlusers" id="form-first-name">
                           </div>
                           <div class="col-md-6 form-group animated bounceInRight">
-                               <input type="text" name="form-last-name"  placeholder="Apellido"
+                               <input type="text" name="form-last-name"  placeholder="Medida"
                                class="form-last-name form-controlusers" id="form-last-name">
                           </div>
                       </div>
@@ -36,29 +36,46 @@
                           <div class="col-md-6 form-group animated bounceInRight">
                               <div class="form-group">
                                   <select class="form-controlusers" id="sel1">
-                                    <option>Grupo...</option>
-                                    <option>Grupo 1</option>
-                                    <option>Grupo 2</option>
+                                    <option>Categor&iacute;a...</option>
+                                    <option>Muebles</option>
+                                    <option>Camas</option>
+                                    <option>Sillas</option>
+                                    <option>Mesas</option>
                                   </select>
                               </div>
                           </div>
                           <div class="col-md-6 form-group animated bounceInRight">
                               <div class="form-group">
                                   <select class="form-controlusers" id="sel1">
-                                    <option>Permisos...</option>
-                                    <option>Administrador</option>
-                                    <option>Proveedor</option>
-                                    <option>Cliente</option>
+                                    <option>Grupo...</option>
+                                    <option>Activo</option>
+                                    <option>Pausado</option>
                                   </select>
                               </div>
                           </div>
                       </div>
-                      <div class="row animated bounceInRight switchuser">
-                            <span class="userstatustit">Estado:</span>
+                      <div class="row">
+                        <div class="col-md-6 form-group animated bounceInLeft">
+                              <input type="text" name="form-last-name" placeholder="Precio"
+                              class="form-last-name form-controlusers" id="form-last-name">
+                          </div>
+                         <div class="col-md-6 animated bounceInRight switchuser">
                             <input type="checkbox" class="centered" name="my-checkbox" data-on-text="Activo"
-       data-off-text="Inactivo" data-size="large" data-label-width="auto" checked>                                     
+       data-off-text="Pausado"  data-label-width="auto" checked>                                     
+                          </div>
                       </div>
-                     <!--   Generic Img and AddImg Div       -->
+                          
+                      
+                      <div class="row-fluid col-md-12 form-group animated bounceInDown itemdesctextarea">
+                         <form class="form-group">
+                                <textarea id="description" value="Try me out!" maxlength="150" class="form-controlitems textareaitems" rows="4" name="message" placeholder="Descripci&oacute;n"></textarea>
+                                <div class="remchar"><p> Caracteres restantes: </p></div>
+                                <div class="indicator-wrapper">
+                                    <div class="indicator"><span class="current-length">0</span></div>        
+                                </div>
+                          </form>
+                     </div>
+                     <!--   Generic Img and AddImg       -->
                      <div id="itemimg" class="itemimgmain">
                         <div class="row"> 
                         <div class="col-xs-6 col-md-3 addimgdiv">
@@ -97,9 +114,9 @@
                         <div class="container centrarbtn animated fadeInUp donediv">
                              <div class="form-group">
                                <li id="chooseimg" class="animated fadeIn btn additembtn"><a href="#" class="" role="button"><i class="fa fa-file-image-o fa-fw"></i> Elegir Im&aacute;gen...</a></li>
-                               <a href="#" class="btn additembtn btnsave" role="button"><i class="fa fa-check-square-o fa-fw"></i> Guardar</a>
+                               <a href="nuevoitem.php" class="btn additembtn btnsave" role="button"><i class="fa fa-check-square-o fa-fw"></i> Guardar</a>
                              </div>
-                        </div>  
+                         </div>  
         <!-- /#page-wrapper -->
         </div>
 <!-- /#wrapper -->
@@ -133,7 +150,7 @@ $('#file').click(function(){
     fileInput.click();
 }).show();
 
-// Caracters limiter
+// Characters limiter
 $('input, textarea').keyup(function() {
   var max = $(this).attr('maxLength');
   var curr = this.value.length;
@@ -143,7 +160,7 @@ $('input, textarea').keyup(function() {
   // Shows characters left
   indicator.children('.current-length').html(max - curr);
    
-  // Change colors periodically
+  // Change colors
   if (percent > 30 && percent <= 50) { indicator.attr('class', 'indicator low'); }
   else if (percent > 50 && percent <= 70) { indicator.attr('class', 'indicator med'); }
   else if (percent > 70 && percent < 100) { indicator.attr('class', 'indicator high'); }
@@ -151,11 +168,10 @@ $('input, textarea').keyup(function() {
   else { indicator.attr('class', 'indicator empty'); }
   indicator.width(percent + '%');
 });
-
+    
 // Active Inactive Switch
 $("[name='my-checkbox']").bootstrapSwitch();
     
-
     
 </script>
 </body>

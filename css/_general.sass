@@ -2,7 +2,7 @@
 *
     margin: 0
     padding: 0
-    
+    outline: 0
 
 .pad0
     padding: 0
@@ -12,15 +12,31 @@
     margin: 0 auto
 .centrartxt
     text-align: center
+a
+    color: #fff
+    text-decoration: none
+    outline: 0
+a:hover
+    color: #fff
+    text-decoration: none
+
+a:hover, a:active, a:focus
+    outline: 0
+
 p
     font-family: $mainfont
 h1, h2, h3, h4, h5,
     font-family: $mainfont
+
+a:focus, a:hover
+    color: $wh
+    text-decoration: underline
+
 body
     margin-top: 100px
-    background-color: #464646
+    background-color: #ccc
     font-family: $mainfont
-    background-image: url(../skin/body/back1.jpg)
+    background-image: url(../skin/body/back7.jpg)
     background-repeat: no-repeat
     background-attachment: fixed
     background-position: center center
@@ -31,6 +47,7 @@ body
     //    background-image: url(../skin/body/back1.jpg)
     //    background-image: url(../skin/body/back3.jpg)
     //    background-image: url(../skin/body/back4.jpg) (Ver iconos y titulos)
+    
 @media(min-width:768px)
     body
         margin-top: 50px
@@ -49,7 +66,7 @@ body
         
 @media(max-width:768px)
     #page-wrapper
-        margin-top: 150px
+        margin-top: 170px
     
 // Rearrange subtop in XS cels    
 @media(max-width:341px)
@@ -68,26 +85,25 @@ body
     font-size: 50px
     line-height: normal
 
+
 @media(min-width:768px)
     #wrapper
         padding-left: 225px
     #page-wrapper
-        padding: 10px
+        padding: 30px
     #wrapperlogin
         padding-left: 0
         
 .lastcol
     margin-right: 0
 
-// Center cols when < 1300px
-@media(max-width:1300px)
-    .row-centered
-        text-align: center
-    .col-centered
-        display: inline-block
-        float: none
-        text-align: left
-        margin-right: -4px
+.row-centered
+    text-align: center       
+.col-centered
+    display: inline-block
+    float: none
+    text-align: left
+    margin-right: -4px
 
 .centrarbtn
     margin: 0
@@ -107,3 +123,167 @@ body
     background-color: rgba($pagbk, .5)
     border-color: rgba($pagborder, .3)
     color: $pagtxt
+    
+// Windows
+// ==========================
+    
+// Item Creation Window
+
+.additemdiv
+    max-width: 600px
+    background-color: rgba(255,255,255,.4)
+    margin-top: 30px
+    -webkit-box-shadow: 4px 2px 18px -6px rgba(0,0,0,0.69)
+    -moz-box-shadow: 4px 2px 18px -6px rgba(0,0,0,0.69)
+    box-shadow: 4px 2px 18px -6px rgba(0,0,0,0.69)
+.additemtit
+    text-align: center
+    padding: 5px 0 10px 0
+    margin-top: 5px
+    margin-bottom: 30px
+.additemtit h3
+    color: $additemtit
+        
+.addprodimgdiv
+    padding-top: 30px
+.itemimgmain
+    padding: 30px 0 20px 0
+    
+.donediv
+    background-color: rgba(255,255,255,.9)
+    padding: 25px 0 10px 0
+    max-width: 600px
+    margin: 0 auto
+    text-align: center
+
+
+// Add Item Button
+.additembtn
+    color: $btnoktxt
+    background-color: $btnok
+    transition: 0.5s
+    margin: 0 15px
+    border-radius: 0
+    transition: all 0.2s ease 0s 
+ 
+.additembtn:hover, 
+.additembtn:focus, 
+.additembtn:active, 
+.additembtn.active, 
+.open .dropdown-toggle.additembtn
+    color: $wh
+    background-color: $btnokhover
+    
+.additembtn:active,
+.additembtn.active,
+.open .dropdown-toggle.additembtn
+    background-image: none 
+    
+.btnsave
+    background-color: $modbtn
+    &:hover
+        background-color: $modbtnhover
+
+// Placeholders
+.formitems input[type=text],
+.formitems input[type=password]
+    font-size: 13px
+    color: $placeh
+    font-weight: 400
+    display: block
+    width: 100%
+    padding: 5px
+    margin-bottom: 5px
+    -webkit-transition: all 0.3s ease-out
+    -moz-transition: all 0.3s ease-out
+    -ms-transition: all 0.3s ease-out
+    -o-transition: all 0.3s ease-out
+    transition: all 0.3s ease-out 
+.formitems input[type=text]:hover,
+.formitems input[type=password]:hover
+    border-color: #fff 
+.formitems label:hover ~ input
+    border-color: #fff 
+.formitems input[type=text]:focus,
+.formitems input[type=password]:focus
+    border-color: #455568
+    outline: none
+.formitems textarea
+    color: $placeh
+    min-height: 100px
+.formitems optgroup
+    
+.formitems select
+    background: rgba(255,255,255,.3)
+    background-color: rgba(255,255,255,.5)
+    color: $blk
+    
+// Item Img
+#itemimg
+    display: none
+
+.addimgdiv
+    min-height: 100px
+    margin-top: 10px
+    
+.useraddimg
+    border-radius: 100%
+    width: 150px
+    margin: 0 auto
+    transition: all 0.2s ease 0s 
+    
+.useraddimg:hover
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75)
+    
+.thumbimg
+    width: 150px
+    margin: 0 auto
+    
+.thumbimgadd
+    width: 60px
+    margin: 0 auto
+    margin-top: 20px
+    cursor: pointer
+    
+.itemdesctextarea
+    padding: 0
+    margin: 0
+    
+// Contador caracteres
+form .indicator
+    display: block
+    height: 30px
+    width: 0
+    background-color: #ccc
+    transition: .2s
+    -webkit-transition: .2s 
+
+form .indicator span.current-length
+    position: absolute
+    display: block
+    font-weight: bold
+    color: #444
+    padding: 5px 0 0 10px
+    font-size: 14px
+ 
+form .indicator.low
+    background-color: rgba(38, 166, 91, .4)
+form .indicator.med
+    background-color: rgba(38, 166, 91, .5)
+form .indicator.high
+    background-color: rgba(38, 166, 91, .7)
+form .indicator.full
+    background-color: rgba(192, 57, 43, .7)
+form .indicator.empty
+    background-color:  rgba(38, 166, 91, .2)
+
+.remchar
+    margin-top: 10px
+    
+// Active Inactive user button
+.userstatustit
+    font-size: 18px
+    margin-right: 62px
+.switchuser
+    margin: 10px 0 20px 0
+    

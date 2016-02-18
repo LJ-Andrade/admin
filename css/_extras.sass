@@ -9,14 +9,13 @@
     color: $icons
 .fa-users:before
     font-size: 20px
-    color: $icons 
+    color: $icons
+.fa-fw .fa-users-plus:before
+    font-size: 20px
 .fa-arrows-v:before
     font-size: 25px
     color: $icons 
 .fa-shopping-cart:before
-    font-size: 25px
-    color: $icons 
-.fa-unlock:before
     font-size: 25px
     color: $icons 
 .fa-home:before
@@ -24,7 +23,7 @@
     color: $icons 
 .fa-gear:before
     font-size: 25px
-    color: $icons 
+    color: $icons
 .navbar-inverse .navbar-nav > li > a .fa-gear
     margin-right: 10px 
 .navbar-inverse .navbar-nav > li > a .fa-tree
@@ -76,25 +75,6 @@
         background-color: $btnokhover
         color: $btnoktxthover
 
-// Add Item Button
-.additembtn
-    color: $btnoktxt
-    background-color: $btnok
-    transition: 0.5s
- 
-.additembtn:hover, 
-.additembtn:focus, 
-.additembtn:active, 
-.additembtn.active, 
-.open .dropdown-toggle.additembtn
-    color: $btnoktxthover
-    background-color: $btnokhover
-    
-.additembtn:active,
-.additembtn.active,
-.open .dropdown-toggle.additembtn
-    background-image: none 
-
     
 // Search Button
 @media(max-width:1200px)
@@ -126,28 +106,60 @@
     background-image: none 
  
 // Del y Modify
-.btndel 
-    width: 60px
-    font-size: 20px
+.btndel
+    padding: 2px 20px
+    font-size: 22px
     border-radius: 0
     border: 0
     background-color: $delbtn
     color: $delbtntxt
-.btndel ul
+    transition: all 0.2s ease 0s 
+.btndel
     &:hover
-    background-color: $delbtnhover
-    color: $delbtntxthover
+        background-color: $delbtnhover
+        color: $delbtntxthover
+    &:focus, &:active
+        background-color: $delbtnactfoc
+        color: $delbtntxtacfoc
+.btndel ul
+    width: 60px
     
 .btnmod
-    width: 60px
-    font-size: 20px
+    padding: 2px 20px
+    font-size: 22px
     border-radius: 0
     border: 0
-    background-color: #2574A9
+    background-color: $modbtn
     color: $modbtntxt
+    transition: all 0.2s ease 0s 
 .btnmod
-    &:hover, &:focus, &:active
-    background-color: #1F3A93
-    color: $modbtntxthover
+    &:hover
+        background-color: $modbtnhover
+        color: $modbtntxthover
+    &:focus, &:active
+        background-color: $modbtnacfoc
+        color: $modbtntxtacfoc
+    
+btnuser
+    padding: 0
+btnuser
+    padding: 0
+    
+.usericos
+    ul
+        list-style-type: none
+        text-align: center 
+.usericos
+    li
+        display: inline
+        text-align: center
+        margin: 0 5px 
+.usericoadd
+    ul
+        margin-left: -25px
+        border: 1px solid blue 
+    
+.userimg
+    padding: 25px 0
 
-
+    

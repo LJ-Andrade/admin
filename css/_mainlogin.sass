@@ -1,25 +1,53 @@
+$logback: #fff
+$maintitdiv: #fff
+$loguserpass: #383838
+$logtit: #383838
+$logbtn: #056e90
+$logbtnhover: #197a99
+$logbtntxt: #fff
+$logbtntxthover: #ccc
+$logtxtgen: #383838
+$logicons: ccc
+
 // Main Login
 .login
     height: 100%
     width: 100% 
-.login1
-    top: 50%
-    width: 500px
 .loginbtn
-    margin: 35px 0
     width: 150px
-    max-width: 100%
     height: 40px
     border-radius: 0
-    margin-left: 22%
+    margin: 0 auto
+    margin-bottom: 20px
     -webkit-transition: all 0.5s ease 0s
     transition: all 0.5s ease 0s
+    background-color: $logbtn
+    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5)
+    color: $logbtntxt
+a .loginbtn    
+    color: $logbtntxt
+    
+.loginbtn.focus, .btn:focus, .btn:hover
+    color: #fff
     
 .loginbtn:hover
-    background-color: #39465b
+    background-color: $logbtnhover
     color: #fff
-    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5) 
+    box-shadow: 0 0px 0px 0px rgba(0, 0, 0, 0.7) 
+    
+.logtitdiv
+    background-color: rgba($maintitdiv, .9)
+    max-width: 350px
+    float: none
+    padding: 10px 0 10px 40px 
+    margin: 0 auto
 
+.loginbtndiv
+    margin-top: 20px
+.rememberme
+    text-align: center
+    margin: auto 0
+    
 body#login
     background-image: url(../skin/body/loginback.jpg) 
 
@@ -27,7 +55,36 @@ body#login
     width: 100%
     margin: 0 auto
     position: relative
-    margin-top: 200px 
+    margin-top: 100px
+    overflow: hidden
+
+.maintit
+    color: $logtit
+    font-size: 18px
+
+    
+.logimg
+    max-width: 40px
+    margin-right: 15px
+
+.forgotdiv
+    float: none
+.forgotpass
+    text-align: center
+    color: $logtxtgen
+    
+.forgottit
+    text-align: center
+    color: #000
+.forgotmail
+    text-align: center
+.forgotemailtoo
+    text-align: center
+    color: #383838
+.fogotsubtit
+    font-size: 10px
+    text-align: center
+    color: #383838
     
 .clearfix:after
     content: ""
@@ -37,29 +94,45 @@ body#login
 .log-in
     text-align: center 
 .logindatos
-    margin: 25px 0
-.logusuario
-    margin-bottom: 30px 
+    margin: 25px 0 0 0
+.loguser
+    margin-bottom: 30px
+    color: $loguserpass
+.logpass
+    color: $loguserpass
 .formulog
-    width: 300px
-    margin: 60px auto 30px
+    max-width: 350px
+    margin: 0px auto 30px
     padding: 15px
     position: relative
-    background: rgba(57,70,91,0.6)
+    background: rgba($logback, .4)
     color: #fff 
 
 .formulog label
     display: block
     padding: 0 0 5px 2px
     text-transform: uppercase
-    font-size: 14px 
+    font-size: 14px
 
+.formulog input
+    background-color: transparent
+    border: 0
+    border-bottom: 1px solid black
+    min-height: 50px
+
+
+// Main loginform icons
 .formulog label i
     margin-right: 5px
     display: inline-block
     width: 10px
-    color: #ccd4e2
+    color: $logicons
     margin-right: 25px 
+    
+
+.fa-unlock:before
+    font-size: 16px
+    color: $logicons
 
 .dropdown-menu label i
     margin-right: 10px
@@ -73,8 +146,6 @@ body#login
     width: 100%
     padding: 5px
     margin-bottom: 5px
-    border: 3px solid #ccc
-    border-radius: 5px
     -webkit-transition: all 0.3s ease-out
     -moz-transition: all 0.3s ease-out
     -ms-transition: all 0.3s ease-out
@@ -89,4 +160,41 @@ body#login
 .formulog input[type=text]:focus,
 .formulog input[type=password]:focus
     border-color: #455568
-    outline: none  
+    outline: none
+
+
+.rememberme input 
+    min-height: 1px !important
+    
+.checkbox-custom, .radio-custom 
+    opacity: 0
+    position: absolute   
+
+
+.checkbox-custom, .checkbox-custom-label, .radio-custom, .radio-custom-label 
+    display: inline-block
+    vertical-align: middle
+    margin: 5px
+    cursor: pointer
+
+
+.checkbox-custom-label, .radio-custom-label 
+    position: relative
+
+
+.checkbox-custom + .checkbox-custom-label:before, .radio-custom + .radio-custom-label:before 
+    content: ''
+    background: #fff
+    border: 2px solid #ddd
+    display: inline-block
+    vertical-align: middle
+    width: 20px
+    height: 20px
+    padding: 2px
+    margin-right: 10px
+    text-align: center
+
+
+.checkbox-custom:checked + .checkbox-custom-label:before 
+    background: #056e90
+    box-shadow: inset 0px 0px 0px 4px #fff

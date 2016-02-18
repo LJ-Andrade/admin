@@ -10,7 +10,7 @@
             <div class="container additemdiv animated fadeIn">
                 <div class="col-sm-12 form-box formitems">
                   <div class="additemtit">
-                       <h3>Agregar Nuevo Usuario</h3>
+                       <h3>Modificar Usuario</h3>
                   </div>
                       <div class="row">
                           <div class="col-md-6 form-group animated bounceInLeft">
@@ -39,6 +39,7 @@
                                     <option>Grupo...</option>
                                     <option>Grupo 1</option>
                                     <option>Grupo 2</option>
+                                    <option>Grupo 3</option>
                                   </select>
                               </div>
                           </div>

@@ -1,6 +1,6 @@
 // Reft Icons 
 .subtop
-    background-color: rgba($subtop, .3)
+    background-color: rgba($subtop, .4)
     position: fixed
     right: 0
     left: 225px
@@ -9,6 +9,7 @@
     margin-top: 1px
     // Shadow Subtop
     box-shadow: 1px 4px 5px -2px rgba(0,0,0,0.55)
+    min-height: 42px
     
 @media(max-width:768px)
     .subtop
@@ -20,7 +21,7 @@
         
 .subtop2
     float: right
-    color: #ffffff
+    color: $texts
     ul
         padding: 0
         list-style: none
@@ -50,14 +51,21 @@
 .itemsviewOn
     visibility: visible
     
-    
-
-    
 // Left icons
 .subtop1
     float: left
-    color: $datetxt
-    
+    color: $texts
+
+@media(max-width:543px)
+    .subtop1
+        float: none
+        text-align: center
+        margin-bottom: 10px
+
+@media(max-width:543px)
+    .subtop2
+        float: none
+        text-align: center
 #panel-oculto
     display: none
     position: fixed

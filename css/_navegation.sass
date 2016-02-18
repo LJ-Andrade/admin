@@ -7,7 +7,7 @@
 .side-nav li a:hover,
 .side-nav li a:focus
     outline: none
-    background-color: rgba($hoverside, .4) !important 
+    background-color: rgba($hoverside, .6) !important 
 .side-nav > li > ul
     padding: 0 
 .side-nav > li > ul > li > a
@@ -21,56 +21,57 @@
     color: #fff
     background: #9A437A 
 .side-nav > li > a:hover, .side-nav> li > a:focus, .side-nav > .open > a, .side-nav > .open > a:hover, .side-nav > .open > a:focus
-    background-color: #d7d7e0
+    background-color: #fff
     color: #fff
 
 // Drop down menu and icons    
 #ddmenu1 li a
     padding: 10px 5px 10px 44px
     display: block
-    color: #fff
+    color: $sideddtxt
     text-decoration: none
     padding-top: 15px
     padding-bottom: 15px
 #ddmenu1 li a:hover
-    color: #fff
+    color: $sideddtxthover
 #ddmenu1 li a:focus
-    color: #000
+    color: $sideddtxthover
 #ddmenu2 li a
     padding: 10px 15px 10px 44px
     display: block
-    color: #fff
+    color: $sideddtxt
     text-decoration: none
     padding-top: 15px
     padding-bottom: 15px
 #ddmenu2 li a:hover
-    color: $hoversidetxt 
+    color: $sideddtxthover
 #ddmenu2 li a:focus
-    color: $hoversidetxt 
+    color: $sideddtxthover
 .side-nav > li > ul > li > a
-    color: $hoversidetxt  
+    color: $sideddtxt
 .navbar-inverse .navbar-nav > li > a:focus, .navbar-inverse .navbar-nav > li > a:hover
     background-color: #d7d7e0
-    color: $hoversidetxt 
+    color: $sideddtxthover
+
 
 // Top bar
 .navbar-inverse
-    background-color: rgba($top, .3)
+    background-color: rgba($top, .5)
     border-color: transparent
     
 .navbar-nav > li
     border-bottom: 0.5px solid rgba($sidenavlines, .1)
     
 .navbar-inverse .navbar-brand
-    color: #fff 
+    color: $toptxt
 // color del top (buscar como meter en variable)
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form
     background-color: rgba($top, .3)
  
 .navbar-inverse .navbar-nav > li > a
-    color: #fff 
+    color: #000 
 .navbar-inverse .navbar-nav > li > a
-    color: #fff 
+    color: $sidetxt 
 
 @media(min-width:768px)
     .navimgback
@@ -86,7 +87,8 @@
         border: none
         border-radius: 0
         overflow-y: auto
-        background-color: rgba($side, .4)
+        // Side Nav
+        background-color: rgba($side, .2)
         bottom: 0
         overflow-x: hidden
         padding-bottom: 40px
@@ -109,10 +111,10 @@
     margin: 0 15px 
 .top-nav
     padding: 0 15px
-.top-nav>li
+.top-nav > li
     display: inline-block
     float: left 
-.top-nav>li>a
+.top-nav > li > a
     padding-top: 15px
     padding-bottom: 15px
     line-height: 20px
@@ -167,7 +169,7 @@ ul.message-dropdown
     color: #fff  
 .dropdown-menu > li > a
     min-width: 218px
-    color: #39465B
+    color: $texts
 .dropdown-menu > li:hover
     background-color: #39465B
     color: #fff
