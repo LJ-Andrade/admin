@@ -1,7 +1,7 @@
 <!-- Delete Confirmation Pop Up   -->
 <div id="modal1" class="modalmask">
     <div class="modalbox movedown">
-            <a href="#close" title="Close" class="close">x</a>
+            <a href="#close" title="Close" class="closemodal1">x</a>
             <h2><b>Atenci&oacute;n</b></h2>
         <div class="txtconfirm">
             <h4>Est&aacute; a punto de eliminar un producto.</h4>

@@ -49,6 +49,10 @@ function delprod(id){
     
 }
 
+/* MESSAGES
+=========================
+Delete Mensaje */
+
 $(".redirect").click(function(){
     location.href="users.php?msg=delete";
 });

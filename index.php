@@ -16,7 +16,7 @@
 					    <input type="password" name="login" placeholder="Ingrese contrase&ntilde;a">
 					</div>
 					<div class="col-md-12 loginbtndiv">
-				    <a href="inicio.php"><button type="button" class="btn loginbtn center-block">
+				    <a href="inicio.php?msg=logok"><button type="button" class="btn loginbtn center-block">
                     <i class="fa fa-fw fa-share"></i><b> Ingresar</b></button></a>
                     </div>
 				    <div class="forgotdiv">

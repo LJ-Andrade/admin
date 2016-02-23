@@ -16,7 +16,7 @@
                     <b>Recuperar</b></button></a>
 
 				    <p class="forgotemailtoo">Tambien me olvidé el email</p>
-                   <p class="fogotsubtit">Que gil...</p>
+                   <p class="forgotsubtit">Que gil...</p>
                     </div>
                 <div class="row rememberme">
                  </div>

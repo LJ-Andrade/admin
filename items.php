@@ -46,13 +46,13 @@
                 </div>
             </div><!-- Container Filters -->
                 <div class="container-fluid">
-                <!-- Item (Square) -->
+                <!-- Item (Grid) -->
                 <div id="viewcards" class="row row-centered">
                     <!--    Item 1   -->
                     <div id="delelem1" class="col-md-2 col-sm-6 col-xs-12 col-centered itemdiv animated bounceInUp">
                             <div class="row itemstatus">
-                            <p class="col-md-4 itemstattxt">Estado: </p>
-                               <input type="checkbox" class="centered col-md-8 itemstatswitch" name="my-checkbox" data-on-text="Activo"
+                            <p class="col-md-4 col-xs-12 itemstattxt">Estado: </p>
+                               <input type="checkbox" class="centered col-md-8 col-xs-12 itemstatswitch" name="my-checkbox" data-on-text="Activo"
        data-off-text="Pausado"  data-label-width="auto" data-size="mini" checked>        
                             </div>
                              <div class="card">
@@ -332,19 +332,19 @@ $(document).ready(function() {
 //==============================================
 
 $('div[id^="delelemf"]').hide();
-$('#viewsquare').hide();
+$('#viewgrid').hide();
 		
     $("#viewlist").on( "click", function() {
 		$('div[id^="delelem"]').hide( 500 );
         $('div[id^="delelemf"]').show( 500 ); 
         $("#viewlist").hide();
-        $("#viewsquare").show( 500 );
+        $("#viewgrid").show( 500 );
 	 });
     
-    $("#viewsquare").on( "click", function() {
+    $("#viewgrid").on( "click", function() {
 		$('div[id^="delelem"]').show( 500 ); 
         $('div[id^="delelemf"]').hide( 500 );
-        $("#viewsquare").hide();
+        $("#viewgrid").hide();
         $("#viewlist").show( 500 );
 	 });
     
