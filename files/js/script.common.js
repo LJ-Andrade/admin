@@ -57,3 +57,12 @@ $(".redirect").click(function(){
     location.href="users.php?msg=delete";
 });
 
+// Subtop
+//========================== 
+    $('#volverprod').hide();
+    $('#viewlist').hide();
+    $('#viewgrid').hide();
+    $('#showitemfilters').hide();
+    $('#volverusers').hide();
+    $('#newuser').hide();
+    $('#newprod').hide();

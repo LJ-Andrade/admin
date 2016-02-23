@@ -1,9 +1,12 @@
-<?php include('head.php'); ?>
-
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<?php include('../../includes/inc.head.php'); ?>
+</head>
+<?php include('../../includes/inc.delpopup.php'); ?> <!-- Del PopUp Window -->
 <body>
-    <div id="wrapper">
-       <?php include('nav.php'); ?> <!-- Nav -->
-       <?php include('delpopup.php'); ?> <!-- Del PopUp Window -->
+      <div id="wrapper">
+        <?php include('../../includes/inc.nav.php'); ?> <!-- Navegation -->
         <div id="page-wrapper">
   
         <!-- Filtros -->
@@ -118,7 +121,7 @@
         <!-- /#page-wrapper -->
         </div>
 <!-- /#wrapper -->
-<?php include('foot.php'); ?>
+<?php include('../../includes/inc.foot.php'); ?>
 <script>
 // Subtop Bar Icons
 $(document).ready(function() {  

@@ -7,29 +7,29 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
         </button>
-                <a class="navbar-brand" href="index.php"><b>Mundo Pino </b>&#124; <span class="marca">Vimana Auto-Admin &reg;</span></a>
+                <a class="navbar-brand" href="../../../index.php"><b>Mundo Pino </b>&#124; <span class="marca">Vimana Auto-Admin &reg;</span></a>
     </div>
             <ul class="nav navbar-right top-nav">
             <!--   Loged User   -->
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="skin/users/vio.jpg" class="userloginimg"> Violeta Raffin <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="../../../skin/images/users/vio.jpg" class="userloginimg"> Violeta Raffin <b class="caret"></b></a>
                     <ul class="dropdown-menu menuuser">
                         <li><a href="#"><i class="fa fa-fw fa-user"></i> Perfil</a></li>
                         <li><a href="#"><i class="fa fa-fw fa-power-off"></i> Desconectar</a></li>
                     </ul>
                 </li>
             </ul>
-            <!-- Lateral Nav Menu -->
+            <!-- Side Nav Menu -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="navimgback nav navbar-nav side-nav">
                     <li class="navnicio"><a href="inicio.php"><i class="fa fa-fw fa-home"></i> Inicio</a></li>
-                      <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#ddmenu1"><i class="fa fa-fw fa-tree"></i> Productos<i class="fa fa-fw fa-angle-down "></i></a>
-                        <ul id="ddmenu1" class="collapse sideddmenu">
-                            <li><a href="items.php"><i class="fa fa-fw fa-navicon"></i> Lista de Productos</a></li>
-                            <li><a href="nuevoitem.php"><i class="fa fa-fw fa-plus"></i> Nuevo Producto</a></li>
-                        </ul>
-                      </li>
+                    <li>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#ddmenu1"><i class="fa fa-fw fa-tree"></i> Productos<i class="fa fa-fw fa-angle-down "></i></a>
+                    <ul id="ddmenu1" class="collapse sideddmenu">
+                        <li><a href="../../modules/product/items.php"><i class="fa fa-fw fa-navicon"></i> Lista de Productos</a></li>
+                        <li><a href="../../modules/product/nuevoitem.php"><i class="fa fa-fw fa-plus"></i> Nuevo Producto</a></li>
+                    </ul>
+                    </li>
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#menucateg"><i class="fa fa-fw fa-sitemap"></i> Categor&iacute;as<i class="fa fa-fw fa-angle-down "></i></a>
                         <ul id="menucateg" class="collapse sideddmenu">
@@ -43,8 +43,8 @@
                             <li>
                                 <a href="javascript:;" data-toggle="collapse" data-target="#menuusuarios"><i class="fa fa-fw fa-user"></i> Usuarios<i class="fa fa-fw fa-angle-down "></i></a>
                                 <ul id="menuusuarios" class="collapse">
-                                    <li><a href="users.php"><i class="fa fa-fw fa-list-ul"></i> Lista de Usuarios</a></li>
-                                    <li><a href="nuevousuario.php"><i class="fa fa-fw fa-plus-square"></i> Nuevo Usuario</a></li>
+                                    <li><a href="../../modules/user/user.php"><i class="fa fa-fw fa-list-ul"></i> Lista de Usuarios</a></li>
+                                    <li><a href="../../modules/user/newuser.php"><i class="fa fa-fw fa-plus-square"></i> Nuevo Usuario</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -70,32 +70,6 @@
                             </li>
                         </ul>
                     </li>
-                   
-<!--
-                    <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#ddmenu2"><i class="fa fa-fw fa-arrows-v"></i> Categorias<i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="ddmenu2" class="collapse">
-                            <li>
-                                <a href="#">Otro Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Otro Item</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" data-toggle="collapse" data-target="#ddmenu3"><i class="fa fa-fw fa-arrows-v"></i> Item<i class="fa fa-fw fa-caret-down"></i></a>
-                                <ul id="ddmenu3" class="collapse">
-                                    <li>
-                                        <a href="#">Otro Item</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Otro Item</a>
-                                    </li>
-                                    
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
--->
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -111,15 +85,15 @@
         </div>
         <div class="subtop2">
             <ul><!-- View Icons -->
-                <li id="volverprod" class="animated fadeIn"><a href="items.php" class="btn subitbtn" role="button"><i class="fa fa-caret-left fa-fw"></i> Volver</a></li>
-                <li id="volverusers" class="animated fadeIn"><a href="users.php" class="btn subitbtn" role="button"><i class="fa fa-caret-left fa-fw"></i> Volver</a></li>
+                <li id="volverprod" class="animated fadeIn"><a href="../../files/modules/product/items.php" class="btn subitbtn" role="button"><i class="fa fa-caret-left fa-fw"></i> Volver</a></li>
+                <li id="volverusers" class="animated fadeIn"><a href="../../modules/user/user.php" class="btn subitbtn" role="button"><i class="fa fa-caret-left fa-fw"></i> Volver</a></li>
                 <li id="viewlist" class="animated fadeIn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-th-list  fa-fw"></i> Lista </a></li>
                 <li id="viewgrid" class="animated fadeIn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-th  fa-fw"></i> Grilla </a></li>
                 <!-- Search -->
                 <li id="showitemfilters" class="animated fadeIn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-search fa-fw"></i> Buscar</a></li>
                 <!-- Add New Item -->
-                <li id="newprod"><a href="nuevoitem.php" class="btn subitbtn" role="button"><i class="fa fa-plus-square fa-fw"></i> Nuevo Producto</a></li> 
-                <li id="newuser"><a href="nuevousuario.php" class="btn subitbtn" role="button"><i class="fa fa-user-plus  fa-fw"></i> Nuevo Usuario</a></li>  
+                <li id="newprod"><a href="../../modules/product/nuevoitem.php" class="btn subitbtn" role="button"><i class="fa fa-plus-square fa-fw"></i> Nuevo Producto</a></li> 
+                <li id="newuser"><a href="../../modules/user/newuser.php" class="btn subitbtn" role="button"><i class="fa fa-user-plus  fa-fw"></i> Nuevo Usuario</a></li>  
             </ul>
         </div>
     </div>
