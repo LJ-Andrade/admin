@@ -1,9 +1,12 @@
-<?php include('head.php'); ?>
-
+<?php
+    include("../../includes/inc.main.php");
+    $Head->setTitle("Home");
+    $Head->setHead();
+?>
 <body>
     <div id="wrapper">
-       <?php include('nav.php'); ?> <!-- Nav -->
-       <?php include('delpopup.php'); ?> <!-- Del PopUp Window -->
+       <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
+       <?php include('../../includes/inc.delpopup.php'); ?> <!-- Del PopUp Window -->
         <div id="page-wrapper">
   
         <!-- Filtros -->
@@ -14,28 +17,24 @@
                   </div>
                       <div class="row">
                           <div class="col-md-6 form-group animated bounceInLeft">
-                               <input type="text" name="form-first-name" placeholder="Nombre de Usuario" 
-                               class="form-first-name form-controlusers" id="form-first-name">
+                               <input type="text" id="user" name="user" placeholder="Nombre de Usuario" class="form-first-name form-controlusers">
                           </div>
                           <div class="col-md-6 form-group animated bounceInRight">
-                               <input type="password" name="form-first-name" placeholder="Contrase&ntilde;a"  
-                               class="form-first-name form-controlusers" id="form-first-name">
+                               <input type="password" id="password" name="password" placeholder="Contrase&ntilde;a" class="form-first-name form-controlusers">
                           </div>
                       </div>
                       <div class="row">
                           <div class="col-md-6 form-group animated bounceInLeft">
-                               <input type="text" name="form-first-name" placeholder="Nombre" 
-                               class="form-first-name form-controlusers" id="form-first-name">
+                               <input type="text" id="first_name" name="first_name" placeholder="Nombre" class="form-first-name form-controlusers">
                           </div>
                           <div class="col-md-6 form-group animated bounceInRight">
-                               <input type="text" name="form-last-name"  placeholder="Apellido"
-                               class="form-last-name form-controlusers" id="form-last-name">
+                               <input type="text" id="last_name" name="last_name"  placeholder="Apellido" class="form-last-name form-controlusers">
                           </div>
                       </div>
                       <div class="row">
                           <div class="col-md-6 form-group animated bounceInRight">
                               <div class="form-group">
-                                  <select class="form-controlusers" id="sel1">
+                                  <select class="form-controlusers" id="group">
                                     <option>Grupo...</option>
                                     <option>Grupo 1</option>
                                     <option>Grupo 2</option>
@@ -44,49 +43,48 @@
                           </div>
                           <div class="col-md-6 form-group animated bounceInRight">
                               <div class="form-group">
-                                  <select class="form-controlusers" id="sel1">
-                                    <option>Permisos...</option>
-                                    <option>Administrador</option>
-                                    <option>Proveedor</option>
-                                    <option>Cliente</option>
+                                  <select class="form-controlusers" id="profile">
+                                    <option id="0">Permisos...</option>
+                                    <option id="333">Superadministrador</option>
+                                    <option id="333">Proveedor</option>
+                                    <option id="333">Cliente</option>
                                   </select>
                               </div>
                           </div>
                       </div>
                       <div class="row animated bounceInRight switchuser">
                             <span class="userstatustit">Estado:</span>
-                            <input type="checkbox" class="centered" name="my-checkbox" data-on-text="Activo"
-       data-off-text="Inactivo" data-size="large" data-label-width="auto" checked>                                     
+                            <input type="checkbox" class="centered" name="my-checkbox" id="status" data-on-text="Activo" data-off-text="Inactivo" data-size="large" data-label-width="auto" checked>                                     
                       </div>
                      <!--   Generic Img and AddImg Div       -->
                      <div id="itemimg" class="itemimgmain">
                         <div class="row"> 
                         <div class="col-xs-6 col-md-3 addimgdiv">
-                             <div id="file"><img src="skin/users/mas.jpg" class="img-responsive thumbimgadd animated fadeInUp thumbimg"></div>
-                             <input type="file" name="file" />
+                             <div id="file"><img src="../../../skin/images/users/mas.jpg" class="img-responsive thumbimgadd animated fadeInUp thumbimg"></div>
+                             <input type="file" name="img" id="img" />
                          </div>
                          <div class="col-xs-6 col-md-3 addimgdiv">
-                             <img src="skin/images/products/genericproduct.png" class="img-responsive thumbimg animated fadeInUp">
+                             <img src="../../../skin/images/products/genericproduct.png" class="img-responsive thumbimg animated fadeInUp">
                          </div>   
                          <div class="col-xs-6 col-md-3 addimgdiv">
-                             <img src="skin/images/products/cod1.jpg" class="img-responsive thumbimg animated fadeInUp">
+                             <img src="../../../skin/images/products/cod1.jpg" class="img-responsive thumbimg animated fadeInUp">
                          </div>   
                          <div class="col-xs-6 col-md-3 addimgdiv">
-                             <img src="skin/images/products/cod2.jpg" class="img-responsive thumbimg animated fadeInUp">
+                             <img src="../../../skin/images/products/cod2.jpg" class="img-responsive thumbimg animated fadeInUp">
                          </div>
                          </div>
                          <div class="row"> 
                          <div class="col-xs-6 col-md-3 addimgdiv">
-                             <img src="skin/images/products/cod3.jpg" class="img-responsive thumbimg animated fadeInUp">
+                             <img src="../../../skin/images/products/cod3.jpg" class="img-responsive thumbimg animated fadeInUp">
                          </div>
                          <div class="col-xs-6 col-md-3 addimgdiv">
-                             <img src="skin/images/products/cod4.jpg" class="img-responsive thumbimg animated fadeInUp">
+                             <img src="../../../skin/images/products/cod4.jpg" class="img-responsive thumbimg animated fadeInUp">
                          </div>   
                          <div class="col-xs-6 col-md-3 addimgdiv">
-                             <img src="skin/images/products/genericproduct.png" class="img-responsive thumbimg animated fadeInUp">
+                             <img src="../../../skin/images/products/genericproduct.png" class="img-responsive thumbimg animated fadeInUp">
                          </div>   
                          <div class="col-md-3 addimgdiv">
-                             <img src="skin/images/products/genericproduct.png" class="img-responsive thumbimg animated fadeInUp">
+                             <img src="../../../skin/images/products/genericproduct.png" class="img-responsive thumbimg animated fadeInUp">
                          </div>
                          </div>  
                     </div>        
@@ -97,13 +95,12 @@
                         <div class="container centrarbtn animated fadeInUp donediv">
                              <div class="form-group">
                                <li id="chooseimg" class="animated fadeIn btn additembtn"><a href="#" class="" role="button"><i class="fa fa-file-image-o fa-fw"></i> Elegir Im&aacute;gen...</a></li>
-                               <a href="#" class="btn additembtn btnsave" role="button"><i class="fa fa-check-square-o fa-fw"></i> Guardar</a>
+                               <a href="#" class="btn additembtn btnsave" role="button" id="create"><i class="fa fa-check-square-o fa-fw"></i> Guardar</a>
                              </div>
                         </div>  
         <!-- /#page-wrapper -->
         </div>
 <!-- /#wrapper -->
-<?php include('foot.php'); ?>
 <script>
 // Subtop Bar Icons
 $(document).ready(function() {  
@@ -155,8 +152,5 @@ $('input, textarea').keyup(function() {
 // Active Inactive Switch
 $("[name='my-checkbox']").bootstrapSwitch();
     
-
-    
 </script>
-</body>
-</html>
+<?php include('../../includes/inc.foot.php'); ?>

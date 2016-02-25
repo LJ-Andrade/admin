@@ -7,28 +7,34 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
         </button>
-                <a class="navbar-brand" href="../../../index.php"><b>Mundo Pino </b>&#124; <span class="marca">Vimana Auto-Admin &reg;</span></a>
+                <a class="navbar-brand" href="../login/login.php"><b>Mundo Pino </b>&#124; <span class="marca">Vimana Auto-Admin &reg;</span></a>
     </div>
             <ul class="nav navbar-right top-nav">
             <!--   Loged User   -->
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="../../../skin/images/users/vio.jpg" class="userloginimg"> Violeta Raffin <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="<?php echo $Admin->Img; ?>" class="userloginimg"> <?php echo $Admin->FullName; ?> <b class="caret"></b></a>
                     <ul class="dropdown-menu menuuser">
-                        <li><a href="#"><i class="fa fa-fw fa-user"></i> Perfil</a></li>
-                        <li><a href="#"><i class="fa fa-fw fa-power-off"></i> Desconectar</a></li>
+                        <li><a href="#"><i class="fa fa-fw fa-user"></i> Mi Perfil</a></li>
+                        <li><a href="#" id="Logout"><i class="fa fa-fw fa-power-off"></i> Desconectar</a></li>
                     </ul>
                 </li>
             </ul>
             <!-- Side Nav Menu -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <?php
+                $Menu   = new Menu();
+                $Menu   ->insertMenu($_SESSION['profile_id'],$_SESSION['admin_id']);
+            ?>
+            <!--<div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="navimgback nav navbar-nav side-nav">
-                    <li class="navnicio"><a href="inicio.php"><i class="fa fa-fw fa-home"></i> Inicio</a></li>
                     <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#ddmenu1"><i class="fa fa-fw fa-tree"></i> Productos<i class="fa fa-fw fa-angle-down "></i></a>
-                    <ul id="ddmenu1" class="collapse sideddmenu">
-                        <li><a href="../../modules/product/items.php"><i class="fa fa-fw fa-navicon"></i> Lista de Productos</a></li>
-                        <li><a href="../../modules/product/nuevoitem.php"><i class="fa fa-fw fa-plus"></i> Nuevo Producto</a></li>
-                    </ul>
+                        <a href="../main/main.php" data-toggle="collapse" data-target="#ddmenu111"><i class="fa fa-fw fa-home"></i> Inicio</a>
+                    </li>
+                    <li>
+                        <a href="../main/main.php" data-toggle="collapse" data-target="#ddmenu1"><i class="fa fa-fw fa-tree"></i> Productos<i class="fa fa-fw fa-angle-down "></i></a>
+                        <ul id="ddmenu1" class="collapse sideddmenu">
+                            <li><a href="../../modules/product/list.php"><i class="fa fa-fw fa-navicon"></i> Lista de Productos</a></li>
+                            <li><a href="../../modules/product/new.php"><i class="fa fa-fw fa-plus"></i> Nuevo Producto</a></li>
+                        </ul>
                     </li>
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#menucateg"><i class="fa fa-fw fa-sitemap"></i> Categor&iacute;as<i class="fa fa-fw fa-angle-down "></i></a>
@@ -38,13 +44,13 @@
                         </ul>
                     </li>
                     <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#ddmenu2" class="ddmenu2"><i class="fa fa-fw fa-gears"></i> Administraci&oacute;n<i class="fa fa-fw fa-angle-down "></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#ddmenu2" class="ddmenu2"><i class="fa fa-fw fa-gears"></i> Administraci&oacute;n<i class="fa fa-fw fa-angle-down "></i></a>
                         <ul id="ddmenu2" class="collapse sideddmenu">
                             <li>
                                 <a href="javascript:;" data-toggle="collapse" data-target="#menuusuarios"><i class="fa fa-fw fa-user"></i> Usuarios<i class="fa fa-fw fa-angle-down "></i></a>
                                 <ul id="menuusuarios" class="collapse">
-                                    <li><a href="../../modules/user/user.php"><i class="fa fa-fw fa-list-ul"></i> Lista de Usuarios</a></li>
-                                    <li><a href="../../modules/user/newuser.php"><i class="fa fa-fw fa-plus-square"></i> Nuevo Usuario</a></li>
+                                    <li><a href="../../modules/user/list.php"><i class="fa fa-fw fa-list-ul"></i> Lista de Usuarios</a></li>
+                                    <li><a href="../../modules/user/new.php"><i class="fa fa-fw fa-plus-square"></i> Nuevo Usuario</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -71,7 +77,7 @@
                         </ul>
                     </li>
                 </ul>
-            </div>
+            </div>-->
             <!-- /.navbar-collapse -->
     <!-- Sub Top Bar -->
     <div class="container-fluid subtop">

@@ -1,8 +1,12 @@
-<?php include('head.php'); ?>
+<?php
+    include("../../includes/inc.main.php");
+    $Head->setTitle("Recuperar Contraseña");
+    $Head->setHead();
+?>
 <body id="login">
     <div class="main">
 	    <div class="row col-md-12 logtitdiv">
-           <div class="row"><img src="skin/body/favicon.png" class="logimg" alt=""><span class="maintit">VIMANA Auto-Admin &reg;</span></div>
+           <div class="row"><img src="../../../skin/images/body/icons/favicon.png" class="logimg" alt=""><span class="maintit">VIMANA Auto-Admin &reg;</span></div>
         </div>
 	    <div class="row">
             <form class="formulog">       
@@ -25,8 +29,5 @@
                 
             
         </div>
-    </div><!--  Main  -->
-<?php include('foot.php'); ?>
-
-</body>
-</html 
+    </div>
+<?php include('../../includes/inc.foot.php'); ?>

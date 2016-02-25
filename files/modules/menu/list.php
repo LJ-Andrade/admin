@@ -1,8 +1,12 @@
-<?php include('head.php'); ?>
+<?php
+    include("../../includes/inc.main.php");
+    $Head->setTitle("Home");
+    $Head->setHead();
+?>
 <body>
     <div id="wrapper">
-        <?php include('nav.php'); ?> <!-- Nav -->
-        <?php include('delpopup.php'); ?> <!-- Del Pop Up -->
+        <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
+       <?php include('../../includes/inc.delpopup.php'); ?> <!-- Del PopUp Window -->
         <div id="page-wrapper">           
             <div class="container-fluid">
                 <div class="userstitulo"><h3>Administrador de Usuarios</h3></div>
@@ -73,12 +77,10 @@
             </div><!-- /.container-fluid -->
         </div><!-- /#page-wrapper -->
     </div><!-- /#wrapper -->
-<?php include('foot.php'); ?>
 <script>
 $(document).ready(function() {  
     $('#newuser').show( 500 );
 });
     
 </script>
-</body>
-</html>
+<?php include('../../includes/inc.foot.php'); ?>

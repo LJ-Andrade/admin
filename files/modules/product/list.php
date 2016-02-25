@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<?php include('../../includes/inc.head.php'); ?>
-</head>
-<?php include('../../includes/inc.delpopup.php'); ?> <!-- Del PopUp Window -->
+<?php
+    include("../../includes/inc.main.php");
+    $Head->setTitle("Listado de Productos");
+    $Head->setHead();
+?>
 <body>
+      <?php include('../../includes/inc.delpopup.php'); ?> <!-- Del PopUp Window -->
       <div id="wrapper">
         <?php include('../../includes/inc.nav.php'); ?> <!-- Navegation -->
         <div id="page-wrapper">    
@@ -318,7 +318,6 @@
         </ul>
     </div>
     <!-- End Pagination-->
-<?php include('../../includes/inc.foot.php'); ?>
 <script>
 // Show or Hide Icons On subtop
 //==============================================
@@ -357,5 +356,4 @@ $('#viewgrid').hide();
 $("[name='my-checkbox']").bootstrapSwitch(); 
     
 </script>
-</body>
-</html>
+<?php include('../../includes/inc.foot.php'); ?>
