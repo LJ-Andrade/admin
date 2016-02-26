@@ -28,7 +28,7 @@
                                         <ul>
                                             <li><a href="edit.php?id=<?php echo $User->AdminID ?>" class="btnmod btnuser"><i class="fa fa-fw fa-pencil"></i></a></li>
                                             <?php if($User->AdminID!=$Admin->AdminID){ ?>
-                                            <li><a href="#modal1" id="<?php echo $User->AdminID ?>" class="deleteelem btndel btnuser"><i class="fa fa-fw fa-trash"></i></a></li>
+                                            <li id="<?php echo $User->AdminID ?>" class="deleteelem btndel btnuser"><i class="fa fa-fw fa-trash"></i></li>
                                             <?php } ?>
                                         </ul>                
                                     </div>

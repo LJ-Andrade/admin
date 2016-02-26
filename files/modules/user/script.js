@@ -1,4 +1,4 @@
-function sumbitInfo(){
+/*function sumbitInfo(){
 			var password 		= $("#password").val();
 			var user			= $("#user").val();
 			var profile			= $("#profile").val();
@@ -30,22 +30,37 @@ function sumbitInfo(){
 						}
 					}
 			});
-			
-			
-			
+} */
 
-}
+$(document).ready(function(){
+	alertify.success("Hola");
+	alertify.alert("Hola");
+	alertify.error("Hola");
+});
+
 
 $(function(){
-	$("#Crear").click(function(){
-		//if(validate.validateFields('')){
-			sumbitInfo();
-		//}
+	$("#create").click(function(){
+		if(validate.validateFields('')){
+			var process		= 'process.php';
+	 		var target		= 'list.php';
+	 		var haveData	= function(returningData)
+	 		{
+	 			$("input,select").blur();
+				alertyfy.error(returningData,10000);
+	 			//alert(returningData);
+	 		}
+	 		var noData		= function()
+	 		{
+	 			document.location = target;
+	 		}
+			sumbitFields(process,haveData,noData);
+		}
 	});
 	
 	$("input").keypress(function(e){
 		if(e.which==13){
-			$("#Crear").click();
+			$("#create").click();
 		}
 	});
 	

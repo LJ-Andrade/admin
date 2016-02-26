@@ -1,14 +1,18 @@
 <?php
     include("../../includes/inc.main.php");
-    $Head->setTitle("Home");
+    $Head->setTitle("Nuevo Usuario");
     $Head->setHead();
+
+    $Groups[1] = "Pepe";
+    $Groups[2] = "Pepe2";
+    $Groups[3] = "Pepe3";
 ?>
 <body>
     <div id="wrapper">
        <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
        <?php include('../../includes/inc.delpopup.php'); ?> <!-- Del PopUp Window -->
         <div id="page-wrapper">
-  
+      <?php insertElement("hidden","action",'insert'); ?>
         <!-- Filtros -->
             <div class="container additemdiv animated fadeIn">
                 <div class="col-sm-12 form-box formitems">
@@ -17,38 +21,29 @@
                   </div>
                       <div class="row">
                           <div class="col-md-6 form-group animated bounceInLeft">
-                               <input type="text" id="user" name="user" placeholder="Nombre de Usuario" class="form-first-name form-controlusers">
+                               <?php echo insertElement('text','user','','form-first-name form-controlusers','placeholder="Nombre de Usuario" tabindex="1" validateEmpty="El usuario es obligatorio." validateFromFile="process.php/El usuario ya existe/action:=validate"'); ?>
                           </div>
                           <div class="col-md-6 form-group animated bounceInRight">
-                               <input type="password" id="password" name="password" placeholder="Contrase&ntilde;a" class="form-first-name form-controlusers">
+                               <?php echo insertElement('password','password','','form-first-name form-controlusers','placeholder="Contrase&ntilde;a" tabindex="2"'); ?>
                           </div>
                       </div>
                       <div class="row">
                           <div class="col-md-6 form-group animated bounceInLeft">
-                               <input type="text" id="first_name" name="first_name" placeholder="Nombre" class="form-first-name form-controlusers">
+                               <?php echo insertElement('text','first_name','','form-first-name form-controlusers','placeholder="Nombre" tabindex="3"'); ?>
                           </div>
                           <div class="col-md-6 form-group animated bounceInRight">
-                               <input type="text" id="last_name" name="last_name"  placeholder="Apellido" class="form-last-name form-controlusers">
+                               <?php echo insertElement('text','last_name','','form-first-name form-controlusers','placeholder="Apellido" tabindex="4" pepe="nana"'); ?>
                           </div>
                       </div>
                       <div class="row">
                           <div class="col-md-6 form-group animated bounceInRight">
                               <div class="form-group">
-                                  <select class="form-controlusers" id="group">
-                                    <option>Grupo...</option>
-                                    <option>Grupo 1</option>
-                                    <option>Grupo 2</option>
-                                  </select>
+                                <?php echo insertElement('select','group','','form-controlusers','tabindex="5"',$Groups,'0','Elegir Grupo'); ?>
                               </div>
                           </div>
                           <div class="col-md-6 form-group animated bounceInRight">
                               <div class="form-group">
-                                  <select class="form-controlusers" id="profile">
-                                    <option id="0">Permisos...</option>
-                                    <option id="333">Superadministrador</option>
-                                    <option id="333">Proveedor</option>
-                                    <option id="333">Cliente</option>
-                                  </select>
+                                  <?php echo insertElement('select','profile','','form-controlusers','tabindex="6"',$DB->fetchAssoc("select","admin_profile","profile_id,title","","title"),'0','Elegir Perfil'); ?>
                               </div>
                           </div>
                       </div>

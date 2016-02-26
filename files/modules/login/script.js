@@ -1,44 +1,34 @@
 
 $(document).ready(function() {
-	/*var windowHeight	= window.innerHeight;
-	if(!windowHeight) windowHeight	= window.outerHeight;
-	if(!windowHeight) windowHeight	= 400;
-	var marginTop		= (parseInt(windowHeight) - parseInt($(".LoginContent").css("height")))/2.5;
-	$(".LoginContent").css("margin-top",marginTop+"px");
-	
-	if(get['error']=='login')
-		msg.error("Debe tener permisos para ingresar.",5000)
-	*/
+	if(get['error']=='login'){
+		notifyError("Para ingresar a esta sección debe estar conectado.");
+	}
 });
 
 function sumbitLogin(){
-			var password 	= $("#password").val();
-			var user		= $("#user").val();
-			var target		= '../main/main.php?msg=logok';
-			var error		= 'Verifique los datos ingresados';
-			var values		= 'user='+ user + '&password=' + password + '&target=' + target + '&error=' + error ;
-			var	process		= "process.login.php";
-			//var data		= submitAJAX(process,values);
-			$.ajax({
-					type: "POST",
-					url: process,
-					data: values,
-					cache: false,
-					success: function(data){
-						if(!data){
-							document.location = target;
-						}else{
-							//alertify.error(error);
-							//$("#ShowError").html(error);
-							//$("#ShowErrorWrapper").fadeIn(1000).delay(5000).fadeOut(1000);//.setTimeout(function() {$("#ShowError").fadeOut();}, 5000);
-							alert(error);
-						}
-					}
-			});
-			
-			
-			
-
+	var password 	= $("#password").val();
+	var user		= $("#user").val();
+	var target		= '../main/main.php?msg=logok';
+	var error		= 'Verifique los datos ingresados';
+	var values		= 'user='+ user + '&password=' + password + '&target=' + target + '&error=' + error ;
+	var	process		= "process.login.php";
+	
+	$.ajax({
+			type: "POST",
+			url: process,
+			data: values,
+			cache: false,
+			success: function(data){
+				if(!data){
+					document.location = target;
+				}else{
+					alertify.error(error);
+					//$("#ShowError").html(error);
+					//$("#ShowErrorWrapper").fadeIn(1000).delay(5000).fadeOut(1000);//.setTimeout(function() {$("#ShowError").fadeOut();}, 5000);
+					//alert(error);
+				}
+			}
+	});
 }
 
 $(function(){

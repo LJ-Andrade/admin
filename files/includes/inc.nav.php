@@ -24,61 +24,6 @@
                 $Menu   = new Menu();
                 $Menu   ->insertMenu($_SESSION['profile_id'],$_SESSION['admin_id']);
             ?>
-            <!--<div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="navimgback nav navbar-nav side-nav">
-                    <li>
-                        <a href="../main/main.php" data-toggle="collapse" data-target="#ddmenu111"><i class="fa fa-fw fa-home"></i> Inicio</a>
-                    </li>
-                    <li>
-                        <a href="../main/main.php" data-toggle="collapse" data-target="#ddmenu1"><i class="fa fa-fw fa-tree"></i> Productos<i class="fa fa-fw fa-angle-down "></i></a>
-                        <ul id="ddmenu1" class="collapse sideddmenu">
-                            <li><a href="../../modules/product/list.php"><i class="fa fa-fw fa-navicon"></i> Lista de Productos</a></li>
-                            <li><a href="../../modules/product/new.php"><i class="fa fa-fw fa-plus"></i> Nuevo Producto</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#menucateg"><i class="fa fa-fw fa-sitemap"></i> Categor&iacute;as<i class="fa fa-fw fa-angle-down "></i></a>
-                        <ul id="menucateg" class="collapse sideddmenu">
-                            <li><a href="#"><i class="fa fa-fw fa-navicon"></i> Lista de Categor&iacute;as</a></li>
-                            <li><a href="#"><i class="fa fa-fw fa-plus"></i> Nueva Categor&iacute;a</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#ddmenu2" class="ddmenu2"><i class="fa fa-fw fa-gears"></i> Administraci&oacute;n<i class="fa fa-fw fa-angle-down "></i></a>
-                        <ul id="ddmenu2" class="collapse sideddmenu">
-                            <li>
-                                <a href="javascript:;" data-toggle="collapse" data-target="#menuusuarios"><i class="fa fa-fw fa-user"></i> Usuarios<i class="fa fa-fw fa-angle-down "></i></a>
-                                <ul id="menuusuarios" class="collapse">
-                                    <li><a href="../../modules/user/list.php"><i class="fa fa-fw fa-list-ul"></i> Lista de Usuarios</a></li>
-                                    <li><a href="../../modules/user/new.php"><i class="fa fa-fw fa-plus-square"></i> Nuevo Usuario</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript:;" data-toggle="collapse" data-target="#menuperf"><i class="fa fa-fw fa-eye"></i> Perfiles<i class="fa fa-fw fa-angle-down "></i></a>
-                                <ul id="menuperf" class="collapse">
-                                    <li><a href="#"><i class="fa fa-fw fa-list-ul"></i> Listado de Perfiles</a></li>
-                                    <li><a href="#"><i class="fa fa-fw fa-plus-square"></i> Nuevo Perfil</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript:;" data-toggle="collapse" data-target="#menugrupos"><i class="fa fa-fw fa-sitemap"></i> Grupos<i class="fa fa-fw fa-angle-down "></i></a>
-                                <ul id="menugrupos" class="collapse">
-                                    <li><a href="#"><i class="fa fa-fw fa-list-ul"></i> Listado de Grupos</a></li>
-                                    <li><a href="#"><i class="fa fa-fw fa-plus-square"></i> Nuevo Grupo</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript:;" data-toggle="collapse" data-target="#menumenues"><i class="fa fa-fw fa-bars"></i> Men&uacute;es<i class="fa fa-fw fa-angle-down "></i></a>
-                                <ul id="menumenues" class="collapse">
-                                    <li><a href="#"><i class="fa fa-fw fa-list-ul"></i> Listado de Men&uacute;es</a></li>
-                                    <li><a href="#"><i class="fa fa-fw fa-plus-square"></i> Nuevo Men&uacute;</a></li>
-                                </ul> 
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>-->
-            <!-- /.navbar-collapse -->
     <!-- Sub Top Bar -->
     <div class="container-fluid subtop">
         <div class="subtop1">   

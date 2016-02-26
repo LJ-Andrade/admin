@@ -5,6 +5,7 @@ include('../../includes/inc.main.php');
 switch(strtolower($_POST['action']))
 {
 	case 'insert':
+		die("prueba");
 		
 		if(count($_FILES['img'])>0)
 		{
