@@ -102,7 +102,7 @@ $(document).ready(function() {
     $('#volverprod').hide();
     $('#newuser').hide();
     $('#newprod').hide();
-    $('#volverusers').show( 500 );
+    $('#volverusers').fadeIn( 500 );
 });
 
 // Show Img selection div

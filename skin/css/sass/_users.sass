@@ -1,33 +1,66 @@
 // Users Admin
 
-.usergraldiv
-    margin-top: 50px
 
-.userstitulo
+h3.usertittxt
     text-align: center
 
-.useradd
-    -webkit-transition: all 0.5s ease 0s
-    transition: all 0.5s ease 0s  
-.useradd:hover
-    -webkit-box-shadow: 10px 10px 21px -14px rgba(0,0,0,0.75)
-    -moz-box-shadow: 10px 10px 21px -14px rgba(0,0,0,0.75)
-    box-shadow: 10px 10px 21px -14px rgba(0,0,0,0.75) 
+@media(max-width:250px)
+    h3.usertittxt
+        font-size: 16px
+
+
+// Caja de usuarios
+
 .usergral
     max-width: 220px
-    margin-right: 10px
-    margin-left: 10px
-    height: 256px
+    margin: 10px 10px
     padding-top: 20px
-.usimg
+    transition: .5s
+    -webkit-transition: .5s
+    -moz-transition: .5s
+    -o-transition: .5s
+    -ms-transition: .5s
+    &:hover
+        background-color: rgba($itemfilediv, .3)
+        -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175)
+        box-shadow: 0 6px 12px rgba(0,0,0,.175)
+
+@media(max-width:250px)
+    .usergral
+        margin: 5px 0
+        padding: 0
+
+.userimg
     border-radius: 100%
-    max-width: 150px
     cursor: pointer
     margin: 0 auto
     box-shadow: 10px 10px 21px -14px rgba(0,0,0,0.75)
+
+@media(max-width:250px)
+    .usergral
+        padding: 5px 5px
+
 .usernamediv
+    margin-top: 10px
+    padding: 10px 0
     text-align: center
-    margin-top: 15px 
+    height: 60px
+
+.usericos
+    ul
+        list-style-type: none
+        text-align: center 
+        li
+            display: inline
+            text-align: center
+            margin: 0 5px 
+
+.usericoadd
+    ul
+        margin-left: -25px
+        border: 1px solid blue 
+    
+
 a .usernamediv
     color: #000
     text-decoration: none
@@ -38,18 +71,24 @@ p .addusertxt
     color: #606060
 p .addusertxt:hover
     color: #000
-    
-.userback
-    transition: .5s
-    -webkit-transition: .5s
-    -moz-transition: .5s
-    -o-transition: .5s
-    -ms-transition: .5s
 
-.userback:hover
-    background-color: rgba($itemfilediv, .3)
-    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175)
-    box-shadow: 0 6px 12px rgba(0,0,0,.175) 
+
+//#transhover
+//    opacity: 0
+//    -webkit-transition: .5s
+//    -moz-transition: .5s
+//    -o-transition: .5s
+//    -ms-transition: .5s
+//    transition: .5s
+//    border: 1px solid red
+//#trans:hover #transhover
+//    opacity: 1
+
+
+    
+
+
+
 .userbtn
     margin: 20px 5px
     height: 40px
@@ -68,81 +107,23 @@ p .addusertxt:hover
 .userbtnedit:hover
     background-color: #2f435b
     color: #fff 
-#hover-content
-    display: none 
-#hover-me:hover #hover-content
-    display: block 
-#transhover
-    opacity: 0
-    -webkit-transition: .5s
-    -moz-transition: .5s
-    -o-transition: .5s
-    -ms-transition: .5s
-    transition: .5s 
-#trans:hover #transhover
-    opacity: 1
+
+
 .adduserdiv
     padding-bottom: 20px
     padding-top: 20px
+.useradd
+    -webkit-transition: all 0.5s ease 0s
+    transition: all 0.5s ease 0s  
+.useradd:hover
+    -webkit-box-shadow: 10px 10px 21px -14px rgba(0,0,0,0.75)
+    -moz-box-shadow: 10px 10px 21px -14px rgba(0,0,0,0.75)
+    box-shadow: 10px 10px 21px -14px rgba(0,0,0,0.75) 
 
-        
 
 
-// Add User
-//
-//.buttonadduser
-//    width: 200px
-//    height: 50px
-//    margin: 0
-//    padding: 0 20px
-//    vertical-align: middle
-//    background: #39465B
-//    border: 0
-//    font-size: 16px
-//    font-weight: 300
-//    line-height: 50px
-//    color: #fff
-//    -moz-border-radius: 0px
-//    text-align: center
-//    border-radius: 0px
-//    text-shadow: none
-//    box-shadow: none
-//    -webkit-transition: all .3s
-//    transition: all .3s 
-//    
-//.buttonadduser:hover
-//    opacity: 0.6
-//    color: #fff
-//.buttonadduser:active
-//    outline: 0
-//    opacity: 0.6
-//    color: #fff
-//    -moz-box-shadow: none
-//    -webkit-box-shadow: none
-//    box-shadow: none 
-//.buttonadduser:focus
-//    outline: 0
-//    opacity: 0.6
-//    background: #66d6c5
-//    color: #fff 
-//
-//.buttonadduser:active:focus, button.btn.active:focus
-//    outline: 0
-//    opacity: 0.6
-//    background: #66d6c5
-//    color: #fff 
-//
-//.adduserlabel
-//    font-weight: 400
-//    font-size: 16px 
-//
-//.addimg
-//    margin-bottom: 15px
-//.addprodico
-//    text-align: center
-//    font-size: 35px
-//    padding: 0
-//.addimgbtn
-//    border-radius: 0
-//.adduserimgdiv
-//    padding-top: 30px
+
+//#hover-content
+//    display: none 
+//#hover-me:hover #hover-content
+//    display: block 

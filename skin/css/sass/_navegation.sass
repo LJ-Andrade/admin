@@ -54,10 +54,7 @@
     .side-nav
         li
             border-bottom: 0.5px solid rgba($sidenavlines, .1)
-    
 
-    
-                
                 
 // Dropdown Side
 .sideddmenu
@@ -123,7 +120,10 @@
         margin-left: 5px
 .marca
     font-size: 12px 
-
+    
+@media(max-width:340px)
+    .marca
+        display: none
 
 /* User Loged Img */
 .userloginimg
@@ -146,6 +146,13 @@
             transition: all 0.5s ease 0s
             &:hover
                 color: #000
+
+@media(max-width:340px)
+    .top-nav
+        padding: 0
+
+
+
             
     
 .top-nav li a:hover, .top-nav > li > a:focus, .top-nav > .open > a, .top-nav > .open > a:hover, .top-nav > .open > a:focus

@@ -36,7 +36,7 @@ body
     margin-top: 100px
     background-color: #5284ad
     font-family: $mainfont
-    background-image: url(../images/body/backgrounds/back1.jpg)
+    background-image: url(../images/body/backgrounds/back2.jpg)
     background-repeat: no-repeat
     background-attachment: fixed
     background-position: center center
@@ -57,11 +57,8 @@ body
 @media(min-width:768px)
     #page-wrapper
         min-height: 800px
-        
-@media(max-width:768px)
-    #page-wrapper
-        margin-top: 170px
-    
+
+
 // Rearrange subtop in XS cels    
 @media(max-width:341px)
     #page-wrapper
@@ -74,7 +71,15 @@ body
             float: none
             text-align: center
             padding: 2px 0
-    
+
+@media(max-width:760px)
+    #page-wrapper
+        padding-top: 60px
+
+@media(max-width:500px)
+    #page-wrapper
+        padding-top: 0
+
 .huge
     font-size: 50px
     line-height: normal
@@ -279,4 +284,32 @@ form .indicator.empty
     margin-right: 62px
 .switchuser
     margin: 10px 0 20px 0
-    
+
+
+// Breadcrums
+//==================================================
+
+.breadcrumb
+    padding: 0px
+    margin-bottom: 0px
+    list-style: none
+    background-color: transparent
+    border-radius: 0px
+    transition: all 0.3s ease-in-out
+    a
+        color: #000
+        &:hover
+            color: #404040
+
+// Líneas separadoras
+.breadcrumb > li + li::before
+    padding: 0 5px
+    color: #000
+    content: "/\00a0"
+
+.crumactive
+    color: red
+
+ol, ul
+    margin-top: 0
+    margin-bottom: 10px

@@ -18,6 +18,7 @@ $(".redirect").click(function(){
 
 // Subtop
 //========================== 
+$(document).ready(function() {  
     $('#volverprod').hide();
     $('#viewlist').hide();
     $('#viewgrid').hide();
@@ -25,6 +26,7 @@ $(".redirect").click(function(){
     $('#volverusers').hide();
     $('#newuser').hide();
     $('#newprod').hide();
+});
 
 //////////////////////////////////////////////////// Notify //////////////////////////////////////////////////////
 function notifyError(msgNotify)

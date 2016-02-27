@@ -1,8 +1,8 @@
 $(document).ready(function() {
-    $('#newuser').show( 500 );
-    $('#newprod').show( 500 );
+    $('#newuser').fadeIn( 500 );
+    $('#newprod').fadeIn( 500 );
     $("#oklogmsg").click();
-    alert(get['msg']);
+    //alert(get['msg']);
     if(get['msg']=='logok')
     {
         $("#oklogmsg").click();
@@ -29,9 +29,9 @@ $(function(){
         showProgressbar: true,
         placement: {
             from: "bottom",
-            align: "right"
+            align: "center"
         },
-        offset: 20,
+        offset: 120,
         spacing: 10,
         z_index: 1031,
         delay: 3000,

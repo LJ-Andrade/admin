@@ -7,11 +7,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
         </button>
-                <a class="navbar-brand" href="../login/login.php"><b>Mundo Pino </b>&#124; <span class="marca">Vimana Auto-Admin &reg;</span></a>
+                <a class="navbar-brand" href="../login/login.php"><span class="ownername"><b>Mundo Pino </b>&#124;</span> <span class="marca">Vimana Auto-Admin &reg;</span></a>
     </div>
             <ul class="nav navbar-right top-nav">
             <!--   Loged User   -->
-                <li class="dropdown">
+                <li class="dropdown userloggeddiv">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="<?php echo $Admin->Img; ?>" class="userloginimg"> <?php echo $Admin->FullName; ?> <b class="caret"></b></a>
                     <ul class="dropdown-menu menuuser">
                         <li><a href="#"><i class="fa fa-fw fa-user"></i> Mi Perfil</a></li>
@@ -27,17 +27,16 @@
     <!-- Sub Top Bar -->
     <div class="container-fluid subtop">
         <div class="subtop1">   
-            <?php
-                $dias = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","S&aacute;bado");
-                $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-
-                echo $dias[date('w')]." ".date('d')." de ".$meses[date('n')-1]. " del ".date('Y') ;
-            ?>
+            <ol class="breadcrumb">
+              <li><a href="#">Inicio</a></li>
+              <li><a href="#">Menu 1</a></li>
+              <li class="crumactive">Menu Actual</li>
+            </ol>
         </div>
         <div class="subtop2">
             <ul><!-- View Icons -->
                 <li id="volverprod" class="animated fadeIn"><a href="../../files/modules/product/items.php" class="btn subitbtn" role="button"><i class="fa fa-caret-left fa-fw"></i> Volver</a></li>
-                <li id="volverusers" class="animated fadeIn"><a href="../../modules/user/user.php" class="btn subitbtn" role="button"><i class="fa fa-caret-left fa-fw"></i> Volver</a></li>
+                <li id="volverusers" class="animated fadeIn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-caret-left fa-fw"></i> Volver</a></li>
                 <li id="viewlist" class="animated fadeIn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-th-list  fa-fw"></i> Lista </a></li>
                 <li id="viewgrid" class="animated fadeIn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-th  fa-fw"></i> Grilla </a></li>
                 <!-- Search -->
