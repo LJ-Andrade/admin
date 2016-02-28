@@ -15,16 +15,17 @@ switch(strtolower($_POST['action']))
 			
 		}
 		
-		$User		= strtolower($_POST['user']);
+		$User		= htmlentities(strtolower($_POST['user']));
 		$Password	= md5($_POST['password']);
-		$FirstName	= $_POST['first_name'];
-		$LastName	= $_POST['last_name'];
+		$FirstName	= htmlentities($_POST['first_name']);
+		$LastName	= htmlentities($_POST['last_name']);
+		$Email 		= htmlentities($_POST['email']);
 		$ProfileID	= $_POST['profile'];
 		$Status		= $_POST['status'];
 		$Groups		= $_POST['group_id'] ? explode(",",$_POST['group_id']) : array();
 		$Menues		= $_POST['menu'] ? explode(",",$_POST['menu']) : array();
 		
-		$Insert		= $DB->execQuery('insert','admin_user','user,password,first_name,last_name,status,profile_id,img',"'".$User."','".$Password."','".$FirstName."','".$LastName."','".$Status."','".$ProfileID."','".$Image."'");
+		$Insert		= $DB->execQuery('insert','admin_user','user,password,first_name,last_name,email,status,profile_id,img',"'".$User."','".$Password."','".$FirstName."','".$LastName."','".$Email."','".$Status."','".$ProfileID."','".$Image."'");
 		$AdminID 	= $DB->GetInsertId();
 		
 		for($i=0;$i<count($Groups);$i++)

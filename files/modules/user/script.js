@@ -1,37 +1,3 @@
-/*function sumbitInfo(){
-			var password 		= $("#password").val();
-			var user			= $("#user").val();
-			var profile			= $("#profile").val();
-			var first_name		= utf8_encode($("#first_name").val());
-			var last_name		= utf8_encode($("#last_name").val());
-			if($("#status").is(':checked')){
-				var status = 'A';
-			}else{
-				var status = 'I';
-			}
-			var target		= '../user/list.php?msg=usercreated';
-			var error		= 'Verifique los datos ingresados';
-			var values		= 'action=insert&user='+ user + '&password=' + password + '&profile=' + profile + '&first_name=' + first_name + '&last_name=' + last_name + '&status=' + status;
-			var	process		= "process.php";
-			//var data		= submitAJAX(process,values);
-			$.ajax({
-					type: "POST",
-					url: process,
-					data: values,
-					cache: false,
-					success: function(data){
-						if(!data){
-							document.location = target;
-						}else{
-							//alertify.error(error);
-							//$("#ShowError").html(error);
-							//$("#ShowErrorWrapper").fadeIn(1000).delay(5000).fadeOut(1000);//.setTimeout(function() {$("#ShowError").fadeOut();}, 5000);
-							alert(error);
-						}
-					}
-			});
-} */
-
 $(document).ready(function(){
 	alertify.success("Hola");
 	alertify.alert("Hola");
@@ -63,8 +29,59 @@ $(function(){
 			$("#create").click();
 		}
 	});
-	
-});
+});	
+
 
 ////////////////////////////// Make "Edit" and "Delete" Icons Appear ///////////////////////////////////////////////////////////////////////////////////
+// Subtop Bar Icons
+$(document).ready(function() {  
+    $('#volverprod').hide();
+    $('#newuser').hide();
+    $('#newprod').hide();
+    $('#volverusers').fadeIn( 500 );
+});
 
+$(function(){
+	// Show Img selection div
+	$('#chooseimg').click(function() {
+	         $('#itemimg').toggle("slide");
+	         $('#chooseimg').hide( 100 );
+	    });
+
+	    
+	// Insert Img
+	var wrapper = $('<div/>').css({height:0,width:0,'overflow':'hidden'});
+	var fileInput = $(':file').wrap(wrapper);
+
+	fileInput.change(function(){
+	    $this = $(this);
+	    $('#file').text($this.val());
+	})
+
+	$('#file').click(function(){
+	    fileInput.click();
+	}).show();
+
+	// Caracters limiter
+	$('input, textarea').keyup(function() {
+	  var max = $(this).attr('maxLength');
+	  var curr = this.value.length;
+	  var percent = (curr/max) * 100;
+	  var indicator = $(this).parent().children('.indicator-wrapper').children('.indicator').first();
+	   
+	  // Shows characters left
+	  indicator.children('.current-length').html(max - curr);
+	   
+	  // Change colors periodically
+	  if (percent > 30 && percent <= 50) { indicator.attr('class', 'indicator low'); }
+	  else if (percent > 50 && percent <= 70) { indicator.attr('class', 'indicator med'); }
+	  else if (percent > 70 && percent < 100) { indicator.attr('class', 'indicator high'); }
+	  else if (percent == 100) { indicator.attr('class', 'indicator full'); }
+	  else { indicator.attr('class', 'indicator empty'); }
+	  indicator.width(percent + '%');
+	});
+
+	// Active Inactive Switch
+	$("[name='my-checkbox']").bootstrapSwitch();
+
+});

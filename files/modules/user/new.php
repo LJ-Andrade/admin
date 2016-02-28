@@ -21,18 +21,26 @@
                   </div>
                       <div class="row">
                           <div class="col-md-6 form-group animated bounceInLeft">
-                               <?php echo insertElement('text','user','','form-first-name form-controlusers','placeholder="Nombre de Usuario" tabindex="1" validateEmpty="El usuario es obligatorio." validateFromFile="process.php/El usuario ya existe/action:=validate"'); ?>
+                               <?php echo insertElement('text','user','','form-first-name form-controlusers','placeholder="Usuario" tabindex="1" validateEmpty="El usuario es obligatorio." validateMinLength="3/El usuario debe contener 3 caracteres como mínimo." validateFromFile="process.php/El usuario ya existe/action:=validate"'); ?>
                           </div>
                           <div class="col-md-6 form-group animated bounceInRight">
-                               <?php echo insertElement('password','password','','form-first-name form-controlusers','placeholder="Contrase&ntilde;a" tabindex="2"'); ?>
+                               <?php echo insertElement('text','first_name','','form-first-name form-controlusers','placeholder="Nombre" validateEmpty="El nombre es obligatorio." validateMinLength="2/El nombre debe contener 2 caracteres como mínimo." tabindex="3"'); ?>
                           </div>
                       </div>
                       <div class="row">
                           <div class="col-md-6 form-group animated bounceInLeft">
-                               <?php echo insertElement('text','first_name','','form-first-name form-controlusers','placeholder="Nombre" tabindex="3"'); ?>
+                               <?php echo insertElement('password','password','','form-first-name form-controlusers','placeholder="Contrase&ntilde;a" validateEmpty="La contraseña es obligatoria." validateMinLength="4/La contraseña debe contener 4 caracteres como mínimo." tabindex="2"'); ?>
                           </div>
                           <div class="col-md-6 form-group animated bounceInRight">
-                               <?php echo insertElement('text','last_name','','form-first-name form-controlusers','placeholder="Apellido" tabindex="4" pepe="nana"'); ?>
+                               <?php echo insertElement('text','last_name','','form-first-name form-controlusers','placeholder="Apellido" validateEmpty="El apellido es obligatorio." validateMinLength="2/El apellido debe contener 2 caracteres como mínimo." tabindex="4"'); ?>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-6 form-group animated bounceInLeft">
+                               <?php echo insertElement('password','password_confirm','','form-first-name form-controlusers','placeholder="Confirmar Contrase&ntilde;a" validateEmpty="Confirmar la contraseña es obligatorio." validateEqualToField="password/Las contraseñas deben coincidir." tabindex="2"'); ?>
+                          </div>
+                          <div class="col-md-6 form-group animated bounceInRight">
+                               <?php echo insertElement('text','email','','form-first-name form-controlusers','placeholder="Email" validateEmail="Ingrese un email válido." validateMinLength="4/El email debe contener 4 caracteres como mínimo." tabindex="4"'); ?>
                           </div>
                       </div>
                       <div class="row">
@@ -43,7 +51,7 @@
                           </div>
                           <div class="col-md-6 form-group animated bounceInRight">
                               <div class="form-group">
-                                  <?php echo insertElement('select','profile','','form-controlusers','tabindex="6"',$DB->fetchAssoc("select","admin_profile","profile_id,title","","title"),'0','Elegir Perfil'); ?>
+                                  <?php echo insertElement('select','profile','','form-controlusers','tabindex="6" validateEmpty="El perfil es obligatorio."',$DB->fetchAssoc("select","admin_profile","profile_id,title","","title"),'','Elegir Perfil'); ?>
                               </div>
                           </div>
                       </div>
@@ -97,55 +105,6 @@
         </div>
 <!-- /#wrapper -->
 <script>
-// Subtop Bar Icons
-$(document).ready(function() {  
-    $('#volverprod').hide();
-    $('#newuser').hide();
-    $('#newprod').hide();
-    $('#volverusers').fadeIn( 500 );
-});
 
-// Show Img selection div
-$('#chooseimg').click(function() {
-         $('#itemimg').toggle("slide");
-         $('#chooseimg').hide( 100 );
-    });
-
-    
-// Insert Img
-var wrapper = $('<div/>').css({height:0,width:0,'overflow':'hidden'});
-var fileInput = $(':file').wrap(wrapper);
-
-fileInput.change(function(){
-    $this = $(this);
-    $('#file').text($this.val());
-})
-
-$('#file').click(function(){
-    fileInput.click();
-}).show();
-
-// Caracters limiter
-$('input, textarea').keyup(function() {
-  var max = $(this).attr('maxLength');
-  var curr = this.value.length;
-  var percent = (curr/max) * 100;
-  var indicator = $(this).parent().children('.indicator-wrapper').children('.indicator').first();
-   
-  // Shows characters left
-  indicator.children('.current-length').html(max - curr);
-   
-  // Change colors periodically
-  if (percent > 30 && percent <= 50) { indicator.attr('class', 'indicator low'); }
-  else if (percent > 50 && percent <= 70) { indicator.attr('class', 'indicator med'); }
-  else if (percent > 70 && percent < 100) { indicator.attr('class', 'indicator high'); }
-  else if (percent == 100) { indicator.attr('class', 'indicator full'); }
-  else { indicator.attr('class', 'indicator empty'); }
-  indicator.width(percent + '%');
-});
-
-// Active Inactive Switch
-$("[name='my-checkbox']").bootstrapSwitch();
-    
 </script>
 <?php include('../../includes/inc.foot.php'); ?>
