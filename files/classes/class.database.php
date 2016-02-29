@@ -6,7 +6,7 @@ class DataBase
 	var $UserDB		= 'root';
 	var $PasswordDB	= 'root';
 	var $DataBase	= 'admin';
-	var $ServerDB	= 'localhost';
+	var $ServerDB	= '127.0.0.1';
 	var $TypeDB 	= 'Mysql';
 	var $SchemaDB	= 'testing,public';
 	
@@ -18,7 +18,7 @@ class DataBase
 	
 	
 
-	public function __construct($UserDB='root', $PasswordDB='root', $DataBase='admin', $ServerDB='localhost',$TypeDB='Mysql'){
+	public function __construct($UserDB='root', $PasswordDB='root', $DataBase='admin', $ServerDB='127.0.0.1',$TypeDB='Mysql'){
 		$this->UserDB 		= $UserDB;
 		$this->PasswordDB	= $PasswordDB;
 		$this->DataBase		= $DataBase;
