@@ -130,7 +130,7 @@ class AdminData extends DataBase
 	
 	public function GetTotalRegs($Where="",$Status="A")
 	{
-		return $this->numRows('select','admin_user','*',"status = '".$Status."' AND profile_id > ".$this->ProfileID." ".$Where);
+		return $this->numRows('admin_user','*',"status = '".$Status."' AND profile_id > ".$this->ProfileID." ".$Where);
 	}
 
 	public function AllowedSections()

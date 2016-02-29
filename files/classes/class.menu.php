@@ -206,7 +206,7 @@ class Menu extends DataBase
 
 	public function GetTotalRegs($Where="")
 	{
-		return $this->numRows('select','menu','*',"1 = 1 ".$Where);
+		return $this->numRows('menu','*',"1 = 1 ".$Where);
 	}
 
 }

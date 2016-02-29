@@ -22,7 +22,7 @@ function sumbitLogin(){
 				if(!data){
 					document.location = target;
 				}else{
-					alertify.error(error);
+					notifyError(error);
 					//$("#ShowError").html(error);
 					//$("#ShowErrorWrapper").fadeIn(1000).delay(5000).fadeOut(1000);//.setTimeout(function() {$("#ShowError").fadeOut();}, 5000);
 					//alert(error);

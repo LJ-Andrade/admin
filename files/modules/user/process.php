@@ -126,9 +126,9 @@ switch(strtolower($_POST['action']))
 		$ActualUser 	= strtolower(utf8_encode($_POST['actualuser']));
 
 	    if($ActualUser)
-	    	$TotalRegs  = $DB->numRows('select','admin_user','*',"user = '".$User."' AND user<> '".$ActualUser."'");
+	    	$TotalRegs  = $DB->numRows('admin_user','*',"user = '".$User."' AND user<> '".$ActualUser."'");
     	else
-		    $TotalRegs  = $DB->numRows('select','admin_user','*',"user = '".$User."'");
+		    $TotalRegs  = $DB->numRows('admin_user','*',"user = '".$User."'");
 		if($TotalRegs>0) echo $TotalRegs;
 		die;
 	break;
