@@ -9,7 +9,7 @@
         <div id="page-wrapper">           
             <div class="container-fluid">
                 <div class="userstitulo">
-                    <h3>Bienvenidos al Auto Administrador</h3>
+                    <h3>Bienvenido al Administrador</h3>
                 </div>
                 <button id="oklogmsg">Prueba</button>
             </div><!-- /.container-fluid -->

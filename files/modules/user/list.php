@@ -1,9 +1,11 @@
 <?php
     include("../../includes/inc.main.php");
-    $Head->setTitle("Home");
+    $Head->setTitle("Usuarios Administradores");
     $Head->setHead();
 
-    $Users = $DB->fetchAssoc('select','admin_user','*',"status = 'A' ","admin_id"); 
+    $Status = $_GET['status']? $_GET['status']: 'A';
+
+    $Users = $DB->fetchAssoc('admin_user','*',"status = '".$Status."' ","admin_id"); 
 ?>
 <body>
     <div id="wrapper">
@@ -19,11 +21,6 @@
                                 $User = new AdminData($User['admin_id']);
                         ?>
                         <!--    Users   -->
-                        
-
-
-
-
                         <div id="delelem<?php echo $User->AdminID ?>" class="col-lg-3 col-sm-6 col-xs-12 col-centered animated fadeIn usergral">
  
                                 <img src="<?php echo $User->Img; ?>" class="img-responsive userimg">
@@ -35,7 +32,7 @@
                                         <ul>
                                             <li><a href="edit.php?id=<?php echo $User->AdminID ?>" class="btnmod btnuser"><i class="fa fa-fw fa-pencil"></i></a></li>
                                             <?php if($User->AdminID!=$Admin->AdminID){ ?>
-                                            <li id="<?php echo $User->AdminID ?>" class="deleteelem btndel btnuser"><i class="fa fa-fw fa-trash"></i></li>
+                                            <li delete="<?php echo $User->AdminID ?>" class="deleteelem btndel btnuser"><i class="fa fa-fw fa-trash"></i></li>
                                             <?php } ?>
                                         </ul>                
                                     

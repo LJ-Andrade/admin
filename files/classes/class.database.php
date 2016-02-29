@@ -135,9 +135,9 @@ class DataBase
 		}
 	}
 	
-	public function fetchAssoc($Operation,$Table,$Fields='',$Where='',$Order='',$Limit='')
+	public function fetchAssoc($Table,$Fields='',$Where='',$Order='',$Limit='')
 	{
-		$Query	= $this->queryBuild($Operation,$Table,$Fields,$Where,$Order,$Limit);
+		$Query	= $this->queryBuild("SELECT",$Table,$Fields,$Where,$Order,$Limit);
 		switch($this->TypeDB)
 		{
 			case "Mysql":
@@ -150,9 +150,9 @@ class DataBase
 		}
 	}
 	
-	public function fetchRow($Operation,$Table,$Fields='',$Where='',$Order='',$Limit='')
+	public function fetchRow($Table,$Fields='',$Where='',$Order='',$Limit='')
 	{
-		$Query	= $this->queryBuild($Operation,$Table,$Fields,$Where,$Order,$Limit);
+		$Query	= $this->queryBuild("SELECT",$Table,$Fields,$Where,$Order,$Limit);
 		switch($this->TypeDB)
 		{
 			case "Mysql":
@@ -165,12 +165,12 @@ class DataBase
 		}
 	}
 	
-	public function numRows($Operation,$Table,$Fields='',$Where='',$Order='',$Limit='')
+	public function numRows($Table,$Fields='',$Where='',$Order='',$Limit='')
 	{
 		switch($this->TypeDB)
 		{
 			case "Mysql":
-				$Result = mysqli_num_rows($this->execQuery($Operation,$Table,$Fields,$Where,$Order,$Limit));
+				$Result = mysqli_num_rows($this->execQuery("SELECT",$Table,$Fields,$Where,$Order,$Limit));
 				if(!$Result) $this->Error = mysqli_error($this->StreamConnection);
 				return $Result;
 			break;

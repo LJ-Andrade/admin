@@ -23,7 +23,7 @@ class AdminData extends DataBase
 		$this->Connect();
 		$this->AdminID 		= $AdminID==''? $_SESSION['admin_id'] : $AdminID;
 		
-		$this->AdminData 	= $this->fetchAssoc('select','admin_user','*',"admin_id = '".$this->AdminID."'");
+		$this->AdminData 	= $this->fetchAssoc('admin_user','*',"admin_id = '".$this->AdminID."'");
 		$this->AdminData	= $this->AdminData[0];
 		
 		$this->FirstName	= $this->AdminData['first_name'];
@@ -34,7 +34,7 @@ class AdminData extends DataBase
 		$this->FullName		= $this->FirstName." ".$this->LastName;
 		$this->FullUserName	= $this->FirstName." ".$this->LastName." (".$this->User.")";
 		$this->LastAccess	= "&Uacute;ltimo acceso: ".DateTimeFormat($this->AdminData['last_access']);
-		$ProfileData		= $this->fetchAssoc('select','admin_profile','*'," profile_id = ".$this->ProfileID);
+		$ProfileData		= $this->fetchAssoc('admin_profile','*'," profile_id = ".$this->ProfileID);
 		$this->ProfileName	= $ProfileData[0]['title'];
 	}
 	
@@ -42,7 +42,7 @@ class AdminData extends DataBase
 	{	
 
 		$Limit = $From>=0 && $To>=0 ? $From.",".$To : "";
-		$AdminRegs	= $this->fetchAssoc('select','admin_user','*',"status = 'A' AND profile_id > ".$this->ProfileID." ".$Where,"first_name",$Limit); 
+		$AdminRegs	= $this->fetchAssoc('admin_user','*',"status = 'A' AND profile_id > ".$this->ProfileID." ".$Where,"first_name",$Limit); 
 		$AtLeastOne	= false;
 		for($i=0;$i<count($AdminRegs);$i++)
 		{
@@ -71,7 +71,7 @@ class AdminData extends DataBase
 	{	
 
 		$Limit = $From>=0 && $To>=0 ? $From.",".$To : "";
-		$AdminRegs	= $this->fetchAssoc('select','admin_user','*',"status = 'I' AND profile_id > ".$this->ProfileID." ".$Where,"first_name",$Limit); 
+		$AdminRegs	= $this->fetchAssoc('admin_user','*',"status = 'I' AND profile_id > ".$this->ProfileID." ".$Where,"first_name",$Limit); 
 		$AtLeastOne	= false;
 		for($i=0;$i<count($AdminRegs);$i++)
 		{
@@ -107,7 +107,7 @@ class AdminData extends DataBase
 			return $this->Groups;
 		}else{
 			$Groups = array();
-			$Rs 	= $this->fetchAssoc('select','relation_admin_group','*',"admin_id=".$this->AdminID,"group_id");
+			$Rs 	= $this->fetchAssoc('relation_admin_group','*',"admin_id=".$this->AdminID,"group_id");
 			
 			foreach ($Rs as $Row) {
 				$Groups[] = $Row['group_id'];
@@ -137,9 +137,9 @@ class AdminData extends DataBase
 	{
 		if($this->ProfileID<4)
 		{
-			return $this->fetchAssoc('select','section','section_id,title',"status='A'",'title');
+			return $this->fetchAssoc('section','section_id,title',"status='A'",'title');
 		}else{
-			return $this->fetchAssoc('select','section','section_id,title',"section_id IN (SELECT section_id FROM relation_section_admin WHERE admin_id = ".$this->AdminID.") AND status='A'",'title');
+			return $this->fetchAssoc('section','section_id,title',"section_id IN (SELECT section_id FROM relation_section_admin WHERE admin_id = ".$this->AdminID.") AND status='A'",'title');
 		}
 	}
 
@@ -151,7 +151,7 @@ class AdminData extends DataBase
 			$this->GetParents();
 		}
 		
-		$Menues	= $this->fetchAssoc('select','menu','*',"parent_id = ".$Parent." AND status <> 'I'"); 
+		$Menues	= $this->fetchAssoc('menu','*',"parent_id = ".$Parent." AND status <> 'I'"); 
 		
 		foreach($Menues as $Menu)
 		{
@@ -185,7 +185,7 @@ class AdminData extends DataBase
 
 	public function GetCheckedMenues()
 	{
-		$Relations	= $this->fetchAssoc('select','menu_exception','*',"admin_id = ".$this->AdminID);
+		$Relations	= $this->fetchAssoc('menu_exception','*',"admin_id = ".$this->AdminID);
 		foreach($Relations as $Relation)
 		{
 			$this->Menues[]	= $Relation['menu_id'];
@@ -194,7 +194,7 @@ class AdminData extends DataBase
 
 	public function GetParents()
 	{
-		$Parents	= $this->fetchAssoc('select','menu','DISTINCT(parent_id)',"parent_id <> 0 AND status <> 'I'");
+		$Parents	= $this->fetchAssoc('menu','DISTINCT(parent_id)',"parent_id <> 0 AND status <> 'I'");
 		
 		foreach($Parents as $Parent){
 			$this->Parents[] = $Parent['parent_id'];

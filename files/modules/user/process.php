@@ -16,12 +16,12 @@ switch(strtolower($_POST['action']))
 		}
 		
 		$User		= htmlentities(strtolower($_POST['user']));
-		$Password	= md5($_POST['password']);
+		$Password	= md5(htmlentities($_POST['password']));
 		$FirstName	= htmlentities($_POST['first_name']);
 		$LastName	= htmlentities($_POST['last_name']);
 		$Email 		= htmlentities($_POST['email']);
 		$ProfileID	= $_POST['profile'];
-		$Status		= $_POST['status'];
+		$Status		= $_POST['status']=="on"? 'A': 'I';
 		$Groups		= $_POST['group_id'] ? explode(",",$_POST['group_id']) : array();
 		$Menues		= $_POST['menu'] ? explode(",",$_POST['menu']) : array();
 		
@@ -45,20 +45,25 @@ switch(strtolower($_POST['action']))
 		
 	break;
 	case 'update': 
-		$Admin_id	= $_POST['admin_id'];
-		$AdminEdit		= new AdminData($_POST['admin_id']);
+		$Admin_id 	= $_POST['id'];
+		$AdminEdit	= new AdminData($Admin_id);
 
-		if($_POST['password'] && $Admin->AdminData['profile_id']<3){
-			$Password		= md5($_POST['password']);
+		
+
+		if($_POST['password'])
+		{
+			$Password	= md5(htmlentities($_POST['password']));
 			$PasswordFilter	= ",password='".$Password."'";
 		}
 
-		if($_POST['password'] && $_POST['oldpassword']){
-			if(md5($_POST['oldpassword'])!=$AdminEdit->AdminData['password']){
+		if($_POST['password'] && $_POST['oldpassword'])
+		{
+			if(md5(htmlentities($_POST['oldpassword']))!=$AdminEdit->AdminData['password'])
+			{
 				echo "Ha ingresado incorrectamente su antigua clave.";
 				die;
 			}
-			$Password		= md5($_POST['password']);
+			$Password		= md5(htmlentities($_POST['password']));
 			$PasswordFilter	= ",password='".$Password."'";
 		}
 		
@@ -76,15 +81,17 @@ switch(strtolower($_POST['action']))
 			$ImgFilter	= ",img='".$Image."'";
 		}
 
-		$User		= $_POST['user'];
-		$FirstName	= $_POST['first_name'];
-		$LastName	= $_POST['last_name'];
-		$ProfileID	= $_POST['profile_id'];
-		$Status		= $_POST['status'];
+		$User		= htmlentities(strtolower($_POST['user']));
+		$FirstName	= htmlentities($_POST['first_name']);
+		$LastName	= htmlentities($_POST['last_name']);
+		$Email 		= htmlentities($_POST['email']);
+		$ProfileID	= $_POST['profile'];
+		$Status		= $_POST['status']=="on"? 'A': 'I';
 		$Groups		= $_POST['group_id'] ? explode(",",$_POST['group_id']) : array();
 		$Menues		= $_POST['menu'] ? explode(",",$_POST['menu']) : array();
 
-		$Insert		= $DB->execQuery('update','admin_user',"user='".$User."'".$PasswordFilter.",first_name='".$FirstName."',last_name='".$LastName."',status='".$Status."',profile_id='".$ProfileID."'".$ImgFilter,"admin_id=".$Admin_id);
+		$Insert		= $DB->execQuery('update','admin_user',"user='".$User."'".$PasswordFilter.",first_name='".$FirstName."',last_name='".$LastName."',email='".$Email."',status='".$Status."',profile_id='".$ProfileID."'".$ImgFilter,"admin_id=".$Admin_id);
+		//echo $DB->lastQuery();
 		$DB->execQuery('delete','relation_admin_group',"admin_id = ".$Admin_id);
 		$DB->execQuery('delete','menu_exception',"admin_id = ".$Admin_id);
 
@@ -106,7 +113,7 @@ switch(strtolower($_POST['action']))
 	break;
 	case 'delete': 
 		$Admin_id	= $_POST['id'];
-		//$Result		= $DB->fetchAssoc('select','admin_user','img',"admin_id = ".$Admin_id);
+		//$Result		= $DB->fetchAssoc('admin_user','img',"admin_id = ".$Admin_id);
 		$Delete		= $DB->execQuery('update','admin_user',"status = 'I'","admin_id=".$Admin_id);
 		//if(file_exists($Result[0]['img'])) unlink($Result[0]['img']);
 		print_r($Delete);
@@ -131,7 +138,7 @@ switch(strtolower($_POST['action']))
 	case 'fillgroups':
 		$Profile = $_POST['profile'];
 
-        $Groups = $DB->fetchAssoc('select','admin_group','*',"group_id IN (SELECT group_id FROM relation_group_profile WHERE profile_id = ".$Profile.")","name");
+        $Groups = $DB->fetchAssoc('admin_group','*',"group_id IN (SELECT group_id FROM relation_group_profile WHERE profile_id = ".$Profile.")","name");
         foreach ($Groups as $Group)
         {
          echo '<div style="width:auto;">'.insertElement('checkbox','group_id',$Group['group_id'],'Arial12px BlueCyan Bold','tabindex="9"').' '.htmlentities($Group['name']).'</div>';   

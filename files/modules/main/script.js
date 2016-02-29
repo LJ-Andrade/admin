@@ -1,16 +1,3 @@
-$(document).ready(function() {
-    $('#newuser').fadeIn( 500 );
-    $('#newprod').fadeIn( 500 );
-    $("#oklogmsg").click();
-    //alert(get['msg']);
-    if(get['msg']=='logok')
-    {
-        $("#oklogmsg").click();
-    }
-});
-
-
-
 // LOG OK MSG
 //---------------------------------------------
 $(function(){
@@ -24,9 +11,9 @@ $(function(){
         element: 'body',
         position: null,
         type: "info",
-        allow_dismiss: true,
+        allow_dismiss: false,
         newest_on_top: false,
-        showProgressbar: true,
+        showProgressbar: false,
         placement: {
             from: "bottom",
             align: "center"
@@ -57,7 +44,19 @@ $(function(){
                 '<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
             '</div>' +
             '<a href="{3}" target="{4}" data-notify="url"></a>' +
-        '</div>' 
+        '</div>'
+
+        });
     });
-    });
+});
+
+$(document).ready(function() {
+    $('#newuser').fadeIn( 500 );
+    $('#newprod').fadeIn( 500 );
+    //$("#oklogmsg").click();
+    //alert(get['msg']);
+    if(get['msg']=='logok')
+    {
+        $("#oklogmsg").click();
+    }
 });

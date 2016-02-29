@@ -1,6 +1,4 @@
                                             ////// JavaScript Document //////
-
-
 // Styles scrollbar
 //=======================================================
 $(document).ready(function() {  
@@ -102,7 +100,7 @@ function submitData()
     var i           = 0;
     var element;
     var id;
-    tinyMCE.triggerSave(); // Save trigger for TinyMCE editor
+    //tinyMCE.triggerSave(); // Save trigger for TinyMCE editor
     $('textarea,select,input[type!="checkbox"]').each(function()
     {
         elementID   = $(this).attr("id");
@@ -134,6 +132,7 @@ function submitData()
                     checkValue = $(this).val();
                 }
             });
+            notifyError(checkValue);
             variables[variables.length] = {id:checkID,value:checkValue};
         }
     });
@@ -440,8 +439,8 @@ $(function(){
 $(function(){
     
         $("#Logout").click(function(){
-            alert('Chaucha');
-            /*alertify.confirm(utf8_decode("¿Desea salir?"), function(e){
+            
+            alertify.confirm(utf8_decode("¿Desea salir del sistema?"), function(e){
                 if(e){
                     var target      = '../login/login.php';
                     var process     = '../login/process.logout.php';
@@ -456,17 +455,6 @@ $(function(){
                     });
                 }else{
                     //alertify.error("Has pulsado '" + alertify.labels.cancel + "'");
-                }
-            }); */
-            var target      = '../login/login.php';
-            var process     = '../login/process.logout.php';
-            
-            $.ajax({
-                type: "POST",
-                url: process,
-                cache: false,
-                success: function(){
-                    document.location = target;
                 }
             });
         });

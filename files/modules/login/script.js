@@ -1,6 +1,6 @@
 
 $(document).ready(function() {
-	if(get['error']=='login'){
+	if(get['error']=='login' || get['error']=='login#'){
 		notifyError("Para ingresar a esta sección debe estar conectado.");
 	}
 });

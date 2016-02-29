@@ -6,7 +6,7 @@
 <body id="login">
     <div class="main">
         <div class="row col-md-12 logtitdiv">
-           <div class="row"><img src="../../../skin/images/body/icons/favicon.png" class="logimg" alt=""><span class="maintit">VIMANA Auto-Admin &reg;</span></div>
+           <div class="row"><img src="../../../skin/images/body/icons/favicon.png" class="logimg" alt=""><span class="maintit">VIMANA Admin &reg;</span></div>
         </div>
         <div class="row">
             <form class="formulog">       
@@ -23,11 +23,11 @@
                         <button type="button" class="btn loginbtn center-block ButtonLogin"><i class="fa fa-fw fa-share"></i><b> Ingresar</b></button>
                     </div>
                     <div class="forgotdiv">
-                       <a href="forgotpass.php"><p class="forgotpass">Olvid&eacute; mi contrase&ntilde;a...</p></a>
+                       <a href="forgotpass.php"><p class="forgotpass">Olvid&eacute; mi contrase&ntilde;a</p></a>
                     </div>
                     <div class="row rememberme">
-                        <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                        <label for="checkbox-1" class="checkbox-custom-label"> Recordarme</label>
+                        <input id="rememberuser" class="checkbox-custom" name="rememberuser" type="checkbox">
+                        <label for="rememberuser" class="checkbox-custom-label"> Recordarme</label>
                     </div>
                 </div>
             </form>     

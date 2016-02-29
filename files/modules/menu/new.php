@@ -31,7 +31,7 @@
                       <div class="row">
                         <div class="col-md-6 form-group animated bounceInLeft">
                               <div class="form-group">
-                                  <?php echo insertElement('select','parent','','form-controlusers','tabindex="3"',$DB->fetchAssoc('select','menu','menu_id,title',"","title"),'0','Men&uacute; Principal'); ?>
+                                  <?php echo insertElement('select','parent','','form-controlusers','tabindex="3"',$DB->fetchAssoc('menu','menu_id,title',"","title"),'0','Men&uacute; Principal'); ?>
                               </div>
                           </div>
                           <div class="col-md-6 form-group animated bounceInRight">

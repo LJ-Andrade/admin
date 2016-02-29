@@ -1,7 +1,7 @@
 $(document).ready(function(){
-	alertify.success("Hola");
-	alertify.alert("Hola");
-	alertify.error("Hola");
+	//alertify.succees("Hola");
+	//alertify.alert("Hola");
+	//alertify.error("Hola");
 });
 
 
@@ -9,11 +9,11 @@ $(function(){
 	$("#create").click(function(){
 		if(validate.validateFields('')){
 			var process		= 'process.php';
-	 		var target		= 'list.php';
+	 		var target		= 'list.php?msg='+ $("#action").val();
 	 		var haveData	= function(returningData)
 	 		{
 	 			$("input,select").blur();
-				alertyfy.error(returningData,10000);
+				notifyError(returningData);
 	 			//alert(returningData);
 	 		}
 	 		var noData		= function()
@@ -82,6 +82,6 @@ $(function(){
 	});
 
 	// Active Inactive Switch
-	$("[name='my-checkbox']").bootstrapSwitch();
+	$("[name='status']").bootstrapSwitch();
 
 });

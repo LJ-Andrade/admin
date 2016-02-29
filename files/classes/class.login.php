@@ -33,7 +33,7 @@ class Login extends DataBase
 		
 		//$Query 				= "SELECT * FROM admin_user WHERE user = '".$this->User."' AND status = 'A'";
 		$this->UserExist 	= $this->numRows('select','admin_user','*',"user = '".$this->User."' AND status = 'A'") > 0;
-		$this->AdminData 	= $this->fetchAssoc('select','admin_user','*',"user = '".$this->User."' AND status = 'A'");
+		$this->AdminData 	= $this->fetchAssoc('admin_user','*',"user = '".$this->User."' AND status = 'A'");
 		$this->PassMatch	= $this->AdminData[0]['password'] == $this->PasswordHash;
 		$this->Tries		= $this->AdminData[0]['tries']+1;
 		$this->IsMaxTries	= $this->Tries > $this->getMaxTries();

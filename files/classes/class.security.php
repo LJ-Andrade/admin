@@ -23,7 +23,7 @@ class Security extends dataBase
 		$this->Password		= isset($_COOKIE['password'])? 		$_COOKIE['password'] 	: $Password;
 		$this->File			= basename($_SERVER['PHP_SELF']);
 		$this->getLink();
-		$MenuData			= $this->fetchAssoc("SELECT","menu","menu_id,public","link LIKE '%".$this->Link."%'");
+		$MenuData			= $this->fetchAssoc("menu","menu_id,public","link LIKE '%".$this->Link."%'");
 		$this->MenuData		= $MenuData[0];
 	}
 	
@@ -31,12 +31,12 @@ class Security extends dataBase
 	{		
 		if($this->User!='' && $this->Password!='')
 		{
-			$ProfileData		= $this->fetchAssoc("SELECT","admin_user","profile_id","user = '".$this->User."' AND password='".$this->Password."'");
+			$ProfileData		= $this->fetchAssoc("admin_user","profile_id","user = '".$this->User."' AND password='".$this->Password."'");
 			$this->ProfileData	= $ProfileData[0];
 
 			if($this->checkException() && $this->ProfileData['profile_id']!=self::PROFILE)
 			{
-				$Groups    		= $this->fetchAssoc("select","relation_admin_group","group_id","admin_id=".$AdminID);
+				$Groups    		= $this->fetchAssoc("relation_admin_group","group_id","admin_id=".$AdminID);
 				$AdminGroups 	= array();
 				$AdminGroups[]	= 0;
 				foreach($Groups as $Group)
@@ -44,9 +44,9 @@ class Security extends dataBase
 					$AdminGroups[]	= $Group['group_id'];
 				}
 				$MenuGroups 	= implode(",",$AdminGroups);
-				$Rows			= $this->numRows("SELECT","relation_menu_profile","*","menu_id = ".$this->MenuData['menu_id']." AND profile_id = ".$this->ProfileData['profile_id']);
-				$Exceptions 	= $this->numRows("SELECT","menu_exception","*","menu_id = ".$this->MenuData['menu_id']." AND admin_id = ".$AdminID);
-				$GroupsAllowed 	= $this->numRows("SELECT","relation_menu_group","*","menu_id = ".$this->MenuData['menu_id']." AND group_id IN (".$MenuGroups.")");
+				$Rows			= $this->numRows("relation_menu_profile","*","menu_id = ".$this->MenuData['menu_id']." AND profile_id = ".$this->ProfileData['profile_id']);
+				$Exceptions 	= $this->numRows("menu_exception","*","menu_id = ".$this->MenuData['menu_id']." AND admin_id = ".$AdminID);
+				$GroupsAllowed 	= $this->numRows("relation_menu_group","*","menu_id = ".$this->MenuData['menu_id']." AND group_id IN (".$MenuGroups.")");
 				
 				if($Rows<1 && $Exceptions<1 && $GroupsAllowed<1){header("Location: ".$_SERVER['HTTP_REFERER']); echo '<script>window.history.go(-1)</script>';}
 			}elseif($this->Link==self::LOGIN){

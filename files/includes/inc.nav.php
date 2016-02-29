@@ -26,11 +26,10 @@
             ?>
     <!-- Sub Top Bar -->
     <div class="container-fluid subtop">
-        <div class="subtop1">   
+        <div class="subtop1">
             <ol class="breadcrumb">
-              <li><a href="#">Inicio</a></li>
-              <li><a href="#">Menu 1</a></li>
-              <li class="crumactive">Menu Actual</li>
+                <?php $Menu -> insertBreadCrumbs();  ?>
+              
             </ol>
         </div>
         <div class="subtop2">
