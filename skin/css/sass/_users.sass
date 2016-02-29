@@ -10,7 +10,17 @@ h3.usertittxt
 
 
 // Caja de usuarios
-
+.usericos
+    visibility: hidden
+    ul
+        list-style-type: none
+        text-align: center
+        transition: .5s
+        li
+            display: inline
+            text-align: center
+            margin: 0 5px
+            transition: .5s
 .usergral
     max-width: 220px
     margin: 10px 10px
@@ -24,6 +34,8 @@ h3.usertittxt
         background-color: rgba($itemfilediv, .3)
         -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175)
         box-shadow: 0 6px 12px rgba(0,0,0,.175)
+    &:hover div
+        visibility: visible
 
 @media(max-width:250px)
     .usergral
@@ -32,6 +44,7 @@ h3.usertittxt
 
 .userimg
     border-radius: 100%
+    max-width: 180px
     cursor: pointer
     margin: 0 auto
     box-shadow: 10px 10px 21px -14px rgba(0,0,0,0.75)
@@ -46,46 +59,29 @@ h3.usertittxt
     text-align: center
     height: 60px
 
-.usericos
-    ul
-        list-style-type: none
-        text-align: center 
-        li
-            display: inline
-            text-align: center
-            margin: 0 5px 
 
-.usericoadd
-    ul
-        margin-left: -25px
-        border: 1px solid blue 
+
     
 
 a .usernamediv
     color: #000
     text-decoration: none
     list-style: none
+
+
 a .usernamediv:hover
     text-decoration: none !important
+
+.usernametxt
+    text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.66)
+    font-weight: bold 
+
 p .addusertxt
     color: #606060
 p .addusertxt:hover
     color: #000
 
-
-//#transhover
-//    opacity: 0
-//    -webkit-transition: .5s
-//    -moz-transition: .5s
-//    -o-transition: .5s
-//    -ms-transition: .5s
-//    transition: .5s
-//    border: 1px solid red
-//#trans:hover #transhover
-//    opacity: 1
-
-
-    
+ 
 
 
 
@@ -110,8 +106,12 @@ p .addusertxt:hover
 
 
 .adduserdiv
+    max-width: 400px
     padding-bottom: 20px
     padding-top: 20px
+    margin: 0 auto
+    margin-top: 20px
+    margin-bottom: 20px
 .useradd
     -webkit-transition: all 0.5s ease 0s
     transition: all 0.5s ease 0s  

@@ -313,3 +313,66 @@ form .indicator.empty
 ol, ul
     margin-top: 0
     margin-bottom: 10px
+
+
+
+//////////// Main Containers ////////////////////
+
+.glasscontainer1
+    width: auto
+    background-color: rgba(0,0,0, .1)
+    padding: 15px 5px 10px
+    text-align: center
+    padding-bottom: 15px
+    margin-bottom: 30p
+
+.textcenter
+    text-align: center
+
+
+
+//////////// Buttons ////////////////////////////
+
+.masterbtn
+    padding: 5px 10px
+    margin: 0 auto
+    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5)
+    border: none
+    -webkit-transition: all 0.5s ease 0s
+    transition: all 0.5s ease 0s
+    background-color: $mainbtn
+    color: $maintbtntxt
+a .masterbtn    
+    color: $logbtntxt
+
+
+///////////// Del y Modify /////////////////
+.btndel
+    padding: 2px 20px
+    font-size: 22px
+    border-radius: 0
+    border: 0
+    background-color: $delbtn
+    color: $delbtntxt
+    transition: all 0.2s ease 0s 
+    &:hover
+        background-color: $delbtnhover
+        color: $delbtntxthover
+    &:focus, &:active
+        background-color: $delbtnactfoc
+        color: $delbtntxtacfoc
+    
+.btnmod
+    padding: 2px 20px
+    font-size: 22px
+    border-radius: 0
+    border: 0
+    background-color: $modbtn
+    color: $modbtntxt
+    transition: all 0.2s ease 0s
+    &:hover
+        background-color: $modbtnhover
+        color: $modbtntxthover
+    &:focus, &:active
+        background-color: $modbtnhover
+        color: $modbtntxtacfoc

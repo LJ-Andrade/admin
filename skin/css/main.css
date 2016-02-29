@@ -80,7 +80,7 @@ h1, h2, h3, h4, h5 {
   font-family: "Open Sans", sans-serif; }
 
 a:focus, a:hover {
-  color: #ccc;
+  color: #fff;
   text-decoration: underline; }
 
 body {
@@ -217,7 +217,7 @@ body {
 .additembtn:active,
 .additembtn.active,
 .open .dropdown-toggle.additembtn {
-  color: #ccc;
+  color: #fff;
   background-color: #197a99; }
 
 .additembtn:active,
@@ -226,9 +226,9 @@ body {
   background-image: none; }
 
 .btnsave {
-  background-color: #1BBC9B; }
+  background-color: #056e90; }
   .btnsave:hover {
-    background-color: #1f917a; }
+    background-color: #388fab; }
 
 .formitems input[type=text],
 .formitems input[type=password] {
@@ -361,24 +361,63 @@ ol, ul {
   margin-top: 0;
   margin-bottom: 10px; }
 
-.login {
-  height: 100%;
-  width: 100%; }
+.glasscontainer1 {
+  width: auto;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 15px 5px 10px;
+  text-align: center;
+  padding-bottom: 15px;
+  margin-bottom: 30p; }
 
-.loginbtn {
-  width: 150px;
-  height: 40px;
-  border-radius: 0;
+.textcenter {
+  text-align: center; }
+
+.masterbtn {
+  padding: 5px 10px;
   margin: 0 auto;
-  margin-bottom: 20px;
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  border: none;
   -webkit-transition: all 0.5s ease 0s;
   transition: all 0.5s ease 0s;
   background-color: #056e90;
-  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
   color: #fff; }
 
-a .loginbtn {
+a .masterbtn {
   color: #fff; }
+
+.btndel {
+  padding: 2px 20px;
+  font-size: 22px;
+  border-radius: 0;
+  border: 0;
+  background-color: #E74C3C;
+  color: #fff;
+  transition: all 0.2s ease 0s; }
+  .btndel:hover {
+    background-color: #e5817f;
+    color: #fff; }
+  .btndel:focus, .btndel:active {
+    background-color: #e5817f;
+    color: #fff; }
+
+.btnmod {
+  padding: 2px 20px;
+  font-size: 22px;
+  border-radius: 0;
+  border: 0;
+  background-color: #056e90;
+  color: #fff;
+  transition: all 0.2s ease 0s; }
+  .btnmod:hover {
+    background-color: #388fab;
+    color: #fff; }
+  .btnmod:focus, .btnmod:active {
+    background-color: #388fab;
+    color: #fff; }
+
+.login {
+  height: 100%;
+  width: 100%; }
 
 .loginbtn.focus, .btn:focus, .btn:hover {
   color: #fff; }
@@ -396,7 +435,8 @@ a .loginbtn {
   margin: 0 auto; }
 
 .loginbtndiv {
-  margin-top: 20px; }
+  margin-top: 20px;
+  margin-bottom: 20px; }
 
 .rememberme {
   text-align: center;
@@ -907,6 +947,18 @@ h3.usertittxt {
 @media(max-width:250px) {
   h3.usertittxt {
     font-size: 16px; } }
+.usericos {
+  visibility: hidden; }
+  .usericos ul {
+    list-style-type: none;
+    text-align: center;
+    transition: 0.5s; }
+    .usericos ul li {
+      display: inline;
+      text-align: center;
+      margin: 0 5px;
+      transition: 0.5s; }
+
 .usergral {
   max-width: 220px;
   margin: 10px 10px;
@@ -920,6 +972,8 @@ h3.usertittxt {
     background-color: rgba(255, 255, 255, 0.3);
     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175); }
+  .usergral:hover div {
+    visibility: visible; }
 
 @media(max-width:250px) {
   .usergral {
@@ -927,6 +981,7 @@ h3.usertittxt {
     padding: 0; } }
 .userimg {
   border-radius: 100%;
+  max-width: 180px;
   cursor: pointer;
   margin: 0 auto;
   box-shadow: 10px 10px 21px -14px rgba(0, 0, 0, 0.75); }
@@ -940,18 +995,6 @@ h3.usertittxt {
   text-align: center;
   height: 60px; }
 
-.usericos ul {
-  list-style-type: none;
-  text-align: center; }
-  .usericos ul li {
-    display: inline;
-    text-align: center;
-    margin: 0 5px; }
-
-.usericoadd ul {
-  margin-left: -25px;
-  border: 1px solid blue; }
-
 a .usernamediv {
   color: #000;
   text-decoration: none;
@@ -959,6 +1002,10 @@ a .usernamediv {
 
 a .usernamediv:hover {
   text-decoration: none !important; }
+
+.usernametxt {
+  text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.66);
+  font-weight: bold; }
 
 p .addusertxt {
   color: #606060; }
@@ -989,8 +1036,12 @@ p .addusertxt:hover {
   color: #fff; }
 
 .adduserdiv {
+  max-width: 400px;
   padding-bottom: 20px;
-  padding-top: 20px; }
+  padding-top: 20px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px; }
 
 .useradd {
   -webkit-transition: all 0.5s ease 0s;
@@ -1380,40 +1431,6 @@ p .addusertxt:hover {
 .itemsearchbtn.active,
 .open .dropdown-toggle.itemsearchbtn {
   background-image: none; }
-
-.btndel {
-  padding: 2px 20px;
-  font-size: 22px;
-  border-radius: 0;
-  border: 0;
-  background-color: #E74C3C;
-  color: #ccc;
-  transition: all 0.2s ease 0s; }
-
-.btndel:hover {
-  background-color: #e5817f;
-  color: #ccc; }
-.btndel:focus, .btndel:active {
-  background-color: #e5817f;
-  color: #ccc; }
-
-.btndel ul {
-  width: 60px; }
-
-.btnmod {
-  padding: 2px 20px;
-  font-size: 22px;
-  border-radius: 0;
-  border: 0;
-  background-color: #1BBC9B;
-  color: #ccc;
-  transition: all 0.2s ease 0s; }
-  .btnmod:hover {
-    background-color: #1f917a;
-    color: #ccc; }
-  .btnmod:focus, .btnmod:active {
-    background-color: #1f917a;
-    color: #ccc; }
 
 .subtop {
   background-color: rgba(255, 255, 255, 0.4);

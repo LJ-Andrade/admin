@@ -20,7 +20,7 @@
                         <input type="password" name="password" id="password" placeholder="Ingrese contrase&ntilde;a">
                     </div>
                     <div class="col-md-12 loginbtndiv">
-                        <button type="button" class="btn loginbtn center-block ButtonLogin"><i class="fa fa-fw fa-share"></i><b> Ingresar</b></button>
+                        <button type="button" class="btn masterbtn center-block ButtonLogin"><i class="fa fa-fw fa-share"></i><b> Ingresar</b></button>
                     </div>
                     <div class="forgotdiv">
                        <a href="forgotpass.php"><p class="forgotpass">Olvid&eacute; mi contrase&ntilde;a</p></a>
