@@ -31,7 +31,7 @@ function notifyError(msgNotify)
 {
     $.notify({
         // options
-        message: msgNotify 
+        message: '<div style="text-align:center;">'+msgNotify+'</div>'
     },{
         // settings
         type: 'danger',
@@ -47,10 +47,15 @@ function notifySuccess(msgNotify)
 {
     $.notify({
         // options
-        message: msgNotify 
+        message: '<div style="text-align:center;">'+msgNotify+'</div>'
     },{
         // settings
-        type: 'success'
+        type: 'success',
+        allow_dismiss: false,
+        placement: {
+            from: "bottom",
+            align: "center"
+        }
     });
 }
 
@@ -58,10 +63,15 @@ function notifyInfo(msgNotify)
 {
     $.notify({
         // options
-        message: msgNotify 
+        message: '<div style="text-align:center;">'+msgNotify+'</div>' 
     },{
         // settings
-        type: 'info'
+        type: 'info',
+        allow_dismiss: false,
+        placement: {
+            from: "bottom",
+            align: "right"
+        }
     });
 }
 
@@ -69,10 +79,14 @@ function notifyWarning(msgNotify)
 {
     $.notify({
         // options
-        message: msgNotify 
+        message: '<div style="text-align:center;">'+msgNotify+'</div>'
     },{
         // settings
-        type: 'warning'
+        type: 'warning',
+        placement: {
+            from: "bottom",
+            align: "right"
+        }
     });
 }
 
@@ -202,63 +216,72 @@ $(function(){
 
 $(function(){
 
-    ////////////////////////////////////////////////////////////////// LIST ACTIONS //////////////////////////////////////////////
-    $(".actionImg").click(function(){
-        var info    = $(this).attr("id").split('_');
-        var action  = $(this).attr("action");
-        var process = $(this).attr("process");
-        var target  = $(this).attr("target");
-        var id      = info[1];
-        listActions(action,id,process,target);
+    ////////////////////////////////////////////////////////////////// DELETE ACTION //////////////////////////////////////////////
+    $(".deleteElement").click(function(){
+        var action      = "delete";
+        var parent      = $(this).attr("deleteParent");
+        var process     = $(this).attr("deleteProcess");
+        var conText     = utf8_encode($(this).attr("confirmText"));
+        var sucText     = utf8_encode($(this).attr("successText"));
+        var id          = $(this).attr("deleteElement");
+        deleteElement(action,id,parent,process,conText,sucText);
     });
 
-    function listActions(action,id,process,target)
-    {
+    // function listActions(action,id,process,target)
+    // {
         
-        switch(action){
-            case "view":    window.location.href = target + "?id="+id; break;
-            case "edit":    window.location.href = target + "?id="+id; break;
-            case "delete":  
-                alertify.confirm(utf8_decode("¿Desea eliminar este registro?"), function(e){
-                    if(e){
-                        var string      = 'id='+ id + '&action=delete';
-                        $.ajax({
-                            type: "POST",
-                            url: process,
-                            data: string,
-                            cache: false,
-                            success: function(data){
-                                if(data){
-                                    $("#Row"+id).slideUp();
-                                    msg.success("Registro eliminado correctamente",5000);
-                                }
+    //     switch(action){
+    //         case "view":    window.location.href = target + "?id="+id; break;
+    //         case "edit":    window.location.href = target + "?id="+id; break;
+    //         case "delete":  
+    //             alertify.confirm(utf8_decode("¿Desea eliminar este registro?"), function(e){
+    //                 if(e){
+    //                     var string      = 'id='+ id + '&action=delete';
+    //                     $.ajax({
+    //                         type: "POST",
+    //                         url: process,
+    //                         data: string,
+    //                         cache: false,
+    //                         success: function(data){
+    //                             if(data){
+    //                                 $("#Row"+id).slideUp();
+    //                                 msg.success("Registro eliminado correctamente",5000);
+    //                             }
                                 
-                            }
-                        });
-                    }else{
-                        //alertify.error("Has pulsado '" + alertify.labels.cancel + "'");
-                    }
-                }); 
-                return false;
-                /*showPopUpConfirm('<div style="padding:10px;">¿Desea eliminar este registro?</div>');
-                $("#PopUpConfirm").click(function(){
-                    var string      = 'id='+ id + '&action=delete';
-                    
-                    $.ajax({
-                        type: "POST",
-                        url: process,
-                        data: string,
-                        cache: false,
-                        success: function(data){
-                            if(data){
-                                $("#Row"+id).slideUp();
-                            }
-                            
+    //                         }
+    //                     });
+    //                 }else{
+    //                     //alertify.error("Has pulsado '" + alertify.labels.cancel + "'");
+    //                 }
+    //             }); 
+    //             return false;
+    //         break;
+    //     }
+    // }
+
+    function deleteElement(action,id,parent,process,confirmText,successText)
+    {
+        alertify.confirm(utf8_decode(confirmText), function(e){
+            if(e){
+                var string      = 'id='+ id + '&action=' + action;
+                $.ajax({
+                    type: "POST",
+                    url: process,
+                    data: string,
+                    cache: false,
+                    success: function(data){
+                        if(data){
+                            //$("#"+parent).slideUp();
+                            notifyError(data);
+                        }else{
+                            $("#"+parent).slideUp();
+                            notifySuccess(utf8_decode(successText));
                         }
-                    });
-                });*/
-            break;
-        }
+                        
+                    }
+                });
+            }
+        });
     }
 
     //////////////////////////////////////////////////// Pager /////////////////////////////////////////////////////////////////

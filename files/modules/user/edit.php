@@ -1,11 +1,13 @@
 <?php
     include("../../includes/inc.main.php");
-    $Head->setTitle("Modificar Usuario");
-    $Head->setHead();
-
     $Admin_id = $_GET['id'];
     $AdminEdit  = new AdminData($Admin_id);
     $AdminData  = $AdminEdit->GetData();
+
+    $Title = "Modificar usuario '".$AdminEdit->FullName."'";
+
+    $Head->setTitle("Modificar Usuario");
+    $Head->setHead();
 
     $Groups[1] = "Pepe";
     $Groups[2] = "Pepe2";
@@ -21,7 +23,7 @@
         <div class="container additemdiv animated fadeIn">
           <div class="col-sm-12 form-box formitems">
             <div class="additemtit">
-              <h3>Agregar Nuevo Usuario</h3>
+              <h3><?php echo $Title ?></h3>
             </div>
             <div class="row">
                 <div class="col-md-6 form-group animated bounceInLeft">

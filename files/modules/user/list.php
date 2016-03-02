@@ -26,7 +26,7 @@
                                 $User = new AdminData($User['admin_id']);
                         ?>
                         <!--    Users   -->
-                        <div id="delelem<?php echo $User->AdminID ?>" class="col-lg-3 col-sm-6 col-xs-12 col-centered animated fadeIn usergral">
+                        <div id="user<?php echo $User->AdminID ?>" class="col-lg-3 col-sm-6 col-xs-12 col-centered animated fadeIn usergral">
  
                                 <img src="<?php echo $User->Img; ?>" class="img-responsive userimg">
                                 
@@ -37,7 +37,7 @@
                                         <ul>
                                             <li><a href="edit.php?id=<?php echo $User->AdminID ?>" class="btnmod btnuser"><i class="fa fa-fw fa-pencil"></i></a></li>
                                             <?php if($User->AdminID!=$Admin->AdminID){ ?>
-                                            <li delete="<?php echo $User->AdminID ?>" class="deleteelem btndel btnuser"><i class="fa fa-fw fa-trash"></i></li>
+                                            <li deleteElement="<?php echo $User->AdminID ?>" deleteParent="user<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>'?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente" class="deleteElement btndel btnuser"><i class="fa fa-fw fa-trash"></i></li>
                                             <?php } ?>
                                         </ul>                
                                     

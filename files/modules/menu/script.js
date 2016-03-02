@@ -1,46 +1,26 @@
-function sumbitInfo(){
-			var title 		= $("#title").val();
-			var link		= $("#link").val();
-			var status		= $("#status").val();
-			var parent		= $("#parent").val();
-			var position	= $("#position").val();
-			var icon		= $("#icon").val();
-			var action 		= $("#action").val();
-			if($("#public").is(':checked')){
-				var publicMenu = 'Y';
-			}else{
-				var publicMenu = 'N';
-			}
-			var target		= 'list.php?msg=created';
-			var error		= 'Verifique los datos ingresados';
-			var values		= 'action='+ action +'&title='+ title + '&link=' + link + '&parent=' + parent + '&position=' + position + '&icon=' + icon + '&public=' + publicMenu + '&status=' + status;
-			var	process		= "process.php";
-			
-			$.ajax({
-					type: "POST",
-					url: process,
-					data: values,
-					cache: false,
-					success: function(data){
-						if(!data){
-							document.location = target;
-						}else{
-							//alertify.error(error);
-							alert(error+": "+ data);
-						}
-					}
-			});
-			
-			
-			
-
-}
+$(document).ready(function(){
+	if(get['msg']=='insert')
+		notifySuccess('Menú creado correctamente');
+	if(get['msg']=='update')
+		notifySuccess('Menú modificado correctamente');
+});
 
 $(function(){
 	$("#create").click(function(){
-		//if(validate.validateFields('')){
-			sumbitInfo();
-		//}
+		if(validate.validateFields('')){
+			var process		= 'process.php';
+	 		var target		= 'list.php?msg='+ $("#action").val();
+	 		var haveData	= function(returningData)
+	 		{
+	 			$("input,select").blur();
+				notifyError(returningData);
+	 		}
+	 		var noData		= function()
+	 		{
+	 			document.location = target;
+	 		}
+			sumbitFields(process,haveData,noData);
+		}
 	});
 	
 	$("input").keypress(function(e){
@@ -48,5 +28,8 @@ $(function(){
 			$("#create").click();
 		}
 	});
-	
-});
+
+
+	// Active Inactive Switch
+	$("[name='public']").bootstrapSwitch();
+});	

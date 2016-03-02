@@ -162,11 +162,12 @@ class Menu extends DataBase
 		for($i=0;$i<count($MenuRegs);$i++)
 		{
 			$MenuReg	=	$MenuRegs[$i];
-			$Actions	= 	'<li><a href="edit.php?id='.$MenuRegs['menu_id'].'" class="btnmod"><i class="fa fa-fw fa-pencil"></i></a></li>';
-			$Actions	.= 	'<li><a href="#modal1" id="1" class="btndel deleteelem"><i class="fa fa-fw fa-trash"></i></a></li>';
+			$Actions	= 	'<li><a href="edit.php?id='.$MenuReg['menu_id'].'" class="btnmod"><i class="fa fa-fw fa-pencil"></i></a></li>';
+			$Actions	.= 	'<li><a href="#" deleteElement="'.$MenuReg['menu_id'].'" deleteParent="menu'.$MenuReg['menu_id'].'" deleteProcess="process.php" confirmText="¿Desea eliminar el menú \''.$MenuReg['title'].'\'?" successText="\''.$MenuReg['title'].'\' ha sido eliminado correctamente" class="btndel deleteElement"><i class="fa fa-fw fa-trash"></i></a></li>';
 			
 			$Parent 	= $MenuReg['parent_id'] != 0 ? 	$this->GetParent($MenuReg['parent_id']) : 'Men&uacute; Principal';
-			$Link 		= $MenuReg['link'] && $MenuReg['link']!="#"  ? $MenuReg['link'] : 'Sin Link';
+			$Link 		= $MenuReg['link']!="#"  ? $MenuReg['link'] : 'Sin Link';
+			$Public 	= $MenuReg['public'] == 'Y'? 'Público' : 'Restringido';
 
 			switch(strtoupper($MenuReg['status']))
 			{
@@ -181,18 +182,18 @@ class Menu extends DataBase
 				break;
 			}			
 
-			$Regs	.= '<div id="menu'.$MenuRegs['menu_id'].'" class="row animated bounceInUp prodfilediv">
+			$Regs	.= '<div id="menu'.$MenuReg['menu_id'].'" class="row animated bounceInUp prodfilediv">
                          <div class="col-md-2 col-sm-3 col-xs-12">
-                            <i class="fa fa-fw '.$MenuRegs['icon'].'"></i>
+                            <i class="fa fa-fw '.$MenuReg['icon'].'"></i>
                          </div>
                          <div class="col-md-1 col-sm-3 col-xs-3 colprod1">
                             <div class="colprodtit">
-                            <p><b>'.$MenuRegs['title'].'</b></p>
+                            <p><b>'.$MenuReg['title'].'</b></p>
                             </div>    
                          </div>
                          <div class="col-md-1 col-sm-2 col-xs-3 colprod1">
                             <div class="colprod">
-                            <p><b>'.$MenuRegs['link'].'</b></p>
+                            <p><b>'.$Link.'</b></p>
                             </div>  
                          </div>
                          <div class="col-md-1 col-sm-2 col-xs-3 colprod1">
@@ -207,7 +208,7 @@ class Menu extends DataBase
                          </div>
                          <div class="col-md-4 col-sm-12 col-xs-12 colprod1">
                             <div class="colprod">
-                            <!-- Es una cama muy buena. Sirve para domir. Tiene 4 patas. Almohada de madera. Todo de madera. -->
+                            	'.$Public.'
                             </div> 
                          </div>
                          <div class="col-md-2 col-sm-12 col-xs-12  colprod1">

@@ -5,8 +5,7 @@ include('../../includes/inc.main.php');
 switch(strtolower($_POST['action']))
 {
 	case 'insert':
-		die("prueba");
-		
+	
 		if(count($_FILES['img'])>0)
 		{
 			$Name		= "file".rand()*rand()/rand();
@@ -45,8 +44,8 @@ switch(strtolower($_POST['action']))
 		
 	break;
 	case 'update': 
-		$Admin_id 	= $_POST['id'];
-		$AdminEdit	= new AdminData($Admin_id);
+		$ID 	= $_POST['id'];
+		$Edit	= new AdminData($ID);
 
 		
 
@@ -58,7 +57,7 @@ switch(strtolower($_POST['action']))
 
 		if($_POST['password'] && $_POST['oldpassword'])
 		{
-			if(md5(htmlentities($_POST['oldpassword']))!=$AdminEdit->AdminData['password'])
+			if(md5(htmlentities($_POST['oldpassword']))!=$Edit->AdminData['password'])
 			{
 				echo "Ha ingresado incorrectamente su antigua clave.";
 				die;
@@ -73,8 +72,8 @@ switch(strtolower($_POST['action']))
 			$Name		= "file".intval((rand()*rand())/rand()+rand());
 			$Img		= new FileData($_FILES['img'],"../../../skin/images/users/",$Name);
 			
-			if(file_exists($AdminEdit->AdminData['img']))
-					$Img -> DeleteFile($AdminEdit->AdminData['img']);
+			if(file_exists($Edit->AdminData['img']))
+					$Img -> DeleteFile($Edit->AdminData['img']);
 			
 			$Image		= $Img	-> BuildImage(45,45);
 			
@@ -112,11 +111,8 @@ switch(strtolower($_POST['action']))
 		die;
 	break;
 	case 'delete': 
-		$Admin_id	= $_POST['id'];
-		//$Result		= $DB->fetchAssoc('admin_user','img',"admin_id = ".$Admin_id);
-		$Delete		= $DB->execQuery('update','admin_user',"status = 'I'","admin_id=".$Admin_id);
-		//if(file_exists($Result[0]['img'])) unlink($Result[0]['img']);
-		print_r($Delete);
+		$ID	= $_POST['id'];
+		$DB->execQuery('update','admin_user',"status = 'I'","admin_id=".$ID);
 		die;
 	break;
 

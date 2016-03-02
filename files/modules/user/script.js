@@ -1,7 +1,8 @@
 $(document).ready(function(){
-	//alertify.succees("Hola");
-	//alertify.alert("Hola");
-	//alertify.error("Hola");
+	if(get['msg']=='insert')
+		notifySuccess('Usuario creado correctamente');
+	if(get['msg']=='update')
+		notifySuccess('Usuario modificado correctamente');
 });
 
 

@@ -12,31 +12,33 @@ switch(strtolower($_POST['action']))
 		$Parent_id	= $_POST['parent'];
 		$Icon		= $_POST['icon'];
 		$Status		= $_POST['status'];
-		$Public		= $_POST['public'];
+		$Public		= $_POST['public']=='on'? 'Y':'N';
 		if(!$Link) $Link="#";
 		
-		$Insert		= $DB->execQuery('insert','menu','title,link,position,icon,parent_id,status,public',"'".$Title."','".$Link."',".$Position.",'".$Icon."',".$Parent_id.",'".$Status."','".$Public."'");
+		$DB->execQuery('insert','menu','title,link,position,icon,parent_id,status,public',"'".$Title."','".$Link."',".$Position.",'".$Icon."',".$Parent_id.",'".$Status."','".$Public."'");
 		die;
 		
 	break;
 	case 'update': 
-		$Menu_id	= $_POST['menu_id'];
-		$Menu		= new Menu($Menu_id);
+		$ID	= $_POST['id'];
+		$Menu		= new Menu($ID);
 		
-		$Title		= $_POST['title'];
+		$Title		= htmlentities($_POST['title']);
 		$Link		= $_POST['link']==""? "#" : $_POST['link'];
 		$Position	= $_POST['position'];
-		$ParentID	= $_POST['parent_id'];
+		$ParentID	= $_POST['parent'];
 		$Status		= $_POST['status'];
-		$Public		= $_POST['public'];
+		$Icon		= $_POST['icon'];
+		$Public		= $_POST['public']=='on'? 'Y':'N';
+		if(!$Link) $Link="#";
 
-		$Insert		= $DB->execQuery('update','menu',"title='".$Title."',link='".$Link."',position='".$Position."',status='".$Status."',parent_id=".$ParentID.",public='".$Public."'","menu_id=".$Menu_id);
+		$DB->execQuery('update','menu',"title='".$Title."',link='".$Link."',position='".$Position."',icon='".$Icon."',status='".$Status."',parent_id=".$ParentID.",public='".$Public."'","menu_id=".$ID);
 		die;
 	break;
 	case 'delete': 
-		$Menu_id	= $_POST['id'];
-		$Delete		= $DB->execQuery('delete','menu',"menu_id=".$Menu_id);
-		print_r($Delete);
+		$ID	= $_POST['id'];
+		$DB->execQuery('delete','menu',"menu_id=".$ID);
+		//print_r($Delete);
 		die;
 	break;
 	case 'pager':

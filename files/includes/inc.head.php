@@ -13,7 +13,6 @@
 
 <!-- Custom Styles -->
 <link href="../../../skin/css/main.css" rel="stylesheet">
-<link href="../../../skin/css/new.css" rel="stylesheet">
 
 <!-- Scripts -->
 <script src="../../js/script.jquery.js"></script>
