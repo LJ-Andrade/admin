@@ -4,12 +4,11 @@
     $Head->setHead();
 ?>
 <body>
-      <?php include('../../includes/inc.delpopup.php'); ?> <!-- Del PopUp Window -->
       <div id="wrapper">
         <?php include('../../includes/inc.nav.php'); ?> <!-- Navegation -->
         <div id="page-wrapper">    
           <div class="container">
-            <div class="userstitulo"><h3>Administrador de Productos</h3></div>
+            <div class="userstitulo"><h3>Listado de Productos</h3></div>
               <!-- Filters -->
               <div id="itemfilters" class="row filterdiv">
                     <form class="form-inline filterformdiv" role="form">
@@ -28,7 +27,7 @@
                         <div class="col-lg-2 col-sm-3 col-xs-12 form-group inputsgral">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-bookmark-o fa-fw"></i></span>
-                                <input type="password" class="form-control" placeholder="Nombre"/>
+                                <input type="text" class="form-control" placeholder="Nombre"/>
                             </div>
                         </div> 
                         <div class="col-lg-2 col-sm-3 col-xs-12 form-group inputsgral">    
@@ -96,7 +95,47 @@
 
                     <!--    End Item 1   -->
                     <!--    Item 2   -->
-                    <div id="delelem2" class="col-md-2 col-sm-6 col-xs-12 col-centered itemdiv card animated bounceInUp">
+                    <div id="delelem1" class="col-md-2 col-sm-6 col-xs-12 col-centered itemdiv animated bounceInUp">
+                      <div class="row itemstatus">
+                        <p class="col-md-4 col-xs-12 itemstattxt">Estado: </p>
+                      <input type="checkbox" class="centered col-md-8 col-xs-12 itemstatswitch" name="my-checkbox" data-on-text="Activo" data-off-text="Pausado"  data-label-width="auto" data-size="mini" checked>        
+                      </div>
+                      <div class="card">
+                        <div>
+                          <img src="../../../skin/images/products/cod1.jpg" alt="" class="img-responsive">
+                        </div>
+                        <div class="col-md-12 itemtit">
+                          <p>Cama Loca - F128</p>
+                        </div>
+                        <div class="card_content">
+                          <div class="col-md-12 itemtit">
+                            <p><b>Cama Loca</b></p>
+                          </div>
+                            <p><b>Descripci&oacute;n:</b> Es una cama muy buena, blabla Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Cumque temporibus labore, nostrum non arpa loca toca fuerte</p>
+                        <div class="row itemrow2">
+                          <div class="col-md-4 col-xs-4">
+                              <p>Modelo<br><span class="itemtxtcolor"><b>F128</b></span></p>
+                          </div>
+                          <div class="col-md-4 col-xs-4">
+                              <p>Medida<br><span class="itemtxtcolor"><b>10x4 mt</b></span></p>
+                          </div>
+                          <div class="col-md-4 col-xs-4">
+                              <p>Precio<br><span class="itemtxtcolor"><b>$1280,50</b></span></p>
+                          </div>
+                        </div>
+                        <div class="col-md-12 itemicos">
+                              <ul>
+                                  <li><a href="moditem.php" class="btnmod"><i class="fa fa-fw fa-pencil"></i></a>
+                                  </li>
+                                  <li><a href='#modal1' id="1" class="btndel deleteelem"><i class="fa fa-fw fa-trash"></i></a>
+                                  </li>
+                              </ul>                
+                        </div>
+                              </div>
+                      </div>
+                    </div>
+                    <!-- <div id="delelem2" class="col-md-2 col-sm-6 col-xs-12 col-centered itemdiv card animated bounceInUp">
                               <div>
                                   <img src="../../../skin/images/products/cod2.jpg" alt="" class="img-responsive">
                               </div>
@@ -128,10 +167,50 @@
                                         </ul>              
                                   </div>
                               </div>
-                    </div>
+                    </div> -->
                     <!--    End Item 2   -->
                     <!--    Item 3   -->
-                    <div id="delelem3" class="col-md-2 col-sm-6 col-xs-12 col-centered itemdiv card animated bounceInUp">
+                    <div id="delelem1" class="col-md-2 col-sm-6 col-xs-12 col-centered itemdiv animated bounceInUp">
+                      <div class="row itemstatus">
+                        <p class="col-md-4 col-xs-12 itemstattxt">Estado: </p>
+                      <input type="checkbox" class="centered col-md-8 col-xs-12 itemstatswitch" name="my-checkbox" data-on-text="Activo" data-off-text="Pausado"  data-label-width="auto" data-size="mini" checked>        
+                      </div>
+                      <div class="card">
+                        <div>
+                          <img src="../../../skin/images/products/cod1.jpg" alt="" class="img-responsive">
+                        </div>
+                        <div class="col-md-12 itemtit">
+                          <p>Cama Loca - F128</p>
+                        </div>
+                        <div class="card_content">
+                          <div class="col-md-12 itemtit">
+                            <p><b>Cama Loca</b></p>
+                          </div>
+                            <p><b>Descripci&oacute;n:</b> Es una cama muy buena, blabla Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Cumque temporibus labore, nostrum non arpa loca toca fuerte</p>
+                        <div class="row itemrow2">
+                          <div class="col-md-4 col-xs-4">
+                              <p>Modelo<br><span class="itemtxtcolor"><b>F128</b></span></p>
+                          </div>
+                          <div class="col-md-4 col-xs-4">
+                              <p>Medida<br><span class="itemtxtcolor"><b>10x4 mt</b></span></p>
+                          </div>
+                          <div class="col-md-4 col-xs-4">
+                              <p>Precio<br><span class="itemtxtcolor"><b>$1280,50</b></span></p>
+                          </div>
+                        </div>
+                        <div class="col-md-12 itemicos">
+                              <ul>
+                                  <li><a href="moditem.php" class="btnmod"><i class="fa fa-fw fa-pencil"></i></a>
+                                  </li>
+                                  <li><a href='#modal1' id="1" class="btndel deleteelem"><i class="fa fa-fw fa-trash"></i></a>
+                                  </li>
+                              </ul>                
+                        </div>
+                              </div>
+                      </div>
+                    </div>
+                    <!-- <div id="delelem3" class="col-md-2 col-sm-6 col-xs-12 col-centered itemdiv card animated bounceInUp">
                               <div>
                                   <img src="../../../skin/images/products/cod3.jpg" alt="" class="img-responsive">
                               </div>
@@ -163,7 +242,7 @@
                                         </ul>                
                                   </div>
                               </div>
-                    </div>
+                    </div> -->
                     <!--    End Item 3   -->
                 </div>  <!-- Item (Square) end -->        
                 <!-- Alternative Visualization - Products -->
@@ -318,42 +397,4 @@
         </ul>
     </div>
     <!-- End Pagination-->
-<script>
-// Show or Hide Icons On subtop
-//==============================================
-
-$(document).ready(function() {
-    $('#showitemfilters').click(function() {
-         $('#itemfilters').toggle("slide");
-    });
-    $('#viewlist').show( 0 );
-    $('#newprod').show( 100 );
-    $('#showitemfilters').show( 0 );
-});
-    
-    
-// Switch Viewmode
-//==============================================
-
-$('div[id^="delelemf"]').hide();
-$('#viewgrid').hide();
-		
-    $("#viewlist").on( "click", function() {
-		$('div[id^="delelem"]').hide( 500 );
-        $('div[id^="delelemf"]').show( 500 ); 
-        $("#viewlist").hide();
-        $("#viewgrid").show( 500 );
-	 });
-    
-    $("#viewgrid").on( "click", function() {
-		$('div[id^="delelem"]').show( 500 ); 
-        $('div[id^="delelemf"]').hide( 500 );
-        $("#viewgrid").hide();
-        $("#viewlist").show( 500 );
-	 });
-    
-// Active Inactive Switch
-$("[name='my-checkbox']").bootstrapSwitch(); 
-    
-</script>
 <?php include('../../includes/inc.foot.php'); ?>

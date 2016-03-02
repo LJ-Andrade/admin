@@ -162,10 +162,10 @@ class Menu extends DataBase
 		for($i=0;$i<count($MenuRegs);$i++)
 		{
 			$MenuReg	=	$MenuRegs[$i];
-			$Actions	= 	'<img src="../../../skin/images/body/icons/pencil.png" action="edit" class="actionImg" target="edit.php" id="menu_'.$MenuReg['menu_id'].'" />';
-			$Actions	.= 	'<img src="../../../skin/images/body/icons/cross.png" action="delete" class="actionImg" process="process.abm.php" id="menu_'.$MenuReg['menu_id'].'" />';
+			$Actions	= 	'<li><a href="edit.php?id='.$MenuRegs['menu_id'].'" class="btnmod"><i class="fa fa-fw fa-pencil"></i></a></li>';
+			$Actions	.= 	'<li><a href="#modal1" id="1" class="btndel deleteelem"><i class="fa fa-fw fa-trash"></i></a></li>';
 			
-			$Parent 	= $MenuReg['parent_id'] != 0 ? 	$this->GetParent($MenuReg['parent_id']) : 'Sin Padre';
+			$Parent 	= $MenuReg['parent_id'] != 0 ? 	$this->GetParent($MenuReg['parent_id']) : 'Men&uacute; Principal';
 			$Link 		= $MenuReg['link'] && $MenuReg['link']!="#"  ? $MenuReg['link'] : 'Sin Link';
 
 			switch(strtoupper($MenuReg['status']))
@@ -181,17 +181,45 @@ class Menu extends DataBase
 				break;
 			}			
 
-			$Regs	.= '<div class="RegWrapper BlackGray" id="Row'.$MenuReg['menu_id'].'">
-							<div class="ImgWrapperMenu Left"><img src="../../../skin/images/body/icons/menu_icon.png" /></div>
-							<div class="DataWrapper Left">
-								<div class="BlueCyan">'.$MenuReg['title'].'</div>
-								<div>'.$Parent.'</div>
-								<div>'.$Link.'</div>
-							</div>
-							<div class="InfoWrapper Left">Estado: '.$Status.'</div>
-							<div class="ActionsWrapper Right">'.$Actions.'</div>
-							<div class="Clear"></div>
-						</div>';  
+			$Regs	.= '<div id="menu'.$MenuRegs['menu_id'].'" class="row animated bounceInUp prodfilediv">
+                         <div class="col-md-2 col-sm-3 col-xs-12">
+                            <i class="fa fa-fw '.$MenuRegs['icon'].'"></i>
+                         </div>
+                         <div class="col-md-1 col-sm-3 col-xs-3 colprod1">
+                            <div class="colprodtit">
+                            <p><b>'.$MenuRegs['title'].'</b></p>
+                            </div>    
+                         </div>
+                         <div class="col-md-1 col-sm-2 col-xs-3 colprod1">
+                            <div class="colprod">
+                            <p><b>'.$MenuRegs['link'].'</b></p>
+                            </div>  
+                         </div>
+                         <div class="col-md-1 col-sm-2 col-xs-3 colprod1">
+                            <div class="colprod">
+                            <p><b>'.$Status.'</b></p>
+                            </div>
+                         </div>
+                         <div class="col-md-1 col-sm-2 col-xs-3 colprod1">
+                            <div class="colprod">
+                            <p><b>'.$Parent.'</b></p>
+                            </div>
+                         </div>
+                         <div class="col-md-4 col-sm-12 col-xs-12 colprod1">
+                            <div class="colprod">
+                            <!-- Es una cama muy buena. Sirve para domir. Tiene 4 patas. Almohada de madera. Todo de madera. -->
+                            </div> 
+                         </div>
+                         <div class="col-md-2 col-sm-12 col-xs-12  colprod1">
+                          <div class="colprodico">
+                           <div class="prodicos">
+                                    <ul>
+                                        '.$Actions.'
+                                    </ul>                
+                                </div>
+                            </div>
+                         </div>
+                    </div>';  
 			$AtLeastOne	= true;
         } 
         if(!$AtLeastOne) $Regs	.= '<div class="RegWrapper DarkRed" id="EmptyRow" style="text-align:center;padding:40px;font-size:20px;">No hay registros.</div>';
