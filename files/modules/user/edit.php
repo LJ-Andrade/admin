@@ -109,7 +109,4 @@
         <!-- /#page-wrapper -->
         </div>
 <!-- /#wrapper -->
-<script>
-
-</script>
 <?php include('../../includes/inc.foot.php'); ?>

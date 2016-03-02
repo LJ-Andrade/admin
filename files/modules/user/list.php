@@ -8,10 +8,10 @@
     $Users = $DB->fetchAssoc('admin_user','*',"status = '".$Status."' ","admin_id"); 
 ?>
 <body>
+    <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
     <div id="wrapper">
-        <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
-       <?php include('../../includes/inc.delpopup.php'); ?> <!-- Del PopUp Window -->
-        <div id="page-wrapper">           
+
+    <!--    <div id="page-wrapper">           -->
             <div class="container-fluid">
                 <div class="userstit"><h3 class="usertittxt">Listado de Usuarios Administradores</h3></div>
                     
@@ -69,12 +69,17 @@
 
                     </div><!-- End Of Row  -->
             </div><!-- /.container-fluid -->
-        </div><!-- /#page-wrapper -->
+<!--     </div>--><!-- /#page-wrapper -->
+        </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
     </div><!-- /#wrapper -->
 <script>
 $(document).ready(function() {  
     $('#newuser').fadeIn( 500 );
 });
     
+$(window).scroll(function(){
+  $('#wrapper')[0].scrollTop=$(window).scrollTop();
+});
+
 </script>
 <?php include('../../includes/inc.foot.php'); ?>

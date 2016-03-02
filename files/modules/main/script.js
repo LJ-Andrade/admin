@@ -5,7 +5,7 @@ $(function(){
         $.notify({
         // options
         icon: 'fa fa-check',
-        message: 'Se ha logueado correctamente',
+        message: 'Bienvenido Usuario',
     },{
         // settings
         element: 'body',
@@ -18,7 +18,7 @@ $(function(){
             from: "bottom",
             align: "center"
         },
-        offset: 120,
+        offset: 520,
         spacing: 10,
         z_index: 1031,
         delay: 3000,

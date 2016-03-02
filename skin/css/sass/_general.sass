@@ -3,44 +3,20 @@
     margin: 0
     padding: 0
     outline: 0
+    word-break: break-all
 
-.pad0
-    padding: 0
-.mar0
-    margin: 0
-.centrarimg
-    margin: 0 auto
-.centrartxt
-    text-align: center
-a
-    color: #fff
-    text-decoration: none
-    outline: 0
-a:hover
-    color: #fff
-    text-decoration: none
-
-a:hover, a:active, a:focus
-    outline: 0
-
-p
-    font-family: $mainfont
-h1, h2, h3, h4, h5,
-    font-family: $mainfont
-
-a:focus, a:hover
-    color: $wh
-    text-decoration: underline
+html
 
 body
     margin-top: 100px
-    background-color: #5284ad
     font-family: $mainfont
+    background-color: #5284ad
     background-image: url(../images/body/backgrounds/back2.jpg)
     background-repeat: no-repeat
     background-attachment: fixed
     background-position: center center
     background-size: cover
+    padding-top: 45px
 
 @media(min-width:768px)
     body
@@ -49,15 +25,19 @@ body
         text-decoration: none
 #wrapper
     padding-left: 0
+    top: 80px
+    height: 100%
+
+// Ojo el Page Wrapper. Si en unos días no jode nada borrar todo lo relacionado con esa clase
+
 #page-wrapper
     width: 100%
     padding: 0
     margin-top: 80px
-    
+
 @media(min-width:768px)
     #page-wrapper
         min-height: 800px
-
 
 // Rearrange subtop in XS cels    
 @media(max-width:341px)
@@ -80,10 +60,6 @@ body
     #page-wrapper
         padding-top: 0
 
-.huge
-    font-size: 50px
-    line-height: normal
-
 
 @media(min-width:768px)
     #wrapper
@@ -92,6 +68,38 @@ body
         padding: 30px
     #wrapperlogin
         padding-left: 0
+
+a
+    color: #fff
+    text-decoration: none
+    outline: 0
+a:hover
+    color: #fff
+    text-decoration: none
+
+a:hover, a:active, a:focus
+    outline: 0
+
+p
+    font-family: $mainfont
+h1, h2, h3, h4, h5,
+    font-family: $mainfont
+
+a:focus, a:hover
+    color: $wh
+    text-decoration: underline
+
+
+
+//////////// Custom Styles /////////////////////////////////////////
+.pad0
+    padding: 0
+.mar0
+    margin: 0
+.centrarimg
+    margin: 0 auto
+.centrartxt
+    text-align: center
         
 .lastcol
     margin-right: 0
@@ -111,7 +119,7 @@ body
 .txtcenter
     text-align: center
     
-// Pagination
+////// Pagination ////////////////////////////////////////////////
 .paginat
     text-align: center
 .pagination > li:last-child > a, .pagination > li:last-child > span

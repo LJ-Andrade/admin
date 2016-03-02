@@ -7,23 +7,23 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
         </button>
-                <a class="navbar-brand" href="../login/login.php"><span class="ownername"><b>Mundo Pino </b>&#124;</span> <span class="marca">Vimana Auto-Admin &reg;</span></a>
+        <a class="navbar-brand" href="../login/login.php"><span class="ownername"><b>Mundo Pino </b>&#124;</span> <span class="marca">Vimana Auto-Admin &reg;</span></a>
     </div>
-            <ul class="nav navbar-right top-nav">
-            <!--   Loged User   -->
-                <li class="dropdown userloggeddiv">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="<?php echo $Admin->Img; ?>" class="userloginimg"> <?php echo $Admin->FullName; ?> <b class="caret"></b></a>
-                    <ul class="dropdown-menu menuuser">
-                        <li><a href="#"><i class="fa fa-fw fa-user"></i> Mi Perfil</a></li>
-                        <li><a href="#" id="Logout"><i class="fa fa-fw fa-power-off"></i> Desconectar</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <!-- Side Nav Menu -->
-            <?php
-                $Menu   = new Menu();
-                $Menu   ->insertMenu($_SESSION['profile_id'],$_SESSION['admin_id']);
-            ?>
+        <ul class="nav navbar-right top-nav">
+        <!--   Logged User   -->
+            <li class="dropdown userloggeddiv">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="<?php echo $Admin->Img; ?>" class="userloginimg"> <?php echo $Admin->FullName; ?> <b class="caret"></b></a>
+                <ul class="dropdown-menu menuuser">
+                    <li><a href="#"><i class="fa fa-fw fa-user"></i> Mi Perfil</a></li>
+                    <li><a href="#" id="Logout"><i class="fa fa-fw fa-power-off"></i> Desconectar</a></li>
+                </ul>
+            </li>
+        </ul>
+    <!-- Side Nav Menu -->
+    <?php
+        $Menu   = new Menu();
+        $Menu   ->insertMenu($_SESSION['profile_id'],$_SESSION['admin_id']);
+    ?>
     <!-- Sub Top Bar -->
     <div class="container-fluid subtop">
         <div class="subtop1">
@@ -46,4 +46,5 @@
             </ul>
         </div>
     </div>
+    <!-- Subtop End -->
 </nav>
