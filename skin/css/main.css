@@ -250,7 +250,7 @@ body {
   margin-top: 100px;
   font-family: "Open Sans", sans-serif;
   background-color: #5284ad;
-  background-image: url(../images/body/backgrounds/back3.jpg);
+  background-image: url(../images/body/backgrounds/back16.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center center;
@@ -598,6 +598,7 @@ option {
 .masterbtn {
   padding: 5px 10px;
   margin: 0 auto;
+  border-radius: 0;
   box-shadow: 0 8px 10px -10px rgba(0, 0, 0, 0.5);
   border: none;
   -webkit-transition: all 0.5s ease 0s;
@@ -608,7 +609,10 @@ option {
 a .masterbtn {
   color: #fff; }
   a .masterbtn:hover {
-    box-shadow: 0 0 0;
+    box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.5);
+    background-color: #388fab; }
+  a .masterbtn:focus, a .masterbtn:active {
+    box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.5);
     background-color: #388fab; }
 
 .btndel {
@@ -697,6 +701,29 @@ a .masterbtn {
 
 .titlist5 {
   border-right: 1px solid rgba(216, 216, 216, 0.5); }
+
+div#page_loader {
+  position: absolute;
+  top: 0;
+  bottom: 0%;
+  left: 0;
+  right: 0%;
+  background-color: #2E354F;
+  z-index: 99; }
+
+#loadgif {
+  position: absolute;
+  top: 15%;
+  left: 30%;
+  width: 700px;
+  height: 700px;
+  z-index: 100; }
+
+.juira {
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  color: black; }
 
 .login {
   height: 100%;

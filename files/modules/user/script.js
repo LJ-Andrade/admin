@@ -31,7 +31,7 @@ $(function(){
 	});
 });	
 
-/////////// Show or Hide Icons On subtop //////////////////////
+/////////////////// Show or Hide Icons On subtop ////////////////////////
 
 $(document).ready(function() { 
    $('#showitemfiltersuser').click(function() {
@@ -43,7 +43,7 @@ $(document).ready(function() {
     $('#showitemfiltersuser').show( 0 );
 });
 
-////////////// User Icos Del Modify Appears On Hover ///////////
+////////////// User Icos Del Modify Appears On Hover //////////////////
 $(document).ready(function() { 
 
   var hoverstyle = {
@@ -65,7 +65,7 @@ $(document).ready(function() {
   					$(this).css( unhoverlol );
 		});
 
-/////////// FIX //////////////
+/////////// FIX //////////////////////////////////////////////////////
 
 	//// Icons appearing - Colocar estilo en el div incrustado Style="visibility:visible"
 		$('.usergral').click(function() {
@@ -80,7 +80,7 @@ $(document).ready(function() {
 	// });
 });
 
-///////////  Options /////////////////////////////////////////
+///////////  Options - FIX  /////////////////////////////////////////
 
 $(document).ready(function() { 
    $('.usergral').click(function() {
@@ -90,9 +90,7 @@ $(document).ready(function() {
 
 
 
-
-
-/////////////// Switch View Mode //////////////////////////////
+/////////////// Switch View Mode /////////////////////////////////////
 
 $(function(){
     $('div[id="viewlist"]').hide();
