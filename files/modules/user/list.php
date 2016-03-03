@@ -12,8 +12,9 @@
     <div id="wrapper"><!--  Wrapper -->
         <div class="container-fluid">
             <div class="titlesgral"><h3 class="text-center">Listado de Usuarios Administradores</h3></div>
-                <div class="glasscontainer1 adduserdiv"> 
-                    <a href="new.php"><button class="masterbtn"><i class="fa fa-user-plus"></i> Agregar usuario</button></a>
+                <div class="glasscontainer1 optionusersdiv"> 
+                    <span id="delselecteduser" style="display: none" class="delselectedusers animated slideInDown"><i class="fa fa-trash"></i> Eliminar seleccionados</span>
+                    <a href="new.php"><button class="masterbtn"><i class="fa fa-user-plus"></i> Agregar usuario</button></a>    
                 </div>
                 
             <!-- Filters / Search -->
@@ -72,7 +73,7 @@
                             
                         </div>
                         
-                            <div id="usericosid" class="usericos hidden">
+                            <div id="usericosid" class="usericos usericoshide" Style="visibility:hidden">
                                 
                                 <ul>
                                     <li><a href="edit.php?id=<?php echo $User->AdminID ?>" class="btnmod btnuser"><i class="fa fa-fw fa-pencil"></i></a></li>

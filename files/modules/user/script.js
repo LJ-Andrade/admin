@@ -37,19 +37,57 @@ $(document).ready(function() {
    $('#showitemfiltersuser').click(function() {
          $('#filtersuser').toggle("slide");
     });
-   $('.usergral').click(function() {
-     $('.usericos').toggle("slide");
-			});
-
-
     $('#viewlistbt').show( 0 );
     $('#newuser').hide();
     $('#volverusers').fadeIn( 500 );
     $('#showitemfiltersuser').show( 0 );
-
 });
 
 ////////////// User Icos Del Modify Appears On Hover ///////////
+$(document).ready(function() { 
+
+  var hoverstyle = {
+      backgroundColor : "rgba(255,255,255, .3)",
+    };
+  var unhoverlol = {
+      backgroundColor : "transparent",
+    };
+
+// Select User
+		$(".usergral").click(function(){
+		     $(this).toggleClass("usergralhover");
+		});
+// Hover Effect
+		$('.usergral').hover(function() {
+		     $(this).css( hoverstyle );
+				});
+  $('.usergral').mouseleave(function() {
+  					$(this).css( unhoverlol );
+		});
+
+/////////// FIX //////////////
+
+	//// Icons appearing - Colocar estilo en el div incrustado Style="visibility:visible"
+		$('.usergral').click(function() {
+	    $(this).find(".usericos").css({"visibility":"visible"});
+	    return false;
+	});
+
+//// Icons appearing - Colocar estilo en el div incrustado Style="display:none"
+	// $('.usergral').click(function() {
+ //    $(this).find(".usericos").slideToggle( 500 );
+ //    return false;
+	// });
+});
+
+///////////  Options /////////////////////////////////////////
+
+$(document).ready(function() { 
+   $('.usergral').click(function() {
+         $('#delselecteduser').show ( 0 );
+    });
+});
+
 
 
 
@@ -59,7 +97,6 @@ $(document).ready(function() {
 $(function(){
     $('div[id="viewlist"]').hide();
     		$('#viewlist').hide();
-
       $("#viewlistbt").on( "click", function() {
     				$('div[id="viewgrid"]').hide( 500 );
         $('div[id="viewlist"]').show( 500 ); 

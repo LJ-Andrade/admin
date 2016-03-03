@@ -1198,6 +1198,21 @@ ul.alert-dropdown {
 @media(max-width:250px) {
   h3.usertittxt {
     font-size: 16px; } }
+.delselectedusers {
+  padding: 5px 20px;
+  margin: 0 auto;
+  margin: 0 15px;
+  box-shadow: 0 8px 10px -10px rgba(0, 0, 0, 0.5);
+  border: none;
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+  background-color: #ba4545;
+  color: #fff;
+  cursor: pointer; }
+  .delselectedusers:hover {
+    box-shadow: 0 0 0;
+    background-color: #C06060; }
+
 .usergral {
   max-width: 220px;
   margin: 10px 10px;
@@ -1207,10 +1222,15 @@ ul.alert-dropdown {
   -moz-transition: 0.5s;
   -o-transition: 0.5s;
   -ms-transition: 0.5s; }
-  .usergral:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175); }
+
+.usergralhover {
+  background-color: rgba(255, 255, 255, 0.3);
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175); }
+
+.usergralhoverout {
+  background-color: transparent;
+  box-shadow: none; }
 
 @media(max-width:250px) {
   .usergral {
@@ -1315,9 +1335,6 @@ p .addusertxt:hover {
     margin: 0 5px;
     transition: 0.5s; }
 
-.hidden {
-  visibility: hidden; }
-
 .visible {
   visibility: visible; }
 
@@ -1346,8 +1363,8 @@ p .addusertxt:hover {
   background-color: #2f435b;
   color: #fff; }
 
-.adduserdiv {
-  max-width: 400px;
+.optionusersdiv {
+  max-width: 1200px;
   padding-bottom: 20px;
   padding-top: 20px;
   margin: 0 auto;
