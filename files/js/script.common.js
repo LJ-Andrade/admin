@@ -14,16 +14,18 @@ $(".redirect").click(function(){
     location.href="users.php?msg=delete";
 });
 
-// Subtop
+// Subtop Icons
 //========================== 
 $(document).ready(function() {  
     $('#volverprod').hide();
-    $('#viewlist').hide();
-    $('#viewgrid').hide();
+    $('#viewlistbt').hide();
+    $('#viewgridbt').hide();
     $('#showitemfilters').hide();
+    $('#showitemfiltersuser').hide();
     $('#volverusers').hide();
     $('#newuser').hide();
     $('#newprod').hide();
+
 });
 
 //////////////////////////////////////////////////// Notify //////////////////////////////////////////////////////

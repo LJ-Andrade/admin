@@ -60,7 +60,6 @@ body
     #page-wrapper
         padding-top: 0
 
-
 @media(min-width:768px)
     #wrapper
         padding-left: 225px
@@ -85,10 +84,13 @@ p
 h1, h2, h3, h4, h5,
     font-family: $mainfont
 
+h5
+    font-size: 15px
+    font-weight: bold
+
 a:focus, a:hover
     color: $wh
     text-decoration: underline
-
 
 
 //////////// Custom Styles /////////////////////////////////////////
@@ -118,10 +120,26 @@ a:focus, a:hover
     text-align: center
 .txtcenter
     text-align: center
+
+.brd
+    border: 1px solid red
     
 ////// Pagination ////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
 .paginat
     text-align: center
+    position: fixed
+    bottom: 0
+    left: 50%
+    margin-bottom: -15px
+
+@media(max-width: 768px)
+    .paginat
+        left: 0
+        right: 0
+
+
 .pagination > li:last-child > a, .pagination > li:last-child > span
     border-radius: 0
 .pagination > li:first-child > a, .pagination > li:first-child > span
@@ -131,10 +149,10 @@ a:focus, a:hover
     border-color: rgba($pagborder, .3)
     color: $pagtxt
     
-// Windows
-// ==========================
+////////// Windows  ////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
     
-// Item Creation Window
+//////// Item Creation Window //////////////////////////////////////
 
 .additemdiv
     max-width: 600px
@@ -324,22 +342,58 @@ ol, ul
 
 
 
-//////////// Main Containers ////////////////////
+///////// Filters /////////////////////////
+///////////////////////////////////////////
 
-.glasscontainer1
+#filteritem
+    display: none
+#filtersuser
+    display: none
+    
+.filterdiv
     width: auto
+    max-width: 800opx
     background-color: rgba(0,0,0, .1)
-    padding: 15px 5px 10px
+    padding: 0 20px 5px 5px
     text-align: center
     padding-bottom: 15px
-    margin-bottom: 30p
+    margin-bottom: 30px
+    margin: 0 15px
+    
+.filterformdiv
+    margin-left: 10px
+    padding-top: 15px
+    
+.filtertit
+    margin-right: 15px
+    
+.form-controlit
+    display: block
+    width: 100%
+    height: 34px
+    padding: 6px 12px
+    font-size: 14px
+    line-height: 1.42857
+    max-width: 250px
+    color: #555
+    background-color: #FFF
+    background-image: none
+    border: 1px solid #CCC
+    border-radius: 4px
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s
+    display: inline 
+option
+    padding-left: 15px 
+option
+    padding-left: 15px 
 
-.textcenter
-    text-align: center
-
+.inputsgral
+    padding: 0 5px
 
 
 //////////// Buttons ////////////////////////////
+/////////////////////////////////////////////////
 
 .masterbtn
     padding: 5px 10px
@@ -360,6 +414,7 @@ a .masterbtn
 ///////////// Del y Modify /////////////////
 .btndel
     padding: 2px 20px
+    max-width: 70px
     font-size: 22px
     border-radius: 0
     border: 0
@@ -375,6 +430,7 @@ a .masterbtn
     
 .btnmod
     padding: 2px 20px
+    max-width: 70px
     font-size: 22px
     border-radius: 0
     border: 0
@@ -387,3 +443,35 @@ a .masterbtn
     &:focus, &:active
         background-color: $modbtnhover
         color: $modbtntxtacfoc
+
+
+////////////////    VENTANAS GENERALES     //////////////////////////
+/////////////////////////////////////////////////////////////////////
+
+//////////// Main Containers ////////////////////
+
+.glasscontainer1
+    width: auto
+    background-color: rgba(0,0,0, .1)
+    padding: 15px 5px 10px
+    text-align: center
+    padding-bottom: 15px
+    -webkit-transition: all 0.3s ease-out
+    -moz-transition: all 0.3s ease-out
+    -ms-transition: all 0.3s ease-out
+    -o-transition: all 0.3s ease-out
+    transition: all 0.3s ease-out 
+
+.textcenter
+    text-align: center
+
+.maincontainer
+    text-align: center
+
+.filerow
+    margin: 5px
+    padding-left: 15px
+    padding-right: 15px
+    &:hover
+        cursor: pointer
+        background-color: rgba(0,0,0, .2)

@@ -1,26 +1,13 @@
 // Users Admin
 
 
-h3.usertittxt
-    text-align: center
-
 @media(max-width:250px)
     h3.usertittxt
         font-size: 16px
 
 
 // Caja de usuarios
-.usericos
-    visibility: hidden
-    ul
-        list-style-type: none
-        text-align: center
-        transition: .5s
-        li
-            display: inline
-            text-align: center
-            margin: 0 5px
-            transition: .5s
+
 .usergral
     max-width: 220px
     margin: 10px 10px
@@ -59,10 +46,6 @@ h3.usertittxt
     text-align: center
     height: 60px
 
-
-
-    
-
 a .usernamediv
     color: #000
     text-decoration: none
@@ -82,8 +65,47 @@ p .addusertxt:hover
     color: #000
 
  
+/////////////////// User File View /////////////////
+
+.userimgfile
+    border-radius: 100%
+    max-width: 80px
+    cursor: pointer
+
+.filerowuser
+    margin: 5px
+    margin-left: 15px
+    margin-right: 15px
+    padding-left: 15px
+    padding-right: 15px
+    color: #fff
+    text-align: left
+    &:hover
+        cursor: pointer
+        background-color: rgba(0,0,0, .4)
 
 
+/////////////// Iconos Combinados Fila o Caja //////////
+
+.usericosfile,.usericos
+    ul
+        list-style-type: none
+        text-align: center
+        transition: .5s
+        li
+            display: inline
+            text-align: center
+            margin: 0 5px
+            transition: .5s
+
+.usericos
+    visibility: hidden
+
+.usericosfile
+    margin-top: 20px
+
+
+////////////// Buttons  //////////////////////////////
 
 .userbtn
     margin: 20px 5px

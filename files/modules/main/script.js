@@ -4,8 +4,8 @@ $(function(){
     $("#oklogmsg").click(function(){
         $.notify({
         // options
-        icon: 'fa fa-check',
-        message: 'Bienvenido Usuario',
+        icon: 'fa fa-hand-spock-o',
+        message: 'Bienvenido Usuario !',
     },{
         // settings
         element: 'body',
@@ -16,12 +16,12 @@ $(function(){
         showProgressbar: false,
         placement: {
             from: "bottom",
-            align: "center"
+            align: "right"
         },
-        offset: 520,
+        offset: 50,
         spacing: 10,
-        z_index: 1031,
-        delay: 3000,
+        z_index: 90,
+        delay: 2000,
         timer: 1000,
         url_target: '_blank',
         mouse_over: null,
@@ -36,7 +36,6 @@ $(function(){
         icon_type: 'class',
         template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0} alertok" role="alert">' +
             '<button type="button" aria-hidden="true" class="closealert" data-notify="dismiss">'+
-            '<i class="fa fa-times"></i>'+
             '</button>' +
             '<span data-notify="icon"></span> ' +
             '<span data-notify="message">{2}</span>' +

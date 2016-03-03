@@ -5,14 +5,19 @@
 ?>
 <body>
     <div id="wrapper">
-        <?php include('../../includes/inc.nav.php'); ?> <!-- Navegation -->
-        <div id="page-wrapper">           
-            <div class="container-fluid">
+        <?php include('../../includes/inc.nav.php'); ?> <!-- Navegation -->         
+            <div class="container-fluid maincontainer">
                 <div class="userstitulo">
-                    <h3>Bienvenido al Administrador</h3>
+                    <h3 class="text-center">Bienvenido al Administrador</h3>
+
+                   
+<button id="oklogmsg">Test mensaje</button>
+                  
+
+
+
                 </div>
-                <button id="oklogmsg">Prueba</button>
+                
             </div><!-- /.container-fluid -->
-        </div><!-- /#page-wrapper -->
     </div><!-- /#wrapper -->
 <?php include('../../includes/inc.foot.php'); ?>

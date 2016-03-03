@@ -1,11 +1,11 @@
-// Show or Hide Icons On subtop
-//==============================================
+/////////// Show or Hide Icons On subtop //////////////////////
+
 
 $(document).ready(function() {
     $('#showitemfilters').click(function() {
-         $('#itemfilters').toggle("slide");
+         $('#filteritem').toggle("slide");
     });
-    $('#viewlist').show( 0 );
+    $('#viewlistbt').show( 0 );
     $('#newprod').show( 100 );
     $('#showitemfilters').show( 0 );
 });
@@ -14,23 +14,24 @@ $(document).ready(function() {
 // Switch Viewmode
 //==============================================
 $(function(){
-    $('div[id^="delelemf"]').hide();
-    $('#viewgrid').hide();
+    $('div[id="viewlist"]').hide();
+    $('#viewlist').hide();
     		
-        $("#viewlist").on( "click", function() {
-    		$('div[id^="delelem"]').hide( 500 );
-            $('div[id^="delelemf"]').show( 500 ); 
-            $("#viewlist").hide();
-            $("#viewgrid").show( 500 );
+        $("#viewlistbt").on( "click", function() {
+    		$('div[id="viewgrid"]').hide( 500 );
+            $('div[id="viewlist"]').show( 500 ); 
+            $("#viewlistbt").hide();
+            $("#viewgridbt").show( 0 );
     	 });
         
-        $("#viewgrid").on( "click", function() {
-    		$('div[id^="delelem"]').show( 500 ); 
-            $('div[id^="delelemf"]').hide( 500 );
-            $("#viewgrid").hide();
-            $("#viewlist").show( 500 );
+        $("#viewgridbt").on( "click", function() {
+    		$('div[id="viewgrid"]').show( 500 ); 
+            $('div[id="viewlist"]').hide( 500 );
+            $("#viewgridbt").hide();
+            $("#viewlistbt").show( 0 );
     	 });
         
     // Active Inactive Switch
     $("[name='my-checkbox']").bootstrapSwitch();
 });
+
