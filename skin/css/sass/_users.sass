@@ -1,10 +1,8 @@
 // Users Admin
 
-
 @media(max-width:250px)
     h3.usertittxt
         font-size: 16px
-
 
 // Caja de usuarios
 
@@ -21,8 +19,6 @@
         background-color: rgba($itemfilediv, .3)
         -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175)
         box-shadow: 0 6px 12px rgba(0,0,0,.175)
-    &:hover div
-        visibility: visible
 
 @media(max-width:250px)
     .usergral
@@ -31,7 +27,7 @@
 
 .userimg
     border-radius: 100%
-    max-width: 180px
+    max-width: 130px
     cursor: pointer
     margin: 0 auto
     box-shadow: 10px 10px 21px -14px rgba(0,0,0,0.75)
@@ -57,37 +53,64 @@ a .usernamediv:hover
 
 .usernametxt
     text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.66)
-    font-weight: bold 
+    font-weight: bold
+.usernametxt2
+    text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.66)
 
 p .addusertxt
     color: #606060
 p .addusertxt:hover
-    color: #000
+    color: rgba($gris, 0.5)
 
  
-/////////////////// User File View /////////////////
+/////////////////// User List View /////////////////
+.listrow
+    display: flex
 
-.userimgfile
+.userimglist
     border-radius: 100%
-    max-width: 80px
+    max-width: 50px
+    padding: 0
     cursor: pointer
 
-.filerowuser
-    margin: 5px
-    margin-left: 15px
-    margin-right: 15px
-    padding-left: 15px
-    padding-right: 15px
-    color: #fff
-    text-align: left
-    &:hover
-        cursor: pointer
-        background-color: rgba(0,0,0, .4)
+.col1listus
+    border-right: 1px solid rgba($gris, 0.5)
+.col2listus
+    border-right: 1px solid rgba($gris, 0.5)
+    padding-top: 15px
+.col3listus
+    border-right: 1px solid rgba($gris, 0.5)
+    padding-top: 15px
+.col4listus
+    border-right: 1px solid rgba($gris, 0.5)
+    padding-top: 15px
+.col5listus
+    border-right: 1px solid rgba($gris, 0.5)
+    padding-top: 15px
+.col6listus
+    padding-top: 10px
 
+/////////  List View Responsivity /////
+@media(max-width:1200px)
+    .userimglist
+        max-width: 50px
+    .col2listus
+        text-align: center
+        float: right
+    .col3listus
+        text-align: center
+    .col4listus
+        text-align: center
+        float: right
+    .col5listus
+        text-align: center
+        float: left
+    .col6listus
+        text-align: center
 
 /////////////// Iconos Combinados Fila o Caja //////////
 
-.usericosfile,.usericos
+.usericoslist,.usericos
     ul
         list-style-type: none
         text-align: center
@@ -98,11 +121,13 @@ p .addusertxt:hover
             margin: 0 5px
             transition: .5s
 
-.usericos
+.hidden
     visibility: hidden
+.visible
+    visibility: visible
 
-.usericosfile
-    margin-top: 20px
+.usericoslist
+    margin-top: 0
 
 
 ////////////// Buttons  //////////////////////////////
@@ -126,7 +151,6 @@ p .addusertxt:hover
     background-color: #2f435b
     color: #fff 
 
-
 .adduserdiv
     max-width: 400px
     padding-bottom: 20px
@@ -141,11 +165,3 @@ p .addusertxt:hover
     -webkit-box-shadow: 10px 10px 21px -14px rgba(0,0,0,0.75)
     -moz-box-shadow: 10px 10px 21px -14px rgba(0,0,0,0.75)
     box-shadow: 10px 10px 21px -14px rgba(0,0,0,0.75) 
-
-
-
-
-//#hover-content
-//    display: none 
-//#hover-me:hover #hover-content
-//    display: block 

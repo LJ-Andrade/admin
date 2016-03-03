@@ -5,7 +5,6 @@ $(document).ready(function(){
 		notifySuccess('Usuario modificado correctamente');
 });
 
-
 $(function(){
 	$("#create").click(function(){
 		if(validate.validateFields('')){
@@ -38,6 +37,11 @@ $(document).ready(function() {
    $('#showitemfiltersuser').click(function() {
          $('#filtersuser').toggle("slide");
     });
+   $('.usergral').click(function() {
+     $('.usericos').toggle("slide");
+			});
+
+
     $('#viewlistbt').show( 0 );
     $('#newuser').hide();
     $('#volverusers').fadeIn( 500 );
@@ -45,13 +49,17 @@ $(document).ready(function() {
 
 });
 
+////////////// User Icos Del Modify Appears On Hover ///////////
 
-///// Switch View Mode /////////////////////
+
+
+
+/////////////// Switch View Mode //////////////////////////////
 
 $(function(){
     $('div[id="viewlist"]').hide();
-    $('#viewlist').hide();
-    		
+    		$('#viewlist').hide();
+
       $("#viewlistbt").on( "click", function() {
     				$('div[id="viewgrid"]').hide( 500 );
         $('div[id="viewlist"]').show( 500 ); 
@@ -70,27 +78,12 @@ $(function(){
     $("[name='my-checkbox']").bootstrapSwitch();
 });
 
-
-
-// $(document).ready(function() {
-//     $('#showitemfilters').click(function() {
-//          $('#itemfilters').toggle("slide");
-//     });
-//     $('#viewlist').show( 0 );
-//     $('#newprod').show( 100 );
-//     $('#showitemfilters').show( 0 );
-// });
-    
-
-
-
 $(function(){
 	// Show Img selection div
 	$('#chooseimg').click(function() {
 	         $('#itemimg').toggle("slide");
 	         $('#chooseimg').hide( 100 );
 	    });
-
 	    
 	// Insert Img
 	var wrapper = $('<div/>').css({height:0,width:0,'overflow':'hidden'});

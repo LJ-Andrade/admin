@@ -21,15 +21,14 @@
 .itemstatswitch
     padding-right: 1px
  
-
-.card
+.grid
     height: 300px
     overflow: hidden
-    position: relative
+    position: relative 
     height: 280px
     overflow: hidden
     position: relative 
-.card_content
+.grid_content
     background: rgba(255,255,255,1)
     background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(245,245,245,1) 62%, rgba(217,217,217,1) 100%)
     background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255,255,255,1)), color-stop(62%, rgba(245,245,245,1)), color-stop(100%, rgba(217,217,217,1)))
@@ -46,18 +45,19 @@
     transition: all 0.5s ease
     color: $carttxt
 
-.card_content h3
+.grid_content h3
     font-size: 1.5em
     margin-bottom: 0.5em 
-.card:hover .card_content
-    background-color: $cardcontent
+.grid:hover .grid_content
+    background-color: $gridcontent
     bottom: 0 
-.card1:hover .card_content
+.grid1:hover .grid_content
     background-color: #fff
     bottom: 0 
 
 
 /////////////////// Item File View /////////////////
+
 
 .itemimglist
     border-radius: 100%
@@ -76,8 +76,6 @@
         cursor: pointer
         background-color: rgba(0,0,0, .4)
 
-
-
 .itemtit
     margin: 30px 0 0 
 .itemtxt
@@ -95,15 +93,13 @@
     display: inline
     text-align: center
     margin: 0 15px 
+
 .itemicos
     background-color: transparent
     margin-top: 10px
-    
-.itemicos
     ul
         list-style-type: none
         text-align: center 
-.itemicos
     li
         display: inline
         text-align: center

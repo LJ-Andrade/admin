@@ -52,7 +52,7 @@
                         </div>
                     </form>
                 </div>
-            </div><!-- Container Filters -->
+            </div><!-- /Container Filters / Search -->
 
             <!-- Grid View -->
             <div id="viewgrid" class="row row-centered"> 
@@ -64,11 +64,15 @@
                 <!--    Users   -->
                 <div id="user<?php echo $User->AdminID ?>" class="col-lg-3 col-sm-6 col-xs-12 col-centered animated fadeIn usergral">
 
-                        <img src="<?php echo $User->Img; ?>" class="img-responsive userimg">
+                        <img src="<?php echo $User->Img; ?>" id="userimage" class="img-responsive userimg">
                         
-                        <div class="row usernamediv"><span class="usernametxt"><?php echo  $User->FullUserName; ?></span></div>
+                        <div class="row usernamediv">
+                            <span class="usernametxt"><?php echo  $User->FullUserName; ?></span><br>
+                            <span class="usernametxt2">Administrador&#124; Grupo </span>
+                            
+                        </div>
                         
-                            <div class="usericos">
+                            <div id="usericosid" class="usericos hidden">
                                 
                                 <ul>
                                     <li><a href="edit.php?id=<?php echo $User->AdminID ?>" class="btnmod btnuser"><i class="fa fa-fw fa-pencil"></i></a></li>
@@ -85,36 +89,52 @@
 
             <!-- List View -->
             <div id="viewlist" class="row">
+                <!-- Titles  -->
+                <div class="container-fluid listrow listtit glasscontainer1">
+                    <div class="col-lg-1 col-md-4 col-sm-6 col-xs-12 titlist1">
+                    
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 titlist2">
+                        <h5>Nombre</h5>
+                    </div> 
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 titlist3">
+                        <h5>Permisos</h5>
+                    </div> 
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 titlist4">
+                        <h5>Grupo</h5>
+                    </div> 
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 titlist5">
+                        <h5>&Uacute;ltimo Acceso</h5>
+                    </div> 
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 titlist6">
+                        <h5 class="text-center">Editar / Eliminar</h5>
+                    </div> 
+                </div> <!-- /Titles  -->
                 <?php 
                         foreach($Users as $User){ 
                             $User = new AdminData($User['admin_id']);
-                    ?>
-
-                <div id="user<?php echo $User->AdminID ?>" class="container-fluid glasscontainer1 filerowuser">
-               
-                    <div class="col-lg-2 col-md-4">
-                    <img src="<?php echo $User->Img; ?>" class="img-responsive userimgfile">
+                ?>
+                <!-- Item 1 -->
+                <div id="user<?php echo $User->AdminID ?>" class="container-fluid glasscontainer1 listrow">
+                    <div class="col-lg-1 col-md-4 col-sm-6 col-xs-12 col1listus">
+                        <img src="<?php echo $User->Img; ?>" class="img-responsive userimglist">
                     </div> 
-                    <div class="col-lg-2 col-md-4">
-                    <h5>Nombre</h5>
-                    <?php echo  $User->FullUserName; ?>
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 col2listus">
+                        <?php echo  $User->FullUserName; ?>
                     </div>
-                    <div class="col-lg-2 col-md-4">
-                    <h5>Permisos</h5>
-                    Administrador
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 col3listus">
+                        <p>Administrador</p>
                     </div>
-                    <div class="col-lg-2 col-md-4">
-                    <h5>Grupo</h5>
-                    Admin
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 col4listus">
+                        <p>Admin</p>
                     </div>
-                    <div class="col-lg-2 col-md-4">
-                    <h5>&Uacute;ltimo Acceso</h5>
-                    5 de Marzo 2016 &#124; 22:33 hs
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 col5listus">
+                        <p>5 de Marzo 2016 &#124; 22:33 hs</p>
                     </div> 
-                    <div class="col-lg-2 col-md-4">
-                        <div class="usericosfile">
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 col6listus">
+                        <div class="usericoslist">
                              <ul>
-                                <li  class="btnmod btnuser"><a href="edit.php?id=<?php echo $User->AdminID ?>"><i class="fa fa-fw fa-pencil"></i></a></li>
+                                <li class="btnmod btnuser"><a href="edit.php?id=<?php echo $User->AdminID ?>"><i class="fa fa-fw fa-pencil"></i></a></li>
                                     <?php if($User->AdminID!=$Admin->AdminID){ ?>
                                 <li deleteElement="<?php echo $User->AdminID ?>" deleteParent="user<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>'?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente" class="deleteElement btndel btnuser"><i class="fa fa-fw fa-trash"></i></li>
                                     <?php } ?>
@@ -122,8 +142,10 @@
                         </div>
                     </div>
                 </div>
+                <!-- /Item 1  -->
                 <?php } ?>
-            </div><!-- /File View  -->
+            </div><!-- /List View  -->
+
             
         </div><!-- /.container-fluid -->
     </div><!-- /#wrapper -->

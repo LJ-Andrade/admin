@@ -250,7 +250,7 @@ body {
   margin-top: 100px;
   font-family: "Open Sans", sans-serif;
   background-color: #5284ad;
-  background-image: url(../images/body/backgrounds/back2.jpg);
+  background-image: url(../images/body/backgrounds/back3.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center center;
@@ -414,32 +414,6 @@ a:focus, a:hover {
   max-width: 600px;
   margin: 0 auto;
   text-align: center; }
-
-.additembtn {
-  color: #fff;
-  background-color: #056e90;
-  transition: 0.5s;
-  margin: 0 15px;
-  border-radius: 0;
-  transition: all 0.2s ease 0s; }
-
-.additembtn:hover,
-.additembtn:focus,
-.additembtn:active,
-.additembtn.active,
-.open .dropdown-toggle.additembtn {
-  color: #fff;
-  background-color: #197a99; }
-
-.additembtn:active,
-.additembtn.active,
-.open .dropdown-toggle.additembtn {
-  background-image: none; }
-
-.btnsave {
-  background-color: #056e90; }
-  .btnsave:hover {
-    background-color: #388fab; }
 
 .formitems input[type=text],
 .formitems input[type=password] {
@@ -694,6 +668,35 @@ a .masterbtn {
   .filerow:hover {
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.2); }
+
+.listrow {
+  margin: 5px;
+  margin-left: 15px;
+  margin-right: 15px;
+  padding: 5px 15px;
+  color: #fff;
+  text-align: left; }
+  .listrow:hover {
+    cursor: pointer;
+    background-color: rgba(5, 110, 144, 0.2); }
+
+.listtit {
+  background-color: rgba(5, 110, 144, 0.5); }
+
+.titlist1 {
+  border-right: 1px solid rgba(216, 216, 216, 0.5); }
+
+.titlist2 {
+  border-right: 1px solid rgba(216, 216, 216, 0.5); }
+
+.titlist3 {
+  border-right: 1px solid rgba(216, 216, 216, 0.5); }
+
+.titlist4 {
+  border-right: 1px solid rgba(216, 216, 216, 0.5); }
+
+.titlist5 {
+  border-right: 1px solid rgba(216, 216, 216, 0.5); }
 
 .login {
   height: 100%;
@@ -1067,7 +1070,7 @@ ul.alert-dropdown {
 .itemstatswitch {
   padding-right: 1px; }
 
-.card {
+.grid {
   height: 300px;
   overflow: hidden;
   position: relative;
@@ -1075,7 +1078,7 @@ ul.alert-dropdown {
   overflow: hidden;
   position: relative; }
 
-.card_content {
+.grid_content {
   background: white;
   background: -moz-radial-gradient(center, ellipse cover, white 0%, whitesmoke 62%, #d9d9d9 100%);
   background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, white), color-stop(62%, whitesmoke), color-stop(100%, #d9d9d9));
@@ -1091,15 +1094,15 @@ ul.alert-dropdown {
   transition: all 0.5s ease;
   color: #000; }
 
-.card_content h3 {
+.grid_content h3 {
   font-size: 1.5em;
   margin-bottom: 0.5em; }
 
-.card:hover .card_content {
+.grid:hover .grid_content {
   background-color: #fff;
   bottom: 0; }
 
-.card1:hover .card_content {
+.grid1:hover .grid_content {
   background-color: #fff;
   bottom: 0; }
 
@@ -1144,15 +1147,13 @@ ul.alert-dropdown {
 .itemicos {
   background-color: transparent;
   margin-top: 10px; }
-
-.itemicos ul {
-  list-style-type: none;
-  text-align: center; }
-
-.itemicos li {
-  display: inline;
-  text-align: center;
-  margin: 0 15px; }
+  .itemicos ul {
+    list-style-type: none;
+    text-align: center; }
+  .itemicos li {
+    display: inline;
+    text-align: center;
+    margin: 0 15px; }
 
 .prodicoadd ul {
   margin-left: -25px;
@@ -1210,8 +1211,6 @@ ul.alert-dropdown {
     background-color: rgba(255, 255, 255, 0.3);
     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175); }
-  .usergral:hover div {
-    visibility: visible; }
 
 @media(max-width:250px) {
   .usergral {
@@ -1219,7 +1218,7 @@ ul.alert-dropdown {
     padding: 0; } }
 .userimg {
   border-radius: 100%;
-  max-width: 180px;
+  max-width: 130px;
   cursor: pointer;
   margin: 0 auto;
   box-shadow: 10px 10px 21px -14px rgba(0, 0, 0, 0.75); }
@@ -1245,44 +1244,85 @@ a .usernamediv:hover {
   text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.66);
   font-weight: bold; }
 
+.usernametxt2 {
+  text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.66); }
+
 p .addusertxt {
   color: #606060; }
 
 p .addusertxt:hover {
-  color: #000; }
+  color: rgba(216, 216, 216, 0.5); }
 
-.userimgfile {
+.listrow {
+  display: flex; }
+
+.userimglist {
   border-radius: 100%;
-  max-width: 80px;
+  max-width: 50px;
+  padding: 0;
   cursor: pointer; }
 
-.filerowuser {
-  margin: 5px;
-  margin-left: 15px;
-  margin-right: 15px;
-  padding-left: 15px;
-  padding-right: 15px;
-  color: #fff;
-  text-align: left; }
-  .filerowuser:hover {
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.4); }
+.col1listus {
+  border-right: 1px solid rgba(216, 216, 216, 0.5); }
 
-.usericosfile ul, .usericos ul {
+.col2listus {
+  border-right: 1px solid rgba(216, 216, 216, 0.5);
+  padding-top: 15px; }
+
+.col3listus {
+  border-right: 1px solid rgba(216, 216, 216, 0.5);
+  padding-top: 15px; }
+
+.col4listus {
+  border-right: 1px solid rgba(216, 216, 216, 0.5);
+  padding-top: 15px; }
+
+.col5listus {
+  border-right: 1px solid rgba(216, 216, 216, 0.5);
+  padding-top: 15px; }
+
+.col6listus {
+  padding-top: 10px; }
+
+@media(max-width:1200px) {
+  .userimglist {
+    max-width: 50px; }
+
+  .col2listus {
+    text-align: center;
+    float: right; }
+
+  .col3listus {
+    text-align: center; }
+
+  .col4listus {
+    text-align: center;
+    float: right; }
+
+  .col5listus {
+    text-align: center;
+    float: left; }
+
+  .col6listus {
+    text-align: center; } }
+.usericoslist ul, .usericos ul {
   list-style-type: none;
   text-align: center;
   transition: 0.5s; }
-  .usericosfile ul li, .usericos ul li {
+  .usericoslist ul li, .usericos ul li {
     display: inline;
     text-align: center;
     margin: 0 5px;
     transition: 0.5s; }
 
-.usericos {
+.hidden {
   visibility: hidden; }
 
-.usericosfile {
-  margin-top: 20px; }
+.visible {
+  visibility: visible; }
+
+.usericoslist {
+  margin-top: 0; }
 
 .userbtn {
   margin: 20px 5px;

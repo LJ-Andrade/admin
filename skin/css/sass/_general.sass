@@ -11,7 +11,7 @@ body
     margin-top: 100px
     font-family: $mainfont
     background-color: #5284ad
-    background-image: url(../images/body/backgrounds/back2.jpg)
+    background-image: url(../images/body/backgrounds/back3.jpg)
     background-repeat: no-repeat
     background-attachment: fixed
     background-position: center center
@@ -183,31 +183,31 @@ a:focus, a:hover
 
 
 // Add Item Button
-.additembtn
-    color: $btnoktxt
-    background-color: $btnok
-    transition: 0.5s
-    margin: 0 15px
-    border-radius: 0
-    transition: all 0.2s ease 0s 
+// .additembtn
+//     color: $btnoktxt
+//     background-color: $btnok
+//     transition: 0.5s
+//     margin: 0 15px
+//     border-radius: 0
+//     transition: all 0.2s ease 0s 
  
-.additembtn:hover, 
-.additembtn:focus, 
-.additembtn:active, 
-.additembtn.active, 
-.open .dropdown-toggle.additembtn
-    color: $wh
-    background-color: $btnokhover
+// .additembtn:hover, 
+// .additembtn:focus, 
+// .additembtn:active, 
+// .additembtn.active, 
+// .open .dropdown-toggle.additembtn
+//     color: $wh
+//     background-color: $btnokhover
     
-.additembtn:active,
-.additembtn.active,
-.open .dropdown-toggle.additembtn
-    background-image: none 
+// .additembtn:active,
+// .additembtn.active,
+// .open .dropdown-toggle.additembtn
+//     background-image: none 
     
-.btnsave
-    background-color: $modbtn
-    &:hover
-        background-color: $modbtnhover
+// .btnsave
+//     background-color: $modbtn
+//     &:hover
+//         background-color: $modbtnhover
 
 // Placeholders
 .formitems input[type=text],
@@ -273,7 +273,7 @@ a:focus, a:hover
     padding: 0
     margin: 0
     
-// Contador caracteres
+//////////////// Contador caracteres  //////////////////////
 form .indicator
     display: block
     height: 30px
@@ -311,9 +311,8 @@ form .indicator.empty
 .switchuser
     margin: 10px 0 20px 0
 
-
-// Breadcrums
-//==================================================
+//////////////////// Breadcrums ///////////////////////
+//////////////////////////////////////////////////////
 
 .breadcrumb
     padding: 0px
@@ -340,10 +339,8 @@ ol, ul
     margin-top: 0
     margin-bottom: 10px
 
-
-
-///////// Filters /////////////////////////
-///////////////////////////////////////////
+/////////////////// Filters /////////////////////////
+////////////////////////////////////////////////////
 
 #filteritem
     display: none
@@ -392,8 +389,8 @@ option
     padding: 0 5px
 
 
-//////////// Buttons ////////////////////////////
-/////////////////////////////////////////////////
+///////////////////// Buttons ////////////////////////////
+/////////////////////////////////////////////////////////
 
 .masterbtn
     padding: 5px 10px
@@ -445,7 +442,7 @@ a .masterbtn
         color: $modbtntxtacfoc
 
 
-////////////////    VENTANAS GENERALES     //////////////////////////
+////////////////    GENERIC WINDOWS     //////////////////////////////
 /////////////////////////////////////////////////////////////////////
 
 //////////// Main Containers ////////////////////
@@ -475,3 +472,34 @@ a .masterbtn
     &:hover
         cursor: pointer
         background-color: rgba(0,0,0, .2)
+
+
+////////////// LIST VIEW //////////////////////////////////////////
+
+.listrow
+    margin: 5px
+    margin-left: 15px
+    margin-right: 15px
+    padding: 5px 15px
+    color: #fff
+    text-align: left
+    &:hover
+        cursor: pointer
+        background-color: rgba($mainblue, .2)
+
+.listtit
+    background-color: rgba($mainblue, .5)
+
+.titlist1
+    border-right: 1px solid rgba($gris, 0.5)
+.titlist2
+    border-right: 1px solid rgba($gris, 0.5)
+.titlist3
+    border-right: 1px solid rgba($gris, 0.5)
+.titlist4
+    border-right: 1px solid rgba($gris, 0.5)
+.titlist5
+    border-right: 1px solid rgba($gris, 0.5)
+.titlist6
+
+

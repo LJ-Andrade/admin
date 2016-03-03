@@ -55,14 +55,14 @@
               <p class="col-md-4 col-xs-12 itemstattxt">Estado: </p>
               <input type="checkbox" class="centered col-md-8 col-xs-12 itemstatswitch" name="my-checkbox" data-on-text="Activo" data-off-text="Pausado"  data-label-width="auto" data-size="mini" checked>        
             </div>
-            <div class="card">
+            <div class="grid">
               <div>
                 <img src="../../../skin/images/products/cod1.jpg" alt="" class="img-responsive">
               </div>
               <div class="col-md-12 itemtit">
                 <p>Cama Loca - F128</p>
               </div>
-                <div class="card_content">
+                <div class="grid_content">
                   <div class="col-md-12 itemtit">
                     <p><b>Cama Loca</b></p>
                   </div>
@@ -90,35 +90,37 @@
               </div>
             </div>
           </div>
-        </div>  <!-- Grid View End -->
+        </div>  <!-- /Grid View -->
 
-
-      <!--  List View  -->
+        <!-- List View -->
         <div id="viewlist" class="row">
-            <div id="" class="container-fluid glasscontainer1 listrowitem">
-                <div class="col-lg-2 col-md-4">
-                  <img src="#" class="img-responsive itemimglist">
+            
+            <!-- PHP HERE ;) -->
+
+            <div id="user<?php echo $User->AdminID ?>" class="container-fluid glasscontainer1 listrow">
+                <div class="col-lg-1 col-md-2 col-sm-12 imgpart">
+                    <img src="../../../skin/images/products/7.jpg" class="img-responsive">
                 </div> 
-                <div class="col-lg-2 col-md-4">
-                <h5>Producto</h5>
-                  <p>Nombre Prod</p>
+                <div class="col-lg-2 col-md-2 col-sm-12 seccollist">
+                  <h5>Producto</h5>
+                  <p>Cama Amplia 5 Patas</p>
                 </div>
-                <div class="col-lg-2 col-md-4">
-                <h5>Descripci&oacute;n</h5>
-                  <p>140 chars</p>
-                </div> 
-                <div class="col-lg-2 col-md-4">
-                <h5>Modelo</h5>
+                <div class="col-lg-4 col-md-2 col-sm-12 thrcollist">
+                  <h5>Descripci&oacute;n</h5>
+                  <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, re loco</p>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-12 forcollist">
+                  <h5>Modelo</h5>
                   <p>Numero Modelo (alfanum.)</p>
                 </div>
-                <div class="col-lg-2 col-md-4">
-                <h5>Codigo</h5>
+                <div class="col-lg-1 col-md-2 col-sm-12 fthcollist">
+                  <h5>Codigo</h5>
                   <p>Codigo (alfanum.)</p>
-                </div>
-                <div class="col-lg-2 col-md-4">
-                    <div class="usericosfile">
+                </div> 
+                <div class="col-lg-2 col-md-2 col-sm-12 sexcollist">
+                    <div class="usericoslist">
                          <ul>
-                            <li  class="btnmod btnuser"><a href="edit.php?id=<?php echo $User->AdminID ?>"><i class="fa fa-fw fa-pencil"></i></a></li>
+                            <li class="btnmod btnuser"><a href="edit.php?id=<?php echo $User->AdminID ?>"><i class="fa fa-fw fa-pencil"></i></a></li>
                                 <?php if($User->AdminID!=$Admin->AdminID){ ?>
                             <li deleteElement="<?php echo $User->AdminID ?>" deleteParent="user<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>'?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente" class="deleteElement btndel btnuser"><i class="fa fa-fw fa-trash"></i></li>
                                 <?php } ?>
@@ -126,7 +128,10 @@
                     </div>
                 </div>
             </div>
-        </div><!-- /File View -->
+            <!-- /PHP HERE ;) -->
+        </div><!-- /List View  -->
+
+
 
 
       <!--Pagination-->
