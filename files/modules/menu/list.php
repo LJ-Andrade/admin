@@ -5,17 +5,42 @@
 ?>
 <body>
     <div id="wrapper">
-        <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
-        <div id="page-wrapper">           
-            <div class="container-fluid">
-                <div class="userstitulo"><h3>Listado de Menúes</h3></div>
-                    <div class="container-fluid">
-                    <!-- Alternative Visualization - Products -->
-                    <!-- Prod 1-->
-                    <?php echo $Menu->MakeList() ?>
-                <!-- /.container-fluid -->
+        <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->          
+        <div class="container-fluid">
+            <div class="titlesgral"><h3 class="text-center">Listado de Men&uacute;es</h3></div>
+                <div id="optionsmenu" class="glasscontainer1"> 
+                    <span id="delselecteduser" class="delselectedusers animated fadeIn"><i class="fa fa-trash"></i> Eliminar seleccionados</span>
                 </div>
-            </div><!-- /.container-fluid -->
-        </div><!-- /#page-wrapper -->
+                
+                <div id="viewlist" class="row">
+                    <!-- Titles  -->
+                    <div class="listtit glasscontainer1">
+                        <div class="col-lg-1 col-md-4 col-sm-6 col-xs-12 titlist1">
+                            <h5>Icono</h5>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 titlist2">
+                            <h5>Icono</h5>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 titlist3">
+                            <h5>Nombre</h5>
+                        </div> 
+                        <div class="col-lg-1 col-md-4 col-sm-6 col-xs-12 titlist4">
+                            <h5>Permisos</h5>
+                        </div> 
+                        <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 titlist5">
+                            <h5>Grupo</h5>
+                        </div> 
+                        <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 titlist6ult">
+                            <h5>&Uacute;ltimo Acceso</h5>
+                        </div> 
+                        <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 titlist7">
+                            <h5 class="text-center">Editar / Eliminar</h5>
+                        </div> 
+                    </div> <!-- /Titles  -->
+                    <?php echo $Menu->MakeList() ?>
+                </div>
+
+    
+        </div><!-- /.container-fluid -->
     </div><!-- /#wrapper -->
 <?php include('../../includes/inc.foot.php'); ?>

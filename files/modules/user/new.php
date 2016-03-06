@@ -55,39 +55,49 @@
                 </div>
               </div>
             </div>
-            <div class="row animated bounceInRight switchuser">
-                  <span class="userstatustit">Estado:</span>
-                  <input type="checkbox" class="centered" name="status" id="status" data-on-text="Activo" data-off-text="Inactivo" data-size="large" data-label-width="auto" checked>                                     
+            <div class="col-md-6 animated bounceInRight switchuser">
+                  <div class="col-md-12 userstatustit">Estado</div>
+                  <div class="col-md-12"><input type="checkbox" class="centered" name="status" id="status" data-on-text="Activo" data-off-text="Inactivo" data-size="large" data-label-width="auto" checked>
+
+                  </div>                                     
             </div>
+            <div class="col-md-6 animated bounceInRight switchuser ">
+                  <li id="chooseimg" class="btn masterbtn animated fadeIn"><a href="#" class="" role="button"><i class="fa fa-file-image-o fa-fw"></i> Elegir Im&aacute;gen...</a></li>                                  
+            </div>
+
+
            <!--   Generic Img and AddImg Div       -->
-           <div id="itemimg" class="itemimgmain">
+           <div id="itemimg" class="itemimgmain brd">
               <div class="row"> 
-                <div class="col-xs-6 col-md-3 addimgdiv">
-                  <div id="file"><img src="../../../skin/images/users/mas.jpg" class="img-responsive thumbimgadd animated fadeInUp thumbimg"></div>
+                <div class="col-xs-12 col-md-6 addimgdiv">
+                  <div id="file"><img src="../../../skin/images/users/mas.jpg" class="img-responsive thumbimgadd animated fadeIn thumbimg"></div>
                   <input type="file" name="img" id="img" />
                 </div>
                 <div class="col-xs-6 col-md-3 addimgdiv">
-                  <img src="../../../skin/images/products/genericproduct.png" class="img-responsive thumbimg animated fadeInUp">
+                  <img src="../../../skin/images/products/genericproduct.png" class="img-responsive thumbimg animated fadeIn">
                 </div>   
                 <div class="col-xs-6 col-md-3 addimgdiv">
-                  <img src="../../../skin/images/products/cod1.jpg" class="img-responsive thumbimg animated fadeInUp">
+                  <img src="../../../skin/images/products/cod1.jpg" class="img-responsive thumbimg animated fadeIn">
                 </div>   
                 <div class="col-xs-6 col-md-3 addimgdiv">
-                  <img src="../../../skin/images/products/cod2.jpg" class="img-responsive thumbimg animated fadeInUp">
-                </div>
-                </div>
-                <div class="row"> 
-                <div class="col-xs-6 col-md-3 addimgdiv">
-                  <img src="../../../skin/images/products/cod3.jpg" class="img-responsive thumbimg animated fadeInUp">
+                  <img src="../../../skin/images/products/cod2.jpg" class="img-responsive thumbimg animated fadeIn">
                 </div>
                 <div class="col-xs-6 col-md-3 addimgdiv">
-                  <img src="../../../skin/images/products/cod4.jpg" class="img-responsive thumbimg animated fadeInUp">
+                  <img src="../../../skin/images/products/cod2.jpg" class="img-responsive thumbimg animated fadeIn">
+                </div>
+              </div>
+              <div class="row"> 
+                <div class="col-xs-6 col-md-3 addimgdiv">
+                  <img src="../../../skin/images/products/cod3.jpg" class="img-responsive thumbimg animated fadeIn">
+                </div>
+                <div class="col-xs-6 col-md-3 addimgdiv">
+                  <img src="../../../skin/images/products/cod4.jpg" class="img-responsive thumbimg animated fadeIn">
                 </div>   
                 <div class="col-xs-6 col-md-3 addimgdiv">
-                  <img src="../../../skin/images/products/genericproduct.png" class="img-responsive thumbimg animated fadeInUp">
+                  <img src="../../../skin/images/products/genericproduct.png" class="img-responsive thumbimg animated fadeIn">
                 </div>   
                 <div class="col-md-3 addimgdiv">
-                  <img src="../../../skin/images/products/genericproduct.png" class="img-responsive thumbimg animated fadeInUp">
+                  <img src="../../../skin/images/products/genericproduct.png" class="img-responsive thumbimg animated fadeIn">
                 </div>
               </div>  
             </div>        
@@ -97,8 +107,7 @@
                   <!--  Add Img & Done Button Div  -->
                   <div class="container centrarbtn animated fadeInUp donediv">
                        <div class="form-group">
-                         <li id="chooseimg" class="animated fadeIn btn additembtn"><a href="#" class="" role="button"><i class="fa fa-file-image-o fa-fw"></i> Elegir Im&aacute;gen...</a></li>
-                         <a href="#" class="btn additembtn btnsave" role="button" id="create"><i class="fa fa-check-square-o fa-fw"></i> Crear Usuario</a>
+                         <a href="#" class="btn masterbtn" role="button" id="create"><i class="fa fa-check-square-o fa-fw"></i> Crear Usuario</a>
                        </div>
                   </div>  
         <!-- /#page-wrapper -->

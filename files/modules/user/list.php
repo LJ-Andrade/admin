@@ -18,7 +18,7 @@
                 </div>
                 
             <!-- Filters / Search -->
-            <div class="container">
+            <div class="container-fluid">
                 <div id="filtersuser" class="row row-centered filterdiv">
                     <form class="form-inline filterformdiv" role="form">
                         <div class="col-lg-3 col-sm-3 col-xs-12 form-group inputsgral">
@@ -56,33 +56,33 @@
             </div><!-- /Container Filters / Search -->
 
             <!-- Grid View -->
-            <div id="viewgrid" class="row row-centered"> 
-                
+            <div id="viewgrid" class="row-centered rowgridview"> 
+                 
                 <?php 
                     foreach($Users as $User){ 
                         $User = new AdminData($User['admin_id']);
                 ?>
                 <!--    Users   -->
-                <div id="user<?php echo $User->AdminID ?>" class="col-lg-3 col-sm-6 col-xs-12 col-centered animated fadeIn usergral">
+                <div id="user<?php echo $User->AdminID ?>" class="col-centered col-lg-2 col-sm-6 col-xs-12 animated fadeIn usergral">
 
                         <img src="<?php echo $User->Img; ?>" id="userimage" class="img-responsive userimg">
                         
                         <div class="row usernamediv">
-                            <span class="usernametxt"><?php echo  $User->FullUserName; ?></span><br>
-                            <span class="usernametxt2">Administrador&#124; Grupo </span>
+                            <span class="usernametxt"><span class="col-lg-12 col-sm-12 col-xs-12"><?php echo  $User->FullName; ?></span> <span class="col-lg-12 col-sm-12 col-xs-12">(<?php echo $User->User ?>)</span></span><br>
+                            <span class="usernametxt2">Administrador</span>
                             
                         </div>
                         
-                            <div id="usericosid" class="usericos usericoshide" Style="visibility:hidden">
-                                
-                                <ul>
-                                    <li><a href="edit.php?id=<?php echo $User->AdminID ?>" class="btnmod btnuser"><i class="fa fa-fw fa-pencil"></i></a></li>
-                                    <?php if($User->AdminID!=$Admin->AdminID){ ?>
-                                    <li deleteElement="<?php echo $User->AdminID ?>" deleteParent="user<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>'?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente" class="deleteElement btndel btnuser"><i class="fa fa-fw fa-trash"></i></li>
-                                    <?php } ?>
-                                </ul>                
+                        <div id="usericosid" class="usericos">
                             
-                            </div>
+                            <ul>
+                                <li class="optbtn"><a href="edit.php?id=<?php echo $User->AdminID ?>" class="btnmod btnuser animated fadeIn"><i class="fa fa-fw fa-pencil"></i></a></li>
+                                <?php if($User->AdminID!=$Admin->AdminID){ ?>
+                                <li deleteElement="<?php echo $User->AdminID ?>" deleteParent="user<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>'?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente" class="deleteElement btndel btnuser optbtn animated fadeIn"><i class="fa fa-fw fa-trash"></i></li>
+                                <?php } ?>
+                            </ul>                
+                        
+                        </div>
           
                 </div>
                 <?php } ?>
@@ -91,7 +91,7 @@
             <!-- List View -->
             <div id="viewlist" class="row">
                 <!-- Titles  -->
-                <div class="container-fluid listrow listtit glasscontainer1">
+                <div class="listtit glasscontainer1">
                     <div class="col-lg-1 col-md-4 col-sm-6 col-xs-12 titlist1">
                     
                     </div>
@@ -115,7 +115,7 @@
                         foreach($Users as $User){ 
                             $User = new AdminData($User['admin_id']);
                 ?>
-                <!-- Item 1 -->
+                <!-- Items -->
                 <div id="user<?php echo $User->AdminID ?>" class="container-fluid glasscontainer1 listrow">
                     <div class="col-lg-1 col-md-4 col-sm-6 col-xs-12 col1listus">
                         <img src="<?php echo $User->Img; ?>" class="img-responsive userimglist">
@@ -135,15 +135,15 @@
                     <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 col6listus">
                         <div class="usericoslist">
                              <ul>
-                                <li class="btnmod btnuser"><a href="edit.php?id=<?php echo $User->AdminID ?>"><i class="fa fa-fw fa-pencil"></i></a></li>
+                                <li class="btnmod"><a href="edit.php?id=<?php echo $User->AdminID ?>"><i class="fa fa-fw fa-pencil"></i></a></li>
                                     <?php if($User->AdminID!=$Admin->AdminID){ ?>
-                                <li deleteElement="<?php echo $User->AdminID ?>" deleteParent="user<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>'?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente" class="deleteElement btndel btnuser"><i class="fa fa-fw fa-trash"></i></li>
+                                <li deleteElement="<?php echo $User->AdminID ?>" deleteParent="user<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>'?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente" class="deleteElement btndel"><i class="fa fa-fw fa-trash"></i></li>
                                     <?php } ?>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <!-- /Item 1  -->
+                <!-- /Items  -->
                 <?php } ?>
             </div><!-- /List View  -->
 

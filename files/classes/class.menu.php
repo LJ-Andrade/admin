@@ -81,7 +81,7 @@ class Menu extends DataBase
 
 	public function setLink()
 	{
-		$ActualUrl  = explode("/",$_SERVER['PHP_SELF']);
+					$ActualUrl  = explode("/",$_SERVER['PHP_SELF']);
 	    $this->Link = $ActualUrl[count($ActualUrl)-2]."/".basename($_SERVER['PHP_SELF']);
 	}
 	
@@ -182,36 +182,36 @@ class Menu extends DataBase
 				break;
 			}			
 
-			$Regs	.= '<div id="menu'.$MenuReg['menu_id'].'" class="row animated bounceInUp prodfilediv">
-                         <div class="col-md-2 col-sm-3 col-xs-12">
-                            <i class="fa fa-fw '.$MenuReg['icon'].'"></i>
+			$Regs	.= '<div id="menu'.$MenuReg['menu_id'].'" class="container-fluid glasscontainer1 listrow listrowclick">
+                         <div class="col-md-1 col-sm-3 col-xs-12 titlist1 menulistcol1">
+                            <i class="fa fa-fw '.$MenuReg['icon'].' menulistico"></i>
                          </div>
-                         <div class="col-md-1 col-sm-3 col-xs-3 colprod1">
-                            <div class="colprodtit">
-                            <p><b>'.$MenuReg['title'].'</b></p>
+                         <div class="col-md-2 col-sm-3 col-xs-3 titlist2">
+                            <div class="padtoplist">
+                            <p>'.$MenuReg['title'].'</p>
                             </div>    
                          </div>
-                         <div class="col-md-1 col-sm-2 col-xs-3 colprod1">
-                            <div class="colprod">
-                            <p><b>'.$Link.'</b></p>
+                         <div class="col-md-2 col-sm-2 col-xs-3 titlist3">
+                            <div class="padtoplist">
+                            <p>'.$Link.'</p>
                             </div>  
                          </div>
-                         <div class="col-md-1 col-sm-2 col-xs-3 colprod1">
-                            <div class="colprod">
-                            <p><b>'.$Status.'</b></p>
+                         <div class="col-md-1 col-sm-2 col-xs-3 titlist4">
+                            <div class="padtoplist">
+                            <p>'.$Status.'</p>
                             </div>
                          </div>
-                         <div class="col-md-1 col-sm-2 col-xs-3 colprod1">
-                            <div class="colprod">
-                            <p><b>'.$Parent.'</b></p>
+                         <div class="col-md-2 col-sm-2 col-xs-3 titlist5">
+                            <div class="padtoplist">
+                            <p>'.$Parent.'</p>
                             </div>
                          </div>
-                         <div class="col-md-4 col-sm-12 col-xs-12 colprod1">
-                            <div class="colprod">
+                         <div class="col-md-2 col-sm-12 col-xs-12 titlist6ult">
+                            <div class="padtoplist">
                             	'.$Public.'
                             </div> 
                          </div>
-                         <div class="col-md-2 col-sm-12 col-xs-12  colprod1">
+                         <div class="col-md-2 col-sm-12 col-xs-12 titlist7">
                           <div class="colprodico">
                            <div class="prodicos">
                                     <ul>

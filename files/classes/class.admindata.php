@@ -6,6 +6,7 @@ class AdminData extends DataBase
 	var		$FirstName;
 	var		$LastName;
 	var		$FullName;
+	var 	$FullUserName;
 	var		$ProfileID;
 	var		$ProfileName;
 	var		$User;

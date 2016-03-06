@@ -28,7 +28,7 @@
     <div class="container-fluid subtop">
         <div class="subtop1">
             <ol class="breadcrumb">
-                <?php $Menu -> insertBreadCrumbs();  ?>
+                <?php $Menu -> insertBreadCrumbs(); ?>
               
             </ol>
         </div>

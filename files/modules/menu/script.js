@@ -33,3 +33,51 @@ $(function(){
 	// Active Inactive Switch
 	$("[name='public']").bootstrapSwitch();
 });	
+
+
+// Select multiple rows
+
+$(function () {
+ var isMouseDown = false,
+   isHighlighted;
+ $(".listrow")
+   .mousedown(function () {
+     isMouseDown = true;
+     $(this).toggleClass("listselect");
+     isHighlighted = $(this).hasClass("listselect");
+     return false; // prevent text selection
+   })
+   .mouseover(function () {
+     if (isMouseDown) {
+       $(this).toggleClass("listselect", isHighlighted);
+     }
+   })
+   .bind("selectstart", function () {
+     return false;
+   })
+
+$(document)
+			.mouseup(function () {
+     isMouseDown = false;
+   });
+});
+
+$(function() {
+		$('#delselecteduser').hide();
+		$('#optionsmenu').hide();
+		$('.listrow').click(function() {
+			$('#optionsmenu').fadeIn();
+			$('#delselecteduser').fadeIn();
+			
+		})
+});
+
+// $(document).ready(function() { 
+// 			$('#showitemfiltersuser').click(function() {
+// 						$('#filtersuser').toggle("slide");
+// 			});
+// 			$('#viewlistbt').show( 0 );
+// 			$('#newuser').hide();
+// 			$('#volverusers').fadeIn( 500 );
+// 			$('#showitemfiltersuser').show( 0 );
+// });

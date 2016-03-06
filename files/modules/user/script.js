@@ -6,119 +6,114 @@ $(document).ready(function(){
 });
 
 $(function(){
-	$("#create").click(function(){
-		if(validate.validateFields('')){
-			var process		= 'process.php';
-	 		var target		= 'list.php?msg='+ $("#action").val();
-	 		var haveData	= function(returningData)
-	 		{
-	 			$("input,select").blur();
-				notifyError(returningData);
-	 			//alert(returningData);
-	 		}
-	 		var noData		= function()
-	 		{
-	 			document.location = target;
-	 		}
-			sumbitFields(process,haveData,noData);
-		}
-	});
-	
-	$("input").keypress(function(e){
-		if(e.which==13){
+			$("#create").click(function(){
+						if(validate.validateFields('')){
+									var process		= 'process.php';
+									var target		= 'list.php?msg='+ $("#action").val();
+									var haveData	= function(returningData)
+			{
+			$("input,select").blur();
+						notifyError(returningData);
+						//alert(returningData);
+						}
+						var noData		= function()
+						{
+						document.location = target;
+						}
+						sumbitFields(process,haveData,noData);
+						}
+			});
+
+			$("input").keypress(function(e){
+						if(e.which==13){
 			$("#create").click();
-		}
-	});
+			}
+			});
 });	
 
-/////////////////// Show or Hide Icons On subtop ////////////////////////
+///////////////////////// Show or Hide Icons On subtop /////////////////////////////
 
 $(document).ready(function() { 
-   $('#showitemfiltersuser').click(function() {
-         $('#filtersuser').toggle("slide");
-    });
-    $('#viewlistbt').show( 0 );
-    $('#newuser').hide();
-    $('#volverusers').fadeIn( 500 );
-    $('#showitemfiltersuser').show( 0 );
+			$('#showitemfiltersuser').click(function() {
+						$('#filtersuser').toggle("slide");
+			});
+			$('#viewlistbt').show( 0 );
+			$('#newuser').hide();
+			$('#volverusers').fadeIn( 500 );
+			$('#showitemfiltersuser').show( 0 );
 });
 
-////////////// User Icos Del Modify Appears On Hover //////////////////
-$(document).ready(function() { 
+///////////////////// User Icos Del Modify Appears On Hover ///////////////////////
+$(function() { 
 
-  var hoverstyle = {
-      backgroundColor : "rgba(255,255,255, .3)",
-    };
-  var unhoverlol = {
-      backgroundColor : "transparent",
-    };
+			var hoverstyle = {
+					backgroundColor : "rgba(255,255,255, .3)",
+			};
+			var unhoverlol = {
+					backgroundColor : "transparent",
+			};
 
-// Select User
-		$(".usergral").click(function(){
-		     $(this).toggleClass("usergralhover");
-		});
-// Hover Effect
-		$('.usergral').hover(function() {
-		     $(this).css( hoverstyle );
-				});
-  $('.usergral').mouseleave(function() {
-  					$(this).css( unhoverlol );
-		});
+			// Select User
+			$(".usergral").click(function(){
+					$(this).toggleClass("usergralselect");
+			});
 
-/////////// FIX //////////////////////////////////////////////////////
+			// Hover Effect
+			$('.usergral').hover(function() {
+					$(this).css( hoverstyle );
+			});
 
-	//// Icons appearing - Colocar estilo en el div incrustado Style="visibility:visible"
-		$('.usergral').click(function() {
-	    $(this).find(".usericos").css({"visibility":"visible"});
-	    return false;
-	});
-
-//// Icons appearing - Colocar estilo en el div incrustado Style="display:none"
-	// $('.usergral').click(function() {
- //    $(this).find(".usericos").slideToggle( 500 );
- //    return false;
-	// });
+			$('.usergral').mouseleave(function() {
+					$(this).css( unhoverlol );
 });
 
-///////////  Options - FIX  /////////////////////////////////////////
+/////////////////////// FIX //////////////////////////////////////////////////////
+
+//// Icons appearing
+$('.btnuser').hide();
+
+$('.usergral').click(function() {
+			$(this).find('.btnuser').fadeToggle();
+			});
+});
+
+///////////////////////  Selected User  //////////////////////////////////////////
 
 $(document).ready(function() { 
-   $('.usergral').click(function() {
-         $('#delselecteduser').show ( 0 );
-    });
+			$('.usergral').click(function() {
+			      $('#delselecteduser').show ( 0 );
+			 });
 });
 
-
-
-/////////////// Switch View Mode /////////////////////////////////////
+/////////////////////////// Switch View Mode /////////////////////////////////////
 
 $(function(){
-    $('div[id="viewlist"]').hide();
-    		$('#viewlist').hide();
-      $("#viewlistbt").on( "click", function() {
-    				$('div[id="viewgrid"]').hide( 500 );
-        $('div[id="viewlist"]').show( 500 ); 
-        $("#viewlistbt").hide();
-        $("#viewgridbt").show( 0 );
-    	 });
-        
-      $("#viewgridbt").on( "click", function() {
-    				$('div[id="viewgrid"]').show( 500 ); 
-        $('div[id="viewlist"]').hide( 500 );
-        $("#viewgridbt").hide();
-        $("#viewlistbt").show( 0 );
-    	 });
-        
-    // Active Inactive Switch
-    $("[name='my-checkbox']").bootstrapSwitch();
+			$('div[id="viewlist"]').hide();
+						$('#viewlist').hide();
+						$("#viewlistbt").on( "click", function() {
+									$('div[id="viewgrid"]').hide( 500 );
+							  $('div[id="viewlist"]').show( 500 ); 
+							  $("#viewlistbt").hide();
+							  $("#viewgridbt").show( 0 );
+			});
+			  
+			$("#viewgridbt").on( "click", function() {
+						$('div[id="viewgrid"]').show( 500 ); 
+				  $('div[id="viewlist"]').hide( 500 );
+				  $("#viewgridbt").hide();
+				  $("#viewlistbt").show( 0 );
+			});
+			  
+			// Active Inactive Switch
+$("[name='my-checkbox']").bootstrapSwitch();
 });
 
 $(function(){
-	// Show Img selection div
-	$('#chooseimg').click(function() {
-	         $('#itemimg').toggle("slide");
-	         $('#chooseimg').hide( 100 );
-	    });
+			// Show Img selection div
+			$('#chooseimg').click(function() {
+						$('#itemimg').toggle("slide");
+						$('#chooseimg').hide( 100 );
+});
 	    
 	// Insert Img
 	var wrapper = $('<div/>').css({height:0,width:0,'overflow':'hidden'});

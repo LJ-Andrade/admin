@@ -1,6 +1,6 @@
 <?php
     include("../../includes/inc.main.php");
-    $Head->setTitle("Home");
+    $Head->setTitle("Renovatio Home");
     $Head->setHead();
 ?>
 <body>
@@ -36,7 +36,14 @@
                         <button id="oklogmsg" class="masterbtn">Test mensaje</button>
                         <br><br><br>
                         <button id="testloader" class="masterbtn">Test Loader</button>
-                        
+                        <br><br>
+      
+      
+                    
+
+
+
+
                   </div>
             </div><!-- /.container-fluid -->
     </div><!-- /#wrapper -->

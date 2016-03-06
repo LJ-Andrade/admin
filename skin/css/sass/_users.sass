@@ -19,26 +19,27 @@
         box-shadow: 0 0 0
         background-color: $mainredhover
 
-
-
 // Caja de usuarios
 
 .usergral
     max-width: 220px
     margin: 10px 10px
     padding-top: 20px
+    cursor: pointer
     transition: .5s
     -webkit-transition: .5s
     -moz-transition: .5s
     -o-transition: .5s
     -ms-transition: .5s
+    -webkit-transition: all 0.5s ease 0s
+    transition: all 0.5s ease 0s
     // &:hover
     //     background-color: rgba($itemfilediv, .3)
     //     -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175)
     //     box-shadow: 0 6px 12px rgba(0,0,0,.175)
 
-.usergralhover
-    background-color: rgba($itemfilediv, .3)
+.usergralselect
+    background-color: rgba(255,255,255, .3) !important
     -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175)
     box-shadow: 0 6px 12px rgba(0,0,0,.175)
 
@@ -66,7 +67,6 @@
     margin-top: 10px
     padding: 10px 0
     text-align: center
-    height: 60px
 
 a .usernamediv
     color: #000
@@ -90,9 +90,6 @@ p .addusertxt:hover
 
  
 /////////////////// User List View /////////////////
-.listrow
-    display: flex
-
 .userimglist
     border-radius: 100%
     max-width: 50px
@@ -135,6 +132,10 @@ p .addusertxt:hover
         text-align: center
 
 /////////////// Iconos Combinados Fila o Caja //////////
+
+.usericos
+    height: 50px
+
 
 .usericoslist,.usericos
     ul
@@ -188,3 +189,26 @@ p .addusertxt:hover
     -webkit-box-shadow: 10px 10px 21px -14px rgba(0,0,0,0.75)
     -moz-box-shadow: 10px 10px 21px -14px rgba(0,0,0,0.75)
     box-shadow: 10px 10px 21px -14px rgba(0,0,0,0.75) 
+
+/////////////// New User /////////////////////////////////////////
+
+.userstatustit
+    text-align: center
+
+.switchuser
+    text-align: center
+
+
+// Active Inactive user button
+.userstatustit
+    font-size: 18px
+.switchuser
+    margin: 10px 0 20px 0
+
+.bootstrap-switch.bootstrap-switch-large .bootstrap-switch-handle-on,
+.bootstrap-switch.bootstrap-switch-large .bootstrap-switch-handle-off,
+.bootstrap-switch.bootstrap-switch-large .bootstrap-switch-label
+    font-size: 10px
+
+.bootstrap-switch-wrapper
+    width: 250px

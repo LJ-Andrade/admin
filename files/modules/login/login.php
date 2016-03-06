@@ -6,7 +6,7 @@
 <body id="login">
     <div class="main">
         <div class="row col-md-12 logtitdiv">
-           <div class="row"><img src="../../../skin/images/body/icons/favicon.png" class="logimg" alt=""><span class="maintit">VIMANA Admin &reg;</span></div>
+           <div class="row"><img src="../../../skin/images/body/icons/favicon.png" class="logimg" alt=""><span class="maintit">Renovatio &reg;</span></div>
         </div>
         <div class="row">
             <form class="formulog">       
