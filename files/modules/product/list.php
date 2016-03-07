@@ -7,9 +7,13 @@
   <div id="wrapper">
     <?php include('../../includes/inc.nav.php'); ?> <!-- Navegation -->   
       <div class="container-fluid">
-        <div class="titlesgral"><h3 class="text-center">Listado de Productos</h3></div>
+        <div class="maintitle"><h4 class="maintitletxt">Listado de Productos</h4></div>
+                <div class="glasscontainer1 optionsdiv"> 
+                    <span id="delselected" class="delselected animated slideInDown"><i class="fa fa-trash"></i> Eliminar seleccionados</span>
+                    <a href="new.php"><button class="masterbtn"><i class="fa fa-user-plus"></i> Agregar Producto</button></a>    
+                </div>
           <!-- Filters -->
-          <div class="container">
+          <div class="container-fluid">
                 <div id="filteritem" class="row row-centered filterdiv">
                     <form class="form-inline filterformdiv" role="form">
                         <div class="col-lg-3 col-sm-3 col-xs-12 form-group inputsgral">
@@ -48,7 +52,6 @@
 
         <!-- Grid View -->
         <div id="viewgrid" class="row row-centered">
-        
           <!--    Item 1   -->
           <div id="delelem1" class="col-md-2 col-sm-6 col-xs-12 col-centered itemdiv animated bounceInUp">
             <div class="row itemstatus">
@@ -92,49 +95,70 @@
           </div>
         </div>  <!-- /Grid View -->
 
-        <!-- List View -->
-        <div id="viewlist" class="row">
-            
-            <!-- PHP HERE ;) -->
 
-            <div id="user<?php echo $User->AdminID ?>" class="container-fluid glasscontainer1 listrow">
-                <div class="col-lg-1 col-md-2 col-sm-12 imgpart">
-                    <img src="../../../skin/images/products/7.jpg" class="img-responsive">
-                </div> 
-                <div class="col-lg-2 col-md-2 col-sm-12 seccollist">
-                  <h5>Producto</h5>
-                  <p>Cama Amplia 5 Patas</p>
-                </div>
-                <div class="col-lg-4 col-md-2 col-sm-12 thrcollist">
-                  <h5>Descripci&oacute;n</h5>
-                  <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, re loco</p>
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-12 forcollist">
-                  <h5>Modelo</h5>
-                  <p>Numero Modelo (alfanum.)</p>
-                </div>
-                <div class="col-lg-1 col-md-2 col-sm-12 fthcollist">
-                  <h5>Codigo</h5>
-                  <p>Codigo (alfanum.)</p>
-                </div> 
-                <div class="col-lg-2 col-md-2 col-sm-12 sexcollist">
-                    <div class="usericoslist">
-                         <ul>
-                            <li class="btnmod btnuser"><a href="edit.php?id=<?php echo $User->AdminID ?>"><i class="fa fa-fw fa-pencil"></i></a></li>
-                                <?php if($User->AdminID!=$Admin->AdminID){ ?>
-                            <li deleteElement="<?php echo $User->AdminID ?>" deleteParent="user<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>'?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente" class="deleteElement btndel btnuser"><i class="fa fa-fw fa-trash"></i></li>
-                                <?php } ?>
-                        </ul>
+       <!-- List View -->
+            <div id="viewlist" class="row">
+                <!-- Titles  -->
+                <div class="listtit glasscontainer1">
+                    <div class="col-lg-1 col-md-4 col-sm-6 col-xs-12 titlist1">
+                        <h5>Imagen</h5>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 titlist2">
+                        <h5>Nombre</h5>
+                    </div> 
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 titlist3">
+                        <h5>Descripci&oacute;n</h5>
+                    </div> 
+                    <div class="col-lg-1 col-md-4 col-sm-6 col-xs-12 titlist4">
+                        <h5>Modelo</h5>
+                    </div> 
+                    <div class="col-lg-1 col-md-4 col-sm-6 col-xs-12 titlist5">
+                        <h5>Medida</h5>
+                    </div>
+                    <div class="col-lg-1 col-md-4 col-sm-6 col-xs-12 titlist5">
+                        <h5>Precio</h5>
+                    </div> 
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 titlist6">
+                        <h5 class="text-center">Editar / Eliminar</h5>
+                    </div> 
+                </div> <!-- /Titles  -->
+               
+                <!-- Items -->
+                <div id="ID1" class="container-fluid glasscontainer1 listrow">
+                    <div class="col-lg-1 col-md-4 col-sm-6 col-xs-12 col1listprod">
+                        <img src="../../../skin/images/products/genericproduct.jpg" id="" class="img-responsive prodimglist">
+                    </div> 
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 col2listprod">
+                        <p>Nombre</p>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 col3listprod">
+                        <p>Descripcion</p>
+                    </div>
+                    <div class="col-lg-1 col-md-4 col-sm-6 col-xs-12 col4listprod">
+                        <p>Modelo</p>
+                    </div>
+                    <div class="col-lg-1 col-md-4 col-sm-6 col-xs-12 col5listprod">
+                        <p>Medida</p>
+                    </div> 
+                    <div class="col-lg-1 col-md-4 col-sm-6 col-xs-12 col5listprod">
+                        <p>Precio</p>
+                    </div> 
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 col6listprod">
+                        <div class="usericoslist">
+                             <ul>
+                                <li class="btnmod"><a href="edit.php?id=<?php echo $User->AdminID ?>"><i class="fa fa-fw fa-pencil"></i></a></li>
+                                    <?php if($User->AdminID!=$Admin->AdminID){ ?>
+                                <li deleteElement="<?php echo $User->AdminID ?>" deleteParent="user<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>'?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente" class="deleteElement btndel"><i class="fa fa-fw fa-trash"></i></li>
+                                    <?php } ?>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- /PHP HERE ;) -->
-        </div><!-- /List View  -->
+                <!-- /Items  -->
 
-
-
-
-      <!--Pagination-->
+             
+            </div><!-- /List View  -->
+<!--Pagination-->
       <div class="paginat animated slideInUp">
           <ul class="pagination">
             <li><a href="#">&laquo;</a></li>

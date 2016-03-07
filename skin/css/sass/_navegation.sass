@@ -1,6 +1,13 @@
-///////////////   Navegation  ///////////////////
+///////////////   Navegation  //////////////////////
 
-//////////// Side Nav /////////////////////////////
+///////// Owner Name ///////////////////////////////
+
+.ownername
+    color: #000
+.marca
+    color: $mainred
+
+///////////// Side Nav /////////////////////////////
 .side-nav
     li
         a
@@ -50,61 +57,84 @@
     border-color: transparent
     .side-nav
         li
-            border-bottom: 0.5px solid rgba($sidenavlines, .1)
-
                 
-// Dropdown Side
+// Drop down menu and icons    
 .sideddmenu
     li
-        a
-            padding: 10px 15px 10px 44px
-            display: block
-            color: $sideddmenutxt
-            text-decoration: none
-            padding-top: 15px
-            padding-bottom: 15px
+        ul
+            list-style: none
+    a
+        padding: 10px 5px 10px 44px
+        display: block
+        color: $sideddtxt
+        text-decoration: none
+        padding-top: 15px
+        padding-bottom: 15px
+        &:hover,&:focus
+            color: $sideddtxthover
+
+
+.navbar-inverse .navbar-nav > li > a
+    //font-weight: bold
+
+.side-nav
+    ul
+        li
+            transition: all 0.2s ease 0s
+            a
+                transition: all 0.2s ease 0s
             &:hover
-                color: $sideddmenutxthover
-            &:focus
-                color: $sideddmenutxthover
+                border-left: 4px solid $siderightline
+            ul
+                li
+                    background-color: #fff
+                    transition: all 0.2s ease 0s
+                    a
+                        padding-left: 60px
+                        font-size: 12px
+                        transition: all 0.2s ease 0s
+                    &:hover
+                        border-left: 4px solid $mainblue
     
 .sidemenu .sideintern
     li
         background-color: #ccc
-        border-bottom: 0.5px solid rgba(56, 56, 56, 0.1)
 
-
+// Bottom Border menu 
 .navbar-inverse .navbar-nav > li a
-    transition: all 0.2s ease 0s 
+    transition: all 0.2s ease 0s
+    border-bottom: 0.5px solid rgba(56, 56, 56, 0.1)
+
+@media(max-width:768px)
+    .navbar-inverse .navbar-nav > li a
+        width: auto
 
 .navbar-inverse .navbar-nav > li > a:focus, .navbar-inverse .navbar-nav > li > a:hover
     color: $sideddtxthover
-    border-left: 4px solid red
-    
-
+    border-left: 4px solid $siderightline
+   
 .navbar-inverse .navbar-brand
     color: $toptxt
 // Top Color
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form
-    background-color: rgba($top, .3)
+    background-color: rgba($side, .2)
+
+@media(max-width:768px)
+    .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form
+        ul
+            background-color: rgba($side, 1)
+
+
  
 .navbar-inverse .navbar-nav > li > a
     color: #000 
 .navbar-inverse .navbar-nav > li > a
     color: $sidetxt 
 
-// Drop down menu and icons    
-.sideddmenu
-    li
-        a
-            padding: 10px 5px 10px 44px
-            display: block
-            color: $sideddtxt
-            text-decoration: none
-            padding-top: 15px
-            padding-bottom: 15px
-        &:hover,&:focus
-            color: $sideddtxthover
+.navbar-collapse
+    border-top: 0px
+
+
 
 
 //////// Top bar / User /////////////////////////

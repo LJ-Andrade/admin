@@ -26,7 +26,7 @@
             <div class="container additemdiv animated fadeIn">
                 <div class="col-sm-12 form-box formitems">
                   <div class="additemtit">
-                       <h3><?php echo "Modificar Menú '".$Data['title']."'"; ?></h3>
+                       <div class="maintitle"><?php echo "Modificar Menú '".$Data['title']."'"; ?></div>
                   </div>
                       <div class="row">
                           <div class="col-md-6 form-group animated bounceInLeft">

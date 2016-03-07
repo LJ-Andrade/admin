@@ -10,14 +10,13 @@
 ?>
 <body>
     <div id="wrapper">
-       <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
-        <div id="page-wrapper">
+      <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
       <?php echo insertElement("hidden","action","insert"); ?>
         <!-- Filtros -->
             <div class="container additemdiv animated fadeIn">
                 <div class="col-sm-12 form-box formitems">
                   <div class="additemtit">
-                       <h3>Agregar Nuevo Menú</h3>
+                    <div class="maintitle"><h4 class="maintitletxt">Agregar Nuevo Men&uacute;</h4></div>
                   </div>
                       <div class="row">
                           <div class="col-md-6 form-group animated bounceInLeft">
@@ -39,25 +38,20 @@
                               </div>
                           </div>
                       </div>
-
                       <div class="row">
                           <div class="col-md-6 form-group animated bounceInLeft">
                                <?php echo insertElement('text','position','','form-first-name form-controlusers','tabindex="5" placeholder="Posici&oacute;n"'); ?>
                           </div>
-                          
                           <div class="col-md-6 form-group animated bounceInRight">
                                 <?php echo insertElement('text','icon','','form-first-name form-controlusers','tabindex="6" placeholder="&Iacute;cono"'); ?>
                           </div>
-
                       </div>
-
                       <div class="row">
                         <div class="col-md-6 form-group animated bounceInRight switchuser">
                               <span class="userstatustit">Menú Público:</span>
                               <input type="checkbox" class="centered" name="public" id="public" data-on-text="Si" data-off-text="No" data-size="large" data-label-width="auto" checked>                                     
                         </div>
                     </div>
-
                 </div>   
             </div>
                        
@@ -68,8 +62,6 @@
                                <a href="#" class="btn additembtn btnsave" role="button" id="create"><i class="fa fa-check-square-o fa-fw"></i> Crear Menú</a>
                              </div>
                         </div>  
-        <!-- /#page-wrapper -->
-        </div>
 <!-- /#wrapper -->
 <script>
     

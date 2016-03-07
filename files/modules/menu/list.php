@@ -7,9 +7,10 @@
     <div id="wrapper">
         <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->          
         <div class="container-fluid">
-            <div class="titlesgral"><h3 class="text-center">Listado de Men&uacute;es</h3></div>
-                <div id="optionsmenu" class="glasscontainer1"> 
-                    <span id="delselecteduser" class="delselectedusers animated fadeIn"><i class="fa fa-trash"></i> Eliminar seleccionados</span>
+            <div class="maintitle"><h4 class="maintitletxt">Listado de Men&uacute;es</h4></div>
+                <div class="glasscontainer1 optionsdiv"> 
+                    <span id="delselected" class="delselected animated slideInDown"><i class="fa fa-trash"></i> Eliminar seleccionados</span>
+                    <a href="new.php"><button class="masterbtn"><i class="fa fa-user-plus"></i> Agregar Men&uacute;</button></a>    
                 </div>
                 
                 <div id="viewlist" class="row">

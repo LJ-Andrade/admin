@@ -77,13 +77,6 @@ $('.usergral').click(function() {
 			});
 });
 
-///////////////////////  Selected User  //////////////////////////////////////////
-
-$(document).ready(function() { 
-			$('.usergral').click(function() {
-			      $('#delselecteduser').show ( 0 );
-			 });
-});
 
 /////////////////////////// Switch View Mode /////////////////////////////////////
 
@@ -151,4 +144,44 @@ $(function(){
 	$("[name='status']").bootstrapSwitch();
 
 });
+
+
+///////////////////////   Del Selected  //////////////////////////////////////////
+
+$(document).ready(function() { 
+			$('#delselected').hide();
+			$(".usergral,.listrow").click(function() {
+			      $('#delselected').show ( 0 );
+			 });
+});
+
+
+// Select multiple rows
+
+$(function () {
+ var isMouseDown = false,
+   isHighlighted;
+ $(".listrow")
+   .mousedown(function () {
+     isMouseDown = true;
+     $(this).toggleClass("listselect");
+     isHighlighted = $(this).hasClass("listselect");
+     return false; // prevent text selection
+   })
+   .mouseover(function () {
+     if (isMouseDown) {
+       $(this).toggleClass("listselect", isHighlighted);
+     }
+   })
+   .bind("selectstart", function () {
+     return false;
+   })
+
+$(document)
+      .mouseup(function () {
+     isMouseDown = false;
+   });
+});
+
+
 

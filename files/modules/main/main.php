@@ -29,22 +29,14 @@
     <div id="wrapper">
         <?php include('../../includes/inc.nav.php'); ?> <!-- Navegation -->         
             <div class="container-fluid maincontainer">
-                <div class="userstitulo">
-                    <h3 class="text-center">Bienvenido al Administrador</h3>
-
+                <div class="">
+                    <div class="maintitle"><h4 class="maintitletxt">Bienvenidos</h4></div>
                         <br><br>
                         <button id="oklogmsg" class="masterbtn">Test mensaje</button>
                         <br><br><br>
                         <button id="testloader" class="masterbtn">Test Loader</button>
                         <br><br>
-      
-      
-                    
-
-
-
-
-                  </div>
+                </div>
             </div><!-- /.container-fluid -->
     </div><!-- /#wrapper -->
 <?php include('../../includes/inc.foot.php'); ?>

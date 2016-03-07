@@ -23,7 +23,7 @@
         <div class="container additemdiv animated fadeIn">
           <div class="col-sm-12 form-box formitems">
             <div class="additemtit">
-              <h3><?php echo $Title ?></h3>
+              <div class="maintitle"><h4 class="maintitletxt"><?php echo $Title ?></h4></div>
             </div>
             <div class="row">
                 <div class="col-md-6 form-group animated bounceInLeft">

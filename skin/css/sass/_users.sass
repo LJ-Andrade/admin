@@ -1,24 +1,5 @@
 // Users Admin
 
-@media(max-width:250px)
-    h3.usertittxt
-        font-size: 16px
-
-.delselectedusers
-    padding: 5px 20px
-    margin: 0 auto
-    margin: 0 15px
-    box-shadow: 0 8px 10px -10px rgba(0, 0, 0, 0.5)
-    border: none
-    -webkit-transition: all 0.5s ease 0s
-    transition: all 0.5s ease 0s
-    background-color: $mainred
-    color: $maintbtntxt
-    cursor: pointer
-    &:hover
-        box-shadow: 0 0 0
-        background-color: $mainredhover
-
 // Caja de usuarios
 
 .usergral
@@ -88,72 +69,6 @@ p .addusertxt
 p .addusertxt:hover
     color: rgba($gris, 0.5)
 
- 
-/////////////////// User List View /////////////////
-.userimglist
-    border-radius: 100%
-    max-width: 50px
-    padding: 0
-    cursor: pointer
-
-.col1listus
-    border-right: 1px solid rgba($gris, 0.5)
-.col2listus
-    border-right: 1px solid rgba($gris, 0.5)
-    padding-top: 15px
-.col3listus
-    border-right: 1px solid rgba($gris, 0.5)
-    padding-top: 15px
-.col4listus
-    border-right: 1px solid rgba($gris, 0.5)
-    padding-top: 15px
-.col5listus
-    border-right: 1px solid rgba($gris, 0.5)
-    padding-top: 15px
-.col6listus
-    padding-top: 10px
-
-/////////  List View Responsivity /////
-@media(max-width:1200px)
-    .userimglist
-        max-width: 50px
-    .col2listus
-        text-align: center
-        float: right
-    .col3listus
-        text-align: center
-    .col4listus
-        text-align: center
-        float: right
-    .col5listus
-        text-align: center
-        float: left
-    .col6listus
-        text-align: center
-
-/////////////// Iconos Combinados Fila o Caja //////////
-
-.usericos
-    height: 50px
-
-
-.usericoslist,.usericos
-    ul
-        list-style-type: none
-        text-align: center
-        transition: .5s
-        li
-            display: inline
-            text-align: center
-            margin: 0 5px
-            transition: .5s
-
-.visible
-    visibility: visible
-
-.usericoslist
-    margin-top: 0
-
 ////////////// Buttons  //////////////////////////////
 
 .userbtn
@@ -175,13 +90,6 @@ p .addusertxt:hover
     background-color: #2f435b
     color: #fff 
 
-.optionusersdiv
-    max-width: 1200px
-    padding-bottom: 20px
-    padding-top: 20px
-    margin: 0 auto
-    margin-top: 20px
-    margin-bottom: 20px
 .useradd
     -webkit-transition: all 0.5s ease 0s
     transition: all 0.5s ease 0s  
@@ -192,23 +100,6 @@ p .addusertxt:hover
 
 /////////////// New User /////////////////////////////////////////
 
-.userstatustit
-    text-align: center
-
 .switchuser
     text-align: center
 
-
-// Active Inactive user button
-.userstatustit
-    font-size: 18px
-.switchuser
-    margin: 10px 0 20px 0
-
-.bootstrap-switch.bootstrap-switch-large .bootstrap-switch-handle-on,
-.bootstrap-switch.bootstrap-switch-large .bootstrap-switch-handle-off,
-.bootstrap-switch.bootstrap-switch-large .bootstrap-switch-label
-    font-size: 10px
-
-.bootstrap-switch-wrapper
-    width: 250px

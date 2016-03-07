@@ -29,10 +29,20 @@ $(function(){
 		}
 	});
 
-
 	// Active Inactive Switch
 	$("[name='public']").bootstrapSwitch();
 });	
+
+
+///////////////////////   Del Selected  //////////////////////////////////////////
+
+$(document).ready(function() { 
+			$('#delselected').hide();
+			$(".listrow").click(function() {
+			      $('#delselected').show ( 0 );
+			 });
+});
+
 
 
 // Select multiple rows
@@ -71,13 +81,3 @@ $(function() {
 			
 		})
 });
-
-// $(document).ready(function() { 
-// 			$('#showitemfiltersuser').click(function() {
-// 						$('#filtersuser').toggle("slide");
-// 			});
-// 			$('#viewlistbt').show( 0 );
-// 			$('#newuser').hide();
-// 			$('#volverusers').fadeIn( 500 );
-// 			$('#showitemfiltersuser').show( 0 );
-// });

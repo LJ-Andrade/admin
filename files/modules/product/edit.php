@@ -3,7 +3,6 @@
 <head>
 <?php include('../../includes/inc.head.php'); ?>
 </head>
-<?php include('../../includes/inc.delpopup.php'); ?> <!-- Del PopUp Window -->
 <body>
   <div id="wrapper">
     <?php include('../../includes/inc.nav.php'); ?> <!-- Navegation -->
@@ -13,7 +12,7 @@
             <div class="container additemdiv animated fadeIn">
                 <div class="col-sm-12 form-box formitems">
                   <div class="additemtit">
-                       <h3>Agregar Nuevo Producto</h3>
+                    <div class="maintitle"><h4 class="maintitletxt">Editar Producto</h4></div>
                   </div>
                       <div class="row">
                           <div class="col-md-6 form-group animated bounceInLeft">
@@ -113,69 +112,17 @@
                 </div>   
             </div>
                        
-                        <!--  Add Img & Done Button Div  -->
-                        <div class="container centrarbtn animated fadeInUp donediv">
-                             <div class="form-group">
-                               <li id="chooseimg" class="animated fadeIn btn additembtn"><a href="#" class="" role="button"><i class="fa fa-file-image-o fa-fw"></i> Elegir Im&aacute;gen...</a></li>
-                               <a href="nuevoitem.php" class="btn additembtn btnsave" role="button"><i class="fa fa-check-square-o fa-fw"></i> Guardar</a>
-                             </div>
-                         </div>  
+                <!--  Add Img & Done Button Div  -->
+                <div class="container centrarbtn animated fadeInUp donediv">
+                     <div class="form-group">
+                       <li id="chooseimg" class="animated fadeIn btn additembtn"><a href="#" class="" role="button"><i class="fa fa-file-image-o fa-fw"></i> Elegir Im&aacute;gen...</a></li>
+                       <a href="nuevoitem.php" class="btn additembtn btnsave" role="button"><i class="fa fa-check-square-o fa-fw"></i> Guardar</a>
+                     </div>
+                 </div>  
         <!-- /#page-wrapper -->
         </div>
 <!-- /#wrapper -->
 <?php include('../../includes/inc.foot.php'); ?>
-<script>
-// Subtop Bar Icons
-$(document).ready(function() {  
-    $('#volverprod').hide();
-    $('#newuser').hide();
-    $('#newprod').hide();
-    $('#volverusers').show( 500 );
-});
 
-// Show Img selection div
-$('#chooseimg').click(function() {
-         $('#itemimg').toggle("slide");
-         $('#chooseimg').hide( 100 );
-    });
-
-    
-// Insert Img
-var wrapper = $('<div/>').css({height:0,width:0,'overflow':'hidden'});
-var fileInput = $(':file').wrap(wrapper);
-
-fileInput.change(function(){
-    $this = $(this);
-    $('#file').text($this.val());
-})
-
-$('#file').click(function(){
-    fileInput.click();
-}).show();
-
-// Characters limiter
-$('input, textarea').keyup(function() {
-  var max = $(this).attr('maxLength');
-  var curr = this.value.length;
-  var percent = (curr/max) * 100;
-  var indicator = $(this).parent().children('.indicator-wrapper').children('.indicator').first();
-   
-  // Shows characters left
-  indicator.children('.current-length').html(max - curr);
-   
-  // Change colors
-  if (percent > 30 && percent <= 50) { indicator.attr('class', 'indicator low'); }
-  else if (percent > 50 && percent <= 70) { indicator.attr('class', 'indicator med'); }
-  else if (percent > 70 && percent < 100) { indicator.attr('class', 'indicator high'); }
-  else if (percent == 100) { indicator.attr('class', 'indicator full'); }
-  else { indicator.attr('class', 'indicator empty'); }
-  indicator.width(percent + '%');
-});
-    
-// Active Inactive Switch
-$("[name='my-checkbox']").bootstrapSwitch();
-    
-    
-</script>
 </body>
 </html>

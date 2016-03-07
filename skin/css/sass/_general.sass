@@ -3,9 +3,6 @@
     margin: 0
     padding: 0
     outline: 0
-    word-break: break-all
-
-html
 
 body
     margin-top: 100px
@@ -23,50 +20,44 @@ body
         margin-top: 50px
     a:link
         text-decoration: none
+
+
+@media(max-width:490px)
+    body
+        padding-top: 20px
+
+@media(min-width:490px)
+    body
+        padding-top: 70px
+
+@media(min-width:546px)
+    body
+        padding-top: 50px
+
 #wrapper
     padding-left: 0
-    top: 80px
     height: 100%
 
-// Ojo el Page Wrapper. Si en unos días no jode nada borrar todo lo relacionado con esa clase
-
-#page-wrapper
-    width: 100%
-    padding: 0
-    margin-top: 80px
-
-@media(min-width:768px)
-    #page-wrapper
-        min-height: 800px
-
-// Rearrange subtop in XS cels    
-@media(max-width:341px)
-    #page-wrapper
-        padding-top: 50px
-        .subtop1
-            float: none
-            text-align: center
-            padding: 5px 0 2px 0
-        .subtop2
-            float: none
-            text-align: center
-            padding: 2px 0
-
-@media(max-width:760px)
-    #page-wrapper
-        padding-top: 60px
-
-@media(max-width:500px)
-    #page-wrapper
-        padding-top: 0
 
 @media(min-width:768px)
     #wrapper
         padding-left: 225px
-    #page-wrapper
-        padding: 30px
     #wrapperlogin
         padding-left: 0
+
+@media(max-width:768px)
+    #wrapper
+        margin-top: 50px
+
+@media(max-width:960px)
+    #wrapper
+        margin-top: 30px
+
+@media(max-width:500px)
+    body
+        padding-top: 20px
+    #wrapper
+        margin-top: 0px
 
 a
     color: #fff
@@ -91,6 +82,15 @@ h5
 a:focus, a:hover
     color: $wh
     text-decoration: underline
+
+.maintitle
+    margin: 3px 0
+.maintitletxt
+    text-align: center
+
+@media(max-width:341px)
+    .maintitletxt
+        font-size: 14px
 
 
 //////////// Custom Styles /////////////////////////////////////////
@@ -123,7 +123,7 @@ a:focus, a:hover
 
 .brd
     border: 1px solid red
-    
+
 ////// Pagination ////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
@@ -155,9 +155,9 @@ a:focus, a:hover
 //////// Item Creation Window //////////////////////////////////////
 
 .additemdiv
+    margin-top: 20px
     max-width: 600px
     background-color: rgba(255,255,255,.4)
-    margin-top: 30px
     -webkit-box-shadow: 4px 2px 18px -6px rgba(0,0,0,0.69)
     -moz-box-shadow: 4px 2px 18px -6px rgba(0,0,0,0.69)
     box-shadow: 4px 2px 18px -6px rgba(0,0,0,0.69)
@@ -442,54 +442,29 @@ a .masterbtn
         background-color: rgba(0,0,0, .2)
 
 
-////////////// LIST VIEW //////////////////////////////////////////
-.listrow
-    margin: 5px
-    margin-left: 15px
-    margin-right: 15px
-    padding: 5px 15px
-    color: #fff
-    text-align: left
-    display: flex
+///////////// OPTION DIVS ////////////////////////////////////////
+
+.optionsdiv
+    padding-bottom: 20px
+    padding-top: 20px
+    margin: 0 auto
+    margin-top: 20px
+    margin-bottom: 20px
+
+.delselected
+    padding: 5px 20px
+    margin: 0 auto
+    margin: 0 15px
+    box-shadow: 0 8px 10px -10px rgba(0, 0, 0, 0.5)
+    border: none
+    -webkit-transition: all 0.5s ease 0s
+    transition: all 0.5s ease 0s
+    background-color: $mainred
+    color: $maintbtntxt
+    cursor: pointer
     &:hover
-        cursor: pointer
-        background-color: rgba($mainblue, 0.7)
-
-.listtit
-    margin: 5px
-    margin-left: 15px
-    margin-right: 15px
-    padding: 5px 15px
-    color: #fff
-    text-align: left
-    display: flex
-    background-color: rgba($mainblue, .5)
-
-.titlist1
-    border-right: 1px solid rgba($gris, 0.5)
-.titlist2
-    border-right: 1px solid rgba($gris, 0.5)
-.titlist3
-    border-right: 1px solid rgba($gris, 0.5)
-.titlist4
-    border-right: 1px solid rgba($gris, 0.5)
-.titlist5
-    border-right: 1px solid rgba($gris, 0.5)
-.titlist6
-
-.titlist6ult
-    border-right: 1px solid rgba($gris, 0.5)
-
-.padtoplist
-    padding-top: 15px
-
-.listselect
-    background-color: rgba($mainblue, .5)
-    -webkit-box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
-    -moz-box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
-    box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
-
-
+        box-shadow: 0 0 0
+        background-color: $mainredhover
 
 ////////////// LOADER ////////////////////////////////////////////////
 

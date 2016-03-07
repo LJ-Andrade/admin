@@ -1,0 +1,233 @@
+
+////////////// LIST VIEW //////////////////////////////////////////
+.listrow
+    margin: 5px
+    margin-left: 15px
+    margin-right: 15px
+    padding: 5px 15px
+    color: #fff
+    text-align: left
+    display: flex
+    &:hover
+        cursor: pointer
+        background-color: rgba($listhover, 0.5)
+        -webkit-box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
+        -moz-box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
+        box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
+        color: $listhovertxt
+
+.listtit
+    margin: 5px
+    margin-left: 15px
+    margin-right: 15px
+    padding: 5px 15px
+    color: #fff
+    text-align: left
+    display: flex
+    background-color: rgba($mainblue, .5)
+
+.titlist1
+    border-right: 1px solid rgba($gris, 0.5)
+.titlist2
+    border-right: 1px solid rgba($gris, 0.5)
+.titlist3
+    border-right: 1px solid rgba($gris, 0.5)
+.titlist4
+    border-right: 1px solid rgba($gris, 0.5)
+.titlist5
+    border-right: 1px solid rgba($gris, 0.5)
+.titlist6
+
+.titlist6ult
+    border-right: 1px solid rgba($gris, 0.5)
+
+.padtoplist
+    padding-top: 15px
+
+.listselect
+    background-color: rgba($mainblue, .5)
+    -webkit-box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
+    -moz-box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
+    box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
+
+
+
+//////// Menu Lists /////////////////
+
+.menulistico.fa-gears::before,
+.menulistico.fa-sitemap::before,
+.menulistico.fa-home::before,
+.menulistico.fa-list-ul::before,
+.menulistico.fa-user::before,
+.menulistico.fa-tree::before,
+.menulistico.fa-plus-square::before,
+.menulistico.fa-eye::before,
+.menulistico.fa-tree::before,
+.menulistico.fa-money::before,
+.menulistico.fa-bars::before,
+    font-size: 35px
+    padding-top: 5px
+    color: #fff
+    &:hover:before
+        color: #000
+	
+.menulistcol1
+    padding-top: 8px
+
+/////////////////// Product List View /////////////////
+
+.listrowitem
+    margin: 5px
+    margin-left: 15px
+    margin-right: 15px
+    padding-left: 15px
+    padding-right: 15px
+    color: #fff
+    text-align: left
+    &:hover
+        cursor: pointer
+        background-color: rgba(0,0,0, .4)
+
+.itemtit
+    margin: 30px 0 0 
+.itemtxt
+    text-align: center
+.itemrow2
+    padding: 0 10px
+.itemtxtcolor
+    font-size: 12px
+
+
+.prodimglist
+    border-radius: 100%
+    max-width: 50px
+    padding: 0
+    cursor: pointer
+
+.col1listprod
+    border-right: 1px solid rgba($gris, 0.5)
+.col2listprod
+    border-right: 1px solid rgba($gris, 0.5)
+    padding-top: 15px
+.col3listprod
+    border-right: 1px solid rgba($gris, 0.5)
+    padding-top: 15px
+.col4listprod
+    border-right: 1px solid rgba($gris, 0.5)
+    padding-top: 15px
+.col5listprod
+    border-right: 1px solid rgba($gris, 0.5)
+    padding-top: 15px
+.col6listprod
+    padding-top: 10px
+
+
+// Icons (Del and modify)
+.prodicos ul
+    list-style-type: none
+    text-align: center 
+.prodicos li
+    display: inline
+    text-align: center
+    margin: 0 15px 
+
+.itemicos
+    background-color: transparent
+    margin-top: 10px
+    ul
+        list-style-type: none
+        text-align: center 
+    li
+        display: inline
+        text-align: center
+        margin: 0 15px
+    
+.prodicoadd
+    ul
+        margin-left: -25px
+        border: 1px solid blue 
+
+.prodfilediv
+    background-color: rgba($itemfilediv, .5)
+    padding: 10px 5px
+    margin: 20px 0
+
+.prodfileimg
+    width: 100px
+    height: 100px
+    max-width: 100%
+    height: auto
+    margin: 0 auto
+    -webkit-box-shadow: 0 12px 12px rgba(0,0,0,.175)
+    box-shadow: 0 6px 6px rgba(0,0,0,.175)
+    -webkit-transition: all 0.5s ease 0s
+    transition: all 0.5s ease 0s
+
+.prodfileimg:hover
+    box-shadow: none
+    
+.colprod
+    margin-top: 10px 
+.colprodtit
+    margin-top: 10px
+    text-align: center 
+.colprod1
+    margin-top: 10px
+    text-align: center
+.colprodico
+    margin-top: 10px
+
+
+
+ 
+/////////////////// User List View /////////////////
+.userimglist
+    border-radius: 100%
+    max-width: 50px
+    padding: 0
+    cursor: pointer
+
+.col1listus
+    border-right: 1px solid rgba($gris, 0.5)
+.col2listus
+    border-right: 1px solid rgba($gris, 0.5)
+    padding-top: 15px
+.col3listus
+    border-right: 1px solid rgba($gris, 0.5)
+    padding-top: 15px
+.col4listus
+    border-right: 1px solid rgba($gris, 0.5)
+    padding-top: 15px
+.col5listus
+    border-right: 1px solid rgba($gris, 0.5)
+    padding-top: 15px
+.col6listus
+    padding-top: 10px
+
+/////////  List View Responsive /////
+@media(max-width:1200px)
+    .userimglist
+        max-width: 50px
+
+/////////////// Iconos Combinados Fila o Caja //////////
+
+.usericos
+    height: 50px
+
+
+.usericoslist,.usericos
+    ul
+        list-style-type: none
+        text-align: center
+        transition: .5s
+        li
+            display: inline
+            text-align: center
+            margin: 0 5px
+            transition: .5s
+
+.visible
+    visibility: visible
+
+.usericoslist
+    margin-top: 0
