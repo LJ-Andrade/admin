@@ -141,13 +141,4 @@
             
         </div><!-- /.container-fluid -->
     </div><!-- /#wrapper -->
-<script>
-    $(document).ready(function() {  
-        $('#newuser').fadeIn( 500 );
-    });
-        
-    $(window).scroll(function(){
-      $('#wrapper')[0].scrollTop=$(window).scrollTop();
-    });
-</script>
 <?php include('../../includes/inc.foot.php'); ?>
