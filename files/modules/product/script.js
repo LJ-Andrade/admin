@@ -102,5 +102,22 @@ $(document)
    });
 });
 
-
+///////// Characters limiter ///////////////////////////////////////////////
+$('input, textarea').keyup(function() {
+  var max = $(this).attr('maxLength');
+  var curr = this.value.length;
+  var percent = (curr/max) * 100;
+  var indicator = $(this).parent().children('.indicator-wrapper').children('.indicator').first();
+   
+  // Shows characters left
+  indicator.children('.current-length').html(max - curr);
+   
+  // Change colors
+  if (percent > 30 && percent <= 50) { indicator.attr('class', 'indicator low'); }
+  else if (percent > 50 && percent <= 70) { indicator.attr('class', 'indicator med'); }
+  else if (percent > 70 && percent < 100) { indicator.attr('class', 'indicator high'); }
+  else if (percent == 100) { indicator.attr('class', 'indicator full'); }
+  else { indicator.attr('class', 'indicator empty'); }
+  indicator.width(percent + '%');
+});
 

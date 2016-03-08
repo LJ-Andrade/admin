@@ -33,17 +33,15 @@ $(function(){
 	$("[name='public']").bootstrapSwitch();
 });	
 
-
 ///////////////////////   Del Selected  //////////////////////////////////////////
 
 $(document).ready(function() { 
 			$('#delselected').hide();
 			$(".listrow").click(function() {
 			      $('#delselected').show ( 0 );
-			 });
+			});
+
 });
-
-
 
 // Select multiple rows
 
@@ -76,8 +74,8 @@ $(function() {
 		$('#delselecteduser').hide();
 		$('#optionsmenu').hide();
 		$('.listrow').click(function() {
-			$('#optionsmenu').fadeIn();
-			$('#delselecteduser').fadeIn();
-			
-		})
+				$('#optionsmenu').fadeIn();
+				$('#delselecteduser').fadeIn();
+				
+				})
 });

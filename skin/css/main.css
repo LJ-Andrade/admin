@@ -711,6 +711,15 @@ div#page_loader {
   bottom: 0;
   color: black; }
 
+.checkboxtree {
+  max-width: 250px;
+  text-align: left;
+  list-style: none; }
+  .checkboxtree li {
+    border: 1px solid red; }
+    .checkboxtree li ul li {
+      margin-left: 30px; }
+
 .login {
   height: 100%;
   width: 100%; }
@@ -1036,8 +1045,11 @@ body#login {
   .top-nav {
     padding: 0; } }
 .top-nav li a:hover, .top-nav > li > a:focus, .top-nav > .open > a, .top-nav > .open > a:hover, .top-nav > .open > a:focus {
-  background-color: #ccc;
+  background-color: rgba #056e90, 0.7;
   color: #000; }
+
+.nav .open > a, .nav .open > a:focus, .nav .open > a:hover {
+  background-color: rgba #056e90, 0.7 !important; }
 
 .dropdown {
   width: 219px; }
