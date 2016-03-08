@@ -71,7 +71,7 @@
                         <ul>
                             <li class="optbtn"><a href="edit.php?id=<?php echo $User->AdminID ?>" class="btnmod btnuser animated fadeIn"><i class="fa fa-fw fa-pencil"></i></a></li>
                             <?php if($User->AdminID!=$Admin->AdminID){ ?>
-                            <li deleteElement="<?php echo $User->AdminID ?>" deleteParent="user<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>'?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente" class="deleteElement btndel btnuser optbtn animated fadeIn"><i class="fa fa-fw fa-trash"></i></li>
+                            <li deleteElement="<?php echo $User->AdminID ?>" deleteParent="user<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>'?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente" class="deleteElement btndel btnuser animated fadeIn"><i class="fa fa-fw fa-trash"></i></li>
                             <?php } ?>
                         </ul>                
                     </div>

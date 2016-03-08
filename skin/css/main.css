@@ -715,10 +715,8 @@ div#page_loader {
   max-width: 250px;
   text-align: left;
   list-style: none; }
-  .checkboxtree li {
-    border: 1px solid red; }
-    .checkboxtree li ul li {
-      margin-left: 30px; }
+  .checkboxtree li ul li {
+    margin-left: 30px; }
 
 .login {
   height: 100%;

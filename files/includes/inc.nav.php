@@ -42,8 +42,8 @@
                 <li id="showitemfiltersuser" class="animated fadeIn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-search fa-fw"></i> Buscar</a></li>
                 <li id="showitemfilters" class="animated fadeIn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-search fa-fw"></i> Buscar</a></li>
                 <!-- Add New Item -->
-                <li id="newprod"><a href="../../modules/product/nuevoitem.php" class="btn subitbtn" role="button"><i class="fa fa-plus-square fa-fw"></i> Nuevo Producto</a></li> 
-                <li id="newuser"><a href="../../modules/user/newuser.php" class="btn subitbtn" role="button"><i class="fa fa-user-plus  fa-fw"></i> Nuevo Usuario</a></li>  
+                <li id="newprod"><a href="../../modules/product/new.php" class="btn subitbtn" role="button"><i class="fa fa-plus-square fa-fw"></i> Nuevo Producto</a></li> 
+                <li id="newuser"><a href="../../modules/user/new.php" class="btn subitbtn" role="button"><i class="fa fa-user-plus  fa-fw"></i> Nuevo Usuario</a></li>  
             </ul>
         </div>
     </div>

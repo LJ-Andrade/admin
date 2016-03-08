@@ -71,10 +71,9 @@
 
                         </li>
                     </ul>
-                        
-                    
+                <div>
 
-            </div>
+                
             <!-- Checkbox Test -->
 
              
