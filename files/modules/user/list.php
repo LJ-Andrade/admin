@@ -61,7 +61,7 @@
                         $User = new AdminData($User['admin_id']);
                 ?>
                 <!--    Users   -->
-                <div id="user<?php echo $User->AdminID ?>" class="col-centered col-lg-2 col-sm-6 col-xs-12 animated fadeIn usergral">
+                <div id="user<?php echo $User->AdminID ?>" selecteableElement="yes" class="col-centered col-lg-2 col-sm-6 col-xs-12 animated fadeIn usergral">
                     <img src="<?php echo $User->Img; ?>" id="userimage" class="img-responsive userimg">
                     <div class="row usernamediv">
                         <span class="usernametxt"><span class="col-lg-12 col-sm-12 col-xs-12"><?php echo  $User->FullName; ?></span> <span class="col-lg-12 col-sm-12 col-xs-12">(<?php echo $User->User ?>)</span></span><br>
