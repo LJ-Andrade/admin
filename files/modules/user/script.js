@@ -17,29 +17,29 @@ $(document).ready(function(){
 });
 
 $(function(){
-			$("#create").click(function(){
-						if(validate.validateFields('')){
-									var process		= 'process.php';
-									var target		= 'list.php?msg='+ $("#action").val();
-									var haveData	= function(returningData)
+	$("#create").click(function(){
+		if(validate.validateFields('')){
+			var process		= 'process.php';
+			var target		= 'list.php?msg='+ $("#action").val();
+			var haveData	= function(returningData)
 			{
-			$("input,select").blur();
-						notifyError(returningData);
-						//alert(returningData);
-						}
-						var noData		= function()
-						{
-						document.location = target;
-						}
-						sumbitFields(process,haveData,noData);
-						}
-			});
-
-			$("input").keypress(function(e){
-						if(e.which==13){
-			$("#create").click();
+				$("input,select").blur();
+				notifyError(returningData);
+				//alert(returningData);
 			}
-			});
+			var noData		= function()
+			{
+				document.location = target;
+			}
+			sumbitFields(process,haveData,noData);
+		}
+	});
+
+	$("input").keypress(function(e){
+		if(e.which==13){
+			$("#create").click();
+		}
+	});
 });	
 
 ///////////////////////// Show or Hide Icons On subtop /////////////////////////////
@@ -140,13 +140,21 @@ $(function(){
 			$(this).toggleClass("usergralselect");
 			var totalSelected = 0;
 			$(".usergralselect").each(function(){
-				totalSelected++;	
+				totalSelected++;
 			});
 			if(totalSelected>1){
 				$('#delselected').show();
 			}else{
 				$('#delselected').hide();
 			}
+	});
+
+	//Unselect All Users
+	$('*').click(function(){
+		if($(this).attr('selecteableElement')!="yes"){
+	    	console.log('entra');
+	    	$('.usergral').removeClass('usergralselect');
+	    }
 	});
 
 	// Hover Effect
@@ -164,7 +172,7 @@ $(function(){
 			.mousedown(function () {
 				isMouseDown = true;
 				$(this).toggleClass("listselect");
-				isHighlighted = $(this).hasClass("ishighlighted");
+				isHighlighted = $(this).hasClass("usergralselect");
 				return false; // prevent text selection
 			})
 			.mouseover(function () {
