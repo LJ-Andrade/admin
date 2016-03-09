@@ -86,10 +86,10 @@ switch(strtolower($_POST['action']))
 		$Email 		= htmlentities($_POST['email']);
 		$ProfileID	= $_POST['profile'];
 		$Status		= $_POST['status']=="on"? 'A': 'I';
-		$Groups		= $_POST['group_id'] ? explode(",",$_POST['group_id']) : array();
+		$Groups		= $_POST['group'] ? explode(",",$_POST['group_id']) : array();
 		$Menues		= $_POST['menu'] ? explode(",",$_POST['menu']) : array();
 
-		$Insert		= $DB->execQuery('update','admin_user',"user='".$User."'".$PasswordFilter.",first_name='".$FirstName."',last_name='".$LastName."',email='".$Email."',status='".$Status."',profile_id='".$ProfileID."'".$ImgFilter,"admin_id=".$Admin_id);
+		$Insert		= $DB->execQuery('update','admin_user',"user='".$User."'".$PasswordFilter.",first_name='".$FirstName."',last_name='".$LastName."',email='".$Email."',status='".$Status."',profile_id='".$ProfileID."'".$ImgFilter,"admin_id=".$ID);
 		//echo $DB->lastQuery();
 		$DB->execQuery('delete','relation_admin_group',"admin_id = ".$Admin_id);
 		$DB->execQuery('delete','menu_exception',"admin_id = ".$Admin_id);
