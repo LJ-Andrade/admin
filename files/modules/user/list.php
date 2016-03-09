@@ -61,17 +61,19 @@
                         $User = new AdminData($User['admin_id']);
                 ?>
                 <!--    Users   -->
-                <div id="user<?php echo $User->AdminID ?>" selecteableElement="yes" class="col-centered col-lg-2 col-sm-6 col-xs-12 animated fadeIn usergral">
-                    <img src="<?php echo $User->Img; ?>" id="userimage" class="img-responsive userimg">
-                    <div class="row usernamediv">
-                        <span class="usernametxt"><span class="col-lg-12 col-sm-12 col-xs-12"><?php echo  $User->FullName; ?></span> <span class="col-lg-12 col-sm-12 col-xs-12">(<?php echo $User->User ?>)</span></span><br>
-                        <span class="usernametxt2">Administrador</span>
+                <div id="user<?php echo $User->AdminID ?>" selecteableElement="yes" class="col-centered col-lg-3 col-sm-6 col-xs-12 animated fadeIn usergral">
+                    <div class="userMainSection">
+                        <div class="userimgdiv"><img src="<?php echo $User->Img; ?>" id="userimage" class="img-responsive userimg"></div>
+                        <div class="row usernamediv">
+                            <span class="usernametxt"><span class="col-sm-12"><?php echo  $User->FullName; ?></span> <span class="col-lg-12 col-sm-12 col-xs-12">(<?php echo $User->User ?>)</span></span><br>
+                            <span class="usernametxt2">Administrador</span>
+                        </div>
                     </div>
-                    <div id="usericosid" class="usericos brd">
-                        <ul class="brd">
-                            <li class="optbtn btnmod btnuser animated fadeIn brd"><a href="edit.php?id=<?php echo $User->AdminID ?>" ><i class="fa fa-fw fa-pencil"></i></a></li>
+                    <div id="usericosid" class="usericos">
+                        <ul class="userButtons animated slideInUp">
+                            <li class="btnmod animated fadeIn"><a href="edit.php?id=<?php echo $User->AdminID ?>" ><i class="fa fa-fw fa-pencil"></i></a></li>
                             <?php if($User->AdminID!=$Admin->AdminID){ ?>
-                            <li deleteElement="<?php echo $User->AdminID ?>" deleteParent="user<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>'?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente" class="deleteElement btndel btnuser animated fadeIn brd"><i class="fa fa-fw fa-trash"></i></li>
+                            <li class="deleteElement btndel animated fadeIn" deleteElement="<?php echo $User->AdminID ?>" deleteParent="user<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>'?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente"><i class="fa fa-fw fa-trash"></i></li>
                             <?php } ?>
                         </ul>                
                     </div>

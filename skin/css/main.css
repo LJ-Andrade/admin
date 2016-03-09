@@ -1174,8 +1174,9 @@ ul.alert-dropdown {
 
 .usergral {
   max-width: 220px;
+  height: 300px;
   margin: 10px 10px;
-  padding-top: 20px;
+  padding: 0;
   cursor: pointer;
   transition: 0.5s;
   -webkit-transition: 0.5s;
@@ -1183,12 +1184,14 @@ ul.alert-dropdown {
   -o-transition: 0.5s;
   -ms-transition: 0.5s;
   -webkit-transition: all 0.5s ease 0s;
-  transition: all 0.5s ease 0s; }
+  transition: all 0.5s ease 0s;
+  overflow: hidden; }
+
+.userMainSection {
+  padding: 0; }
 
 .usergralselect {
-  background-color: rgba(255, 255, 255, 0.3) !important;
-  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175); }
+  background-color: rgba(255, 255, 255, 0.3) !important; }
 
 .usergralhoverout {
   background-color: transparent;
@@ -1198,6 +1201,17 @@ ul.alert-dropdown {
   .usergral {
     margin: 5px 0;
     padding: 0; } }
+.userHover {
+  background-color: rgba(255, 255, 255, 0.5); }
+
+.userButtons {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.3); }
+
+.userimgdiv {
+  padding-top: 20px; }
+
 .userimg {
   border-radius: 100%;
   max-width: 130px;
@@ -1267,9 +1281,6 @@ p .addusertxt:hover {
 
 .switchuser {
   text-align: center; }
-
-.userHover {
-  background-color: rgba(255, 255, 255, 0.3); }
 
 .addusertit {
   text-align: center;

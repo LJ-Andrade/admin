@@ -3,8 +3,6 @@ $(window).scroll(function(){
   $('#wrapper')[0].scrollTop=$(window).scrollTop();
 });*/
 
-
-
 $(document).ready(function(){
 	if(get['msg']=='insert')
 		notifySuccess('Usuario creado correctamente');
@@ -42,29 +40,6 @@ $(function(){
 	});
 });	
 
-///////////////////////// Show or Hide Icons On subtop /////////////////////////////
-/*
-$(document).ready(function() { 
-			$('#showitemfiltersuser').click(function() {
-						$('#filtersuser').toggle("slide");
-			});
-			$('#viewlistbt').show( 0 );
-			$('#newuser').hide();
-			$('#volverusers').fadeIn( 500 );
-			$('#showitemfiltersuser').show( 0 );
-});
-*/
-
-/////////////////////// FIX //////////////////////////////////////////////////////
-$(function(){
-	//// Icons appearing
-	$('.btnuser').hide();
-	
-	$('.usergral').click(function() {
-		$(this).find('.btnuser').fadeToggle();
-	});
-
-
 /////////////////////////// Switch View Mode /////////////////////////////////////
 	$("#viewlistbt").on( "click", function() {
 		$('div[id="viewgrid"]').hide( 500 );
@@ -80,61 +55,17 @@ $(function(){
 		$("#viewlistbt").show( 0 );
 	});
 
-	// Active Inactive Switch
-	$("[name='my-checkbox']").bootstrapSwitch();
-
-	// Show Img selection div
-	$('#chooseimg').click(function() {
-		$('#itemimg').toggle("slide");
-		$('#chooseimg').hide( 100 );
-	});
-	    
-	// Insert Img
-	var wrapper = $('<div/>').css({height:0,width:0,'overflow':'hidden'});
-	var fileInput = $(':file').wrap(wrapper);
-
-	fileInput.change(function(){
-	    $this = $(this);
-	    $('#file').text($this.val());
-	})
-
-	$('#file').click(function(){
-	    fileInput.click();
-	}).show();
-
-	// Caracters limiter
-	$('input, textarea').keyup(function() {
-		var max = $(this).attr('maxLength');
-		var curr = this.value.length;
-		var percent = (curr/max) * 100;
-		var indicator = $(this).parent().children('.indicator-wrapper').children('.indicator').first();
-
-		// Shows characters left
-		indicator.children('.current-length').html(max - curr);
-
-		// Change colors periodically
-		if (percent > 30 && percent <= 50) { indicator.attr('class', 'indicator low'); }
-		else if (percent > 50 && percent <= 70) { indicator.attr('class', 'indicator med'); }
-		else if (percent > 70 && percent < 100) { indicator.attr('class', 'indicator high'); }
-		else if (percent == 100) { indicator.attr('class', 'indicator full'); }
-		else { indicator.attr('class', 'indicator empty'); }
-		indicator.width(percent + '%');
-	});
-
-	// Active Inactive Switch
-	$("[name='status']").bootstrapSwitch();
-
-
 
 ///////////////////// User Icos Del Modify Appears On Hover ///////////////////////
-	/*
-	var hoverstyle = {
-			backgroundColor : "rgba(255,255,255, .3)",
-	};
-	var unhoverlol = {
-			backgroundColor : "transparent",
-	};
-	*/
+
+ // Del & Mod User Icons appearing onclick
+$(function(){
+	$('.userButtons').hide(); 	
+	$('.usergral').click(function() {
+				$(this).find('.userButtons').toggle();
+				$(this).find('.userMainSection').toggleClass("usergralselect", 500);
+});
+
 	// Select User
 	$(".usergral").click(function(){
 			$(this).toggleClass("usergralselect");
@@ -158,11 +89,11 @@ $(function(){
 	});
 
 	// Hover Effect
-	$('.usergral').hover(function() {
+	$('.userMainSection').hover(function() {
 			$(this).addClass('userHover');
 	});
 
-	$('.usergral').mouseleave(function() {
+	$('.userMainSection').mouseleave(function() {
 			$(this).removeClass('userHover');
 	});
 
@@ -185,6 +116,25 @@ $(function(){
 			});
 	
 	$(document).mouseup(function () {isMouseDown = false;});
+
+
+////////////////// User Creation Window /////////////////////////
+
+	// Insert Img
+	var wrapper = $('<div/>').css({height:0,width:0,'overflow':'hidden'});
+	var fileInput = $(':file').wrap(wrapper);
+
+	fileInput.change(function(){
+	    $this = $(this);
+	    $('#file').text($this.val());
+	})
+
+	$('#file').click(function(){
+	    fileInput.click();
+	}).show();
+
+	// Active Paused Product Switch
+	$("[name='status']").bootstrapSwitch();
 
 });
 
