@@ -61,7 +61,7 @@
                         $User = new AdminData($User['admin_id']);
                 ?>
                 <!--    Users   -->
-                <div id="user<?php echo $User->AdminID ?>" <?php if($User->AdminID!=$Admin->AdminID){ echo "undeleteable"; } ?> class="col-centered col-lg-3 col-sm-6 col-xs-12 animated fadeIn usergral <?php if($User->AdminID==$Admin->AdminID){ echo "undeleteable"; } ?>">
+                <div id="user<?php echo $User->AdminID ?>" class="col-centered col-lg-3 col-sm-6 col-xs-12 animated fadeIn usergral <?php if($User->AdminID==$Admin->AdminID){ echo "undeleteable"; } ?>">
                     <div class="userMainSection">
                         <div class="userimgdiv"><img src="<?php echo $User->Img; ?>" id="userimage" class="img-responsive userimg"></div>
                         <div class="row usernamediv">
@@ -73,7 +73,7 @@
                         <ul class="userButtons animated slideInUp">
                             <li class="btnmod animated fadeIn"><a href="edit.php?id=<?php echo $User->AdminID ?>" ><i class="fa fa-fw fa-pencil"></i></a></li>
                             <?php if($User->AdminID!=$Admin->AdminID){ ?>
-                            <li class="deleteElement btndel animated fadeIn" deleteElement="<?php echo $User->AdminID ?>" deleteParent="user<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>'?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente"><i class="fa fa-fw fa-trash"></i></li>
+                            <li class="deleteElement btndel animated fadeIn" deleteElement="<?php echo $User->AdminID ?>" deleteParent="userlist<?php echo $User->AdminID ?>/user<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>'?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente"><i class="fa fa-fw fa-trash"></i></li>
                             <?php } ?>
                         </ul>                
                     </div>
@@ -109,7 +109,7 @@
                             $User = new AdminData($User['admin_id']);
                 ?>
                 <!-- Items -->
-                <div id="user<?php echo $User->AdminID ?>" class="container-fluid glasscontainer1 listrow">
+                <div id="userlist<?php echo $User->AdminID ?>" class="container-fluid glasscontainer1 listrow <?php if($User->AdminID==$Admin->AdminID){ echo "undeleteable"; } ?>">
                     <div class="col-lg-1 col-md-4 col-sm-6 col-xs-12 col1listus">
                         <img src="<?php echo $User->Img; ?>" class="img-responsive userimglist">
                     </div> 
@@ -130,7 +130,7 @@
                              <ul>
                                 <li class="btnmod"><a href="edit.php?id=<?php echo $User->AdminID ?>"><i class="fa fa-fw fa-pencil"></i></a></li>
                                     <?php if($User->AdminID!=$Admin->AdminID){ ?>
-                                <li deleteElement="<?php echo $User->AdminID ?>" deleteParent="user<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>'?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente" class="deleteElement btndel"><i class="fa fa-fw fa-trash"></i></li>
+                                <li deleteElement="<?php echo $User->AdminID ?>" deleteParent="userlist<?php echo $User->AdminID ?>/user<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>'?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente" class="deleteElement btndel"><i class="fa fa-fw fa-trash"></i></li>
                                     <?php } ?>
                             </ul>
                         </div>

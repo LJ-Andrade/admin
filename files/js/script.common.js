@@ -220,7 +220,7 @@ $(function(){
     ////////////////////////////////////////////////////////////////// DELETE ACTION //////////////////////////////////////////////
     $(".deleteElement").click(function(){
         var action      = "delete";
-        var parent      = $(this).attr("deleteParent");
+        var parents     = $(this).attr("deleteParent").split("/");
         var process     = $(this).attr("deleteProcess");
         var conText     = utf8_encode($(this).attr("confirmText"));
         var sucText     = utf8_encode($(this).attr("successText"));
@@ -229,11 +229,13 @@ $(function(){
         alertify.confirm(utf8_decode(conText), function(e){
             if(e){
                 var result;
-                result = deleteElement(action,id,parent,process);
+                result = deleteElement(action,id,process);
                 if(result){
                     notifyError(result);
                 }else{
-                    $("#"+parent).slideUp();
+                    parents.forEach(function(parent){
+                        $("#"+parent).slideUp();
+                    });
                     notifySuccess(utf8_decode(sucText));
                 }
             }
@@ -272,7 +274,7 @@ $(function(){
     //     }
     // }
 
-    function deleteElement(action,id,parent,process)
+    function deleteElement(action,id,process)
     {
         var string      = 'id='+ id + '&action=' + action;
         var data;

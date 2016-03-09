@@ -45,10 +45,10 @@ $(function(){
 		alertify.confirm(utf8_decode('¿Desea eliminar los usuarios seleccionados?'), function(e){
             if(e){
             	var result;
-            	$(".usergralselect").each(function(){
+            	$(".deleteThis").each(function(){
             		var elem 	= $(this).find('.btndel');
             		var id 		= elem.attr('deleteElement');
-            		var parent 	= elem.attr('deleteParent');
+            		var parents = elem.attr('deleteParent').split("/");
             		var process = elem.attr('deleteProcess');
 	                
                 	var string      = 'id='+ id + '&action=delete';
@@ -66,16 +66,21 @@ $(function(){
 		                        result = data;
 		                        return false;
 		                    }else{
-		                        $("#"+parent).slideUp();
+		                        parents.forEach(function(parent){
+			                        $("#"+parent).slideUp();
+			                    });
 		                    }
 		                }
 			        });
             	});
 
+
             	if(result)
             	{
             		notifyError('Hubo un problema al eliminar los usuarios: '+result);
             	}else{
+            		$('#delselected').hide();
+            		$(".deleteThis").each(function(){ $(this).removeClass('deleteThis'); });
             		notifySuccess(utf8_decode('Los usuarios seleccionados han sido eliminados.'));
             	}
             }
@@ -99,6 +104,10 @@ $(function(){
 	});
 
 	$("#viewgridbt").on( "click", function() {
+		$(".listselect").each(function(){
+			$(this).removeClass('deleteThis');
+			$(this).removeClass('listselect');
+		});
 		$('div[id="viewgrid"]').show( 500 ); 
 		$('div[id="viewlist"]').hide( 500 );
 		$("#viewgridbt").hide();
@@ -118,13 +127,34 @@ $(function(){
 		$(this).find('.userMainSection').toggleClass("usergralselect", 500);
 });
 
-	// Select User
+	// Select Users
 	$(".usergral").click(function(){
 		$(this).toggleClass("deleteThis");
 		$(this).toggleClass("usergralselect");
 		var totalSelected = 0;
 		var admDelBtn;
 		$(".usergralselect").each(function(){
+			if($(this).hasClass('undeleteable'))
+			{
+				admDelBtn = $(this);
+			}else{
+				totalSelected++;
+			}
+				
+		});
+		if(totalSelected>1 && !admDelBtn){
+			$('#delselected').show();
+		}else{
+			$('#delselected').hide();
+		}
+	});
+
+	$(".listrow").click(function(){
+		$(this).toggleClass("deleteThis");
+		$(this).toggleClass("listselect");
+		var totalSelected = 0;
+		var admDelBtn;
+		$(".listselect").each(function(){
 			if($(this).hasClass('undeleteable'))
 			{
 				admDelBtn = $(this);
@@ -151,25 +181,25 @@ $(function(){
 		$(this).removeClass('userHover');
 	});
 
-	// Select multiple rows
-	var isMouseDown = false, isHighlighted;
-		$(".listrow")
-			.mousedown(function () {
-				isMouseDown = true;
-				$(this).toggleClass("listselect");
-				isHighlighted = $(this).hasClass("usergralselect");
-				return false; // prevent text selection
-			})
-			.mouseover(function () {
-				if (isMouseDown) {
-					$(this).toggleClass("listselect", isHighlighted);
-				}
-			})
-			.bind("selectstart", function () {
-				return false;
-			});
+	// // Select multiple rows
+	// var isMouseDown = false, isHighlighted;
+	// 	$(".listrow")
+	// 		.mousedown(function () {
+	// 			isMouseDown = true;
+	// 			//$(this).click("listselect");
+	// 			isHighlighted = $(this).hasClass("listselect");
+	// 			return false; // prevent text selection
+	// 		})
+	// 		.mouseover(function () {
+	// 			if (isMouseDown) {
+	// 				$(this).toggleClass("listselect", isHighlighted);
+	// 			}
+	// 		})
+	// 		.bind("selectstart", function () {
+	// 			return false;
+	// 		});
 	
-	$(document).mouseup(function () {isMouseDown = false;});
+	// $(document).mouseup(function () {isMouseDown = false;});
 
 
 ////////////////// User Creation Window /////////////////////////
