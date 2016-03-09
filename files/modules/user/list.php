@@ -67,11 +67,11 @@
                         <span class="usernametxt"><span class="col-lg-12 col-sm-12 col-xs-12"><?php echo  $User->FullName; ?></span> <span class="col-lg-12 col-sm-12 col-xs-12">(<?php echo $User->User ?>)</span></span><br>
                         <span class="usernametxt2">Administrador</span>
                     </div>
-                    <div id="usericosid" class="usericos">
-                        <ul>
-                            <li class="optbtn"><a href="edit.php?id=<?php echo $User->AdminID ?>" class="btnmod btnuser animated fadeIn"><i class="fa fa-fw fa-pencil"></i></a></li>
+                    <div id="usericosid" class="usericos brd">
+                        <ul class="brd">
+                            <li class="optbtn btnmod btnuser animated fadeIn brd"><a href="edit.php?id=<?php echo $User->AdminID ?>" ><i class="fa fa-fw fa-pencil"></i></a></li>
                             <?php if($User->AdminID!=$Admin->AdminID){ ?>
-                            <li deleteElement="<?php echo $User->AdminID ?>" deleteParent="user<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>'?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente" class="deleteElement btndel btnuser animated fadeIn"><i class="fa fa-fw fa-trash"></i></li>
+                            <li deleteElement="<?php echo $User->AdminID ?>" deleteParent="user<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>'?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente" class="deleteElement btndel btnuser animated fadeIn brd"><i class="fa fa-fw fa-trash"></i></li>
                             <?php } ?>
                         </ul>                
                     </div>
