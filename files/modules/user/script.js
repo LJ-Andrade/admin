@@ -38,14 +38,64 @@ $(function(){
 			$("#create").click();
 		}
 	});
-});	
+});
+
+/////////////////////////// Massive Delete /////////////////////////////////////
+	$("#delselected").click(function(){
+		alertify.confirm(utf8_decode('¿Desea eliminar los usuarios seleccionados?'), function(e){
+            if(e){
+            	var result;
+            	$(".usergralselect").each(function(){
+            		var elem 	= $(this).find('.btndel');
+            		var id 		= elem.attr('deleteElement');
+            		var parent 	= elem.attr('deleteParent');
+            		var process = elem.attr('deleteProcess');
+	                
+                	var string      = 'id='+ id + '&action=delete';
+                	console.log(elem);
+			        var data;
+			        $.ajax({
+			            type: "POST",
+			            url: process,
+			            data: string,
+			            cache: false,
+			            success: function(data){
+		                    if(data)
+		                    {
+		                        notifyError('Hubo un problema al eliminar los usuarios: '+data);
+		                        result = data;
+		                        return false;
+		                    }else{
+		                        $("#"+parent).slideUp();
+		                    }
+		                }
+			        });
+            	});
+
+            	if(result)
+            	{
+            		notifyError('Hubo un problema al eliminar los usuarios: '+result);
+            	}else{
+            		notifySuccess(utf8_decode('Los usuarios seleccionados han sido eliminados.'));
+            	}
+            }
+        });
+	})
 
 /////////////////////////// Switch View Mode /////////////////////////////////////
 	$("#viewlistbt").on( "click", function() {
+		$(".usergralselect").each(function(){
+			$(this).removeClass('deleteThis');
+			$(this).removeClass('usergralselect');
+			$(this).find('.userButtons').toggle();
+			$(this).find('.userMainSection').toggleClass("usergralselect", 500);
+		});
+
 		$('div[id="viewgrid"]').hide( 500 );
 		$('div[id="viewlist"]').show( 500 ); 
 		$("#viewlistbt").hide();
 		$("#viewgridbt").show( 0 );
+		$('#delselected').hide();
 	});
 
 	$("#viewgridbt").on( "click", function() {
@@ -53,6 +103,7 @@ $(function(){
 		$('div[id="viewlist"]').hide( 500 );
 		$("#viewgridbt").hide();
 		$("#viewlistbt").show( 0 );
+		$('#delselected').hide();
 	});
 
 
@@ -62,39 +113,42 @@ $(function(){
 $(function(){
 	$('.userButtons').hide(); 	
 	$('.usergral').click(function() {
-				$(this).find('.userButtons').toggle();
-				$(this).find('.userMainSection').toggleClass("usergralselect", 500);
+		$(this).find('.userButtons').toggle();
+		$(this).find('.userMainSection').toggleClass("usergralselect", 500);
+		$(this).find('.userMainSection').toggleClass("usergralselect", 500);
 });
 
 	// Select User
 	$(".usergral").click(function(){
-			$(this).toggleClass("usergralselect");
-			var totalSelected = 0;
-			$(".usergralselect").each(function(){
-				totalSelected++;
-			});
-			if(totalSelected>2){
-				$('#delselected').show();
+		$(this).toggleClass("deleteThis");
+		$(this).toggleClass("usergralselect");
+		var totalSelected = 0;
+		var admDelBtn;
+		$(".usergralselect").each(function(){
+			if($(this).hasClass('undeleteable'))
+			{
+				admDelBtn = $(this);
 			}else{
-				$('#delselected').hide();
+				totalSelected++;
 			}
+				
+		});
+		if(totalSelected>1 && !admDelBtn){
+			$('#delselected').show();
+		}else{
+			$('#delselected').hide();
+		}
 	});
 
-	//Unselect All Users
-	$('*').click(function(){
-		if($(this).attr('selecteableElement')!="yes"){
-	    	console.log('entra');
-	    	$('.usergral').removeClass('usergralselect');
-	    }
-	});
+
 
 	// Hover Effect
 	$('.userMainSection').hover(function() {
-			$(this).addClass('userHover');
+		$(this).addClass('userHover');
 	});
 
 	$('.userMainSection').mouseleave(function() {
-			$(this).removeClass('userHover');
+		$(this).removeClass('userHover');
 	});
 
 	// Select multiple rows

@@ -225,7 +225,19 @@ $(function(){
         var conText     = utf8_encode($(this).attr("confirmText"));
         var sucText     = utf8_encode($(this).attr("successText"));
         var id          = $(this).attr("deleteElement");
-        deleteElement(action,id,parent,process,conText,sucText);
+        
+        alertify.confirm(utf8_decode(conText), function(e){
+            if(e){
+                var result;
+                result = deleteElement(action,id,parent,process);
+                if(result){
+                    notifyError(result);
+                }else{
+                    $("#"+parent).slideUp();
+                    notifySuccess(utf8_decode(sucText));
+                }
+            }
+        });
     });
 
     // function listActions(action,id,process,target)
@@ -260,29 +272,18 @@ $(function(){
     //     }
     // }
 
-    function deleteElement(action,id,parent,process,confirmText,successText)
+    function deleteElement(action,id,parent,process)
     {
-        alertify.confirm(utf8_decode(confirmText), function(e){
-            if(e){
-                var string      = 'id='+ id + '&action=' + action;
-                $.ajax({
-                    type: "POST",
-                    url: process,
-                    data: string,
-                    cache: false,
-                    success: function(data){
-                        if(data){
-                            //$("#"+parent).slideUp();
-                            notifyError(data);
-                        }else{
-                            $("#"+parent).slideUp();
-                            notifySuccess(utf8_decode(successText));
-                        }
-                        
-                    }
-                });
-            }
+        var string      = 'id='+ id + '&action=' + action;
+        var data;
+        $.ajax({
+            type: "POST",
+            url: process,
+            data: string,
+            cache: false,
+            success: data
         });
+        return data;
     }
 
     //////////////////////////////////////////////////// Pager /////////////////////////////////////////////////////////////////

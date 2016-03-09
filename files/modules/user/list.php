@@ -61,7 +61,7 @@
                         $User = new AdminData($User['admin_id']);
                 ?>
                 <!--    Users   -->
-                <div id="user<?php echo $User->AdminID ?>" selecteableElement="yes" class="col-centered col-lg-3 col-sm-6 col-xs-12 animated fadeIn usergral">
+                <div id="user<?php echo $User->AdminID ?>" <?php if($User->AdminID!=$Admin->AdminID){ echo "undeleteable"; } ?> class="col-centered col-lg-3 col-sm-6 col-xs-12 animated fadeIn usergral <?php if($User->AdminID==$Admin->AdminID){ echo "undeleteable"; } ?>">
                     <div class="userMainSection">
                         <div class="userimgdiv"><img src="<?php echo $User->Img; ?>" id="userimage" class="img-responsive userimg"></div>
                         <div class="row usernamediv">
