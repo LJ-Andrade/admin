@@ -73,7 +73,7 @@ $(function(){
 			$(".usergralselect").each(function(){
 				totalSelected++;
 			});
-			if(totalSelected>1){
+			if(totalSelected>2){
 				$('#delselected').show();
 			}else{
 				$('#delselected').hide();
