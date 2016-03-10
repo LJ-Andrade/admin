@@ -397,7 +397,7 @@ a:focus, a:hover {
   text-align: center;
   padding: 5px 0 10px 0;
   margin-top: 5px;
-  margin-bottom: 30px; }
+  margin-bottom: 10px; }
 
 .additemtit h3 {
   color: #3d515c; }
@@ -450,36 +450,6 @@ a:focus, a:hover {
   background: rgba(255, 255, 255, 0.3);
   background-color: rgba(255, 255, 255, 0.5);
   color: #000; }
-
-#itemimg {
-  display: none; }
-
-.addimgdiv {
-  min-height: 100px;
-  margin-top: 10px; }
-
-.useraddimg {
-  border-radius: 100%;
-  width: 150px;
-  margin: 0 auto;
-  transition: all 0.2s ease 0s; }
-
-.useraddimg:hover {
-  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.75); }
-
-.thumbimg {
-  width: 150px;
-  margin: 0 auto; }
-
-.thumbimgadd {
-  width: 60px;
-  margin: 0 auto;
-  margin-top: 20px;
-  cursor: pointer; }
-
-.itemdesctextarea {
-  padding: 0;
-  margin: 0; }
 
 form .indicator {
   display: block;
@@ -590,6 +560,7 @@ option {
 .masterbtn {
   padding: 5px 10px;
   margin: 0 auto;
+  margin: 2px 0;
   border-radius: 0;
   box-shadow: 0 8px 10px -10px rgba(0, 0, 0, 0.5);
   border: none;
@@ -685,6 +656,58 @@ div#page_loader {
   list-style: none; }
   .checkboxtree li ul li {
     margin-left: 30px; }
+
+.newInputs {
+  border: 1px solid red; }
+
+.imgCatalogue {
+  margin: 0 15px 25px;
+  padding-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.5); }
+
+.thumbimg {
+  width: 150px;
+  margin: 0 auto; }
+
+.thumbimgadd {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  margin-top: 20px;
+  cursor: pointer; }
+
+.selectImgDiv {
+  margin-bottom: 15px;
+  margin-top: 20px; }
+
+.cancelImgDiv {
+  margin-bottom: 20px;
+  margin-top: -30px; }
+
+.selectImgTitle {
+  margin: 0 15px;
+  padding: 15px 0;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8); }
+
+.closeBtn {
+  padding: 5px 10px;
+  margin: 0 auto;
+  border-radius: 0;
+  border: none;
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+  background-color: transparent;
+  color: #fff; }
+  .closeBtn:hover {
+    box-shadow: 0px 0px 0px;
+    background-color: #388fab; }
+  .closeBtn:focus, .closeBtn:active {
+    box-shadow: 0px 0px 0px;
+    background-color: #388fab; }
+
+.centrarbtn.fa-times-circle:before {
+  font-size: 35px; }
 
 .login {
   height: 100%;
@@ -1159,6 +1182,9 @@ ul.alert-dropdown {
 .userMainSection {
   padding: 0; }
 
+.bs-example {
+  margin: 200px 150px 0; }
+
 .usergralselect {
   background-color: rgba(255, 255, 255, 0.3) !important; }
 
@@ -1250,7 +1276,8 @@ p .addusertxt:hover {
   box-shadow: 10px 10px 21px -14px rgba(0, 0, 0, 0.75); }
 
 .switchuser {
-  text-align: center; }
+  text-align: center;
+  margin-bottom: 15px; }
 
 .addusertit {
   text-align: center;

@@ -104,8 +104,8 @@
                   <!--  Add Img & Done Button Div  -->
                   <div class="container centrarbtn animated fadeInUp donediv">
                        <div class="form-group">
-                         <li id="chooseimg" class="animated fadeIn btn additembtn"><a href="#" class="" role="button"><i class="fa fa-file-image-o fa-fw"></i> Elegir Im&aacute;gen...</a></li>
-                         <a href="#" class="btn additembtn btnsave" role="button" id="create"><i class="fa fa-check-square-o fa-fw"></i> Modificar Usuario</a>
+                         <div id="chooseimg" class="masterbtn animated fadeIn "><a href="#" class="" role="button"><i class="fa fa-file-image-o fa-fw"></i> Elegir Im&aacute;gen...</a></div>
+                         <div><a href="#" class="masterbtn" role="button" id="create"><i class="fa fa-check-square-o fa-fw"></i> Modificar Usuario</a></div>
                        </div>
                   </div>  
         <!-- /#page-wrapper -->
