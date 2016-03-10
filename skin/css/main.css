@@ -607,38 +607,6 @@ option {
 a .masterbtn {
   color: #fff; }
 
-.btndel {
-  padding: 2px 20px;
-  max-width: 70px;
-  font-size: 22px;
-  border-radius: 0;
-  border: 0;
-  background-color: #ba4545;
-  color: #fff;
-  transition: all 0.2s ease 0s; }
-  .btndel:hover {
-    background-color: #C06060;
-    color: #fff; }
-  .btndel:focus, .btndel:active {
-    background-color: #e5817f;
-    color: #fff; }
-
-.btnmod {
-  padding: 2px 20px;
-  max-width: 70px;
-  font-size: 22px;
-  border-radius: 0;
-  border: 0;
-  background-color: #056e90;
-  color: #fff;
-  transition: all 0.2s ease 0s; }
-  .btnmod:hover {
-    background-color: #388fab;
-    color: #fff; }
-  .btnmod:focus, .btnmod:active {
-    background-color: #388fab;
-    color: #fff; }
-
 .glasscontainer1 {
   width: auto;
   background-color: rgba(0, 0, 0, 0.1);
@@ -1110,7 +1078,8 @@ ul.alert-dropdown {
   padding-top: 10px; }
 
 .itemstattxt {
-  text-align: center; }
+  text-align: center;
+  margin-left: 10px; }
 
 .itemstatswitch {
   padding-right: 1px; }
@@ -1245,6 +1214,9 @@ p .addusertxt {
 
 p .addusertxt:hover {
   color: rgba(216, 216, 216, 0.5); }
+
+.delmoduser {
+  padding-top: 5px; }
 
 .userbtn {
   margin: 20px 5px;
@@ -1850,7 +1822,8 @@ p .addusertxt:hover {
   cursor: pointer; }
 
 .col1listprod {
-  border-right: 1px solid rgba(216, 216, 216, 0.5); }
+  border-right: 1px solid rgba(216, 216, 216, 0.5);
+  padding-top: 5px; }
 
 .col2listprod {
   border-right: 1px solid rgba(216, 216, 216, 0.5);
@@ -1867,29 +1840,6 @@ p .addusertxt:hover {
 .col5listprod {
   border-right: 1px solid rgba(216, 216, 216, 0.5);
   padding-top: 15px; }
-
-.col6listprod {
-  padding-top: 10px; }
-
-.prodicos ul {
-  list-style-type: none;
-  text-align: center; }
-
-.prodicos li {
-  display: inline;
-  text-align: center;
-  margin: 0 15px; }
-
-.itemicos {
-  background-color: transparent;
-  margin-top: 10px; }
-  .itemicos ul {
-    list-style-type: none;
-    text-align: center; }
-  .itemicos li {
-    display: inline;
-    text-align: center;
-    margin: 0 15px; }
 
 .prodicoadd ul {
   margin-left: -25px;
@@ -1956,9 +1906,15 @@ p .addusertxt:hover {
 .col6listus {
   padding-top: 10px; }
 
-@media(max-width:1200px) {
-  .userimglist {
-    max-width: 50px; } }
+@media(max-width:1320px) {
+  .col1listus, .col2listus, .col3listus, .col4listus, .col5listus, .col6listus {
+    border-right: 0px; } }
+@media(max-width:1320px) {
+  .col1listprod, .col2listprod, .col3listprod, .col4listprod, .col5listprod, .col6listprod,
+  .titlist1, .titlist2, .titlist3, .titlist4, .titlist5 {
+    border-right: 0px;
+    padding-right: 5px;
+    padding-left: 5px; } }
 .usericos {
   height: 50px; }
 
@@ -1977,5 +1933,73 @@ p .addusertxt:hover {
 
 .usericoslist {
   margin-top: 0; }
+
+.prodicos ul {
+  list-style-type: none;
+  text-align: center; }
+
+.prodicos li {
+  display: inline;
+  text-align: center;
+  margin: 0 15px; }
+
+.itemicos {
+  background-color: transparent;
+  margin-top: 10px; }
+  .itemicos ul {
+    list-style-type: none;
+    text-align: center; }
+  .itemicos li {
+    display: inline;
+    text-align: center;
+    margin: 0 15px; }
+
+.delmoddiv {
+  background-color: transparent;
+  margin-top: 10px; }
+  .delmoddiv ul {
+    text-align: center; }
+  .delmoddiv li {
+    display: inline;
+    text-align: center; }
+
+.btndel {
+  padding: 2px 20px;
+  max-width: 70px;
+  font-size: 22px;
+  border-radius: 0;
+  border: 0;
+  background-color: #ba4545;
+  color: #fff;
+  transition: all 0.2s ease 0s; }
+  .btndel:hover {
+    background-color: #C06060;
+    color: #fff; }
+  .btndel:focus, .btndel:active {
+    background-color: #e5817f;
+    color: #fff; }
+
+.btnmod {
+  padding: 2px 20px;
+  max-width: 70px;
+  font-size: 22px;
+  border-radius: 0;
+  border: 0;
+  background-color: #056e90;
+  color: #fff;
+  transition: all 0.2s ease 0s; }
+  .btnmod:hover {
+    background-color: #388fab;
+    color: #fff; }
+  .btnmod:focus, .btnmod:active {
+    background-color: #388fab;
+    color: #fff; }
+
+@media(max-width:1300px) {
+  .btndel, .btnmod {
+    font-size: 12px; }
+
+  .titlist1, .titlist2, .titlist3, .titlist4, .titlist5 {
+    font-weight: 300; } }
 
 /*# sourceMappingURL=main.css.map */

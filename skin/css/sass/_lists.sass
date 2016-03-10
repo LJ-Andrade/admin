@@ -102,6 +102,7 @@
 
 .col1listprod
     border-right: 1px solid rgba($gris, 0.5)
+    padding-top: 5px
 .col2listprod
     border-right: 1px solid rgba($gris, 0.5)
     padding-top: 15px
@@ -115,28 +116,8 @@
     border-right: 1px solid rgba($gris, 0.5)
     padding-top: 15px
 .col6listprod
-    padding-top: 10px
 
-// Icons (Del and modify)
-.prodicos ul
-    list-style-type: none
-    text-align: center 
-.prodicos li
-    display: inline
-    text-align: center
-    margin: 0 15px 
 
-.itemicos
-    background-color: transparent
-    margin-top: 10px
-    ul
-        list-style-type: none
-        text-align: center 
-    li
-        display: inline
-        text-align: center
-        margin: 0 15px
-    
 .prodicoadd
     ul
         margin-left: -25px
@@ -197,9 +178,22 @@
     padding-top: 10px
 
 /////////  List View Responsive /////
-@media(max-width:1200px)
-    .userimglist
-        max-width: 50px
+@media(max-width:1320px)
+    .col1listus,.col2listus,.col3listus,.col4listus,.col5listus,.col6listus
+        border-right: 0px
+
+@media(max-width:1320px)
+    .col1listprod,.col2listprod,.col3listprod,.col4listprod,.col5listprod,.col6listprod,
+    .titlist1,.titlist2,.titlist3,.titlist4,.titlist5
+        border-right: 0px
+        padding-right: 5px
+        padding-left: 5px
+
+// @media(max-width:1400px)
+//     .btndel,.btnmod
+//         li
+//             margin: 3px 0
+
 
 /////////////// Iconos Combinados Fila o Caja //////////
 
@@ -222,3 +216,74 @@
 
 .usericoslist
     margin-top: 0
+
+// Icons (Del and modify)
+.prodicos ul
+    list-style-type: none
+    text-align: center 
+.prodicos li
+    display: inline
+    text-align: center
+    margin: 0 15px 
+
+.itemicos
+    background-color: transparent
+    margin-top: 10px
+    ul
+        list-style-type: none
+        text-align: center 
+    li
+        display: inline
+        text-align: center
+        margin: 0 15px
+
+
+///////////// Del y Modify /////////////////
+
+.delmoddiv
+    background-color: transparent
+    margin-top: 10px
+    ul
+        text-align: center 
+    li
+        display: inline
+        text-align: center
+
+
+.btndel
+    padding: 2px 20px
+    max-width: 70px
+    font-size: 22px
+    border-radius: 0
+    border: 0
+    background-color: $delbtn
+    color: $delbtntxt
+    transition: all 0.2s ease 0s 
+    &:hover
+        background-color: $delbtnhover
+        color: $delbtntxthover
+    &:focus, &:active
+        background-color: $delbtnactfoc
+        color: $delbtntxtacfoc
+    
+.btnmod
+    padding: 2px 20px
+    max-width: 70px
+    font-size: 22px
+    border-radius: 0
+    border: 0
+    background-color: $modbtn
+    color: $modbtntxt
+    transition: all 0.2s ease 0s
+    &:hover
+        background-color: $modbtnhover
+        color: $modbtntxthover
+    &:focus, &:active
+        background-color: $modbtnhover
+        color: $modbtntxtacfoc
+
+@media(max-width:1300px)
+    .btndel,.btnmod
+        font-size: 12px
+    .titlist1,.titlist2,.titlist3,.titlist4,.titlist5
+        font-weight: 300
