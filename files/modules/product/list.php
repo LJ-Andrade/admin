@@ -82,7 +82,7 @@
                       <p>Precio<br><span class="itemtxtcolor"><b>$1280</b></span></p>
                     </div>
                   </div>
-                    <div class="col-md-12 itemicos">
+                    <div class="itemicos">
                         <ul>
                             <li class="btnmod"><a href="moditem.php"><i class="fa fa-fw fa-pencil"></i></a></li>
                             <li class="btndel"><a href="#"><i class="fa fa-fw fa-trash"></i></a></li>

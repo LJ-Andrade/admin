@@ -53,7 +53,7 @@
                     </form>
                 </div>
             </div><!-- /Container Filters / Search -->
-
+            
             <!-- Grid View -->
             <div id="viewgrid" class="row-centered rowgridview"> 
                 <?php 
