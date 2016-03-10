@@ -239,7 +239,7 @@ $(function(){
 					}
 });
 
-///////////// PopOver To Show Optional User Img /////////////////////
+///////////// Show User Img Selector /////////////////////
 $(function (){
 		$('#imgsToSelect').hide();
 		$('#cancelSelectImgBtn').hide();
