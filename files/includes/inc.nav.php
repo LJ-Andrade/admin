@@ -7,7 +7,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="../login/login.php"><span class="ownername"><b>Mundo Pino </b>&#124;</span> <span class="marca">Renovatio &reg;</span></a>
+        <a class="navbar-brand" href="../login/login.php"><span class="ownername"><b>Fascination </b>&#124;</span> <span class="marca">Renovatio &reg;</span></a>
     </div>
         <ul class="nav navbar-right top-nav">
         <!--   Logged User   -->

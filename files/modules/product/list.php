@@ -69,8 +69,8 @@
                   <div class="col-md-12 itemtit">
                     <p><b>Cama</b></p>
                   </div>
-                    <p><b>Descripci&oacute;n:</b> Es una cama muy buena, blabla Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Cumque temporibus labore, nostrum non arpa loca toca fuerte</p>
+                    <p><b>Descripci&oacute;n:</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Cumque temporibus labore, nostrum non arpa. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                   <div class="row itemrow2">
                     <div class="col-md-4 col-xs-4">
                       <p>Modelo<br><span class="itemtxtcolor"><b>128</b></span></p>
