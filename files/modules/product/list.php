@@ -84,7 +84,7 @@
                   </div>
                     <div class="itemicos">
                         <ul>
-                            <li class="btnmod"><a href="moditem.php"><i class="fa fa-fw fa-pencil"></i></a></li>
+                            <li class="btnmod"><a href="edit.php"><i class="fa fa-fw fa-pencil"></i></a></li>
                             <li class="btndel"><a href="#"><i class="fa fa-fw fa-trash"></i></a></li>
                         </ul>                
                     </div>

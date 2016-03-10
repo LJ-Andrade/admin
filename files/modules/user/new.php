@@ -70,7 +70,7 @@
                   <img src="../../../skin/images/users/mas.jpg" alt="" class="img-responsive thumbimgadd">
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-6">
-                  <img src="../../../skin/images/products/genericproduct.jpg" alt="" class="img-responsive thumbimgadd">
+                  <img src="../../../skin/images/products/genericproduct.png" alt="" class="img-responsive thumbimgadd">
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-6">
                   <img src="../../../skin/images/products/cod1.jpg" alt="" class="img-responsive thumbimgadd">
