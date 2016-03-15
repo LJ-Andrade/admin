@@ -8,5 +8,3 @@
 		<script src="../../js/script.common.js"></script>
 		<script src="../../js/script.alertify.js"></script>
 		<script src="script.js"></script>
-	</body>
-</html>

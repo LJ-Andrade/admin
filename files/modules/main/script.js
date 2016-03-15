@@ -1,11 +1,11 @@
 // LOG OK MSG
 //---------------------------------------------
-$(function(){
-    $("#oklogmsg").click(function(){
-        $.notify({
+function welcomeMessage()
+{
+    $.notify({
         // options
-        icon: 'fa fa-hand-spock-o',
-        message: 'Bienvenido Usuario !',
+        icon: '',
+        message: '<img src="' + $("#usernametext").children("img").attr("src") + '" class="userloginimg"><br>' +'¡Bienvenido '+ $("#usernametext").text() +'!',
     },{
         // settings
         element: 'body',
@@ -46,17 +46,31 @@ $(function(){
         '</div>'
 
         });
+}
+
+$(function(){
+    $("#oklogmsg").click(function(){
+        welcomeMessage();
     });
 });
 
 $(document).ready(function() {
+    /// Boton Juira Test borrar despues de probar ///
+    $("#testloader").click(function(){
+        toggleLoader();
+    });
+    $(".juirabtn").click(function(){
+        toggleLoader();
+    });
+
+
     $('#newuser').fadeIn( 500 );
     $('#newprod').fadeIn( 500 );
     //$("#oklogmsg").click();
     //alert(get['msg']);
     if(get['msg']=='logok')
     {
-        $("#oklogmsg").click();
+        welcomeMessage();
     }
 });
 

@@ -27,6 +27,17 @@ $(document).ready(function() {
     $('#newprod').hide();
 });
 
+//////////////////////////////////////////////////// Page Loader //////////////////////////////////////////////////////
+    function toggleLoader()
+    {
+        if(isVisible($('#page_loader')))
+        {
+            $('#page_loader').fadeOut( 500 );
+        }else{
+            $('#page_loader').fadeIn( 500 );
+        }
+    }
+
 //////////////////////////////////////////////////// Notify //////////////////////////////////////////////////////
 function notifyError(msgNotify)
 {

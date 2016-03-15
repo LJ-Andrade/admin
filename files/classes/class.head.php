@@ -56,6 +56,11 @@ class Head
 	{
 		$this->Link[]	= '<link href="'.$href.'" rel="'.$rel.'" type="'.$type.'" />';
 	}
+
+	function setStyle($href,$rel="stylesheet",$type="text/css")
+	{
+		$this->Link[]	= '<link href="'.$href.'" rel="'.$rel.'" type="'.$type.'" />';
+	}
 	
 	function setScript($src)
 	{

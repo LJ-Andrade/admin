@@ -37,4 +37,7 @@
 	/* SETTING HEAD OF THE DOCUMENT */
 	$Head	= new Head();
 	$Head	-> setFavicon("../../../skin/images/body/icons/favicon.png");
+
+	/* SETTING FOOT OF THE DOCUMENT */
+	$Foot	= new Foot();
 ?>

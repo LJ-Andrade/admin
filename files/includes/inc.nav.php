@@ -12,7 +12,7 @@
         <ul class="nav navbar-right top-nav">
         <!--   Logged User   -->
             <li class="dropdown userloggeddiv">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="<?php echo $Admin->Img; ?>" class="userloginimg"> <?php echo $Admin->FullName; ?> <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="usernametext"><img src="<?php echo $Admin->Img; ?>" class="userloginimg"><?php echo $Admin->FullName; ?><b class="caret"></b></a>
                 <ul class="dropdown-menu menuuser">
                     <li><a href="#"><i class="fa fa-fw fa-user"></i> Mi Perfil</a></li>
                     <li><a href="#" id="Logout"><i class="fa fa-fw fa-power-off"></i> Desconectar</a></li>

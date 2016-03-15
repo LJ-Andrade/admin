@@ -122,7 +122,4 @@
         <!-- /#page-wrapper -->
         </div>
 <!-- /#wrapper -->
-<?php include('../../includes/inc.foot.php'); ?>
-
-</body>
-</html>
+<?php $Foot->setFoot(); ?>

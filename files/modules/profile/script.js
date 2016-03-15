@@ -38,6 +38,13 @@ $(function(){
 			$("#create").click();
 		}
 	});
+
+	////////////// Profile Tree /////////////////
+	$(function(){
+        $(".TreeElement").click(function(){
+          $(this).next("ul").slideToggle();
+        });
+      });
 });
 
 /////////////////////////// Massive Delete /////////////////////////////////////
@@ -180,26 +187,6 @@ $(function(){
 	$('.userMainSection').mouseleave(function() {
 		$(this).removeClass('userHover');
 	});
-
-	// // Select multiple rows
-	// var isMouseDown = false, isHighlighted;
-	// 	$(".listrow")
-	// 		.mousedown(function () {
-	// 			isMouseDown = true;
-	// 			//$(this).click("listselect");
-	// 			isHighlighted = $(this).hasClass("listselect");
-	// 			return false; // prevent text selection
-	// 		})
-	// 		.mouseover(function () {
-	// 			if (isMouseDown) {
-	// 				$(this).toggleClass("listselect", isHighlighted);
-	// 			}
-	// 		})
-	// 		.bind("selectstart", function () {
-	// 			return false;
-	// 		});
-	
-	// $(document).mouseup(function () {isMouseDown = false;});
 
 
 ////////////////// User Creation Window /////////////////////////

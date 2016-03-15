@@ -44,4 +44,4 @@
     
         </div><!-- /.container-fluid -->
     </div><!-- /#wrapper -->
-<?php include('../../includes/inc.foot.php'); ?>
+<?php $Foot->setFoot(); ?>

@@ -1,20 +1,20 @@
 <?php
     include("../../includes/inc.main.php");
-    $Head->setTitle("Usuarios Administradores");
+    $Head->setTitle("Perfiles");
     $Head->setHead();
 
-    $Status = $_GET['status']? $_GET['status']: 'A';
+    //$Status = $_GET['status']? $_GET['status']: 'A';
 
-    $Users = $DB->fetchAssoc('admin_user','*',"status = '".$Status."' ","admin_id"); 
+    $Profile = new ProfileData();
 ?>
 <body>
     <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
     <div id="wrapper"><!--  Wrapper -->
         <div class="container-fluid">
-            <div class="maintitle"><h4 class="maintitletxt">Listado de Usuarios Administradores</h4></div>
+            <div class="maintitle"><h4 class="maintitletxt">Listado de Perfiles</h4></div>
                 <div class="glasscontainer1 optionsdiv"> 
                     <span id="delselected" class="delselected animated slideInDown"><i class="fa fa-trash"></i> Eliminar seleccionados</span>
-                    <a href="new.php"><button class="masterbtn"><i class="fa fa-user-plus"></i> Agregar usuario</button></a>    
+                    <a href="new.php"><button class="masterbtn"><i class="fa fa-plus-square"></i> Agregar Perfil</button></a>    
                 </div>
             <!-- Filters / Search -->
             <div class="container-fluid">
@@ -56,29 +56,7 @@
 
             <!-- Grid View -->
             <div id="viewgrid" class="row-centered rowgridview"> 
-                <?php 
-                    foreach($Users as $User){ 
-                        $User = new AdminData($User['admin_id']);
-                ?>
-                <!--    Users   -->
-                <div id="user<?php echo $User->AdminID ?>" class="col-centered col-lg-3 col-sm-6 col-xs-12 animated fadeIn usergral <?php if($User->AdminID==$Admin->AdminID){ echo "undeleteable"; } ?>">
-                    <div class="userMainSection">
-                        <div class="userimgdiv"><img src="<?php echo $User->Img; ?>" id="userimage" class="img-responsive userimg"></div>
-                        <div class="row usernamediv">
-                            <span class="usernametxt"><span class="col-sm-12"><?php echo  $User->FullName; ?></span> <span class="col-lg-12 col-sm-12 col-xs-12">(<?php echo $User->User ?>)</span></span><br>
-                            <span class="usernametxt2">Administrador</span>
-                        </div>
-                    </div>
-                    <div id="usericosid" class="usericos">
-                        <ul class="userButtons animated slideInUp">
-                            <li class="btnmod animated fadeIn"><a href="edit.php?id=<?php echo $User->AdminID ?>" ><i class="fa fa-fw fa-pencil"></i></a></li>
-                            <?php if($User->AdminID!=$Admin->AdminID){ ?>
-                            <li class="deleteElement btndel animated fadeIn" deleteElement="<?php echo $User->AdminID ?>" deleteParent="userlist<?php echo $User->AdminID ?>/user<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>'?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente"><i class="fa fa-fw fa-trash"></i></li>
-                            <?php } ?>
-                        </ul>                
-                    </div>
-                </div>
-                <?php } ?>
+                <?php echo $Profile->MakeProfileList();  ?>
             </div><!-- /Grid View  -->
 
             <!-- List View -->
@@ -143,4 +121,4 @@
             
         </div><!-- /.container-fluid -->
     </div><!-- /#wrapper -->
-<?php include('../../includes/inc.foot.php'); ?>
+<?php $Foot->setFoot(); ?>

@@ -168,4 +168,4 @@
   </div><!-- /#wrapper -->
     
     <!-- End Pagination-->
-<?php include('../../includes/inc.foot.php'); ?>
+<?php $Foot->setFoot(); ?>

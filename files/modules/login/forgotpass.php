@@ -30,4 +30,4 @@
             
         </div>
     </div>
-<?php include('../../includes/inc.foot.php'); ?>
+<?php $Foot->setFoot(); ?>
