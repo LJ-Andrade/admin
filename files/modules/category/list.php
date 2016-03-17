@@ -5,7 +5,7 @@
 
     $Status = $_GET['status']? $_GET['status']: 'A';
 
-    $Categories = $DB->fetchAssoc('category','*',"status = '".$Status."' ",$Order);
+    $Categories = $DB->fetchAssoc('category','*',"status = '".$Status."' ","parent_id");
 ?>
 <body>
     <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
@@ -31,7 +31,7 @@
                         <h5>Dependencia</h5>
                     </div> 
                     <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 titlist4">
-                        <h5>Productos</h5>
+                        <h5>Productos Asociados</h5>
                     </div> 
                     <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 titlist5">
                         <h5>Categorías Dependientes</h5>
@@ -69,7 +69,7 @@
                         <div class="delmoddiv">
                              <ul>
                                 <li class="btnmod"><a href="edit.php?id=<?php echo $Category->ID ?>"><i class="fa fa-fw fa-pencil"></i></a></li>
-                                <li class="btndel deleteElement" deleteElement="<?php echo $Category->ID ?>" deleteParent="list<?php echo $Category->ID ?>/category<?php echo $Category->ID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar la categoría '<?php echo $Category->Data['title']; ?>'?" successText="La categoría '<?php echo $Category->Data['title'] ?>' ha sido eliminado correctamente"><i class="fa fa-fw fa-trash"></i></li>
+                                <li class="btndel deleteElement" deleteElement="<?php echo $Category->ID ?>" deleteParent="list<?php echo $Category->ID ?>/category<?php echo $Category->ID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar la categoría '<?php echo $Category->Data['title']; ?>'?" successText="La categoría '<?php echo $Category->Data['title'] ?>' ha sido eliminada correctamente"><i class="fa fa-fw fa-trash"></i></li>
                             </ul>
                         </div>
                     </div>

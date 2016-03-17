@@ -7,7 +7,7 @@ $(document).ready(function() {
 
 //////////////////////////////////////////////////// Subtop Icons //////////////////////////////////////////////////////
 $(document).ready(function() {  
-    $('#volverprod').hide();
+    if(get['msg']=="logok")$('#volverprod').hide();
     $('#viewlistbt').hide();
     $('#viewgridbt').hide();
     $('#showitemfilters').hide();      // <<<<<================== Cambiar los ID's por una clase que los represente a todos.
@@ -15,6 +15,12 @@ $(document).ready(function() {
     $('#volverusers').hide();
     $('#newuser').hide();
     $('#newprod').hide();
+});
+
+$(function(){
+    $(".BackToLastPage").click(function(){
+        window.history.go(-1);
+    });
 });
 
 //////////////////////////////////////////////////// Characters limiter //////////////////////////////////////////////////////

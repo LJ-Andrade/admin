@@ -1,6 +1,4 @@
 /////////// Show or Hide Icons On subtop //////////////////////
-
-
 $(document).ready(function() {
     $('#showitemfilters').click(function() {
          $('#filteritem').toggle("slide");
@@ -33,7 +31,34 @@ $(function(){
     $("[name='status']").bootstrapSwitch();
 });
     
-// Insert Img
+//////////////////////// Submit Data ////////////////////////////////////
+$(function(){
+  $("#create").click(function(){
+    if(validate.validateFields('')){
+      var process   = 'process.php';
+      var target    = 'list.php?msg='+ $("#action").val();
+      var haveData  = function(returningData)
+      {
+        $("input,select").blur();
+        notifyError(returningData);
+        //alert(returningData);
+      }
+      var noData    = function()
+      {
+        document.location = target;
+      }
+      sumbitFields(process,haveData,noData);
+    }
+  });
+
+  $("input").keypress(function(e){
+    if(e.which==13){
+      $("#create").click();
+    }
+  });
+});
+
+/////////////////// Insert Img////////////////////////////////////
 var wrapper = $('<div/>').css({height:0,width:0,'overflow':'hidden'});
 var fileInput = $(':file').wrap(wrapper);
 

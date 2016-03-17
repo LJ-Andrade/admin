@@ -1,20 +1,23 @@
 <?php
 	class Product extends DataBase
 	{
-		var 	$Data;
+		var $ID;
+		var $Data;
 		
 		public function __construct($ID=0)
 		{
 			$this->Connect();
+			$this->ID = $ID;
 			$this->setData($ID);
 		}
 
 
 		/********* SETTERS *********/
 
-		public function setData($ID)
+		public function setData()
 		{
-			$this->Data = $this->fetchAssoc("product","*","product_id=".$ID);
+			$Data 		= $this->fetchAssoc("product","*","product_id=".$this->ID);
+			$this->Data = $Data[0];
 		}
 
 		/********* GETTERS *********/
@@ -28,9 +31,17 @@
 			return $this->Data['price'];
 		}
 
-		public function getProducts()
+		public function getImages()
 		{
-			
+			if(!$this->Images)
+				$this->Images = $this->fetchAssoc('product_image','*',"product_id=".$this->ID,"position");
+			return $this->Images;
+		}
+
+		public function getFirstImage()
+		{
+			$Images = $this->getImages();
+			return $Images[0];
 		}
 	}
 ?>

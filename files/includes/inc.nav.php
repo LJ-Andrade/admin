@@ -34,7 +34,7 @@
         </div>
         <div class="subtop2">
             <ul><!-- View Icons -->
-                <li id="volverprod" class="animated fadeIn"><a href="../../files/modules/product/items.php" class="btn subitbtn" role="button"><i class="fa fa-caret-left fa-fw"></i> Volver</a></li>
+                <li id="volverprod" class="animated fadeIn"><a href="javascript: history.go(-1)" class="btn subitbtn BackToLastPage" role="button"><i class="fa fa-caret-left fa-fw"></i> Volver</a></li>
                 <li id="volverusers" class="animated fadeIn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-caret-left fa-fw"></i> Volver</a></li>
                 <li id="viewlistbt" class="animated fadeIn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-th-list  fa-fw"></i> Lista </a></li>
                 <li id="viewgridbt" class="animated fadeIn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-th  fa-fw"></i> Grilla </a></li>
@@ -42,8 +42,8 @@
                 <li id="showitemfiltersuser" class="animated fadeIn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-search fa-fw"></i> Buscar</a></li>
                 <li id="showitemfilters" class="animated fadeIn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-search fa-fw"></i> Buscar</a></li>
                 <!-- Add New Item -->
-                <li id="newprod"><a href="../../modules/product/new.php" class="btn subitbtn" role="button"><i class="fa fa-plus-square fa-fw"></i> Nuevo Producto</a></li> 
-                <li id="newuser"><a href="../../modules/user/new.php" class="btn subitbtn" role="button"><i class="fa fa-user-plus  fa-fw"></i> Nuevo Usuario</a></li>  
+                <li id="newprod"><a href="../product/new.php" class="btn subitbtn" role="button"><i class="fa fa-plus-square fa-fw"></i> Nuevo Producto</a></li> 
+                <li id="newuser"><a href="../user/new.php" class="btn subitbtn" role="button"><i class="fa fa-user-plus  fa-fw"></i> Nuevo Usuario</a></li>  
             </ul>
         </div>
     </div>

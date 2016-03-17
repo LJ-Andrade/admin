@@ -2,6 +2,9 @@
     include("../../includes/inc.main.php");
     $Head->setTitle("Listado de Productos");
     $Head->setHead();
+
+    $Status = $_GET['status']? $_GET['status']: 'A';
+    $Products = $DB->fetchAssoc('product','product_id',"status='".$Status."'","title");
 ?>
 <body>
     <div id="wrapper">
@@ -49,48 +52,59 @@
                 </form>
             </div>
         </div><!-- Container Filters -->
-
+        
         <!-- Grid View -->
         <div id="viewgrid" class="row row-centered">
-          <!--    Items (Grid)   -->
-          <div id="delelem1" class="col-md-2 col-sm-6 col-xs-12 col-centered animated bounceInUp itemdiv">
-            <div class="row itemstatus">
-              <p class="col-md-4 col-xs-12 itemstattxt">Publicaci&oacute;n: </p>
-              <input type="checkbox" class="col-md-8 col-xs-12 centered itemstatswitch" name="my-checkbox" data-on-text="Activa" data-off-text="Pausada"  data-label-width="auto" data-size="mini" checked>        
-            </div>
-            <div class="grid">
-                <div>
-                    <img src="../../../skin/images/products/cod1.jpg" alt="" class="img-responsive">
+            <?php if(count($Products)<1){ ?>
+                <div id="emptylist" class="container-fluid glasscontainer1 listrow" style="text-align:center;display:block;"><p>No existen productos, puede crear uno haciendo click&nbsp;<a href="new.php">aqui</a></p></div>
+            <?php }?>
+            <?php 
+                foreach($Products as $Product){
+                    $Product = new Product($Product['product_id']);
+                    $Image = $Product->getFirstImage();
+            ?>
+            <!--    Items (Grid)   -->
+            <div id="product<?php echo $Product->ID; ?>" class="col-md-2 col-sm-6 col-xs-12 col-centered animated bounceInUp itemdiv">
+                <div class="row itemstatus">
+                    <p class="col-md-4 col-xs-12 itemstattxt">Publicaci&oacute;n: </p>
+                    <input type="checkbox" class="col-md-8 col-xs-12 centered itemstatswitch" name="my-checkbox" data-on-text="Activa" data-off-text="Pausada"  data-label-width="auto" data-size="mini" checked>        
                 </div>
-                <div class="col-md-12 itemtit">
-                    <p>Cama - Mod: 128</p>
+                <div class="grid">
+                    <div>
+                        <img src="<?php echo $Image['src']; ?>" alt="" class="img-responsive">
+                    </div>
+                    <div class="col-md-12 itemtit">
+                        <p><?php echo $Product->Data['title']; ?> - Cod: <?php echo $Product->Data['code']; ?></p>
+                    </div>
+                    <div class="grid_content">
+                        <div class="col-md-12 itemtit">
+                            <p><b><?php echo $Product->Data['title']; ?></b></p>
+                        </div>
+                        <p>
+                            <b>Descripci&oacute;n:</b>
+                            <?php echo $Product->Data['description']; ?>
+                        </p>
+                        <div class="row itemrow2">
+                            <div class="col-md-4 col-xs-4">
+                                <p>Modelo<br><span class="itemtxtcolor"><b><?php echo $Product->Data['model']; ?></b></span></p>
+                            </div>
+                            <div class="col-md-4 col-xs-4">
+                                <p>Medida<br><span class="itemtxtcolor"><b><?php echo $Product->Data['size']; ?> mt</b></span></p>
+                            </div>
+                            <div class="col-md-4 col-xs-4">
+                                <p>Precio<br><span class="itemtxtcolor"><b>$ <?php echo money_format('%.2n', $Product->Data['price']); ?></b></span></p>
+                            </div>
+                        </div>
+                        <div class="itemicos">
+                            <ul>
+                                <li class="btnmod"><a href="edit.php?id=<?php echo $Product->ID ?>"><i class="fa fa-fw fa-pencil"></i></a></li>
+                                <li class="btndel deleteElement" deleteElement="<?php echo $Product->ID ?>" deleteParent="list<?php echo $Product->ID ?>/product<?php echo $Product->ID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el producto '<?php echo $Product->Data['title']; ?>'?" successText="El producto '<?php echo $Product->Data['title'] ?>' ha sido eliminado correctamente"><i class="fa fa-fw fa-trash"></i></li>
+                            </ul>                
+                        </div>
+                    </div>
                 </div>
-                <div class="grid_content">
-                  <div class="col-md-12 itemtit">
-                    <p><b>Cama</b></p>
-                  </div>
-                    <p><b>Descripci&oacute;n:</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Cumque temporibus labore, nostrum non arpa. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                  <div class="row itemrow2">
-                    <div class="col-md-4 col-xs-4">
-                      <p>Modelo<br><span class="itemtxtcolor"><b>128</b></span></p>
-                    </div>
-                    <div class="col-md-4 col-xs-4">
-                      <p>Medida<br><span class="itemtxtcolor"><b>10x4 mt</b></span></p>
-                    </div>
-                    <div class="col-md-4 col-xs-4">
-                      <p>Precio<br><span class="itemtxtcolor"><b>$1280</b></span></p>
-                    </div>
-                  </div>
-                    <div class="itemicos">
-                        <ul>
-                            <li class="btnmod"><a href="edit.php"><i class="fa fa-fw fa-pencil"></i></a></li>
-                            <li class="btndel"><a href="#"><i class="fa fa-fw fa-trash"></i></a></li>
-                        </ul>                
-                    </div>
-                </div>
-            </div>
-          </div> <!-- /Item (Grid) -->
+            </div> <!-- /Item (Grid) -->
+            <?php } ?>
         </div>  <!-- /Grid View -->
 
 
@@ -121,35 +135,44 @@
                     </div> 
                 </div> <!-- /Titles  -->
                
+                <?php if(count($Products)<1){ ?>
+                    <div id="emptylist" class="container-fluid glasscontainer1 listrow" style="text-align:center;display:block;"><p>No existen productos, puede crear uno haciendo click&nbsp;<a href="new.php">aqui</a></p></div>
+                <?php }?>
+                <?php 
+                    foreach($Products as $Product){
+                        $Product = new Product($Product['product_id']);
+                        $Image = $Product->getFirstImage();
+                ?>
                 <!-- Items (List) -->
-                <div id="ID1" class="container-fluid glasscontainer1 listrow">
+                <div id="list<?php echo $Product->ID; ?>" class="container-fluid glasscontainer1 listrow">
                     <div class="col-lg-1 col-md-1 col-sm-6 col-xs-12 col1listprod">
-                        <img src="../../../skin/images/products/genericproduct.jpg" id="" class="img-responsive prodimglist">
+                        <img src="<?php echo $Image['src']; ?>" id="" class="img-responsive prodimglist">
                     </div> 
                     <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 col2listprod">
-                        <p>Cama</p>
+                        <p><?php echo $Product->Data['title']; ?></p>
                     </div>
                     <div class="col-lg-4 col-md-2 col-sm-6 col-xs-12 col3listprod">
-                        <p>Cama...</p>
+                        <p><?php echo $Product->Data['description']; ?></p>
                     </div>
                     <div class="col-lg-1 col-md-2 col-sm-6 col-xs-12 col4listprod">
-                        <p>128</p>
+                        <p><?php echo $Product->Data['model']; ?></p>
                     </div>
                     <div class="col-lg-1 col-md-2 col-sm-6 col-xs-12 col5listprod">
-                        <p>12x4</p>
+                        <p><?php echo $Product->Data['size']; ?></p>
                     </div> 
                     <div class="col-lg-1 col-md-1 col-sm-6 col-xs-12 col5listprod">
-                        <p>1200</p>
+                        <p><?php echo money_format('%.2n',floatval($Product->Data['price'])); ?></p>
                     </div> 
                     <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 col6listprod">
                         <div class="delmoddiv">
                              <ul>
-                                <li class="btnmod"><a href="edit.php"><i class="fa fa-fw fa-pencil"></i></a></li>
-                                <li class="btndel"><a href="#"><i class="fa fa-fw fa-trash"></i></a></li>
+                                <li class="btnmod"><a href="edit.php?id=<?php echo $Product->ID ?>"><i class="fa fa-fw fa-pencil"></i></a></li>
+                                <li class="btndel deleteElement" deleteElement="<?php echo $Product->ID ?>" deleteParent="list<?php echo $Product->ID ?>/product<?php echo $Product->ID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el producto '<?php echo $Product->Data['title']; ?>'?" successText="El producto '<?php echo $Product->Data['title'] ?>' ha sido eliminado correctamente"><i class="fa fa-fw fa-trash"></i></li>
                             </ul> 
                         </div>
                     </div>
                 </div>
+                <?php } ?>
                 <!-- /Items (List)  -->
             </div><!-- /List View  -->
 <!--Pagination-->

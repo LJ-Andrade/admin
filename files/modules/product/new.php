@@ -28,28 +28,7 @@
                 <?php echo insertElement('text','size','','form-first-name form-controlusers','placeholder="Medida"'); ?>
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-6 form-group animated bounceInRight">
-                <div class="form-group">
-                    <select class="form-controlusers" id="sel1">
-                      <option>Categor&iacute;a...</option>
-                      <option>Muebles</option>
-                      <option>Camas</option>
-                      <option>Sillas</option>
-                      <option>Mesas</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-md-6 form-group animated bounceInRight">
-                <div class="form-group">
-                    <select class="form-controlusers" id="sel1">
-                      <option>Publicación...</option>
-                      <option>Activa</option>
-                      <option>Pausada</option>
-                    </select>
-                </div>
-              </div>
-            </div>
+            
             <!-- Price - Img - Status -->
             <div class="row priceimgstatus">
               <div class="col-md-6">
@@ -83,7 +62,7 @@
               <div class="row"> 
                 <div class="col-xs-6 col-md-3 addimgdiv">
                      <div id="file"><img src="skin/users/mas.jpg" class="img-responsive thumbimgadd animated fadeInUp thumbimg"></div>
-                     <input type="file" name="file" />
+                     <!-- <input type="file" name="file" /> -->
                  </div>
                  <div class="col-xs-6 col-md-3 addimgdiv">
                      <img src="skin/images/products/genericproduct.png" class="img-responsive thumbimg animated fadeInUp">

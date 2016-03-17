@@ -9,12 +9,12 @@
         <?php include('../../includes/inc.nav.php'); ?> <!-- Navegation -->         
             <div class="container-fluid maincontainer">
                 
-                    <div class="maintitle"><h4 class="maintitletxt">Bienvenidos</h4></div>
+                    <!-- <div class="maintitle"><h4 class="maintitletxt">Bienvenidos</h4></div>
                         <br><br>
                         <button id="oklogmsg" class="masterbtn">Test mensaje</button>
                         <br><br><br>
                         <button id="testloader" class="masterbtn">Test Loader</button>
-                        <br><br>             
+                        <br><br>          -->    
             </div><!-- /.container-fluid -->
     </div><!-- /#wrapper -->
 <?php $Foot->setFoot(); ?>

@@ -42,7 +42,7 @@
 
 		public function insertProducts()
 		{
-			return $this->countProducts()<1? "Sin Productos" : $this->countProducts();
+			return $this->countProducts()<1? "Sin Productos Asociados" : $this->countProducts();
 		}
 
 		public function getParent($ID=0)
@@ -72,7 +72,7 @@
 		{
 			if($this->countCategories()<1) 
 			{
-				return "Sin Categorías Dependientes";
+				return "";
 			}else{
 				foreach($this->getCategories() as $Category)
 				{

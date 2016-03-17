@@ -83,8 +83,8 @@
                     </div> 
                 </div> <!-- /Titles  -->
                 <?php 
-                        foreach($Users as $User){ 
-                            $User = new AdminData($User['admin_id']);
+                        // foreach($Users as $User){ 
+                        //     $User = new AdminData($User['admin_id']);
                 ?>
                 <!-- Items -->
                 <div id="userlist<?php echo $User->AdminID ?>" class="container-fluid glasscontainer1 listrow <?php if($User->AdminID==$Admin->AdminID){ echo "undeleteable"; } ?>">
@@ -107,15 +107,13 @@
                         <div class="usericoslist">
                              <ul>
                                 <li class="btnmod"><a href="edit.php?id=<?php echo $User->AdminID ?>"><i class="fa fa-fw fa-pencil"></i></a></li>
-                                    <?php if($User->AdminID!=$Admin->AdminID){ ?>
                                 <li deleteElement="<?php echo $User->AdminID ?>" deleteParent="userlist<?php echo $User->AdminID ?>/user<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>'?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente" class="deleteElement btndel"><i class="fa fa-fw fa-trash"></i></li>
-                                    <?php } ?>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <!-- /Items  -->
-                <?php } ?>
+                 <?php //} ?>
             </div><!-- /List View  -->
 
             
