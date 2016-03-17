@@ -7,6 +7,28 @@ $(document).ready(function() {
     $('#newprod').show( 100 );
     $('#showitemfilters').show( 0 );
 });
+
+$(function(){
+  $(".bootstrap-switch-container").click(function(){
+    alert('as');
+    var checkbox  = $(this).children().children("#status");
+    var process   = 'process.php?action=changestatus&id='+checkbox.attr('target');
+    alert(checkbox.val());
+    //var target    = 'list.php?msg='+ $("#action").val();
+    var haveData  = function(returningData)
+    {
+      $("input,select").blur();
+      notifyError(returningData);
+      //alert(returningData);
+    }
+    var noData    = function()
+    {
+      //notifySuccess("Producto mod");
+      //document.location = target;
+    }
+    //sumbitFields(process,haveData,noData); 
+  });
+});
     
 ///////// Switch Viewmode ////////////////////////
 

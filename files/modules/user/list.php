@@ -92,7 +92,7 @@
                         <h5>Nombre</h5>
                     </div> 
                     <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 titlist3">
-                        <h5>Permisos</h5>
+                        <h5>Perfil</h5>
                     </div> 
                     <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 titlist4">
                         <h5>Grupo</h5>
@@ -117,13 +117,13 @@
                         <?php echo $User->FullUserName; ?>
                     </div>
                     <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 col3listus">
-                        <p>Administrador</p>
+                        <p><?php echo $User->ProfileName; ?></p>
                     </div>
                     <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 col4listus">
                         <p>Admin</p>
                     </div>
                     <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 col5listus">
-                        <p>5 de Marzo 2016 &#124; 22:33 hs</p>
+                        <p><?php echo DateTimeFormat($User->AdminData['last_access']) ?></p>
                     </div> 
                     <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 col6listus">
                         <div class="delmoddiv">

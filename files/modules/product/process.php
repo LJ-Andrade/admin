@@ -31,7 +31,7 @@ switch(strtolower($_POST['action']))
 	break;
 	case 'update': 
 		$ID 	= $_POST['id'];
-		$Edit	= new Category($ID);
+		$Edit	= new Product($ID);
 		
 		if(count($_FILES['img'])>0)
 		{
@@ -47,17 +47,31 @@ switch(strtolower($_POST['action']))
 			$ImgFilter	= ",img='".$Image."'";
 		}
 
-		$Title		= htmlentities($_POST['title']);
-		$Parent		= $_POST['parent'];
-		$Status		= $_POST['status']=="on"? 'A': 'I';
+		$Title			= htmlentities($_POST['title']);
+		$Code			= htmlentities($_POST['code']);
+		$Model			= htmlentities($_POST['model']);
+		$Size			= htmlentities($_POST['size']);
+		$Description 	= htmlentities($_POST['description']);
+		$Price 			= htmlentities($_POST['price']);
 
-		$Insert		= $DB->execQuery('update','category',"title='".$Title."',parent_id=".$Parent.",status='".$Status."'".$ImgFilter,"category_id=".$ID);
+		$Status		= $_POST['status']=="on"? 'A': 'P';
+
+		$Insert		= $DB->execQuery('update','product',"title='".$Title."',code='".$Code."',model='".$Model."',size='".$Size."',description='".$Description."',status='".$Status."'".$ImgFilter,"product_id=".$ID);
 		//echo $DB->lastQuery();
 		die;
 	break;
 	case 'delete': 
 		$ID	= $_POST['id'];
-		$DB->execQuery('update','category',"status = 'I'","category_id=".$ID);
+		$DB->execQuery('update','product',"status = 'I'","product_id=".$ID);
+		die;
+	break;
+
+	///////////////////////////////////// CHANGE STATUS /////////////////////////////////////////////////
+	case 'changestatus':
+		$ID 	= $_GET['id'];
+		$Status	= $_POST['status'.$ID]=="on"? 'A': 'P';
+
+	    $DB->execQuery('update','product',"status = '".$Status."'","product_id=".$ID);
 		die;
 	break;
 
@@ -67,9 +81,9 @@ switch(strtolower($_POST['action']))
 		$ActualTitle 	= strtolower(utf8_encode($_POST['actualtitle']));
 
 	    if($ActualTitle)
-	    	$TotalRegs  = $DB->numRows('category','*',"title = '".$Title."' AND title<> '".$ActualTitle."'");
+	    	$TotalRegs  = $DB->numRows('product','*',"title = '".$Title."' AND title<> '".$ActualTitle."'");
     	else
-		    $TotalRegs  = $DB->numRows('category','*',"title = '".$Title."'");
+		    $TotalRegs  = $DB->numRows('product','*',"title = '".$Title."'");
 		if($TotalRegs>0) echo $TotalRegs;
 		die;
 	break;

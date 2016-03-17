@@ -33,7 +33,8 @@
               <div class="col-md-6 animated bounceInRight switchuser">
                 <?php $Checked = $EditData['status']=='A'? 'checked="checked"':''; ?>
                 <div class="col-md-12 userstatustit">Estado</div>
-                <div class="col-md-12"><input type="checkbox" class="centered" name="status" id="status" data-on-text="Activa" data-off-text="Inactiva" data-size="large" data-label-width="auto" <?php echo $Checked; ?>>
+                <div class="col-md-12">
+                  <?php echo insertElement('checkbox','status','','centered',' data-on-text="Activa" data-off-text="Inactiva" data-size="large"  data-label-width="auto" '.$Checked); ?>
                 </div>                                     
               </div>
             </div>

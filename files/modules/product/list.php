@@ -67,7 +67,8 @@
             <div id="product<?php echo $Product->ID; ?>" class="col-md-2 col-sm-6 col-xs-12 col-centered animated bounceInUp itemdiv">
                 <div class="row itemstatus">
                     <p class="col-md-4 col-xs-12 itemstattxt">Publicaci&oacute;n: </p>
-                    <input type="checkbox" class="col-md-8 col-xs-12 centered itemstatswitch" name="my-checkbox" data-on-text="Activa" data-off-text="Pausada"  data-label-width="auto" data-size="mini" checked>        
+                    <?php $Checked = $Product->Data['status']=='A'? 'checked="checked"':''; ?>
+                    <?php echo insertElement('checkbox','status','','ChangeProductStatus col-md-8 col-xs-12 centered',' target="'.$Product->ID.'" data-on-text="Activa" data-off-text="Pausada"  data-label-width="auto" data-size="mini" '.$Checked); ?>
                 </div>
                 <div class="grid">
                     <div>
