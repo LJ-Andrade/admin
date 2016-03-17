@@ -4,7 +4,7 @@
     $Head->setHead();
 ?>
 <body>
-    <?php include('../../includes/inc.loader.php'); ?> <!-- Navegation -->         
+    <?php include('../../includes/inc.loader.php'); ?> <!-- Loader -->         
     <div id="wrapper">
         <?php include('../../includes/inc.nav.php'); ?> <!-- Navegation -->         
             <div class="container-fluid maincontainer">

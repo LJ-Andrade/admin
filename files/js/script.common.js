@@ -1,30 +1,39 @@
                                             ////// JavaScript Document //////
-// Styles scrollbar
-//=======================================================
+
+//////////////////////////////////////////////////// Scrollbar Styles //////////////////////////////////////////////////////
 $(document).ready(function() {  
     $("html").niceScroll({cursorwidth: '8px', cursorborder: 0, cursorborderradius: 0, autohidemode: false, zindex: 999, cursorcolor: '#2C3E50', cursoropacitymax: .5 });
 });
 
-
-/* MESSAGES
-=========================
-Delete Mensaje */
-
-$(".redirect").click(function(){
-    location.href="users.php?msg=delete";
-});
-
-// Subtop Icons
-//========================== 
+//////////////////////////////////////////////////// Subtop Icons //////////////////////////////////////////////////////
 $(document).ready(function() {  
     $('#volverprod').hide();
     $('#viewlistbt').hide();
     $('#viewgridbt').hide();
-    $('#showitemfilters').hide();
+    $('#showitemfilters').hide();      // <<<<<================== Cambiar los ID's por una clase que los represente a todos.
     $('#showitemfiltersuser').hide();
     $('#volverusers').hide();
     $('#newuser').hide();
     $('#newprod').hide();
+});
+
+//////////////////////////////////////////////////// Characters limiter //////////////////////////////////////////////////////
+$('input, textarea').keyup(function() {
+  var max = $(this).attr('maxLength');
+  var curr = this.value.length;
+  var percent = (curr/max) * 100;
+  var indicator = $(this).parent().children('.indicator-wrapper').children('.indicator').first();
+   
+  // Shows characters left
+  indicator.children('.current-length').html(max - curr);
+   
+  // Change colors
+  if (percent > 30 && percent <= 50) { indicator.attr('class', 'indicator low'); }
+  else if (percent > 50 && percent <= 70) { indicator.attr('class', 'indicator med'); }
+  else if (percent > 70 && percent < 100) { indicator.attr('class', 'indicator high'); }
+  else if (percent == 100) { indicator.attr('class', 'indicator full'); }
+  else { indicator.attr('class', 'indicator empty'); }
+  indicator.width(percent + '%');
 });
 
 //////////////////////////////////////////////////// Page Loader //////////////////////////////////////////////////////

@@ -33,15 +33,15 @@
               <div class="col-md-6 form-group animated bounceInBottom" id="ProfileTree">
                   <?php //echo $Profile->MakeNewTree(); ?>
                   <ul>
-                    <li id="menu1" class="TreeElement"><input type="checkbox"> Menu 1</li>
-                    <li id="menu2" class="TreeElement" style="cursor:pointer;"><input type="checkbox"> Menu 2</li>
+                    <li><input type="checkbox" class="TreeCheckbox"><span id="menu1" class="TreeElement"> Menu 1</span></li>
+                    <li><input type="checkbox" class="TreeCheckbox"><span class="TreeElement" style="cursor:pointer;" id="menu2"> Menu 2</span></li>
                     <ul style="margin-left:1em;display:none;" parent="menu2">
-                        <li id="menu21" class="TreeElement"><input type="checkbox"> Menu 2.1</li>
-                        <li id="menu22" class="TreeElement" style="cursor:pointer;"><input type="checkbox"> Menu 2.2</li>
+                        <li><input type="checkbox" class="TreeCheckbox"><span id="menu21" class="TreeElement"> Menu 2.1</span></li>
+                        <li><input type="checkbox" class="TreeCheckbox"><span id="menu22" class="TreeElement" style="cursor:pointer;"> Menu 2.2</span></li>
                         <ul style="margin-left:1em;display:none;" parent="menu22">
-                          <li id="menu221" class="TreeElement"><input type="checkbox"> Menu 2.2.1</li>
-                          <li id="menu222" class="TreeElement"><input type="checkbox"> Menu 2.2.2</li>
-                          <li id="menu223" class="TreeElement"><input type="checkbox"> Menu 2.2.3</li>
+                          <li><input type="checkbox" class="TreeCheckbox"><span id="menu221" class="TreeElement"> Menu 2.2.1</span></li>
+                          <li><input type="checkbox" class="TreeCheckbox"><span id="menu222" class="TreeElement"> Menu 2.2.2</span></li>
+                          <li><input type="checkbox" class="TreeCheckbox"><span id="menu223" class="TreeElement"> Menu 2.2.3</span></li>
                         </ul>
                     </ul>
                   </ul>

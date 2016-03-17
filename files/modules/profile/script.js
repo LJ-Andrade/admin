@@ -42,7 +42,10 @@ $(function(){
 	////////////// Profile Tree /////////////////
 	$(function(){
         $(".TreeElement").click(function(){
-          $(this).next("ul").slideToggle();
+          $(this).parent().next("ul").slideToggle();
+        });
+        $(".TreeCheckbox").click(function(){
+          //$(this).parent().next("ul").slideToggle();
         });
       });
 });

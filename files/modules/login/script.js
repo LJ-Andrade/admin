@@ -12,7 +12,7 @@ function sumbitLogin(){
 	var error		= 'Verifique los datos ingresados';
 	var values		= 'user='+ user + '&password=' + password + '&target=' + target + '&error=' + error ;
 	var	process		= "process.login.php";
-	
+	toggleLoader();
 	$.ajax({
 			type: "POST",
 			url: process,
@@ -29,6 +29,7 @@ function sumbitLogin(){
 				}
 			}
 	});
+	toggleLoader();
 }
 
 $(function(){

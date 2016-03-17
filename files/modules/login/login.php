@@ -4,6 +4,7 @@
     $Head->setHead();
 ?>
 <body id="login">
+    <?php include('../../includes/inc.loader.php'); ?> <!-- Loader -->
     <div class="main">
         <div class="row col-md-12 logtitdiv">
            <div class="row"><img src="../../../skin/images/body/icons/favicon.png" class="logimg" alt=""><span class="logintit">Renovatio &reg;</span></div>
