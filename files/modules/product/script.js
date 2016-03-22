@@ -3,30 +3,57 @@ $(document).ready(function() {
     $('#showitemfilters').click(function() {
          $('#filteritem').toggle("slide");
     });
-    $('#viewlistbt').show( 0 );
-    $('#newprod').show( 100 );
-    $('#showitemfilters').show( 0 );
+    $('#viewlistbt').removeClass('Hidden');
+    $('#newprod').removeClass('Hidden');
+    $('#showitemfilters').removeClass('Hidden');
 });
 
+
+
+/////////////////////////////////// Change Bootstrap Swtich Status on Grid and List Simultaneously //////////////////////////
 $(function(){
-  $(".bootstrap-switch-container").click(function(){
-    alert('as');
-    var checkbox  = $(this).children().children("#status");
-    var process   = 'process.php?action=changestatus&id='+checkbox.attr('target');
-    alert(checkbox.val());
-    //var target    = 'list.php?msg='+ $("#action").val();
-    var haveData  = function(returningData)
+  $(".SwitchCheckbox").on("switchChange.bootstrapSwitch",function(event,state){
+    if(!$(this).hasClass('Changed'))
     {
-      $("input,select").blur();
-      notifyError(returningData);
-      //alert(returningData);
+      var checkBox  = $(this);
+      var id        = $(this).attr('target');
+      var ProdName  = $("#title"+id).text();
+      var process   = 'process.php?action=changestatus&id='+id+'&status='+state;
+      //var target    = 'list.php?msg='+ $("#action").val();
+      var haveData  = function(returningData)
+      {
+        $("input,select").blur();
+        if(returningData!="on")
+          notifyError(returningData);
+      }
+      var noData    = function()
+      {
+        checkBox.addClass("Changed");
+        if($("#gridstatus"+id).hasClass("Changed"))
+        {
+          $("#liststatus"+id).addClass("Changed");
+          $("#liststatus"+id).bootstrapSwitch('toggleState');
+
+        }else{
+          $("#gridstatus"+id).addClass("Changed");
+          $("#gridstatus"+id).bootstrapSwitch('toggleState');
+        }
+        $("#gridstatus"+id).removeClass("Changed");
+        $("#liststatus"+id).removeClass("Changed");
+
+        if(state==true)
+        {
+          notifySuccess("Publicaci&oacute;n '"+ProdName+"' Activada");
+        }else{
+          notifySuccess("Publicaci&oacute;n '"+ProdName+"' Pausada");
+          $("#status"+id).each(function(){
+            $(this).removeClass("checked");
+          });
+        }
+        //document.location = target;
+      }
+      sumbitFields(process,haveData,noData);
     }
-    var noData    = function()
-    {
-      //notifySuccess("Producto mod");
-      //document.location = target;
-    }
-    //sumbitFields(process,haveData,noData); 
   });
 });
     
@@ -34,23 +61,6 @@ $(function(){
 
 $(function(){
     $('div[id="viewlist"]').hide();
-    		
-        $("#viewlistbt").on( "click", function() {
-    		$('div[id="viewgrid"]').hide( 500 );
-            $('div[id="viewlist"]').show( 500 ); 
-            $("#viewlistbt").hide();
-            $("#viewgridbt").show( 0 );
-    	 });
-        
-        $("#viewgridbt").on( "click", function() {
-    		$('div[id="viewgrid"]').show( 500 ); 
-            $('div[id="viewlist"]').hide( 500 );
-            $("#viewgridbt").hide();
-            $("#viewlistbt").show( 0 );
-    	 });
-        
-    // Active Inactive Swich
-    $("[name='status']").bootstrapSwitch();
 });
     
 //////////////////////// Submit Data ////////////////////////////////////
@@ -62,8 +72,8 @@ $(function(){
       var haveData  = function(returningData)
       {
         $("input,select").blur();
-        notifyError(returningData);
-        //alert(returningData);
+        //notifyError(returningData);
+        alert(returningData);
       }
       var noData    = function()
       {

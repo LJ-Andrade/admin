@@ -2,44 +2,39 @@
 
 include('../../includes/inc.main.php');
 
+if($_GET['action']=='newimage')
+{
+	if(count($_FILES['image'])>0)
+		{
+			$Name	= "img".rand()*rand()/rand();
+			$Img	= new FileData($_FILES['image'],"../../../skin/images/temp/",$Name);
+			echo $Img	-> BuildImage();
+		}
+}
+
 switch(strtolower($_POST['action']))
 {
 	case 'insert':
 	
 		if(count($_FILES['img'])>0)
 		{
-			$Name		= "file".rand()*rand()/rand();
-			$Img		= new FileData($_FILES['img'],"../../../skin/images/users/",$Name);
-			$Image		= $Img	-> BuildImage(45,45);
+			$Name	= "tmpimg".rand()*rand()/rand();
+			$Img	= new FileData($_FILES['img'],"../../../skin/images/profiles/",$Name);
+			$Image	= $Img	-> BuildImage(45,45);
 			
 		}
 		
-		$User		= htmlentities(strtolower($_POST['user']));
-		$Password	= md5(htmlentities($_POST['password']));
-		$FirstName	= htmlentities($_POST['first_name']);
-		$LastName	= htmlentities($_POST['last_name']);
-		$Email 		= htmlentities($_POST['email']);
-		$ProfileID	= $_POST['profile'];
-		$Status		= $_POST['status']=="on"? 'A': 'I';
-		$Groups		= $_POST['group_id'] ? explode(",",$_POST['group_id']) : array();
+		$Title		= htmlentities(strtolower($_POST['title']));
 		$Menues		= $_POST['menu'] ? explode(",",$_POST['menu']) : array();
 		
-		$Insert		= $DB->execQuery('insert','admin_user','user,password,first_name,last_name,email,status,profile_id,img',"'".$User."','".$Password."','".$FirstName."','".$LastName."','".$Email."','".$Status."','".$ProfileID."','".$Image."'");
-		$AdminID 	= $DB->GetInsertId();
+		$Insert		= $DB->execQuery('insert','admin_profile','title,img,status,creation_date',"'".$Title."','".$Image."','A',NOW()");
+		$ID 		= $DB->GetInsertId();
 		
-		for($i=0;$i<count($Groups);$i++)
-		{
-			$Values .= $i==0? $AdminID.",".$Groups[$i] : "),(".$AdminID.",".$Groups[$i];
-		}
-		$DB->execQuery('insert','relation_admin_group','admin_id,group_id',$Values);
-
-		$Values = "";
-
 		for($i=0;$i<count($Menues);$i++)
 		{
-			$Values .= $i==0? $AdminID.",".$Menues[$i] : "),(".$AdminID.",".$Menues[$i];
+			$Values .= $i==0? $ID.",".$Menues[$i] : "),(".$ID.",".$Menues[$i];
 		}
-		$DB->execQuery('insert','menu_exception','admin_id,menu_id',$Values);
+		$DB->execQuery('insert','relation_menu_profile','profile_id,menu_id',$Values);
 		die;
 		
 	break;

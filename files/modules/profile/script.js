@@ -15,6 +15,7 @@ $(document).ready(function(){
 });
 
 $(function(){
+	////////////////////////////////////// Create/Update Profile ///////////////////////////
 	$("#create").click(function(){
 		if(validate.validateFields('')){
 			var process		= 'process.php';
@@ -48,6 +49,31 @@ $(function(){
           //$(this).parent().next("ul").slideToggle();
         });
       });
+
+	///////////////////////////////////// Load Image ///////////////////////////
+	$("#image").change(function(){
+		//notifyInfo($(this).val());
+		var process		= 'process.php?action=newimage';
+		
+		var haveData	= function(returningData)
+		{
+			//$("input,select").blur();
+			//alert(returningData);
+			//alert(returningData);
+			$('#profileimg').attr('src',returningData);
+			$('#profileimg').removeClass('Hidden');
+			$('#image').parent().parent().children('input').val('');
+			return false;
+
+		}
+		var noData		= function()
+		{
+			//document.location = target;
+		}
+		sumbitFields(process,haveData,noData);
+	});
+
+
 });
 
 /////////////////////////// Massive Delete /////////////////////////////////////

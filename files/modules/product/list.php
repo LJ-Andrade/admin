@@ -3,7 +3,7 @@
     $Head->setTitle("Listado de Productos");
     $Head->setHead();
 
-    $Status = $_GET['status']? $_GET['status']: 'A';
+    $Status = $_GET['status']? $_GET['status']: "A' OR status = 'P";
     $Products = $DB->fetchAssoc('product','product_id',"status='".$Status."'","title");
 ?>
 <body>
@@ -68,14 +68,15 @@
                 <div class="row itemstatus">
                     <p class="col-md-4 col-xs-12 itemstattxt">Publicaci&oacute;n: </p>
                     <?php $Checked = $Product->Data['status']=='A'? 'checked="checked"':''; ?>
-                    <?php echo insertElement('checkbox','status','','ChangeProductStatus col-md-8 col-xs-12 centered',' target="'.$Product->ID.'" data-on-text="Activa" data-off-text="Pausada"  data-label-width="auto" data-size="mini" '.$Checked); ?>
+                    <?php echo insertElement('checkbox','gridstatus'.$Product->ID,'','col-md-8 col-xs-12 centered SwitchCheckbox',' target="'.$Product->ID.'" data-on-text="Activa" data-off-text="Pausada"  data-label-width="auto" data-size="mini" '.$Checked); ?>
                 </div>
                 <div class="grid">
                     <div>
                         <img src="<?php echo $Image['src']; ?>" alt="" class="img-responsive">
                     </div>
                     <div class="col-md-12 itemtit">
-                        <p><?php echo $Product->Data['title']; ?> - Cod: <?php echo $Product->Data['code']; ?></p>
+                        <p id="title<?php echo $Product->ID; ?>"><?php echo $Product->Data['title']; ?></p>
+                        <p id="code<?php echo $Product->ID; ?>">(<?php echo $Product->Data['code']; ?>)</p>
                     </div>
                     <div class="grid_content">
                         <div class="col-md-12 itemtit">
@@ -169,6 +170,10 @@
                              <ul>
                                 <li class="btnmod"><a href="edit.php?id=<?php echo $Product->ID ?>"><i class="fa fa-fw fa-pencil"></i></a></li>
                                 <li class="btndel deleteElement" deleteElement="<?php echo $Product->ID ?>" deleteParent="list<?php echo $Product->ID ?>/product<?php echo $Product->ID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el producto '<?php echo $Product->Data['title']; ?>'?" successText="El producto '<?php echo $Product->Data['title'] ?>' ha sido eliminado correctamente"><i class="fa fa-fw fa-trash"></i></li>
+                                <li>
+                                    <?php $Checked = $Product->Data['status']=='A'? 'checked="checked"':''; ?>
+                                    <?php echo insertElement('checkbox','liststatus'.$Product->ID,'','centered SwitchCheckbox status',' target="'.$Product->ID.'" data-on-text="Activa" data-off-text="Pausada"  data-label-width="auto" data-size="mini" '.$Checked); ?>
+                                </li>
                             </ul> 
                         </div>
                     </div>

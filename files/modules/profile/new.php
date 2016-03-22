@@ -5,11 +5,6 @@
 
     $Profile = new ProfileData();
 
-    // $Foot->setStyle('../../../skin/css/jquery.tree.min.css');
-    // // $Foot->setStyle('https://code.jquery.com/ui/1.11.4/themes/ui-lightness/jquery-ui.css');
-    // // $Foot->setScript('http://code.jquery.com/ui/1.11.4/jquery-ui.js');
-    // $Foot->setScript('../../js/script.tree.js');
-
 ?>
 <body>
   <div id="wrapper">
@@ -26,6 +21,7 @@
               </div>
               <div class="col-md-6 form-group animated bounceInRight">
                 <?php echo insertElement('file','image','','form-first-name form-controlusers','placeholder="Imagen" tabindex="3"'); ?>
+                <img src="" class="Hidden" id="profileimg" />
               </div>
             </div>
 

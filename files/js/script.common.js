@@ -1,26 +1,38 @@
                                             ////// JavaScript Document //////
 
-//////////////////////////////////////////////////// Scrollbar Styles //////////////////////////////////////////////////////
+
 $(document).ready(function() {  
+//////////////////////////////////////////////////// Scrollbar Styles //////////////////////////////////////////////////////
     $("html").niceScroll({cursorwidth: '8px', cursorborder: 0, cursorborderradius: 0, autohidemode: false, zindex: 999, cursorcolor: '#2C3E50', cursoropacitymax: .5 });
-});
 
 //////////////////////////////////////////////////// Subtop Icons //////////////////////////////////////////////////////
-$(document).ready(function() {  
-    if(get['msg']=="logok")$('#volverprod').hide();
-    $('#viewlistbt').hide();
-    $('#viewgridbt').hide();
-    $('#showitemfilters').hide();      // <<<<<================== Cambiar los ID's por una clase que los represente a todos.
-    $('#showitemfiltersuser').hide();
-    $('#volverusers').hide();
-    $('#newuser').hide();
-    $('#newprod').hide();
+    if(get['msg']!="logok")$('#backtolastpage').removeClass('Hidden');
 });
 
 $(function(){
+//////////////////////////////////////////////////// Back Button //////////////////////////////////////////////////////
     $(".BackToLastPage").click(function(){
         window.history.go(-1);
     });
+
+//////////////////////////////////////////////////// Toggle Grid and List //////////////////////////////////////////////////////     
+    $("#viewlistbt").on( "click", function() {
+        $('div[id="viewgrid"]').hide( 500 );
+        $('div[id="viewlist"]').show( 500 ); 
+        $("#viewlistbt").addClass('Hidden');
+        $("#viewgridbt").removeClass('Hidden');
+     });
+    
+    $("#viewgridbt").on( "click", function() {
+        $('div[id="viewgrid"]').show( 500 ); 
+        $('div[id="viewlist"]').hide( 500 );
+        $("#viewgridbt").addClass('Hidden');
+        $("#viewlistbt").removeClass('Hidden');
+     });
+        
+//////////////////////////////////////////////////// Bootstrap Switch //////////////////////////////////////////////////////
+    $(".SwitchCheckbox").bootstrapSwitch();
+
 });
 
 //////////////////////////////////////////////////// Characters limiter //////////////////////////////////////////////////////
@@ -173,7 +185,7 @@ function submitData()
                     checkValue = $(this).val();
                 }
             });
-            notifyError(checkValue);
+            //notifyError(checkValue);
             variables[variables.length] = {id:checkID,value:checkValue};
         }
     });

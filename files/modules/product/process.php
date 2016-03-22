@@ -2,6 +2,16 @@
 
 include('../../includes/inc.main.php');
 
+///////////////////////////////////// CHANGE STATUS /////////////////////////////////////////////////
+if($_GET['action']=="changestatus")
+{
+	$ID 	= $_GET['id'];
+	$Status	= $_GET['status']=="true"? 'A': 'P';
+
+    $DB->execQuery('update','product',"status = '".$Status."'","product_id=".$ID);
+	die;
+}
+
 switch(strtolower($_POST['action']))
 {
 	case 'insert':
@@ -63,15 +73,6 @@ switch(strtolower($_POST['action']))
 	case 'delete': 
 		$ID	= $_POST['id'];
 		$DB->execQuery('update','product',"status = 'I'","product_id=".$ID);
-		die;
-	break;
-
-	///////////////////////////////////// CHANGE STATUS /////////////////////////////////////////////////
-	case 'changestatus':
-		$ID 	= $_GET['id'];
-		$Status	= $_POST['status'.$ID]=="on"? 'A': 'P';
-
-	    $DB->execQuery('update','product',"status = '".$Status."'","product_id=".$ID);
 		die;
 	break;
 
