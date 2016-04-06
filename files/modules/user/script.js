@@ -9,7 +9,7 @@ $(document).ready(function(){
 	if(get['msg']=='update')
 		notifySuccess('Usuario modificado correctamente');
 	$('#newuser').fadeIn(500);
-	$('#viewlistbt').show();
+	$('#viewlistbt').removeClass('Hidden');
 	$('#viewlist').hide();
 	$('#delselected').hide();
 });

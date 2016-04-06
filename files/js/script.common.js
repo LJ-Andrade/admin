@@ -506,7 +506,7 @@ $(function(){
     
         $("#Logout").click(function(){
             
-            alertify.confirm(utf8_decode("¿Desea salir del sistema?"), function(e){
+            alertify.confirm(utf8_decode("¿Desea salir del administrador?"), function(e){
                 if(e){
                     var target      = '../login/login.php';
                     var process     = '../login/process.logout.php';

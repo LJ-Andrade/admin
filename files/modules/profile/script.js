@@ -41,12 +41,46 @@ $(function(){
 	});
 
 	////////////// Profile Tree /////////////////
+	function disableChildrens(parent)
+	{
+		parent.children('li').children('input').attr("disabled",true);
+		parent.children('ul').each(function(){
+			disableChildrens($(this));
+		});
+		parent.children('li').children('input').attr("checked",false);
+	}
+
+	function enableChildrens(parent)
+	{
+		parent.children('li').children('input').attr("disabled",false);
+		// parent.children('ul').each(function(){
+		// 	enableChildrens($(this));
+		// });
+	}
+
 	$(function(){
         $(".TreeElement").click(function(){
-          $(this).parent().next("ul").slideToggle();
+        	var elem = $(this).parent().next("ul");
+        	if(elem.hasClass('Hidden'))
+        	{
+        		elem.removeClass('Hidden');
+	        	elem.toggle();
+	        	elem.slideToggle();
+        	}else{
+        		elem.slideToggle();
+        	}
         });
         $(".TreeCheckbox").click(function(){
-          //$(this).parent().next("ul").slideToggle();
+        	var childMenu = $('#parent'+$(this).val());
+        	if($(this).is(':checked'))
+        	{
+        		if(!childMenu.is(':visible'))
+        			$(this).parent().children('.TreeElement').click();
+        		enableChildrens(childMenu);
+        	}else{
+        		childMenu.children('li').children('input').attr("disabled",true);
+        		disableChildrens(childMenu);
+        	}
         });
       });
 
@@ -60,9 +94,11 @@ $(function(){
 			//$("input,select").blur();
 			//alert(returningData);
 			//alert(returningData);
+			$('#profileimage').val(returningData);
 			$('#profileimg').attr('src',returningData);
 			$('#profileimg').removeClass('Hidden');
 			$('#image').parent().parent().children('input').val('');
+			//notifyInfo(returningData);
 			return false;
 
 		}

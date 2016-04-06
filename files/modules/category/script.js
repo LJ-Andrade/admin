@@ -39,6 +39,39 @@ $(function(){
 	});
 });
 
+/////////////////////////// Add New Image //////////////////////////////////////
+$(".AddNewImage").click(function(){
+	$("#AddNewImage").click();
+});
+
+$("#AddNewImage").change(function(){
+	var process		= 'process.php?action=newimage';
+	var haveData	= function(returningData)
+	{
+		//$("input,select").blur();
+		//alert(returningData);
+		//alert(returningData);
+		// $('#profileimg').attr('src',returningData);
+		// $('#profileimg').removeClass('Hidden');
+		// $('#image').parent().parent().children('input').val('');
+		$("#AddNewImage").parent().parent().parent().append('<div class="col-md-3 col-sm-6 col-xs-6"><img src="'+returningData+'" alt="" class="img-responsive thumbimgadd Selecteable"></div>');
+		return false;
+
+	}
+	var noData		= function()
+	{
+		//document.location = target;
+	}
+	sumbitFields(process,haveData,noData);
+});
+
+$(".Selecteable").click(function(){
+	$("#img").val($(this).attr("src"));
+	$("#shownimg").attr('src',$(this).attr("src"));
+	$("#shownimg").removeClass('Hidden');
+	$("#cancelSelectImgBtn").click();
+})
+
 /////////////////////////// Massive Delete /////////////////////////////////////
 	$("#delselected").click(function(){
 		alertify.confirm(utf8_decode('¿Desea eliminar las categor&iacute;as seleccionadas?'), function(e){
@@ -241,11 +274,14 @@ $(function (){
 					$('#imgsToSelect').show( 500 );
 					$('#selectImgBtn').hide();
 					$('#cancelSelectImgBtn').fadeIn( 400 );
+					$('#shownimg').hide();
+					
 		});
 		$('#cancelSelectImgBtn').click(function() {
 					$('#newInputs').show( 500 );
 					$('#imgsToSelect').hide( 500 );
 					$('#selectImgBtn').show();
 					$('#cancelSelectImgBtn').hide();
+					if($('#shownimg').attr("src")!="") $('#shownimg').fadeIn( 600 );
 		});
 });

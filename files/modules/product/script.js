@@ -33,7 +33,6 @@ $(function(){
         {
           $("#liststatus"+id).addClass("Changed");
           $("#liststatus"+id).bootstrapSwitch('toggleState');
-
         }else{
           $("#gridstatus"+id).addClass("Changed");
           $("#gridstatus"+id).bootstrapSwitch('toggleState');

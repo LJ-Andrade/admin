@@ -37,7 +37,7 @@
             </div>
             <div class="col-md-12 animated bounceInRight productstatus">
               <div class="itemstatustit"><span>Publicación</span></div>
-              <?php echo insertElement('checkbox','status','','form-first-name form-controlusers',' data-on-text="Activa" data-off-text="Pausada"  data-label-width="auto" checked '); ?>
+              <?php echo insertElement('checkbox','status','','form-first-name form-controlusers SwitchCheckbox',' data-on-text="Activa" data-off-text="Pausada"  data-label-width="auto" checked '); ?>
             </div>
           </div>
           <div class="col-md-6">

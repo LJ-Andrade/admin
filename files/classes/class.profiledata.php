@@ -2,30 +2,46 @@
 
 class ProfileData extends DataBase
 {
-	var $Menues = array();
-	var $Parents = array();
+	var $Menues 	= array();
+	var $Parents 	= array();
+	var $Users 		= array();
+	var $Relations 	= array();
+	var $Data 		= array();
+	var $ID;
 	
-	public function __construct()
+	public function __construct($ProfileID=0)
 	{
 		$this->Connect();
+		$this->ID = $ProfileID;
+		$this->GetData();
 	}
 	
+	public function GetData()
+	{
+		if(count($this->Data)<1)
+		{
+			$Data 		= $this->fetchAssoc("admin_profile","*","profile_id=".$this->ID);
+			$this->Data = $Data[0];
+		}
+		return $this->Data;
+	}
+
 	public function MakeProfileList()
 	{
 		$Regs	= $this->fetchAssoc('admin_profile','*','profile_id>1',"title"); 
 			
 		foreach($Regs as $Reg)
 		{
-			//$AdminReg	=	new AdminData($AdminRegs[$i]['admin_id']);
+			$Profile	=	new ProfileData($Reg['profile_id']);
 			$Actions	= 	'<img src="../../../skin/images/body/icons/pencil.png" id="edit_'.$Reg['profile_id'].'" />';
 			$Actions	.= 	'<img src="../../../skin/images/body/icons/cross.png" id="delete_'.$Reg['profile_id'].'" />';
 				
 			$List	.= '
 						<div id="profile'.$Reg['profile_id'].'" class="col-centered col-lg-3 col-sm-6 col-xs-12 animated fadeIn usergral">
 							<div class="userMainSection">
-								<div class="userimgdiv"><img src="'.$Reg['img'].'" class="img-responsive userimg"></div>
+								<div class="userimgdiv"><img src="'.$Reg['image'].'" class="img-responsive userimg"></div>
 								<div class="row usernamediv">
-		                            <span class="usernametxt"><span class="col-sm-12">'.$Reg['title'].'</span> <span class="col-lg-12 col-sm-12 col-xs-12">('.count(self::Users($Reg['profile_id'])).' usuarios)</span></span><br>
+		                            <span class="usernametxt"><span class="col-sm-12">'.$Reg['title'].'</span> <span class="col-lg-12 col-sm-12 col-xs-12">('.count($Profile->GetUsers()).' usuarios)</span></span><br>
 		                            
 		                        </div>
 		                     </div>
@@ -43,105 +59,86 @@ class ProfileData extends DataBase
 		return $List;
 	}
 	
-	public function MakeTree($ProfileID=1,$Parent=0)
+	public function MakeTree($Parent=0)
 	{
-		if($Parent==0)
-		{
-			$this->GetCheckedMenues($ProfileID);
-			$this->GetParents();
-			$HTML	.= insertElement('hidden','ProfileID',$ProfileID);
-		}
-		
-		$Menues	= $this->fetchAssoc('menu','*',"parent_id = ".$Parent." AND status <> 'I'"); 
-		
+		$CheckedMenues 	= $this->GetCheckedMenues();
+		$Menues			= $this->fetchAssoc('menu','*',"parent_id = ".$Parent." AND status <> 'I'"); 
+		$Display 		= in_array($Parent,$CheckedMenues)? '':'display:none;';
+		$HTML 			= $Parent == 0? '<ul>': '<ul style="margin-left:1em;'.$Display.'" id="parent'.$Parent.'">';
+		$Parents 		= $this->GetParents();
+
 		foreach($Menues as $Menu)
 		{
-			$IsParent = in_array($Menu['menu_id'],$this->Parents);
+			$IsParent 	= in_array($Menu['menu_id'],$Parents);
 			
-			if(in_array($Menu['menu_id'],$this->Menues))
+			$Arrow		= $IsParent? ' style="cursor:pointer;" ' : '';
+			if(in_array($Menu['menu_id'],$CheckedMenues))
 			{
-				$Hidden 	= '';
-				$Selected	= ' checked = "checked" ';
-				$Arrow	= $IsParent? '<div class="Arrow ArrowLeft" id="img'.$Menu['menu_id'].'"></div>' : "";
-				
+				$Checked 	= ' checked="checked" ';
+				$Disabled 	= '';
 			}else{
-				$Hidden 	= ' Hidden ';
-				$Selected	= '';
-				$Arrow	= $IsParent? '<div class="Arrow ArrowDown" id="img'.$Menu['menu_id'].'"></div>' : "";
+				$Disabled 	= $Parent != 0 && !in_array($Parent,$CheckedMenues)? ' disabled="disabled" ':'';
+				$Checked = '';
 			}
-			
-			if($Parent!=0)$Disabled	= $this->IsDisabled($Menu['parent_id']);
-			
-			$HTML	.= '<div>'.insertElement('checkbox','menu'.$Menu['menu_id'],$Menu['menu_id'],'Left Pointer MenuCheckbox Menu'.$Menu['parent_id'],$Selected.$Disabled).'<div class="Parent Left Frutiger12px BlueCyan" id="'.$Menu['menu_id'].'">'.$Menu['title'].'</div>'.$Arrow.'<div class="Clear"></div></div>';
+
+			$HTML		.= '<li>'.insertElement('checkbox','menu',$Menu['menu_id'],'TreeCheckbox','value="'.$Menu['menu_id'].'"'.$Disabled.$Checked).'<span id="menu'.$Menu['menu_id'].'" '.$Arrow.' class="TreeElement"> '.$Menu['title'].'</span></li>';
 			if($IsParent)
 			{
-				$HTML	.= '<div class="ProfileChild '.$Hidden.'" id="Child'.$Menu['menu_id'].'" >';
-				$HTML	.= $this->MakeTree($ProfileID,$Menu['menu_id']);
-				$HTML	.= "</div>";
+				$HTML	.= $this->MakeTree($Menu['menu_id']);
 			}
 		}
 		
-		return $HTML;
+		return $HTML.'</ul>';
 	}
 
-	public function MakeNewTree($ProfileID=1,$Parent=0)
-	{
-		if($Parent==0)
-		{
-			//$this->GetCheckedMenues($ProfileID);
-			//$this->GetParents();
-			$HTML	.= insertElement('hidden','ProfileID',$ProfileID);
-		}
-		
+	public function MakeNewTree($Parent=0)
+	{	
 		$Menues	= $this->fetchAssoc('menu','*',"parent_id = ".$Parent." AND status <> 'I'"); 
-		
+		$HTML 	= $Parent == 0? '<ul>': '<ul style="margin-left:1em;display:none;" id="parent'.$Parent.'">';
+
 		foreach($Menues as $Menu)
 		{
-			$IsParent = in_array($Menu['menu_id'],$this->Parents);
+			$Parents 	= $this->GetParents();
+			$IsParent 	= in_array($Menu['menu_id'],$Parents);
 			
-			if(in_array($Menu['menu_id'],$this->Menues))
-			{
-				//$Hidden 	= '';
-				//$Selected	= ' checked = "checked" ';
-				$Arrow	= $IsParent? '<div class="Arrow ArrowLeft" id="img'.$Menu['menu_id'].'"></div>' : "";
-				
-			}else{
-				//$Hidden 	= ' Hidden ';
-				//$Selected	= '';
-				$Arrow	= $IsParent? '<div class="Arrow ArrowDown" id="img'.$Menu['menu_id'].'"></div>' : "";
-			}
+			$Arrow		= $IsParent? ' style="cursor:pointer;" ' : '';
+			$Disabled 	= $Parent != 0? ' disabled="disabled" ':'';
 			
-			if($Parent!=0)$Disabled	= $this->IsDisabled($Menu['parent_id']);
-			
-			$HTML	.= '<div>'.insertElement('checkbox','menu'.$Menu['menu_id'],$Menu['menu_id'],'Left Pointer MenuCheckbox Menu'.$Menu['parent_id'],$Disabled).'<div class="Parent Left Frutiger12px BlueCyan" id="'.$Menu['menu_id'].'">'.$Menu['title'].'</div>'.$Arrow.'</div>';
+			$HTML	.= '<li>'.insertElement('checkbox','menu',$Menu['menu_id'],'TreeCheckbox','value="'.$Menu['menu_id'].'"'.$Disabled).'<span id="menu'.$Menu['menu_id'].'" '.$Arrow.' class="TreeElement"> '.$Menu['title'].'</span></li>';
 			if($IsParent)
 			{
-				$HTML	.= '<div class="ProfileChild '.$Hidden.'" id="Child'.$Menu['menu_id'].'" >';
-				$HTML	.= $this->MakeNewTree($ProfileID,$Menu['menu_id']);
-				$HTML	.= "</div>";
+				$HTML	.= $this->MakeNewTree($Menu['menu_id']);
 			}
 		}
 		
-		return $HTML;
+		return $HTML.'</ul>';
 	}
 	
 	
-	public function GetCheckedMenues($ProfileID)
+	public function GetCheckedMenues()
 	{
-		$Relations	= $this->fetchAssoc('relation_menu_profile','*',"profile_id = ".$ProfileID);
-		foreach($Relations as $Relation)
+		if(count($this->Menues)<1)
 		{
-			$this->Menues[]	= $Relation['menu_id'];
+			$Relations	= $this->GetRelations();
+			foreach($Relations as $Relation)
+			{
+				$this->Menues[]	= $Relation['menu_id'];
+			}
 		}
+		return $this->Menues;
 	}
 	
 	public function GetParents()
 	{
-		$Parents	= $this->fetchAssoc('menu','DISTINCT(parent_id)',"parent_id <> 0 AND status <> 'I'");
-		
-		foreach($Parents as $Parent){
-			$this->Parents[] = $Parent['parent_id'];
+		if(count($this->Parents)<1)
+		{
+			$Parents	= $this->fetchAssoc('menu','DISTINCT(parent_id)',"parent_id <> 0 AND status <> 'I'");
+			foreach($Parents as $Parent)
+			{
+				$this->Parents[] = $Parent['parent_id'];
+			}
 		}
+		return $this->Parents;
 	}
 	
 	public function IsDisabled($ParentID)
@@ -149,15 +146,30 @@ class ProfileData extends DataBase
 		return in_array($ParentID,$this->Menues) ? '' : ' disabled="disabled" ';
 	}
 	
-	public function GetRelations($ProfileID)
+	public function GetRelations()
 	{
-		return $this->fetchAssoc('relation_menu_profile','*',"profile_id = ".$ProfileID);
+		if(!$this->Relations)
+			$this->Relations = $this->fetchAssoc('relation_menu_profile','*',"profile_id = ".$this->ID);
+		return $this->Relations;
+	}
+
+	public function MoveImage($New,$Temp,$Old='')
+	{
+		$Tmp = array_reverse(explode("/", $Temp));
+		if(file_exists($Old)) unlink($Old);
+		if(file_exists($Temp))
+		{
+			copy($Temp, $New);
+			unlink($Temp);
+		}
+		return file_exists($New);
 	}
 	
-	public function Users($ProfileID)
-	{
-		return $this->fetchAssoc('admin_user','*',"profile_id = ".$ProfileID." AND status <> 'I'");
-		
+	public function GetUsers()
+	{	
+		if(!$this->Users)
+			$this->Users = $this->fetchAssoc('admin_user','*',"profile_id = ".$this->ID." AND status <> 'I'");
+		return $this->Users;
 	}
 	
 }

@@ -36,28 +36,29 @@
               <div class="row selectImgTitle">Elija una im&aacute;gen</div>
               <div class="row imgCatalogue">
                 <div class="col-md-3 col-sm-6 col-xs-6">
-                  <img src="../../../skin/images/users/mas.jpg" alt="" class="img-responsive thumbimgadd">
+                  <img src="../../../skin/images/users/mas.jpg" alt="" class="img-responsive thumbimgadd AddNewImage">
+                  <?php echo insertElement('file','AddNewImage','','Hidden') ?>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-6">
-                  <img src="../../../skin/images/products/genericproduct.png" alt="" class="img-responsive thumbimgadd">
+                  <img src="../../../skin/images/products/genericproduct.png" alt="" class="img-responsive thumbimgadd Selecteable">
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-6">
-                  <img src="../../../skin/images/products/cod1.jpg" alt="" class="img-responsive thumbimgadd">
+                  <img src="../../../skin/images/products/cod1.jpg" alt="" class="img-responsive thumbimgadd Selecteable">
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-6">
-                  <img src="../../../skin/images/products/cod2.jpg" alt="" class="img-responsive thumbimgadd">
+                  <img src="../../../skin/images/products/cod2.jpg" alt="" class="img-responsive thumbimgadd Selecteable">
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-6">
-                  <img src="../../../skin/images/products/cod3.jpg" alt="" class="img-responsive thumbimgadd">
+                  <img src="../../../skin/images/products/cod3.jpg" alt="" class="img-responsive thumbimgadd Selecteable">
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-6">
-                  <img src="../../../skin/images/products/cod4.jpg" alt="" class="img-responsive thumbimgadd">
+                  <img src="../../../skin/images/products/cod4.jpg" alt="" class="img-responsive thumbimgadd Selecteable">
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-6">
-                  <img src="../../../skin/images/products/cod2.jpg" alt="" class="img-responsive thumbimgadd">
+                  <img src="../../../skin/images/products/cod2.jpg" alt="" class="img-responsive thumbimgadd Selecteable">
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-6">
-                  <img src="../../../skin/images/products/cod1.jpg" alt="" class="img-responsive thumbimgadd">
+                  <img src="../../../skin/images/products/cod1.jpg" alt="" class="img-responsive thumbimgadd Selecteable">
                 </div>
               </div>
             </div>
@@ -66,7 +67,9 @@
             
             
             <div class="col-md-6 animated bounceInRight selectImgDiv centrarbtn">
-              <button id="selectImgBtn" class="btn masterbtn">Seleccionar Im&aacute;gen</button>                               
+              <img src="" alt="" id="shownimg" class="img-responsive thumbimgadd Hidden">
+              <?php echo insertElement('hidden','img','') ?>      
+              <button id="selectImgBtn" class="btn masterbtn">Seleccionar Im&aacute;gen</button>                      
             </div>
             <div class="col-md-12 animated bounceInRight cancelImgDiv centrarbtn">
               <button id="cancelSelectImgBtn" class="btn closeBtn"><i class="fa fa-times-circle"></i></button>                           

@@ -2,6 +2,16 @@
 
 include('../../includes/inc.main.php');
 
+if($_GET['action']=='newimage')
+{
+	if(count($_FILES['AddNewImage'])>0)
+		{
+			$Name	= "img".rand()*rand()/rand();
+			$Img	= new FileData($_FILES['AddNewImage'],"../../../skin/images/temp/",$Name);
+			echo $Img	-> BuildImage(60,60);
+		}
+}
+
 switch(strtolower($_POST['action']))
 {
 	case 'insert':
