@@ -36,8 +36,7 @@ class ProfileData extends DataBase
 			$Actions	= 	'<img src="../../../skin/images/body/icons/pencil.png" id="edit_'.$Reg['profile_id'].'" />';
 			$Actions	.= 	'<img src="../../../skin/images/body/icons/cross.png" id="delete_'.$Reg['profile_id'].'" />';
 				
-			$List	.= '
-						<div id="profile'.$Reg['profile_id'].'" class="col-centered col-lg-3 col-sm-6 col-xs-12 animated fadeIn usergral">
+			$List	.= '<div id="profile'.$Reg['profile_id'].'" class="col-centered col-lg-3 col-sm-6 col-xs-12 animated fadeIn usergral">
 							<div class="userMainSection">
 								<div class="userimgdiv"><img src="'.$Reg['image'].'" class="img-responsive userimg"></div>
 								<div class="row usernamediv">

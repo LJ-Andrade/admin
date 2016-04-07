@@ -5,9 +5,9 @@ $(window).scroll(function(){
 
 $(document).ready(function(){
 	if(get['msg']=='insert')
-		notifySuccess('Usuario creado correctamente');
+		notifySuccess('Perfil creado correctamente');
 	if(get['msg']=='update')
-		notifySuccess('Usuario modificado correctamente');
+		notifySuccess('Perfil modificado correctamente');
 	$('#newuser').fadeIn(500);
 	$('#viewlistbt').show();
 	$('#viewlist').hide();
