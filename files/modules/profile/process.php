@@ -5,7 +5,7 @@ include('../../includes/inc.main.php');
 if($_GET['action']=='newimage')
 {
 	if(count($_FILES['image'])>0)
-		{	
+		{
 			if(!file_exists("../../../skin/images/profiles")) mkdir("../../../skin/images/profiles");
 			if(!file_exists("../../../skin/images/profiles/temp")) mkdir("../../../skin/images/profiles/temp");
 			if(file_exists($_POST['profileimage'])) unlink($_POST['profileimage']);
@@ -29,11 +29,11 @@ switch(strtolower($_POST['action']))
 		}
 
 		$Title		= htmlentities(strtolower($_POST['title']));
-		$Menues		= $_POST['menu'] ? explode(",",$_POST['menu']) : array();
-		
+		$Menues		= $_POST['menues'] ? explode(",",$_POST['menues']) : array();
+
 		$Insert		= $DB->execQuery('insert','admin_profile','title,image,status,creation_date',"'".$Title."','".$Image."','A',NOW()");
 		$ID 		= $DB->GetInsertId();
-		
+
 		for($i=0;$i<count($Menues);$i++)
 		{
 			$Values .= $i==0? $ID.",".$Menues[$i] : "),(".$ID.",".$Menues[$i];
@@ -42,19 +42,21 @@ switch(strtolower($_POST['action']))
 		die;
 	break;
 
-	case 'update': 
+	case 'update':
 		$ID 	= $_POST['id'];
 		$Edit	= new ProfileData($ID);
-		$Temp 	= $_POST['profileimage'];
+		$Temp = $_POST['profileimage'];
+		$OldImg = $_POST['oldimage'];
+		$NewImg = $OldImg;
+
 		if($Temp)
 		{
-			$OldImg = $_POST['oldimage'];
 			$Tmp 	= array_reverse(explode("/", $Temp));
 			$NewImg = "../../../skin/images/profiles/".$Tmp[0];
 			$Edit->MoveImage($NewImg,$Temp,$OldImg);
 		}
 		$Title		= htmlentities(strtolower($_POST['title']));
-		$Menues		= $_POST['menu'] ? explode(",",$_POST['menu']) : array();
+		$Menues		= $_POST['menues'] ? explode(",",$_POST['menues']) : array();
 
 		$Insert		= $DB->execQuery('update','admin_profile',"title='".$Title."',image='".$NewImg."'","profile_id=".$ID);
 		//echo $DB->lastQuery();
@@ -67,7 +69,7 @@ switch(strtolower($_POST['action']))
 		$DB->execQuery('insert','relation_menu_profile','profile_id,menu_id',$Values);
 		die;
 	break;
-	case 'delete': 
+	case 'delete':
 		$ID	= $_POST['id'];
 		$DB->execQuery('update','admin_profile',"status = 'I'","admin_id=".$ID);
 		die;
@@ -94,9 +96,9 @@ switch(strtolower($_POST['action']))
         $Groups = $DB->fetchAssoc('admin_group','*',"group_id IN (SELECT group_id FROM relation_group_profile WHERE profile_id = ".$Profile.")","name");
         foreach ($Groups as $Group)
         {
-         echo '<div style="width:auto;">'.insertElement('checkbox','group_id',$Group['group_id'],'Arial12px BlueCyan Bold','tabindex="9"').' '.htmlentities($Group['name']).'</div>';   
+         echo '<div style="width:auto;">'.insertElement('checkbox','group_id',$Group['group_id'],'Arial12px BlueCyan Bold','tabindex="9"').' '.htmlentities($Group['name']).'</div>';
         }
-        
+
 		die;
 	break;
 
@@ -104,7 +106,7 @@ switch(strtolower($_POST['action']))
 	case 'pager':
 		$Page 		= $_POST['page'];
 		if($Page){
-		   
+
 		    $Pager = $_SESSION[$_POST['pagerid']];
 		    $Pager->SetActualPage($Page);
 		    if($_SESSION['inactive_status'])
@@ -127,7 +129,7 @@ switch(strtolower($_POST['action']))
 			die;
 	   	}
 	break;
-	case 'searcher': 
+	case 'searcher':
 		$Pager = $_SESSION[$_POST['pagerid']];
 		$Pager->SetFieldValue($_POST['field'],$_POST['value']);
 		$Pager->SetWhere($Pager->GetFields(),'admin_user');

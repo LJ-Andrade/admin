@@ -1,218 +1,221 @@
 // General Styles
 *
-    margin: 0
-    padding: 0
-    outline: 0
+  margin: 0
+  padding: 0
+  outline: 0
+  text-decoration: none
 
 body
-    margin-top: 100px
-    font-family: $mainfont
-    background-color: #5284ad
-    background-image: url(../images/body/backgrounds/back16.jpg)
-    background-repeat: no-repeat
-    background-attachment: fixed
-    background-position: center center
-    background-size: cover
-    padding-top: 45px
+  margin-top: 100px
+  font-family: $mainfont
+  background-color: #5284ad
+  background-image: url(../images/body/backgrounds/back16.jpg)
+  background-repeat: no-repeat
+  background-attachment: fixed
+  background-position: center center
+  background-size: cover
+  padding-top: 45px
 
 @media(min-width:768px)
-    body
-        margin-top: 50px
-    a:link
-        text-decoration: none
+  body
+    margin-top: 50px
+  a:link
+    text-decoration: none
 
 
 @media(max-width:490px)
-    body
-        padding-top: 20px
+  body
+    padding-top: 20px
 
 @media(min-width:490px)
-    body
-        padding-top: 70px
+  body
+    padding-top: 70px
 
 @media(min-width:546px)
-    body
-        padding-top: 50px
+  body
+    padding-top: 50px
 
 #wrapper
-    padding-left: 0
-    height: 100%
+  padding-left: 0
+  height: 100%
 
 
 @media(min-width:768px)
-    #wrapper
-        padding-left: 225px
-    #wrapperlogin
-        padding-left: 0
+  #wrapper
+    padding-left: 225px
+  #wrapperlogin
+    padding-left: 0
 
 @media(max-width:768px)
-    #wrapper
-        margin-top: 50px
+  #wrapper
+    margin-top: 50px
 
 @media(max-width:960px)
-    #wrapper
-        margin-top: 30px
+  #wrapper
+    margin-top: 30px
 
 @media(max-width:500px)
-    body
-        padding-top: 20px
-    #wrapper
-        margin-top: 0px
+  body
+    padding-top: 20px
+  #wrapper
+    margin-top: 0px
 
 a
-    color: #fff
-    text-decoration: none
-    outline: 0
+  color: #fff
+  text-decoration: none
+  outline: 0
 a:hover
-    color: #fff
-    text-decoration: none
+  color: #fff
+  text-decoration: none
 
 a:hover, a:active, a:focus
-    outline: 0
+  outline: 0
 
 p
-    font-family: $mainfont
+  font-family: $mainfont
 h1, h2, h3, h4, h5,
-    font-family: $mainfont
+  font-family: $mainfont
 
 h5
-    font-size: 15px
-    font-weight: bold
+  font-size: 15px
+  font-weight: bold
 
 a:focus, a:hover
-    color: $wh
-    text-decoration: underline
+  color: $wh
+  text-decoration: underline
 
 .maintitle
-    margin: 3px 0
+  margin: 3px 0
 .maintitletxt
-    text-align: center
+  text-align: center
 
 @media(max-width:341px)
-    .maintitletxt
-        font-size: 14px
+  .maintitletxt
+    font-size: 14px
 
+ul
+  list-style: none !important
 
 //////////// Custom Styles /////////////////////////////////////////
 .pad0
-    padding: 0
+  padding: 0
 .mar0
-    margin: 0
+  margin: 0
 .centrarimg
-    margin: 0 auto
+  margin: 0 auto
 .centrartxt
-    text-align: center
-        
+  text-align: center
+
 .lastcol
-    margin-right: 0
+  margin-right: 0
 
 .row-centered
-    text-align: center       
+  text-align: center
 .col-centered
-    display: inline-block
-    float: none
-    text-align: left
-    margin-right: -4px
+  display: inline-block
+  float: none
+  text-align: left
+  margin-right: -4px
 
 .centrarbtn
-    margin: 0
-    Background-color: transparent
-    text-align: center
+  margin: 0
+  Background-color: transparent
+  text-align: center
 .txtcenter
-    text-align: center
+  text-align: center
 
 .brd
-    border: 1px solid red
+  border: 1px solid red
 
 ////// Pagination ////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
 .paginat
-    text-align: center
-    position: fixed
-    bottom: 0
-    left: 50%
-    margin-bottom: -15px
+  text-align: center
+  position: fixed
+  bottom: 0
+  left: 50%
+  margin-bottom: -15px
 
 @media(max-width: 768px)
-    .paginat
-        left: 0
-        right: 0
+  .paginat
+    left: 0
+    right: 0
 
 
 .pagination > li:last-child > a, .pagination > li:last-child > span
-    border-radius: 0
+  border-radius: 0
 .pagination > li:first-child > a, .pagination > li:first-child > span
-    border-radius: 0
+  border-radius: 0
 .pagination > li > a, .pagination > li > span
-    background-color: rgba($pagbk, .5)
-    border-color: rgba($pagborder, .3)
-    color: $pagtxt
-    
+  background-color: rgba($pagbk, .5)
+  border-color: rgba($pagborder, .3)
+  color: $pagtxt
+
 ////////// Windows  ////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////
-    
+
 //////// Item Creation Window //////////////////////////////////////
 
 .additemdiv
-    margin-top: 20px
-    max-width: 600px
-    background-color: rgba(255,255,255,.4)
-    -webkit-box-shadow: 4px 2px 18px -6px rgba(0,0,0,0.69)
-    -moz-box-shadow: 4px 2px 18px -6px rgba(0,0,0,0.69)
-    box-shadow: 4px 2px 18px -6px rgba(0,0,0,0.69)
+  margin-top: 20px
+  max-width: 600px
+  background-color: rgba(255,255,255,.4)
+  -webkit-box-shadow: 4px 2px 18px -6px rgba(0,0,0,0.69)
+  -moz-box-shadow: 4px 2px 18px -6px rgba(0,0,0,0.69)
+  box-shadow: 4px 2px 18px -6px rgba(0,0,0,0.69)
 .additemtit
-    text-align: center
-    padding: 5px 0 10px 0
-    margin-top: 5px
-    margin-bottom: 10px
+  text-align: center
+  padding: 5px 0 10px 0
+  margin-top: 5px
+  margin-bottom: 10px
 .additemtit h3
-    color: $additemtit
-        
+  color: $additemtit
+
 .addprodimgdiv
-    padding-top: 30px
+  padding-top: 30px
 .itemimgmain
-    padding: 30px 0 20px 0
-    
+  padding: 30px 0 20px 0
+
 .donediv
-    background-color: rgba(255,255,255,.9)
-    padding: 25px 0 10px 0
-    max-width: 600px
-    margin: 0 auto
-    text-align: center
+  background-color: rgba(255,255,255,.9)
+  padding: 25px 0 10px 0
+  max-width: 600px
+  margin: 0 auto
+  text-align: center
 
 // Placeholders
 .formitems input[type=text],
 .formitems input[type=password]
-    font-size: 13px
-    color: $placeh
-    font-weight: 400
-    display: block
-    width: 100%
-    padding: 5px
-    margin-bottom: 5px
-    -webkit-transition: all 0.3s ease-out
-    -moz-transition: all 0.3s ease-out
-    -ms-transition: all 0.3s ease-out
-    -o-transition: all 0.3s ease-out
-    transition: all 0.3s ease-out 
+  font-size: 13px
+  color: $placeh
+  font-weight: 400
+  display: block
+  width: 100%
+  padding: 5px
+  margin-bottom: 5px
+  -webkit-transition: all 0.3s ease-out
+  -moz-transition: all 0.3s ease-out
+  -ms-transition: all 0.3s ease-out
+  -o-transition: all 0.3s ease-out
+  transition: all 0.3s ease-out
 .formitems input[type=text]:hover,
 .formitems input[type=password]:hover
-    border-color: #fff 
+  border-color: #fff
 .formitems label:hover ~ input
-    border-color: #fff 
+  border-color: #fff
 .formitems input[type=text]:focus,
 .formitems input[type=password]:focus
-    border-color: #455568
-    outline: none
+  border-color: #455568
+  outline: none
 .formitems textarea
-    color: $placeh
-    min-height: 100px
-    
+  color: $placeh
+  min-height: 100px
+
 .formitems select
-    background: rgba(255,255,255,.3)
-    background-color: rgba(255,255,255,.5)
-    color: $blk
+  background: rgba(255,255,255,.3)
+  background-color: rgba(255,255,255,.5)
+  color: $blk
 
 
 // Item Img
@@ -222,150 +225,147 @@ a:focus, a:hover
 // .addimgdiv
 //     min-height: 100px
 //     margin-top: 10px
-    
+
 // .useraddimg
 //     border-radius: 100%
 //     width: 150px
 //     margin: 0 auto
-//     transition: all 0.2s ease 0s 
-    
+//     transition: all 0.2s ease 0s
+
 // .useraddimg:hover
 //     box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75)
 
 // .itemdesctextarea
 //     padding: 0
 //     margin: 0
-    
+
 //////////////// Contador caracteres  //////////////////////
 form .indicator
-    display: block
-    height: 30px
-    width: 0
-    background-color: #ccc
-    transition: .2s
-    -webkit-transition: .2s 
+  display: block
+  height: 30px
+  width: 0
+  background-color: #ccc
+  transition: .2s
+  -webkit-transition: .2s
 
 form .indicator span.current-length
-    position: absolute
-    display: block
-    font-weight: bold
-    color: #444
-    padding: 5px 0 0 10px
-    font-size: 14px
- 
+  position: absolute
+  display: block
+  font-weight: bold
+  color: #444
+  padding: 5px 0 0 10px
+  font-size: 14px
+
 form .indicator.low
-    background-color: rgba(38, 166, 91, .4)
+  background-color: rgba(38, 166, 91, .4)
 form .indicator.med
-    background-color: rgba(38, 166, 91, .5)
+  background-color: rgba(38, 166, 91, .5)
 form .indicator.high
-    background-color: rgba(38, 166, 91, .7)
+  background-color: rgba(38, 166, 91, .7)
 form .indicator.full
-    background-color: rgba(192, 57, 43, .7)
+  background-color: rgba(192, 57, 43, .7)
 form .indicator.empty
-    background-color:  rgba(38, 166, 91, .2)
+  background-color:  rgba(38, 166, 91, .2)
 
 .remchar
-    margin-top: 10px
+  margin-top: 10px
 
 //////////////////// Breadcrums ///////////////////////
 //////////////////////////////////////////////////////
 
 .breadcrumb
-    padding: 0px
-    margin-bottom: 0px
-    list-style: none
-    background-color: transparent
-    border-radius: 0px
-    transition: all 0.3s ease-in-out
-    a
-        color: #000
-        &:hover
-            color: #404040
+  padding: 0px
+  margin-bottom: 0px
+  list-style: none
+  background-color: transparent
+  border-radius: 0px
+  transition: all 0.3s ease-in-out
+  a
+    color: #000
+    &:hover
+      color: #404040
 
 // Líneas separadoras
 .breadcrumb > li + li::before
-    padding: 0 5px
-    color: #000
-    content: "/\00a0"
+  padding: 0 5px
+  color: #000
+  content: "/\00a0"
 
 .crumactive
-    color: red
+  color: red
 
-ol, ul
-    margin-top: 0
-    margin-bottom: 10px
 
 /////////////////// Filters /////////////////////////
 ////////////////////////////////////////////////////
 
 #filteritem
-    display: none
+  display: none
 #filtersuser
-    display: none
-    
+  display: none
+
 .filterdiv
-    width: auto
-    background-color: rgba(0,0,0, .1)
-    padding: 0 20px 5px 5px
-    text-align: center
-    padding-bottom: 15px
-    margin: 0 15px
-    margin-bottom: 30px
-    
+  width: auto
+  background-color: rgba(0,0,0, .1)
+  padding: 0 20px 5px 5px
+  text-align: center
+  padding-bottom: 15px
+  margin: 0 15px
+  margin-bottom: 30px
+
 .filterformdiv
-    margin-left: 10px
-    padding-top: 15px
-    
+  margin-left: 10px
+  padding-top: 15px
+
 .filtertit
-    margin-right: 15px
-    
+  margin-right: 15px
+
 .form-controlit
-    display: block
-    width: 100%
-    height: 34px
-    padding: 6px 12px
-    font-size: 14px
-    line-height: 1.42857
-    max-width: 250px
-    color: #555
-    background-color: #FFF
-    background-image: none
-    border: 1px solid #CCC
-    border-radius: 4px
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset
-    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s
-    display: inline 
+  display: block
+  width: 100%
+  height: 34px
+  padding: 6px 12px
+  font-size: 14px
+  line-height: 1.42857
+  max-width: 250px
+  color: #555
+  background-color: #FFF
+  background-image: none
+  border: 1px solid #CCC
+  border-radius: 4px
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s
+  display: inline
 option
-    padding-left: 15px 
+  padding-left: 15px
 option
-    padding-left: 15px 
+  padding-left: 15px
 
 .inputsgral
-    padding: 0 5px
+  padding: 0 5px
 
 
 ///////////////////// Buttons ////////////////////////////
 /////////////////////////////////////////////////////////
 
 .masterbtn
-    padding: 5px 10px
-    margin: 0 auto
-    margin: 2px 0
-    border-radius: 0
-    box-shadow: 0 8px 10px -10px rgba(0, 0, 0, 0.5)
-    border: none
-    -webkit-transition: all 0.5s ease 0s
-    transition: all 0.5s ease 0s
-    background-color: $mainbtn
-    color: $maintbtntxt
-    &:hover
-        box-shadow: 0px 0px 0px
-        background-color: $mainbtnhover
-    &:focus, &:active
-        box-shadow: 0px 0px 0px
-        background-color: $mainbtnhover
-a .masterbtn    
-    color: $logbtntxt
+  padding: 5px 10px
+  margin: 0 auto
+  margin: 2px 0
+  border-radius: 0
+  box-shadow: 0 8px 10px -10px rgba(0, 0, 0, 0.5)
+  border: none
+  -webkit-transition: all 0.5s ease 0s
+  transition: all 0.5s ease 0s
+  background-color: $mainbtn
+  color: $maintbtntxt
+  &:hover
+    box-shadow: 0px 0px 0px
+    background-color: $mainbtnhover
+  &:focus, &:active
+    box-shadow: 0px 0px 0px
+    background-color: $mainbtnhover
+a .masterbtn
+  color: $logbtntxt
 
 
 ////////////////    GENERIC WINDOWS     //////////////////////////////
@@ -374,148 +374,209 @@ a .masterbtn
 //////////// Main Containers ////////////////////
 
 .glasscontainer1
-    width: auto
-    background-color: rgba(0,0,0, .1)
-    padding: 15px 5px 10px
-    margin-bottom: 15px
-    text-align: center
-    padding-bottom: 15px
-    -webkit-transition: all 0.3s ease-out
-    -moz-transition: all 0.3s ease-out
-    -ms-transition: all 0.3s ease-out
-    -o-transition: all 0.3s ease-out
-    transition: all 0.3s ease-out 
+  width: auto
+  background-color: rgba(0,0,0, .1)
+  padding: 15px 5px 10px
+  margin-bottom: 15px
+  text-align: center
+  padding-bottom: 15px
+  -webkit-transition: all 0.3s ease-out
+  -moz-transition: all 0.3s ease-out
+  -ms-transition: all 0.3s ease-out
+  -o-transition: all 0.3s ease-out
+  transition: all 0.3s ease-out
 
 .textcenter
-    text-align: center
+  text-align: center
 
 .maincontainer
-    text-align: center
+  text-align: center
 
 .filerow
-    margin: 5px
-    padding-left: 15px
-    padding-right: 15px
-    &:hover
-        cursor: pointer
-        background-color: rgba(0,0,0, .2)
+  margin: 5px
+  padding-left: 15px
+  padding-right: 15px
+  &:hover
+    cursor: pointer
+    background-color: rgba(0,0,0, .2)
 
 
 ///////////// OPTION DIVS ////////////////////////////////////////
 
 .optionsdiv
-    padding-bottom: 20px
-    padding-top: 20px
-    margin: 0 auto
-    margin-top: 20px
-    margin-bottom: 20px
+  padding-bottom: 20px
+  padding-top: 20px
+  margin: 0 auto
+  margin-top: 20px
+  margin-bottom: 20px
 
 .delselected
-    padding: 5px 20px
-    margin: 0 auto
-    margin: 0 15px
-    box-shadow: 0 8px 10px -10px rgba(0, 0, 0, 0.5)
-    border: none
-    -webkit-transition: all 0.5s ease 0s
-    transition: all 0.5s ease 0s
-    background-color: $mainred
-    color: $maintbtntxt
-    cursor: pointer
-    &:hover
-        box-shadow: 0 0 0
-        background-color: $mainredhover
+  padding: 5px 20px
+  margin: 0 auto
+  margin: 0 15px
+  box-shadow: 0 8px 10px -10px rgba(0, 0, 0, 0.5)
+  border: none
+  -webkit-transition: all 0.5s ease 0s
+  transition: all 0.5s ease 0s
+  background-color: $mainred
+  color: $maintbtntxt
+  cursor: pointer
+  &:hover
+    box-shadow: 0 0 0
+    background-color: $mainredhover
 
 ////////////// LOADER ////////////////////////////////////////////////
 
-div#page_loader 
-    position: absolute
-    top: 0
-    bottom: 0%
-    left: 0
-    right: 0%
-    background-color: rgba(46,53,79, 1)
-    z-index: 9998
+div#page_loader
+  position: absolute
+  top: 0
+  bottom: 0%
+  left: 0
+  right: 0%
+  background-color: rgba(46,53,79, 1)
+  z-index: 9998
 
 #loadgif
-    position: absolute
-    top: 15%
-    left: 40%
-    width: 700px
-    height: 700px
-    z-index: 9999
+  position: absolute
+  top: 15%
+  left: 40%
+  width: 700px
+  height: 700px
+  z-index: 9999
 
 .juira
-    text-align: center
-    position: absolute
-    bottom: 0
-    color: black
+  text-align: center
+  position: absolute
+  bottom: 0
+  color: black
 
 ////////////////////// CHECKBOX TREE //////////////////////////////////
 
 .checkboxtree
-    max-width: 250px
-    text-align: left
-    list-style: none
-    li
-        ul
-            li
-                margin-left: 30px
-        
+  max-width: 250px
+  text-align: left
+  list-style: none
+  li
+    ul
+      li
+        margin-left: 30px
 
 /////////////////// NEW USER OR ITEM //////////////////////////////////
 
 .newInputs
-    border: 1px solid red
+  border: 1px solid red
 
 .imgCatalogue
-    margin: 0 15px 25px
-    padding-bottom: 20px
-    background-color: rgba($wh, 0.5)
+  margin: 0 15px 25px
+  padding-bottom: 20px
+  background-color: rgba($wh, 0.5)
 
 .thumbimg
-    width: 150px
-    margin: 0 auto
-    
+  width: 150px
+  margin: 0 auto
+
 .thumbimgadd
-    width: 60px
-    height: 60px
-    margin: 0 auto
-    margin-top: 20px
-    cursor: pointer
-    
+  width: 60px
+  height: 60px
+  margin: 0 auto
+  margin-top: 20px
+  cursor: pointer
 
 .selectImgDiv
-    margin-bottom: 15px
-    margin-top: 20px
+  margin-bottom: 15px
+  margin-top: 20px
 
 .cancelImgDiv
-    margin-bottom: 20px
-    margin-top: -30px
+  margin-bottom: 20px
+  margin-top: -30px
 
 .selectImgTitle
-    margin: 0 15px
-    padding: 15px 0
-    text-align: center
-    background-color: rgba($wh, 0.8)
-
-
-
+  margin: 0 15px
+  padding: 15px 0
+  text-align: center
+  background-color: rgba($wh, 0.8)
 
 .closeBtn
-    padding: 5px 10px
-    margin: 0 auto
-    border-radius: 0
-    border: none
-    -webkit-transition: all 0.5s ease 0s
-    transition: all 0.5s ease 0s
-    background-color: transparent
-    color: $maintbtntxt
-    &:hover
-        box-shadow: 0px 0px 0px
-        background-color: $mainbtnhover
-    &:focus, &:active
-        box-shadow: 0px 0px 0px
-        background-color: $mainbtnhover
+  padding: 5px 10px
+  margin: 0 auto
+  border-radius: 0
+  border: none
+  -webkit-transition: all 0.5s ease 0s
+  transition: all 0.5s ease 0s
+  background-color: transparent
+  color: $maintbtntxt
+  &:hover
+    box-shadow: 0px 0px 0px
+    background-color: $mainbtnhover
+  &:focus, &:active
+    box-shadow: 0px 0px 0px
+    background-color: $mainbtnhover
 
-.centrarbtn.fa-times-circle:before
+  .centrarbtn.fa-times-circle:before
     font-size: 35px
+
+/////////// CHECKBOXES ////////////////////////
+
+.treediv
+  list-style: none
+  text-decoration: none
+  ul
+    list-style: none
+    text-decoration: none
+    li
+      list-style: none
+      text-decoration: none
+
+.checkboxgroup
+  ul
+    display: inline-block
+    list-style: none
+    li
+      content: ''
+      background: #fff
+      border: 2px solid #ddd
+      display: inline-block
+      vertical-align: middle
+      width: 20px
+      height: 20px
+      padding: 2px
+      margin-right: 10px
+      text-align: center
+    li:checked
+      background: #056e90
+      box-shadow: inset 0px 0px 0px 4px #fff
+
+.ourcheckbox, .ourradio
+  opacity: 0
+  position: absolute
+
+.ourcheckbox, .ourcheckbox-label, .ourradio, .ourradio-label
+  display: inline-block
+  vertical-align: middle
+  margin: 5px
+  cursor: pointer
+
+.ourcheckbox-label, .ourradio-label
+  position: relative
+
+.ourcheckbox + .ourcheckbox-label:before, .ourradio + .ourradio-label:before
+  content: ''
+  background: #fff
+  border: 2px solid #ddd
+  display: inline-block
+  vertical-align: middle
+  width: 20px
+  height: 20px
+  padding: 2px
+  margin-right: 10px
+  text-align: center
+
+.ourcheckbox:checked + .ourcheckbox-label:before
+  background: #056e90
+  box-shadow: inset 0px 0px 0px 4px #fff
+
+
+#profileimg
+  border-radius: 100%
+  box-shadow: 3px 3px 25px 1px
+  margin-left: 50px

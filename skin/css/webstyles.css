@@ -765,11 +765,6 @@ div#page_loader {
   background: #056e90;
   box-shadow: inset 0px 0px 0px 4px #fff; }
 
-#profileimg {
-  border-radius: 100%;
-  box-shadow: 3px 3px 25px 1px;
-  margin-left: 50px; }
-
 .login {
   height: 100%;
   width: 100%; }
@@ -2090,4 +2085,4 @@ p .addusertxt:hover {
   .titlist1, .titlist2, .titlist3, .titlist4, .titlist5 {
     font-weight: 300; } }
 
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=webstyles.css.map */

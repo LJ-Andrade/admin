@@ -1,4 +1,4 @@
-/* 
+/*
 $(window).scroll(function(){
   $('#wrapper')[0].scrollTop=$(window).scrollTop();
 });*/
@@ -58,6 +58,23 @@ $(function(){
 		// });
 	}
 
+	function getCheckedMenues()
+	{
+		var values = '';
+		$(".TreeCheckbox").each(function(){
+			if($(this).is(":checked"))
+				if(values=='')
+					values = $(this).val();
+				else
+					values = values + ',' + $(this).val();
+		});
+		$("#menues").val(values);
+	}
+
+	$(document).ready(function(){
+		getCheckedMenues();
+	});
+
 	$(function(){
         $(".TreeElement").click(function(){
         	var elem = $(this).parent().next("ul");
@@ -81,14 +98,19 @@ $(function(){
         		childMenu.children('li').children('input').attr("disabled",true);
         		disableChildrens(childMenu);
         	}
+					getCheckedMenues();
         });
       });
 
 	///////////////////////////////////// Load Image ///////////////////////////
+$("#profileimg").click(function(){
+	$("#image").click();
+});
+
 	$("#image").change(function(){
 		//notifyInfo($(this).val());
 		var process		= 'process.php?action=newimage';
-		
+
 		var haveData	= function(returningData)
 		{
 			//$("input,select").blur();
@@ -97,7 +119,7 @@ $(function(){
 			$('#profileimage').val(returningData);
 			$('#profileimg').attr('src',returningData);
 			$('#profileimg').removeClass('Hidden');
-			$('#image').parent().parent().children('input').val('');
+			$('#image').parent().parent().children('input[type="text"]').val('');
 			//notifyInfo(returningData);
 			return false;
 
@@ -122,7 +144,7 @@ $(function(){
             		var id 		= elem.attr('deleteElement');
             		var parents = elem.attr('deleteParent').split("/");
             		var process = elem.attr('deleteProcess');
-	                
+
                 	var string      = 'id='+ id + '&action=delete';
                 	console.log(elem);
 			        var data;
@@ -169,7 +191,7 @@ $(function(){
 		});
 
 		$('div[id="viewgrid"]').hide( 500 );
-		$('div[id="viewlist"]').show( 500 ); 
+		$('div[id="viewlist"]').show( 500 );
 		$("#viewlistbt").hide();
 		$("#viewgridbt").show( 0 );
 		$('#delselected').hide();
@@ -180,7 +202,7 @@ $(function(){
 			$(this).removeClass('deleteThis');
 			$(this).removeClass('listselect');
 		});
-		$('div[id="viewgrid"]').show( 500 ); 
+		$('div[id="viewgrid"]').show( 500 );
 		$('div[id="viewlist"]').hide( 500 );
 		$("#viewgridbt").hide();
 		$("#viewlistbt").show( 0 );
@@ -192,7 +214,7 @@ $(function(){
 
  // Del & Mod User Icons appearing onclick
 $(function(){
-	$('.userButtons').hide(); 	
+	$('.userButtons').hide();
 	$('.usergral').click(function() {
 		$(this).find('.userButtons').toggle();
 		$(this).find('.userMainSection').toggleClass("usergralselect", 500);
@@ -212,7 +234,7 @@ $(function(){
 			}else{
 				totalSelected++;
 			}
-				
+
 		});
 		if(totalSelected>1 && !admDelBtn){
 			$('#delselected').show();
@@ -233,7 +255,7 @@ $(function(){
 			}else{
 				totalSelected++;
 			}
-				
+
 		});
 		if(totalSelected>1 && !admDelBtn){
 			$('#delselected').show();
@@ -273,6 +295,3 @@ $(function(){
 	$("[name='status']").bootstrapSwitch();
 
 });
-
-
-
