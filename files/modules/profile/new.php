@@ -44,7 +44,7 @@
          <!--  Add Img & Done Button Div  -->
         <div class="container centrarbtn animated fadeInUp donediv">
              <div class="form-group">
-               <a href="#" class="btn masterbtn" role="button" id="create"><i class="fa fa-check-square-o fa-fw"></i> Crear Perfil</a>
+               <a href="#" class="btn mainbtn" role="button" id="create"><i class="fa fa-check-square-o fa-fw"></i> Crear Perfil</a>
              </div>
         </div>
   </div>

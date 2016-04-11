@@ -1,6 +1,6 @@
 <?php
     include("../../includes/inc.main.php");
-    
+
     $ID   = $_GET['id'];
     $Menu = new Menu($ID);
     $Data = $Menu->GetData();
@@ -9,7 +9,7 @@
     $Head->setTitle("Modificar Menú ".$Data['title']);
     $Head->setHead();
 
-    
+
 
     $Status       = array();
     $Status['A']  = "Activo";
@@ -53,7 +53,7 @@
                           <div class="col-md-6 form-group animated bounceInLeft">
                                <?php echo insertElement('text','position',$Data['position'],'form-first-name form-controlusers','tabindex="5" placeholder="Posici&oacute;n"'); ?>
                           </div>
-                          
+
                           <div class="col-md-6 form-group animated bounceInRight">
                                 <?php echo insertElement('text','icon',$Data['icon'],'form-first-name form-controlusers','tabindex="6" placeholder="&Iacute;cono"'); ?>
                           </div>
@@ -64,20 +64,20 @@
                         <div class="col-md-6 form-group animated bounceInRight switchuser">
                               <?php $Checked = $Data['public']=='Y'? 'checked="checked"':''; ?>
                               <span class="userstatustit">Menú Público:</span>
-                              <input type="checkbox" class="centered" name="public" id="public" data-on-text="Si" data-off-text="No" data-size="large" data-label-width="auto" <?php echo $Checked ?>>                                     
+                              <input type="checkbox" class="centered" name="public" id="public" data-on-text="Si" data-off-text="No" data-size="large" data-label-width="auto" <?php echo $Checked ?>>
                         </div>
                     </div>
 
-                </div>   
+                </div>
             </div>
-                       
+
                         <!--  Add Img & Done Button Div  -->
                         <div class="container centrarbtn animated fadeInUp donediv">
                              <div class="form-group">
                                <!-- <li id="chooseimg" class="animated fadeIn btn additembtn"><a href="#" class="" role="button"><i class="fa fa-file-image-o fa-fw"></i> Elegir Im&aacute;gen...</a></li>-->
-                               <a href="#" class="btn masterbtn btnsave" role="button" id="create"><i class="fa fa-check-square-o fa-fw"></i> Modificar Menú</a>
+                               <a href="#" class="btn mainbtn btnsave" role="button" id="create"><i class="fa fa-check-square-o fa-fw"></i> Modificar Menú</a>
                              </div>
-                        </div>  
+                        </div>
         <!-- /#page-wrapper -->
         </div>
 <!-- /#wrapper -->

@@ -1,0 +1,444 @@
+////////// Top Banner /////////////////////////////
+.topCatBanner
+  margin-top: -110px
+  height: 50px
+  img
+    min-width: 100%
+    max-width: 100%
+
+
+
+////////////////    GENERIC WINDOWS     //////////////////////////////
+/////////////////////////////////////////////////////////////////////
+
+//////////// Main Containers ////////////////////
+
+.glasscontainer1
+  width: auto
+  background-color: rgba(0,0,0, .1)
+  padding: 10px 5px
+  text-align: center
+  padding-bottom: 15px
+  -webkit-transition: all 0.3s ease-out
+  -moz-transition: all 0.3s ease-out
+  -ms-transition: all 0.3s ease-out
+  -o-transition: all 0.3s ease-out
+  transition: all 0.3s ease-out
+
+.glassListRow
+  width: auto
+  background-color: rgba(0,0,0, .1)
+  text-align: center
+  -webkit-transition: all 0.3s ease-out
+  -moz-transition: all 0.3s ease-out
+  -ms-transition: all 0.3s ease-out
+  -o-transition: all 0.3s ease-out
+  transition: all 0.3s ease-out
+
+.filerow
+  margin: 5px
+  padding-left: 15px
+  padding-right: 15px
+  &:hover
+    cursor: pointer
+    background-color: rgba(0,0,0, .2)
+
+///////////// OPTION DIVS ////////////////////////////////////////
+
+.optionsdiv
+  padding-bottom: 20px
+  padding-top: 20px
+  margin: 0 auto
+  margin-top: 20px
+  margin-bottom: 20px
+
+.delselected
+  padding: 5px 20px
+  margin: 0 auto
+  margin: 0 15px
+  box-shadow: 0 8px 10px -10px rgba(0, 0, 0, 0.5)
+  border: none
+  -webkit-transition: all 0.5s ease 0s
+  transition: all 0.5s ease 0s
+  background-color: $mainred
+  color: $maintbtntxt
+  cursor: pointer
+  &:hover
+    box-shadow: 0 0 0
+    background-color: $mainredhover
+
+
+/////////////////// NEW USER OR ITEM //////////////////////////////////
+
+.imgCatalogue
+  margin: 0 15px 25px
+  padding-bottom: 20px
+  background-color: rgba($wh, 0.5)
+
+.thumbimg
+  width: 150px
+  margin: 0 auto
+
+.thumbimgadd
+  width: 60px
+  height: 60px
+  margin: 0 auto
+  margin-top: 20px
+  cursor: pointer
+
+.selectImgDiv
+  margin-bottom: 15px
+  margin-top: 20px
+
+.cancelImgDiv
+  margin-bottom: 20px
+  margin-top: -30px
+
+.selectImgTitle
+  margin: 0 15px
+  text-align: center
+  background-color: rgba($wh, 0.8)
+
+//////// Item Creation Window //////////////////////////////////////
+
+.additemdiv
+  max-width: 600px
+  background-color: rgba(255,255,255,.4)
+  -webkit-box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
+  -moz-box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
+  box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
+  padding-top: 20px
+.addItemTit
+  text-align: center
+  background-color: #fff
+  max-width: 600px
+  margin: 0 auto
+  h3
+    color: $additemtit
+    text-align: center
+.itemimgmain
+  padding: 30px 0 20px 0
+
+.windowHead
+  background-color: rgba(255,255,255,.9)
+  padding: 10px 0
+  max-width: 600px
+  margin: 0 auto
+  text-align: center
+  -webkit-box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
+  -moz-box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
+  box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
+.donediv
+  background-color: rgba(255,255,255,.9)
+  padding: 25px 0 10px 0
+  max-width: 600px
+  margin: 0 auto
+  text-align: center
+  -webkit-box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
+  -moz-box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
+  box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
+
+///////////////////// Buttons ////////////////////////////
+
+.mainbtn
+  padding: 5px 10px
+  margin: 2px 2px
+  border-radius: 0
+  box-shadow: 0 8px 10px -10px rgba(0, 0, 0, 0.5)
+  border: none
+  -webkit-transition: all 0.5s ease 0s
+  transition: all 0.5s ease 0s
+  background-color: $mainbtn
+  color: $maintbtntxt
+  &:hover
+    box-shadow: 0px 0px 0px
+    background-color: $mainbtnhover
+  &:focus, &:active
+    box-shadow: 0px 0px 0px
+    background-color: $mainbtnhover
+a .mainbtn
+  color: $logbtntxt
+
+.mainbtnred
+  background-color: $mainred
+  &:hover
+    box-shadow: 0px 0px 0px
+    background-color: $mainredhover
+  &:focus, &:active
+    box-shadow: 0px 0px 0px
+    background-color: $mainredhover
+
+///
+.closeBtn
+  position: absolute
+  right: 0
+  top: 0
+  margin-top: 5px
+  margin-right: 20px
+  border-radius: 100%
+  padding: 5px 10px
+  border: none
+  color: #000
+  background-color: trasparent
+  &:hover
+    color: #ccc
+  &:focus, &:active
+    box-shadow: 0px 0px 0px
+    background-color: trasparent
+  .fa
+    color: #000
+  &:hover, &:focus, &:active
+    a
+      color: #ccc
+
+/////////// CHECKBOXES ////////////////////////
+.checkboxtree
+  max-width: 250px
+  text-align: left
+  list-style: none
+  li
+    ul
+      li
+        margin-left: 30px
+
+.checkboxgroup
+  ul
+    display: inline-block
+    list-style: none
+    li
+      content: ''
+      background: #fff
+      border: 2px solid #ddd
+      display: inline-block
+      vertical-align: middle
+      width: 20px
+      height: 20px
+      padding: 2px
+      margin-right: 10px
+      text-align: center
+    li:checked
+      background: #056e90
+      box-shadow: inset 0px 0px 0px 4px #fff
+
+.ourcheckbox, .ourradio
+  opacity: 0
+  position: absolute
+
+.ourcheckbox, .ourcheckbox-label, .ourradio, .ourradio-label
+  display: inline-block
+  vertical-align: middle
+  margin: 5px
+  cursor: pointer
+
+.ourcheckbox-label, .ourradio-label
+  position: relative
+
+.ourcheckbox + .ourcheckbox-label:before, .ourradio + .ourradio-label:before
+  content: ''
+  background: #fff
+  border: 2px solid #ddd
+  display: inline-block
+  vertical-align: middle
+  width: 20px
+  height: 20px
+  padding: 2px
+  margin-right: 10px
+  text-align: center
+
+.ourcheckbox:checked + .ourcheckbox-label:before
+  background: #056e90
+  box-shadow: inset 0px 0px 0px 4px #fff
+
+#profileimg
+  border-radius: 100%
+  box-shadow: 3px 3px 25px 1px
+  margin-left: 50px
+
+
+////////////// LIST VIEW //////////////////////////////////////////
+.listrow
+  margin: 5px 0
+  margin-left: 15px
+  margin-right: 15px
+  padding-top: 5px
+  color: #fff
+  text-align: left
+  display: flex
+  &:hover
+    cursor: pointer
+    background-color: rgba($listhover, 0.5)
+    -webkit-box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
+    -moz-box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
+    box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
+    color: $listhovertxt
+
+.listtit
+  margin: 5px
+  margin-left: 15px
+  margin-right: 15px
+  padding: 5px 15px
+  color: #fff
+  text-align: left
+  display: flex
+  background-color: rgba($mainblue, .5)
+
+.titlist1
+  border-right: 1px solid rgba($gris, 0.5)
+.titlist2
+  border-right: 1px solid rgba($gris, 0.5)
+.titlist3
+  border-right: 1px solid rgba($gris, 0.5)
+.titlist4
+  border-right: 1px solid rgba($gris, 0.5)
+.titlist5
+  border-right: 1px solid rgba($gris, 0.5)
+
+.titlist6ult
+  border-right: 1px solid rgba($gris, 0.5)
+
+.padtoplist
+  padding-top: 15px
+
+.listselect
+  background-color: rgba($mainblue, .5)
+  -webkit-box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
+  -moz-box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
+  box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
+
+//////// Menu Lists /////////////////
+
+.menulistico.fa-gears::before,
+.menulistico.fa-sitemap::before,
+.menulistico.fa-home::before,
+.menulistico.fa-list-ul::before,
+.menulistico.fa-user::before,
+.menulistico.fa-tree::before,
+.menulistico.fa-plus-square::before,
+.menulistico.fa-eye::before,
+.menulistico.fa-tree::before,
+.menulistico.fa-money::before,
+.menulistico.fa-bars::before,
+  font-size: 35px
+  padding-top: 5px
+  color: #fff
+  &:hover:before
+    color: #000
+
+.menulistcol1
+  padding-top: 8px
+
+/////////////////// Product List View /////////////////
+
+.listrowitem
+  margin: 5px
+  margin-left: 15px
+  margin-right: 15px
+  padding-left: 15px
+  padding-right: 15px
+  color: #fff
+  text-align: left
+  &:hover
+    cursor: pointer
+    background-color: rgba(0,0,0, .4)
+
+.itemtit
+  margin: 30px 0 0
+.itemtxt
+  text-align: center
+.itemrow2
+  padding: 0 10px
+.itemtxtcolor
+  font-size: 12px
+
+.prodimglist
+  border-radius: 100%
+  max-width: 50px
+  padding: 0
+  cursor: pointer
+
+.col1listprod
+  border-right: 1px solid rgba($gris, 0.5)
+  padding-top: 5px
+.col2listprod
+  border-right: 1px solid rgba($gris, 0.5)
+  padding-top: 15px
+.col3listprod
+  border-right: 1px solid rgba($gris, 0.5)
+  padding-top: 15px
+.col4listprod
+  border-right: 1px solid rgba($gris, 0.5)
+  padding-top: 15px
+.col5listprod
+  border-right: 1px solid rgba($gris, 0.5)
+  padding-top: 15px
+
+
+.prodicoadd
+  ul
+    margin-left: -25px
+    border: 1px solid blue
+
+.prodfilediv
+  background-color: rgba($itemfilediv, .5)
+  padding: 10px 5px
+  margin: 20px 0
+
+.prodfileimg
+  width: 100px
+  height: 100px
+  max-width: 100%
+  height: auto
+  margin: 0 auto
+  -webkit-box-shadow: 0 12px 12px rgba(0,0,0,.175)
+  box-shadow: 0 6px 6px rgba(0,0,0,.175)
+  -webkit-transition: all 0.5s ease 0s
+  transition: all 0.5s ease 0s
+
+.prodfileimg
+  &:hover
+    box-shadow: none
+
+.colprod
+  margin-top: 10px
+.colprodtit
+  margin-top: 10px
+  text-align: center
+.colprod1
+  margin-top: 10px
+  text-align: center
+.colprodico
+  margin-top: 10px
+
+  /////////////////// User List View /////////////////
+.userimglist
+  border-radius: 100%
+  max-width: 50px
+  padding: 0
+  cursor: pointer
+
+.col1listus
+  border-right: 1px solid rgba($gris, 0.5)
+.col2listus
+  border-right: 1px solid rgba($gris, 0.5)
+  padding-top: 15px
+.col3listus
+  border-right: 1px solid rgba($gris, 0.5)
+  padding-top: 15px
+.col4listus
+  border-right: 1px solid rgba($gris, 0.5)
+  padding-top: 15px
+.col5listus
+  border-right: 1px solid rgba($gris, 0.5)
+  padding-top: 15px
+
+  /////////  List View Responsive /////
+  @media(max-width:1320px)
+    .col1listus,.col2listus,.col3listus,.col4listus,.col5listus,.col6listus
+      border-right: 0px
+
+  @media(max-width:1320px)
+    .col1listprod,.col2listprod,.col3listprod,.col4listprod,.col5listprod,.col6listprod,
+    .titlist1,.titlist2,.titlist3,.titlist4,.titlist5
+      border-right: 0px
+      padding-right: 5px
+      padding-left: 5px

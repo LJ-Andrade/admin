@@ -8,12 +8,12 @@
 ?>
 <body>
     <div id="wrapper">
-    <?php include('../../includes/inc.nav.php'); ?> <!-- Navegation -->   
+    <?php include('../../includes/inc.nav.php'); ?> <!-- Navegation -->
         <div class="container-fluid">
             <div class="maintitle"><h4 class="maintitletxt">Listado de Productos</h4></div>
-                <div class="glasscontainer1 optionsdiv"> 
+                <div class="glasscontainer1 optionsdiv">
                     <span id="delselected" class="delselected animated slideInDown"><i class="fa fa-trash"></i> Eliminar seleccionados</span>
-                    <a href="new.php"><button class="masterbtn"><i class="fa fa-user-plus"></i> Agregar Producto</button></a>    
+                    <a href="new.php"><button class="mainbtn"><i class="fa fa-user-plus"></i> Agregar Producto</button></a>    
                 </div>
         <!-- Filters -->
         <div class="container-fluid">
@@ -30,21 +30,21 @@
                                 <option>Mesas</option>
                             </select>
                         </div>
-                    </div> 
+                    </div>
                     <div class="col-lg-3 col-sm-3 col-xs-12 form-group inputsgral">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-bookmark-o fa-fw"></i></span>
                             <input type="text" class="form-control" placeholder="Nombre"/>
                         </div>
-                    </div> 
-                    <div class="col-lg-3 col-sm-3 col-xs-12 form-group inputsgral">    
-                        <div class="input-group">         
+                    </div>
+                    <div class="col-lg-3 col-sm-3 col-xs-12 form-group inputsgral">
+                        <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-usd fa-fw"></i></span>
                             <input type="text" class="form-control" placeholder="Precio"/>
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-3 col-xs-12 form-group inputsgral">
-                        <div class="input-group">         
+                        <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-qrcode fa-fw"></i></span>
                             <input type="text" class="form-control" placeholder="C&oacute;digo \ Modelo"/>
                         </div>
@@ -52,13 +52,13 @@
                 </form>
             </div>
         </div><!-- Container Filters -->
-        
+
         <!-- Grid View -->
         <div id="viewgrid" class="row row-centered">
             <?php if(count($Products)<1){ ?>
                 <div id="emptylist" class="container-fluid glasscontainer1 listrow" style="text-align:center;display:block;"><p>No existen productos, puede crear uno haciendo click&nbsp;<a href="new.php">aqui</a></p></div>
             <?php }?>
-            <?php 
+            <?php
                 foreach($Products as $Product){
                     $Product = new Product($Product['product_id']);
                     $Image = $Product->getFirstImage();
@@ -101,7 +101,7 @@
                             <ul>
                                 <li class="btnmod"><a href="edit.php?id=<?php echo $Product->ID ?>"><i class="fa fa-fw fa-pencil"></i></a></li>
                                 <li class="btndel deleteElement" deleteElement="<?php echo $Product->ID ?>" deleteParent="list<?php echo $Product->ID ?>/product<?php echo $Product->ID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el producto '<?php echo $Product->Data['title']; ?>'?" successText="El producto '<?php echo $Product->Data['title'] ?>' ha sido eliminado correctamente"><i class="fa fa-fw fa-trash"></i></li>
-                            </ul>                
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -119,28 +119,28 @@
                     </div>
                     <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 titlist2">
                         <h5>Nombre</h5>
-                    </div> 
+                    </div>
                     <div class="col-lg-4 col-md-2 col-sm-6 col-xs-12 titlist3">
                         <h5>Descripci&oacute;n</h5>
-                    </div> 
+                    </div>
                     <div class="col-lg-1 col-md-2 col-sm-6 col-xs-12 titlist4">
                         <h5>Modelo</h5>
-                    </div> 
+                    </div>
                     <div class="col-lg-1 col-md-2 col-sm-6 col-xs-12 titlist5">
                         <h5>Medida</h5>
                     </div>
                     <div class="col-lg-1 col-md-1 col-sm-6 col-xs-12 titlist5">
                         <h5>Precio</h5>
-                    </div> 
+                    </div>
                     <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 titlist6">
                         <h5 class="text-center">Editar / Eliminar</h5>
-                    </div> 
+                    </div>
                 </div> <!-- /Titles  -->
-               
+
                 <?php if(count($Products)<1){ ?>
                     <div id="emptylist" class="container-fluid glasscontainer1 listrow" style="text-align:center;display:block;"><p>No existen productos, puede crear uno haciendo click&nbsp;<a href="new.php">aqui</a></p></div>
                 <?php }?>
-                <?php 
+                <?php
                     foreach($Products as $Product){
                         $Product = new Product($Product['product_id']);
                         $Image = $Product->getFirstImage();
@@ -149,7 +149,7 @@
                 <div id="list<?php echo $Product->ID; ?>" class="container-fluid glasscontainer1 listrow">
                     <div class="col-lg-1 col-md-1 col-sm-6 col-xs-12 col1listprod">
                         <img src="<?php echo $Image['src']; ?>" id="" class="img-responsive prodimglist">
-                    </div> 
+                    </div>
                     <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 col2listprod">
                         <p><?php echo $Product->Data['title']; ?></p>
                     </div>
@@ -161,10 +161,10 @@
                     </div>
                     <div class="col-lg-1 col-md-2 col-sm-6 col-xs-12 col5listprod">
                         <p><?php echo $Product->Data['size']; ?></p>
-                    </div> 
+                    </div>
                     <div class="col-lg-1 col-md-1 col-sm-6 col-xs-12 col5listprod">
                         <p><?php echo money_format('%.2n',floatval($Product->Data['price'])); ?></p>
-                    </div> 
+                    </div>
                     <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 col6listprod">
                         <div class="delmoddiv">
                              <ul>
@@ -174,7 +174,7 @@
                                     <?php $Checked = $Product->Data['status']=='A'? 'checked="checked"':''; ?>
                                     <?php echo insertElement('checkbox','liststatus'.$Product->ID,'','centered SwitchCheckbox status',' target="'.$Product->ID.'" data-on-text="Activa" data-off-text="Pausada"  data-label-width="auto" data-size="mini" '.$Checked); ?>
                                 </li>
-                            </ul> 
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -195,6 +195,6 @@
       </div><!-- /Pagination-->
     </div><!-- /Container  -->
   </div><!-- /#wrapper -->
-    
+
     <!-- End Pagination-->
 <?php $Foot->setFoot(); ?>

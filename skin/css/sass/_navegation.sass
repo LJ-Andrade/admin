@@ -1,227 +1,200 @@
 ///////////////   Navegation  //////////////////////
-
-///////// Owner Name ///////////////////////////////
+///////// Owner Name (Top Left) ///////////////////////////////
 
 .ownername
-    color: #000
-.marca
-    color: $mainred
+  color: #000
+.brand
+  color: $mainred
 
-///////////// Side Nav /////////////////////////////
-.side-nav
-    li
-        a
-            width: 225px
-            ul
-                padding: 0
-                li
-                    a
-                        display: block
-                        padding: 10px 15px 10px 38px
-                        text-decoration: none
-                        color: $sideddtxt
-                      
-.side-nav li a:hover,
-.side-nav li a:focus
-    outline: none
-    background-color: rgba($hoverside, .6) !important
-
-.side-nav li a:hover,
-.side-nav li a:focus
-    .navinicio
-        border-left: 10px solid blue
-
-@media(min-width:768px) 
-    .side-nav
-        position: fixed
-        top: 52px
-        left: 225px
-        width: 225px
-        margin-left: -225px
-        border: none
-        border-radius: 0
-        overflow-y: auto
-        // Side Nav
-        background-color: rgba($side, .4)
-        bottom: 0
-        overflow-x: hidden
-        padding-bottom: 40px
-        box-shadow: -1px 15px 4px -1px rgba(0, 0, 0, 0.53)
-        li
-            background-color: rgba($side, .7)
-            a
-                min-width: 100%
-            
+/////////////////////// Nav Bar //////////////////////////////
 .navbar-inverse
-    background-color: rgba($top, .5)
-    border-color: transparent
-    .side-nav
-        li
-                
-// Drop down menu and icons    
-.sideddmenu
-    li
-        ul
-            list-style: none
-    a
-        padding: 10px 5px 10px 44px
-        display: block
-        color: $sideddtxt
-        text-decoration: none
-        padding-top: 15px
-        padding-bottom: 15px
-        &:hover,&:focus
-            color: $sideddtxthover
-
-.navbar-inverse .navbar-nav > li > a
-    //font-weight: bold
-
-.side-nav
-    ul
-        li
-            transition: all 0.2s ease 0s
-            a
-                transition: all 0.2s ease 0s
-            &:hover
-                border-left: 4px solid $siderightline
-            ul
-                li
-                    background-color: #fff
-                    transition: all 0.2s ease 0s
-                    a
-                        padding-left: 60px
-                        font-size: 12px
-                        transition: all 0.2s ease 0s
-                    &:hover
-                        border-left: 4px solid $mainblue
-    
-.sidemenu .sideintern
-    li
-        background-color: #ccc
-
-// Bottom Border menu 
-.navbar-inverse .navbar-nav > li a
+  background-color: rgba($top, .5)
+  border-color: transparent
+  .navbar-nav > li a
     transition: all 0.2s ease 0s
     border-bottom: 0.5px solid rgba(56, 56, 56, 0.1)
-
-@media(max-width:768px)
-    .navbar-inverse .navbar-nav > li a
-        width: auto
-
-.navbar-inverse .navbar-nav > li > a:focus, .navbar-inverse .navbar-nav > li > a:hover
-    color: $sideddtxthover
-    border-left: 4px solid $siderightline
-   
-.navbar-inverse .navbar-brand
+    &:hover, &:focus
+      color: $sideddtxthover
+      border-left: 4px solid $siderightline
+  .navbar-nav > li > a
+    color: #000
+    color: $sidetxt
+  .navbar-brand
     color: $toptxt
-// Top Color
-.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form
+  .navbar-collapse, .navbar-form
     background-color: rgba($side, .2)
+@media(max-width:768px)
+  .navbar-inverse .navbar-nav > li a
+    width: auto
 
 @media(max-width:768px)
-    .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form
-        ul
-            background-color: rgba($side, 1)
-
-.navbar-inverse .navbar-nav > li > a
-    color: #000 
-.navbar-inverse .navbar-nav > li > a
-    color: $sidetxt 
+  .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form
+    ul
+      background-color: rgba($side, 1)
 
 .navbar-collapse
-    border-top: 0px
+  border-top: 0px
+
+////////////////////// Side Nav /////////////////////////////
+.side-nav
+  li
+    transition: all 0.2s ease 0s
+    a
+      transition: all 0.2s ease 0s
+      width: 225px
+      &:hover
+        border-left: 4px solid $siderightline
+        background-color: #fff
+        transition: all 0.2s ease 0s
+        .navinicio
+          border-left: 10px solid blue
+      &:hover, &focus
+        background-color: rgba($hoverside, .6) !important
+      ul
+        padding: 0
+        li
+          background-color: #fff
+          transition: all 0.2s ease 0s
+          a
+            display: block
+            padding: 10px 15px 10px 38px
+            text-decoration: none
+            color: $sideddtxt
+            padding-left: 60px
+            font-size: 12px
+            transition: all 0.2s ease 0s
+            &:hover
+              border-left: 4px solid $mainblue
+
+// Drop down menu and icons
+.sideddmenu
+  li
+    ul
+      list-style: none
+  a
+    padding: 10px 5px 10px 44px
+    display: block
+    color: $sideddtxt
+    text-decoration: none
+    padding-top: 15px
+    padding-bottom: 15px
+    &:hover,&:focus
+      color: $sideddtxthover
+
+.sidemenu .sideintern
+  li
+    background-color: #ccc
+
+@media(min-width:768px)
+  .side-nav
+    position: fixed
+    top: 52px
+    left: 225px
+    width: 225px
+    margin-left: -225px
+    border: none
+    border-radius: 0
+    overflow-y: auto
+    // Side Nav
+    background-color: rgba($side, .4)
+    bottom: 0
+    overflow-x: hidden
+    padding-bottom: 40px
+    box-shadow: -1px 15px 4px -1px rgba(0, 0, 0, 0.53)
+    li
+      background-color: rgba($side, .7)
+      a
+        min-width: 100%
 
 //////// Top bar / User /////////////////////////
 
 .dropdown-menu
-    padding: 0
-    .fa
-        margin-right: 26px
-        margin-left: 5px
-.marca
-    font-size: 12px 
-    
+  padding: 0
+  .fa
+    margin-right: 26px
+    margin-left: 5px
+.brand
+  font-size: 12px
+
 @media(max-width:340px)
-    .marca
-        display: none
+  .brand
+    display: none
 
 /* User Loged Img */
 .userloginimg
-    height: 40px
-    border-radius: 100%
-    margin: 0 15px
-
-.top-nav
-    padding: 0 15px
-    li
-        display: inline-block
-        float: left
-        a
-            padding: 0
-            padding-top: 6px
-            padding-bottom: 5px 
-            line-height: 20px
-            color: $username
-            -webkit-transition: all 0.5s ease 0s
-            transition: all 0.5s ease 0s
-            &:hover
-                color: #000
+  height: 40px
+  border-radius: 100%
+  margin: 0 15px
 
 @media(max-width:340px)
-    .top-nav
-        padding: 0
-    
+  .top-nav
+    padding: 0
+
 .top-nav li a:hover, .top-nav > li > a:focus, .top-nav > .open > a, .top-nav > .open > a:hover, .top-nav > .open > a:focus
-    background-color: rgba ($usernamehover, 0.7)
-    color: $usernametxthover
+  background-color: rgba ($usernamehover, 0.7)
+  color: $usernametxthover
 
 .nav .open > a, .nav .open > a:focus, .nav .open > a:hover
-    background-color: rgba ($usernamehover, 0.7) !important
+  background-color: rgba ($usernamehover, 0.7) !important
 
 .dropdown
-    width: 219px
-    
+  width: 219px
+
 .top-nav
-    .open
-        .dropdown-menu
-            float: left
-            position: absolute
-            margin-top: 0
-            border-top-left-radius: 0
-            border-top-right-radius: 0
-            background-color: #fff
-            -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175)
-            box-shadow: 0 6px 12px rgba(0,0,0,.175)
-            // Capa de Dropdown User
-            z-index: 9999
-            border-radius: 0 
-            li
-                color: #000
-                a
-                    background-color: rgba($side, .3)
-                    color: $userdd
-                    min-width: 218px
-                    color: $texts
-                    &:hover
-                        //Color hover DD user
-                        background-color: $userddhover
-                        color: $userddtxthover
+  padding: 0 15px
+  li
+    display: inline-block
+    float: left
+    a
+      padding: 0
+      padding-top: 6px
+      padding-bottom: 5px
+      line-height: 20px
+      color: $username
+      -webkit-transition: all 0.5s ease 0s
+      transition: all 0.5s ease 0s
+      &:hover
+        color: #000
+  .open
+    .dropdown-menu
+      float: left
+      position: absolute
+      margin-top: 0
+      border-top-left-radius: 0
+      border-top-right-radius: 0
+      background-color: #fff
+      -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175)
+      box-shadow: 0 6px 12px rgba(0,0,0,.175)
+      // Capa de Dropdown User
+      z-index: 9999
+      border-radius: 0
+      li
+        color: #000
+        a
+          background-color: rgba($side, .3)
+          color: $userdd
+          min-width: 218px
+          color: $texts
+          &:hover
+            //Color hover DD user
+            background-color: $userddhover
+            color: $userddtxthover
 
 ul.message-dropdown
-    padding: 0
-    max-height: 250px
-    overflow-x: hidden
-    overflow-y: auto     
+  padding: 0
+  max-height: 250px
+  overflow-x: hidden
+  overflow-y: auto
 
 /* Width User logged */
 
 li.message-preview
-    width: 275px
-    border-bottom: 1px solid rgba(0,0,0,.15) 
+  width: 275px
+  border-bottom: 1px solid rgba(0,0,0,.15)
 li.message-preview > a
-    padding-top: 15px
-    padding-bottom: 15px 
+  padding-top: 15px
+  padding-bottom: 15px
 li.message-footer
-    margin: 5px 0 
+  margin: 5px 0
 ul.alert-dropdown
-    width: 200px 
+  width: 200px

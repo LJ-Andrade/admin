@@ -29,13 +29,13 @@
                   <?php echo insertElement('select','parent',$EditData['parent_id'],'form-controlusers','tabindex="2"',$DB->fetchAssoc("category","category_id,title","status='A'","title"),'0','Categoría Principal'); ?>
                 </div>
               </div>
-              
+
               <div class="col-md-6 animated bounceInRight switchuser">
                 <?php $Checked = $EditData['status']=='A'? 'checked="checked"':''; ?>
                 <div class="col-md-12 userstatustit">Estado</div>
                 <div class="col-md-12">
                   <?php echo insertElement('checkbox','status','','centered',' data-on-text="Activa" data-off-text="Inactiva" data-size="large"  data-label-width="auto" '.$Checked); ?>
-                </div>                                     
+                </div>
               </div>
             </div>
             <!-- /Inputs -->
@@ -71,26 +71,26 @@
             </div>
             <!-- /Imgs To select -->
 
-            
-            
+
+
             <div class="col-md-6 animated bounceInRight selectImgDiv centrarbtn">
-              <button id="selectImgBtn" class="btn masterbtn">Seleccionar Im&aacute;gen</button>                               
+              <button id="selectImgBtn" class="btn mainbtn">Seleccionar Im&aacute;gen</button>                               
             </div>
             <div class="col-md-12 animated bounceInRight cancelImgDiv centrarbtn">
-              <button id="cancelSelectImgBtn" class="btn closeBtn"><i class="fa fa-times-circle"></i></button>                           
-            </div>             
+              <button id="cancelSelectImgBtn" class="btn closeBtn"><i class="fa fa-times-circle"></i></button>
+            </div>
 
-         
 
-          </div> 
-        </div>  
+
+          </div>
+        </div>
         <!-- Create User Button Div  -->
         <div class="container animated fadeInUp donediv">
              <div class="form-group">
-               <a href="#" class="btn masterbtn" role="button" id="create"><i class="fa fa-check-square-o fa-fw"></i> Modificar Categoría</a>
+               <a href="#" class="btn mainbtn" role="button" id="create"><i class="fa fa-check-square-o fa-fw"></i> Modificar Categoría</a>
              </div>
         </div>
-        <!-- /Create User Button Div  -->                   
+        <!-- /Create User Button Div  -->
   </div>
 <!-- /#wrapper -->
 

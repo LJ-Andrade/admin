@@ -31,7 +31,7 @@
               </div>
               <div class="col-md-3 form-group animated bounceInRight">
                 <?php echo insertElement('file','image','','form-first-name form-controlusers Hidden','placeholder="Imagen" tabindex="3"'); ?>
-                <!-- <button type="button" name="buttonimg" id="buttonimg" class="btn masterbtn">Seleccionar Im&aacute;gen</button> -->
+                <!-- <button type="button" name="buttonimg" id="buttonimg" class="btn mainbtn">Seleccionar Im&aacute;gen</button> -->
               </div>
             </div>
             <!-- PROFILE TREE -->
@@ -50,7 +50,7 @@
          <!--  Add Img & Done Button Div  -->
         <div class="container centrarbtn animated fadeInUp donediv">
              <div class="form-group">
-               <a href="#" class="btn masterbtn" role="button" id="create"><i class="fa fa-check-square-o fa-fw"></i> Modificar Perfil</a>
+               <a href="#" class="btn mainbtn" role="button" id="create"><i class="fa fa-check-square-o fa-fw"></i> Modificar Perfil</a>
              </div>
         </div>
   </div>

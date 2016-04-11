@@ -28,7 +28,7 @@
             <?php echo insertElement('text','size','','form-first-name form-controlusers','placeholder="Medida"'); ?>
           </div>
         </div>
-    
+
         <!-- Price - Img - Status -->
         <div class="row priceimgstatus">
           <div class="col-md-6">
@@ -52,49 +52,49 @@
             <?php echo insertElement('textarea','description','','form-controlitems textareaitems text-center','placeholder="Descripción" rows="4" maxlength="150"'); ?>
             <div class="remchar"><p> Caracteres restantes: </p></div>
             <div class="indicator-wrapper">
-              <div class="indicator"><span class="current-length">150</span></div>        
+              <div class="indicator"><span class="current-length">150</span></div>
             </div>
           </form>
         </div>
         <!-- /Character counter -->
         <!--  Generic Img and AddImg  -->
         <div id="itemimg" class="itemimgmain">
-          <div class="row"> 
+          <div class="row">
             <div class="col-xs-6 col-md-3 addimgdiv">
               <div id="file"><img src="skin/users/mas.jpg" class="img-responsive thumbimgadd animated fadeInUp thumbimg"></div>
               <!-- <input type="file" name="file" /> -->
             </div>
             <div class="col-xs-6 col-md-3 addimgdiv">
               <img src="skin/images/products/genericproduct.png" class="img-responsive thumbimg animated fadeInUp">
-            </div>   
+            </div>
             <div class="col-xs-6 col-md-3 addimgdiv">
               <img src="skin/images/products/cod1.jpg" class="img-responsive thumbimg animated fadeInUp">
-            </div>   
+            </div>
             <div class="col-xs-6 col-md-3 addimgdiv">
               <img src="skin/images/products/cod2.jpg" class="img-responsive thumbimg animated fadeInUp">
             </div>
             </div>
-            <div class="row"> 
+            <div class="row">
             <div class="col-xs-6 col-md-3 addimgdiv">
               <img src="skin/images/products/cod3.jpg" class="img-responsive thumbimg animated fadeInUp">
             </div>
             <div class="col-xs-6 col-md-3 addimgdiv">
               <img src="skin/images/products/cod4.jpg" class="img-responsive thumbimg animated fadeInUp">
-            </div>   
+            </div>
             <div class="col-xs-6 col-md-3 addimgdiv">
               <img src="skin/images/products/genericproduct.png" class="img-responsive thumbimg animated fadeInUp">
-            </div>   
+            </div>
             <div class="col-md-3 addimgdiv">
               <img src="skin/images/products/genericproduct.png" class="img-responsive thumbimg animated fadeInUp">
             </div>
-          </div>  
-        </div>        
-      </div>   
-    </div>            
+          </div>
+        </div>
+      </div>
+    </div>
     <!--  Add Img & Done Button Div  -->
     <div class="container centrarbtn animated fadeInUp donediv">
       <div class="form-group">
-        <a href="#" class="btn masterbtn" role="button" id="create"><i class="fa fa-check-square-o fa-fw"></i> Crear Producto</a>
+        <a href="#" class="btn mainbtn" role="button" id="create"><i class="fa fa-check-square-o fa-fw"></i> Crear Producto</a>
       </div>
     </div>
   </div><!-- /#wrapper -->

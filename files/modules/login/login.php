@@ -10,7 +10,7 @@
            <div class="row"><img src="../../../skin/images/body/icons/favicon.png" class="logimg" alt=""><span class="logintit">Renovatio &reg;</span></div>
         </div>
         <div class="row">
-            <form class="formulog">       
+            <form class="formulog">
                 <div class="logindatos">
                     <div class="col-md-12 loguser">
                         <label for="login"><i class="fa fa-fw fa-user"></i><b> Usuario</b></label>
@@ -21,7 +21,7 @@
                         <input type="password" name="password" id="password" placeholder="Ingresar contrase&ntilde;a">
                     </div>
                     <div class="col-md-12 loginbtndiv" align="center">
-                        <button type="button" class="btn masterbtn center-block ButtonLogin"><i class="fa fa-fw fa-share"></i><b> Ingresar</b></button>
+                        <button type="button" class="btn mainbtn center-block ButtonLogin"><i class="fa fa-fw fa-share"></i><b> Ingresar</b></button>
                     </div>
                     <div class="forgotdiv">
                        <p class="forgotpass"><a href="forgotpass.php">Olvid&eacute; mi contrase&ntilde;a</a></p>
@@ -31,7 +31,7 @@
                         <label for="rememberuser" class="checkbox-custom-label"> Recordarme</label>
                     </div>
                 </div>
-            </form>     
+            </form>
         </div>
     </div>
     <?php $Foot->setFoot(); ?>

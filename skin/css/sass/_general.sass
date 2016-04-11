@@ -6,88 +6,74 @@
   text-decoration: none
 
 body
-  margin-top: 100px
-  font-family: $mainfont
+  font-family: $font1
   background-color: #5284ad
-  background-image: url(../images/body/backgrounds/back16.jpg)
+  background-image: url(../images/body/backgrounds/back7.jpg)
   background-repeat: no-repeat
   background-attachment: fixed
   background-position: center center
   background-size: cover
-  padding-top: 45px
-
-@media(min-width:768px)
-  body
-    margin-top: 50px
-  a:link
-    text-decoration: none
-
-
-@media(max-width:490px)
-  body
-    padding-top: 20px
-
-@media(min-width:490px)
-  body
-    padding-top: 70px
-
-@media(min-width:546px)
-  body
-    padding-top: 50px
+  margin-top: 120px
 
 #wrapper
   padding-left: 0
   height: 100%
 
+@media(max-width:490px)
+  body
+    padding-top: 20px
+
+@media(max-width:600px)
+  body
+    padding-top: 35px
 
 @media(min-width:768px)
   #wrapper
     padding-left: 225px
+    margin-top: 50px
   #wrapperlogin
     padding-left: 0
-
-@media(max-width:768px)
-  #wrapper
-    margin-top: 50px
 
 @media(max-width:960px)
   #wrapper
     margin-top: 30px
 
-@media(max-width:500px)
-  body
-    padding-top: 20px
-  #wrapper
-    margin-top: 0px
-
 a
   color: #fff
   text-decoration: none
   outline: 0
-a:hover
-  color: #fff
-  text-decoration: none
+  &:hover
+    color: #fff
+    text-decoration: none
 
-a:hover, a:active, a:focus
-  outline: 0
+h1, h2, h3, h4, h5,
+  font-family: $font1
+  margin-top: 10px
+h1
+  font-size: 28px
+  font-weight: 400
+h2
+  font-size: 24px
+h3
+  font-size: 20px
+  font-weight: 400
+h4
+  font-size: 18px
+  font-weight: 300
+h5
+  font-size: 16px
+  font-weight: 300
+
+.container, .container-fluid
+  h1, h2, h3, h4, h5
+    text-align: center
 
 p
-  font-family: $mainfont
-h1, h2, h3, h4, h5,
-  font-family: $mainfont
-
-h5
-  font-size: 15px
-  font-weight: bold
+  font-family: $font1
 
 a:focus, a:hover
   color: $wh
   text-decoration: underline
-
-.maintitle
-  margin: 3px 0
-.maintitletxt
-  text-align: center
 
 @media(max-width:341px)
   .maintitletxt
@@ -95,6 +81,9 @@ a:focus, a:hover
 
 ul
   list-style: none !important
+
+.textcenter
+  text-align: center
 
 //////////// Custom Styles /////////////////////////////////////////
 .pad0
@@ -142,7 +131,6 @@ ul
     left: 0
     right: 0
 
-
 .pagination > li:last-child > a, .pagination > li:last-child > span
   border-radius: 0
 .pagination > li:first-child > a, .pagination > li:first-child > span
@@ -152,37 +140,6 @@ ul
   border-color: rgba($pagborder, .3)
   color: $pagtxt
 
-////////// Windows  ////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////
-
-//////// Item Creation Window //////////////////////////////////////
-
-.additemdiv
-  margin-top: 20px
-  max-width: 600px
-  background-color: rgba(255,255,255,.4)
-  -webkit-box-shadow: 4px 2px 18px -6px rgba(0,0,0,0.69)
-  -moz-box-shadow: 4px 2px 18px -6px rgba(0,0,0,0.69)
-  box-shadow: 4px 2px 18px -6px rgba(0,0,0,0.69)
-.additemtit
-  text-align: center
-  padding: 5px 0 10px 0
-  margin-top: 5px
-  margin-bottom: 10px
-.additemtit h3
-  color: $additemtit
-
-.addprodimgdiv
-  padding-top: 30px
-.itemimgmain
-  padding: 30px 0 20px 0
-
-.donediv
-  background-color: rgba(255,255,255,.9)
-  padding: 25px 0 10px 0
-  max-width: 600px
-  margin: 0 auto
-  text-align: center
 
 // Placeholders
 .formitems input[type=text],
@@ -344,86 +301,6 @@ option
   padding: 0 5px
 
 
-///////////////////// Buttons ////////////////////////////
-/////////////////////////////////////////////////////////
-
-.masterbtn
-  padding: 5px 10px
-  margin: 0 auto
-  margin: 2px 0
-  border-radius: 0
-  box-shadow: 0 8px 10px -10px rgba(0, 0, 0, 0.5)
-  border: none
-  -webkit-transition: all 0.5s ease 0s
-  transition: all 0.5s ease 0s
-  background-color: $mainbtn
-  color: $maintbtntxt
-  &:hover
-    box-shadow: 0px 0px 0px
-    background-color: $mainbtnhover
-  &:focus, &:active
-    box-shadow: 0px 0px 0px
-    background-color: $mainbtnhover
-a .masterbtn
-  color: $logbtntxt
-
-
-////////////////    GENERIC WINDOWS     //////////////////////////////
-/////////////////////////////////////////////////////////////////////
-
-//////////// Main Containers ////////////////////
-
-.glasscontainer1
-  width: auto
-  background-color: rgba(0,0,0, .1)
-  padding: 15px 5px 10px
-  margin-bottom: 15px
-  text-align: center
-  padding-bottom: 15px
-  -webkit-transition: all 0.3s ease-out
-  -moz-transition: all 0.3s ease-out
-  -ms-transition: all 0.3s ease-out
-  -o-transition: all 0.3s ease-out
-  transition: all 0.3s ease-out
-
-.textcenter
-  text-align: center
-
-.maincontainer
-  text-align: center
-
-.filerow
-  margin: 5px
-  padding-left: 15px
-  padding-right: 15px
-  &:hover
-    cursor: pointer
-    background-color: rgba(0,0,0, .2)
-
-
-///////////// OPTION DIVS ////////////////////////////////////////
-
-.optionsdiv
-  padding-bottom: 20px
-  padding-top: 20px
-  margin: 0 auto
-  margin-top: 20px
-  margin-bottom: 20px
-
-.delselected
-  padding: 5px 20px
-  margin: 0 auto
-  margin: 0 15px
-  box-shadow: 0 8px 10px -10px rgba(0, 0, 0, 0.5)
-  border: none
-  -webkit-transition: all 0.5s ease 0s
-  transition: all 0.5s ease 0s
-  background-color: $mainred
-  color: $maintbtntxt
-  cursor: pointer
-  &:hover
-    box-shadow: 0 0 0
-    background-color: $mainredhover
 
 ////////////// LOADER ////////////////////////////////////////////////
 
@@ -449,134 +326,3 @@ div#page_loader
   position: absolute
   bottom: 0
   color: black
-
-////////////////////// CHECKBOX TREE //////////////////////////////////
-
-.checkboxtree
-  max-width: 250px
-  text-align: left
-  list-style: none
-  li
-    ul
-      li
-        margin-left: 30px
-
-/////////////////// NEW USER OR ITEM //////////////////////////////////
-
-.newInputs
-  border: 1px solid red
-
-.imgCatalogue
-  margin: 0 15px 25px
-  padding-bottom: 20px
-  background-color: rgba($wh, 0.5)
-
-.thumbimg
-  width: 150px
-  margin: 0 auto
-
-.thumbimgadd
-  width: 60px
-  height: 60px
-  margin: 0 auto
-  margin-top: 20px
-  cursor: pointer
-
-.selectImgDiv
-  margin-bottom: 15px
-  margin-top: 20px
-
-.cancelImgDiv
-  margin-bottom: 20px
-  margin-top: -30px
-
-.selectImgTitle
-  margin: 0 15px
-  padding: 15px 0
-  text-align: center
-  background-color: rgba($wh, 0.8)
-
-.closeBtn
-  padding: 5px 10px
-  margin: 0 auto
-  border-radius: 0
-  border: none
-  -webkit-transition: all 0.5s ease 0s
-  transition: all 0.5s ease 0s
-  background-color: transparent
-  color: $maintbtntxt
-  &:hover
-    box-shadow: 0px 0px 0px
-    background-color: $mainbtnhover
-  &:focus, &:active
-    box-shadow: 0px 0px 0px
-    background-color: $mainbtnhover
-
-  .centrarbtn.fa-times-circle:before
-    font-size: 35px
-
-/////////// CHECKBOXES ////////////////////////
-
-.treediv
-  list-style: none
-  text-decoration: none
-  ul
-    list-style: none
-    text-decoration: none
-    li
-      list-style: none
-      text-decoration: none
-
-.checkboxgroup
-  ul
-    display: inline-block
-    list-style: none
-    li
-      content: ''
-      background: #fff
-      border: 2px solid #ddd
-      display: inline-block
-      vertical-align: middle
-      width: 20px
-      height: 20px
-      padding: 2px
-      margin-right: 10px
-      text-align: center
-    li:checked
-      background: #056e90
-      box-shadow: inset 0px 0px 0px 4px #fff
-
-.ourcheckbox, .ourradio
-  opacity: 0
-  position: absolute
-
-.ourcheckbox, .ourcheckbox-label, .ourradio, .ourradio-label
-  display: inline-block
-  vertical-align: middle
-  margin: 5px
-  cursor: pointer
-
-.ourcheckbox-label, .ourradio-label
-  position: relative
-
-.ourcheckbox + .ourcheckbox-label:before, .ourradio + .ourradio-label:before
-  content: ''
-  background: #fff
-  border: 2px solid #ddd
-  display: inline-block
-  vertical-align: middle
-  width: 20px
-  height: 20px
-  padding: 2px
-  margin-right: 10px
-  text-align: center
-
-.ourcheckbox:checked + .ourcheckbox-label:before
-  background: #056e90
-  box-shadow: inset 0px 0px 0px 4px #fff
-
-
-#profileimg
-  border-radius: 100%
-  box-shadow: 3px 3px 25px 1px
-  margin-left: 50px

@@ -1,198 +1,3 @@
-////////////// LIST VIEW //////////////////////////////////////////
-.listrow
-    margin: 5px
-    margin-left: 15px
-    margin-right: 15px
-    padding: 5px 15px
-    color: #fff
-    text-align: left
-    display: flex
-    &:hover
-        cursor: pointer
-        background-color: rgba($listhover, 0.5)
-        -webkit-box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
-        -moz-box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
-        box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
-        color: $listhovertxt
-
-.listtit
-    margin: 5px
-    margin-left: 15px
-    margin-right: 15px
-    padding: 5px 15px
-    color: #fff
-    text-align: left
-    display: flex
-    background-color: rgba($mainblue, .5)
-
-.titlist1
-    border-right: 1px solid rgba($gris, 0.5)
-.titlist2
-    border-right: 1px solid rgba($gris, 0.5)
-.titlist3
-    border-right: 1px solid rgba($gris, 0.5)
-.titlist4
-    border-right: 1px solid rgba($gris, 0.5)
-.titlist5
-    border-right: 1px solid rgba($gris, 0.5)
-.titlist6
-
-.titlist6ult
-    border-right: 1px solid rgba($gris, 0.5)
-
-.padtoplist
-    padding-top: 15px
-
-.listselect
-    background-color: rgba($mainblue, .5)
-    -webkit-box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
-    -moz-box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
-    box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
-
-//////// Menu Lists /////////////////
-
-.menulistico.fa-gears::before,
-.menulistico.fa-sitemap::before,
-.menulistico.fa-home::before,
-.menulistico.fa-list-ul::before,
-.menulistico.fa-user::before,
-.menulistico.fa-tree::before,
-.menulistico.fa-plus-square::before,
-.menulistico.fa-eye::before,
-.menulistico.fa-tree::before,
-.menulistico.fa-money::before,
-.menulistico.fa-bars::before,
-    font-size: 35px
-    padding-top: 5px
-    color: #fff
-    &:hover:before
-        color: #000
-	
-.menulistcol1
-    padding-top: 8px
-
-/////////////////// Product List View /////////////////
-
-.listrowitem
-    margin: 5px
-    margin-left: 15px
-    margin-right: 15px
-    padding-left: 15px
-    padding-right: 15px
-    color: #fff
-    text-align: left
-    &:hover
-        cursor: pointer
-        background-color: rgba(0,0,0, .4)
-
-.itemtit
-    margin: 30px 0 0 
-.itemtxt
-    text-align: center
-.itemrow2
-    padding: 0 10px
-.itemtxtcolor
-    font-size: 12px
-
-.prodimglist
-    border-radius: 100%
-    max-width: 50px
-    padding: 0
-    cursor: pointer
-
-.col1listprod
-    border-right: 1px solid rgba($gris, 0.5)
-    padding-top: 5px
-.col2listprod
-    border-right: 1px solid rgba($gris, 0.5)
-    padding-top: 15px
-.col3listprod
-    border-right: 1px solid rgba($gris, 0.5)
-    padding-top: 15px
-.col4listprod
-    border-right: 1px solid rgba($gris, 0.5)
-    padding-top: 15px
-.col5listprod
-    border-right: 1px solid rgba($gris, 0.5)
-    padding-top: 15px
-.col6listprod
-
-
-.prodicoadd
-    ul
-        margin-left: -25px
-        border: 1px solid blue 
-
-.prodfilediv
-    background-color: rgba($itemfilediv, .5)
-    padding: 10px 5px
-    margin: 20px 0
-
-.prodfileimg
-    width: 100px
-    height: 100px
-    max-width: 100%
-    height: auto
-    margin: 0 auto
-    -webkit-box-shadow: 0 12px 12px rgba(0,0,0,.175)
-    box-shadow: 0 6px 6px rgba(0,0,0,.175)
-    -webkit-transition: all 0.5s ease 0s
-    transition: all 0.5s ease 0s
-
-.prodfileimg:hover
-    box-shadow: none
-    
-.colprod
-    margin-top: 10px 
-.colprodtit
-    margin-top: 10px
-    text-align: center 
-.colprod1
-    margin-top: 10px
-    text-align: center
-.colprodico
-    margin-top: 10px
- 
-/////////////////// User List View /////////////////
-.userimglist
-    border-radius: 100%
-    max-width: 50px
-    padding: 0
-    cursor: pointer
-
-.col1listus
-    border-right: 1px solid rgba($gris, 0.5)
-.col2listus
-    border-right: 1px solid rgba($gris, 0.5)
-    padding-top: 15px
-.col3listus
-    border-right: 1px solid rgba($gris, 0.5)
-    padding-top: 15px
-.col4listus
-    border-right: 1px solid rgba($gris, 0.5)
-    padding-top: 15px
-.col5listus
-    border-right: 1px solid rgba($gris, 0.5)
-    padding-top: 15px
-.col6listus
-    padding-top: 10px
-
-/////////  List View Responsive /////
-@media(max-width:1320px)
-    .col1listus,.col2listus,.col3listus,.col4listus,.col5listus,.col6listus
-        border-right: 0px
-
-@media(max-width:1320px)
-    .col1listprod,.col2listprod,.col3listprod,.col4listprod,.col5listprod,.col6listprod,
-    .titlist1,.titlist2,.titlist3,.titlist4,.titlist5
-        border-right: 0px
-        padding-right: 5px
-        padding-left: 5px
-
-// @media(max-width:1400px)
-//     .btndel,.btnmod
-//         li
-//             margin: 3px 0
 
 
 /////////////// Iconos Combinados Fila o Caja //////////
@@ -220,18 +25,18 @@
 // Icons (Del and modify)
 .prodicos ul
     list-style-type: none
-    text-align: center 
+    text-align: center
 .prodicos li
     display: inline
     text-align: center
-    margin: 0 15px 
+    margin: 0 15px
 
 .itemicos
     background-color: transparent
     margin-top: 10px
     ul
         list-style-type: none
-        text-align: center 
+        text-align: center
     li
         display: inline
         text-align: center
@@ -244,7 +49,7 @@
     background-color: transparent
     margin-top: 10px
     ul
-        text-align: center 
+        text-align: center
     li
         display: inline
         text-align: center
@@ -258,14 +63,14 @@
     border: 0
     background-color: $delbtn
     color: $delbtntxt
-    transition: all 0.2s ease 0s 
+    transition: all 0.2s ease 0s
     &:hover
         background-color: $delbtnhover
         color: $delbtntxthover
     &:focus, &:active
         background-color: $delbtnactfoc
         color: $delbtntxtacfoc
-    
+
 .btnmod
     padding: 2px 20px
     max-width: 70px

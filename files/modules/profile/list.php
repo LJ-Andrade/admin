@@ -14,7 +14,7 @@
       <div class="maintitle"><h4 class="maintitletxt">Listado de Perfiles</h4></div>
       <div class="glasscontainer1 optionsdiv">
         <span id="delselected" class="delselected animated slideInDown"><i class="fa fa-trash"></i> Eliminar seleccionados</span>
-        <a href="new.php"><button class="masterbtn"><i class="fa fa-plus-square"></i> Agregar Perfil</button></a>
+        <a href="new.php"><button class="mainbtn"><i class="fa fa-plus-square"></i> Agregar Perfil</button></a>
       </div>
       <!-- Filters / Search -->
       <div class="container-fluid">
