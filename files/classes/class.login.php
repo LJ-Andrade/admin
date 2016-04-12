@@ -5,6 +5,7 @@ class Login extends DataBase
 	var 	$User;
 	var 	$Password;
 	var 	$PasswordHash;
+	var 	$RememberUser;
 	var 	$IP;
 	var 	$Tries;
 	var		$IsMaxTries;
@@ -13,30 +14,31 @@ class Login extends DataBase
 	var 	$PassMatch;
 	var 	$Target;
 	var		$Return;
+	var 	$Link;
 	
 	const 	HOURS 		= 2;
 	const 	MAX_TRIES	= 13;
+	const 	LOGIN		= 'login/process.login.php';
 	
-	public function __construct($User,$Password)
-	{
-		$this->setLogin($User,$Password);
-	}
-	
-	public function setLogin($User,$Password)
+	public function __construct($User,$Password='',$Remember=0,$PasswordHash='')
 	{
 		$this->Connect();
-		
-		$this->User			= $User;
+		$this->getLink();
+		$this->User	= $User;
 		$this->Password		= $Password;
-		$this->PasswordHash	= md5($Password);
-		$this->IP 			= getenv("REMOTE_ADDR");
-		
-		//$Query 				= "SELECT * FROM admin_user WHERE user = '".$this->User."' AND status = 'A'";
-		$this->UserExist 	= $this->numRows('admin_user','*',"user = '".$this->User."' AND status = 'A'") > 0;
+		$this->PasswordHash	= $PasswordHash? $PasswordHash : md5($Password);
 		$this->AdminData 	= $this->fetchAssoc('admin_user','*',"user = '".$this->User."' AND status = 'A'");
+		$this->RememberUser = $Remember==1;
+		$this->IP 			= getenv("REMOTE_ADDR");
+		//var_dump($this->Link);die();
+	}
+	
+	public function setLogin()
+	{
+		$this->UserExist 	= $this->numRows('admin_user','*',"user = '".$this->User."' AND status = 'A'") > 0;
 		$this->PassMatch	= $this->AdminData[0]['password'] == $this->PasswordHash;
 		$this->Tries		= $this->AdminData[0]['tries']+1;
-		$this->IsMaxTries	= $this->Tries > $this->getMaxTries();
+		$this->IsMaxTries	= $PasswordHash? false : $this->Tries > $this->getMaxTries();
 	}
 	
 	public function setSessionVars()
@@ -50,13 +52,24 @@ class Login extends DataBase
 	
 	public function setCookies()
 	{
-		$time	= false;//time()+(3600*$this->getHours());
+		$time	= time()+(3600*$this->getHours());
 		setcookie("user", 		$this->AdminData[0]['user'], 		$time, "/");
 		setcookie("password", 	$this->AdminData[0]['password'],	$time, "/");
-		setcookie("admin_id", 	$this->AdminData[0]['admin_id'], 	$time, "/");
-		setcookie("first_name", $this->AdminData[0]['first_name'], 	$time, "/");
-		setcookie("last_name", 	$this->AdminData[0]['last_name'], 	$time, "/");
-		setcookie("profile_id", $this->AdminData[0]['profile_id'], 	$time, "/");
+		//setcookie("admin_id", 	$this->AdminData[0]['admin_id'], 	$time, "/");
+		//setcookie("first_name", $this->AdminData[0]['first_name'], 	$time, "/");
+		//setcookie("last_name", 	$this->AdminData[0]['last_name'], 	$time, "/");
+		//setcookie("profile_id", $this->AdminData[0]['profile_id'], 	$time, "/");
+		$Year 	= time() + 31536000;
+		if($this->RememberUser && $this->Link==self::LOGIN)
+		{
+			setcookie('rememberuser',$this->AdminData[0]['user'],$Year);
+			setcookie('rememberpassword',$this->Password,$Year);
+
+		}elseif(isset($_COOKIE['rememberuser'])){
+			$Past = time()-100;
+			setcookie('rememberuser','gone',$Past);
+			setcookie('rememberpassword','gone',$Past);
+		}
 	}
 	
 	public function queryMaxTries()
@@ -100,6 +113,12 @@ class Login extends DataBase
 		}else{
 			return false;
 		}
+	}
+
+	public function getLink()
+	{
+		$ActualUrl	= explode("/",$_SERVER['PHP_SELF']);
+		$this->Link	= $ActualUrl[count($ActualUrl)-2]."/".basename($_SERVER['PHP_SELF']);
 	}
 	
 	public static function getHours()

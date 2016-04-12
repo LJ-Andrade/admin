@@ -15,7 +15,7 @@
       <?php echo insertElement("hidden","action",'update'); ?>
       <?php echo insertElement("hidden","id",$ID); ?>
       <?php echo insertElement("hidden","oldimage",$Data['image']); ?>
-      <?php echo insertElement("hidden","profileimage",''); ?>
+      <?php echo insertElement("hidden","profileimage",$Data['image']); ?>
       <?php echo insertElement("hidden","menues",''); ?>
         <div class="container additemdiv animated fadeIn">
           <div class="col-sm-12 form-box formitems">

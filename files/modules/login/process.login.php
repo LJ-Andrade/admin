@@ -1,11 +1,11 @@
 <?php 
 
 	/* INCLUDES */
-	include("../../includes/inc.main.php");	
-	
+	include("../../includes/inc.main.php");
+
 	/* INICIALIZATION */
-	$Login	= new Login($_POST['user'],$_POST['password']);
-	
+	$Login	= new Login($_POST['user'],$_POST['password'],$_POST['rememberuser']);
+	$Login->setLogin();
 	/* PROCESS */
 	if($Login->UserExist){ /* User Existence */
 		

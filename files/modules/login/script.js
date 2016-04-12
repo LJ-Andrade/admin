@@ -6,11 +6,13 @@ $(document).ready(function() {
 });
 
 function sumbitLogin(){
+	var rememberuser = $("#rememberuser:checked").val();
+
 	var password 	= $("#password").val();
 	var user		= $("#user").val();
 	var target		= '../main/main.php?msg=logok';
 	var error		= 'Verifique los datos ingresados';
-	var values		= 'user='+ user + '&password=' + password + '&target=' + target + '&error=' + error ;
+	var values		= 'user='+ user + '&password=' + password + '&target=' + target + '&error=' + error + '&rememberuser=' + rememberuser ;
 	var	process		= "process.login.php";
 	toggleLoader();
 	$.ajax({

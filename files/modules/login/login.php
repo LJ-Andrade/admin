@@ -2,6 +2,10 @@
     include("../../includes/inc.main.php");
     $Head->setTitle("Login");
     $Head->setHead();
+
+    if($_COOKIE['rememberuser']){
+        $Checked = 'checked="checked"';
+    }
 ?>
 <body id="login">
     <?php include('../../includes/inc.loader.php'); ?> <!-- Loader -->
@@ -14,21 +18,22 @@
                 <div class="logindatos">
                     <div class="col-md-12 loguser">
                         <label for="login"><i class="fa fa-fw fa-user"></i><b> Usuario</b></label>
-                        <input type="text" name="user" id="user" placeholder="Ingresar usuario">
+                        <input type="text" name="user" id="user" placeholder="Ingresar usuario" value="<?php echo $_COOKIE['rememberuser'];?>">
                     </div>
                     <div class="col-md-12 logpass">
                         <label for="login"><i class="fa fa-fw fa-unlock"></i><b> Contrase&ntilde;a</b></label>
-                        <input type="password" name="password" id="password" placeholder="Ingresar contrase&ntilde;a">
+                        <input type="password" name="password" id="password" placeholder="Ingresar contrase&ntilde;a" value="<?php echo $_COOKIE['rememberpassword'];?>">
                     </div>
                     <div class="col-md-12 loginbtndiv" align="center">
                         <button type="button" class="btn mainbtn center-block ButtonLogin"><i class="fa fa-fw fa-share"></i><b> Ingresar</b></button>
                     </div>
-                    <div class="forgotdiv">
-                       <p class="forgotpass"><a href="forgotpass.php">Olvid&eacute; mi contrase&ntilde;a</a></p>
-                    </div>
                     <div class="row rememberme">
-                        <input id="rememberuser" class="checkbox-custom" name="rememberuser" type="checkbox">
+                        <input id="rememberuser" class="checkbox-custom" name="rememberuser" type="checkbox" value="1" <?php echo $Checked ?>>
                         <label for="rememberuser" class="checkbox-custom-label"> Recordarme</label>
+                    </div>
+                    <div class="forgotdiv">
+                        <br>
+                       <p class="forgotpass"><a href="forgotpass.php">Olvid&eacute; mi contrase&ntilde;a</a></p>
                     </div>
                 </div>
             </form>

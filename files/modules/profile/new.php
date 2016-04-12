@@ -10,7 +10,7 @@
   <div id="wrapper">
     <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
       <?php echo insertElement("hidden","action",'insert'); ?>
-      <?php echo insertElement("hidden","profileimage",'../../../skin/images/body/pictures/usergen.jpg'); ?>
+      <?php echo insertElement("hidden","profileimage",''); ?>
       <?php echo insertElement("hidden","menues",''); ?>
         <div class="container additemdiv animated fadeIn">
           <div class="col-sm-12 form-box formitems">
@@ -31,7 +31,7 @@
             <!-- PROFILE TREE -->
             <div class="row">
               <div class="col-md-6 form-group animated bounceInBottom">
-                <img src="../../../skin/images/body/pictures/usergen.jpg" width="200" height="200" id="profileimg" />
+                <img src="<?php echo $Profile->GetDefaultImg(); ?>" width="200" height="200" id="profileimg" />
               </div>
               <div class="col-md-6 form-group animated bounceInBottom treediv" id="ProfileTree">
                 <?php echo $Profile->MakeNewTree(); ?>

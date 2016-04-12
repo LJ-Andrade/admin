@@ -9,11 +9,18 @@ class ProfileData extends DataBase
 	var $Data 		= array();
 	var $ID;
 
+	const DEFAULTIMG		= "../../../skin/images/body/pictures/usergen.png";
+
 	public function __construct($ProfileID=0)
 	{
 		$this->Connect();
 		$this->ID = $ProfileID;
 		$this->GetData();
+	}
+
+	public function GetDefaultImg()
+	{
+		return self::DEFAULTIMG;
 	}
 
 	public function GetData()
@@ -28,7 +35,7 @@ class ProfileData extends DataBase
 
 	public function MakeProfileList()
 	{
-		$Regs	= $this->fetchAssoc('admin_profile','*','profile_id>1',"title");
+		$Regs	= $this->fetchAssoc('admin_profile','*',"profile_id>1 and status<>'I'","title");
 
 		foreach($Regs as $Reg)
 		{

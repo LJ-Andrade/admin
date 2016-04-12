@@ -28,7 +28,12 @@
 
 	/* SECURIRTY CHECKS */
 	$Security		= new Security();
-	if($Security	->checkProfile($_SESSION['admin_id'])) $Admin = new AdminData();
+	if($Security	->checkProfile($_SESSION['admin_id']))
+	{
+		$Admin 		= new AdminData();
+		$Cookies 	= new Login($Admin->User);
+		$Cookies->setCookies();
+	}
 	
 	/* ADDING SLASHES TO PUBLIC VARIABLES */
 	$_POST	= AddSlashesArray($_POST);

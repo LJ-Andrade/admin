@@ -65,7 +65,7 @@
             <div class="userimgdiv"><img src="<?php echo $User->Img; ?>" id="userimage" class="img-responsive userimg"></div>
             <div class="row usernamediv">
               <span class="usernametxt"><span class="col-sm-12"><?php echo  $User->FullName; ?></span> <span class="col-lg-12 col-sm-12 col-xs-12">(<?php echo $User->User ?>)</span></span><br>
-              <span class="usernametxt2">Administrador</span>
+              <span class="usernametxt2"><?php echo ucfirst($User->ProfileName); ?></span>
             </div>
           </div>
           <div id="usericosid" class="delmoddiv delmoduser">

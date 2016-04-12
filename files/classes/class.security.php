@@ -19,6 +19,8 @@ class Security extends dataBase
 	function __construct($User='',$Password='')
 	{
 		$this->Connect();
+		// $User 				= !$User && isset($_COOKIE['rememberuser'])? $_COOKIE['rememberuser'] : $User;
+		// $User 				= !$User && isset($_COOKIE['rememberpassword'])? md5($_COOKIE['rememberpassword']) : $User;
 		$this->User			= isset($_COOKIE['user'])? 			$_COOKIE['user'] 		: $User;
 		$this->Password		= isset($_COOKIE['password'])? 		$_COOKIE['password'] 	: $Password;
 		$this->File			= basename($_SERVER['PHP_SELF']);

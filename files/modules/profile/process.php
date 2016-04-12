@@ -20,12 +20,14 @@ switch(strtolower($_POST['action']))
 {
 	case 'insert':
 		$Temp 		= $_POST['profileimage'];
+		$Profile 	= new ProfileData();
 		if($Temp)
 		{
 			$Tmp 		= array_reverse(explode("/", $Temp));
 			$Image 		= "../../../skin/images/profiles/".$Tmp[0];
-			$Profile 	= new ProfileData();
 			$Profile->MoveImage($Image,$Temp);
+		}else{
+			$Image = $Profile->GetDefaultImg();
 		}
 
 		$Title		= htmlentities(strtolower($_POST['title']));
@@ -71,7 +73,7 @@ switch(strtolower($_POST['action']))
 	break;
 	case 'delete':
 		$ID	= $_POST['id'];
-		$DB->execQuery('update','admin_profile',"status = 'I'","admin_id=".$ID);
+		$DB->execQuery('update','admin_profile',"status = 'I'","profile_id=".$ID);
 		die;
 	break;
 
