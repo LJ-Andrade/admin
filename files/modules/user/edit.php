@@ -64,50 +64,50 @@
             <div class="row animated bounceInRight switchuser">
                   <span class="userstatustit">Estado:</span>
                   <?php $Checked = $AdminData['status']=='A'? 'checked="checked"':''; ?>
-                  <input type="checkbox" class="centered" name="status" id="status" data-on-text="Activo" data-off-text="Inactivo" data-size="large" data-label-width="auto" <?php echo $Checked; ?> >                                     
+                  <input type="checkbox" class="centered" name="status" id="status" data-on-text="Activo" data-off-text="Inactivo" data-size="large" data-label-width="auto" <?php echo $Checked; ?> >
             </div>
            <!--   Generic Img and AddImg Div       -->
            <div id="itemimg" class="itemimgmain">
-              <div class="row"> 
+              <div class="row">
                 <div class="col-xs-6 col-md-3 addimgdiv">
                   <div id="file"><img src="../../../skin/images/users/mas.jpg" class="img-responsive thumbimgadd animated fadeInUp thumbimg"></div>
                   <input type="file" name="img" id="img" />
                 </div>
                 <div class="col-xs-6 col-md-3 addimgdiv">
                   <img src="../../../skin/images/products/genericproduct.png" class="img-responsive thumbimg animated fadeInUp">
-                </div>   
+                </div>
                 <div class="col-xs-6 col-md-3 addimgdiv">
                   <img src="../../../skin/images/products/cod1.jpg" class="img-responsive thumbimg animated fadeInUp">
-                </div>   
+                </div>
                 <div class="col-xs-6 col-md-3 addimgdiv">
                   <img src="../../../skin/images/products/cod2.jpg" class="img-responsive thumbimg animated fadeInUp">
                 </div>
                 </div>
-                <div class="row"> 
+                <div class="row">
                 <div class="col-xs-6 col-md-3 addimgdiv">
                   <img src="../../../skin/images/products/cod3.jpg" class="img-responsive thumbimg animated fadeInUp">
                 </div>
                 <div class="col-xs-6 col-md-3 addimgdiv">
                   <img src="../../../skin/images/products/cod4.jpg" class="img-responsive thumbimg animated fadeInUp">
-                </div>   
+                </div>
                 <div class="col-xs-6 col-md-3 addimgdiv">
                   <img src="../../../skin/images/products/genericproduct.png" class="img-responsive thumbimg animated fadeInUp">
-                </div>   
+                </div>
                 <div class="col-md-3 addimgdiv">
                   <img src="../../../skin/images/products/genericproduct.png" class="img-responsive thumbimg animated fadeInUp">
                 </div>
-              </div>  
-            </div>        
-          </div>   
+              </div>
+            </div>
+          </div>
       </div>
-                 
+
                   <!--  Add Img & Done Button Div  -->
                   <div class="container centrarbtn animated fadeInUp donediv">
-                       <div class="form-group">
-                         <div id="chooseimg" class="masterbtn animated fadeIn "><a href="#" class="" role="button"><i class="fa fa-file-image-o fa-fw"></i> Elegir Im&aacute;gen...</a></div>
-                         <div><a href="#" class="masterbtn" role="button" id="create"><i class="fa fa-check-square-o fa-fw"></i> Modificar Usuario</a></div>
-                       </div>
-                  </div>  
+                     <div class="form-group">
+                       <div id="chooseimg" class="masterbtn animated fadeIn "><a href="#" class="" role="button"><i class="fa fa-file-image-o fa-fw"></i> Elegir Im&aacute;gen...</a></div>
+                       <div><a href="#" class="masterbtn" role="button" id="create"><i class="fa fa-check-square-o fa-fw"></i> Modificar Usuario</a></div>
+                     </div>
+                  </div>
         <!-- /#page-wrapper -->
         </div>
 <!-- /#wrapper -->

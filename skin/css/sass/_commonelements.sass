@@ -70,38 +70,9 @@
 
 /////////////////// NEW USER OR ITEM //////////////////////////////////
 
-.imgCatalogue
-  margin: 0 15px 25px
-  padding-bottom: 20px
-  background-color: rgba($wh, 0.5)
-
-.thumbimg
-  width: 150px
-  margin: 0 auto
-
-.thumbimgadd
-  width: 60px
-  height: 60px
-  margin: 0 auto
-  margin-top: 20px
-  cursor: pointer
-
-.selectImgDiv
-  margin-bottom: 15px
-  margin-top: 20px
-
-.cancelImgDiv
-  margin-bottom: 20px
-  margin-top: -30px
-
-.selectImgTitle
-  margin: 0 15px
-  text-align: center
-  background-color: rgba($wh, 0.8)
-
 //////// Item Creation Window //////////////////////////////////////
 
-.additemdiv
+.additemdiv, .addItemDiv
   max-width: 600px
   background-color: rgba(255,255,255,.4)
   -webkit-box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
@@ -128,6 +99,9 @@
   -webkit-box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
   -moz-box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
   box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
+  .fa
+    color: $mainblue
+
 .donediv
   background-color: rgba(255,255,255,.9)
   padding: 25px 0 10px 0
@@ -137,6 +111,60 @@
   -webkit-box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
   -moz-box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
   box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
+
+.formNewItem,.form-controlusers,.form-controlitems
+  display: block
+  width: 100%
+  height: 34px
+  padding: 6px 12px
+  font-size: 14px
+  line-height: 1.42857
+  color: #555
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s
+  max-width: 100%
+  border: 0
+  border-bottom: 1px solid #39465B
+  background-color: transparent
+
+///////////////////// Images /////////////////////////////
+.AddNewImage
+  transition: all 0.3s ease 0s
+  &:hover
+    -webkit-box-shadow: 0px -2px 5px 1px rgba(0,0,0,0.26)
+    -moz-box-shadow: 0px -2px 5px 1px rgba(0,0,0,0.26)
+    box-shadow: 0px -2px 5px 1px rgba(0,0,0,0.26)
+    filter: brightness(150%)
+
+.imgCatalogue
+  margin: 0 15px 25px
+  padding-bottom: 20px
+  background-color: rgba($wh, 0.5)
+
+.thumbimg
+  width: 150px
+  margin: 0 auto
+
+.thumbimgadd
+  border-radius: 100%
+  width: 80px
+  height: 80px
+  margin: 0 auto
+  margin-top: 20px
+  cursor: pointer
+
+.selectImgDiv
+  margin-bottom: 15px
+  margin-top: 20px
+
+.cancelImgDiv
+  margin-bottom: 20px
+  margin-top: -30px
+
+.selectImgTitle
+  margin: 0 15px
+  text-align: center
+  border: 1px solid rgb(218, 218, 218)
+  background-color: rgba($selectImgTitle, 0.8)
 
 ///////////////////// Buttons ////////////////////////////
 
@@ -175,21 +203,17 @@ a .mainbtn
   top: 0
   margin-top: 5px
   margin-right: 20px
-  border-radius: 100%
   padding: 5px 10px
   border: none
   color: #000
-  background-color: trasparent
+  background-color: #e6e6e6
   &:hover
-    color: #ccc
+    background-color: #dedede
   &:focus, &:active
     box-shadow: 0px 0px 0px
     background-color: trasparent
   .fa
     color: #000
-  &:hover, &:focus, &:active
-    a
-      color: #ccc
 
 /////////// CHECKBOXES ////////////////////////
 .checkboxtree
@@ -442,3 +466,161 @@ a .mainbtn
       border-right: 0px
       padding-right: 5px
       padding-left: 5px
+
+
+/////////////// Item Or Product Overlay /////////////////////////////////
+.wrapOverlayItem
+  width: 87%
+  margin: auto
+  padding: 0 10px
+  overflow: hidden
+
+.overlayItem
+  max-width: 277px
+  h2,h3,h4,p,span
+    color: #000
+    text-align: left
+    font-weight: 300
+    font-size: 14px
+  span
+    font-size: 14px
+    font-weight: 300
+    color: #000
+  img
+    max-width: 100%
+
+
+.overlayDetails
+  padding: 10px 15px 0
+  margin-top: 40px
+  hr
+    margin-top: 5px
+    margin-bottom: 5px
+    border: 0
+    border-top: 1px solid #c1c1c1
+  &:hover
+    cursor: pointer
+.more:link, .more:visited
+  transition-duration: 0.2s
+  transition-timing-function: ease-out
+
+.show
+  width: 100%
+  height: 100%
+  float: left
+  overflow: hidden
+  position: relative
+  text-align: center
+  cursor: default
+  background: #fff
+  display: block
+  .mask
+    width: 100%
+    height: 100%
+    position: absolute
+    overflow: hidden
+    top: 0
+    left: 0
+
+.aspect
+  position: relative
+  padding-bottom: 120%
+  height: 0
+  overflow: hidden
+
+.overlay1
+  a.more
+    display: inline-block
+    text-decoration: none
+    padding: 7px 14px
+    background: #FFF
+    color: #222
+    text-transform: uppercase
+    box-shadow: 0 0 1px #000
+    position: relative
+    border: 1px solid #999
+    &:hover
+      box-shadow: 0 0 5px #000
+  img
+    transition: all 0.2s linear
+  .mask
+    opacity: 0
+    background-color: rgba(255,255,255, 0.7)
+    transition: all 0.4s ease-in-out
+  h2
+    color: #f2f2f2
+    margin-top: 10%
+    opacity: 0
+    transition: all 0.2s ease-in-out
+    background: rgba(0,0,0,0.7)
+  p
+    opacity: 0
+    transition: all 0.2s linear
+  a.info
+    opacity: 0
+    transition: all 0.2s ease-in-out
+  &:hover
+    // img
+    //  transform: scale(1.1)
+    .mask
+      opacity: 1
+    h2,p,a.info
+      opacity: 1
+    p
+      transition-delay: 0.1s
+    a.info
+      transition-delay: 0.2s
+.OnOffDiv
+  position: absolute
+  background-color: #fff
+  padding: 15px 0
+  top: 0
+  left: 0
+  right: 0
+  .bootstrap-switch .bootstrap-switch-label
+    background-color: #ccc
+  .bootstrap-switch
+    border: 1px solid #a4a4a4
+  .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary
+    background-color: $mainblue
+
+.switchDiv
+  .bootstrap-switch .bootstrap-switch-label
+    background-color: #ccc
+  .bootstrap-switch
+    border: 1px solid #a4a4a4
+  .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary
+    background-color: $mainblue
+
+@media only screen and (max-width: 767px)
+  .wrapOverlayItem
+    width: 100%
+    margin: auto
+    overflow: hidden
+
+  .mobile-clear
+    clear: both
+
+.circles
+  text-align: left
+  ul
+    list-style: none
+    display: inline-block
+    margin: 0
+    margin-left: 15px
+    li
+      display: inline-block
+
+.circle
+  width: 20px
+  height: 20px
+  border-radius: 100%
+
+/////////////////////// Del Mod ////////////////////////////////
+.delModDiv
+  position: absolute
+  background-color: #fff
+  padding: 10px 0
+  bottom: 0
+  left: 0
+  right: 0

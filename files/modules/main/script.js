@@ -30,6 +30,27 @@ $(document).ready(function() {
     {
         welcomeMessage();
     }
+    /// Bootstrap Switch ///
+    $("[name='status']").bootstrapSwitch();
 });
 
 
+
+///////////// Show User Img Selector /////////////////////
+$(function (){
+		$('#imgsToSelect').hide();
+		$('#cancelSelectImgBtn').hide();
+
+		$('#selectImgBtn').click(function() {
+					$('#newInputs').hide( 500 );
+					$('#imgsToSelect').show( 500 );
+					$('#selectImgBtn').hide();
+					$('#cancelSelectImgBtn').fadeIn( 400 );
+		});
+		$('#cancelSelectImgBtn').click(function() {
+					$('#newInputs').show( 500 );
+					$('#imgsToSelect').hide( 500 );
+					$('#selectImgBtn').show();
+					$('#cancelSelectImgBtn').hide();
+		});
+});
