@@ -12,14 +12,11 @@
       <?php echo insertElement("hidden","action",'insert'); ?>
       <?php echo insertElement("hidden","profileimage",''); ?>
       <?php echo insertElement("hidden","menues",''); ?>
-        <div class="container additemdiv animated fadeIn">
+        <div class="windowHead"><h3><i class="fa fa-plus-square" aria-hidden="true"></i> Agregar Nuevo Item</h3></div>
+        <div class="container animated fadeIn additemdiv">
           <div class="col-sm-12 form-box formitems">
-            <div class="additemtit">
-              <div class="maintitle"><h4 class="maintitletxt">Agregar Nuevo Perfil</h4></div>
-            </div>
             <div class="row">
               <div class="col-md-3 form-group animated bounceInLeft">
-
               </div>
               <div class="col-md-6 form-group animated bounceInLeft">
                 <?php echo insertElement('text','title','','form-first-name form-controlusers text-center','placeholder="Nombre del perfil" tabindex="1" validateEmpty="El nombre es obligatorio." validateMinLength="3/El nombre debe contener 3 caracteres como mínimo." validateFromFile="process.php/El perfil ya existe/action:=validate"'); ?>

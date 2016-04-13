@@ -13,37 +13,35 @@
     <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
     <?php echo insertElement("hidden","action","insert"); ?>
     <!-- New Menu Window -->
-    <div class="container additemdiv animated fadeIn">
+    <div class="windowHead"><h3><i class="fa fa-plus-square" aria-hidden="true"></i> Agregar Nuevo Men&uacute;</h3></div>
+    <div class="container animated fadeIn additemdiv">
       <div class="col-sm-12 form-box formitems">
-        <div class="additemtit">
-          <div class="maintitle"><h4 class="maintitletxt">Agregar Nuevo Men&uacute;</h4></div>
-        </div>
         <div class="row">
           <div class="col-md-6 form-group animated bounceInLeft">
-            <?php echo insertElement("text","title",'',"form-first-name form-controlusers",'placeholder="Título del Menú" validateEmpty="El título es obligatorio." tabindex="1"'); ?>
+            <?php echo insertElement("text","title",'',"form-first-name formNewItem",'placeholder="Título del Menú" validateEmpty="El título es obligatorio." tabindex="1"'); ?>
           </div>
           <div class="col-md-6 form-group animated bounceInRight">
-            <?php echo insertElement("text","link",'',"form-first-name form-controlusers",'placeholder="Link" tabindex="2"'); ?>
+            <?php echo insertElement("text","link",'',"form-first-name formNewItem",'placeholder="Link" tabindex="2"'); ?>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6 form-group animated bounceInLeft">
             <div class="form-group">
-              <?php echo insertElement('select','parent','','form-controlusers','tabindex="3"',$DB->fetchAssoc('menu','menu_id,title',"","title"),'0','Men&uacute; Principal'); ?>
+              <?php echo insertElement('select','parent','','formNewItem','tabindex="3"',$DB->fetchAssoc('menu','menu_id,title',"","title"),'0','Men&uacute; Principal'); ?>
             </div>
           </div>
           <div class="col-md-6 form-group animated bounceInRight">
             <div class="form-group">
-              <?php echo insertElement('select','status','','form-controlusers','tabindex="4"',$Status,'','','A'); ?>
+              <?php echo insertElement('select','status','','formNewItem','tabindex="4"',$Status,'','','A'); ?>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6 form-group animated bounceInLeft">
-            <?php echo insertElement('text','position','','form-first-name form-controlusers','tabindex="5" placeholder="Posici&oacute;n"'); ?>
+            <?php echo insertElement('text','position','','form-first-name formNewItem','tabindex="5" placeholder="Posici&oacute;n"'); ?>
           </div>
           <div class="col-md-6 form-group animated bounceInRight">
-            <?php echo insertElement('text','icon','','form-first-name form-controlusers','tabindex="6" placeholder="&Iacute;cono"'); ?>
+            <?php echo insertElement('text','icon','','form-first-name formNewItem','tabindex="6" placeholder="&Iacute;cono"'); ?>
           </div>
         </div>
         <div class="row">

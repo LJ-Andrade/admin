@@ -12,11 +12,10 @@
   <div id="wrapper"><!--  Wrapper -->
     <div class="container-fluid">
       <h4 class="mainTitle">Listado de Categorías de Productos</h4>
-        <div class="glasscontainer1 optionsdiv">
+        <div class="glassListRow optionsdiv">
           <span id="delselected" class="delselected animated slideInDown"><i class="fa fa-trash"></i> Eliminar seleccionadas</span>
           <a href="new.php"><button class="mainbtn"><i class="fa fa-user-plus"></i> Agregar Categoría</button></a>
         </div>
-
         <!-- List View -->
         <div id="viewlist" class="row">
           <!-- Titles  -->
