@@ -63,8 +63,43 @@
                     $Product = new Product($Product['product_id']);
                     $Image = $Product->getFirstImage();
             ?>
+            <!-- Item 1 -->
+            <div id="product<?php echo $Product->ID; ?>" class="col-md-4 col-sm-6 col-xs-12 col-centered overlayItem">
+              <div class="show overlay1">
+                <img src="<?php echo $Image['src']; ?>" />
+                <div class="mask">
+                  <div class="OnOffDiv">
+                    <?php $Checked = $Product->Data['status']=='A'? 'checked="checked"':''; ?>
+                    <?php echo insertElement('checkbox','gridstatus'.$Product->ID,'','col-md-8 col-xs-12 centered SwitchCheckbox ChangeStatus',' target="'.$Product->ID.'" data-on-text="Activa" data-off-text="Pausada"  data-label-width="auto" data-size="mini" '.$Checked); ?>
+                  </div>
+                  <div class="overlayDetails">
+                  <h3><strong><span id="title<?php echo $Product->ID; ?>"><?php echo $Product->Data['title']; ?></span>(<?php echo $Product->Data['code']; ?>)</strong></h3>
+                    <hr>
+                    <p><?php echo $Product->Data['description']; ?></p>
+                    <h4><strong>Composición:</strong> <?php echo $Product->Data['model']; ?></h4>
+                    <h4><strong>Talles:</strong> <?php echo $Product->Data['size']; ?></h4>
+                    <div class="circles">
+                      <span><strong>Colores:</strong></span>
+                                <ul>
+                                    <li><div class="circle" style="background-color: #fff"></div></li>
+                                    <li><div class="circle" style="background-color: #c17996"></div></li>
+                                    <li><div class="circle" style="background-color: #768754"></div></li>
+                                    <li><div class="circle" style="background-color: #5643a0"></div></li>
+                                </ul>
+                            </div>
+                    <h4><strong>Precio:</strong> $<?php echo money_format('%.2n', $Product->Data['price']); ?></h4>
+                  </div>
+                  <div class="delModDiv">
+                    <a href="edit.php?id=<?php echo $Product->ID ?>"><button type="button" name="button" class="btn mainbtn"><i class="fa fa-pencil"></i></button></a>
+                    <a href="#" class="deleteElement" deleteElement="<?php echo $Product->ID ?>" deleteParent="list<?php echo $Product->ID ?>/product<?php echo $Product->ID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el producto '<?php echo $Product->Data['title']; ?>'?" successText="El producto '<?php echo $Product->Data['title'] ?>' ha sido eliminado correctamente"><button type="button" name="button" class="btn mainbtn mainbtnred"><i class="fa fa-trash"></i></button></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /Item 1 -->
+
             <!--    Items (Grid)   -->
-            <div id="product<?php echo $Product->ID; ?>" class="col-md-2 col-sm-6 col-xs-12 col-centered animated bounceInUp itemdiv">
+            <!-- <div id="product<?php echo $Product->ID; ?>" class="col-md-2 col-sm-6 col-xs-12 col-centered animated bounceInUp itemdiv">
                 <div class="row itemstatus">
                     <p class="col-md-4 col-xs-12 itemstattxt">Publicaci&oacute;n: </p>
                     <?php $Checked = $Product->Data['status']=='A'? 'checked="checked"':''; ?>
@@ -105,7 +140,7 @@
                         </div>
                     </div>
                 </div>
-            </div> <!-- /Item (Grid) -->
+            </div> --> <!-- /Item (Grid) -->
             <?php } ?>
         </div>  <!-- /Grid View -->
 
@@ -172,7 +207,7 @@
                                 <li class="btndel deleteElement" deleteElement="<?php echo $Product->ID ?>" deleteParent="list<?php echo $Product->ID ?>/product<?php echo $Product->ID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el producto '<?php echo $Product->Data['title']; ?>'?" successText="El producto '<?php echo $Product->Data['title'] ?>' ha sido eliminado correctamente"><i class="fa fa-fw fa-trash"></i></li>
                                 <li>
                                     <?php $Checked = $Product->Data['status']=='A'? 'checked="checked"':''; ?>
-                                    <?php echo insertElement('checkbox','liststatus'.$Product->ID,'','centered SwitchCheckbox status',' target="'.$Product->ID.'" data-on-text="Activa" data-off-text="Pausada"  data-label-width="auto" data-size="mini" '.$Checked); ?>
+                                    <?php echo insertElement('checkbox','liststatus'.$Product->ID,'','centered SwitchCheckbox status ChangeStatus',' target="'.$Product->ID.'" data-on-text="Activa" data-off-text="Pausada"  data-label-width="auto" data-size="mini" '.$Checked); ?>
                                 </li>
                             </ul>
                         </div>

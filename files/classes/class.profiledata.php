@@ -65,62 +65,6 @@ class ProfileData extends DataBase
 		return $List;
 	}
 
-	public function MakeTree($Parent=0)
-	{
-		$CheckedMenues 	= $this->GetCheckedMenues();
-		$Menues			= $this->fetchAssoc('menu','*',"parent_id = ".$Parent." AND status <> 'I'","position");
-		$Display 		= in_array($Parent,$CheckedMenues)? '':'display:none;';
-		$HTML 			= $Parent == 0? '<ul>': '<ul style="margin-left:1em;'.$Display.'" id="parent'.$Parent.'">';
-		$Parents 		= $this->GetParents();
-
-		foreach($Menues as $Menu)
-		{
-			$IsParent 	= in_array($Menu['menu_id'],$Parents);
-
-			$Arrow		= $IsParent? ' style="cursor:pointer;" ' : '';
-			if(in_array($Menu['menu_id'],$CheckedMenues))
-			{
-				$Checked 	= ' checked="checked" ';
-				$Disabled 	= '';
-			}else{
-				$Disabled 	= $Parent != 0 && !in_array($Parent,$CheckedMenues)? ' disabled="disabled" ':'';
-				$Checked = '';
-			}
-
-			$HTML		.= '<li>'.insertElement('checkbox','menu'.$Menu['menu_id'],$Menu['menu_id'],'TreeCheckbox checkbox-custom','value="'.$Menu['menu_id'].'"'.$Disabled.$Checked).'<label class="checkbox-custom-label" for="menu'.$Menu['menu_id'].'"></label><span id="menu'.$Menu['menu_id'].'" '.$Arrow.' class="TreeElement"> '.$Menu['title'].'</span></li>';
-			if($IsParent)
-			{
-				$HTML	.= $this->MakeTree($Menu['menu_id']);
-			}
-		}
-
-		return $HTML.'</ul>';
-	}
-
-	public function MakeNewTree($Parent=0)
-	{
-		$Menues	= $this->fetchAssoc('menu','*',"parent_id = ".$Parent." AND status <> 'I'","position");
-		$HTML 	= $Parent == 0? '<ul>': '<ul style="margin-left:1em;display:none;" id="parent'.$Parent.'">';
-
-		foreach($Menues as $Menu)
-		{
-			$Parents 	= $this->GetParents();
-			$IsParent 	= in_array($Menu['menu_id'],$Parents);
-
-			$Arrow		= $IsParent? ' style="cursor:pointer;" ' : '';
-			$Disabled 	= $Parent != 0? ' disabled="disabled" ':'';
-
-			$HTML	.= '<li>'.insertElement('checkbox','menu'.$Menu['menu_id'],$Menu['menu_id'],'TreeCheckbox checkbox-custom','value="'.$Menu['menu_id'].'"'.$Disabled).'<label class="checkbox-custom-label" for="menu'.$Menu['menu_id'].'"></label><span id="menu'.$Menu['menu_id'].'" '.$Arrow.' class="TreeElement" "> '.$Menu['title'].'</span></li>';
-			if($IsParent)
-			{
-				$HTML	.= $this->MakeNewTree($Menu['menu_id']);
-			}
-		}
-
-		return $HTML.'</ul>';
-	}
-
-
 	public function GetCheckedMenues()
 	{
 		if(count($this->Menues)<1)
@@ -134,29 +78,16 @@ class ProfileData extends DataBase
 		return $this->Menues;
 	}
 
-	public function GetParents()
-	{
-		if(count($this->Parents)<1)
-		{
-			$Parents	= $this->fetchAssoc('menu','DISTINCT(parent_id)',"parent_id <> 0 AND status <> 'I'");
-			foreach($Parents as $Parent)
-			{
-				$this->Parents[] = $Parent['parent_id'];
-			}
-		}
-		return $this->Parents;
-	}
-
-	public function IsDisabled($ParentID)
-	{
-		return in_array($ParentID,$this->Menues) ? '' : ' disabled="disabled" ';
-	}
-
 	public function GetRelations()
 	{
 		if(!$this->Relations)
 			$this->Relations = $this->fetchAssoc('relation_menu_profile','*',"profile_id = ".$this->ID);
 		return $this->Relations;
+	}
+
+	public function IsDisabled($ParentID)
+	{
+		return in_array($ParentID,$this->Menues) ? '' : ' disabled="disabled" ';
 	}
 
 	public function MoveImage($New,$Temp,$Old='')

@@ -22,7 +22,7 @@ switch(strtolower($_POST['action']))
 		$ProfileID	= $_POST['profile'];
 		$Status		= $_POST['status']=="on"? 'A': 'I';
 		$Groups		= $_POST['group_id'] ? explode(",",$_POST['group_id']) : array();
-		$Menues		= $_POST['menu'] ? explode(",",$_POST['menu']) : array();
+		$Menues		= $_POST['menues'] ? explode(",",$_POST['menues']) : array();
 		
 		$Insert		= $DB->execQuery('insert','admin_user','user,password,first_name,last_name,email,status,profile_id,img',"'".$User."','".$Password."','".$FirstName."','".$LastName."','".$Email."','".$Status."','".$ProfileID."','".$Image."'");
 		$AdminID 	= $DB->GetInsertId();
@@ -87,7 +87,7 @@ switch(strtolower($_POST['action']))
 		$ProfileID	= $_POST['profile'];
 		$Status		= $_POST['status']=="on"? 'A': 'I';
 		$Groups		= $_POST['group'] ? explode(",",$_POST['group_id']) : array();
-		$Menues		= $_POST['menu'] ? explode(",",$_POST['menu']) : array();
+		$Menues		= $_POST['menues'] ? explode(",",$_POST['menues']) : array();
 
 		$Insert		= $DB->execQuery('update','admin_user',"user='".$User."'".$PasswordFilter.",first_name='".$FirstName."',last_name='".$LastName."',email='".$Email."',status='".$Status."',profile_id='".$ProfileID."'".$ImgFilter,"admin_id=".$ID);
 		//echo $DB->lastQuery();

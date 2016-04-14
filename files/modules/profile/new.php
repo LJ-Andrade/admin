@@ -3,7 +3,8 @@
     $Head->setTitle("Nuevo Perfil");
     $Head->setHead();
 
-    $Profile = new ProfileData();
+    $Profile  = new ProfileData();
+    $MenuTree = new Menu();
 
 ?>
 <body>
@@ -12,7 +13,7 @@
       <?php echo insertElement("hidden","action",'insert'); ?>
       <?php echo insertElement("hidden","profileimage",''); ?>
       <?php echo insertElement("hidden","menues",''); ?>
-        <div class="windowHead"><h3><i class="fa fa-plus-square" aria-hidden="true"></i> Agregar Nuevo Item</h3></div>
+        <div class="windowHead"><h3><i class="fa fa-plus-square" aria-hidden="true"></i> Crear Perfil</h3></div>
         <div class="container animated fadeIn additemdiv">
           <div class="col-sm-12 form-box formitems">
             <div class="row">
@@ -31,7 +32,7 @@
                 <img src="<?php echo $Profile->GetDefaultImg(); ?>" width="200" height="200" id="profileimg" />
               </div>
               <div class="col-md-6 form-group animated bounceInBottom treediv" id="ProfileTree">
-                <?php echo $Profile->MakeNewTree(); ?>
+                <?php echo $MenuTree->MakeNewTree(); ?>
               </div>
 
             </div>

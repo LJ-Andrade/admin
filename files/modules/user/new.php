@@ -3,6 +3,8 @@
     $Head->setTitle("Nuevo Usuario");
     $Head->setHead();
 
+    $MenuTree = new Menu();
+
     $Groups[1] = "Pepe";
     $Groups[2] = "Pepe2";
     $Groups[3] = "Pepe3";
@@ -12,6 +14,7 @@
   <div id="wrapper">
     <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
     <?php echo insertElement("hidden","action",'insert'); ?>
+    <?php echo insertElement("hidden","menues",''); ?>
       <div class="windowHead"><h3>Agregar Nuevo Usuario</h3></div>
       <div class="container additemdiv animated fadeIn">
         <div class="col-sm-12 form-box formitems">
@@ -59,6 +62,7 @@
               </div>
             </div>
           </div>
+
           <!-- /Inputs -->
           <!-- Imgs To select -->
           <div id="imgsToSelect" class="row ">
@@ -99,6 +103,14 @@
             <button id="selectImgBtn" class="btn mainbtn">Seleccionar Im&aacute;gen</button>
           </div>
         </div>
+        <!-- Menu Tree -->
+        <div class="row">
+          <div class="col-md-12 form-group animated bounceInBottom treediv" id="ProfileTree">
+            Permisos:
+            <?php echo $MenuTree->MakeNewTree(); ?>
+          </div>
+        </div>
+        <!-- /Menu Tree -->
       </div>
       <!-- Create User Button Div  -->
       <div class="container animated fadeInUp donediv">

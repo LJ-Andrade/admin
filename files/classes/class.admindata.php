@@ -2,22 +2,22 @@
 
 class AdminData extends DataBase
 {
-	var		$AdminID;
-	var		$FirstName;
-	var		$LastName;
-	var		$FullName;
-	var 	$FullUserName;
-	var		$ProfileID;
-	var		$ProfileName;
-	var		$User;
-	var		$Img;
-	var 	$AdminData;
-	var 	$DefaultImg	= '../../../skin/images/body/pictures/user.jpg';
-	var 	$LastAccess;
-	var 	$Where 		= "";
-	var 	$Groups 	= array();
-	var 	$Parent 	= array();
-	var 	$Menues 	= array();
+	var	$AdminID;
+	var	$FirstName;
+	var	$LastName;
+	var	$FullName;
+	var $FullUserName;
+	var	$ProfileID;
+	var	$ProfileName;
+	var	$User;
+	var	$Img;
+	var $AdminData;
+	var $DefaultImg	= '../../../skin/images/body/pictures/user.jpg';
+	var $LastAccess;
+	var $Where 		= "";
+	var $Groups 	= array();
+	var $Parent 	= array();
+	var $Menues 	= array();
 	
 	public function __construct($AdminID='')
 	{
@@ -186,11 +186,16 @@ class AdminData extends DataBase
 
 	public function GetCheckedMenues()
 	{
-		$Relations	= $this->fetchAssoc('menu_exception','*',"admin_id = ".$this->AdminID);
-		foreach($Relations as $Relation)
+		if(count($this->Menues)<1)
 		{
-			$this->Menues[]	= $Relation['menu_id'];
+			$Relations	= $this->fetchAssoc('menu_exception','*',"admin_id = ".$this->AdminID);
+			foreach($Relations as $Relation)
+			{
+				$this->Menues[]	= $Relation['menu_id'];
+			}
 		}
+		return $this->Menues;
+
 	}
 
 	public function GetParents()
@@ -206,7 +211,6 @@ class AdminData extends DataBase
 	{
 		return in_array($ParentID,$this->Menues) ? '' : ' disabled="disabled" ';
 	}
-	
 }
 
 

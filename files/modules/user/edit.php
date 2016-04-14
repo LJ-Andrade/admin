@@ -4,6 +4,9 @@
     $AdminEdit  = new AdminData($Admin_id);
     $AdminData  = $AdminEdit->GetData();
 
+    $MenuTree = new Menu();
+    $MenuTree->SetCheckedMenues($AdminEdit->GetCheckedMenues());
+
     $Title = "Modificar usuario '".$AdminEdit->FullName."'";
 
     $Head->setTitle("Modificar Usuario");
@@ -19,6 +22,7 @@
     <div id="page-wrapper">
       <?php echo insertElement("hidden","action",'update'); ?>
       <?php echo insertElement("hidden","id",$Admin_id); ?>
+      <?php echo insertElement("hidden","menues",''); ?>
         <!-- Filtros -->
         <div class="container additemdiv animated fadeIn">
           <div class="col-sm-12 form-box formitems">
@@ -98,8 +102,16 @@
                 </div>
               </div>
             </div>
+            <!-- Menu Tree -->
+            <div class="row">
+              <div class="col-md-12 form-group animated bounceInBottom treediv" id="ProfileTree">
+                Permisos:
+                <?php echo $MenuTree->MakeTree(); ?>
+              </div>
+            </div>
+            <!-- /Menu Tree -->
           </div>
-      </div>
+        </div>
 
                   <!--  Add Img & Done Button Div  -->
                   <div class="container centrarbtn animated fadeInUp donediv">

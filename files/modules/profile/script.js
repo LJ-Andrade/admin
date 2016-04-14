@@ -40,68 +40,6 @@ $(function(){
 		}
 	});
 
-	////////////// Profile Tree /////////////////
-	function disableChildrens(parent)
-	{
-		parent.children('li').children('input').attr("disabled",true);
-		parent.children('ul').each(function(){
-			disableChildrens($(this));
-		});
-		parent.children('li').children('input').attr("checked",false);
-	}
-
-	function enableChildrens(parent)
-	{
-		parent.children('li').children('input').attr("disabled",false);
-		// parent.children('ul').each(function(){
-		// 	enableChildrens($(this));
-		// });
-	}
-
-	function getCheckedMenues()
-	{
-		var values = '';
-		$(".TreeCheckbox").each(function(){
-			if($(this).is(":checked"))
-				if(values=='')
-					values = $(this).val();
-				else
-					values = values + ',' + $(this).val();
-		});
-		$("#menues").val(values);
-	}
-
-	$(document).ready(function(){
-		getCheckedMenues();
-	});
-
-	$(function(){
-        $(".TreeElement").click(function(){
-        	var elem = $(this).parent().next("ul");
-        	if(elem.hasClass('Hidden'))
-        	{
-        		elem.removeClass('Hidden');
-	        	elem.toggle();
-	        	elem.slideToggle();
-        	}else{
-        		elem.slideToggle();
-        	}
-        });
-        $(".TreeCheckbox").click(function(){
-        	var childMenu = $('#parent'+$(this).val());
-        	if($(this).is(':checked'))
-        	{
-        		if(!childMenu.is(':visible'))
-        			$(this).parent().children('.TreeElement').click();
-        		enableChildrens(childMenu);
-        	}else{
-        		childMenu.children('li').children('input').attr("disabled",true);
-        		disableChildrens(childMenu);
-        	}
-					getCheckedMenues();
-        });
-      });
-
 	///////////////////////////////////// Load Image ///////////////////////////
 $("#profileimg").click(function(){
 	$("#image").click();

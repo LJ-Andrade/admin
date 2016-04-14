@@ -2,6 +2,8 @@
     include("../../includes/inc.main.php");
     $ID = $_GET['id'];
     $Edit  = new ProfileData($ID);
+    $MenuTree = new Menu();
+    $MenuTree->SetCheckedMenues($Edit->GetCheckedMenues());
     $Data  = $Edit->GetData();
 
     $Title = "Modificar perfil '".$Data['title']."'";
@@ -41,7 +43,7 @@
                 <img src="<?php echo $Data['image']; ?>" width="200" height="200" class="<?php echo $Hidden ?>" id="profileimg" class="img-responsive imgBox" />
               </div>
               <div class="col-md-5 form-group animated bounceInBottom" id="ProfileTree">
-                <?php echo $Edit->MakeTree(); ?>
+                <?php echo $MenuTree->MakeTree(); ?>
               </div>
             </div>
             <!-- PROFILE TREE -->

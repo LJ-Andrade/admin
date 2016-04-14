@@ -12,7 +12,7 @@ $(document).ready(function() {
 
 /////////////////////////////////// Change Bootstrap Swtich Status on Grid and List Simultaneously //////////////////////////
 $(function(){
-  $(".SwitchCheckbox").on("switchChange.bootstrapSwitch",function(event,state){
+  $(".ChangeStatus").on("switchChange.bootstrapSwitch",function(event,state){
     if(!$(this).hasClass('Changed'))
     {
       var checkBox  = $(this);
