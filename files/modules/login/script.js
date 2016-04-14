@@ -36,9 +36,9 @@ function sumbitLogin(){
 
 $(function(){
 	$(".ButtonLogin").click(function(){
-		//if(validate.validateFields('')){
+		if(validate.validateFields('')){
 			sumbitLogin();
-		//}
+		}
 	});
 	
 	$("input").keypress(function(e){

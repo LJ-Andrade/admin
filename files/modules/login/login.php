@@ -17,11 +17,11 @@
             <form class="formulog">
                 <div class="logindatos">
                     <div class="col-md-12 loguser">
-                        <label for="login"><i class="fa fa-fw fa-user"></i><b> Usuario</b></label>
+                        <i class="fa fa-fw fa-user"></i><b> Usuario</b>
                         <input type="text" name="user" id="user" placeholder="Ingresar usuario" value="<?php echo $_COOKIE['rememberuser'];?>">
                     </div>
                     <div class="col-md-12 logpass">
-                        <label for="login"><i class="fa fa-fw fa-unlock"></i><b> Contrase&ntilde;a</b></label>
+                        <i class="fa fa-fw fa-unlock"></i><b> Contrase&ntilde;a</b>
                         <input type="password" name="password" id="password" placeholder="Ingresar contrase&ntilde;a" value="<?php echo $_COOKIE['rememberpassword'];?>">
                     </div>
                     <div class="col-md-12 loginbtndiv" align="center">
