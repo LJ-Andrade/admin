@@ -282,28 +282,28 @@ class Menu extends DataBase
 		return $HTML.'</ul>';
 	}
 
-	public function MakeNewTree($Parent=0)
-	{
-		$Menues	= $this->fetchAssoc('menu','*',"parent_id = ".$Parent." AND status <> 'I'","position");
-		$HTML 	= $Parent == 0? '<ul>': '<ul style="margin-left:1em;display:none;" id="parent'.$Parent.'">';
-
-		foreach($Menues as $Menu)
-		{
-			$Parents 	= $this->GetParents();
-			$IsParent 	= in_array($Menu['menu_id'],$Parents);
-
-			$Arrow		= $IsParent? ' style="cursor:pointer;" ' : '';
-			$Disabled 	= $Parent != 0? ' disabled="disabled" ':'';
-
-			$HTML	.= '<li>'.insertElement('checkbox','menu'.$Menu['menu_id'],$Menu['menu_id'],'TreeCheckbox checkbox-custom','value="'.$Menu['menu_id'].'"'.$Disabled).'<label class="checkbox-custom-label" for="menu'.$Menu['menu_id'].'"></label><span id="menu'.$Menu['menu_id'].'" '.$Arrow.' class="TreeElement" "> '.$Menu['title'].'</span></li>';
-			if($IsParent)
-			{
-				$HTML	.= $this->MakeNewTree($Menu['menu_id']);
-			}
-		}
-
-		return $HTML.'</ul>';
-	}
+	// public function MakeNewTree($Parent=0)
+	// {
+	// 	$Menues	= $this->fetchAssoc('menu','*',"parent_id = ".$Parent." AND status <> 'I'","position");
+	// 	$HTML 	= $Parent == 0? '<ul>': '<ul style="margin-left:1em;display:none;" id="parent'.$Parent.'">';
+	//
+	// 	foreach($Menues as $Menu)
+	// 	{
+	// 		$Parents 	= $this->GetParents();
+	// 		$IsParent 	= in_array($Menu['menu_id'],$Parents);
+	//
+	// 		$Arrow		= $IsParent? ' style="cursor:pointer;" ' : '';
+	// 		$Disabled 	= $Parent != 0? ' disabled="disabled" ':'';
+	//
+	// 		$HTML	.= '<li>'.insertElement('checkbox','menu'.$Menu['menu_id'],$Menu['menu_id'],'TreeCheckbox checkbox-custom','value="'.$Menu['menu_id'].'"'.$Disabled).'<label class="checkbox-custom-label" for="menu'.$Menu['menu_id'].'"></label><span id="menu'.$Menu['menu_id'].'" '.$Arrow.' class="TreeElement" "> '.$Menu['title'].'</span></li>';
+	// 		if($IsParent)
+	// 		{
+	// 			$HTML	.= $this->MakeNewTree($Menu['menu_id']);
+	// 		}
+	// 	}
+	//
+	// 	return $HTML.'</ul>';
+	// }
 
 	public function GetParents()
 	{

@@ -202,8 +202,6 @@ $(function(){
 		}
 	});
 
-
-
 	// Hover Effect
 	$('.userMainSection').hover(function() {
 		$(this).addClass('userHover');
@@ -213,7 +211,6 @@ $(function(){
 		$(this).removeClass('userHover');
 	});
 
-
 ////////////////// User Creation Window /////////////////////////
 
 	// Insert Img
@@ -221,12 +218,12 @@ $(function(){
 	var fileInput = $(':file').wrap(wrapper);
 
 	fileInput.change(function(){
-	    $this = $(this);
-	    $('#file').text($this.val());
+	  $this = $(this);
+	  $('#file').text($this.val());
 	})
 
 	$('#file').click(function(){
-	    fileInput.click();
+	  fileInput.click();
 	}).show();
 
 	// Active Paused Product Switch

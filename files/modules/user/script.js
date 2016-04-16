@@ -1,4 +1,4 @@
-/* 
+/*
 $(window).scroll(function(){
   $('#wrapper')[0].scrollTop=$(window).scrollTop();
 });*/
@@ -50,7 +50,7 @@ $(function(){
             		var id 		= elem.attr('deleteElement');
             		var parents = elem.attr('deleteParent').split("/");
             		var process = elem.attr('deleteProcess');
-	                
+
                 	var string      = 'id='+ id + '&action=delete';
                 	console.log(elem);
 			        var data;
@@ -97,7 +97,7 @@ $(function(){
 		});
 
 		$('div[id="viewgrid"]').hide( 500 );
-		$('div[id="viewlist"]').show( 500 ); 
+		$('div[id="viewlist"]').show( 500 );
 		$("#viewlistbt").hide();
 		$("#viewgridbt").show( 0 );
 		$('#delselected').hide();
@@ -108,7 +108,7 @@ $(function(){
 			$(this).removeClass('deleteThis');
 			$(this).removeClass('listselect');
 		});
-		$('div[id="viewgrid"]').show( 500 ); 
+		$('div[id="viewgrid"]').show( 500 );
 		$('div[id="viewlist"]').hide( 500 );
 		$("#viewgridbt").hide();
 		$("#viewlistbt").show( 0 );
@@ -120,7 +120,7 @@ $(function(){
 
  // Del & Mod User Icons appearing onclick
 $(function(){
-	$('.userButtons').hide(); 	
+	$('.userButtons').hide();
 	$('.usergral').click(function() {
 		$(this).find('.userButtons').toggle();
 		$(this).find('.userMainSection').toggleClass("usergralselect", 500);
@@ -140,7 +140,7 @@ $(function(){
 			}else{
 				totalSelected++;
 			}
-				
+
 		});
 		if(totalSelected>1 && !admDelBtn){
 			$('#delselected').show();
@@ -161,7 +161,7 @@ $(function(){
 			}else{
 				totalSelected++;
 			}
-				
+
 		});
 		if(totalSelected>1 && !admDelBtn){
 			$('#delselected').show();
@@ -198,7 +198,7 @@ $(function(){
 	// 		.bind("selectstart", function () {
 	// 			return false;
 	// 		});
-	
+
 	// $(document).mouseup(function () {isMouseDown = false;});
 
 
@@ -224,36 +224,17 @@ $(function(){
 ///////// Responsivity List View //////////////////////////////////
 
  if (screen.width < 1200) {
-					$(".titlist4, .col4listus, .titlist5, .col5listus").hide();
-					}
-					else {
+		$(".titlist4, .col4listus, .titlist5, .col5listus").hide();
+		}
+		else {
 
-					$(".titlist4, .col4listus, .titlist5, .col5listus").show();
-					}
+		$(".titlist4, .col4listus, .titlist5, .col5listus").show();
+		}
 
- if (screen.width < 490) {
-					$(".viewlist").hide();
-					}
-					else {
-					$(".viewgrid").show();
-					}
-});
-
-///////////// Show User Img Selector /////////////////////
-$(function (){
-		$('#imgsToSelect').hide();
-		$('#cancelSelectImgBtn').hide();
-		
-		$('#selectImgBtn').click(function() {
-					$('#newInputs').hide( 500 );
-					$('#imgsToSelect').show( 500 );
-					$('#selectImgBtn').hide();
-					$('#cancelSelectImgBtn').fadeIn( 400 );
-		});
-		$('#cancelSelectImgBtn').click(function() {
-					$('#newInputs').show( 500 );
-					$('#imgsToSelect').hide( 500 );
-					$('#selectImgBtn').show();
-					$('#cancelSelectImgBtn').hide();
-		});
+	if (screen.width < 490) {
+		$(".viewlist").hide();
+		}
+		else {
+		$(".viewgrid").show();
+		}
 });

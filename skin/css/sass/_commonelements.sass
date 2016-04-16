@@ -72,28 +72,15 @@
 
 //////// Item Creation Window //////////////////////////////////////
 
-.additemdiv, .addItemDiv
-  max-width: 600px
-  background-color: rgba(255,255,255,.4)
-  -webkit-box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
-  -moz-box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
-  box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
-  padding-top: 20px
-.addItemTit
-  text-align: center
-  background-color: #fff
-  max-width: 600px
-  margin: 0 auto
-  h3
-    color: $additemtit
-    text-align: center
-.itemimgmain
-  padding: 30px 0 20px 0
+$addItemWidth: 800px
+
+.maxW
+  max-width: $addItemWidth
 
 .windowHead
   background-color: rgba(255,255,255,.9)
   padding: 10px 0
-  max-width: 600px
+  max-width: $addItemWidth
   margin: 0 auto
   text-align: center
   -webkit-box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
@@ -102,15 +89,43 @@
   .fa
     color: $mainblue
 
+.additemdiv, .addItemDiv
+  max-width: $addItemWidth
+  background-color: rgba(255,255,255,.4)
+  -webkit-box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
+  -moz-box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
+  box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
+  padding-top: 20px
+  padding-bottom: 20px
+.addItemTit
+  text-align: center
+  background-color: #fff
+  max-width: $addItemWidth
+  margin: 0 auto
+  h3
+    color: $additemtit
+    text-align: center
+
 .donediv
   background-color: rgba(255,255,255,.9)
   padding: 25px 0 10px 0
-  max-width: 600px
+  max-width: $addItemWidth
   margin: 0 auto
   text-align: center
   -webkit-box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
   -moz-box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
   box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
+
+.addItemSizesTit
+  hr
+    margin: 5px 0
+    border: 1px solid rgba(0, 0, 0, 0.4)
+
+.addItemDescription
+  background-color: $innerwindow
+  padding: 5px 10px
+.itemimgmain
+  padding: 30px 0 20px 0
 
 .formNewItem,.form-controlusers,.form-controlitems
   display: block
@@ -127,47 +142,145 @@
   background-color: transparent
 
 ///////////////////// Images /////////////////////////////
-.AddNewImage
-  transition: all 0.3s ease 0s
+.selectImgMain
+  background-color: $innerwindow
+  padding: 20px
+  div
+    h4
+      margin-top: 0
+      margin-bottom: 15px
+
+.mainSelectedImg
+  max-width: 150px
+
+.carouselDiv
+  margin-bottom: 15px
+
+.imagesDiv
+  padding: 20px 10px
+
+.item
   &:hover
+    cursor: pointer
+.thumbImg
+  width: 100px
+  height: 100px
+
+.thumbImgSelect
+  img
     -webkit-box-shadow: 0px -2px 5px 1px rgba(0,0,0,0.26)
     -moz-box-shadow: 0px -2px 5px 1px rgba(0,0,0,0.26)
     box-shadow: 0px -2px 5px 1px rgba(0,0,0,0.26)
-    filter: brightness(150%)
+    filter: brightness(110%)
+    border: 5px solid white
+    z-index: 1
 
-.imgCatalogue
-  margin: 0 15px 25px
-  padding-bottom: 20px
-  background-color: rgba($wh, 0.5)
-
-.thumbimg
-  width: 150px
-  margin: 0 auto
-
-.thumbimgadd
-  border-radius: 100%
-  width: 80px
-  height: 80px
-  margin: 0 auto
-  margin-top: 20px
+.eraseImgX
+  position: absolute
+  right: 14px
   cursor: pointer
+  background-color: #fff
+  z-index: 999
+  i
+    padding: 8px
+  &:hover
+    color: $mainred
 
-.selectImgDiv
-  margin-bottom: 15px
-  margin-top: 20px
+.changeImg
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  margin: auto
+  width: 6%
+  height: 30%
+  .fa
+    font-size: 35px
+    color: white
+  &:hover
+    cursor: pointer
 
-.cancelImgDiv
-  margin-bottom: 20px
-  margin-top: -30px
+.mainImgSelected
+  cursor: pointer
+  border-radius: 100%
+  width: 150px
+  height: 150px
+  margin: 0 auto
 
-.selectImgTitle
-  margin: 0 15px
-  text-align: center
-  border: 1px solid rgb(218, 218, 218)
-  background-color: rgba($selectImgTitle, 0.8)
+.carousel-inner .active.left
+  left: -25%
+.carousel-inner .next
+  left: 25%
+.carousel-inner .prev
+  left: -3%
+.carousel-control
+  margin-top: 25px
+  width: 4%
+  .fa
+    color: #000
+.carousel-control.left,.carousel-control.right
+  margin-left: -1px
+  background-image: none
+
+
+
+
+/// Ver ////
+//
+// .imgCatalogue
+//   margin: 0 15px 25px
+//   padding-bottom: 20px
+//   background-color: rgba($wh, 0.5)
+//
+// .thumbimg
+//   width: 150px
+//   margin: 0 auto
+//
+// .AddNewImage,.thumbimgadd
+//   border-radius: 100%
+//   width: 80px
+//   height: 80px
+//   margin: 0 auto
+//   margin-top: 20px
+//   cursor: pointer
+//   transition: all 0.3s ease 0s
+//   &:hover
+//     -webkit-box-shadow: 0px -2px 5px 1px rgba(0,0,0,0.26)
+//     -moz-box-shadow: 0px -2px 5px 1px rgba(0,0,0,0.26)
+//     box-shadow: 0px -2px 5px 1px rgba(0,0,0,0.26)
+//     filter: brightness(150%)
+//
+// .selectImgDiv
+//   margin-bottom: 15px
+//   margin-top: 20px
+//
+// .cancelImgDiv
+//   margin-bottom: 20px
+//   margin-top: -30px
+//
+// .selectImgTitle
+//   margin: 0 15px
+//   text-align: center
+//   border: 1px solid rgb(218, 218, 218)
+//   background-color: rgba($selectImgTitle, 0.8)
+//
+// .imgSelected
+//   -webkit-box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.75)
+//   -moz-box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.75)
+//   box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.75)
+//   border: 6px solid white
+//
+// .addImgDiv
+//   margin: 0 auto
+//   text-align: center
+//
+// #profileimg
+//   border-radius: 100%
+//   box-shadow: 3px 3px 25px 1px
+//   margin-left: 50px
 
 ///////////////////// Buttons ////////////////////////////
-
 .mainbtn
   padding: 5px 10px
   margin: 2px 2px
@@ -196,6 +309,19 @@ a .mainbtn
     box-shadow: 0px 0px 0px
     background-color: $mainredhover
 
+.acceptBtnDiv,.acceptBtnImgDiv
+  text-align: center
+.acceptBtn
+  position: absolute
+  right: 0
+  bottom: 0
+  padding: 5px 10px
+  margin: 20px
+  border: none
+  color: #000
+
+.switchRight
+  padding-top: 10px
 ///
 .closeBtn
   position: absolute
@@ -215,7 +341,28 @@ a .mainbtn
   .fa
     color: #000
 
-/////////// CHECKBOXES ////////////////////////
+/////////// TREES / CHECKBOXES ////////////////////////////
+
+.treeDivContainer
+  background-color: $innerwindow
+  padding: 20px 20px 0
+
+.checkboxDiv
+  padding: 20px
+  background-color: rgba(255, 255, 255,.7)
+  ul
+    margin: 0 auto
+    li
+      max-width: 200px
+      margin: 3px 0
+      padding: 2px 0
+      background-color: rgba(255, 255, 255,.7)
+      border: 1px solid rgb(200, 200, 200)
+      margin: 0 auto
+  label
+    font-size: 14px
+    font-weight: 400
+
 .checkboxtree
   max-width: 250px
   text-align: left
@@ -244,20 +391,21 @@ a .mainbtn
       background: #056e90
       box-shadow: inset 0px 0px 0px 4px #fff
 
-.ourcheckbox, .ourradio
+
+.checkbox-custom, .radio-custom
   opacity: 0
   position: absolute
 
-.ourcheckbox, .ourcheckbox-label, .ourradio, .ourradio-label
+.checkbox-custom, .checkbox-custom-label, .radio-custom, .radio-custom-label
   display: inline-block
   vertical-align: middle
-  margin: 5px
+  margin: 1px 5px
   cursor: pointer
 
-.ourcheckbox-label, .ourradio-label
+.checkbox-custom-label, .radio-custom-label
   position: relative
 
-.ourcheckbox + .ourcheckbox-label:before, .ourradio + .ourradio-label:before
+.checkbox-custom + .checkbox-custom-label:before, .radio-custom + .radio-custom-label:before
   content: ''
   background: #fff
   border: 2px solid #ddd
@@ -269,14 +417,39 @@ a .mainbtn
   margin-right: 10px
   text-align: center
 
-.ourcheckbox:checked + .ourcheckbox-label:before
+.checkbox-custom:checked + .checkbox-custom-label:before
   background: #056e90
   box-shadow: inset 0px 0px 0px 4px #fff
 
-#profileimg
-  border-radius: 100%
-  box-shadow: 3px 3px 25px 1px
-  margin-left: 50px
+
+  // .ourcheckbox, .ourradio
+  //   opacity: 0
+  //   position: absolute
+  //
+  // .ourcheckbox, .ourcheckbox-label, .ourradio, .ourradio-label
+  //   display: inline-block
+  //   vertical-align: middle
+  //   margin: 5px
+  //   cursor: pointer
+  //
+  // .ourcheckbox-label, .ourradio-label
+  //   position: relative
+  //
+  // .ourcheckbox + .ourcheckbox-label:before, .ourradio + .ourradio-label:before
+  //   content: ''
+  //   background: #fff
+  //   border: 2px solid #ddd
+  //   display: inline-block
+  //   vertical-align: middle
+  //   width: 20px
+  //   height: 20px
+  //   padding: 2px
+  //   margin-right: 10px
+  //   text-align: center
+  //
+  // .ourcheckbox:checked + .ourcheckbox-label:before
+  //   background: #056e90
+  //   box-shadow: inset 0px 0px 0px 4px #fff
 
 
 ////////////// LIST VIEW //////////////////////////////////////////
@@ -592,6 +765,9 @@ a .mainbtn
   .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary
     background-color: $mainblue
 
+.switchHead
+  padding-top: 10px
+
 @media only screen and (max-width: 767px)
   .wrapOverlayItem
     width: 100%
@@ -616,6 +792,13 @@ a .mainbtn
   height: 20px
   border-radius: 100%
 
+.circlesAddItem
+  margin-top: 20px
+
+.circleAddItem
+  width: 30px
+  height: 30px
+
 /////////////////////// Del Mod ////////////////////////////////
 .delModDiv
   position: absolute
@@ -624,3 +807,9 @@ a .mainbtn
   bottom: 0
   left: 0
   right: 0
+
+/////////////// Effects ///////////////////////////////////////////
+.shadow
+  -webkit-box-shadow: 0px -2px 5px 1px rgba(0,0,0,0.26)
+  -moz-box-shadow: 0px -2px 5px 1px rgba(0,0,0,0.26)
+  box-shadow: 0px -2px 5px 1px rgba(0,0,0,0.26)

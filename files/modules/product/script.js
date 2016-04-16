@@ -8,8 +8,6 @@ $(document).ready(function() {
     $('#showitemfilters').removeClass('Hidden');
 });
 
-
-
 /////////////////////////////////// Change Bootstrap Swtich Status on Grid and List Simultaneously //////////////////////////
 $(function(){
   $(".ChangeStatus").on("switchChange.bootstrapSwitch",function(event,state){
@@ -55,13 +53,13 @@ $(function(){
     }
   });
 });
-    
+
 ///////// Switch Viewmode ////////////////////////
 
 $(function(){
     $('div[id="viewlist"]').hide();
 });
-    
+
 //////////////////////// Submit Data ////////////////////////////////////
 $(function(){
   $("#create").click(function(){
@@ -101,15 +99,15 @@ fileInput.change(function(){
 $('#file').click(function(){
     fileInput.click();
 }).show();
-    
+
 
 ///////////////////////   Del Selected  //////////////////////////////////////////
 
-$(document).ready(function() { 
-      $('#delselected').hide();
-      $(".listrow").click(function() {
-            $('#delselected').show ( 0 );
-       });
+$(document).ready(function() {
+  $('#delselected').hide();
+  $(".listrow").click(function() {
+      $('#delselected').show ( 0 );
+   });
 });
 
 // Select multiple rows
@@ -139,3 +137,30 @@ $(document)
    });
 });
 
+///////////// Show User Img Selector /////////////////////
+$(function (){
+	$('#imgsToSelect').hide();
+	$('#cancelSelectImgBtn').hide();
+
+	$('#selectImgBtn').click(function() {
+		$('#newInputs').hide( 500 );
+		$('#imgsToSelect').show( 500 );
+		$('#selectImgBtn').hide();
+		$('#cancelSelectImgBtn').fadeIn( 400 );
+	});
+	$('#cancelSelectImgBtn').click(function() {
+  		$('#newInputs').show( 500 );
+  		$('#imgsToSelect').hide( 500 );
+  		$('#selectImgBtn').show();
+  		$('#cancelSelectImgBtn').hide();
+  });
+});
+
+//////////// Select Img /////////////////////////////////////
+
+$( ".Selecteable" ).click(function() {
+  $( this ).toggleClass( "imgSelected" );
+});
+
+/// Bootstrap Switch ///
+$("[name='status']").bootstrapSwitch();

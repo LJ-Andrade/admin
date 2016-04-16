@@ -31,8 +31,8 @@
               <div class="col-md-6 form-group animated bounceInBottom">
                 <img src="<?php echo $Profile->GetDefaultImg(); ?>" width="200" height="200" id="profileimg" />
               </div>
-              <div class="col-md-6 form-group animated bounceInBottom treediv" id="ProfileTree">
-                <?php echo $MenuTree->MakeNewTree(); ?>
+              <div class="col-md-6 form-group animated bounceInBottom treeDiv" id="ProfileTree">
+                <?php echo $MenuTree->MakeTree(); ?>
               </div>
 
             </div>

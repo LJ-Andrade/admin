@@ -122,6 +122,7 @@
                 <a href="#"><button type="button" name="button" class="btn mainbtn"> Button</button></a>
                 <a href="#"><button type="button" name="button" class="btn mainbtn"> Button <i class="fa fa-hand-spock-o"></i></button></a>
                 <a href="#"><button type="button" name="button" class="btn mainbtn"><i class="fa fa-hand-spock-o"></i> Button</button><br></a>
+                <a href="#"><button type="button" name="button" class="btn mainbtn acceptBtn"><i class="fa fa-hand-spock-o"></i> Button</button><br></a>
                 <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred"> Button Red</button></a>
                 <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred"> Button Red <i class="fa fa-hand-spock-o"></i></button></a>
                 <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred"><i class="fa fa-hand-spock-o"></i> Button Red</button></a>
@@ -132,11 +133,32 @@
                 <a href="#"><button type="button" name="button" class="btn closeBtn"><i class="fa fa-times"></i></button></a>
               </div>
               <!-- /Buttons -->
+              <!-- checkboxes -->
+
+                <div class="col-md-12 democheck checkboxDiv">
+                  <ul>
+                    <li><input id="sizeXS" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeXS"><span>Item1</span></li>
+                    <li><input id="sizeS" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeS"><span>Item2</span></li>
+                    <li><input id="sizeM" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeM"><span>Item3</span></li>
+                  </ul>
+                </div>
+
+              <!-- checkboxes -->
             </div>
+
+            <br><br>
           </div>
 
           <!-- New Item Window -->
-          <div class="windowHead"><h3><i class="fa fa-plus-square" aria-hidden="true"></i> Agregar Nuevo Item</h3></div>
+          <!-- WindowHead -->
+          <div class="row windowHead">
+            <div class="col-md-6 col-xs-12">
+              <h3><i class="fa fa-plus-square" aria-hidden="true"></i> Agregar Nuevo Item</h3>
+            </div>
+            <div class="col-md-6 col-xs-12 switchDiv switchHead">
+              <input type="checkbox" name="status" id="status" data-on-text="Activo" data-off-text="Inactivo" data-size="mini" data-label-width="auto">
+            </div>
+          </div><!-- /WindowHead -->
           <div class="container animated fadeIn addItemDiv">
             <div class="col-sm-12 form-box formitems">
               <!-- Inputs -->
@@ -161,7 +183,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-6 animated bounceInRight switchuser">
+                <div class="col-md-6 animated bounceInRight">
                   <div class="col-md-12 userstatustit">Estado</div>
                   <div class="col-md-12"><input type="checkbox" class="centered" name="status" id="status" data-on-text="Activo" data-off-text="Inactivo" data-size="large" data-label-width="auto" checked>
                   </div>
@@ -169,7 +191,7 @@
               </div>
               <!-- /Inputs -->
               <!-- Imgs To select -->
-              <div id="imgsToSelect" class="row ">
+              <div id="imgsToSelect" class="row">
                 <div class="row selectImgTitle">
                   <h4>Elija una im&aacute;gen</h4>
                   <button id="cancelSelectImgBtn" class="btn closeBtn"><i class="fa fa-times"></i></button>
