@@ -767,51 +767,50 @@ function utf8_decode (str_data) {
 
 
 ///////////// Show User Img Selector Div /////////////////////
-$('#imgsToSelect').hide();
-$('#cancelSelectImgBtn').hide();
-
-$(function (){
-	$('#selectImgBtn').click(function() {
-		$('#newInputs').hide( 500 );
-		$('#imgsToSelect').show( 500 );
-		$('#selectImgBtn').hide();
-		$('#cancelSelectImgBtn').fadeIn( 400 );
-	});
-	$('#cancelSelectImgBtn').click(function() {
-		$('#newInputs').show( 500 );
-		$('#imgsToSelect').hide( 500 );
-		$('#selectImgBtn').show();
-		$('#cancelSelectImgBtn').hide();
-	});
-});
+// $('#imgsToSelect').hide();
+// $('#cancelSelectImgBtn').hide();
+//
+// $(function (){
+// 	$('#selectImgBtn').click(function() {
+// 		$('#newInputs').hide( 500 );
+// 		$('#imgsToSelect').show( 500 );
+// 		$('#cancelSelectImgBtn').fadeIn( 400 );
+// 	});
+// 	$('#cancelSelectImgBtn').click(function() {
+// 		$('#newInputs').show( 500 );
+// 		$('#imgsToSelect').hide( 500 );
+// 		$('#selectImgBtn').show();
+// 		$('#cancelSelectImgBtn').hide();
+// 	});
+// });
 
 ///////////////// Images Selector /////////////////////////////
-  $('#myCarousel').carousel({
-    pause: true,
-    interval: false
-  })
-
-  $('.carousel .item').each(function(){
-      var next = $(this).next();
-      if (!next.length) {
-        next = $(this).siblings(':first');
-      }
-      next.children(':first-child').clone().appendTo($(this));
-
-      for (var i=0;i<2;i++) {
-        next=next.next();
-        if (!next.length) {
-        	next = $(this).siblings(':first');
-      	}
-
-        next.children(':first-child').clone().appendTo($(this));
-      }
-    });
-
-    $('.carousel-control').hide();
-      $('.carouselDiv').hover(function() {
-        $(".carousel-control").toggle( 300 );
-      });
+  // $('#myCarousel').carousel({
+  //   pause: true,
+  //   interval: false
+  // })
+  //
+  // $('.carousel .item').each(function(){
+  //     var next = $(this).next();
+  //     if (!next.length) {
+  //       next = $(this).siblings(':first');
+  //     }
+  //     next.children(':first-child').clone().appendTo($(this));
+  //
+  //     for (var i=0;i<2;i++) {
+  //       next=next.next();
+  //       if (!next.length) {
+  //       	next = $(this).siblings(':first');
+  //     	}
+  //
+  //       next.children(':first-child').clone().appendTo($(this));
+  //     }
+  //   });
+  //
+  //   $('.carousel-control').hide();
+  //     $('.carouselDiv').hover(function() {
+  //       $(".carousel-control").toggle( 300 );
+  //     });
 
     ///////// Delete X Appearing Over Img Carousel ////////////
     $('.eraseImgX').hide();
@@ -828,29 +827,43 @@ $(function (){
       $(this).toggleClass('thumbImgSelect');
     })
 
-    $('.changeImg').hide();
+
     $('.selectImgMain').hide();
+// Show Modify Icon Main Image On Hover
+    $('.changeImg').hide();
     $('.mainImgDiv').hover(function() {
       $('.mainImgSelected').toggleClass('shadow');
       $(".changeImg").toggle();
     });
 
-    $('.mainImgDiv').click(function() {
+// Open Img Select Div
+    $('#selectImgBtn').click(function() {
       $('#newInputs').hide( 500 );
       $('.selectImgMain').delay( 500 ).show( 500 );
     })
 
-    $('.acceptBtnImgDiv').click(function() {
+// User Close Img Select Div
+    $('#acceptBtnImg').click(function() {
       $('.selectImgMain').slideUp();
       $("#newInputs").delay( 800 ).show( 500 );
-    });
-
-    $('.acceptBtnDiv').click(function() {
-      $('.treeDivRow').hide();
-      $("#newInputs").show();
+      $("#selectImgBtn").show( );
     });
 
     $('#cancelImgChange').click(function() {
       $('.selectImgMain').hide( 400 );
       $('#newInputs').show( 500 );
+    });
+
+    ////////////////////// Drag And Drop ///////////////////////////
+    $(function() {
+      $('.sortable').sortable();
+      $('.handles').sortable({
+        handle: 'span'
+      });
+      $('.connected').sortable({
+        connectWith: '.connected'
+      });
+      $('.exclude').sortable({
+        items: ':not(.disabled)'
+      });
     });

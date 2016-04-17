@@ -8,7 +8,15 @@
     <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
     <?php echo insertElement("hidden","action",'insert'); ?>
     <!-- New Item Window -->
-    <div class="windowHead"><h3><i class="fa fa-plus-square" aria-hidden="true"></i> Agregar Nuevo Producto</h3></div><!-- WindowHead (Title) -->
+    <!-- WindowHead -->
+    <div class="row windowHead">
+      <div class="col-md-6 col-xs-12">
+        <h3><i class="fa fa-plus-square" aria-hidden="true"></i> Agregar Nuevo Producto</h3>
+      </div>
+      <div class="col-md-6 col-xs-12 switchDiv switchHead">
+        <input type="checkbox" name="status" id="status" data-on-text="Activo" data-off-text="Inactivo" data-size="mini" data-label-width="auto">
+      </div>
+    </div><!-- /WindowHead -->
     <div class="container animated fadeIn addItemDiv">
       <div class="col-sm-12 form-box formitems">
         <!-- Inputs -->
@@ -78,56 +86,22 @@
             </form>
           </div>
           <!-- /Character counter -->
-          <div class="col-md-6 animated bounceInRight switchuser">
-            <div class="col-md-12 userstatustit">Estado</div>
-            <div class="col-md-12"><input type="checkbox" class="centered" name="status" id="status" data-on-text="Publicado" data-off-text="Pausado" data-size="mini" data-label-width="auto" checked>
-            </div>
+          <div class="col-md-6 animated bounceInRight text-center"><!-- Select Img Button -->
+            <button id="selectImgBtn" class="btn mainbtn">Seleccionar Im&aacute;gen</button>
+          </div>
+        </div><!-- /Inputs -->
+        <!-- Images -->
+        <div class="row selectImgMain">
+          <?php include 'inc.img.php'; ?><!-- Image Selection -->
+          <button id="cancelImgChange" type="button" name="button" class="btn closeBtn"><i class="fa fa-times"></i></button>
+          <div class="col-md-12 text-center">
+            <a href="#"><button id="acceptBtnImg" type="button" name="button" class="btn mainbtn centrarbtn"><i class="fa fa-check"></i> Aceptar</button><br></a>
           </div>
         </div>
-        <!-- /Inputs -->
-        <!-- Imgs To select -->
-        <div id="imgsToSelect" class="row">
-          <div class="row selectImgTitle">
-            <h4>Elija una im&aacute;gen</h4>
-            <button id="cancelSelectImgBtn" class="btn closeBtn"><i class="fa fa-times"></i></button>
-          </div>
-          <div class="row imgCatalogue">
-            <div class="col-md-3 col-sm-6 col-xs-6">
-              <img src="../../../skin/images/users/mas.jpg" alt="" class="img-responsive thumbimgadd AddNewImage">
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-6">
-              <img src="../../../skin/images/products/genericproduct.png" alt="" class="img-responsive thumbimgadd Selecteable">
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-6">
-              <img src="../../../skin/images/products/cod1.jpg" alt="" class="img-responsive thumbimgadd Selecteable">
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-6">
-              <img src="../../../skin/images/products/cod2.jpg" alt="" class="img-responsive thumbimgadd Selecteable">
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-6">
-              <img src="../../../skin/images/products/cod3.jpg" alt="" class="img-responsive thumbimgadd Selecteable">
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-6">
-              <img src="../../../skin/images/products/cod4.jpg" alt="" class="img-responsive thumbimgadd Selecteable">
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-6">
-              <img src="../../../skin/images/products/cod2.jpg" alt="" class="img-responsive thumbimgadd Selecteable">
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-6">
-              <img src="../../../skin/images/products/cod1.jpg" alt="" class="img-responsive thumbimgadd Selecteable">
-            </div>
-
-          </div>
-          <div class="centrarbtn">
-            <a href="#"><button type="button" name="button" class="btn mainbtn addImgDiv"> Agregar</button></a>
-          </div>
-        </div>
-        <!-- /Imgs To select -->
-        <div class="col-md-6 animated bounceInRight selectImgDiv centrarbtn">
-          <button id="selectImgBtn" class="btn mainbtn">Seleccionar Im&aacute;gen</button>
-        </div>
+        <!-- /Images -->
       </div>
     </div>
+    <?php include 'inc.img.php'; ?><!-- Image Selection -->
     <!-- Create User Button Div  -->
     <div class="container animated fadeInUp donediv">
       <div class="form-group">

@@ -7,4 +7,5 @@
 		<script src="../../js/script.validate.js"></script>
 		<script src="../../js/script.common.js"></script>
 		<script src="../../js/script.alertify.js"></script>
+		<script src="../../js/script.sortable.js"></script><!-- Drag N Drop Testing -->
 		<script src="script.js"></script>

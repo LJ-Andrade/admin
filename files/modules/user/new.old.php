@@ -76,9 +76,41 @@
             <div class="col-md-3 col-sm-12">
               <img src="../../../skin/images/users/usergen.png" class="img-responsive mainSelectedImg">
             </div>
-
+            <div class="col-md-9 carouselDiv">
+              <h4> Seleccione una im&aacute;gen</h4>
+              <div class="carousel slide" id="myCarousel">
+                <div class="carousel-inner">
+                  <div class="item active">
+                    <div class="col-md-3 col-xs-6 ThumbImgDiv">
+                      <div class="eraseImgX"><i class="fa fa-trash"></i></div>
+                      <div class="thumbImg"><img src="../../../skin/images/users/caras1.png" class="img-responsive"></div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="col-md-3 col-xs-6 ThumbImgDiv">
+                      <div class="eraseImgX"><i class="fa fa-trash"></i></div>
+                      <div class="thumbImg"><img src="../../../skin/images/users/caras2.png" class="img-responsive"></div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="col-md-3 col-xs-6 ThumbImgDiv">
+                      <div class="eraseImgX"><i class="fa fa-trash"></i></div>
+                      <div class="thumbImg"><img src="../../../skin/images/users/usergen.png" class="img-responsive"></div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="col-md-3 col-xs-6 ThumbImgDiv">
+                      <div class="eraseImgX"><i class="fa fa-trash"></i></div>
+                      <div class="thumbImg"><img src="../../../skin/images/users/vio.jpg" class="img-responsive"></div>
+                    </div>
+                  </div>
+                </div>
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="fa fa-chevron-right"></i></a>
+              </div>
+            </div>
             <div class="col-md-12 acceptBtnImgDiv">
-              <button id="acceptPermGroup" type="button" name="button" class="btn mainbtn centrarbtn"><i class="fa fa-check"></i> Aceptar</button>
+              <a href="#"><button id="acceptPermGroup" type="button" name="button" class="btn mainbtn centrarbtn"><i class="fa fa-check"></i> Aceptar</button><br></a>
             </div>
           </div>
           <!-- /Images -->
@@ -98,6 +130,7 @@
           </div>
         </div>
         <!-- /Menu Tree -->
+
       </div>
       <!-- Create User Button Div  -->
       <div class="container animated fadeInUp donediv">
@@ -108,4 +141,5 @@
       </div>
       <!-- /Create User Button Div  -->
   </div><!-- /#wrapper -->
+
 <?php $Foot->setFoot(); ?>

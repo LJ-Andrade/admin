@@ -157,7 +157,6 @@ $(function (){
 });
 
 //////////// Select Img /////////////////////////////////////
-
 $( ".Selecteable" ).click(function() {
   $( this ).toggleClass( "imgSelected" );
 });

@@ -1752,24 +1752,14 @@ p .addusertxt:hover {
   height: 150px;
   margin: 0 auto; }
 
-.carousel-inner .active.left {
-  left: -25%; }
-
-.carousel-inner .next {
-  left: 25%; }
-
-.carousel-inner .prev {
-  left: -3%; }
-
-.carousel-control {
-  margin-top: 25px;
-  width: 4%; }
-  .carousel-control .fa {
-    color: #000; }
-
-.carousel-control.left, .carousel-control.right {
-  margin-left: -1px;
-  background-image: none; }
+.dragImgThumb ul li {
+  display: inline;
+  margin: 5px; }
+  .dragImgThumb ul li img {
+    width: 120px;
+    height: 120px; }
+  .dragImgThumb ul li:hover {
+    cursor: move; }
 
 .mainbtn {
   padding: 5px 10px;
@@ -1799,9 +1789,6 @@ a .mainbtn {
   .mainbtnred:focus, .mainbtnred:active {
     box-shadow: 0px 0px 0px;
     background-color: #C06060; }
-
-.acceptBtnDiv, .acceptBtnImgDiv {
-  text-align: center; }
 
 .acceptBtn {
   position: absolute;
@@ -1906,6 +1893,19 @@ a .mainbtn {
 .checkbox-custom:checked + .checkbox-custom-label:before {
   background: #056e90;
   box-shadow: inset 0px 0px 0px 4px #fff; }
+
+.gridly {
+  position: relative;
+  width: 960px; }
+
+.brick.small {
+  width: 140px;
+  height: 140px;
+  background-color: blue; }
+
+.brick.large {
+  width: 300px;
+  height: 300px; }
 
 .listrow {
   margin: 5px 0;
