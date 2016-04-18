@@ -882,84 +882,6 @@ li.message-footer {
 ul.alert-dropdown {
   width: 200px; }
 
-.itemdiv {
-  background-color: #fff;
-  width: 250px;
-  text-align: center;
-  margin: 20px 10px;
-  padding: 0;
-  -webkit-box-shadow: 11px 16px 43px -41px rgba(0, 0, 0, 0.99);
-  -moz-box-shadow: 11px 16px 43px -41px rgba(0, 0, 0, 0.99);
-  box-shadow: 11px 16px 43px -41px rgba(0, 0, 0, 0.99);
-  padding: 0; }
-
-.itemstatus {
-  padding-top: 10px; }
-
-.itemstattxt {
-  text-align: center;
-  margin-left: 10px; }
-
-.itemstatswitch {
-  padding-right: 1px; }
-
-.additemtxt {
-  text-align: center;
-  margin-bottom: 15px; }
-
-.additemimg {
-  max-width: 80px;
-  margin: 0 auto;
-  border-radius: 100%; }
-
-.grid {
-  height: 300px;
-  overflow: hidden;
-  position: relative;
-  height: 280px;
-  overflow: hidden;
-  position: relative; }
-
-.grid_content {
-  background: white;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f7fbfc+0,d9edf2+40,e3e7e8+100 */
-  background: #f7fbfc;
-  background: -moz-linear-gradient(top, #f7fbfc 0%, #d9edf2 40%, #e3e7e8 100%);
-  background: -webkit-linear-gradient(top, #f7fbfc 0%, #d9edf2 40%, #e3e7e8 100%);
-  background: linear-gradient(to bottom, #f7fbfc 0%, #d9edf2 40%, #e3e7e8 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7fbfc', endColorstr='#e3e7e8',GradientType=0 );
-  padding: 10px;
-  position: absolute;
-  bottom: -300px;
-  width: 250px;
-  transition: all 0.5s ease;
-  color: #000; }
-
-.grid_content h3 {
-  font-size: 1.5em;
-  margin-bottom: 0.5em; }
-
-.grid:hover .grid_content {
-  background-color: #fff;
-  bottom: 0; }
-
-.grid1:hover .grid_content {
-  background-color: #fff;
-  bottom: 0; }
-
-.itemdiv .bootstrap-switch {
-  border: 1px solid #ccc; }
-
-.productstatus {
-  text-align: center; }
-
-.itemstatustit {
-  text-align: center;
-  margin-bottom: 12px; }
-
-.priceimgstatus {
-  margin-bottom: 20px; }
-
 .usergral {
   max-width: 220px;
   height: 300px;
@@ -1667,6 +1589,25 @@ p .addusertxt:hover {
   margin: 5px 0;
   border: 1px solid rgba(0, 0, 0, 0.4); }
 
+.addItemSizes {
+  margin: 0;
+  margin-top: 15px; }
+  .addItemSizes ul {
+    padding: 2px; }
+    .addItemSizes ul li {
+      text-align: center;
+      display: inline-block;
+      width: 39px;
+      margin-top: 2px;
+      margin-bottom: 2px;
+      background-color: rgba(255, 255, 255, 0.5); }
+
+.addItemSizes .checkbox-custom, .addItemSizes .checkbox-custom-label, .addItemSizes .radio-custom, .addItemSizes .radio-custom-label {
+  padding-top: 4px; }
+
+.addItemSizes .checkbox-custom + .checkbox-custom-label:before, .addItemSizes .radio-custom + .radio-custom-label:before {
+  border: 0 !important; }
+
 .addItemDescription {
   background-color: rgba(255, 255, 255, 0.2);
   padding: 5px 10px; }
@@ -1688,78 +1629,63 @@ p .addusertxt:hover {
   border-bottom: 1px solid #39465B;
   background-color: transparent; }
 
-.selectImgMain {
-  background-color: rgba(255, 255, 255, 0.2);
-  padding: 20px; }
-  .selectImgMain div h4 {
-    margin-top: 0;
-    margin-bottom: 15px; }
+.selectedImg {
+  margin: 0 auto; }
+  .selectedImg img {
+    width: 200px;
+    transition: all 0.5s ease 0s; }
+    .selectedImg img:hover {
+      cursor: pointer;
+      border: 5px solid white;
+      -webkit-box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.75);
+      box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.75); }
 
-.mainSelectedImg {
-  max-width: 150px; }
-
-.carouselDiv {
-  margin-bottom: 15px; }
-
-.imagesDiv {
-  padding: 20px 10px; }
-
-.item:hover {
-  cursor: pointer; }
-
-.thumbImg {
-  width: 100px;
-  height: 100px; }
-
-.thumbImgSelect img {
-  -webkit-box-shadow: 0px -2px 5px 1px rgba(0, 0, 0, 0.26);
-  -moz-box-shadow: 0px -2px 5px 1px rgba(0, 0, 0, 0.26);
-  box-shadow: 0px -2px 5px 1px rgba(0, 0, 0, 0.26);
-  filter: brightness(110%);
-  border: 5px solid white;
-  z-index: 1; }
+.dragImgPublic ul li:hover {
+  overflow: hidden; }
 
 .eraseImgX {
   position: absolute;
-  right: 14px;
   cursor: pointer;
-  background-color: #fff;
-  z-index: 999; }
+  background-color: #fff; }
   .eraseImgX i {
     padding: 8px; }
-  .eraseImgX:hover {
-    color: #ba4545; }
 
-.changeImg {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: 6%;
-  height: 30%; }
-  .changeImg .fa {
-    font-size: 35px;
-    color: white; }
-  .changeImg:hover {
-    cursor: pointer; }
-
-.mainImgSelected {
-  cursor: pointer;
-  border-radius: 100%;
-  width: 150px;
-  height: 150px;
-  margin: 0 auto; }
-
-.dragImgThumb ul li {
-  display: inline;
-  margin: 5px; }
+.dragImgThumb {
+  margin-top: 20px; }
   .dragImgThumb ul li img {
     width: 120px;
     height: 120px; }
   .dragImgThumb ul li:hover {
     cursor: move; }
+
+.addNewImage span {
+  font-size: 15px;
+  font-weight: 700;
+  margin-left: 10px;
+  margin-top: 5px; }
+.addNewImage img {
+  height: 30px; }
+
+.dragImgPublic {
+  border: 1px solid rgba(37, 147, 176, 0.3);
+  padding: 10px;
+  margin: 10px 0 20px 0; }
+  .dragImgPublic ul li img {
+    width: 120px;
+    height: 120px; }
+
+.dragImgTemp {
+  border: 1px solid rgba(193, 88, 88, 0.3);
+  padding: 10px;
+  margin: 10px 0; }
+  .dragImgTemp img {
+    height: 50px;
+    width: 50px; }
+
+.advancedDragBtn {
+  position: relative;
+  padding: 0; }
 
 .mainbtn {
   padding: 5px 10px;
@@ -1887,7 +1813,7 @@ a .mainbtn {
   width: 20px;
   height: 20px;
   padding: 2px;
-  margin-right: 10px;
+  margin-right: 2px;
   text-align: center; }
 
 .checkbox-custom:checked + .checkbox-custom-label:before {
@@ -1906,6 +1832,171 @@ a .mainbtn {
 .brick.large {
   width: 300px;
   height: 300px; }
+
+.wrapOverlayItem {
+  width: 87%;
+  margin: auto;
+  padding: 0 10px;
+  overflow: hidden; }
+
+.overlayItem {
+  max-width: 277px; }
+  .overlayItem h2, .overlayItem h3, .overlayItem h4, .overlayItem p, .overlayItem span {
+    color: #000;
+    text-align: left;
+    font-weight: 300;
+    font-size: 14px; }
+  .overlayItem span {
+    font-size: 14px;
+    font-weight: 300;
+    color: #000; }
+  .overlayItem img {
+    max-width: 100%; }
+
+.overlayDetails {
+  padding: 10px 15px 0;
+  margin-top: 40px; }
+  .overlayDetails hr {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 0;
+    border-top: 1px solid #c1c1c1; }
+  .overlayDetails:hover {
+    cursor: pointer; }
+
+.more:link, .more:visited {
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out; }
+
+.show {
+  width: 100%;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: default;
+  background: #fff;
+  display: block; }
+  .show .mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0; }
+
+.aspect {
+  position: relative;
+  padding-bottom: 120%;
+  height: 0;
+  overflow: hidden; }
+
+.overlay1 a.more {
+  display: inline-block;
+  text-decoration: none;
+  padding: 7px 14px;
+  background: #FFF;
+  color: #222;
+  text-transform: uppercase;
+  box-shadow: 0 0 1px #000;
+  position: relative;
+  border: 1px solid #999; }
+  .overlay1 a.more:hover {
+    box-shadow: 0 0 5px #000; }
+.overlay1 img {
+  transition: all 0.2s linear; }
+.overlay1 .mask {
+  opacity: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  transition: all 0.4s ease-in-out; }
+.overlay1 h2 {
+  color: #f2f2f2;
+  margin-top: 10%;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  background: rgba(0, 0, 0, 0.7); }
+.overlay1 p {
+  opacity: 0;
+  transition: all 0.2s linear; }
+.overlay1 a.info {
+  opacity: 0;
+  transition: all 0.2s ease-in-out; }
+.overlay1:hover .mask {
+  opacity: 1; }
+.overlay1:hover h2, .overlay1:hover p, .overlay1:hover a.info {
+  opacity: 1; }
+.overlay1:hover p {
+  transition-delay: 0.1s; }
+.overlay1:hover a.info {
+  transition-delay: 0.2s; }
+
+.OnOffDiv {
+  position: absolute;
+  background-color: #fff;
+  padding: 15px 0;
+  top: 0;
+  left: 0;
+  right: 0; }
+  .OnOffDiv .bootstrap-switch .bootstrap-switch-label {
+    background-color: #ccc; }
+  .OnOffDiv .bootstrap-switch {
+    border: 1px solid #a4a4a4; }
+  .OnOffDiv .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary, .OnOffDiv .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary {
+    background-color: #056e90; }
+
+.switchDiv .bootstrap-switch .bootstrap-switch-label {
+  background-color: #ccc; }
+.switchDiv .bootstrap-switch {
+  border: 1px solid #a4a4a4; }
+.switchDiv .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary, .switchDiv .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary {
+  background-color: #056e90; }
+
+.switchHead {
+  padding-top: 10px; }
+
+@media only screen and (max-width: 767px) {
+  .wrapOverlayItem {
+    width: 100%;
+    margin: auto;
+    overflow: hidden; }
+
+  .mobile-clear {
+    clear: both; } }
+.circles {
+  text-align: left; }
+  .circles ul {
+    list-style: none;
+    display: inline-block;
+    margin: 0;
+    margin-left: 15px; }
+    .circles ul li {
+      display: inline-block; }
+
+.circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%; }
+
+.circlesAddItem {
+  margin-top: 20px; }
+
+.circleAddItem {
+  width: 30px;
+  height: 30px; }
+
+.delModDiv {
+  position: absolute;
+  background-color: #fff;
+  padding: 10px 0;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+
+.shadow {
+  -webkit-box-shadow: 0px -2px 5px 1px rgba(0, 0, 0, 0.26);
+  -moz-box-shadow: 0px -2px 5px 1px rgba(0, 0, 0, 0.26);
+  box-shadow: 0px -2px 5px 1px rgba(0, 0, 0, 0.26); }
 
 .listrow {
   margin: 5px 0;
@@ -2110,171 +2201,6 @@ a .mainbtn {
     border-right: 0px;
     padding-right: 5px;
     padding-left: 5px; } }
-.wrapOverlayItem {
-  width: 87%;
-  margin: auto;
-  padding: 0 10px;
-  overflow: hidden; }
-
-.overlayItem {
-  max-width: 277px; }
-  .overlayItem h2, .overlayItem h3, .overlayItem h4, .overlayItem p, .overlayItem span {
-    color: #000;
-    text-align: left;
-    font-weight: 300;
-    font-size: 14px; }
-  .overlayItem span {
-    font-size: 14px;
-    font-weight: 300;
-    color: #000; }
-  .overlayItem img {
-    max-width: 100%; }
-
-.overlayDetails {
-  padding: 10px 15px 0;
-  margin-top: 40px; }
-  .overlayDetails hr {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border: 0;
-    border-top: 1px solid #c1c1c1; }
-  .overlayDetails:hover {
-    cursor: pointer; }
-
-.more:link, .more:visited {
-  transition-duration: 0.2s;
-  transition-timing-function: ease-out; }
-
-.show {
-  width: 100%;
-  height: 100%;
-  float: left;
-  overflow: hidden;
-  position: relative;
-  text-align: center;
-  cursor: default;
-  background: #fff;
-  display: block; }
-  .show .mask {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    overflow: hidden;
-    top: 0;
-    left: 0; }
-
-.aspect {
-  position: relative;
-  padding-bottom: 120%;
-  height: 0;
-  overflow: hidden; }
-
-.overlay1 a.more {
-  display: inline-block;
-  text-decoration: none;
-  padding: 7px 14px;
-  background: #FFF;
-  color: #222;
-  text-transform: uppercase;
-  box-shadow: 0 0 1px #000;
-  position: relative;
-  border: 1px solid #999; }
-  .overlay1 a.more:hover {
-    box-shadow: 0 0 5px #000; }
-.overlay1 img {
-  transition: all 0.2s linear; }
-.overlay1 .mask {
-  opacity: 0;
-  background-color: rgba(255, 255, 255, 0.7);
-  transition: all 0.4s ease-in-out; }
-.overlay1 h2 {
-  color: #f2f2f2;
-  margin-top: 10%;
-  opacity: 0;
-  transition: all 0.2s ease-in-out;
-  background: rgba(0, 0, 0, 0.7); }
-.overlay1 p {
-  opacity: 0;
-  transition: all 0.2s linear; }
-.overlay1 a.info {
-  opacity: 0;
-  transition: all 0.2s ease-in-out; }
-.overlay1:hover .mask {
-  opacity: 1; }
-.overlay1:hover h2, .overlay1:hover p, .overlay1:hover a.info {
-  opacity: 1; }
-.overlay1:hover p {
-  transition-delay: 0.1s; }
-.overlay1:hover a.info {
-  transition-delay: 0.2s; }
-
-.OnOffDiv {
-  position: absolute;
-  background-color: #fff;
-  padding: 15px 0;
-  top: 0;
-  left: 0;
-  right: 0; }
-  .OnOffDiv .bootstrap-switch .bootstrap-switch-label {
-    background-color: #ccc; }
-  .OnOffDiv .bootstrap-switch {
-    border: 1px solid #a4a4a4; }
-  .OnOffDiv .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary, .OnOffDiv .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary {
-    background-color: #056e90; }
-
-.switchDiv .bootstrap-switch .bootstrap-switch-label {
-  background-color: #ccc; }
-.switchDiv .bootstrap-switch {
-  border: 1px solid #a4a4a4; }
-.switchDiv .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary, .switchDiv .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary {
-  background-color: #056e90; }
-
-.switchHead {
-  padding-top: 10px; }
-
-@media only screen and (max-width: 767px) {
-  .wrapOverlayItem {
-    width: 100%;
-    margin: auto;
-    overflow: hidden; }
-
-  .mobile-clear {
-    clear: both; } }
-.circles {
-  text-align: left; }
-  .circles ul {
-    list-style: none;
-    display: inline-block;
-    margin: 0;
-    margin-left: 15px; }
-    .circles ul li {
-      display: inline-block; }
-
-.circle {
-  width: 20px;
-  height: 20px;
-  border-radius: 100%; }
-
-.circlesAddItem {
-  margin-top: 20px; }
-
-.circleAddItem {
-  width: 30px;
-  height: 30px; }
-
-.delModDiv {
-  position: absolute;
-  background-color: #fff;
-  padding: 10px 0;
-  bottom: 0;
-  left: 0;
-  right: 0; }
-
-.shadow {
-  -webkit-box-shadow: 0px -2px 5px 1px rgba(0, 0, 0, 0.26);
-  -moz-box-shadow: 0px -2px 5px 1px rgba(0, 0, 0, 0.26);
-  box-shadow: 0px -2px 5px 1px rgba(0, 0, 0, 0.26); }
-
 .demotittles {
   margin: 50px 10px 20px;
   padding: 10px;

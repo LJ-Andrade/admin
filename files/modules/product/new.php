@@ -21,39 +21,34 @@
       <div class="col-sm-12 form-box formitems">
         <!-- Inputs -->
         <div id="newInputs">
-          <div class="row">
+          <div class="row"><!-- Title & Code -->
             <div class="col-md-6 form-group animated bounceInLeft">
-              <!-- Title  -->
               <input id="" name="user" class="form-first-name formNewItem" placeholder="T&iacute;tulo" type="text">
             </div>
             <div class="col-md-6 form-group animated bounceInLeft">
-              <!-- Code  -->
+
               <input id="" name="user" class="form-first-name formNewItem" placeholder="C&oacute;digo" type="text">
             </div>
           </div>
-          <div class="row">
+          <div class="row"><!-- Composition & Price -->
             <div class="col-md-6 form-group animated bounceInLeft">
-              <!-- Composition (Fabric) -->
               <input id="" name="user" class="form-first-name formNewItem" placeholder="Composici&oacute;n" type="text">
             </div>
             <div class="col-md-6 form-group animated bounceInLeft">
-              <!-- Price -->
               <input id="" name="user" class="form-first-name formNewItem" placeholder="Precio" type="text">
             </div>
           </div>
-          <div class="row">
+          <div class="row"><!-- Sizes & Colors -->
             <div class="col-md-6 form-group animated bounceInRight">
               <div class="addItemSizesTit">
                 <span>Talles</span>
                 <hr>
               </div>
-              <div class="form-group">
-                <ul class="col-md-6">
+              <div class="form-group addItemSizes">
+                <ul>
                   <li><input id="sizeXS" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeXS"><span>XS</span></li>
                   <li><input id="sizeS" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeS"><span>S</span></li>
                   <li><input id="sizeM" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeM"><span>M</span></li>
-                </ul>
-                <ul class="col-md-6">
                   <li><input id="sizeL" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeL"><span>L</span></li>
                   <li><input id="sizeXL" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeXL"><span>XL</span></li>
                   <li><input id="sizeXXL" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeXXL"><span>XXL</span></li>
@@ -75,8 +70,9 @@
               </div>
             </div>
           </div>
-          <!-- Character counter -->
-          <div class="row form-group animated bounceInDown addItemDescription">
+          <!-- Description & To Select Image Link -->
+          <!-- Description (Character counter) -->
+          <div class="col-md-6 form-group animated bounceInDown addItemDescription">
             <form class="form-group">
               <?php echo insertElement('textarea','description',$Data['description'],'form-controlitems textareaitems text-center','placeholder="Descripción" rows="4" maxlength="150"'); ?>
               <div class="remchar"><p> Caracteres restantes: </p></div>
@@ -85,30 +81,49 @@
               </div>
             </form>
           </div>
-          <!-- /Character counter -->
-          <div class="col-md-6 animated bounceInRight text-center"><!-- Select Img Button -->
-            <button id="selectImgBtn" class="btn mainbtn">Seleccionar Im&aacute;gen</button>
+          <!-- /Description (Character counter) -->
+          <div class="col-md-6 animated bounceInRight text-center selectedImg"><!-- Select Img Button -->
+            <span id="selectImgBtn"><img src="../../../skin/images/users/mas.jpg" alt="" /></span>
           </div>
-        </div><!-- /Inputs -->
-        <!-- Images -->
-        <div class="row selectImgMain">
-          <?php include 'inc.img.php'; ?><!-- Image Selection -->
+        </div><!-- /newInputs -->
+        <div class="row selectImgMain"><!-- Images -->
+          <!-- <span id="cancelImgChange" class="eraseImgX"><i class="fa fa-times"></i></span> -->
           <button id="cancelImgChange" type="button" name="button" class="btn closeBtn"><i class="fa fa-times"></i></button>
-          <div class="col-md-12 text-center">
-            <a href="#"><button id="acceptBtnImg" type="button" name="button" class="btn mainbtn centrarbtn"><i class="fa fa-check"></i> Aceptar</button><br></a>
+          <h5>Im&aacute;genes del Producto</h5>
+          <div class="row col-md-12 dragImgPublic">
+            <ul class="connected sortable grid">
+              <li><img src="../../../skin/images/users/mas.jpg" alt="" /></li>
+        			<li><img src="../../../skin/images/users/usergen.png" alt="" /></li>
+        			<li><img src="../../../skin/images/products/7.jpg" alt="" /></li>
+        			<li><img src="../../../skin/images/products/cod1.jpg" alt="" /></li>
+        			<li><img src="../../../skin/images/products/cod2.jpg" alt="" /></li>
+              <li><img src="../../../skin/images/products/cod3.jpg" alt="" /></li>
+        			<li><img src="../../../skin/images/products/cod4.jpg" alt="" /></li>
+        		</ul>
           </div>
-        </div>
-        <!-- /Images -->
-      </div>
-    </div>
-    <?php include 'inc.img.php'; ?><!-- Image Selection -->
-    <!-- Create User Button Div  -->
+          <div class="col-md-12 advancedDragBtn">
+            <button id="adDragBtn" type="button" name="button" class="btn mainbtn advanImgBtn"><i class="fa fa-rocket"></i> Avanzado...</button>
+          </div>
+          <div class="row col-md-12 dragImgTemp">
+            <ul class="connected sortable grid no2">
+        			<li><img src="../../../skin/images/users/usergen.png" alt="" /></li>
+        			<li><img src="../../../skin/images/users/usergen.png" alt="" /></li>
+        			<li><img src="../../../skin/images/users/usergen.png" alt="" /></li>
+        		</ul>
+          </div>
+          <div class="col-md-12 text-center">
+            <button id="acceptBtnImg" type="button" name="button" class="btn mainbtn"><i class="fa fa-check"></i> Aceptar</button>
+          </div>
+        </div><!-- /Images -->
+      </div><!-- /FormItems -->
+
+    </div><!-- /addItemDiv -->
+      <!-- Create User Button Div  -->
     <div class="container animated fadeInUp donediv">
       <div class="form-group">
         <a href="#" class="btn mainbtn" role="button" id=""><i class="fa fa-check-square-o fa-fw"></i> Crear Usuario</a>
         <a href="#" class="btn mainbtn" role="button" id=""><i class="fa fa-plus-square" aria-hidden="true"> </i> Crear y Agregar Otro...</a>
       </div>
-    </div>
-    <!-- /Create User Button Div  -->
+    </div>    <!-- /Create User Button Div  -->
   </div><!-- /#wrapper -->
 <?php $Foot->setFoot(); ?>

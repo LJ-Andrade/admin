@@ -34,7 +34,6 @@
               <div class="col-md-6 form-group animated bounceInBottom treeDiv" id="ProfileTree">
                 <?php echo $MenuTree->MakeTree(); ?>
               </div>
-
             </div>
             <!-- PROFILE TREE -->
           </div>
