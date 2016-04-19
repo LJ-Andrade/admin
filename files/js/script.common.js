@@ -1,7 +1,7 @@
                                             ////// JavaScript Document //////
 
 
-$(document).ready(function() {  
+$(document).ready(function() {
 //////////////////////////////////////////////////// Scrollbar Styles //////////////////////////////////////////////////////
     $("html").niceScroll({cursorwidth: '8px', cursorborder: 0, cursorborderradius: 0, autohidemode: false, zindex: 999, cursorcolor: '#2C3E50', cursoropacitymax: .5 });
 
@@ -15,21 +15,21 @@ $(function(){
         window.history.go(-1);
     });
 
-//////////////////////////////////////////////////// Toggle Grid and List //////////////////////////////////////////////////////     
+//////////////////////////////////////////////////// Toggle Grid and List //////////////////////////////////////////////////////
     $("#viewlistbt").on( "click", function() {
         $('div[id="viewgrid"]').hide( 500 );
-        $('div[id="viewlist"]').show( 500 ); 
+        $('div[id="viewlist"]').show( 500 );
         $("#viewlistbt").addClass('Hidden');
         $("#viewgridbt").removeClass('Hidden');
      });
-    
+
     $("#viewgridbt").on( "click", function() {
-        $('div[id="viewgrid"]').show( 500 ); 
+        $('div[id="viewgrid"]').show( 500 );
         $('div[id="viewlist"]').hide( 500 );
         $("#viewgridbt").addClass('Hidden');
         $("#viewlistbt").removeClass('Hidden');
      });
-        
+
 //////////////////////////////////////////////////// Bootstrap Switch //////////////////////////////////////////////////////
     $(".SwitchCheckbox").bootstrapSwitch();
 
@@ -95,7 +95,23 @@ $(function(){
         });
       });
 
+////////////////// Appear Tree Div ///////////////////////////////
+    $('.treeDivRow').hide();
+
+    $(function () {
+      $("#showTreeDiv").click(function(){
+          $("#newInputs").hide();
+          $(".treeDivRow").fadeIn( 400 );
+      })
+    })
+    $(function () {
+      $("#acceptPermGroup").click(function(){
+        $(".treeDivRow").hide();
+          $("#newInputs").show();
+      })
+    })
 });
+
 
 //////////////////////////////////////////////////// Characters limiter //////////////////////////////////////////////////////
 $('input, textarea').keyup(function() {
@@ -103,10 +119,10 @@ $('input, textarea').keyup(function() {
   var curr = this.value.length;
   var percent = (curr/max) * 100;
   var indicator = $(this).parent().children('.indicator-wrapper').children('.indicator').first();
-   
+
   // Shows characters left
   indicator.children('.current-length').html(max - curr);
-   
+
   // Change colors
   if (percent > 30 && percent <= 50) { indicator.attr('class', 'indicator low'); }
   else if (percent > 50 && percent <= 70) { indicator.attr('class', 'indicator med'); }
@@ -164,7 +180,7 @@ function notifyInfo(msgNotify)
 {
     $.notify({
         // options
-        message: '<div style="text-align:center;">'+msgNotify+'</div>' 
+        message: '<div style="text-align:center;">'+msgNotify+'</div>'
     },{
         // settings
         type: 'info',
@@ -195,7 +211,7 @@ function notifyMsg(typeMsg,msgNotify)
 {
     $.notify({
         // options
-        message: msgNotify 
+        message: msgNotify
     },{
         // settings
         type: typeMsg
@@ -228,7 +244,7 @@ function submitData()
             element = {id:elementID,value:$(this).val()};
             variables[variables.length] = element;
         }
-        
+
     });
 
     $('input[type="checkbox"]:checked').each(function()
@@ -280,7 +296,7 @@ function sumbitFields(process,haveData,noData){
 }
 
 ///////////////////////////////////////////////////// Attach a Selector //////////////////////////////////////////////////
-$(function(){   
+$(function(){
     $("select,input,textarea").change(function(){
         var attach = $(this).attr("attach");
         if(attach){
@@ -325,7 +341,7 @@ $(function(){
         var conText     = utf8_encode($(this).attr("confirmText"));
         var sucText     = utf8_encode($(this).attr("successText"));
         var id          = $(this).attr("deleteElement");
-        
+
         alertify.confirm(utf8_decode(conText), function(e){
             if(e){
                 var result;
@@ -344,11 +360,11 @@ $(function(){
 
     // function listActions(action,id,process,target)
     // {
-        
+
     //     switch(action){
     //         case "view":    window.location.href = target + "?id="+id; break;
     //         case "edit":    window.location.href = target + "?id="+id; break;
-    //         case "delete":  
+    //         case "delete":
     //             alertify.confirm(utf8_decode("¿Desea eliminar este registro?"), function(e){
     //                 if(e){
     //                     var string      = 'id='+ id + '&action=delete';
@@ -362,13 +378,13 @@ $(function(){
     //                                 $("#Row"+id).slideUp();
     //                                 msg.success("Registro eliminado correctamente",5000);
     //                             }
-                                
+
     //                         }
     //                     });
     //                 }else{
     //                     //alertify.error("Has pulsado '" + alertify.labels.cancel + "'");
     //                 }
-    //             }); 
+    //             });
     //             return false;
     //         break;
     //     }
@@ -414,7 +430,7 @@ $(function(){
                 $("#"+pagerid+" #page"+page).addClass(activeclass);
                 $("#BtnFoward"+pagerid).attr("page",parseInt(page)+1);
                 $("#BtnBack"+pagerid).attr("page",parseInt(page)-1);
-                
+
                 switch(page)
                 {
                     case "1":
@@ -462,7 +478,7 @@ $(function(){
         var buttonclass;
         if($(this).hasClass("BtnFoward"))
             buttonclass = "Foward";
-        else 
+        else
             buttonclass = "Back";
         arrayid         = $(this).attr("id").split(buttonclass);
         pagerid         = arrayid[1];
@@ -513,7 +529,7 @@ $(function(){
 
 //////////////////////////////////////////////////// Searcher /////////////////////////////////////////////////////////////////
 
-    
+
     function startSearch(field)
     {
         var parent  = field.parent().parent().parent();
@@ -553,10 +569,10 @@ $(function(){
 
 //////////////////////////////////////////////////// Validation ///////////////////////////////////////////////////////////////
 var validate    = new ValidateFields();
-    
-$(function(){   
+
+$(function(){
     validate.createErrorDivs();
-    
+
     $(validateElements).change(function(){
         validate.validateOneField(this);
     });
@@ -565,14 +581,14 @@ $(function(){
 
 //////////////////////////////////////////////////// Logout ////////////////////////////////////////////////////
 $(function(){
-    
+
         $("#Logout").click(function(){
-            
+
             alertify.confirm(utf8_decode("¿Desea salir del administrador?"), function(e){
                 if(e){
                     var target      = '../login/login.php';
                     var process     = '../login/process.logout.php';
-                    
+
                     $.ajax({
                         type: "POST",
                         url: process,
@@ -586,7 +602,7 @@ $(function(){
                 }
             });
         });
-    
+
 });
 
 
@@ -597,10 +613,10 @@ $(function(){
         $("#File"+$(this).attr("id")).val($(this).val());
         $("#File"+$(this).attr("id")).blur();
     });
-    
-    
+
+
     $("input").click(function(){
-        
+
         if($(this).attr("id").substring(0,4)=="File"){
             $(this).blur();
             $("#"+$(this).attr("id").substring(4)).click();
@@ -634,7 +650,7 @@ function getVars(){
     if(getString[1]){
         var GET = getString[1].split('&');
         var get = {};//This object will be filled with the key-value pairs and returned.
-        
+
         for(var i = 0, l = GET.length; i < l; i++){
             var tmp = GET[i].split('=');
             get[tmp[0]] = unescape(decodeURI(tmp[1]));
@@ -748,3 +764,58 @@ function utf8_decode (str_data) {
 
   return tmp_arr.join('');
 }
+
+/////////////////// IMAGES ////////////////////////////////////////////
+    ///////// Delete X Appearing Over Images ////////////
+
+
+    $('.selectImgMain').hide();
+// Show Modify Icon Main Image On Hover
+    // $('.changeImg').hide();
+    // $('.mainImgDiv').hover(function() {
+    //   $('.mainImgSelected').toggleClass('shadow');
+    //   $(".changeImg").toggle();
+    // });
+
+// Open Img Select Div
+    $('#selectImgBtn').click(function() {
+      $('#newInputs').hide( 500 );
+      $('.selectImgMain').delay( 500 ).show( 500 );
+    })
+
+// User Close Img Select Div
+    $('#acceptBtnImg').click(function() {
+      $('.selectImgMain').slideUp();
+      $("#newInputs").delay( 800 ).show( 500 );
+      $("#selectImgBtn").show( );
+    });
+
+    $('#cancelImgChange').click(function() {
+      $('.selectImgMain').hide( 400 );
+      $('#newInputs').show( 500 );
+      $('#selectImgBtn').show();
+    });
+
+    ////////////////////// Drag And Drop ///////////////////////////
+    $(function() {
+      $('.sortable').sortable();
+      $('.handles').sortable({
+        handle: 'span'
+      });
+      $('.connected').sortable({
+        connectWith: '.connected'
+      });
+      $('.exclude').sortable({
+        items: ':not(.disabled)'
+      });
+    });
+
+  //// Advance Images (Temp) Open or Colapse ////
+    $('.dragImgTemp').hide();
+    $('.advabcedDragBtn').click(function() {
+      $('.dragImgTemp').toggle();
+    })
+
+    $('#adDragBtn').click(function() {
+      $('.dragImgTemp').toggle( 400 );
+    });

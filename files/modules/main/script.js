@@ -3,54 +3,52 @@
 
 function welcomeMessage()
 {
-    notifyInfo('<img src="' + $("#usernametext").children("img").attr("src") + '" class="userloginimg">' +'¡Bienvenido '+ $("#usernametext").text() +'!');
+  notifyInfo('<img src="' + $("#usernametext").children("img").attr("src") + '" class="userloginimg">' +'¡Bienvenido '+ $("#usernametext").text() +'!');
 }
 
 $(function(){
-    $("#oklogmsg").click(function(){
-        welcomeMessage();
-    });
+  $("#oklogmsg").click(function(){
+    welcomeMessage();
+  });
 });
 
 $(document).ready(function() {
-    /// Boton Juira Test borrar despues de probar ///
-    $("#testloader").click(function(){
-        toggleLoader();
-    });
-    $(".juirabtn").click(function(){
-        toggleLoader();
-    });
+  /// Boton Juira Test borrar despues de probar ///
+  $("#testloader").click(function(){
+      toggleLoader();
+  });
+  $(".juirabtn").click(function(){
+      toggleLoader();
+  });
 
 
-    $('#newuser').fadeIn( 500 );
-    $('#newprod').fadeIn( 500 );
-    //$("#oklogmsg").click();
-    //alert(get['msg']);
-    if(get['msg']=='logok')
-    {
-        welcomeMessage();
-    }
-    /// Bootstrap Switch ///
-    $("[name='status']").bootstrapSwitch();
+  $('#newuser').fadeIn( 500 );
+  $('#newprod').fadeIn( 500 );
+  //$("#oklogmsg").click();
+  //alert(get['msg']);
+  if(get['msg']=='logok')
+  {
+      welcomeMessage();
+  }
+  /// Bootstrap Switch ///
+  $("[name='status']").bootstrapSwitch();
 });
-
-
 
 ///////////// Show User Img Selector /////////////////////
 $(function (){
-		$('#imgsToSelect').hide();
-		$('#cancelSelectImgBtn').hide();
+	$('#imgsToSelect').hide();
+	$('#cancelSelectImgBtn').hide();
 
-		$('#selectImgBtn').click(function() {
-					$('#newInputs').hide( 500 );
-					$('#imgsToSelect').show( 500 );
-					$('#selectImgBtn').hide();
-					$('#cancelSelectImgBtn').fadeIn( 400 );
-		});
-		$('#cancelSelectImgBtn').click(function() {
-					$('#newInputs').show( 500 );
-					$('#imgsToSelect').hide( 500 );
-					$('#selectImgBtn').show();
-					$('#cancelSelectImgBtn').hide();
-		});
+	$('#selectImgBtn').click(function() {
+		$('#newInputs').hide( 500 );
+		$('#imgsToSelect').show( 500 );
+		$('#selectImgBtn').hide();
+		$('#cancelSelectImgBtn').fadeIn( 400 );
+	});
+	$('#cancelSelectImgBtn').click(function() {
+		$('#newInputs').show( 500 );
+		$('#imgsToSelect').hide( 500 );
+		$('#selectImgBtn').show();
+		$('#cancelSelectImgBtn').hide();
+	});
 });
