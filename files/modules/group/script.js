@@ -5,9 +5,9 @@ $(window).scroll(function(){
 
 $(document).ready(function(){
 	if(get['msg']=='insert')
-		notifySuccess('Perfil creado correctamente');
+		notifySuccess('Grupo creado correctamente');
 	if(get['msg']=='update')
-		notifySuccess('Perfil modificado correctamente');
+		notifySuccess('Grupo modificado correctamente');
 	$('#newuser').fadeIn(500);
 	$('#viewlistbt').show();
 	$('#viewlist').hide();
@@ -15,7 +15,7 @@ $(document).ready(function(){
 });
 
 $(function(){
-	////////////////////////////////////// Create/Update Profile ///////////////////////////
+	////////////////////////////////////// Create/Update ///////////////////////////
 	$("#create").click(function(){
 		if(validate.validateFields('')){
 			var process		= 'process.php';
@@ -74,7 +74,7 @@ $("#profileimg").click(function(){
 
 /////////////////////////// Massive Delete /////////////////////////////////////
 	$("#delselected").click(function(){
-		alertify.confirm(utf8_decode('¿Desea eliminar los usuarios seleccionados?'), function(e){
+		alertify.confirm(utf8_decode('¿Desea eliminar los grupos seleccionados?'), function(e){
             if(e){
             	var result;
             	$(".deleteThis").each(function(){
@@ -94,7 +94,7 @@ $("#profileimg").click(function(){
 			            success: function(data){
 		                    if(data)
 		                    {
-		                        notifyError('Hubo un problema al eliminar los usuarios: '+data);
+		                        notifyError('Hubo un problema al eliminar los grupos: '+data);
 		                        result = data;
 		                        return false;
 		                    }else{
@@ -109,7 +109,7 @@ $("#profileimg").click(function(){
 
             	if(result)
             	{
-            		notifyError('Hubo un problema al eliminar los usuarios: '+result);
+            		notifyError('Hubo un problema al eliminar los grupos: '+result);
             	}else{
             		$('#delselected').hide();
             		$(".deleteThis").each(function(){ $(this).removeClass('deleteThis'); });

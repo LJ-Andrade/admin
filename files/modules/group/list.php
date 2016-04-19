@@ -5,16 +5,16 @@
 
     //$Status = $_GET['status']? $_GET['status']: 'A';
 
-    $Profile = new ProfileData();
+    $Group = new GroupData();
 ?>
 <body>
   <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
   <div id="wrapper"><!--  Wrapper -->
     <div class="container-fluid">
-      <div class="maintitle"><h4 class="maintitletxt">Listado de Perfiles</h4></div>
+      <div class="maintitle"><h4 class="maintitletxt">Listado de Grupos</h4></div>
       <div class="glasscontainer1 optionsdiv">
         <span id="delselected" class="delselected animated slideInDown"><i class="fa fa-trash"></i> Eliminar seleccionados</span>
-        <a href="new.php"><button class="mainbtn"><i class="fa fa-plus-square"></i> Agregar Perfil</button></a>
+        <a href="new.php"><button class="mainbtn"><i class="fa fa-plus-square"></i> Agregar Grupo</button></a>
       </div>
       <!-- Filters / Search -->
       <div class="container-fluid">
@@ -55,7 +55,7 @@
       </div><!-- /Container Filters / Search -->
       <!-- Grid View -->
       <div id="viewgrid" class="row-centered rowgridview">
-        <?php echo $Profile->MakeProfileList();  ?>
+        <?php echo $Group->MakeProfileList();  ?>
       </div><!-- /Grid View  -->
       <!-- List View -->
       <div id="viewlist" class="row">
