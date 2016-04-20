@@ -89,7 +89,7 @@ ul {
 .pad0 {
   padding: 0; }
 
-.mar0 {
+.mar0, .marg0 {
   margin: 0; }
 
 .centrarimg {
@@ -124,6 +124,9 @@ ul {
 
 .brd {
   border: 1px solid red; }
+
+.radio100 {
+  border-radius: 100%; }
 
 .paginat {
   text-align: center;
@@ -1987,26 +1990,26 @@ a .mainbtn {
 
 .delModDiv {
   position: absolute;
-  background-color: #fff;
   padding: 10px 0;
   bottom: 0;
   left: 0;
   right: 0; }
 
-.shadow {
-  -webkit-box-shadow: 0px -2px 5px 1px rgba(0, 0, 0, 0.26);
-  -moz-box-shadow: 0px -2px 5px 1px rgba(0, 0, 0, 0.26);
-  box-shadow: 0px -2px 5px 1px rgba(0, 0, 0, 0.26); }
+.delModDivList {
+  position: absolute;
+  padding: 10px 0;
+  left: 0;
+  right: 0; }
 
-.listrow {
+.listRow {
   margin: 5px 0;
-  margin-left: 15px;
-  margin-right: 15px;
-  padding-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 2px;
   color: #fff;
   text-align: left;
   display: flex; }
-  .listrow:hover {
+  .listRow:hover {
     cursor: pointer;
     background-color: rgba(204, 204, 204, 0.5);
     -webkit-box-shadow: inset 2px 3px 5px -3px rgba(0, 0, 0, 0.54);
@@ -2014,42 +2017,75 @@ a .mainbtn {
     box-shadow: inset 2px 3px 5px -3px rgba(0, 0, 0, 0.54);
     color: #000; }
 
-.listtit {
+.listTitDiv {
   margin: 5px;
-  margin-left: 15px;
-  margin-right: 15px;
-  padding: 5px 15px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 2px;
+  padding-top: 10px;
   color: #fff;
-  text-align: left;
+  text-align: center;
   display: flex;
   background-color: rgba(5, 110, 144, 0.5); }
 
-.titlist1 {
+.listTit {
   border-right: 1px solid rgba(216, 216, 216, 0.5); }
+  .listTit p {
+    font-size: 14px; }
 
-.titlist2 {
-  border-right: 1px solid rgba(216, 216, 216, 0.5); }
+.listTitLast {
+  border-right: 0px; }
 
-.titlist3 {
-  border-right: 1px solid rgba(216, 216, 216, 0.5); }
+.listImg {
+  margin: 0 auto;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  cursor: pointer; }
 
-.titlist4 {
-  border-right: 1px solid rgba(216, 216, 216, 0.5); }
+@media (max-width: 765px) {
+  .listImg {
+    margin: 0; } }
+.colList {
+  border-right: 1px solid rgba(216, 216, 216, 0.5);
+  padding-top: 15px;
+  text-align: center; }
 
-.titlist5 {
-  border-right: 1px solid rgba(216, 216, 216, 0.5); }
+.colListFirst {
+  padding-top: 0; }
 
-.titlist6ult {
-  border-right: 1px solid rgba(216, 216, 216, 0.5); }
-
-.padtoplist {
-  padding-top: 15px; }
+.colListLast {
+  border-right: 0px;
+  padding-top: 0; }
 
 .listselect {
   background-color: rgba(5, 110, 144, 0.5);
   -webkit-box-shadow: inset 2px 3px 5px -3px rgba(0, 0, 0, 0.54);
   -moz-box-shadow: inset 2px 3px 5px -3px rgba(0, 0, 0, 0.54);
   box-shadow: inset 2px 3px 5px -3px rgba(0, 0, 0, 0.54); }
+
+.viewListMobile {
+  color: #000;
+  padding: 0;
+  margin: 0;
+  margin: 2px 0;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.8); }
+  .viewListMobile:hover {
+    cursor: pointer; }
+
+.viewListMobileMod {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.9);
+  top: 0;
+  right: 0;
+  left: 0;
+  text-align: center;
+  padding: 8px 0;
+  width: 100%; }
+
+.vlMobileTxt p {
+  margin-top: 14px; }
 
 .menulistico.fa-gears::before,
 .menulistico.fa-sitemap::before,
@@ -2081,126 +2117,11 @@ a .mainbtn {
 .menulistcol1 {
   padding-top: 8px; }
 
-.listrowitem {
-  margin: 5px;
-  margin-left: 15px;
-  margin-right: 15px;
-  padding-left: 15px;
-  padding-right: 15px;
-  color: #fff;
-  text-align: left; }
-  .listrowitem:hover {
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.4); }
+.shadow {
+  -webkit-box-shadow: 0px -2px 5px 1px rgba(0, 0, 0, 0.26);
+  -moz-box-shadow: 0px -2px 5px 1px rgba(0, 0, 0, 0.26);
+  box-shadow: 0px -2px 5px 1px rgba(0, 0, 0, 0.26); }
 
-.itemtit {
-  margin: 30px 0 0; }
-
-.itemtxt {
-  text-align: center; }
-
-.itemrow2 {
-  padding: 0 10px; }
-
-.itemtxtcolor {
-  font-size: 12px; }
-
-.prodimglist {
-  border-radius: 100%;
-  max-width: 50px;
-  padding: 0;
-  cursor: pointer; }
-
-.col1listprod {
-  border-right: 1px solid rgba(216, 216, 216, 0.5);
-  padding-top: 5px; }
-
-.col2listprod {
-  border-right: 1px solid rgba(216, 216, 216, 0.5);
-  padding-top: 15px; }
-
-.col3listprod {
-  border-right: 1px solid rgba(216, 216, 216, 0.5);
-  padding-top: 15px; }
-
-.col4listprod {
-  border-right: 1px solid rgba(216, 216, 216, 0.5);
-  padding-top: 15px; }
-
-.col5listprod {
-  border-right: 1px solid rgba(216, 216, 216, 0.5);
-  padding-top: 15px; }
-
-.prodicoadd ul {
-  margin-left: -25px;
-  border: 1px solid blue; }
-
-.prodfilediv {
-  background-color: rgba(255, 255, 255, 0.5);
-  padding: 10px 5px;
-  margin: 20px 0; }
-
-.prodfileimg {
-  width: 100px;
-  height: 100px;
-  max-width: 100%;
-  height: auto;
-  margin: 0 auto;
-  -webkit-box-shadow: 0 12px 12px rgba(0, 0, 0, 0.175);
-  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.175);
-  -webkit-transition: all 0.5s ease 0s;
-  transition: all 0.5s ease 0s; }
-
-.prodfileimg:hover {
-  box-shadow: none; }
-
-.colprod {
-  margin-top: 10px; }
-
-.colprodtit {
-  margin-top: 10px;
-  text-align: center; }
-
-.colprod1 {
-  margin-top: 10px;
-  text-align: center; }
-
-.colprodico {
-  margin-top: 10px; }
-
-.userimglist {
-  border-radius: 100%;
-  max-width: 50px;
-  padding: 0;
-  cursor: pointer; }
-
-.col1listus {
-  border-right: 1px solid rgba(216, 216, 216, 0.5); }
-
-.col2listus {
-  border-right: 1px solid rgba(216, 216, 216, 0.5);
-  padding-top: 15px; }
-
-.col3listus {
-  border-right: 1px solid rgba(216, 216, 216, 0.5);
-  padding-top: 15px; }
-
-.col4listus {
-  border-right: 1px solid rgba(216, 216, 216, 0.5);
-  padding-top: 15px; }
-
-.col5listus {
-  border-right: 1px solid rgba(216, 216, 216, 0.5);
-  padding-top: 15px; }
-@media(max-width:1320px) {
-  .col5listus .col1listus, .col5listus .col2listus, .col5listus .col3listus, .col5listus .col4listus, .col5listus .col5listus, .col5listus .col6listus {
-    border-right: 0px; } }
-@media(max-width:1320px) {
-  .col5listus .col1listprod, .col5listus .col2listprod, .col5listus .col3listprod, .col5listus .col4listprod, .col5listus .col5listprod, .col5listus .col6listprod,
-  .col5listus .titlist1, .col5listus .titlist2, .col5listus .titlist3, .col5listus .titlist4, .col5listus .titlist5 {
-    border-right: 0px;
-    padding-right: 5px;
-    padding-left: 5px; } }
 .demotittles {
   margin: 50px 10px 20px;
   padding: 10px;

@@ -135,13 +135,13 @@
               <!-- /Buttons -->
               <!-- checkboxes -->
 
-                <div class="col-md-12 democheck checkboxDiv">
-                  <ul>
-                    <li><input id="sizeXS" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeXS"><span>Item1</span></li>
-                    <li><input id="sizeS" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeS"><span>Item2</span></li>
-                    <li><input id="sizeM" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeM"><span>Item3</span></li>
-                  </ul>
-                </div>
+              <div class="col-md-12 democheck checkboxDiv">
+                <ul>
+                  <li><input id="sizeXS" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeXS"><span>Item1</span></li>
+                  <li><input id="sizeS" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeS"><span>Item2</span></li>
+                  <li><input id="sizeM" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeM"><span>Item3</span></li>
+                </ul>
+              </div>
 
               <!-- checkboxes -->
             </div>
