@@ -35,21 +35,21 @@ class GroupData extends DataBase
 
 	public function MakeList()
 	{
-		$Regs	= $this->fetchAssoc('admin_group','*',"group_id>1 and status<>'I'","title");
+		$Regs	= $this->fetchAssoc('admin_group','*',"status<>'I'","title");
 
 		foreach($Regs as $Reg)
 		{
 			$ID 		= $Reg['group_id'];
 			$Title 		= $Reg['title'];
-			$Profile	= new GroupData($ID);
+			$Group		= new GroupData($ID);
 			$Actions	= 	'<img src="../../../skin/images/body/icons/pencil.png" id="edit_'.$ID.'" />';
 			$Actions	.= 	'<img src="../../../skin/images/body/icons/cross.png" id="delete_'.$ID.'" />';
 
-			$List	.= '<div id="profile'.$ID.'" class="col-centered col-lg-3 col-sm-6 col-xs-12 animated fadeIn usergral">
+			$List	.= '<div id="group'.$ID.'" class="col-centered col-lg-3 col-sm-6 col-xs-12 animated fadeIn usergral">
 							<div class="userMainSection">
 								<div class="userimgdiv"><img src="'.$Reg['image'].'" class="img-responsive userimg"></div>
 								<div class="row usernamediv">
-		                            <span class="usernametxt"><span class="col-sm-12">'.$Title.'</span> <span class="col-lg-12 col-sm-12 col-xs-12">('.count($Profile->GetUsers()).' usuarios)</span></span><br>
+		                            <span class="usernametxt"><span class="col-sm-12">'.$Title.'</span> <span class="col-lg-12 col-sm-12 col-xs-12">('.count($Group->GetUsers()).' usuarios)</span></span><br>
 
 		                        </div>
 		                     </div>
@@ -57,7 +57,7 @@ class GroupData extends DataBase
 		                        <ul class="userButtons animated slideInUp">
 		                            <li class="btnmod animated fadeIn"><a href="edit.php?id='.$ID.'" ><i class="fa fa-fw fa-pencil"></i></a></li>
 
-		                            <li class="deleteElement btndel animated fadeIn" deleteElement="'.$ID.'" deleteParent="profile'.$ID.'/profilelist'.$ID.'" deleteProcess="process.php" confirmText="¿Desea eliminar el perfil \''.ucfirst($Title).'\'?" successText="El perfil \''.ucfirst($Title).'\' ha sido eliminado correctamente"><i class="fa fa-fw fa-trash"></i></li>
+		                            <li class="deleteElement btndel animated fadeIn" deleteElement="'.$ID.'" deleteParent="group'.$ID.'/grouplist'.$ID.'" deleteProcess="process.php" confirmText="¿Desea eliminar el grupo \''.ucfirst($Title).'\'?" successText="El grupo \''.ucfirst($Title).'\' ha sido eliminado correctamente"><i class="fa fa-fw fa-trash"></i></li>
 
 		                        </ul>
 		                    </div>

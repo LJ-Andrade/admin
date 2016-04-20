@@ -27,7 +27,7 @@ switch(strtolower($_POST['action']))
 			$Image 		= "../../../skin/images/group/".$Tmp[0];
 			$Profile->MoveImage($Image,$Temp);
 		}else{
-			$Image = $Profile->GetDefaultImg();
+			$Image = $Group->GetDefaultImg();
 		}
 
 		$Title		= htmlentities(strtolower($_POST['title']));
@@ -83,9 +83,9 @@ switch(strtolower($_POST['action']))
 		$Actual = strtolower(utf8_encode($_POST['actual']));
 
 	    if($Actual)
-	    	$TotalRegs  = $DB->numRows('admin_profile','*',"title = '".$Title."' AND title<> '".$Actual."'");
+	    	$TotalRegs  = $DB->numRows('admin_group','*',"title = '".$Title."' AND title<> '".$Actual."'");
     	else
-		    $TotalRegs  = $DB->numRows('admin_profile','*',"title = '".$Title."'");
+		    $TotalRegs  = $DB->numRows('admin_group','*',"title = '".$Title."'");
 		if($TotalRegs>0) echo $TotalRegs;
 		die;
 	break;

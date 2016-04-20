@@ -10,7 +10,7 @@ switch(strtolower($_POST['action']))
 		{
 			$Name		= "file".rand()*rand()/rand();
 			$Img		= new FileData($_FILES['img'],"../../../skin/images/users/",$Name);
-			$Image		= $Img	-> BuildImage(45,45);
+			$Image		= $Img	-> BuildImage(200,200);
 			
 		}
 		

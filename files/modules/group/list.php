@@ -55,7 +55,7 @@
       </div><!-- /Container Filters / Search -->
       <!-- Grid View -->
       <div id="viewgrid" class="row-centered rowgridview">
-        <?php echo $Group->MakeProfileList();  ?>
+        <?php echo $Group->MakeList();  ?>
       </div><!-- /Grid View  -->
       <!-- List View -->
       <div id="viewlist" class="row">
