@@ -14,7 +14,7 @@
         <h3><i class="fa fa-plus-square" aria-hidden="true"></i> Agregar Nuevo Producto</h3>
       </div>
       <div class="col-md-6 col-xs-12 switchDiv switchHead">
-        <input type="checkbox" name="status" id="status" data-on-text="Activo" data-off-text="Inactivo" data-size="mini" data-label-width="auto">
+        <input type="checkbox" name="status" id="status" data-on-text="Activo" data-off-text="Inactivo" data-size="mini" data-label-width="auto" checked>
       </div>
     </div><!-- /WindowHead -->
     <div class="container animated fadeIn addItemDiv">
@@ -26,7 +26,6 @@
               <input id="" name="user" class="form-first-name formNewItem" placeholder="T&iacute;tulo" type="text">
             </div>
             <div class="col-md-6 form-group animated bounceInLeft">
-
               <input id="" name="user" class="form-first-name formNewItem" placeholder="C&oacute;digo" type="text">
             </div>
           </div>
@@ -86,11 +85,12 @@
             <span id="selectImgBtn"><img src="../../../skin/images/users/mas.jpg" alt="" /></span>
           </div>
         </div><!-- /newInputs -->
-        <div class="row selectImgMain"><!-- Images -->
+        <!-- Images -->
+        <div id="MultipleImgWd" class="row multipleImgWindow">
           <!-- <span id="cancelImgChange" class="eraseImgX"><i class="fa fa-times"></i></span> -->
           <button id="cancelImgChange" type="button" name="button" class="btn closeBtn"><i class="fa fa-times"></i></button>
           <h5>Im&aacute;genes del Producto</h5>
-          <div class="row col-md-12 dragImgPublic">
+          <div class="col-md-12 dragImgPublic">
             <ul class="connected sortable grid">
               <li><img src="../../../skin/images/users/mas.jpg" alt="" /></li>
         			<li><img src="../../../skin/images/users/usergen.png" alt="" /></li>
@@ -104,7 +104,7 @@
           <div class="col-md-12 advancedDragBtn">
             <button id="adDragBtn" type="button" name="button" class="btn mainbtn advanImgBtn"><i class="fa fa-rocket"></i> Avanzado...</button>
           </div>
-          <div class="row col-md-12 dragImgTemp">
+          <div class="col-md-12 dragImgTemp">
             <ul class="connected sortable grid no2">
         			<li><img src="../../../skin/images/users/usergen.png" alt="" /></li>
         			<li><img src="../../../skin/images/users/usergen.png" alt="" /></li>
@@ -116,7 +116,6 @@
           </div>
         </div><!-- /Images -->
       </div><!-- /FormItems -->
-
     </div><!-- /addItemDiv -->
       <!-- Create User Button Div  -->
     <div class="container animated fadeInUp donediv">

@@ -1400,98 +1400,110 @@ p .addusertxt:hover {
   z-index: 1000;
   background-color: #222; }
 
-.usericos {
-  height: 50px; }
-
-.usericoslist ul, .usericos ul {
-  list-style-type: none;
-  text-align: center;
-  transition: 0.5s; }
-  .usericoslist ul li, .usericos ul li {
-    display: inline;
-    text-align: center;
-    margin: 0 5px;
-    transition: 0.5s; }
-
-.visible {
-  visibility: visible; }
-
-.usericoslist {
-  margin-top: 0; }
-
-.prodicos ul {
-  list-style-type: none;
-  text-align: center; }
-
-.prodicos li {
-  display: inline;
-  text-align: center;
-  margin: 0 15px; }
-
-.itemicos {
-  background-color: transparent;
-  margin-top: 10px; }
-  .itemicos ul {
-    list-style-type: none;
-    text-align: center; }
-  .itemicos li {
-    display: inline;
-    text-align: center;
-    margin: 0 15px; }
-
-.delmoddiv {
-  background-color: transparent;
-  margin-top: 10px; }
-  .delmoddiv ul {
-    text-align: center; }
-  .delmoddiv li {
-    display: inline;
-    text-align: center; }
-
-.btndel {
-  padding: 2px 20px;
-  max-width: 70px;
-  font-size: 22px;
-  border-radius: 0;
-  border: 0;
-  background-color: #ba4545;
-  color: #fff;
-  transition: all 0.2s ease 0s; }
-  .btndel:hover {
-    background-color: #C06060;
-    color: #fff; }
-  .btndel:focus, .btndel:active {
-    background-color: #e5817f;
-    color: #fff; }
-
-.btnmod {
-  padding: 2px 20px;
-  max-width: 70px;
-  font-size: 22px;
-  border-radius: 0;
-  border: 0;
-  background-color: #056e90;
-  color: #fff;
-  transition: all 0.2s ease 0s; }
-  .btnmod:hover {
-    background-color: #388fab;
-    color: #fff; }
-  .btnmod:focus, .btnmod:active {
-    background-color: #388fab;
-    color: #fff; }
-
-@media(max-width:1300px) {
-  .btndel, .btnmod {
-    font-size: 12px; }
-
-  .titlist1, .titlist2, .titlist3, .titlist4, .titlist5 {
-    font-weight: 300; } }
 .topCatBanner {
   margin-top: -110px;
   height: 50px; }
   .topCatBanner img {
     min-width: 100%;
     max-width: 100%; }
+
+.wrapOverlayItem {
+  width: 87%;
+  margin: auto;
+  padding: 0 10px;
+  overflow: hidden; }
+
+.overlayItem {
+  max-width: 277px; }
+  .overlayItem h2, .overlayItem h3, .overlayItem h4, .overlayItem p, .overlayItem span {
+    color: #000;
+    text-align: left;
+    font-weight: 300;
+    font-size: 14px; }
+  .overlayItem span {
+    font-size: 14px;
+    font-weight: 300;
+    color: #000; }
+  .overlayItem img {
+    max-width: 100%; }
+
+.overlayDetails {
+  padding: 10px 15px 0;
+  margin-top: 40px; }
+  .overlayDetails hr {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 0;
+    border-top: 1px solid #c1c1c1; }
+  .overlayDetails:hover {
+    cursor: pointer; }
+
+.more:link, .more:visited {
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out; }
+
+.show {
+  width: 100%;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: default;
+  background: #fff;
+  display: block; }
+  .show .mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0; }
+
+.aspect {
+  position: relative;
+  padding-bottom: 120%;
+  height: 0;
+  overflow: hidden; }
+
+.overlay1 a.more {
+  display: inline-block;
+  text-decoration: none;
+  padding: 7px 14px;
+  background: #FFF;
+  color: #222;
+  text-transform: uppercase;
+  box-shadow: 0 0 1px #000;
+  position: relative;
+  border: 1px solid #999; }
+  .overlay1 a.more:hover {
+    box-shadow: 0 0 5px #000; }
+.overlay1 img {
+  transition: all 0.2s linear; }
+.overlay1 .mask {
+  opacity: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  transition: all 0.4s ease-in-out; }
+.overlay1 h2 {
+  color: #f2f2f2;
+  margin-top: 10%;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  background: rgba(0, 0, 0, 0.7); }
+.overlay1 p {
+  opacity: 0;
+  transition: all 0.2s linear; }
+.overlay1 a.info {
+  opacity: 0;
+  transition: all 0.2s ease-in-out; }
+.overlay1:hover .mask {
+  opacity: 1; }
+.overlay1:hover h2, .overlay1:hover p, .overlay1:hover a.info {
+  opacity: 1; }
+.overlay1:hover p {
+  transition-delay: 0.1s; }
+.overlay1:hover a.info {
+  transition-delay: 0.2s; }
 
 .glasscontainer1 {
   width: auto;
@@ -1558,7 +1570,7 @@ p .addusertxt:hover {
   -moz-box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69);
   box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69); }
   .windowHead .fa {
-    color: #056e90; }
+    color: #ba4545; }
 
 .additemdiv, .addItemDiv {
   max-width: 800px;
@@ -1680,8 +1692,7 @@ p .addusertxt:hover {
 
 .dragImgTemp {
   border: 1px solid rgba(193, 88, 88, 0.3);
-  padding: 10px;
-  margin: 10px 0; }
+  padding: 10px; }
   .dragImgTemp img {
     height: 50px;
     width: 50px; }
@@ -1689,6 +1700,101 @@ p .addusertxt:hover {
 .advancedDragBtn {
   position: relative;
   padding: 0; }
+
+.multipleImgWindow {
+  padding: 20px 10px;
+  background-color: rgba(255, 255, 255, 0.2); }
+
+.singleImgWindow {
+  padding: 20px 10px;
+  background-color: rgba(255, 255, 255, 0.2); }
+
+.genericSingleImgs {
+  border: 1px solid rgba(193, 88, 88, 0.3);
+  padding: 10px;
+  margin-bottom: 5px; }
+
+.genImgThumb {
+  width: 80px;
+  height: 80px; }
+
+.selectedSingleImg {
+  border: 1px solid rgba(37, 147, 176, 0.3);
+  padding: 10px; }
+  .selectedSingleImg ul li img {
+    border-radius: 100%;
+    max-width: 150px;
+    margin: 0 auto; }
+  .selectedSingleImg ul:hover {
+    overflow: hidden; }
+
+.singleImg {
+  cursor: pointer;
+  border-radius: 100%;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto; }
+  .singleImg:hover {
+    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.5); }
+
+.addSingleImg {
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  transition: all 0.3s ease 0s; }
+  .addSingleImg:hover {
+    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.5);
+    cursor: pointer; }
+
+.overlaySingleImg {
+  margin: auto;
+  overflow: hidden; }
+
+.overlayDetails {
+  padding: 10px 15px 0;
+  margin-top: 40px; }
+
+.overlayInnerIcon {
+  width: 100%;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: default;
+  display: block;
+  padding-bottom: 15px; }
+  .overlayInnerIcon .mask {
+    width: 100%;
+    height: 100%;
+    margin-top: 65px;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0; }
+    .overlayInnerIcon .mask p {
+      color: #fff; }
+    .overlayInnerIcon .mask .fa {
+      color: #fff;
+      font-size: 30px; }
+
+.overlayIcon .mask {
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+  transition: all 0.3s ease 0s; }
+.overlayIcon:hover .mask {
+  opacity: 1;
+  cursor: pointer; }
+.overlayIcon:hover img {
+  box-shadow: 1px 7px 10px 0px rgba(0, 0, 0, 0.5); }
+
+.singleImgSelBtn {
+  position: absolute;
+  left: 0;
+  right: 0; }
+
+.acceptBtnImgDiv {
+  margin-top: 15px; }
 
 .mainbtn {
   padding: 5px 10px;
@@ -1735,12 +1841,12 @@ a .mainbtn {
   position: absolute;
   right: 0;
   top: 0;
-  margin-top: 5px;
-  margin-right: 20px;
   padding: 5px 10px;
   border: none;
+  border-radius: 0;
   color: #000;
-  background-color: #e6e6e6; }
+  background-color: #b8b8b8;
+  transition: all 0.3s ease 0s; }
   .closeBtn:hover {
     background-color: #dedede; }
   .closeBtn:focus, .closeBtn:active {
@@ -1836,104 +1942,6 @@ a .mainbtn {
   width: 300px;
   height: 300px; }
 
-.wrapOverlayItem {
-  width: 87%;
-  margin: auto;
-  padding: 0 10px;
-  overflow: hidden; }
-
-.overlayItem {
-  max-width: 277px; }
-  .overlayItem h2, .overlayItem h3, .overlayItem h4, .overlayItem p, .overlayItem span {
-    color: #000;
-    text-align: left;
-    font-weight: 300;
-    font-size: 14px; }
-  .overlayItem span {
-    font-size: 14px;
-    font-weight: 300;
-    color: #000; }
-  .overlayItem img {
-    max-width: 100%; }
-
-.overlayDetails {
-  padding: 10px 15px 0;
-  margin-top: 40px; }
-  .overlayDetails hr {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border: 0;
-    border-top: 1px solid #c1c1c1; }
-  .overlayDetails:hover {
-    cursor: pointer; }
-
-.more:link, .more:visited {
-  transition-duration: 0.2s;
-  transition-timing-function: ease-out; }
-
-.show {
-  width: 100%;
-  height: 100%;
-  float: left;
-  overflow: hidden;
-  position: relative;
-  text-align: center;
-  cursor: default;
-  background: #fff;
-  display: block; }
-  .show .mask {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    overflow: hidden;
-    top: 0;
-    left: 0; }
-
-.aspect {
-  position: relative;
-  padding-bottom: 120%;
-  height: 0;
-  overflow: hidden; }
-
-.overlay1 a.more {
-  display: inline-block;
-  text-decoration: none;
-  padding: 7px 14px;
-  background: #FFF;
-  color: #222;
-  text-transform: uppercase;
-  box-shadow: 0 0 1px #000;
-  position: relative;
-  border: 1px solid #999; }
-  .overlay1 a.more:hover {
-    box-shadow: 0 0 5px #000; }
-.overlay1 img {
-  transition: all 0.2s linear; }
-.overlay1 .mask {
-  opacity: 0;
-  background-color: rgba(255, 255, 255, 0.7);
-  transition: all 0.4s ease-in-out; }
-.overlay1 h2 {
-  color: #f2f2f2;
-  margin-top: 10%;
-  opacity: 0;
-  transition: all 0.2s ease-in-out;
-  background: rgba(0, 0, 0, 0.7); }
-.overlay1 p {
-  opacity: 0;
-  transition: all 0.2s linear; }
-.overlay1 a.info {
-  opacity: 0;
-  transition: all 0.2s ease-in-out; }
-.overlay1:hover .mask {
-  opacity: 1; }
-.overlay1:hover h2, .overlay1:hover p, .overlay1:hover a.info {
-  opacity: 1; }
-.overlay1:hover p {
-  transition-delay: 0.1s; }
-.overlay1:hover a.info {
-  transition-delay: 0.2s; }
-
 .OnOffDiv {
   position: absolute;
   background-color: #fff;
@@ -1997,7 +2005,7 @@ a .mainbtn {
 
 .delModDivList {
   position: absolute;
-  padding: 10px 0;
+  padding: 14px 0;
   left: 0;
   right: 0; }
 

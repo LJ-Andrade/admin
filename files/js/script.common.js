@@ -766,32 +766,28 @@ function utf8_decode (str_data) {
 }
 
 /////////////////// IMAGES ////////////////////////////////////////////
-    ///////// Delete X Appearing Over Images ////////////
 
+    // Hide Single Selection Window
+    $('#SingleImgWd').hide();
+    // Hide Multiple Selection Window
+    $('#MultipleImgWd').hide();
 
-    $('.selectImgMain').hide();
-// Show Modify Icon Main Image On Hover
-    // $('.changeImg').hide();
-    // $('.mainImgDiv').hover(function() {
-    //   $('.mainImgSelected').toggleClass('shadow');
-    //   $(".changeImg").toggle();
-    // });
-
-// Open Img Select Div
-    $('#selectImgBtn').click(function() {
+    // Show Single Selection Window
+    $('#SelectSingleImg').click(function() {
+      $('#SingleImgWd').show( 500 );
       $('#newInputs').hide( 500 );
-      $('.selectImgMain').delay( 500 ).show( 500 );
     })
 
-// User Close Img Select Div
-    $('#acceptBtnImg').click(function() {
-      $('.selectImgMain').slideUp();
-      $("#newInputs").delay( 800 ).show( 500 );
-      $("#selectImgBtn").show( );
-    });
+    // Show Multiple Selection Window
+    $('#selectImgBtn').click(function() {
+      $('#MultipleImgWd').show( 500 );
+      $('#newInputs').hide( 500 );
+    })
 
+    // Cancel Selection Windows (X)
     $('#cancelImgChange').click(function() {
-      $('.selectImgMain').hide( 400 );
+      $('#SingleImgWd').hide( 400 );
+      $('#MultipleImgWd').hide( 400 );
       $('#newInputs').show( 500 );
       $('#selectImgBtn').show();
     });
@@ -820,7 +816,7 @@ function utf8_decode (str_data) {
       $('.dragImgTemp').toggle( 400 );
     });
 
-///////////////// View List Show Del and Mod Buttons ////////////////////////
+///////////////// In View List - Show Del and Mod Buttons ////////////////////////
     $('.viewListMobileMod').hide();
     $('.viewListMobile').click(function() {
       $('.viewListMobileMod').toggle( 100 );
