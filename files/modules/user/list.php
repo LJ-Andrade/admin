@@ -82,59 +82,55 @@
       <!-- List View -->
       <div id="viewlist" class="row">
         <!-- Titles  -->
-        <div class="listtit glassListRow">
-          <div class="col-lg-1 col-md-4 col-sm-6 col-xs-12 titlist1">
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 titlist2">
-            <h5>Nombre</h5>
-          </div>
-          <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 titlist3">
-            <h5>Perfil</h5>
-          </div>
-          <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 titlist4">
-            <h5>Grupo</h5>
-          </div>
-          <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 titlist5">
-            <h5>&Uacute;ltimo Acceso</h5>
-          </div>
-          <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 titlist6">
-            <h5 class="text-center">Editar / Eliminar</h5>
-          </div>
+        <div class="glassListRow listTitDiv">
+          <div class="col-md-1 col-sm-1  listTit"><p>Imágen</p></div>
+          <div class="col-md-3 col-sm-2  listTit"><p>Nombre</p></div>
+          <div class="col-md-2 col-sm-3  listTit"><p>Permisos</p></div>
+          <div class="col-md-2 col-sm-1  listTit"><p>Grupo</p></div>
+          <div class="col-md-3 col-sm-2  listTit"><p>Última Conexion</p></div>
+          <div class="col-md-1 col-sm-2  listTit listTitLast"><p>Mod.</p></div>
         </div> <!-- /Titles  -->
         <?php
           foreach($Users as $User){
             $User = new AdminData($User['admin_id']);
         ?>
         <!-- Items -->
-        <div id="userlist<?php echo $User->AdminID ?>" class="container-fluid glassListRow listrow <?php if($User->AdminID==$Admin->AdminID){ echo "undeleteable"; } ?>">
-          <div class="col-lg-1 col-md-4 col-sm-6 col-xs-12 col1listus">
-            <img src="<?php echo $User->Img; ?>" class="img-responsive userimglist">
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 col2listus">
-            <?php echo $User->FullUserName; ?>
-          </div>
-          <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 col3listus">
-            <p><?php echo $User->ProfileName; ?></p>
-          </div>
-          <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 col4listus">
-            <p>Admin</p>
-          </div>
-          <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 col5listus">
-            <p><?php echo DateTimeFormat($User->AdminData['last_access']) ?></p>
-          </div>
-          <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 col6listus">
-            <div class="delmoddiv">
-              <ul>
-                <li class="btnmod"><a href="edit.php?id=<?php echo $User->AdminID ?>"><i class="fa fa-fw fa-pencil"></i></a></li>
-                <?php if($User->AdminID!=$Admin->AdminID){ ?>
-                <li class="btndel deleteElement" deleteElement="<?php echo $User->AdminID ?>" deleteParent="userlist<?php echo $User->AdminID ?>/user<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>'?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente"><i class="fa fa-fw fa-trash"></i></li>
-                <?php } ?>
-              </ul>
+        <div id="userlist<?php echo $User->AdminID ?>" class="glassListRow listRow <?php if($User->AdminID==$Admin->AdminID){ echo "undeleteable"; } ?>">
+          <div class="col-md-1 col-sm-1  colList colListFirst"><img src="<?php echo $User->Img; ?>" class="img-responsive listImg radio100"></div>
+          <div class="col-md-3 col-sm-2  colList"><?php echo $User->FullUserName; ?></div>
+          <div class="col-md-2 col-sm-2  colList"><p><?php echo $User->ProfileName; ?></p></div>
+          <div class="col-md-2 col-sm-1  colList"><p>Admin</p></div>
+          <div class="col-md-3 col-sm-2  colList"><p><?php echo DateTimeFormat($User->AdminData['last_access']) ?></p></div>
+          <div class="col-md-1 col-sm-2  colList colListLast">
+            <div class="delModDivList text-center">
+              <a href="edit.php?id=<?php echo $User->AdminID ?>"><button type="button" name="button" class="btn mainbtn"><i class="fa fa-pencil"></i></button></a>
+              <?php if($User->AdminID!=$Admin->AdminID){ ?>
+              <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred deleteElement" deleteElement="<?php echo $User->AdminID ?>" deleteParent="userlist<?php echo $User->AdminID ?>/user<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>'?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente"><i class="fa fa-trash"></i></button></a>
+              <?php } ?>
             </div>
           </div>
         </div><!-- /Items (List) -->
         <?php } ?>
       </div><!-- /ViewList  -->
-    </div><!-- /.ontainer-fluid -->
+
+
+      <!-- Product List View Mobile  -->
+      <div class="row viewListMobile">
+        <div class="col-md-12 col-xs-12 pad0">
+          <div class="col-md-4 col-xs-4 pad0">
+            <img id="#" src="../../../skin/images/products/01.jpg" class="img-responsive listImg">
+          </div>
+          <div class="col-md-4 col-xs-4 vlMobileTxt pad0"><p>Vestido Loco</p></div>
+          <div class="col-md-1 col-xs-4 vlMobileTxt"><p>$150</p></div>
+        </div>
+        <div class="col-xs-12 viewListMobileMod">
+          <a href="#"><button type="button" name="button" class="btn mainbtn"><i class="fa fa-pencil"></i></button></a>
+          <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred"><i class="fa fa-trash"></i></button></a>
+        </div>
+      </div>
+      <!-- /Product List View Mobile  -->
+
+
+    </div><!-- /.container-fluid -->
   </div><!-- /#wrapper -->
 <?php $Foot->setFoot(); ?>

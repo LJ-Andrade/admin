@@ -7,7 +7,6 @@
     max-width: 100%
 
 ////////////////    GENERIC WINDOWS     //////////////////////////////
-/////////////////////////////////////////////////////////////////////
 
 //////////// Main Containers ////////////////////
 
@@ -163,71 +162,8 @@ $addItemWidth: 800px
   background-color: transparent
 
 ///////////////////// IMAGES //////////////////////////////////////
-// .selectImgMain
-//   background-color: $innerwindow
-//   padding: 20px
-//   div
-//     h4
-//       margin-top: 0
-//       margin-bottom: 15px
-//
-// .mainSelectedImg
-//   max-width: 150px
-//
-// .carouselDiv
-//   margin-bottom: 15px
-//
-// .imagesDiv
-//   padding: 20px 10px
-//
-// .item
-//   &:hover
-//     cursor: pointer
-// .thumbImg
-//   width: 100px
-//   height: 100px
-//
-// .thumbImgSelect
-//   img
-//     -webkit-box-shadow: 0px -2px 5px 1px rgba(0,0,0,0.26)
-//     -moz-box-shadow: 0px -2px 5px 1px rgba(0,0,0,0.26)
-//     box-shadow: 0px -2px 5px 1px rgba(0,0,0,0.26)
-//     filter: brightness(110%)
-//     border: 5px solid white
-//     z-index: 1
 
-// .changeImg
-//   position: absolute
-//   top: 0
-//   bottom: 0
-//   left: 0
-//   right: 0
-//   margin: auto
-//   width: 6%
-//   height: 30%
-//   .fa
-//     font-size: 35px
-//     color: white
-//   &:hover
-//     cursor: pointer
-//
-// .mainImgSelected
-//   cursor: pointer
-//   border-radius: 100%
-//   width: 150px
-//   height: 150px
-//   margin: 0 auto
-//
-// .imgSelected
-//   -webkit-box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.75)
-//   -moz-box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.75)
-//   box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.75)
-//   border: 6px solid white
-//   border-radius: 100%
-//   box-shadow: 3px 3px 25px 1px
-//   margin-left: 50px
-
-  /////////////////////// Image Dragger ////////////////////////////////////
+/////////////////////// Image Dragger ////////////////////////////////////
 // Big thum Img Active
 .selectedImg
   margin: 0 auto
@@ -255,7 +191,6 @@ $addItemWidth: 800px
     padding: 8px
   &:hover
 
-
 .dragImgThumb
   margin-top: 20px
   ul
@@ -274,7 +209,6 @@ $addItemWidth: 800px
     margin-top: 5px
   img
     height: 30px
-
 
 .dragImgPublic
   border: 1px solid rgba(37, 147, 176,0.3)
@@ -297,8 +231,6 @@ $addItemWidth: 800px
 .advancedDragBtn
   position: relative
   padding: 0
-
-
 
 ///////////////////// Buttons ////////////////////////////
 .mainbtn
@@ -409,7 +341,6 @@ a .mainbtn
       background: #056e90
       box-shadow: inset 0px 0px 0px 4px #fff
 
-
 .checkbox-custom, .radio-custom
   opacity: 0
   position: absolute
@@ -438,36 +369,6 @@ a .mainbtn
 .checkbox-custom:checked + .checkbox-custom-label:before
   background: #056e90
   box-shadow: inset 0px 0px 0px 4px #fff
-
-
-  // .ourcheckbox, .ourradio
-  //   opacity: 0
-  //   position: absolute
-  //
-  // .ourcheckbox, .ourcheckbox-label, .ourradio, .ourradio-label
-  //   display: inline-block
-  //   vertical-align: middle
-  //   margin: 5px
-  //   cursor: pointer
-  //
-  // .ourcheckbox-label, .ourradio-label
-  //   position: relative
-  //
-  // .ourcheckbox + .ourcheckbox-label:before, .ourradio + .ourradio-label:before
-  //   content: ''
-  //   background: #fff
-  //   border: 2px solid #ddd
-  //   display: inline-block
-  //   vertical-align: middle
-  //   width: 20px
-  //   height: 20px
-  //   padding: 2px
-  //   margin-right: 10px
-  //   text-align: center
-  //
-  // .ourcheckbox:checked + .ourcheckbox-label:before
-  //   background: #056e90
-  //   box-shadow: inset 0px 0px 0px 4px #fff
 
 /////////////////////// Drag And Drop /////////////////////////////////
 
@@ -647,26 +548,22 @@ a .mainbtn
 /////////////////////// Del Mod ////////////////////////////////
 .delModDiv
   position: absolute
-  background-color: #fff
   padding: 10px 0
   bottom: 0
   left: 0
   right: 0
-
-/////////////// Effects ///////////////////////////////////////////
-.shadow
-  -webkit-box-shadow: 0px -2px 5px 1px rgba(0,0,0,0.26)
-  -moz-box-shadow: 0px -2px 5px 1px rgba(0,0,0,0.26)
-  box-shadow: 0px -2px 5px 1px rgba(0,0,0,0.26)
-
-
+.delModDivList
+  position: absolute
+  padding: 10px 0
+  left: 0
+  right: 0
 
 ////////////// LIST VIEW //////////////////////////////////////////
-.listrow
+.listRow
   margin: 5px 0
-  margin-left: 15px
-  margin-right: 15px
-  padding-top: 5px
+  margin-left: 5px
+  margin-right: 5px
+  padding: 2px
   color: #fff
   text-align: left
   display: flex
@@ -678,38 +575,74 @@ a .mainbtn
     box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
     color: $listhovertxt
 
-.listtit
+// List Titles
+.listTitDiv
   margin: 5px
-  margin-left: 15px
-  margin-right: 15px
-  padding: 5px 15px
+  margin-left: 5px
+  margin-right: 5px
+  padding: 2px
+  padding-top: 10px
   color: #fff
-  text-align: left
+  text-align: center
   display: flex
   background-color: rgba($mainblue, .5)
+.listTit
+  border-right: 1px solid rgba($gris, 0.5)
+  p
+    font-size: 14px
+.listTitLast
+  border-right: 0px
 
-.titlist1
-  border-right: 1px solid rgba($gris, 0.5)
-.titlist2
-  border-right: 1px solid rgba($gris, 0.5)
-.titlist3
-  border-right: 1px solid rgba($gris, 0.5)
-.titlist4
-  border-right: 1px solid rgba($gris, 0.5)
-.titlist5
-  border-right: 1px solid rgba($gris, 0.5)
+// List Content
+.listImg
+  margin: 0 auto
+  width: 50px
+  height: 50px
+  padding: 0
+  cursor: pointer
+@media (max-width: 765px)
+  .listImg
+    margin: 0
 
-.titlist6ult
+.colList
   border-right: 1px solid rgba($gris, 0.5)
-
-.padtoplist
   padding-top: 15px
+  text-align: center
+.colListFirst
+  padding-top: 0
+.colListLast
+  border-right: 0px
+  padding-top: 0
 
 .listselect
   background-color: rgba($mainblue, .5)
   -webkit-box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
   -moz-box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
   box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
+
+.viewListMobile
+  color: #000
+  padding: 0
+  margin: 0
+  margin: 2px 0
+  position: relative
+  background-color: rgba(255,255,255, .8)
+  &:hover
+    cursor: pointer
+.viewListMobileMod
+  position: absolute
+  background-color: rgba(255,255,255, .9)
+  top: 0
+  right: 0
+  left: 0
+  text-align: center
+  padding: 8px 0
+  width: 100%
+
+.vlMobileTxt
+  p
+    margin-top: 14px
+
 
 //////// Menu Lists /////////////////
 
@@ -733,118 +666,116 @@ a .mainbtn
 .menulistcol1
   padding-top: 8px
 
+
+/////////////// Effects ///////////////////////////////////////////
+.shadow
+  -webkit-box-shadow: 0px -2px 5px 1px rgba(0,0,0,0.26)
+  -moz-box-shadow: 0px -2px 5px 1px rgba(0,0,0,0.26)
+  box-shadow: 0px -2px 5px 1px rgba(0,0,0,0.26)
+
+
+////////////////// CACAS /////////////////////////////
+
 /////////////////// Product List View /////////////////
 
-.listrowitem
-  margin: 5px
-  margin-left: 15px
-  margin-right: 15px
-  padding-left: 15px
-  padding-right: 15px
-  color: #fff
-  text-align: left
-  &:hover
-    cursor: pointer
-    background-color: rgba(0,0,0, .4)
+// .listrowitem
+//   margin: 5px
+//   margin-left: 15px
+//   margin-right: 15px
+//   padding-left: 15px
+//   padding-right: 15px
+//   color: #fff
+//   text-align: left
+//   &:hover
+//     cursor: pointer
+//     background-color: rgba(0,0,0, .4)
+//
+// .itemtit
+//   margin: 30px 0 0
+// .itemtxt
+//   text-align: center
+// .itemrow2
+//   padding: 0 10px
+// .itemtxtcolor
+//   font-size: 12px
 
-.itemtit
-  margin: 30px 0 0
-.itemtxt
-  text-align: center
-.itemrow2
-  padding: 0 10px
-.itemtxtcolor
-  font-size: 12px
+//
+// .prodfilediv
+//   background-color: rgba($itemfilediv, .5)
+//   padding: 10px 5px
+//   margin: 20px 0
+//
+// .prodfileimg
+//   width: 100px
+//   height: 100px
+//   max-width: 100%
+//   height: auto
+//   margin: 0 auto
+//   -webkit-box-shadow: 0 12px 12px rgba(0,0,0,.175)
+//   box-shadow: 0 6px 6px rgba(0,0,0,.175)
+//   -webkit-transition: all 0.5s ease 0s
+//   transition: all 0.5s ease 0s
 
-.prodimglist
-  border-radius: 100%
-  max-width: 50px
-  padding: 0
-  cursor: pointer
+// .selectImgMain
+//   background-color: $innerwindow
+//   padding: 20px
+//   div
+//     h4
+//       margin-top: 0
+//       margin-bottom: 15px
+//
+// .mainSelectedImg
+//   max-width: 150px
+//
+// .carouselDiv
+//   margin-bottom: 15px
+//
+// .imagesDiv
+//   padding: 20px 10px
+//
+// .item
+//   &:hover
+//     cursor: pointer
+// .thumbImg
+//   width: 100px
+//   height: 100px
+//
+// .thumbImgSelect
+//   img
+//     -webkit-box-shadow: 0px -2px 5px 1px rgba(0,0,0,0.26)
+//     -moz-box-shadow: 0px -2px 5px 1px rgba(0,0,0,0.26)
+//     box-shadow: 0px -2px 5px 1px rgba(0,0,0,0.26)
+//     filter: brightness(110%)
+//     border: 5px solid white
+//     z-index: 1
 
-.col1listprod
-  border-right: 1px solid rgba($gris, 0.5)
-  padding-top: 5px
-.col2listprod
-  border-right: 1px solid rgba($gris, 0.5)
-  padding-top: 15px
-.col3listprod
-  border-right: 1px solid rgba($gris, 0.5)
-  padding-top: 15px
-.col4listprod
-  border-right: 1px solid rgba($gris, 0.5)
-  padding-top: 15px
-.col5listprod
-  border-right: 1px solid rgba($gris, 0.5)
-  padding-top: 15px
-
-
-.prodicoadd
-  ul
-    margin-left: -25px
-    border: 1px solid blue
-
-.prodfilediv
-  background-color: rgba($itemfilediv, .5)
-  padding: 10px 5px
-  margin: 20px 0
-
-.prodfileimg
-  width: 100px
-  height: 100px
-  max-width: 100%
-  height: auto
-  margin: 0 auto
-  -webkit-box-shadow: 0 12px 12px rgba(0,0,0,.175)
-  box-shadow: 0 6px 6px rgba(0,0,0,.175)
-  -webkit-transition: all 0.5s ease 0s
-  transition: all 0.5s ease 0s
-
-.prodfileimg
-  &:hover
-    box-shadow: none
-
-.colprod
-  margin-top: 10px
-.colprodtit
-  margin-top: 10px
-  text-align: center
-.colprod1
-  margin-top: 10px
-  text-align: center
-.colprodico
-  margin-top: 10px
-
-  /////////////////// User List View /////////////////
-.userimglist
-  border-radius: 100%
-  max-width: 50px
-  padding: 0
-  cursor: pointer
-
-.col1listus
-  border-right: 1px solid rgba($gris, 0.5)
-.col2listus
-  border-right: 1px solid rgba($gris, 0.5)
-  padding-top: 15px
-.col3listus
-  border-right: 1px solid rgba($gris, 0.5)
-  padding-top: 15px
-.col4listus
-  border-right: 1px solid rgba($gris, 0.5)
-  padding-top: 15px
-.col5listus
-  border-right: 1px solid rgba($gris, 0.5)
-  padding-top: 15px
-
-  /////////  List View Responsive /////
-  @media(max-width:1320px)
-    .col1listus,.col2listus,.col3listus,.col4listus,.col5listus,.col6listus
-      border-right: 0px
-
-  @media(max-width:1320px)
-    .col1listprod,.col2listprod,.col3listprod,.col4listprod,.col5listprod,.col6listprod,
-    .titlist1,.titlist2,.titlist3,.titlist4,.titlist5
-      border-right: 0px
-      padding-right: 5px
-      padding-left: 5px
+// .changeImg
+//   position: absolute
+//   top: 0
+//   bottom: 0
+//   left: 0
+//   right: 0
+//   margin: auto
+//   width: 6%
+//   height: 30%
+//   .fa
+//     font-size: 35px
+//     color: white
+//   &:hover
+//     cursor: pointer
+//
+// .mainImgSelected
+//   cursor: pointer
+//   border-radius: 100%
+//   width: 150px
+//   height: 150px
+//   margin: 0 auto
+//
+// .imgSelected
+//   -webkit-box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.75)
+//   -moz-box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.75)
+//   box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.75)
+//   border: 6px solid white
+//   border-radius: 100%
+//   box-shadow: 3px 3px 25px 1px
+//   margin-left: 50px

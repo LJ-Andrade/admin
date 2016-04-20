@@ -819,3 +819,17 @@ function utf8_decode (str_data) {
     $('#adDragBtn').click(function() {
       $('.dragImgTemp').toggle( 400 );
     });
+
+///////////////// View List Show Del and Mod Buttons ////////////////////////
+    $('.viewListMobileMod').hide();
+    $('.viewListMobile').click(function() {
+      $('.viewListMobileMod').toggle( 100 );
+    });
+
+    // Only Appearing on mobile
+    if (screen.width > 600) {
+      $(".viewListMobile").hide();
+    }
+    else {
+      $(".viewListMobile").show();
+    }
