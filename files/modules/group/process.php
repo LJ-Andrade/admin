@@ -6,11 +6,11 @@ if($_GET['action']=='newimage')
 {
 	if(count($_FILES['image'])>0)
 		{
-			if(!file_exists("../../../skin/images/profiles")) mkdir("../../../skin/images/profiles");
-			if(!file_exists("../../../skin/images/profiles/temp")) mkdir("../../../skin/images/profiles/temp");
-			if(file_exists($_POST['profileimage'])) unlink($_POST['profileimage']);
-			$Name	= "profile".intval(rand()*rand()/rand());
-			$Img	= new FileData($_FILES['image'],"../../../skin/images/profiles/temp/",$Name);
+			if(!file_exists("../../../skin/images/groups")) mkdir("../../../skin/images/groups");
+			if(!file_exists("../../../skin/images/groups/temp")) mkdir("../../../skin/images/groups/temp");
+			if(file_exists($_POST['groupimage'])) unlink($_POST['groupimage']);
+			$Name	= "group".intval(rand()*rand()/rand());
+			$Img	= new FileData($_FILES['image'],"../../../skin/images/groups/temp/",$Name);
 			echo $Img	-> BuildImage(200,200);
 			die();
 		}
@@ -19,12 +19,12 @@ if($_GET['action']=='newimage')
 switch(strtolower($_POST['action']))
 {
 	case 'insert':
-		$Temp 		= $_POST['profileimage'];
-		$Profile 	= new ProfileData();
+		$Temp 		= $_POST['groupimage'];
+		$Group 	= new GroupData();
 		if($Temp)
 		{
 			$Tmp 		= array_reverse(explode("/", $Temp));
-			$Image 		= "../../../skin/images/profiles/".$Tmp[0];
+			$Image 		= "../../../skin/images/group/".$Tmp[0];
 			$Profile->MoveImage($Image,$Temp);
 		}else{
 			$Image = $Profile->GetDefaultImg();
@@ -33,14 +33,14 @@ switch(strtolower($_POST['action']))
 		$Title		= htmlentities(strtolower($_POST['title']));
 		$Menues		= $_POST['menues'] ? explode(",",$_POST['menues']) : array();
 
-		$Insert		= $DB->execQuery('insert','admin_profile','title,image,status,creation_date',"'".$Title."','".$Image."','A',NOW()");
+		$Insert		= $DB->execQuery('insert','admin_group','title,image,status,creation_date',"'".$Title."','".$Image."','A',NOW()");
 		$ID 		= $DB->GetInsertId();
 
 		for($i=0;$i<count($Menues);$i++)
 		{
 			$Values .= $i==0? $ID.",".$Menues[$i] : "),(".$ID.",".$Menues[$i];
 		}
-		$DB->execQuery('insert','relation_menu_profile','profile_id,menu_id',$Values);
+		$DB->execQuery('insert','relation_menu_group','group_id,menu_id',$Values);
 		die;
 	break;
 

@@ -32,7 +32,7 @@
                 <img src="<?php echo $Group->GetDefaultImg(); ?>" width="200" height="200" id="profileimg" />
               </div>
               <div class="col-md-6 form-group animated bounceInBottom treediv">
-                <?php echo $MenuTree->MakeNewTree(); ?>
+                <?php echo $MenuTree->MakeTree(); ?>
               </div>
 
             </div>
