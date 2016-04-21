@@ -20,57 +20,59 @@
     <div class="container animated fadeIn additemdiv">
       <div class="col-sm-12 form-box formitems">
         <!-- Inputs -->
-        <div id="newInputs">
-          <div class="row">
-            <div class="col-md-6 form-group animated bounceInLeft">
-              <?php echo insertElement('text','title','','form-first-name form-controlusers','placeholder="Nombre de la categoría" tabindex="1" validateEmpty="El nombre es obligatorio." validateMinLength="2/El nombre debe contener 2 caracteres como mínimo." validateFromFile="process.php/La categoría ya existe/action:=validate"'); ?>
-            </div>
-            <div class="col-md-6 form-group animated bounceInRight">
-              <?php echo insertElement('select','parent','','form-controlusers','tabindex="2"',$DB->fetchAssoc("category","category_id,title","status='A'","title"),'0','Categoría Principal'); ?>
-            </div>
+        <div id="newInputs" class="row">
+          <div class="col-md-6 form-group animated bounceInLeft">
+            <?php echo insertElement('text','title','','form-first-name form-controlusers','placeholder="Nombre de la categoría" tabindex="1" validateEmpty="El nombre es obligatorio." validateMinLength="2/El nombre debe contener 2 caracteres como mínimo." validateFromFile="process.php/La categoría ya existe/action:=validate"'); ?>
+          </div>
+          <div class="col-md-6 form-group animated bounceInLeft">
+            <?php echo insertElement('select','parent','','form-controlusers','tabindex="2"',$DB->fetchAssoc("category","category_id,title","status='A'","title"),'0','Categoría Principal'); ?>
+          </div>
+          <div class="col-md-12 animated bounceInRight">
+            <!-- Choose Img -->
+            <div id="SelectSingleImg" class="col-md-12 col-centered overlaySingleImg">
+              <div class="overlayInnerIcon overlayIcon">
+                <img src="../../../skin/images/users/vio.jpg" class="MainImg img-responsive singleImg">
+                <div class="mask">
+                  <p>Cambiar Imagen</p>
+                  <i class="fa fa-pencil-square-o"></i>
+                </div>
+              </div>
+            </div><!-- /Choose Img -->
           </div>
         </div>
         <!-- /Inputs -->
-        <!-- Imgs To select -->
-        <div id="imgsToSelect" class="row ">
-          <div class="row selectImgTitle">
-            <h4>Elija una im&aacute;gen</h4>
-            <button id="cancelSelectImgBtn" class="btn closeBtn"><i class="fa fa-times"></i></button>
-          </div>
-          <div class="row imgCatalogue">
-            <div class="col-md-3 col-sm-6 col-xs-6">
-              <img src="../../../skin/images/users/mas.jpg" alt="" class="img-responsive thumbimgadd AddNewImage">
-              <?php echo insertElement('file','AddNewImage','','Hidden') ?>
+        <!-- Single Image Selection Window (Hidden) -->
+        <div id="SingleImgWd" class="row singleImgWindow">
+            <button id="cancelImgChange" type="button" name="button" class="btn closeBtn"><i class="fa fa-times"></i></button>
+          <div class="col-md-12">
+            <div class="col-md-12 col-centered">
+              <div class="overlayInnerIcon overlayIcon">
+                <img src="../../../skin/images/users/vio.jpg" class="MainImg img-responsive singleImg">
+                <div class="mask">
+                <p>Cambiar Imagen</p>
+                <i class="fa fa-pencil-square-o"></i>
+                </div>
+              </div>
             </div>
-            <div class="col-md-3 col-sm-6 col-xs-6">
-              <img src="../../../skin/images/products/genericproduct.png" alt="" class="img-responsive thumbimgadd Selecteable">
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-6">
-              <img src="../../../skin/images/products/cod1.jpg" alt="" class="img-responsive thumbimgadd Selecteable">
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-6">
-              <img src="../../../skin/images/products/cod2.jpg" alt="" class="img-responsive thumbimgadd Selecteable">
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-6">
-              <img src="../../../skin/images/products/cod3.jpg" alt="" class="img-responsive thumbimgadd Selecteable">
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-6">
-              <img src="../../../skin/images/products/cod4.jpg" alt="" class="img-responsive thumbimgadd Selecteable">
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-6">
-              <img src="../../../skin/images/products/cod2.jpg" alt="" class="img-responsive thumbimgadd Selecteable">
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-6">
-              <img src="../../../skin/images/products/cod1.jpg" alt="" class="img-responsive thumbimgadd Selecteable">
+            <div class="clearfix visible-xs"></div>
+            <div class="col-md-12 genericSingleImgs">
+              <ul>
+                <li><img src="../../../skin/images/users/usergen.png" alt="" class="img-responsive GenImg genImgThumb" /></li>
+                <li><img src="../../../skin/images/users/caras1.png" alt="" class="img-responsive GenImg genImgThumb" /></li>
+                <li><img src="../../../skin/images/users/caras2.png" alt="" class="img-responsive GenImg genImgThumb" /></li>
+                <li><img src="../../../skin/images/users/vio.jpg" alt="" class="img-responsive GenImg genImgThumb" /></li>
+                <li><img src="../../../skin/images/users/usergen.png" alt="" class="img-responsive GenImg genImgThumb" /></li>
+                <li><img src="../../../skin/images/users/caras1.png" alt="" class="img-responsive GenImg genImgThumb" /></li>
+                <li><img src="../../../skin/images/users/caras2.png" alt="" class="img-responsive GenImg genImgThumb" /></li>
+                <li><img src="../../../skin/images/users/vio.jpg" alt="" class="img-responsive GenImg genImgThumb" /></li>
+              </ul>
             </div>
           </div>
+          <div class="col-md-12 acceptBtnImgDiv text-center">
+            <button id="AcceptImg" type="button" name="button" class="btn mainbtn centrarbtn"><i class="fa fa-check"></i> Aceptar</button>
+          </div>
         </div>
-        <!-- /Imgs To select -->
-        <div class="col-md-6 animated bounceInRight selectImgDiv centrarbtn">
-          <img src="" alt="" id="shownimg" class="img-responsive thumbimgadd Hidden">
-          <?php echo insertElement('hidden','img','') ?>
-          <button id="selectImgBtn" class="btn mainbtn">Seleccionar Im&aacute;gen</button>
-        </div>
+        <!-- /Single Image Selection Window (Hidden) -->
       </div>
     </div>
     <!-- Create User Button Div  -->

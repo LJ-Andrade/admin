@@ -24,7 +24,7 @@
           <input type="checkbox" name="status" id="status" data-on-text="Activo" data-off-text="Inactivo" data-size="mini" data-label-width="auto" checked>
         </div>
       </div><!-- /WindowHead -->
-      <div class="container animated fadeIn addItemDiv ">
+      <div class="container animated fadeIn addItemDiv">
         <div class="col-md-12 form-box formitems">
           <!-- User Data -->
           <div id="newInputs">
@@ -58,7 +58,7 @@
               <!-- Choose Img -->
               <div id="SelectSingleImg" class="col-md-6 col-centered overlaySingleImg">
                 <div class="overlayInnerIcon overlayIcon">
-                  <img src="../../../skin/images/users/vio.jpg" class="img-responsive singleImg">
+                  <img src="../../../skin/images/users/vio.jpg" class="MainImg img-responsive singleImg">
                   <div class="mask">
                   <p>Cambiar Imagen</p>
                   <i class="fa fa-pencil-square-o"></i>
@@ -82,35 +82,35 @@
           <div id="SingleImgWd" class="row singleImgWindow">
               <button id="cancelImgChange" type="button" name="button" class="btn closeBtn"><i class="fa fa-times"></i></button>
             <div class="col-md-12">
-              <button type="button" class="btn mainbtn" name="button">Subir Im&aacute;gen...</button> <p>
-              </p>
-            </div>
-            <div class="row">
-              <div class="col-md-4 selectedSingleImg">
-                <ul class="">
-                  <li><img src="../../../skin/images/users/vio.jpg" alt="" class="img-responsive" /></li>
-                </ul>
+              <div class="col-md-12 col-centered">
+                <div class="overlayInnerIcon overlayIcon">
+                  <img src="../../../skin/images/users/vio.jpg" class="MainImg img-responsive singleImg">
+                  <div class="mask">
+                  <p>Cambiar Imagen</p>
+                  <i class="fa fa-pencil-square-o"></i>
+                  </div>
+                </div>
               </div>
-              <div class="col-md-8 genericSingleImgs">
-                  <div class="col-md-3"><img src="../../../skin/images/users/usergen.png" alt="" class="img-responsive genImgThumb" /></div>
-                  <div class="col-md-3"><img src="../../../skin/images/users/caras1.png" alt="" class="img-responsive genImgThumb" /></div>
-                  <div class="col-md-3"><img src="../../../skin/images/users/caras2.png" alt="" class="img-responsive genImgThumb" /></div>
-                  <div class="col-md-3"><img src="../../../skin/images/users/vio.jpg" alt="" class="img-responsive genImgThumb" /></div>
-                  <div class="col-md-3"><img src="../../../skin/images/users/usergen.png" alt="" class="img-responsive genImgThumb" /></div>
-                  <div class="col-md-3"><img src="../../../skin/images/users/caras1.png" alt="" class="img-responsive genImgThumb" /></div>
-                  <div class="col-md-3"><img src="../../../skin/images/users/caras2.png" alt="" class="img-responsive genImgThumb" /></div>
-                  <div class="col-md-3"><img src="../../../skin/images/users/vio.jpg" alt="" class="img-responsive genImgThumb" /></div>
+              <div class="clearfix visible-xs"></div>
+              <div class="col-md-12 genericSingleImgs">
+                <ul>
+                  <li><img src="../../../skin/images/users/usergen.png" alt="" class="img-responsive GenImg genImgThumb" /></li>
+                  <li><img src="../../../skin/images/users/caras1.png" alt="" class="img-responsive GenImg genImgThumb" /></li>
+                  <li><img src="../../../skin/images/users/caras2.png" alt="" class="img-responsive GenImg genImgThumb" /></li>
+                  <li><img src="../../../skin/images/users/vio.jpg" alt="" class="img-responsive GenImg genImgThumb" /></li>
+                  <li><img src="../../../skin/images/users/usergen.png" alt="" class="img-responsive GenImg genImgThumb" /></li>
+                  <li><img src="../../../skin/images/users/caras1.png" alt="" class="img-responsive GenImg genImgThumb" /></li>
+                  <li><img src="../../../skin/images/users/caras2.png" alt="" class="img-responsive GenImg genImgThumb" /></li>
+                  <li><img src="../../../skin/images/users/vio.jpg" alt="" class="img-responsive GenImg genImgThumb" /></li>
+                </ul>
               </div>
             </div>
             <div class="col-md-12 acceptBtnImgDiv text-center">
-              <button id="acceptPermGroup" type="button" name="button" class="btn mainbtn centrarbtn"><i class="fa fa-check"></i> Aceptar</button>
+              <button id="AcceptImg" type="button" name="button" class="btn mainbtn centrarbtn"><i class="fa fa-check"></i> Aceptar</button>
             </div>
           </div>
           <!-- /Single Image Selection Window (Hidden) -->
         </div>
-
-
-
         <!-- Menu Tree -->
         <div class="row treeDivRow">
           <div class="col-md-6 form-group animated bounceInBottom checkboxDiv">

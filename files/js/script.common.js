@@ -774,7 +774,7 @@ function utf8_decode (str_data) {
 
     // Show Single Selection Window
     $('#SelectSingleImg').click(function() {
-      $('#SingleImgWd').show( 500 );
+      $('#SingleImgWd').delay( 300 ).show( 500 );
       $('#newInputs').hide( 500 );
     })
 
@@ -784,6 +784,15 @@ function utf8_decode (str_data) {
       $('#newInputs').hide( 500 );
     })
 
+    // Select Thumb Img
+    $('.GenImg').click(function() {
+      $('.selectImg').removeClass('selectImg');
+      $(this).addClass('selectImg');
+      var src = $(this).attr('src');
+      $('.MainImg').each(function(){
+        $(this).attr('src',src);
+      });
+    });
     // Cancel Selection Windows (X)
     $('#cancelImgChange').click(function() {
       $('#SingleImgWd').hide( 400 );
@@ -791,6 +800,15 @@ function utf8_decode (str_data) {
       $('#newInputs').show( 500 );
       $('#selectImgBtn').show();
     });
+
+    // Accept BtnBack
+    $('#AcceptImg').click(function() {
+      $('#SingleImgWd').hide( 400 );
+      $('#MultipleImgWd').hide( 400 );
+      $('#newInputs').show( 500 );
+      $('#selectImgBtn').show();
+    });
+
 
     ////////////////////// Drag And Drop ///////////////////////////
     $(function() {

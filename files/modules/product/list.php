@@ -52,7 +52,6 @@
             </form>
           </div>
         </div><!-- /Filters -->
-
         <!--- General Product Wrapper (Grid) -->
         <div class="row-centered wrapOverlayItem">
           <!-- Product -->

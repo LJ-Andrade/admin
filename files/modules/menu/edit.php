@@ -19,7 +19,16 @@
     <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
     <?php echo insertElement("hidden","action","update"); ?>
     <?php echo insertElement("hidden","id",$ID); ?>
-    <div class="windowHead"><h3><i class="fa fa-plus-square" aria-hidden="true"></i> <?php echo "Modificar Menú '".$Data['title']."'"; ?></h3></div>
+    <!-- WindowHead -->
+    <div class="row windowHead">
+      <div class="col-md-6 col-xs-12">
+        <h3><i class="fa fa-plus-square" aria-hidden="true"></i> <?php echo "Modificar Menú '".$Data['title']."'"; ?></h3>
+      </div>
+      <div class="col-md-6 col-xs-12 switchDiv switchHead">
+        <span class="userstatustit">Men&uacute; P&uacute;blico: </span>
+        <?php echo insertElement('checkbox','public','','centered','tabindex="7" data-on-text="Si" data-off-text="No" data-size="mini" data-label-width="auto" checked'); ?>
+      </div>
+    </div><!-- /WindowHead -->
     <div class="container additemdiv animated fadeIn">
       <div class="col-sm-12 form-box formitems">
         <div class="row">
