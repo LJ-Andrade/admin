@@ -120,9 +120,9 @@ $(function(){
 
  // Del & Mod User Icons appearing onclick
 $(function(){
-	$('.userButtons').hide();
+	$('.UserButtons').hide();
 	$('.usergral').click(function() {
-		$(this).find('.userButtons').toggle();
+		$(this).find('.UserButtons').toggle();
 		$(this).find('.userMainSection').toggleClass("usergralselect", 500);
 		$(this).find('.userMainSection').toggleClass("usergralselect", 500);
 });
@@ -201,7 +201,6 @@ $(function(){
 
 	// $(document).mouseup(function () {isMouseDown = false;});
 
-
 ////////////////// User Creation Window /////////////////////////
 
 	// Insert Img
@@ -219,7 +218,6 @@ $(function(){
 
 	// Active Paused Product Switch
 	$("[name='status']").bootstrapSwitch();
-
 
 ///////// Responsivity List View //////////////////////////////////
 

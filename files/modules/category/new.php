@@ -8,7 +8,15 @@
   <div id="wrapper">
   <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
   <?php echo insertElement("hidden","action",'insert'); ?>
-    <div class="windowHead"><h3>Agregar Nueva Categoría</h3></div>
+    <!-- WindowHead -->
+    <div class="row windowHead">
+      <div class="col-md-6 col-xs-12">
+        <h3><i class="fa fa-plus-square" aria-hidden="true"></i> Agregar Nueva Categor&iacute;a</h3>
+      </div>
+      <div class="col-md-6 col-xs-12 switchDiv switchHead">
+        <input id="status" type="checkbox" name="status" data-on-text="Activo" data-off-text="Inactivo" data-size="mini" data-label-width="auto" checked>
+      </div>
+    </div><!-- /WindowHead -->
     <div class="container animated fadeIn additemdiv">
       <div class="col-sm-12 form-box formitems">
         <!-- Inputs -->
@@ -19,11 +27,6 @@
             </div>
             <div class="col-md-6 form-group animated bounceInRight">
               <?php echo insertElement('select','parent','','form-controlusers','tabindex="2"',$DB->fetchAssoc("category","category_id,title","status='A'","title"),'0','Categoría Principal'); ?>
-            </div>
-          </div>
-          <div class="col-md-6 animated bounceInRight switchuser">
-            <div class="col-md-12 userstatustit">Estado</div>
-            <div class="col-md-12"><input type="checkbox" class="centered" name="status" id="status" data-on-text="Activa" data-off-text="Inactiva" data-size="large" data-label-width="auto" checked>
             </div>
           </div>
         </div>
