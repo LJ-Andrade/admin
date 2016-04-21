@@ -19,19 +19,20 @@ if($_GET['action']=='newimage')
 switch(strtolower($_POST['action']))
 {
 	case 'insert':
-		$Temp 		= $_POST['groupimage'];
+		$Temp 	= $_POST['groupimage'];
 		$Group 	= new GroupData();
 		if($Temp)
 		{
 			$Tmp 		= array_reverse(explode("/", $Temp));
-			$Image 		= "../../../skin/images/group/".$Tmp[0];
-			$Profile->MoveImage($Image,$Temp);
+			$Image 		= "../../../skin/images/groups/".$Tmp[0];
+			$Group->MoveImage($Image,$Temp);
 		}else{
 			$Image = $Group->GetDefaultImg();
 		}
 
 		$Title		= htmlentities(strtolower($_POST['title']));
 		$Menues		= $_POST['menues'] ? explode(",",$_POST['menues']) : array();
+		$Profiles	= $_POST['profiles'] ? explode(",",$_POST['profiles']) : array();
 
 		$Insert		= $DB->execQuery('insert','admin_group','title,image,status,creation_date',"'".$Title."','".$Image."','A',NOW()");
 		$ID 		= $DB->GetInsertId();
@@ -41,39 +42,57 @@ switch(strtolower($_POST['action']))
 			$Values .= $i==0? $ID.",".$Menues[$i] : "),(".$ID.",".$Menues[$i];
 		}
 		$DB->execQuery('insert','relation_menu_group','group_id,menu_id',$Values);
+
+		$Values = "";
+
+		for($i=0;$i<count($Profiles);$i++)
+		{
+			$Values .= $i==0? $ID.",".$Profiles[$i] : "),(".$ID.",".$Profiles[$i];
+		}
+		$DB->execQuery('insert','relation_group_profile','group_id,profile_id',$Values);
 		die;
 	break;
 
 	case 'update':
 		$ID 	= $_POST['id'];
-		$Edit	= new ProfileData($ID);
-		$Temp = $_POST['profileimage'];
+		$Edit	= new GroupData($ID);
+		$Temp = $_POST['groupimage'];
 		$OldImg = $_POST['oldimage'];
 		$NewImg = $OldImg;
 
 		if($Temp)
 		{
 			$Tmp 	= array_reverse(explode("/", $Temp));
-			$NewImg = "../../../skin/images/profiles/".$Tmp[0];
+			$NewImg = "../../../skin/images/groups/".$Tmp[0];
 			$Edit->MoveImage($NewImg,$Temp,$OldImg);
 		}
 		$Title		= htmlentities(strtolower($_POST['title']));
 		$Menues		= $_POST['menues'] ? explode(",",$_POST['menues']) : array();
+		$Profiles	= $_POST['profiles'] ? explode(",",$_POST['profiles']) : array();
 
-		$Insert		= $DB->execQuery('update','admin_profile',"title='".$Title."',image='".$NewImg."'","profile_id=".$ID);
+		$Insert		= $DB->execQuery('update','admin_group',"title='".$Title."',image='".$NewImg."'","group_id=".$ID);
 		//echo $DB->lastQuery();
-		$DB->execQuery('delete','relation_menu_profile',"profile_id = ".$ID);
+		$DB->execQuery('delete','relation_menu_group',"group_id = ".$ID);
+		$DB->execQuery('delete','relation_group_profile',"group_id = ".$ID);
 
 		for($i=0;$i<count($Menues);$i++)
 		{
 			$Values .= $i==0? $ID.",".$Menues[$i] : "),(".$ID.",".$Menues[$i];
 		}
-		$DB->execQuery('insert','relation_menu_profile','profile_id,menu_id',$Values);
+		$DB->execQuery('insert','relation_menu_group','group_id,menu_id',$Values);
+
+		$Values = "";
+
+		for($i=0;$i<count($Profiles);$i++)
+		{
+			$Values .= $i==0? $ID.",".$Profiles[$i] : "),(".$ID.",".$Profiles[$i];
+		}
+		$DB->execQuery('insert','relation_group_profile','group_id,profile_id',$Values);
 		die;
 	break;
 	case 'delete':
 		$ID	= $_POST['id'];
-		$DB->execQuery('update','admin_profile',"status = 'I'","profile_id=".$ID);
+		$DB->execQuery('update','admin_group',"status = 'I'","group_id=".$ID);
 		die;
 	break;
 

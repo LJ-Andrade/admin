@@ -2,10 +2,11 @@
 
 class GroupData extends DataBase
 {
+	var $Profiles 	= array();
 	var $Menues 	= array();
-	var $Parents 	= array();
 	var $Users 		= array();
 	var $Relations 	= array();
+	var $RelationsProfiles 	= array();
 	var $Data 		= array();
 	var $ID;
 
@@ -49,7 +50,7 @@ class GroupData extends DataBase
 							<div class="userMainSection">
 								<div class="userimgdiv"><img src="'.$Reg['image'].'" class="img-responsive userimg"></div>
 								<div class="row usernamediv">
-		                            <span class="usernametxt"><span class="col-sm-12">'.$Title.'</span> <span class="col-lg-12 col-sm-12 col-xs-12">('.count($Group->GetUsers()).' usuarios)</span></span><br>
+		                            <span class="usernametxt"><span class="col-sm-12">'.$Title.'</span> <span class="col-lg-12 col-sm-12 col-xs-12">('.count($Group->GetUsers()).' usuarios)</span><span class="col-lg-12 col-sm-12 col-xs-12">('.count($Group->GetCheckedProfiles()).' perfiles)</span></span><br>
 
 		                        </div>
 		                     </div>
@@ -65,6 +66,19 @@ class GroupData extends DataBase
         }
 
 		return $List;
+	}
+
+	public function GetCheckedProfiles()
+	{
+		if(count($this->Profiles)<1)
+		{
+			$Relations	= $this->GetRelationsProfile();
+			foreach($Relations as $Relation)
+			{
+				$this->Profiles[]	= $Relation['profile_id'];
+			}
+		}
+		return $this->Profiles;
 	}
 
 	public function GetCheckedMenues()
@@ -87,9 +101,11 @@ class GroupData extends DataBase
 		return $this->Relations;
 	}
 
-	public function IsDisabled($ParentID)
+	public function GetRelationsProfile()
 	{
-		return in_array($ParentID,$this->Menues) ? '' : ' disabled="disabled" ';
+		if(!$this->RelationsProfiles)
+			$this->RelationsProfiles = $this->fetchAssoc('relation_group_profile','*',"group_id = ".$this->ID);
+		return $this->RelationsProfiles;
 	}
 
 	public function MoveImage($New,$Temp,$Old='')
@@ -109,6 +125,27 @@ class GroupData extends DataBase
 		if(!$this->Users)
 			$this->Users = $this->fetchAssoc('admin_user','*',"admin_id IN (SELECT admin_id FROM relation_admin_group WHERE group_id=".$this->ID.") AND status <> 'I'");
 		return $this->Users;
+	}
+
+	public function ProfileTree()
+	{
+		$CheckedProfiles 	= $this->GetCheckedProfiles();
+		$Profiles			= $this->fetchAssoc('admin_profile','*',"status <> 'I'","title");
+		$HTML 				= '<ul>';
+
+		foreach($Profiles as $Profile)
+		{
+			if(in_array($Profile['profile_id'],$CheckedProfiles))
+			{
+				$Checked 	= ' checked="checked" ';
+			}else{
+				$Checked = '';
+			}
+
+			$HTML		.= '<li>'.insertElement('checkbox','profile'.$Profile['profile_id'],$Profile['profile_id'],'ProfileCheckbox checkbox-custom','value="'.$Profile['profile_id'].'"'.$Checked).'<label class="checkbox-custom-label" for="profile'.$Profile['profile_id'].'"></label><span id="profile'.$Profile['profile_id'].'" class=""> '.$Profile['title'].'</span></li>';
+		}
+
+		return $HTML.'</ul>';
 	}
 
 }

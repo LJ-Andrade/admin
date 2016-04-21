@@ -17,8 +17,9 @@
       <?php echo insertElement("hidden","action",'update'); ?>
       <?php echo insertElement("hidden","id",$ID); ?>
       <?php echo insertElement("hidden","oldimage",$Data['image']); ?>
-      <?php echo insertElement("hidden","groupimage",$Data['image']); ?>
+      <?php echo insertElement("hidden","groupimage"); ?>
       <?php echo insertElement("hidden","menues",''); ?>
+      <?php echo insertElement("hidden","profiles",''); ?>
         <div class="container additemdiv animated fadeIn">
           <div class="col-sm-12 form-box formitems">
             <div class="additemtit">
@@ -38,12 +39,14 @@
             </div>
             <!-- MENU TREE -->
             <div class="row">
-              <div class="col-md-7 form-group animated bounceInBottom">
-                <?php $Hidden = $Data['image']? '':'Hidden'; ?>
-                <img src="<?php echo $Data['image']; ?>" width="200" height="200" class="<?php echo $Hidden ?>" id="profileimg" class="img-responsive imgBox" />
+              <div class="col-md-4 form-group animated bounceInBottom">
+                <img src="<?php echo $Data['image']; ?>" width="200" height="200" class="" id="groupimg" class="img-responsive imgBox" />
               </div>
-              <div class="col-md-5 form-group animated bounceInBottom" id="ProfileTree">
+              <div class="col-md-4 form-group animated bounceInBottom">
                 <?php echo $MenuTree->MakeTree(); ?>
+              </div>
+              <div class="col-md-4 form-group animated bounceInBottom">
+                <?php echo $Edit->ProfileTree(); ?>
               </div>
             </div>
             <!-- MENU TREE -->

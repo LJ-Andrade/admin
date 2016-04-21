@@ -13,6 +13,7 @@
       <?php echo insertElement("hidden","action",'insert'); ?>
       <?php echo insertElement("hidden","groupimage",''); ?>
       <?php echo insertElement("hidden","menues",''); ?>
+      <?php echo insertElement("hidden","profiles",''); ?>
         <div class="windowHead"><h3><i class="fa fa-plus-square" aria-hidden="true"></i> Crear Grupo</h3></div>
         <div class="container animated fadeIn additemdiv">
           <div class="col-sm-12 form-box formitems">
@@ -28,13 +29,15 @@
             </div>
             <!-- MENU TREE -->
             <div class="row">
-              <div class="col-md-6 form-group animated bounceInBottom">
-                <img src="<?php echo $Group->GetDefaultImg(); ?>" width="200" height="200" id="profileimg" />
+              <div class="col-md-4 form-group animated bounceInBottom">
+                <img src="<?php echo $Group->GetDefaultImg(); ?>" width="200" height="200" id="groupimg" />
               </div>
-              <div class="col-md-6 form-group animated bounceInBottom treediv">
+              <div class="col-md-4 form-group animated bounceInBottom treediv">
                 <?php echo $MenuTree->MakeTree(); ?>
               </div>
-
+              <div class="col-md-4 form-group animated bounceInBottom treediv">
+                <?php echo $Group->ProfileTree(); ?>
+              </div>
             </div>
             <!-- MENU TREE -->
           </div>

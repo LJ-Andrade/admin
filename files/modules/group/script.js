@@ -41,9 +41,9 @@ $(function(){
 	});
 
 	///////////////////////////////////// Load Image ///////////////////////////
-$("#profileimg").click(function(){
-	$("#image").click();
-});
+	$("#groupimg").click(function(){
+		$("#image").click();
+	});
 
 	$("#image").change(function(){
 		//notifyInfo($(this).val());
@@ -54,9 +54,9 @@ $("#profileimg").click(function(){
 			//$("input,select").blur();
 			//alert(returningData);
 			//alert(returningData);
-			$('#profileimage').val(returningData);
-			$('#profileimg').attr('src',returningData);
-			$('#profileimg').removeClass('Hidden');
+			$('#groupimage').val(returningData);
+			$('#groupimg').attr('src',returningData);
+			$('#groupimg').removeClass('Hidden');
 			$('#image').parent().parent().children('input[type="text"]').val('');
 			//notifyInfo(returningData);
 			return false;
@@ -71,6 +71,30 @@ $("#profileimg").click(function(){
 
 
 });
+
+/////////////////////////// Profile Tree /////////////////////////////////////
+function getCheckedProfiles()
+    {
+        var values = '';
+        $(".ProfileCheckbox").each(function(){
+            if($(this).is(":checked"))
+                if(values=='')
+                    values = $(this).val();
+                else
+                    values = values + ',' + $(this).val();
+        });
+        $("#profiles").val(values);
+    }
+
+    $(document).ready(function(){
+        getCheckedProfiles();
+    });
+
+    $(function(){
+        $(".ProfileCheckbox").click(function(){
+            getCheckedProfiles();
+        });
+    });
 
 /////////////////////////// Massive Delete /////////////////////////////////////
 	$("#delselected").click(function(){
@@ -148,7 +172,7 @@ $("#profileimg").click(function(){
 	});
 
 
-///////////////////// User Icos Del Modify Appears On Hover ///////////////////////
+///////////////////// User Icons Del Modify Appears On Hover ///////////////////////
 
  // Del & Mod User Icons appearing onclick
 $(function(){
