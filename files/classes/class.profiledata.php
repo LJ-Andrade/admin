@@ -90,18 +90,6 @@ class ProfileData extends DataBase
 		return in_array($ParentID,$this->Menues) ? '' : ' disabled="disabled" ';
 	}
 
-	public function MoveImage($New,$Temp,$Old='')
-	{
-		$Tmp = array_reverse(explode("/", $Temp));
-		if(file_exists($Old)) unlink($Old);
-		if(file_exists($Temp))
-		{
-			copy($Temp, $New);
-			unlink($Temp);
-		}
-		return file_exists($New);
-	}
-
 	public function GetUsers()
 	{
 		if(!$this->Users)

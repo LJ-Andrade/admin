@@ -3,18 +3,19 @@
     $Head->setTitle("Nuevo Usuario");
     $Head->setHead();
 
+    //$New      = new AdminData();
     $MenuTree = new Menu();
-
-    $Groups[1] = "Pepe";
-    $Groups[2] = "Pepe2";
-    $Groups[3] = "Pepe3";
+    $Group    = new GroupData();
+    
 
 ?>
 <body>
   <div id="wrapper">
     <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
     <?php echo insertElement("hidden","action",'insert'); ?>
-    <?php echo insertElement("hidden","menues",''); ?>
+    <?php echo insertElement("hidden","menues"); ?>
+    <?php echo insertElement("hidden","groups"); ?>
+    <?php echo insertElement("hidden","newimage",$Admin->DefaultImg); ?>
       <!-- WindowHead -->
       <div class="row windowHead">
         <div class="col-md-6 col-xs-12">
@@ -58,7 +59,7 @@
               <!-- Choose Img -->
               <div id="SelectSingleImg" class="col-md-6 col-centered overlaySingleImg">
                 <div class="overlayInnerIcon overlayIcon">
-                  <img src="../../../skin/images/users/vio.jpg" class="MainImg img-responsive singleImg">
+                  <img src="<?php echo $Admin->DefaultImg ?>" class="MainImg img-responsive singleImg">
                   <div class="mask">
                   <p>Cambiar Imagen</p>
                   <i class="fa fa-pencil-square-o"></i>
@@ -69,10 +70,10 @@
               <div class="col-md-6 form-group animated bounceInRight centrarbtn">
                 <div class="form-group">
                   <div class="marg20">
-                    <?php echo insertElement('select','profile','','form-controlusers','tabindex="6" validateEmpty="El perfil es obligatorio."',$DB->fetchAssoc("admin_profile","profile_id,title","","title"),'','Elegir Perfil'); ?>
+                    <?php echo insertElement('select','profile','','form-controlusers','tabindex="6" validateEmpty="El perfil es obligatorio."',$DB->fetchAssoc("admin_profile","profile_id,title","status = 'A'","title"),'','Elegir Perfil'); ?>
                   </div>
                   <div class="marg20">
-                    <button id="showTreeDiv" class="btn mainbtn">Permisos y Grupo</button>
+                    <button id="showTreeDiv" class="btn mainbtn">Permisos y Grupos</button>
                   </div>
                 </div>
               </div>
@@ -84,24 +85,29 @@
             <div class="col-md-12">
               <div class="col-md-12 col-centered">
                 <div class="overlayInnerIcon overlayIcon">
-                  <img src="../../../skin/images/users/vio.jpg" class="MainImg img-responsive singleImg">
-                  <div class="mask">
+                  <img src="<?php echo $Admin->DefaultImg ?>" class="MainImg img-responsive singleImg SelectNewImg">
+                  <div class="mask SelectNewImg">
                   <p>Cambiar Imagen</p>
                   <i class="fa fa-pencil-square-o"></i>
                   </div>
                 </div>
               </div>
+              <?php echo insertElement('file','image','','Hidden'); ?>
               <div class="clearfix visible-xs"></div>
               <div class="col-md-12 genericSingleImgs">
-                <ul>
-                  <li><img src="../../../skin/images/users/usergen.png" alt="" class="img-responsive GenImg genImgThumb" /></li>
-                  <li><img src="../../../skin/images/users/caras1.png" alt="" class="img-responsive GenImg genImgThumb" /></li>
-                  <li><img src="../../../skin/images/users/caras2.png" alt="" class="img-responsive GenImg genImgThumb" /></li>
-                  <li><img src="../../../skin/images/users/vio.jpg" alt="" class="img-responsive GenImg genImgThumb" /></li>
-                  <li><img src="../../../skin/images/users/usergen.png" alt="" class="img-responsive GenImg genImgThumb" /></li>
-                  <li><img src="../../../skin/images/users/caras1.png" alt="" class="img-responsive GenImg genImgThumb" /></li>
-                  <li><img src="../../../skin/images/users/caras2.png" alt="" class="img-responsive GenImg genImgThumb" /></li>
-                  <li><img src="../../../skin/images/users/vio.jpg" alt="" class="img-responsive GenImg genImgThumb" /></li>
+                <ul id="ImageBox">
+                  <?php 
+                  foreach($Admin->AllImages() as $Image)
+                  {
+                    if($Image==$Admin->DefaultImg)
+                      $MainImg = 'selectImg LastClicked';
+                    else
+                      $MainImg = '';
+                  ?>
+                  <li><img src="<?php echo $Image ?>" alt="" class="img-responsive GenImg genImgThumb <?php echo $MainImg; ?>" /></li>
+                  <?php
+                  }
+                  ?>
                 </ul>
               </div>
             </div>
@@ -119,7 +125,7 @@
           </div>
           <div class="col-md-6 form-group animated bounceInBottom checkboxDiv">
             <h4>Permisos</h4>
-            <?php echo $MenuTree->MakeTree(); ?>
+            <?php echo $Group->ProfileTree(); ?>
           </div>
           <div class="col-md-12 acceptBtnDiv">
             <button id="acceptPermGroup" type="button" name="button" class="btn mainbtn centrarbtn"><i class="fa fa-check"></i> Aceptar</button><br>

@@ -17,8 +17,12 @@ $(document).ready(function(){
 $(function(){
 	$("#create").click(function(){
 		if(validate.validateFields('')){
+			var status = 'I';
+			if($("#status").is(':checked'))
+				status = 'A';
+			
 			var process		= 'process.php';
-			var target		= 'list.php?msg='+ $("#action").val();
+			var target		= 'list.php?status='+status+'&msg='+ $("#action").val();
 			var haveData	= function(returningData)
 			{
 				$("input,select").blur();
@@ -38,8 +42,33 @@ $(function(){
 			$("#create").click();
 		}
 	});
-});
 
+/////////////////////////// Upload Image /////////////////////////////////////
+	$("#image").change(function(){
+		var process		= 'process.php?action=newimage';
+		var haveData	= function(returningData)
+		{
+			$('#newimage').val(returningData);
+			$('#ImageBox').append('<li><img src="'+returningData+'" alt="" class="img-responsive GenImg genImgThumb RecentlyAdded" /></li>');
+			SelectThumbImg();
+			CancelSelectionWindows();
+			BtnBack();
+			$('.RecentlyAdded').click();
+			$('.RecentlyAdded').removeClass('RecentlyAdded');
+			return false;
+
+		}
+		var noData		= function()
+		{
+			//document.location = target;
+		}
+		sumbitFields(process,haveData,noData);
+	});
+	
+	$('.SelectNewImg').click(function(){
+		$("#image").click();
+	});
+});
 /////////////////////////// Massive Delete /////////////////////////////////////
 	$("#delselected").click(function(){
 		alertify.confirm(utf8_decode('¿Desea eliminar los usuarios seleccionados?'), function(e){

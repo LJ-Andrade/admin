@@ -25,7 +25,7 @@ switch(strtolower($_POST['action']))
 		{
 			$Tmp 		= array_reverse(explode("/", $Temp));
 			$Image 		= "../../../skin/images/profiles/".$Tmp[0];
-			$Profile->MoveImage($Image,$Temp);
+			MoveImage($Image,$Temp);
 		}else{
 			$Image = $Profile->GetDefaultImg();
 		}

@@ -12,12 +12,16 @@ class AdminData extends DataBase
 	var	$User;
 	var	$Img;
 	var $AdminData;
-	var $DefaultImg	= '../../../skin/images/body/pictures/user.jpg';
+	var $DefaultImg	= '../../../skin/images/users/default/default.jpg';
+	var $DefaultImgDir = '../../../skin/images/users/default';
+	var $ImgGalDir = '../../../skin/images/users/';
 	var $LastAccess;
-	var $Where 		= "";
-	var $Groups 	= array();
-	var $Parent 	= array();
-	var $Menues 	= array();
+	var $Where 			= "";
+	var $Groups 		= array();
+	var $Parent 		= array();
+	var $Menues 		= array();
+	var $DefaultImages 	= array();
+	var $UserImages 	= array();
 	
 	public function __construct($AdminID='')
 	{
@@ -211,7 +215,74 @@ class AdminData extends DataBase
 	{
 		return in_array($ParentID,$this->Menues) ? '' : ' disabled="disabled" ';
 	}
+
+	public function DefaultImages($Dir='')
+	{
+		if(!$Dir) $Dir = $this->DefaultImgDir;
+
+		if(count($this->DefaultImages)<1)
+		{
+			$Elements = scandir($Dir);
+			foreach($Elements as $Image)
+			{
+				if(strlen($Image)>4 && $Image[0]!=".")
+				{
+					$this->DefaultImages[] = $Image;
+				}
+			}
+		}
+
+		return $this->DefaultImages;
+	}
+
+	public function UserImages($Dir='')
+	{
+		if(!$Dir) $Dir = $this->ImgGalDir();
+
+		if(count($this->UserImages)<1)
+		{
+			$Elements = scandir($Dir);
+			foreach($Elements as $Image)
+			{
+				if(strlen($Image)>4 && $Image[0]!=".")
+				{
+					$this->UserImages[] = $Image;
+				}
+			}
+		}
+
+		return $this->UserImages;
+	}
+
+	public function ImgGalDir()
+	{
+		$TempDir = $this->ImgGalDir.$this->AdminID."/";
+		if(!file_exists($TempDir)) mkdir($TempDir);
+		return $TempDir;
+	}
+
+	public function CleanTmpImgDir()
+	{
+		$Images = $this->DefaultImages($this->ImgGalDir());
+		foreach($Imgaes as $Image)
+		{
+			$Img = $this->ImgGalDir().$Image;
+			if(file_exists($Img)) unlink($Img);
+		}
+	}
+
+	public function AllImages()
+	{
+		$Images = array();
+		foreach($this->DefaultImages() as $Image)
+		{
+			$Images[] = $this->DefaultImgDir.'/'.$Image;
+		}
+		foreach ($this->UserImages() as $Image)
+		{
+        	$Images[] = $this->ImgGalDir().$Image;
+        }
+        return $Images;
+	}
 }
-
-
 ?>

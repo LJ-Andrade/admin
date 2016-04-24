@@ -773,42 +773,68 @@ function utf8_decode (str_data) {
     $('#MultipleImgWd').hide();
 
     // Show Single Selection Window
-    $('#SelectSingleImg').click(function() {
-      $('#SingleImgWd').delay( 300 ).show( 500 );
-      $('#newInputs').hide( 500 );
-    })
+    function ShowSingleSelectionWindow()
+    {
+        $('#SelectSingleImg').click(function()
+        {
+            $('#SingleImgWd').delay( 300 ).show( 500 );
+            $('#newInputs').hide( 500 );
+        });
+    }
+    ShowSingleSelectionWindow();
 
     // Show Multiple Selection Window
-    $('#selectImgBtn').click(function() {
-      $('#MultipleImgWd').show( 500 );
-      $('#newInputs').hide( 500 );
-    })
+    function ShowMultipleSelectionWindow()
+    {
+        $('#selectImgBtn').click(function()
+        {
+            $('#MultipleImgWd').show( 500 );
+            $('#newInputs').hide( 500 );
+        });
+    }
+    ShowMultipleSelectionWindow();
 
     // Select Thumb Img
-    $('.GenImg').click(function() {
-      $('.selectImg').removeClass('selectImg');
-      $(this).addClass('selectImg');
-      var src = $(this).attr('src');
-      $('.MainImg').each(function(){
-        $(this).attr('src',src);
-      });
-    });
+    function SelectThumbImg()
+    {
+        $('.GenImg').click(function() {
+          $('.selectImg').removeClass('selectImg');
+          $(this).addClass('selectImg');
+          var src = $(this).attr('src');
+          $('.MainImg').each(function(){
+            $(this).attr('src',src);
+          });
+          $('#newimage').val(src);
+        });
+    }
+    SelectThumbImg();
+
     // Cancel Selection Windows (X)
-    $('#cancelImgChange').click(function() {
-      $('#SingleImgWd').hide( 400 );
-      $('#MultipleImgWd').hide( 400 );
-      $('#newInputs').show( 500 );
-      $('#selectImgBtn').show();
-    });
+    function CancelSelectionWindows()
+    {
+        $('#cancelImgChange').click(function() {
+            $('#SingleImgWd').hide( 400 );
+            $('#MultipleImgWd').hide( 400 );
+            $('#newInputs').show( 500 );
+            $('#selectImgBtn').show();
+            $('.LastClicked').click();
+        });
+    }
+    CancelSelectionWindows();
 
     // Accept BtnBack
-    $('#AcceptImg').click(function() {
-      $('#SingleImgWd').hide( 400 );
-      $('#MultipleImgWd').hide( 400 );
-      $('#newInputs').show( 500 );
-      $('#selectImgBtn').show();
-    });
-
+    function BtnBack()
+    {
+        $('#AcceptImg').click(function() {
+          $('#SingleImgWd').hide( 400 );
+          $('#MultipleImgWd').hide( 400 );
+          $('#newInputs').show( 500 );
+          $('#selectImgBtn').show();
+          $(".LastClicked").removeClass('LastClicked');
+          $(".selectImg").addClass('LastClicked');
+        });
+    }
+    BtnBack();
 
     ////////////////////// Drag And Drop ///////////////////////////
     $(function() {

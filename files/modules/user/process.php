@@ -2,18 +2,23 @@
 
 include('../../includes/inc.main.php');
 
+if($_GET['action']=='newimage')
+{
+	if(count($_FILES['image'])>0)
+		{
+			$TempDir = $Admin->ImgGalDir();
+			$Name	= "user".intval(rand()*rand()/rand())."__".$Admin->AdminID;
+			$Img	= new FileData($_FILES['image'],$TempDir,$Name);
+			echo $Img	-> BuildImage(200,200);
+			die();
+		}
+}
+
 switch(strtolower($_POST['action']))
 {
 	case 'insert':
 	
-		if(count($_FILES['img'])>0)
-		{
-			$Name		= "file".rand()*rand()/rand();
-			$Img		= new FileData($_FILES['img'],"../../../skin/images/users/",$Name);
-			$Image		= $Img	-> BuildImage(200,200);
-			
-		}
-		
+		$Image 		= $_POST['newimage'];
 		$User		= htmlentities(strtolower($_POST['user']));
 		$Password	= md5(htmlentities($_POST['password']));
 		$FirstName	= htmlentities($_POST['first_name']);
@@ -21,15 +26,27 @@ switch(strtolower($_POST['action']))
 		$Email 		= htmlentities($_POST['email']);
 		$ProfileID	= $_POST['profile'];
 		$Status		= $_POST['status']=="on"? 'A': 'I';
-		$Groups		= $_POST['group_id'] ? explode(",",$_POST['group_id']) : array();
+		$Groups		= $_POST['groups'] ? explode(",",$_POST['groups']) : array();
 		$Menues		= $_POST['menues'] ? explode(",",$_POST['menues']) : array();
 		
 		$Insert		= $DB->execQuery('insert','admin_user','user,password,first_name,last_name,email,status,profile_id,img',"'".$User."','".$Password."','".$FirstName."','".$LastName."','".$Email."','".$Status."','".$ProfileID."','".$Image."'");
-		$AdminID 	= $DB->GetInsertId();
+		$NewID 		= $DB->GetInsertId();
+
+
+		$New 	= new AdminData($NewID);
+		$Dir 	= array_reverse(explode("/",$Image));
+		if($Dir[1]!="default")
+		{
+			$Temp 	= $Image;
+			$Image 	= $New->ImgGalDir().$Dir[0];
+			copy($Temp,$Image);
+		}
+		$DB->execQuery('update','admin_user',"img='".$Image."'","admin_id=".$NewID);
+
 		
 		for($i=0;$i<count($Groups);$i++)
 		{
-			$Values .= $i==0? $AdminID.",".$Groups[$i] : "),(".$AdminID.",".$Groups[$i];
+			$Values .= $i==0? $NewID.",".$Groups[$i] : "),(".$NewID.",".$Groups[$i];
 		}
 		$DB->execQuery('insert','relation_admin_group','admin_id,group_id',$Values);
 
@@ -37,7 +54,7 @@ switch(strtolower($_POST['action']))
 
 		for($i=0;$i<count($Menues);$i++)
 		{
-			$Values .= $i==0? $AdminID.",".$Menues[$i] : "),(".$AdminID.",".$Menues[$i];
+			$Values .= $i==0? $NewID.",".$Menues[$i] : "),(".$NewID.",".$Menues[$i];
 		}
 		$DB->execQuery('insert','menu_exception','admin_id,menu_id',$Values);
 		die;
@@ -65,21 +82,8 @@ switch(strtolower($_POST['action']))
 			$Password		= md5(htmlentities($_POST['password']));
 			$PasswordFilter	= ",password='".$Password."'";
 		}
-		
-		if(count($_FILES['img'])>0)
-		{
-			
-			$Name		= "file".intval((rand()*rand())/rand()+rand());
-			$Img		= new FileData($_FILES['img'],"../../../skin/images/users/",$Name);
-			
-			if(file_exists($Edit->AdminData['img']))
-					$Img -> DeleteFile($Edit->AdminData['img']);
-			
-			$Image		= $Img	-> BuildImage(45,45);
-			
-			$ImgFilter	= ",img='".$Image."'";
-		}
 
+		$Image 		= $_POST['newimage'];
 		$User		= htmlentities(strtolower($_POST['user']));
 		$FirstName	= htmlentities($_POST['first_name']);
 		$LastName	= htmlentities($_POST['last_name']);
@@ -89,14 +93,24 @@ switch(strtolower($_POST['action']))
 		$Groups		= $_POST['group'] ? explode(",",$_POST['group_id']) : array();
 		$Menues		= $_POST['menues'] ? explode(",",$_POST['menues']) : array();
 
-		$Insert		= $DB->execQuery('update','admin_user',"user='".$User."'".$PasswordFilter.",first_name='".$FirstName."',last_name='".$LastName."',email='".$Email."',status='".$Status."',profile_id='".$ProfileID."'".$ImgFilter,"admin_id=".$ID);
+		$Dir 		= array_reverse(explode("/",$Image));
+		if($Dir[1]!="default" && $ID!=$Admin->AdminID)
+		{
+			$Temp 	= $Image;
+			$Image 	= $Edit->ImgGalDir().$Dir[0];
+			// echo $Image;
+			// echo "<br><br>".$ID."/".$Admin->AdminID;
+			copy($Temp,$Image);
+		}
+
+		$Insert		= $DB->execQuery('update','admin_user',"user='".$User."'".$PasswordFilter.",first_name='".$FirstName."',last_name='".$LastName."',email='".$Email."',status='".$Status."',profile_id='".$ProfileID."',img='".$Image."'","admin_id=".$ID);
 		//echo $DB->lastQuery();
-		$DB->execQuery('delete','relation_admin_group',"admin_id = ".$Admin_id);
-		$DB->execQuery('delete','menu_exception',"admin_id = ".$Admin_id);
+		$DB->execQuery('delete','relation_admin_group',"admin_id = ".$ID);
+		$DB->execQuery('delete','menu_exception',"admin_id = ".$ID);
 
 		for($i=0;$i<count($Groups);$i++)
 		{
-			$Values .= $i==0? $Admin_id.",".$Groups[$i] : "),(".$Admin_id.",".$Groups[$i];
+			$Values .= $i==0? $ID.",".$Groups[$i] : "),(".$ID.",".$Groups[$i];
 		}
 		$DB->execQuery('insert','relation_admin_group','admin_id,group_id',$Values);
 
@@ -104,7 +118,7 @@ switch(strtolower($_POST['action']))
 
 		for($i=0;$i<count($Menues);$i++)
 		{
-			$Values .= $i==0? $Admin_id.",".$Menues[$i] : "),(".$Admin_id.",".$Menues[$i];
+			$Values .= $i==0? $ID.",".$Menues[$i] : "),(".$ID.",".$Menues[$i];
 		}
 		$DB->execQuery('insert','menu_exception','admin_id,menu_id',$Values);
 

@@ -362,5 +362,17 @@
 		return $TableData;
 
 	}
+
+	function MoveImage($New,$Temp,$Old='')
+	{
+		$Tmp = array_reverse(explode("/", $Temp));
+		if(file_exists($Old)) unlink($Old);
+		if(file_exists($Temp))
+		{
+			copy($Temp, $New);
+			unlink($Temp);
+		}
+		return file_exists($New);
+	}
 	
 ?>
