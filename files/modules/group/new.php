@@ -3,7 +3,8 @@
     $Head->setTitle("Crear Grupo");
     $Head->setHead();
 
-    $Group  = new GroupData();
+    $Group    = new GroupData();
+    $Profile  = new ProfileData();
     $MenuTree = new Menu();
 
 ?>
@@ -36,7 +37,7 @@
                 <?php echo $MenuTree->MakeTree(); ?>
               </div>
               <div class="col-md-4 form-group animated bounceInBottom treediv">
-                <?php echo $Group->ProfileTree(); ?>
+                <?php echo $Profile->ProfileTree(); ?>
               </div>
             </div>
             <!-- MENU TREE -->

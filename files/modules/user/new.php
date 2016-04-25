@@ -54,7 +54,7 @@
               </div>
             </div>
             <!-- /User Data -->
-            <!-- Single Image - Groups/Perm -->
+            <!-- Single Image -->
             <div class="col-md-12">
               <!-- Choose Img -->
               <div id="SelectSingleImg" class="col-md-6 col-centered overlaySingleImg">
@@ -120,12 +120,12 @@
         <!-- Menu Tree -->
         <div class="row treeDivRow">
           <div class="col-md-6 form-group animated bounceInBottom checkboxDiv">
-            <h4>Grupos</h4>
-            <?php echo $MenuTree->MakeTree(); ?>
+            <h4>Grupos Asociados</h4>
+            <span id="GroupTree"></span>
           </div>
           <div class="col-md-6 form-group animated bounceInBottom checkboxDiv">
-            <h4>Permisos</h4>
-            <?php echo $Group->ProfileTree(); ?>
+            <h4>Permisos Especiales</h4>
+            <?php echo $MenuTree->MakeTree(); ?>
           </div>
           <div class="col-md-12 acceptBtnDiv">
             <button id="acceptPermGroup" type="button" name="button" class="btn mainbtn centrarbtn"><i class="fa fa-check"></i> Aceptar</button><br>

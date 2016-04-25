@@ -17,7 +17,7 @@
     <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
     <?php echo insertElement("hidden","action",'update'); ?>
     <?php echo insertElement("hidden","id",$Admin_id); ?>
-    <?php echo insertElement("hidden","menues",''); ?>
+    <?php echo insertElement("hidden","menues"); ?>
     <?php echo insertElement("hidden","groups"); ?>
     <?php echo insertElement("hidden","newimage",$AdminEdit->Img); ?>
       <!-- WindowHead -->
@@ -75,7 +75,7 @@
               <div class="col-md-6 form-group animated bounceInRight centrarbtn">
                 <div class="form-group">
                   <div class="marg20">
-                    <?php echo insertElement('select','profile',$AdminEdit->ProfileID,'form-controlusers','tabindex="6" validateEmpty="El perfil es obligatorio."',$DB->fetchAssoc("admin_profile","profile_id,title","","title"),'','Elegir Perfil'); ?>
+                    <?php echo insertElement('select','profile',$AdminEdit->ProfileID,'form-controlusers','tabindex="6" validateEmpty="El perfil es obligatorio."',$DB->fetchAssoc("admin_profile","profile_id,title","status = 'A'","title"),'','Elegir Perfil'); ?>
                   </div>
                   <div class="marg20">
                     <button id="showTreeDiv" class="btn mainbtn">Permisos y Grupo</button>
@@ -131,11 +131,11 @@
         <!-- Menu Tree -->
         <div class="row treeDivRow">
           <div class="col-md-6 form-group animated bounceInBottom checkboxDiv">
-            <h4>Grupos</h4>
-            <?php echo $MenuTree->MakeTree(); ?>
+            <h4>Grupos Asociados</h4>
+            <span id="GroupTree"></span>
           </div>
           <div class="col-md-6 form-group animated bounceInBottom checkboxDiv">
-            <h4>Permisos</h4>
+            <h4>Permisos Especiales</h4>
             <?php echo $MenuTree->MakeTree(); ?>
           </div>
           <div class="col-md-12 acceptBtnDiv">

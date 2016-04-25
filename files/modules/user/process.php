@@ -16,6 +16,7 @@ if($_GET['action']=='newimage')
 
 switch(strtolower($_POST['action']))
 {
+	//////////////////////////////////////////// NEW ///////////////////////////////////////////////////////////////
 	case 'insert':
 	
 		$Image 		= $_POST['newimage'];
@@ -60,6 +61,8 @@ switch(strtolower($_POST['action']))
 		die;
 		
 	break;
+
+	//////////////////////////////////////////// EDIT ///////////////////////////////////////////////////////////////
 	case 'update': 
 		$ID 	= $_POST['id'];
 		$Edit	= new AdminData($ID);
@@ -90,7 +93,7 @@ switch(strtolower($_POST['action']))
 		$Email 		= htmlentities($_POST['email']);
 		$ProfileID	= $_POST['profile'];
 		$Status		= $_POST['status']=="on"? 'A': 'I';
-		$Groups		= $_POST['group'] ? explode(",",$_POST['group_id']) : array();
+		$Groups		= $_POST['groups'] ? explode(",",$_POST['groups']) : array();
 		$Menues		= $_POST['menues'] ? explode(",",$_POST['menues']) : array();
 
 		$Dir 		= array_reverse(explode("/",$Image));
@@ -124,6 +127,8 @@ switch(strtolower($_POST['action']))
 
 		die;
 	break;
+
+	//////////////////////////////////////////// DELETE ///////////////////////////////////////////////////////////////
 	case 'delete': 
 		$ID	= $_POST['id'];
 		$DB->execQuery('update','admin_user',"status = 'I'","admin_id=".$ID);
@@ -143,17 +148,14 @@ switch(strtolower($_POST['action']))
 		die;
 	break;
 
-
 	///////////////////////////////////// FILL GROUPS /////////////////////////////////////////////////
 	case 'fillgroups':
-		$Profile = $_POST['profile'];
+		$Profile 	= $_POST['profile'];
+		$Admin 		= $_POST['admin'];
 
-        $Groups = $DB->fetchAssoc('admin_group','*',"group_id IN (SELECT group_id FROM relation_group_profile WHERE profile_id = ".$Profile.")","name");
-        foreach ($Groups as $Group)
-        {
-         echo '<div style="width:auto;">'.insertElement('checkbox','group_id',$Group['group_id'],'Arial12px BlueCyan Bold','tabindex="9"').' '.htmlentities($Group['name']).'</div>';   
-        }
-        
+        $Groups 	= new GroupData();
+        echo $Groups->GroupTree($Profile,$Admin);
+		
 		die;
 	break;
 

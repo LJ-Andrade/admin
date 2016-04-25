@@ -8,6 +8,7 @@ class GroupData extends DataBase
 	var $Relations 	= array();
 	var $RelationsProfiles 	= array();
 	var $Data 		= array();
+	var $AdminID;
 	var $ID;
 
 	const DEFAULTIMG		= "../../../skin/images/body/pictures/usergen.png";
@@ -43,6 +44,7 @@ class GroupData extends DataBase
 			$ID 		= $Reg['group_id'];
 			$Title 		= $Reg['title'];
 			$Group		= new GroupData($ID);
+			$Profile 	= new ProfileData();
 			$Actions	= 	'<img src="../../../skin/images/body/icons/pencil.png" id="edit_'.$ID.'" />';
 			$Actions	.= 	'<img src="../../../skin/images/body/icons/cross.png" id="delete_'.$ID.'" />';
 
@@ -50,7 +52,7 @@ class GroupData extends DataBase
 							<div class="userMainSection">
 								<div class="userimgdiv"><img src="'.$Reg['image'].'" class="img-responsive userimg"></div>
 								<div class="row usernamediv">
-		                            <span class="usernametxt"><span class="col-sm-12">'.$Title.'</span> <span class="col-lg-12 col-sm-12 col-xs-12">('.count($Group->GetUsers()).' usuarios)</span><span class="col-lg-12 col-sm-12 col-xs-12">('.count($Group->GetCheckedProfiles()).' perfiles)</span></span><br>
+		                            <span class="usernametxt"><span class="col-sm-12">'.$Title.'</span> <span class="col-lg-12 col-sm-12 col-xs-12">('.count($Group->GetUsers()).' usuarios)</span><span class="col-lg-12 col-sm-12 col-xs-12">('.count($Profile->GetCheckedProfiles($ID)).' perfiles)</span></span><br>
 
 		                        </div>
 		                     </div>
@@ -68,17 +70,22 @@ class GroupData extends DataBase
 		return $List;
 	}
 
-	public function GetCheckedProfiles()
+	public function GetCheckedGroups()
 	{
-		if(count($this->Profiles)<1)
+		if($this->AdminID!=0)
 		{
-			$Relations	= $this->GetRelationsProfile();
-			foreach($Relations as $Relation)
+			if(count($this->Groups)<1)
 			{
-				$this->Profiles[]	= $Relation['profile_id'];
+				$Relations	= $this->GetRelationsGroup();
+				foreach($Relations as $Relation)
+				{
+					$this->Groups[]	= $Relation['group_id'];
+				}
 			}
+		}else{
+			$this->Groups = array();	
 		}
-		return $this->Profiles;
+		return $this->Groups;
 	}
 
 	public function GetCheckedMenues()
@@ -101,23 +108,13 @@ class GroupData extends DataBase
 		return $this->Relations;
 	}
 
-	public function GetRelationsProfile()
+	public function GetRelationsGroup()
 	{
+		
 		if(!$this->RelationsProfiles)
-			$this->RelationsProfiles = $this->fetchAssoc('relation_group_profile','*',"group_id = ".$this->ID);
+			$this->RelationsProfiles = $this->fetchAssoc('relation_admin_group','*',"admin_id = ".$this->AdminID);
+		//echo $this->lastQuery();
 		return $this->RelationsProfiles;
-	}
-
-	public function MoveImage($New,$Temp,$Old='')
-	{
-		$Tmp = array_reverse(explode("/", $Temp));
-		if(file_exists($Old)) unlink($Old);
-		if(file_exists($Temp))
-		{
-			copy($Temp, $New);
-			unlink($Temp);
-		}
-		return file_exists($New);
 	}
 
 	public function GetUsers()
@@ -127,25 +124,29 @@ class GroupData extends DataBase
 		return $this->Users;
 	}
 
-	public function ProfileTree()
+	public function GroupTree($ProfileID=0,$AdminID=0)
 	{
-		$CheckedProfiles 	= $this->GetCheckedProfiles();
-		$Profiles			= $this->fetchAssoc('admin_profile','*',"status <> 'I'","title");
-		$HTML 				= '<ul>';
-
-		foreach($Profiles as $Profile)
+		if($ProfileID!=0)
 		{
-			if(in_array($Profile['profile_id'],$CheckedProfiles))
+			$this->AdminID 	= $AdminID;
+			$CheckedGroups 	= $this->GetCheckedGroups();
+			$Groups			= $this->fetchAssoc('admin_group','*',"group_id IN (SELECT group_id FROM relation_group_profile WHERE profile_id = ".$ProfileID.")","title");
+			$HTML 				= '<ul>';
+
+			foreach($Groups as $Group)
 			{
-				$Checked 	= ' checked="checked" ';
-			}else{
-				$Checked = '';
+				if($CheckedGroups && in_array($Group['group_id'],$CheckedGroups))
+				{
+					$Checked 	= ' checked="checked" ';
+				}else{
+					$Checked = '';
+				}
+
+				$HTML		.= '<li>'.insertElement('checkbox','group'.$Group['group_id'],$Group['group_id'],'checkbox-custom GroupCheckbox','value="'.$Group['group_id'].'"'.$Checked).'<label class="checkbox-custom-label" for="group'.$Group['group_id'].'"></label><span id="group'.$Group['group_id'].'" class=""> '.$Group['title'].'</span></li>';
 			}
 
-			$HTML		.= '<li>'.insertElement('checkbox','profile'.$Profile['profile_id'],$Profile['profile_id'],'ProfileCheckbox checkbox-custom','value="'.$Profile['profile_id'].'"'.$Checked).'<label class="checkbox-custom-label" for="profile'.$Profile['profile_id'].'"></label><span id="profile'.$Profile['profile_id'].'" class=""> '.$Profile['title'].'</span></li>';
+			return $HTML.'</ul>';
 		}
-
-		return $HTML.'</ul>';
 	}
 
 }

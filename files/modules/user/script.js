@@ -68,7 +68,67 @@ $(function(){
 	$('.SelectNewImg').click(function(){
 		$("#image").click();
 	});
+
+/////////////////////////// Fill Groups /////////////////////////////////////
+	$('#profile').change(function(){
+		fillGroups();
+	});
 });
+
+function fillGroups()
+{
+	var profile = $('#profile').val();
+	var admin 	= $('#id').val();
+	var process = 'process.php';
+
+	var string      = 'profile='+ profile +'&admin='+ admin +'&action=fillgroups';
+	
+    var data;
+    $.ajax({
+        type: "POST",
+        url: process,
+        data: string,
+        cache: false,
+        success: function(data){
+            if(data)
+            {
+                $('#GroupTree').html(data);
+            }else{
+                $('#GroupTree').html('');
+            }
+            getCheckedGroups();
+            clickGroupCheckbox();
+            $("#groups").val('');
+        }
+    });
+}
+
+function getCheckedGroups()
+{
+    var values = '';
+    $(".GroupCheckbox").each(function(){
+        if($(this).is(":checked"))
+            if(values=='')
+                values = $(this).val();
+            else
+            	values = values + ',' + $(this).val();
+    });
+    $("#groups").val(values);
+}
+
+function clickGroupCheckbox()
+{
+	$(".GroupCheckbox").click(function(){
+   		getCheckedGroups();
+    });	
+}
+
+$(document).ready(function(){
+	fillGroups();
+    getCheckedGroups();
+});
+
+
 /////////////////////////// Massive Delete /////////////////////////////////////
 	$("#delselected").click(function(){
 		alertify.confirm(utf8_decode('¿Desea eliminar los usuarios seleccionados?'), function(e){

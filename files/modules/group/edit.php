@@ -1,10 +1,11 @@
 <?php
     include("../../includes/inc.main.php");
-    $ID = $_GET['id'];
-    $Edit  = new GroupData($ID);
+    $ID       = $_GET['id'];
+    $Edit     = new GroupData($ID);
+    $Profile  = new ProfileData(); 
     $MenuTree = new Menu();
     $MenuTree->SetCheckedMenues($Edit->GetCheckedMenues());
-    $Data  = $Edit->GetData();
+    $Data     = $Edit->GetData();
 
     $Title = "Modificar grupo '".$Data['title']."'";
 
@@ -46,7 +47,7 @@
                 <?php echo $MenuTree->MakeTree(); ?>
               </div>
               <div class="col-md-4 form-group animated bounceInBottom">
-                <?php echo $Edit->ProfileTree(); ?>
+                <?php echo $Profile->ProfileTree($ID); ?>
               </div>
             </div>
             <!-- MENU TREE -->
