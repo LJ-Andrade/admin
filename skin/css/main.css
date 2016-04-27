@@ -1719,6 +1719,18 @@ p .addusertxt:hover {
     display: inline-block; }
     .genericSingleImgs ul li {
       display: inline-block; }
+      .genericSingleImgs ul li i {
+        background-color: #fff;
+        border-radius: 100%;
+        height: 21px;
+        width: 21px;
+        padding: 4px 2px 2px 5px;
+        display: block;
+        position: absolute;
+        margin-top: -77px;
+        margin-left: 57px; }
+      .genericSingleImgs ul li a {
+        color: #000; }
 
 .genImgThumb {
   width: 80px;
@@ -1885,20 +1897,37 @@ a .mainbtn {
   padding: 20px 20px 0; }
 
 .checkboxDiv {
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.7); }
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 10px;
+  max-width: 280px;
+  margin: 10px 10px; }
   .checkboxDiv ul {
     margin: 0 auto; }
     .checkboxDiv ul li {
-      max-width: 200px;
-      margin: 3px 0;
-      padding: 2px 0;
-      background-color: rgba(255, 255, 255, 0.7);
-      border: 1px solid #c8c8c8;
-      margin: 0 auto; }
+      padding-top: 4px;
+      padding-bottom: 4px;
+      margin: 0 auto;
+      color: white; }
+      .checkboxDiv ul li i {
+        color: #f1f1f1;
+        margin-right: 5px; }
   .checkboxDiv label {
     font-size: 14px;
     font-weight: 400; }
+
+.treeLv1 {
+  background-color: rgba(27, 37, 89, 0.72); }
+
+.treeLv2 {
+  background-color: rgba(70, 80, 138, 0.72);
+  padding-left: 10px;
+  padding-top: 5px; }
+
+.treeArrow {
+  position: relative;
+  float: right;
+  margin-top: -20px;
+  margin-right: 10px; }
 
 .checkboxtree {
   max-width: 250px;

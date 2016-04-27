@@ -822,6 +822,19 @@ function utf8_decode (str_data) {
     }
     CancelSelectionWindows();
 
+    // Del Icon On thumb
+    function CancelSelectionWindows()
+    {
+        $('.DelIconX').hide();
+        $('.genericSingleImgs ul li').hover(function() {
+            $(this).find('.DelIconX').toggle();
+        });
+        // Ver esto
+        $('.DelIconX').click(function() {
+            $(".GenImg").hide();
+        });
+    }
+
     // Accept BtnBack
     function BtnBack()
     {

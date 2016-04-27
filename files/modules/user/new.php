@@ -6,7 +6,7 @@
     //$New      = new AdminData();
     $MenuTree = new Menu();
     $Group    = new GroupData();
-    
+
 
 ?>
 <body>
@@ -96,7 +96,7 @@
               <div class="clearfix visible-xs"></div>
               <div class="col-md-12 genericSingleImgs">
                 <ul id="ImageBox">
-                  <?php 
+                  <?php
                   foreach($Admin->AllImages() as $Image)
                   {
                     if($Image==$Admin->DefaultImg)
@@ -104,7 +104,9 @@
                     else
                       $MainImg = '';
                   ?>
-                  <li><img src="<?php echo $Image ?>" alt="" class="img-responsive GenImg genImgThumb <?php echo $MainImg; ?>" /></li>
+                  <li><img src="<?php echo $Image ?>" alt="" class="img-responsive GenImg genImgThumb <?php echo $MainImg; ?>" />
+                    <a href="#"><i class="fa fa-trash DelIconX" aria-hidden="true"></i></a>
+                  </li>
                   <?php
                   }
                   ?>

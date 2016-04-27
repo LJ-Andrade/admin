@@ -68,17 +68,6 @@
                 <a href="#"><button type="button" name="button" class="btn closeBtn"><i class="fa fa-times"></i></button></a>
               </div>
               <!-- /Buttons -->
-              <!-- checkboxes -->
-
-              <div class="col-md-12 democheck checkboxDiv">
-                <ul>
-                  <li><input id="sizeXS" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeXS"><span>Item1</span></li>
-                  <li><input id="sizeS" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeS"><span>Item2</span></li>
-                  <li><input id="sizeM" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeM"><span>Item3</span></li>
-                </ul>
-              </div>
-
-              <!-- checkboxes -->
             </div>
 
             <br><br>
@@ -92,6 +81,46 @@
             <h5>Title h5</h5>
           </div>
 
+
+<!-- TREE CHECKBOXES -->
+<div class="col-md-6 form-group checkboxDiv">
+  <ul>
+    <li class="treeLv1">
+      <input id="1" name="#" value="#" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox">
+      <label class="checkbox-custom-label" for="1"></label><span id="menu13" class="TreeElement"><i class="fa fa-smile-o"></i> Inicio</span>
+      <div id="menu13ErrorDiv" class="ErrorText Red"></div>
+    </li>
+    <li class="treeLv1">
+      <input id="2" name="#" value="#" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox">
+      <label class="checkbox-custom-label" for="2"></label>
+      <span id="#" style="cursor:pointer;" class="TreeElement">
+      <!-- Icon and Text --><i class="fa fa-smile-o"></i> Productos </span>
+      <div id="menu2ErrorDiv" class="ErrorText Red"></div>
+      <i class="fa fa-caret-down treeArrow" aria-hidden="true"></i><!-- Arrow -->
+    </li>
+    <ul id="#">
+      <li class="treeLv2">
+        <input id="3" name="#" value="#" class="CheckBox TreeCheckbox checkbox-custom" disabled="disabled" type="checkbox">
+        <label class="checkbox-custom-label" for="3"></label>
+        <span id="#" class="TreeElement"><i class="fa fa-smile-o"></i> Agregar Producto</span>
+        <div id="#" class="ErrorText Red"></div>
+      </li class="treeLv2">
+      <li class="treeLv2">
+        <input id="4" name="#" value="#" class="CheckBox TreeCheckbox checkbox-custom" disabled="disabled" type="checkbox">
+        <label class="checkbox-custom-label" for="4"></label>
+        <span id="#" class="TreeElement"><i class="fa fa-smile-o"></i> Agregar Producto</span>
+        <div id="#" class="ErrorText Red"></div>
+      </li class="treeLv2">
+      <li class="treeLv2">
+        <input id="5" name="#" value="#" class="CheckBox TreeCheckbox checkbox-custom" disabled="disabled" type="checkbox">
+        <label class="checkbox-custom-label" for="5"></label>
+        <span id="#" class="TreeElement"><i class="fa fa-smile-o"></i> Agregar Producto</span>
+        <div id="#" class="ErrorText Red"></div>
+      </li class="treeLv2">
+    </ul>
+  </ul>
+</div>
+<!-- /TREE CHECKBOXES -->
           <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
           <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         </div>
