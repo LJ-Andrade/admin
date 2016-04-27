@@ -715,7 +715,7 @@ body#login {
     border-bottom: 0.5px solid rgba(56, 56, 56, 0.1); }
     .navbar-inverse .navbar-nav > li a:hover, .navbar-inverse .navbar-nav > li a:focus {
       color: #383838;
-      border-left: 4px solid #ba4545; }
+      border-left: 4px solid 4px solid #ba4545; }
   .navbar-inverse .navbar-nav > li > a {
     color: #000;
     color: #000; }
@@ -735,11 +735,13 @@ body#login {
 
 .side-nav li {
   transition: all 0.2s ease 0s; }
+  .side-nav li:hover {
+    border-left: 4px solid #ba4545; }
   .side-nav li a {
     transition: all 0.2s ease 0s;
     width: 225px; }
     .side-nav li a:hover {
-      border-left: 4px solid #ba4545;
+      border-left: 4px solid 4px solid #ba4545;
       background-color: #fff;
       transition: all 0.2s ease 0s; }
       .side-nav li a:hover .navinicio {
@@ -762,8 +764,12 @@ body#login {
           .side-nav li a ul li a:hover {
             border-left: 4px solid #056e90; }
 
-.sideddmenu li ul {
-  list-style: none; }
+.sideddmenu li {
+  border-left: 4px solid #bf6b6b; }
+  .sideddmenu li:hover {
+    border-left: 4px solid #e0a4a4; }
+  .sideddmenu li ul {
+    list-style: none; }
 .sideddmenu a {
   padding: 10px 5px 10px 44px;
   display: block;
