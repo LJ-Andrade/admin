@@ -73,13 +73,6 @@
             <br><br>
           </div>
 
-          <div class="col-md-12 demotittles">
-            <h1>Title h1</h1>
-            <h2>Title h2</h2>
-            <h3>Title h3</h3>
-            <h4>Title h4</h4>
-            <h5>Title h5</h5>
-          </div>
 
 
 <!-- TREE CHECKBOXES -->
@@ -121,6 +114,19 @@
   </ul>
 </div>
 <!-- /TREE CHECKBOXES -->
+<div class="col-md-6">
+  <button class="btn mainbtn testInfo" type="button" name="button">Test Info</button>
+  <button class="btn mainbtn testOk" type="button" name="button">Test Ok</button>
+</div>
+
+
+          <div class="col-md-12 demotittles">
+            <h1>Title h1</h1>
+            <h2>Title h2</h2>
+            <h3>Title h3</h3>
+            <h4>Title h4</h4>
+            <h5>Title h5</h5>
+          </div>
           <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
           <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         </div>

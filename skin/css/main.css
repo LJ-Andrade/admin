@@ -605,10 +605,10 @@ body#login {
   font-size: 100%; }
 
 /* line-height and font-size for input button */
- * line-height: 1.5 
- * font-size: 100% 
- * display: inline-block 
- * cursor: pointer 
+ * line-height: 1.5
+ * font-size: 100%
+ * display: inline-block
+ * cursor: pointer
  * margin-left: 5px */
 @media only screen and (max-width: 680px) {
   .alertify {
@@ -700,6 +700,24 @@ body#login {
 .alertify-log-success {
   background: #5CB811;
   background: rgba(92, 184, 17, 0.9); }
+
+.alert-success, .alert-info {
+  color: #3c763d;
+  border: 0;
+  color: #fff;
+  max-width: 300px;
+  min-height: 100px;
+  padding: 30px;
+  border-radius: 0 0 10px 10px;
+  border-bottom: 20px solid rgba(255, 255, 255, 0.2); }
+  .alert-success .fa, .alert-info .fa {
+    font-size: 50px; }
+
+.alert-success {
+  background-color: rgba(5, 110, 144, 0.9); }
+
+.alert-info {
+  background-color: rgba(231, 134, 55, 0.9); }
 
 .ownername {
   color: #000; }

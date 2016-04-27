@@ -52,3 +52,14 @@ $(function (){
 		$('#cancelSelectImgBtn').hide();
 	});
 });
+
+///////// TEST ALERTS ////////////////
+// Alerts Info
+  $('.testInfo').click(function() {
+    notifyInfo('<i class="fa fa-exclamation"></i><br>Informaci&oacute;n');
+  });
+
+// Ok
+  $('.testOk').click(function() {
+    notifySuccess('<i class="fa fa-thumbs-o-up"></i><br>Ok - Correcto');
+  });
