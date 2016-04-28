@@ -134,6 +134,12 @@ switch(strtolower($_POST['action']))
 		$DB->execQuery('update','admin_user',"status = 'I'","admin_id=".$ID);
 		die;
 	break;
+	//////////////////////////////////////////// DELETE IMAGE FROM GALLERY ///////////////////////////////////////////////////////////////
+	case 'deleteimage': 
+		$SRC	= $_POST['src'];
+		unlink($SRC);
+		die;
+	break;
 
 	///////////////////////////////////// VALIDATIONS /////////////////////////////////////////////////
 	case 'validate':

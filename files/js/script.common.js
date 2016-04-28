@@ -800,6 +800,7 @@ function utf8_decode (str_data) {
         $('.GenImg').click(function() {
           $('.selectImg').removeClass('selectImg');
           $(this).addClass('selectImg');
+          $(this).parent().children('.DelIconX').hide();
           var src = $(this).attr('src');
           $('.MainImg').each(function(){
             $(this).attr('src',src);
@@ -823,17 +824,46 @@ function utf8_decode (str_data) {
     CancelSelectionWindows();
 
     // Del Icon On thumb
-    function CancelSelectionWindows()
+    function DeleteImageGallery()
     {
         $('.DelIconX').hide();
         $('.genericSingleImgs ul li').hover(function() {
-            $(this).find('.DelIconX').toggle();
+            if(!$(this).children('img').hasClass('LastClicked') && !$(this).children('img').hasClass('selectImg'))
+                $(this).find('.DelIconX').toggle();
+            else
+                $(this).find('.DelIconX').hide();
         });
         // Ver esto
         $('.DelIconX').click(function() {
-            $(".GenImg").hide();
+            var img     = $(this).parent().children('img');
+            var src     = img.attr('src');
+            alertify.confirm(utf8_decode('¿Desea eliminar esta imagen de su galer&iacute;a?'), function(e){
+                if(e){
+                    var process = "process.php";
+                    var string  = 'src='+ src + '&action=deleteimage';
+                    
+                    $.ajax({
+                        type: "POST",
+                        url: process,
+                        data: string,
+                        cache: false,
+                        success: function(data){
+                            if(data)
+                            {
+                                notifyError('Hubo un problema al eliminar la imagen: '+data);
+                            }else{
+                                img.fadeOut(500);
+                                notifySuccess(utf8_decode('La imagen ha sido eliminada correctamente.'));
+                            }
+                        }
+                    });
+                }
+            });
+            
         });
     }
+    DeleteImageGallery();
+
 
     // Accept BtnBack
     function BtnBack()

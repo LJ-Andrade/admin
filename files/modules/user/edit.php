@@ -114,8 +114,17 @@
                       $MainImg = 'selectImg LastClicked';
                     else
                       $MainImg = '';
+
+                    $GalleryID = array_reverse(explode('/',$Image));
+                    if($Admin->AdminID == $GalleryID[1])
+                      $DelIcon = '<i class="fa fa-trash DelIconX" aria-hidden="true"></i>';
+                    else
+                      $DelIcon = '';
                   ?>
-                  <li><img src="<?php echo $Image ?>" alt="" class="img-responsive GenImg genImgThumb <?php echo $MainImg; ?>" /></li>
+                  <li>
+                    <img src="<?php echo $Image ?>" alt="" class="img-responsive GenImg genImgThumb <?php echo $MainImg; ?>" />
+                    <?php echo $DelIcon; ?>
+                  </li>
                   <?php
                   }
                   ?>

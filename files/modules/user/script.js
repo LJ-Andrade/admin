@@ -49,9 +49,10 @@ $(function(){
 		var haveData	= function(returningData)
 		{
 			$('#newimage').val(returningData);
-			$('#ImageBox').append('<li><img src="'+returningData+'" alt="" class="img-responsive GenImg genImgThumb RecentlyAdded" /></li>');
+			$('#ImageBox').append('<li><img src="'+returningData+'" alt="" class="img-responsive GenImg genImgThumb RecentlyAdded" /><i class="fa fa-trash DelIconX" aria-hidden="true"></i></li>');
 			SelectThumbImg();
 			CancelSelectionWindows();
+			DeleteImageGallery();
 			BtnBack();
 			$('.RecentlyAdded').click();
 			$('.RecentlyAdded').removeClass('RecentlyAdded');
