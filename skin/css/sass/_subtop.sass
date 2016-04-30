@@ -1,6 +1,6 @@
-// Reft Icons 
+// Reft Icons
 .subtop
-    background-color: rgba($subtop, .4)
+    background-color: rgba($subtop, .7)
     position: fixed
     right: 0
     left: 225px
@@ -13,51 +13,19 @@
     -moz-box-shadow: 2px 3px 6px -5px rgba(0, 0, 0, 0.55)
 
     min-height: 42px
-    
+
 @media(max-width:768px)
     .subtop
         left: 0
-        
+
 @media(max-width:400px)
-    .subtop1 .subtop2
+    .subtop1 .optionIcons
         text-align: center
 
 @media(max-width:500px)
     .subtop
         visibility: hidden
-        
-.subtop2
-    float: right
-    color: $texts
-    ul
-        padding: 0
-        list-style: none
-        li
-            display: inline-block
-            margin-right: 10px
-            a
-                text-align: center
-                padding: 0px 4px
-                font-size: 14px
-                display: block
-                color: $subtopictxt
-                -webkit-transition: all 0.3s ease-in-out
-                -moz-transition: all 0.3s ease-in-out
-                -o-transition: all 0.3s ease-in-out
-                transition: all 0.3s ease-in-out
-                &:hover
-                    color: $subtopictxthover
-                    text-decoration: none
-                    
-.subtop2 ul li:last-child
-    margin-right: 0
-    
-.itemsviewOff
-    visibility: hidden
 
-.itemsviewOn
-    visibility: visible
-    
 // Left icons
 .subtop1
     float: left
@@ -68,12 +36,6 @@
         float: none
         text-align: center
         margin-bottom: 10px
-
-@media(max-width:730px)
-    .subtop2
-        float: none
-        text-align: center
-
 
 #panel-oculto
     display: none

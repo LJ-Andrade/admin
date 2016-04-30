@@ -9,6 +9,34 @@
     <?php include('../../includes/inc.nav.php'); ?> <!-- Navegation -->
     <div class="container-fluid">
       <div class="row">
+        <!-- Title and options -->
+        <div class="titleDiv"><!-- Page Title & back btn -->
+          <div class="optionIcons backOpt">
+            <ul>
+              <li id="backtolastpage" class="animated fadeIn SubTopBtn">
+                <a href="javascript: history.go(-1)" class="btn subitbtn BackToLastPage" role="button">
+                <i class="fa fa-angle-double-left"></i> Volver</a></li>
+            </ul>
+          </div>
+          <h4 class="maintitletxt"> Título</h4>
+        </div>
+        <div class="optionsDiv"><!-- Option Icons & Buttons-->
+          <button id="delselected" class="animated slideInDown mainbtn mainbtnred"><i class="fa fa-trash"></i> Eliminar seleccionados</button>
+          <a href="new.php"><button class="mainbtn"><i class="fa fa-user-plus"></i> Agregar Producto</button></a>
+          <div class="optionIcons">
+            <ul><!-- View Icons -->
+              <li id="viewlistbt" class="animated fadeIn SubTopBtn "><a href="#" class="btn subitbtn" role="button"><i class="fa fa-th-list  fa-fw"></i> Lista </a></li>
+              <li id="viewgridbt" class="animated fadeIn SubTopBtn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-th  fa-fw"></i> Grilla </a></li>
+              <!-- Search -->
+              <li id="showitemfiltersuser" class="animated fadeIn SubTopBtn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-search fa-fw"></i> Buscar</a></li>
+              <li id="showitemfilters" class="animated fadeIn SubTopBtn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-search fa-fw"></i> Buscar</a></li>
+              <!-- Add New Item -->
+              <li id="newprod" class="Hidden"><a href="../product/new.php" class="btn subitbtn SubTopBtn" role="button"><i class="fa fa-plus-square fa-fw"></i> Nuevo Producto</a></li>
+              <li id="newuser" class="Hidden"><a href="../user/new.php" class="btn subitbtn SubTopBtn" role="button"><i class="fa fa-user-plus  fa-fw"></i> Nuevo Usuario</a></li>
+            </ul>
+          </div>
+        </div><!-- /Title and options -->
+
         <div class="container">
           <h2>Common Elements</h2>
           <!--- Item-Cards -->

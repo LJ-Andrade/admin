@@ -3,7 +3,7 @@
 
 function welcomeMessage()
 {
-  notifyInfo('<img src="' + $("#usernametext").children("img").attr("src") + '" class="userloginimg">' +'¡Bienvenido '+ $("#usernametext").text() +'!');
+  notifyInfo('<img src="' + $("#usernametext").children("img").attr("src") + '" class="userloginimg">' + "<br>" + "<br>" + '¡Bienvenido '+ $("#usernametext").text() +'!');
 }
 
 $(function(){
@@ -20,7 +20,6 @@ $(document).ready(function() {
   $(".juirabtn").click(function(){
       toggleLoader();
   });
-
 
   $('#newuser').fadeIn( 500 );
   $('#newprod').fadeIn( 500 );

@@ -8,8 +8,8 @@
 
 /////////////////////// Nav Bar //////////////////////////////
 .navbar-inverse
-  background-color: rgba($top, .5)
-  border-color: transparent
+  background-color: $maintop
+  border-color: transparent 
   .navbar-nav > li a
     transition: all 0.2s ease 0s
     border-bottom: 0.5px solid rgba(56, 56, 56, 0.1)
@@ -45,7 +45,7 @@
       transition: all 0.2s ease 0s
       width: 225px
       &:hover
-        border-left: 4px solid $sideline1
+        border-left: 5px solid $sideline1
         background-color: #fff
         transition: all 0.2s ease 0s
         .navinicio
@@ -66,12 +66,11 @@
             font-size: 12px
             transition: all 0.2s ease 0s
             &:hover
-              border-left: 4px solid $mainblue
+              border-left: 5px solid $mainblue
 
 // Drop down menu and icons
 .sideddmenu
   li
-    border-left: $sideline2
     &:hover
       border-left: $sideline4
     ul

@@ -4,30 +4,24 @@
     $Head->setHead();
 ?>
 <body id="login">
-    <div class="main">
-	    <div class="row col-md-12 logtitdiv">
-           <div class="row"><img src="../../../skin/images/body/icons/favicon.png" class="logimg" alt=""><span class="maintit">VIMANA Auto-Admin &reg;</span></div>
-        </div>
-	    <div class="row">
-            <form class="formulog">       
-            <h4 class="forgottit">Recuperar contrase&ntilde;a</h4>
-				<div class="logindatos">
-                    <div class="col-md-12 loguser">
-				        <input type="text" name="login" placeholder="Ingrese su Email">
-                    </div>
-					<div class="col-md-12">
-				    <a href="inicio.php"><button type="button" class="btn loginbtn center-block">
-                    <b>Recuperar</b></button></a>
-
-				    <p class="forgotemailtoo">Tambien me olvidé el email</p>
-                   <p class="forgotsubtit">Que gil...</p>
-                    </div>
-                <div class="row rememberme">
-                 </div>
-                </div>
-            </form>
-                
-            
-        </div>
+<div class="main">
+  <div class="container loginDiv">
+    <div class="row logtitdiv">
+      <img src="../../../skin/images/body/icons/favicon.png" class="logimg" alt=""><span class="maintit">VIMANA Auto-Admin &reg;</span>
     </div>
+    <div class="row loginInner">
+      <h4>Recuperar contrase&ntilde;a</h4>
+      <form class="formulog">
+        <div class="col-md-12 forgotInput">
+          <input type="text" name="login" placeholder="Ingrese su Email">
+        </div>
+        <div class="col-md-12">
+          <a href="inicio.php"><button type="button" class="mainbtn logBtn"><b>Recuperar</b></button></a>
+          <br></br>
+          <p class="forgotsubtit">Si no recuerda su e-mail contactes&eacute; con el soporte t&eacute;nico</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 <?php $Foot->setFoot(); ?>
