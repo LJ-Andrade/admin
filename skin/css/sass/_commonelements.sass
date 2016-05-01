@@ -13,6 +13,19 @@
   padding: 0 10px
   overflow: hidden
 
+// Select OverlatItem Style
+.selectItemProd1
+  transition: all 0.3s ease 0s
+
+.selectItemProd2
+  transition: all 0.3s ease 0s
+  background-color: #ccc
+  -webkit-box-shadow: 0px 5px 8px 5px rgba(0, 0, 0, 0.35)
+  -moz-box-shadow: 0px 5px 8px 5px rgba(0, 0, 0, 0.35)
+  box-shadow: 0px 5px 8px 5px rgba(0, 0, 0, 0.35)
+  // border-bottom: 5px inset $selectBtnSelected
+
+
 .overlayItem
   max-width: 277px
   h2,h3,h4,p,span
@@ -195,6 +208,41 @@
           color: #fff
           text-decoration: none
 
+/////////////////// Filters /////////////////////////
+
+#filteritem
+  display: none
+#filtersuser
+  display: none
+
+.filterdiv
+  width: auto
+  background-color: rgba(255,255,255, .5)
+  padding: 15px
+  text-align: center
+  padding-bottom: 15px
+  margin-bottom: 30px
+  margin-top: -20px
+
+.form-controlit
+  display: block
+  width: 100%
+  height: 34px
+  padding: 6px 12px
+  font-size: 14px
+  line-height: 1.42857
+  max-width: 250px
+  color: #555
+  background-color: #FFF
+  background-image: none
+  border: 1px solid #CCC
+  border-radius: 4px
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s
+  display: inline
+
+.inputsgral
+  padding: 0 5px
 
 /////////////////// NEW USER OR ITEM //////////////////////////////////
 
@@ -373,7 +421,7 @@ $addItemWidth: 800px
   padding: 20px 10px
   background-color: $innerwindow
 
-.genericSingleImgs
+.genericSingleImgs, .multipleImgs
   border: 1px solid rgba(193, 88, 88,0.3)
   padding: 10px
   ul
@@ -393,19 +441,25 @@ $addItemWidth: 800px
         margin-left: 57px
       a
         color: #000
+
+.multipleImgs
+  ul
+    li
+      i
+        margin-top: -134px
+        margin-left: 91px
+        padding: 3px 4px 2px 5px
+
+
 .genImgThumb
   width: 80px
   height: 80px
   transition: all 0.3s ease 0s
   &:hover
-    -webkit-box-shadow: 0px 7px 11px -1px rgba(0,0,0,0.35)
-    -moz-box-shadow: 0px 7px 11px -1px rgba(0,0,0,0.35)
-    box-shadow: 0px 7px 11px -1px rgba(0,0,0,0.35)
-    border: 2px solid white
+    -webkit-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.75)
+    -moz-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.75)
+    box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.75)
     cursor: pointer
-
-
-
 
 .selectedSingleImg
   padding: 10px
@@ -447,6 +501,17 @@ $addItemWidth: 800px
     box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.5)
     cursor: pointer
 
+// multipleImgThumb
+.imgHovering
+  ul
+    li
+      transition: all 0.3s ease 0s
+      &:hover
+        -moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75)
+        -webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75)
+        box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75)
+        cursor: pointer
+      img
 
 // Show Mod Icon on Img Hover
 
@@ -472,7 +537,7 @@ $addItemWidth: 800px
   .mask
     width: 100%
     height: 100%
-    margin-top: 60px
+    margin-top: 90px
     position: absolute
     overflow: hidden
     top: 0
@@ -482,20 +547,29 @@ $addItemWidth: 800px
       text-shadow: 2px 2px 2px rgba(25, 25, 25, 1)
     .fa
       color: #fff
-      font-size: 30px
-      text-shadow: 2px 2px 2px rgba(25, 25, 25, 1)
+      font-size: 15px
+
+.multipleImgThumb
+  width: auto
+  height: auto
+  img
+    width: 180px
+    height: 180px
+    border-radius: 100%
+    margin: 0 auto
 
 .overlayIcon
   .mask
     opacity: 0
-    transition: all 0.4s ease-in-out
     transition: all 0.3s ease 0s
   &:hover
     .mask
+      transition: all 0.3s ease 0s
       opacity: 1
       cursor: pointer
     img
       box-shadow: 1px 7px 10px 0px rgba(0, 0, 0, 0.5)
+      -webkit-filter: blur(1px)
       filter: blur(1px)
 
 .singleImgSelBtn
@@ -532,26 +606,89 @@ $addItemWidth: 800px
     box-shadow: none
     -webkit-box-shadow: none
     -moz-box-shadow: none
+    color: #fff
     background: $mainbtnhover
   &:focus, &:active
     box-shadow: none
     -webkit-box-shadow: none
     -moz-box-shadow: none
+    color: #fff
     background: $mainbtnhover
 a .mainbtn
   color: $logbtntxt
 
 .mainbtnred
   background: $mainbtnred
+  transition: all 0.3s ease 0s
   &:hover
     box-shadow: none
     -webkit-box-shadow: none
     -moz-box-shadow: none
+    color: #fff
     background: $mainbtnredhover
   &:focus, &:active
     box-shadow: none
     -webkit-box-shadow: none
     -moz-box-shadow: none
+    color: #ccc
+    background: $mainbtnredhover
+
+.thirdBtn
+  background: $thirdBtn
+  transition: all 0.3s ease 0s
+  &:hover
+    box-shadow: none
+    -webkit-box-shadow: none
+    -moz-box-shadow: none
+    color: #fff
+    background: $thirdBtnHover
+  &:focus, &:active
+    box-shadow: none
+    -webkit-box-shadow: none
+    -moz-box-shadow: none
+    color: #fff
+    background: $thirdBtnHover
+
+.selectBtn
+  background: $selectBtn
+  color: #fff
+  transition: all 0.3s ease 0s
+  &:hover
+    box-shadow: none
+    -webkit-box-shadow: none
+    -moz-box-shadow: none
+    color: #fff
+    background: $selectBtnHover
+  &:focus, &:active
+    box-shadow: none
+    -webkit-box-shadow: none
+    -moz-box-shadow: none
+    color: #fff
+    background: $selectBtnHover
+
+.delColBtn
+  padding: 5px 10px 6px
+  margin-top: -23px
+  margin-right: 6px
+  .fa
+    color: #fff
+
+
+// Select Btn On Overlay Item
+.itemProdSelectedBtn
+  background: $selectBtnSelected
+  transition: all 0.3s ease 0s
+  box-shadow:  inset 10px 10px 24px -8px rgba(0,0,0,0.69)
+  -webkit-box-shadow: inset 10px 10px 24px -8px rgba(0,0,0,0.69)
+  -moz-box-shadow: inset 10px 10px 24px -8px rgba(0,0,0,0.69)
+
+  &:hover, &:focus, &:active
+    box-shadow:  inset 10px 10px 24px -8px rgba(0,0,0,0.69)
+    -webkit-box-shadow: inset 10px 10px 24px -8px rgba(0,0,0,0.69)
+    -moz-box-shadow: inset 10px 10px 24px -8px rgba(0,0,0,0.69)
+    background: $selectBtnSelected
+.notSelectedBtn
+  transition: all 0.3s ease 0s
 
 .acceptBtn
   position: absolute
@@ -771,10 +908,52 @@ a .mainbtn
 
 .circlesAddItem
   margin-top: 20px
+  ul
+    li
+      margin: 10px
 
 .circleAddItem
   width: 30px
   height: 30px
+  z-index: 1
+  &:hover
+    -moz-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75)
+    -webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75)
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75)
+    cursor: pointer
+    border: 1px solid #fff
+
+.circleAddItemSelected
+  -moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75)
+  -webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75)
+  box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75)
+  border: 1px solid white
+
+.circleInput
+  border-radius: 100%
+  margin-bottom: 5px
+  input
+    border: 0
+    width: 25px
+    height: 25px
+    &:hover
+      cursor: pointer
+
+.delColorBtn
+  position: absolute
+  margin-left: -18px
+  margin-top: -16px
+  background-color: #fff
+  padding: 2px
+  border-radius: 100%
+  height: 18px
+  width: 18px
+  padding-left: 3px
+  &:hover
+    cursor: pointer
+  .fa
+    font-size: 10px
+
 
 /////////////////////// Del Mod ////////////////////////////////
 .delModDiv

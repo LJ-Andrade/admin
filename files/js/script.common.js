@@ -771,17 +771,38 @@ function utf8_decode (str_data) {
     $('#SingleImgWd').hide();
     // Hide Multiple Selection Window
     $('#MultipleImgWd').hide();
-
+    // Hide Accept Btn
+    $('#acceptBtnImg').hide();
     // Show Single Selection Window
     function ShowSingleSelectionWindow()
     {
-        $('#SelectSingleImg').click(function()
+        $('#SelectImg, #SelectSingleImg').click(function()
         {
             $('#SingleImgWd').delay( 300 ).show( 500 );
+            $('#MultipleImgWd').delay( 300 ).show( 500 );
             $('#newInputs').hide( 500 );
+            $('#createUser').hide();
+            $('#createAndAdd').hide();
+            // Show Accept Btn
+            $('#acceptBtnImg').delay( 300 ).show();
         });
     }
     ShowSingleSelectionWindow();
+
+    function ExitSelectionWindow()
+    {
+        $('#acceptBtnImg').click(function()
+        {
+          $('#SingleImgWd').hide( 500 );
+          $('#MultipleImgWd').hide( 500 );
+          $('#newInputs').show( 500 );
+          $('#createUser').show();
+          $('#createAndAdd').show();
+          $('#acceptBtnImg').hide();
+        });
+
+    }
+    ExitSelectionWindow();
 
     // Show Multiple Selection Window
     function ShowMultipleSelectionWindow()
@@ -819,6 +840,9 @@ function utf8_decode (str_data) {
             $('#newInputs').show( 500 );
             $('#selectImgBtn').show();
             $('.LastClicked').click();
+            $('#createUser').show();
+            $('#createAndAdd').show();
+            $('#acceptBtnImg').hide();
         });
     }
     CancelSelectionWindows();
@@ -827,7 +851,7 @@ function utf8_decode (str_data) {
     function DeleteImageGallery()
     {
         $('.DelIconX').hide();
-        $('.genericSingleImgs ul li').hover(function() {
+        $('.genericSingleImgs ul li, .multipleImgs ul li').hover(function() {
             if(!$(this).children('img').hasClass('LastClicked') && !$(this).children('img').hasClass('selectImg'))
                 $(this).find('.DelIconX').toggle();
             else
@@ -841,7 +865,7 @@ function utf8_decode (str_data) {
                 if(e){
                     var process = "process.php";
                     var string  = 'src='+ src + '&action=deleteimage';
-                    
+
                     $.ajax({
                         type: "POST",
                         url: process,
@@ -859,7 +883,7 @@ function utf8_decode (str_data) {
                     });
                 }
             });
-            
+
         });
     }
     DeleteImageGallery();

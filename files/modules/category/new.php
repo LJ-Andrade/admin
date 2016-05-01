@@ -29,12 +29,12 @@
           </div>
           <div class="col-md-12 animated bounceInRight">
             <!-- Choose Img -->
-            <div id="SelectSingleImg" class="col-md-12 col-centered overlaySingleImg">
+            <div id="SelectImg" class="col-md-12 col-centered overlaySingleImg">
               <div class="overlayInnerIcon overlayIcon">
                 <img src="../../../skin/images/users/vio.jpg" class="MainImg img-responsive singleImg">
                 <div class="mask">
-                  <p>Cambiar Imagen</p>
-                  <i class="fa fa-pencil-square-o"></i>
+                <p>Cambiar Imagen</p>
+                <i class="fa fa-pencil-square-o"></i>
                 </div>
               </div>
             </div><!-- /Choose Img -->

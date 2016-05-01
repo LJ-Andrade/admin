@@ -10,15 +10,39 @@
   <div id="wrapper">
     <?php include('../../includes/inc.nav.php'); ?> <!-- Navegation -->
       <div class="container-fluid">
-        <div class="maintitle"><h4 class="maintitletxt">Listado de Productos</h4></div>
-        <div class="glasscontainer1 optionsdiv">
-          <span id="delselected" class="delselected animated slideInDown"><i class="fa fa-trash"></i> Eliminar seleccionados</span>
-          <a href="new.php"><button class="mainbtn"><i class="fa fa-user-plus"></i> Agregar Producto</button></a>
+        <!-- Title and options -->
+        <div class="row">
+          <div class="titleDiv"><!-- Page Title & back btn -->
+            <div class="optionIcons backOpt">
+              <ul>
+                <li id="backtolastpage" class="animated fadeIn SubTopBtn">
+                  <a href="javascript: history.go(-1)" class="btn subitbtn BackToLastPage" role="button">
+                  <i class="fa fa-angle-double-left"></i> Volver</a></li>
+              </ul>
+            </div>
+            <h4 class="maintitletxt"> Título</h4>
+          </div>
+          <div class="optionsDiv"><!-- Option Icons & Buttons-->
+            <button id="delselected" class="animated slideInDown mainbtn mainbtnred"><i class="fa fa-trash"></i> Eliminar seleccionados</button>
+            <a href="new.php"><button class="mainbtn"><i class="fa fa-user-plus"></i> Agregar Producto</button></a>
+            <div class="optionIcons">
+              <ul><!-- View Icons -->
+                <li id="viewlistbt" class="animated fadeIn SubTopBtn "><a href="#" class="btn subitbtn" role="button"><i class="fa fa-th-list  fa-fw"></i> Lista </a></li>
+                <li id="viewgridbt" class="animated fadeIn SubTopBtn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-th  fa-fw"></i> Grilla </a></li>
+                <!-- Search -->
+                <li id="showitemfiltersuser" class="animated fadeIn SubTopBtn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-search fa-fw"></i> Buscar</a></li>
+                <li id="showitemfilters" class="animated fadeIn SubTopBtn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-search fa-fw"></i> Buscar</a></li>
+                <!-- Add New Item -->
+                <li id="newprod" class="Hidden"><a href="../product/new.php" class="btn subitbtn SubTopBtn" role="button"><i class="fa fa-plus-square fa-fw"></i> Nuevo Producto</a></li>
+                <li id="newuser" class="Hidden"><a href="../user/new.php" class="btn subitbtn SubTopBtn" role="button"><i class="fa fa-user-plus  fa-fw"></i> Nuevo Usuario</a></li>
+              </ul>
+            </div>
+          </div><!-- /Title and options -->
         </div>
         <!-- Filters -->
-        <div class="container-fluid">
-          <div id="filteritem" class="row row-centered filterdiv">
-            <form class="form-inline filterformdiv" role="form">
+        <div class="container-fluid pad0">
+          <div id="filteritem" class="row filterdiv">
+            <form class="form-inline" role="form">
               <div class="col-lg-3 col-sm-3 col-xs-12 form-group inputsgral">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-bookmark-o fa-fw"></i></span>
@@ -56,11 +80,11 @@
         <div class="row-centered wrapOverlayItem">
           <!-- Product -->
           <div class="col-md-4 col-sm-6 col-xs-12 col-centered overlayItem">
-            <div class="show overlay1">
+            <div id="itemProdDiv" class="show overlay1 selectItemProd1">
               <img src="../../../skin/images/products/01.jpg" />
               <div class="mask">
                 <div class="OnOffDiv">
-                  <input type="checkbox" name="status" id="status" data-on-text="Publicado" data-off-text="Pausado" data-size="mini" data-label-width="auto">
+                  <input type="checkbox" name="status" id="status" data-on-text="Publicado" data-off-text="Pausado" data-size="mini" data-label-width="auto" checked>
                 </div>
                 <div class="overlayDetails">
                 <h3><strong>Título</strong></h3>
@@ -82,6 +106,7 @@
                 <div class="delModDiv">
                   <a href="#"><button type="button" name="button" class="btn mainbtn"><i class="fa fa-pencil"></i></button></a>
                   <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred"><i class="fa fa-trash"></i></button></a>
+                  <a href="#"><button id="selectItemProd" type="button" name="button" class="btn mainbtn selectBtn notSelectedBtn"><i class="fa fa-plus"></i></button></a>
                 </div>
               </div>
             </div>

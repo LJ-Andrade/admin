@@ -100,6 +100,29 @@ $('#file').click(function(){
     fileInput.click();
 }).show();
 
+////////////////// Select Products / Items/////////////////////////////////////////
+
+  $(function () {
+    // $('#selectItemProd').click(function(){
+    //   $('#itemProdDiv').toggleClass('selectItemProd');
+    // });
+
+    $('#selectItemProd').click(function() {
+      if($('#itemProdDiv').hasClass('selectItemProd1')) {
+          $('#itemProdDiv').removeClass('selectItemProd1').addClass('selectItemProd2');
+      }
+      else{
+          $('#itemProdDiv').removeClass('selectItemProd2').addClass('selectItemProd1');
+      };
+      // Select Button Styles
+      if($('#itemProdDiv').hasClass('selectItemProd2')) {
+          $('#selectItemProd').removeClass('notSelectedBtn').addClass('itemProdSelectedBtn');
+      }
+      else{
+          $('#selectItemProd').removeClass('itemProdSelectedBtn').addClass('notSelectedBtn');
+      };
+    });
+  });
 
 ///////////////////////   Del Selected  //////////////////////////////////////////
 
@@ -149,10 +172,10 @@ $(function (){
 		$('#cancelSelectImgBtn').fadeIn( 400 );
 	});
 	$('#cancelSelectImgBtn').click(function() {
-  		$('#newInputs').show( 500 );
-  		$('#imgsToSelect').hide( 500 );
-  		$('#selectImgBtn').show();
-  		$('#cancelSelectImgBtn').hide();
+		$('#newInputs').show( 500 );
+		$('#imgsToSelect').hide( 500 );
+		$('#selectImgBtn').show();
+		$('#cancelSelectImgBtn').hide();
   });
 });
 
@@ -163,3 +186,43 @@ $( ".Selecteable" ).click(function() {
 
 /// Bootstrap Switch ///
 $("[name='status']").bootstrapSwitch();
+
+/////////////// Select Colors ////////////////////////////////
+
+function ColorSelection()
+{  //hide Del Color Btn
+  $('.DelSelColors').hide();
+  // Select Color
+  $('.ColorSelect').click(function(){
+    $(this).toggleClass('circleAddItemSelected');
+
+    //Show Del Color Btn
+    if($('.ColorSelect').hasClass('circleAddItemSelected')) {
+              $('.DelSelColors').show();
+            }
+            else {
+              $('.DelSelColors').hide();
+            }
+  });
+}
+ColorSelection();
+
+// Create a Li with the selected color
+function PutDaCalar()
+{
+	$("input[name=color]").change(function(){
+    var color = $('input[name=color]').val();
+    $(".circlesAddItem ul").append('<li><div class="ColorSelect circle circleAddItem circleAddItemSelected" style="background-color:'+color+'"></div></li>');
+	});
+}
+PutDaCalar();
+
+function delColorBtn()
+{
+  $('.delColorBtn').hide();
+  $('.circleAddItem').hover(function(){
+  $('.delColorBtn').toggle();
+// $(this).find('.delColorBtn').toggle();
+  });
+}
+delColorBtn();

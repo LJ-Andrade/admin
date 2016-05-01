@@ -57,7 +57,7 @@
             <!-- Single Image -->
             <div class="col-md-12">
               <!-- Choose Img -->
-              <div id="SelectSingleImg" class="col-md-6 col-centered overlaySingleImg">
+              <div id="SelectImg" class="col-md-6 col-centered overlaySingleImg">
                 <div class="overlayInnerIcon overlayIcon">
                   <img src="<?php echo $Admin->DefaultImg ?>" class="MainImg img-responsive singleImg">
                   <div class="mask">
