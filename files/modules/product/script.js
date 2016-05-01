@@ -208,6 +208,7 @@ function ColorSelection()
 ColorSelection();
 
 // Create a Li with the selected color
+//(Sale bien pero no selecciona porque carga despues como pasaba con las imágenes)
 function PutDaCalar()
 {
 	$("input[name=color]").change(function(){
@@ -217,12 +218,13 @@ function PutDaCalar()
 }
 PutDaCalar();
 
+// No me funca (Igual me parece que los tachitos joden)
 function delColorBtn()
 {
   $('.delColorBtn').hide();
   $('.circleAddItem').hover(function(){
   $('.delColorBtn').toggle();
-// $(this).find('.delColorBtn').toggle();
+  // $(this).find('.delColorBtn').toggle();
   });
 }
 delColorBtn();
