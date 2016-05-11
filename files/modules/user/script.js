@@ -11,7 +11,6 @@ $(document).ready(function(){
 	$('#newuser').fadeIn(500);
 	$('#viewlistbt').removeClass('Hidden');
 	$('#viewlist').hide();
-	$('#delselected').hide();
 });
 
 $(function(){
@@ -169,7 +168,7 @@ $(document).ready(function(){
             	{
             		notifyError('Hubo un problema al eliminar los usuarios: '+result);
             	}else{
-            		$('#delselected').hide();
+            		$('#delselected').addClass('Hidden');
             		$(".deleteThis").each(function(){ $(this).removeClass('deleteThis'); });
             		notifySuccess(utf8_decode('Los usuarios seleccionados han sido eliminados.'));
             	}
@@ -190,7 +189,7 @@ $(document).ready(function(){
 		$('div[id="viewlist"]').show( 500 );
 		$("#viewlistbt").hide();
 		$("#viewgridbt").show( 0 );
-		$('#delselected').hide();
+		$('#delselected').addClass('Hidden');
 	});
 
 	$("#viewgridbt").on( "click", function() {
@@ -202,7 +201,7 @@ $(document).ready(function(){
 		$('div[id="viewlist"]').hide( 500 );
 		$("#viewgridbt").hide();
 		$("#viewlistbt").show( 0 );
-		$('#delselected').hide();
+		$('#delselected').addClass('Hidden');
 	});
 
 
@@ -233,9 +232,9 @@ $(function(){
 
 		});
 		if(totalSelected>1 && !admDelBtn){
-			$('#delselected').show();
+			$('#delselected').removeClass('Hidden');
 		}else{
-			$('#delselected').hide();
+			$('#delselected').addClass('Hidden');
 		}
 	});
 
@@ -254,9 +253,9 @@ $(function(){
 
 		});
 		if(totalSelected>1 && !admDelBtn){
-			$('#delselected').show();
+			$('#delselected').removeClass('Hidden');
 		}else{
-			$('#delselected').hide();
+			$('#delselected').addClass('Hidden');
 		}
 	});
 

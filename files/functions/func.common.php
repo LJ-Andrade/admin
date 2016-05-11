@@ -134,7 +134,8 @@
 		if($Type=="checkbox")  $Class = 'CheckBox '.$Class;
 		$Class	= $Class? ' class="'.$Class.'" ': '';
 		if($Type!="textarea")
-			if($Type!="select")  $Value	= $Value? ' value="'.$Value.'" ': '';
+			if($Type!="select" && $Type!="button")  $Value	= $Value? ' value="'.$Value.'" ': '';
+
 
 		
 		switch(strtolower($Type)){
@@ -146,11 +147,9 @@
 			case 'hidden': 		return '<input type="hidden" id="'.$ID.'" name="'.$ID.'"'.$Value.$Class.$Extra.' />'; break;
 			case 'image': 		return '<input type="text" readonly="readonly" id="File'.$ID.'" name="FileField"'.$Value.$Class.$Extra.' /><input type="file" id="'.$ID.'" name="'.$ID.'" class="Hidden" />'; break;
 			case 'file': 		return '<input type="text" readonly="readonly" id="File'.$ID.'" name="FileField"'.$Value.$Class.$Extra.' /><input type="file" id="'.$ID.'" name="'.$ID.'" class="Hidden" />'; break;
-			case 'button': 		return '<input type="button" id="'.$ID.'" name="'.$ID.'"'.$Value.$Class.$Extra.' />'; break;
+			case 'button': 		return '<button id="'.$ID.'" name="'.$ID.'"'.$Class.$Extra.' >'.$Value.'</button>'; break;
 			case 'select': 		$Select	  = 	'<select id="'.$ID.'" name="'.$ID.'"'.$Class.$Extra.' firstvalue="'.$FirstValue.'" firsttext="'.$FirstText.'" >';
 								$Select	 .= $FirstValue || $FirstText ? '<option value="'.$FirstValue.'" >'.$FirstText.'</option>' : '' ;
-								
-								
 								
 								if(is_array($Query))
 								{

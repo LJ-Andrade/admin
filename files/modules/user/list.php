@@ -3,6 +3,8 @@
     $Head->setTitle("Usuarios Administradores");
     $Head->setHead();
 
+    $Buttons = new HeadButton('Agregar Usuario');
+
     $Status = $_GET['status']? $_GET['status']: 'A';
 
     $Users = $DB->fetchAssoc('admin_user','*',"status = '".$Status."' ","admin_id");
@@ -13,8 +15,9 @@
     <div class="container-fluid">
       <div class="maintitle"><h4 class="maintitletxt">Listado de Usuarios Administradores</h4></div>
       <div class="glasscontainer1 optionsdiv">
-        <span id="delselected" class="delselected animated slideInDown"><i class="fa fa-trash"></i> Eliminar seleccionados</span>
-        <a href="new.php"><button class="mainbtn"><i class="fa fa-user-plus"></i> Agregar usuario</button></a>
+        <?php $Buttons->ShowButtons(); ?>
+        
+        
       </div>
       <!-- Filters / Search -->
       <div class="container-fluid">
