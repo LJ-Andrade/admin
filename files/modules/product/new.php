@@ -98,27 +98,41 @@
         <div id="MultipleImgWd" class="row imgWindow">
           <!-- <span id="cancelImgChange" class="eraseImgX"><i class="fa fa-times"></i></span> -->
           <button id="cancelImgChange" type="button" name="button" class="btn closeBtn"><i class="fa fa-times"></i></button>
-          <div class="col-md-12 text-center">
-            <button type="button" name="button" class="btn mainbtn thirdBtn"><i class="fa fa-plus"></i> Agregar Im&aacute;gen</button>
-          </div>
-            <div class="col-md-12 avaliableImgs">
+            <div class="imgWindowTitle"><h5>Agregar o Cambiar Im&aacute;genes</h5></div>
+            <div class="col-md-12 activeImgs">
               <ul id="ImageBox" class="connected sortable grid">
-                <li><img src="../../../skin/images/body/icons/add.jpg" alt="" class="img-responsive imgHover"></li>
-                <li><img src="../../../skin/images/users/default/caras1.png" alt="" class="img-responsive imgHover"></li>
-                <li><img src="../../../skin/images/users/default/caras2.png" alt="" class="img-responsive imgHover"></li>
-                <li><img src="../../../skin/images/users/default/default.jpg" alt="" class="img-responsive imgHover"></li>
-                <li><img src="../../../skin/images/users/default/usuario.jpg" alt="" class="img-responsive imgHover"></li>
-                <li><img src="../../../skin/images/users/3/user69110__3.jpeg" alt="" class="img-responsive imgHover"></li>
+                <li class=""><img src="../../../skin/images/body/icons/add.jpg" alt="" class="img-responsive imgHover2"></li>
+                <li><img src="../../../skin/images/users/default/caras1.png" alt="" class="img-responsive">
+                  <span>
+                    <i class="fa fa-arrows moveImg"></i>
+                    <i class="fa fa-trash delImgIco"></i>
+                  </span>
+                </li>
+                <li><img src="../../../skin/images/users/default/caras1.png" alt="" class="img-responsive">
+                  <span>
+                    <i class="fa fa-arrows moveImg"></i>
+                    <i class="fa fa-trash delImgIco"></i>
+                  </span>
+                </li>
+                <li><img src="../../../skin/images/users/default/caras1.png" alt="" class="img-responsive">
+                  <span>
+                    <i class="fa fa-arrows moveImg"></i>
+                    <i class="fa fa-trash delImgIco"></i>
+                  </span>
+                </li>
               </ul>
             </div>
-          <div class="col-md-12 advancedDragBtn">
-            <button id="adDragBtn" type="button" name="button" class="btn mainbtn advanImgBtn"><i class="fa fa-picture-o"></i> Galer&iacute;a</button>
+          <div class="col-md-12">
+            <button id="adDragBtn" type="button" name="button" class="btn mainbtn"><i class="fa fa-picture-o"></i> Galer&iacute;a</button>
           </div>
-          <div class="col-md-12 dragImgTemp imgHovering">
+          <div class="col-md-12 activeImgs imgGallery">
             <ul class="connected sortable grid no2">
-        			<li><img src="../../../skin/images/users/mas.jpg" alt="" /></li>
-        			<li><img src="../../../skin/images/users/usergen.png" alt="" /></li>
-        			<li><img src="../../../skin/images/users/usergen.png" alt="" /></li>
+              <li><img src="../../../skin/images/users/default/caras1.png" alt="" class="img-responsive">
+                <span>
+                  <i class="fa fa-arrows moveImg"></i>
+                  <i class="fa fa-trash delImgIco"></i>
+                </span>
+              </li>
               <i style="display: none;" class="fa fa-trash DelIconX" aria-hidden="true"></i>
         		</ul>
             <div class="clearfix"></div>

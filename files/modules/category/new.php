@@ -64,7 +64,7 @@
             <input readonly="readonly" id="Fileimage" name="FileField" class="Hidden" type="text"><div style="height: 0px; width: 0px; overflow: hidden;"><input id="image" name="image" class="Hidden" type="file"></div>              <div class="clearfix visible-xs"></div>
             <div class="col-md-12 genericSingleImgs">
               <ul id="ImageBox">
-                <li><img src="../../../skin/images/users/default/caras1.png" alt="" class="img-responsive GenImg"></li>
+                <li><img src="../../../skin/images/users/default/caras1.png" alt="" class="img-responsive "></li>
                 <li><img src="../../../skin/images/users/default/caras2.png" alt="" class="img-responsive GenImg "></li>
                 <li><img src="../../../skin/images/users/default/default.jpg" alt="" class="img-responsive GenImg selectImg LastClicked"></li>
                 <li><img src="../../../skin/images/users/default/usuario.jpg" alt="" class="img-responsive GenImg "></li>

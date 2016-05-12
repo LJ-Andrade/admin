@@ -925,14 +925,19 @@ function utf8_decode (str_data) {
     });
 
   //// Advance Images (Temp) Open or Colapse ////
-    $('.dragImgTemp').hide();
+    $('.imgGallery').hide();
     $('.advabcedDragBtn').click(function() {
-      $('.dragImgTemp').toggle();
+      $('.imgGallery').toggle();
     })
 
     $('#adDragBtn').click(function() {
-      $('.dragImgTemp').toggle( 400 );
+      $('.imgGallery').toggle( 400 );
     });
+
+    // Select Images (Actives and Gallery)
+    $('.activeImgs li').click(function() {
+      $(this).toggleClass('selectImgGalleries');
+    })
 
 ///////////////// In View List - Show Del and Mod Buttons ////////////////////////
     $('.viewListMobileMod').hide();
