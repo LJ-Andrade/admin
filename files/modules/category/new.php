@@ -46,36 +46,34 @@
           </div><!-- /Single Image-->
         </div><!-- New Inputs -->
         <!-- Single Image Selection Window (Hidden) -->
-        <div style="display: none;" id="SingleImgWd" class="row imgWindow">
-          <button id="cancelImgChange" type="button" name="button" class="btn closeBtn"><i class="fa fa-times"></i></button>
-          <div class="col-md-12">
-            <!-- Actual Img -->
-            <div class="col-md-12 imgSelector">
-              <div class="imgSelectorInner">
-                <img src="../../../skin/images/products/cod1.jpg" class="MainImg SelectNewImg img-responsive">
-                <div class="imgSelectorContent">
-                  <div id="SelectImg">
-                    <i class="fa fa-picture-o"></i><br>
-                    Subir Im&aacute;gen...
+        <!-- Single Image Selection Window (Hidden) -->
+            <div id="SingleImgWd" class="row imgWindow">
+              <!-- <span id="cancelImgChange" class="eraseImgX"><i class="fa fa-times"></i></span> -->
+              <button id="cancelImgChange" type="button" name="button" class="btn closeBtn"><i class="fa fa-times"></i></button>
+              <div class="imgWindowTitle"><h5>Agregar o Cambiar Im&aacute;genes</h5></div>
+              <!-- Choose Img -->
+              <div id="SelectImg" class="col-md-12 imgSelector">
+                <div class="imgSelectorInner">
+                  <img src="<?php echo $Admin->DefaultImg ?>" class="MainImg img-responsive SelectNewImg">
+                  <div class="imgSelectorContent">
+                    <div id="SelectImg"><i class="fa fa-picture-o"></i><br>Cambiar Im&aacute;gen</div>
                   </div>
                 </div>
+              </div><!-- /Choose Img -->
+              <div class="col-md-12 activeImgs singleImg">
+                <ul id="ImageBox">
+                  <li><img src="../../../skin/images/users/default/caras1.png" alt="" class="img-responsive">
+                    <span><i class="fa fa-trash delImgIco"></i></span>
+                  </li>
+                  <li><img src="../../../skin/images/users/default/caras1.png" alt="" class="img-responsive">
+                    <span><i class="fa fa-trash delImgIco"></i></span>
+                  </li>
+                  <li><img src="../../../skin/images/users/default/caras1.png" alt="" class="img-responsive">
+                    <span><i class="fa fa-trash delImgIco"></i></span>
+                  </li>
+                </ul>
               </div>
-            </div><!-- /Actual Img -->
-            <input readonly="readonly" id="Fileimage" name="FileField" class="Hidden" type="text"><div style="height: 0px; width: 0px; overflow: hidden;"><input id="image" name="image" class="Hidden" type="file"></div>              <div class="clearfix visible-xs"></div>
-            <div class="col-md-12 genericSingleImgs">
-              <ul id="ImageBox">
-                <li><img src="../../../skin/images/users/default/caras1.png" alt="" class="img-responsive "></li>
-                <li><img src="../../../skin/images/users/default/caras2.png" alt="" class="img-responsive GenImg "></li>
-                <li><img src="../../../skin/images/users/default/default.jpg" alt="" class="img-responsive GenImg selectImg LastClicked"></li>
-                <li><img src="../../../skin/images/users/default/usuario.jpg" alt="" class="img-responsive GenImg "></li>
-                <li><img src="../../../skin/images/users/3/user69110__3.jpeg" alt="" class="img-responsive GenImg ">
-                  <i style="display: none;" class="fa fa-trash DelIconX" aria-hidden="true"></i>
-                </li>
-              </ul>
-            </div>
-            <div id="FileimageErrorDiv" class="ErrorText Red"></div><div id="imageErrorDiv" class="ErrorText Red"></div>
-          </div>
-        </div>
+            </div><!-- /Images -->
         <!-- /Single Image Selection Window (Hidden) -->
       </div>
     </div>

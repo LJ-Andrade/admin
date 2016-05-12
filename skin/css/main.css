@@ -1681,6 +1681,19 @@ p .addusertxt:hover {
   -moz-box-shadow: 1px -1px 6px 5px rgba(0, 0, 0, 0.19);
   box-shadow: 1px -1px 6px 5px rgba(0, 0, 0, 0.19); }
 
+.singleImg {
+  margin: 0 auto; }
+  .singleImg ul li {
+    margin: 5px;
+    width: 120px;
+    height: 120px;
+    text-align: center;
+    display: inline-block; }
+    .singleImg ul li span:hover {
+      opacity: 1;
+      background: rgba(5, 110, 144, 0.2) center no-repeat;
+      cursor: pointer; }
+
 .mainbtn {
   margin: 5px;
   border: 0;

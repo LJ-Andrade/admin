@@ -412,13 +412,7 @@ $addItemWidth: 800px
       width: 140px
       height: 140px
 
-/////////////////////// Image Dragger ////////////////////////////////////
-
-
-
-///////////// Multiple Image Window //////////////
-
-/////////// Single Image Window ///////////////////
+/////////// Single and Multiple Images Window (HIDDEN) ///////////////////
 .imgWindow
   padding: 20px 10px
   background-color: $innerwindow
@@ -525,6 +519,21 @@ $addItemWidth: 800px
   -webkit-box-shadow: 1px -1px 6px 5px rgba(0,0,0,0.19)
   -moz-box-shadow: 1px -1px 6px 5px rgba(0,0,0,0.19)
   box-shadow: 1px -1px 6px 5px rgba(0,0,0,0.19)
+
+.singleImg
+  margin: 0 auto
+  ul
+    li
+      margin: 5px
+      width: 120px
+      height: 120px
+      text-align: center
+      display: inline-block
+      span
+        &:hover
+          opacity: 1
+          background: rgba(5, 110, 144, .2) center no-repeat
+          cursor: pointer
 
 ///////////////////// Buttons ////////////////////////////
 .mainbtn

@@ -3,29 +3,30 @@
     $Head->setTitle("Nuevo Usuario");
     $Head->setHead();
 
+    //$New      = new AdminData();
     $MenuTree = new Menu();
+    $Group    = new GroupData();
 
-    $Groups[1] = "Pepe";
-    $Groups[2] = "Pepe2";
-    $Groups[3] = "Pepe3";
 
 ?>
 <body>
   <div id="wrapper">
     <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
     <?php echo insertElement("hidden","action",'insert'); ?>
-    <?php echo insertElement("hidden","menues",''); ?>
+    <?php echo insertElement("hidden","menues"); ?>
+    <?php echo insertElement("hidden","groups"); ?>
+    <?php echo insertElement("hidden","newimage",$Admin->DefaultImg); ?>
       <!-- WindowHead -->
       <div class="row windowHead">
         <div class="col-md-6 col-xs-12">
           <h3><i class="fa fa-plus-square" aria-hidden="true"></i> Agregar Nuevo Usuario</h3>
         </div>
         <div class="col-md-6 col-xs-12 switchDiv switchHead">
-          <input type="checkbox" name="status" id="status" data-on-text="Activo" data-off-text="Inactivo" data-size="mini" data-label-width="auto">
+          <input type="checkbox" name="status" id="status" data-on-text="Activo" data-off-text="Inactivo" data-size="mini" data-label-width="auto" checked>
         </div>
       </div><!-- /WindowHead -->
-      <div class="container additemdiv animated fadeIn">
-        <div class="col-sm-12 form-box formitems">
+      <div class="container animated fadeIn addItemDiv">
+        <div class="col-md-12 form-box formitems">
           <!-- User Data -->
           <div id="newInputs">
             <div class="row">
@@ -52,77 +53,105 @@
                 <?php echo insertElement('text','email','','form-first-name form-controlusers','placeholder="Email" validateEmail="Ingrese un email válido." validateMinLength="4/El email debe contener 4 caracteres como mínimo." tabindex="4"'); ?>
               </div>
             </div>
-            <div class="row"><!-- Groups -->
-              <div class="col-md-6 animated bounceInRight mainImgDiv"><!-- Choose Img -->
-                <div class="changeImg"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div>
-                <img src="../../../skin/images/users/usergen.png" class="img-responsive mainImgSelected">
-              </div>
-              <div class="col-md-6 form-group animated bounceInRight centrarbtn"><!-- Group and Perm -->
+            <!-- /User Data -->
+            <!-- Image and Groups -->
+            <div class="col-md-12">
+              <!-- Group and Perm -->
+              <div class="col-md-6 form-group animated bounceInRight centrarbtn">
                 <div class="form-group">
                   <div class="marg20">
-                    <?php echo insertElement('select','profile','','form-controlusers','tabindex="6" validateEmpty="El perfil es obligatorio."',$DB->fetchAssoc("admin_profile","profile_id,title","","title"),'','Elegir Perfil'); ?>
+                    <?php echo insertElement('select','profile','','form-controlusers','tabindex="6" validateEmpty="El perfil es obligatorio."',$DB->fetchAssoc("admin_profile","profile_id,title","status = 'A'","title"),'','Elegir Perfil'); ?>
                   </div>
                   <div class="marg20">
-                    <button id="showTreeDiv" class="btn mainbtn">Permisos y Grupo</button>
+                    <button id="showTreeDiv" class="btn mainbtn">Permisos y Grupos</button>
                   </div>
                 </div>
               </div>
-            </div><!-- /Groups -->
-          </div>
-          <!-- /User Data -->
-          <!-- Images -->
-          <div class="row selectImgMain">
+              <!-- Choose Img -->
+              <div id="SelectImg" class="col-md-6 col-sm-12 imgSelector">
+                <div class="imgSelectorInner">
+                  <img src="../../../skin/images/products/cod1.jpg" class="img-responsive">
+                  <div class="imgSelectorContent">
+                    <div id="SelectImg">
+                      <i class="fa fa-picture-o"></i><br>
+                      Cambiar Im&aacute;gen
+                    </div>
+                  </div>
+                </div>
+              </div><!-- /Choose Img -->
+            </div><!-- /Image and Groups  -->
+
+          </div><!-- New Inputs -->
+          <!-- Single Image Selection Window (Hidden) -->
+          <div id="SingleImgWd" class="row singleImgWindow">
             <button id="cancelImgChange" type="button" name="button" class="btn closeBtn"><i class="fa fa-times"></i></button>
-            <div class="col-md-3 col-sm-12">
-              <img src="../../../skin/images/users/usergen.png" class="img-responsive mainSelectedImg">
-            </div>
-            <div class="col-md-9 carouselDiv">
-              <h4> Seleccione una im&aacute;gen</h4>
-              <div class="carousel slide" id="myCarousel">
-                <div class="carousel-inner">
-                  <div class="item active">
-                    <div class="col-md-3 col-xs-6 ThumbImgDiv">
-                      <div class="eraseImgX"><i class="fa fa-trash"></i></div>
-                      <div class="thumbImg"><img src="../../../skin/images/users/caras1.png" class="img-responsive"></div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <div class="col-md-3 col-xs-6 ThumbImgDiv">
-                      <div class="eraseImgX"><i class="fa fa-trash"></i></div>
-                      <div class="thumbImg"><img src="../../../skin/images/users/caras2.png" class="img-responsive"></div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <div class="col-md-3 col-xs-6 ThumbImgDiv">
-                      <div class="eraseImgX"><i class="fa fa-trash"></i></div>
-                      <div class="thumbImg"><img src="../../../skin/images/users/usergen.png" class="img-responsive"></div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <div class="col-md-3 col-xs-6 ThumbImgDiv">
-                      <div class="eraseImgX"><i class="fa fa-trash"></i></div>
-                      <div class="thumbImg"><img src="../../../skin/images/users/vio.jpg" class="img-responsive"></div>
+            <div class="col-md-12">
+              <!-- Choose Img -->
+              <div id="SelectImg" class="col-md-12 imgSelector">
+                <div class="imgSelectorInner">
+                  <img src="<?php echo $Admin->DefaultImg ?>" class="MainImg img-responsive SelectNewImg">
+                  <div class="imgSelectorContent">
+                    <div id="SelectImg">
+                      <i class="fa fa-picture-o"></i><br>
+                      Cambiar Im&aacute;gen
                     </div>
                   </div>
                 </div>
-                <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
-                <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="fa fa-chevron-right"></i></a>
+              </div><!-- /Choose Img -->
+              <?php echo insertElement('file','image','','Hidden'); ?>
+              <div class="clearfix visible-xs"></div>
+              <div class="col-md-12 activeImgs">
+                <ul id="ImageBox">
+                  <li><img src="../../../skin/images/users/default/caras1.png" alt="" class="img-responsive">
+                    <span>
+                      <i class="fa fa-arrows moveImg"></i>
+                      <i class="fa fa-trash delImgIco"></i>
+                    </span>
+                  </li>
+                  <li><img src="../../../skin/images/users/default/caras1.png" alt="" class="img-responsive">
+                    <span>
+                      <i class="fa fa-arrows moveImg"></i>
+                      <i class="fa fa-trash delImgIco"></i>
+                    </span>
+                  </li>
+                  <?php
+                  foreach($Admin->AllImages() as $Image)
+                  {
+                    if($Image==$Admin->DefaultImg)
+                      $MainImg = 'selectImg LastClicked';
+                    else
+                      $MainImg = '';
+
+                    $GalleryID = array_reverse(explode('/',$Image));
+                    if($Admin->AdminID == $GalleryID[1])
+                      $DelIcon = '<i class="fa fa-trash DelIconX" aria-hidden="true"></i>';
+                    else
+                      $DelIcon = '';
+                  ?>
+                  <li>
+                    <img src="<?php echo $Image ?>" alt="" class="img-responsive GenImg genImgThumb <?php echo $MainImg; ?>" />
+                    <?php echo $DelIcon; ?>
+                  </li>
+                  <?php
+                  }
+                  ?>
+                </ul>
               </div>
             </div>
-            <div class="col-md-12 acceptBtnImgDiv">
-              <a href="#"><button id="acceptPermGroup" type="button" name="button" class="btn mainbtn centrarbtn"><i class="fa fa-check"></i> Aceptar</button><br></a>
+            <div class="col-md-12 acceptBtnImgDiv text-center">
+              <button id="AcceptImg" type="button" name="button" class="btn mainbtn centrarbtn"><i class="fa fa-check"></i> Aceptar</button>
             </div>
           </div>
-          <!-- /Images -->
+          <!-- /Single Image Selection Window (Hidden) -->
         </div>
         <!-- Menu Tree -->
         <div class="row treeDivRow">
           <div class="col-md-6 form-group animated bounceInBottom checkboxDiv">
-            <h4>Grupos</h4>
-            <?php echo $MenuTree->MakeTree(); ?>
+            <h4>Grupos Asociados</h4>
+            <span id="GroupTree"></span>
           </div>
           <div class="col-md-6 form-group animated bounceInBottom checkboxDiv">
-            <h4>Permisos</h4>
+            <h4>Permisos Especiales</h4>
             <?php echo $MenuTree->MakeTree(); ?>
           </div>
           <div class="col-md-12 acceptBtnDiv">
@@ -130,7 +159,6 @@
           </div>
         </div>
         <!-- /Menu Tree -->
-
       </div>
       <!-- Create User Button Div  -->
       <div class="container animated fadeInUp donediv">
@@ -141,5 +169,4 @@
       </div>
       <!-- /Create User Button Div  -->
   </div><!-- /#wrapper -->
-
 <?php $Foot->setFoot(); ?>

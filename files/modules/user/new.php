@@ -54,18 +54,8 @@
               </div>
             </div>
             <!-- /User Data -->
-            <!-- Single Image -->
+            <!-- Image and Groups -->
             <div class="col-md-12">
-              <!-- Choose Img -->
-              <div id="SelectImg" class="col-md-6 col-centered overlaySingleImg">
-                <div class="overlayInnerIcon overlayIcon">
-                  <img src="<?php echo $Admin->DefaultImg ?>" class="MainImg img-responsive singleImg">
-                  <div class="mask">
-                  <p>Cambiar Imagen</p>
-                  <i class="fa fa-pencil-square-o"></i>
-                  </div>
-                </div>
-              </div><!-- /Choose Img -->
               <!-- Group and Perm -->
               <div class="col-md-6 form-group animated bounceInRight centrarbtn">
                 <div class="form-group">
@@ -77,55 +67,50 @@
                   </div>
                 </div>
               </div>
-            </div><!-- /Single Image - Groups/Perm -->
-          </div><!-- New Inputs -->
-          <!-- Single Image Selection Window (Hidden) -->
-          <div id="SingleImgWd" class="row singleImgWindow">
-              <button id="cancelImgChange" type="button" name="button" class="btn closeBtn"><i class="fa fa-times"></i></button>
-            <div class="col-md-12">
-              <div class="col-md-12 col-centered">
-                <div class="overlayInnerIcon overlayIcon">
-                  <img src="<?php echo $Admin->DefaultImg ?>" class="MainImg img-responsive singleImg SelectNewImg">
-                  <div class="mask SelectNewImg">
-                  <p>Cambiar Imagen</p>
-                  <i class="fa fa-pencil-square-o"></i>
+              <!-- Choose Img -->
+              <div id="SelectImg" class="col-md-6 col-sm-12 imgSelector">
+                <div class="imgSelectorInner">
+                  <img src="../../../skin/images/products/cod1.jpg" class="img-responsive">
+                  <div class="imgSelectorContent">
+                    <div id="SelectImg">
+                      <i class="fa fa-picture-o"></i><br>
+                      Cambiar Im&aacute;gen
+                    </div>
                   </div>
                 </div>
-              </div>
-              <?php echo insertElement('file','image','','Hidden'); ?>
-              <div class="clearfix visible-xs"></div>
-              <div class="col-md-12 genericSingleImgs">
-                <ul id="ImageBox">
-                  <?php
-                  foreach($Admin->AllImages() as $Image)
-                  {
-                    if($Image==$Admin->DefaultImg)
-                      $MainImg = 'selectImg LastClicked';
-                    else
-                      $MainImg = '';
-
-                    $GalleryID = array_reverse(explode('/',$Image));
-                    if($Admin->AdminID == $GalleryID[1])
-                      $DelIcon = '<i class="fa fa-trash DelIconX" aria-hidden="true"></i>';
-                    else
-                      $DelIcon = '';
-                  ?>
-                  <li>
-                    <img src="<?php echo $Image ?>" alt="" class="img-responsive GenImg genImgThumb <?php echo $MainImg; ?>" />
-                    <?php echo $DelIcon; ?>
-                  </li>
-                  <?php
-                  }
-                  ?>
-                </ul>
-              </div>
-            </div>
-            <div class="col-md-12 acceptBtnImgDiv text-center">
-              <button id="AcceptImg" type="button" name="button" class="btn mainbtn centrarbtn"><i class="fa fa-check"></i> Aceptar</button>
-            </div>
-          </div>
+              </div><!-- /Choose Img -->
+            </div><!-- /Image and Groups  -->
+          </div><!-- New Inputs -->
+          <!-- Single Image Selection Window (Hidden) -->
+              <div id="SingleImgWd" class="row imgWindow">
+                <!-- <span id="cancelImgChange" class="eraseImgX"><i class="fa fa-times"></i></span> -->
+                <button id="cancelImgChange" type="button" name="button" class="btn closeBtn"><i class="fa fa-times"></i></button>
+                <div class="imgWindowTitle"><h5>Agregar o Cambiar Im&aacute;genes</h5></div>
+                <!-- Choose Img -->
+                <div id="SelectImg" class="col-md-12 imgSelector">
+                  <div class="imgSelectorInner">
+                    <img src="<?php echo $Admin->DefaultImg ?>" class="MainImg img-responsive SelectNewImg">
+                    <div class="imgSelectorContent">
+                      <div id="SelectImg"><i class="fa fa-picture-o"></i><br>Cambiar Im&aacute;gen</div>
+                    </div>
+                  </div>
+                </div><!-- /Choose Img -->
+                <div class="col-md-12 activeImgs singleImg">
+                  <ul id="ImageBox">
+                    <li><img src="../../../skin/images/users/default/caras1.png" alt="" class="img-responsive">
+                      <span><i class="fa fa-trash delImgIco"></i></span>
+                    </li>
+                    <li><img src="../../../skin/images/users/default/caras1.png" alt="" class="img-responsive">
+                      <span><i class="fa fa-trash delImgIco"></i></span>
+                    </li>
+                    <li><img src="../../../skin/images/users/default/caras1.png" alt="" class="img-responsive">
+                      <span><i class="fa fa-trash delImgIco"></i></span>
+                    </li>
+                  </ul>
+                </div>
+              </div><!-- /Images -->
           <!-- /Single Image Selection Window (Hidden) -->
-        </div>
+        </div><!-- /Formitems -->
         <!-- Menu Tree -->
         <div class="row treeDivRow">
           <div class="col-md-6 form-group animated bounceInBottom checkboxDiv">
@@ -139,14 +124,14 @@
           <div class="col-md-12 acceptBtnDiv">
             <button id="acceptPermGroup" type="button" name="button" class="btn mainbtn centrarbtn"><i class="fa fa-check"></i> Aceptar</button><br>
           </div>
-        </div>
-        <!-- /Menu Tree -->
-      </div>
+        </div><!-- /Menu Tree -->
+      </div><!-- /addItemDiv -->
       <!-- Create User Button Div  -->
       <div class="container animated fadeInUp donediv">
         <div class="form-group">
-          <a href="#" class="btn mainbtn" role="button" id="create"><i class="fa fa-check-square-o fa-fw"></i> Crear Usuario</a>
-          <a href="#" class="btn mainbtn" role="button" id="create"><i class="fa fa-check-square-o fa-fw"></i> Crear y Agregar Otro...</a>
+          <button id="createUser" type="button" name="button" class="btn mainbtn" role="button"><i class="fa fa-check-square-o fa-fw"></i> Crear Usuario</button>
+          <button id="createAndAdd" type="button" name="button" class="btn mainbtn" role="button"><i class="fa fa-plus-square"></i> Crear y Agregar Otro...</button>
+          <button id="acceptBtnImg" type="button" name="button" class="btn mainbtn"><i class="fa fa-check"></i> Aceptar</button>
         </div>
       </div>
       <!-- /Create User Button Div  -->

@@ -125,7 +125,7 @@
           <div class="col-md-12">
             <button id="adDragBtn" type="button" name="button" class="btn mainbtn"><i class="fa fa-picture-o"></i> Galer&iacute;a</button>
           </div>
-          <div class="col-md-12 activeImgs imgGallery">
+          <div class="col-md-12 SelectProdImg activeImgs imgGallery">
             <ul class="connected sortable grid no2">
               <li><img src="../../../skin/images/users/default/caras1.png" alt="" class="img-responsive">
                 <span>

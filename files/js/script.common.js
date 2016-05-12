@@ -935,7 +935,7 @@ function utf8_decode (str_data) {
     });
 
     // Select Images (Actives and Gallery)
-    $('.activeImgs li').click(function() {
+    $('.SelectProdImg li').click(function() {
       $(this).toggleClass('selectImgGalleries');
     })
 
