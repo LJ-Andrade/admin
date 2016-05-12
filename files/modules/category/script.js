@@ -1,4 +1,4 @@
-/* 
+/*
 $(window).scroll(function(){
   $('#wrapper')[0].scrollTop=$(window).scrollTop();
 });*/
@@ -82,7 +82,7 @@ $(".Selecteable").click(function(){
             		var id 		= elem.attr('deleteElement');
             		var parents = elem.attr('deleteParent').split("/");
             		var process = elem.attr('deleteProcess');
-	                
+
                 	var string      = 'id='+ id + '&action=delete';
                 	console.log(elem);
 			        var data;
@@ -129,7 +129,7 @@ $(".Selecteable").click(function(){
 	// 	});
 
 	// 	$('div[id="viewgrid"]').hide( 500 );
-	// 	$('div[id="viewlist"]').show( 500 ); 
+	// 	$('div[id="viewlist"]').show( 500 );
 	// 	$("#viewlistbt").hide();
 	// 	$("#viewgridbt").show( 0 );
 	// 	$('#delselected').hide();
@@ -140,7 +140,7 @@ $(".Selecteable").click(function(){
 	// 		$(this).removeClass('deleteThis');
 	// 		$(this).removeClass('listselect');
 	// 	});
-	// 	$('div[id="viewgrid"]').show( 500 ); 
+	// 	$('div[id="viewgrid"]').show( 500 );
 	// 	$('div[id="viewlist"]').hide( 500 );
 	// 	$("#viewgridbt").hide();
 	// 	$("#viewlistbt").show( 0 );
@@ -152,7 +152,7 @@ $(".Selecteable").click(function(){
 
  // Del & Mod User Icons appearing onclick
 $(function(){
-	$('.userButtons').hide(); 	
+	$('.userButtons').hide();
 	// $('.usergral').click(function() {
 	// 	$(this).find('.userButtons').toggle();
 	// 	$(this).find('.userMainSection').toggleClass("usergralselect", 500);
@@ -172,7 +172,7 @@ $(function(){
 	// 		}else{
 	// 			totalSelected++;
 	// 		}
-				
+
 	// 	});
 	// 	if(totalSelected>1 && !admDelBtn){
 	// 		$('#delselected').show();
@@ -186,7 +186,7 @@ $(function(){
 		$(this).toggleClass("listselect");
 		var totalSelected = 0;
 		$(".listselect").each(function(){
-			totalSelected++;	
+			totalSelected++;
 		});
 		if(totalSelected>1){
 			$('#delselected').show();
@@ -223,7 +223,7 @@ $(function(){
 	// 		.bind("selectstart", function () {
 	// 			return false;
 	// 		});
-	
+
 	// $(document).mouseup(function () {isMouseDown = false;});
 
 
@@ -265,23 +265,23 @@ $(function(){
 });
 
 ///////////// Show User Img Selector /////////////////////
-$(function (){
-		$('#imgsToSelect').hide();
-		$('#cancelSelectImgBtn').hide();
-		
-		$('#selectImgBtn').click(function() {
-					$('#newInputs').hide( 500 );
-					$('#imgsToSelect').show( 500 );
-					$('#selectImgBtn').hide();
-					$('#cancelSelectImgBtn').fadeIn( 400 );
-					$('#shownimg').hide();
-					
-		});
-		$('#cancelSelectImgBtn').click(function() {
-					$('#newInputs').show( 500 );
-					$('#imgsToSelect').hide( 500 );
-					$('#selectImgBtn').show();
-					$('#cancelSelectImgBtn').hide();
-					if($('#shownimg').attr("src")!="") $('#shownimg').fadeIn( 600 );
-		});
-});
+// $(function (){
+// 		$('#imgsToSelect').hide();
+// 		$('#cancelSelectImgBtn').hide();
+//
+// 		$('#selectImgBtn').click(function() {
+// 					$('#newInputs').hide( 500 );
+// 					$('#imgsToSelect').show( 500 );
+// 					$('#selectImgBtn').hide();
+// 					$('#cancelSelectImgBtn').fadeIn( 400 );
+// 					$('#shownimg').hide();
+//
+// 		});
+// 		$('#cancelSelectImgBtn').click(function() {
+// 					$('#newInputs').show( 500 );
+// 					$('#imgsToSelect').hide( 500 );
+// 					$('#selectImgBtn').show();
+// 					$('#cancelSelectImgBtn').hide();
+// 					if($('#shownimg').attr("src")!="") $('#shownimg').fadeIn( 600 );
+// 		});
+// });

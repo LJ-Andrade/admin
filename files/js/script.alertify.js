@@ -34,8 +34,8 @@
 			buttons : {
 				holder : "<nav class=\"alertify-buttons\">{{buttons}}</nav>",
 				submit : "<button type=\"submit\" class=\"alertify-button alertify-button-ok\" id=\"alertify-ok\" />{{ok}}</button>",
-				ok     : "<a href=\"#\" class=\"alertify-button alertify-button-ok\" id=\"alertify-ok\">{{ok}}</a>",
-				cancel : "<a href=\"#\" class=\"alertify-button alertify-button-cancel\" id=\"alertify-cancel\">{{cancel}}</a>"
+				ok     : "<a href=\"#\" class=\"btn mainbtn\" id=\"alertify-ok\">{{ok}}</a>",
+				cancel : "<a href=\"#\" class=\"btn mainbtnred\" id=\"alertify-cancel\">{{cancel}}</a>"
 			},
 			input   : "<input type=\"text\" class=\"alertify-text\" id=\"alertify-text\">",
 			message : "<p class=\"alertify-message\">{{message}}</p>",

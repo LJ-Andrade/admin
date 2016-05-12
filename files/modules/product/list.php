@@ -141,7 +141,7 @@
             <div class="col-md-1 col-sm-1 col-xs-12 colList"><p>Colores</p></div>
             <div class="col-md-1 col-sm-1 col-xs-12 colList"><p>Precio</p></div>
             <div class="col-md-1 col-sm-1 col-xs-12 colList colListLast">
-              <div class="delModDiv text-center">
+              <div class="delModDivList text-center">
                 <a href="#"><button type="button" name="button" class="btn mainbtn"><i class="fa fa-pencil"></i></button></a>
                 <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred"><i class="fa fa-trash"></i></button></a>
               </div>

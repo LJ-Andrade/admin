@@ -39,9 +39,8 @@
           </div>
           <div class="row"><!-- Sizes & Colors -->
             <div class="col-md-6 form-group animated bounceInRight">
-              <div class="addItemSizesTit">
+              <div class="addItemNoformTit">
                 <span>Talles</span>
-                <hr>
               </div>
               <div class="form-group addItemSizes">
                 <ul>
@@ -55,22 +54,17 @@
               </div>
             </div>
             <div class="col-md-6 form-group animated bounceInRight">
-              <div class="addItemSizesTit">
+              <div class="addItemNoformTit">
                 <span>Colores</span>
-                <hr>
               </div>
               <div class="circles circlesAddItem">
                 <ul>
                   <li><button type="button" name="button" class="DelSelColors btn mainbtnred delColBtn"><i class="fa fa-trash-o"></i></button></li>
                   <li><div class="circleInput"><input name="color" type="color" value="#8551d9" /> Elegir Color</div></li><br>
                   <li><div class="ColorSelect circle circleAddItem" style="background-color: #fff"></div></li>
-                  <li><i class="fa fa-trash-o delColorBtn"></i></li>
                   <li><div class="ColorSelect circle circleAddItem" style="background-color: #c17996"></div></li>
-                  <li><i class="fa fa-trash-o delColorBtn"></i></li>
                   <li><div class="ColorSelect circle circleAddItem" style="background-color: #768754"></div></li>
-                  <li><i class="fa fa-trash-o delColorBtn"></i></li>
                   <li><div class="ColorSelect circle circleAddItem" style="background-color: #5643a0"></div></li>
-                  <li><i class="fa fa-trash-o delColorBtn"></i></li>
                 </ul>
               </div>
             </div>
@@ -88,30 +82,33 @@
           </div>
           <!-- /Description (Character counter) -->
           <!-- Choose Img -->
-          <div class="col-md-6 col-centered overlaySingleImg">
-            <div class="overlayInnerIcon overlayIcon multipleImgThumb">
+          <div class="col-md-6 col-sm-12 imgSelector">
+            <div class="imgSelectorInner">
               <img src="../../../skin/images/products/cod1.jpg" class="img-responsive">
-              <div class="mask">
-              <button id="SelectImg" type="button" name="button" class="btn mainbtn"><i class="fa fa-picture-o"></i> Cambiar Im&aacute;gen</button>
+              <div class="imgSelectorContent">
+                <div id="SelectImg">
+                  <i class="fa fa-picture-o"></i><br>
+                  Cambiar Im&aacute;gen
+                </div>
               </div>
             </div>
           </div><!-- /Choose Img -->
         </div><!-- /newInputs -->
-        <!-- Images -->
-        <div id="MultipleImgWd" class="row multipleImgWindow">
+        <!-- Images (HIDDEN) -->
+        <div id="MultipleImgWd" class="row imgWindow">
           <!-- <span id="cancelImgChange" class="eraseImgX"><i class="fa fa-times"></i></span> -->
           <button id="cancelImgChange" type="button" name="button" class="btn closeBtn"><i class="fa fa-times"></i></button>
           <div class="col-md-12 text-center">
-            <!-- <h5>Im&aacute;genes del Producto</h5> -->
             <button type="button" name="button" class="btn mainbtn thirdBtn"><i class="fa fa-plus"></i> Agregar Im&aacute;gen</button>
           </div>
-            <div class="col-md-12 dragImgPublic multipleImgs imgHovering">
+            <div class="col-md-12 avaliableImgs">
               <ul id="ImageBox" class="connected sortable grid">
-                <li><img src="../../../skin/images/users/default/caras1.png" alt="" class="img-responsive GenImg"><b>1</b><i class="fa fa-trash DelIconX"></i></li>
-                <li><img src="../../../skin/images/users/default/caras2.png" alt="" class="img-responsive GenImg"><b>2</b><i class="fa fa-trash DelIconX"></i></li>
-                <li><img src="../../../skin/images/users/default/default.jpg" alt="" class="img-responsive GenImg"><b>3</b><i class="fa fa-trash DelIconX"></i></li>
-                <li><img src="../../../skin/images/users/default/usuario.jpg" alt="" class="img-responsive GenImg"><b>4</b><i class="fa fa-trash DelIconX"></i></li>
-                <li><img src="../../../skin/images/users/3/user69110__3.jpeg" alt="" class="img-responsive GenImg"><b>5</b></i><i class="fa fa-trash DelIconX"></i></li>
+                <li><img src="../../../skin/images/body/icons/add.jpg" alt="" class="img-responsive imgHover"></li>
+                <li><img src="../../../skin/images/users/default/caras1.png" alt="" class="img-responsive imgHover"></li>
+                <li><img src="../../../skin/images/users/default/caras2.png" alt="" class="img-responsive imgHover"></li>
+                <li><img src="../../../skin/images/users/default/default.jpg" alt="" class="img-responsive imgHover"></li>
+                <li><img src="../../../skin/images/users/default/usuario.jpg" alt="" class="img-responsive imgHover"></li>
+                <li><img src="../../../skin/images/users/3/user69110__3.jpeg" alt="" class="img-responsive imgHover"></li>
               </ul>
             </div>
           <div class="col-md-12 advancedDragBtn">
@@ -135,7 +132,6 @@
         <button id="createUser" type="button" name="button" class="btn mainbtn" role="button"><i class="fa fa-check-square-o fa-fw"></i> Crear Usuario</button>
         <button id="createAndAdd" type="button" name="button" class="btn mainbtn" role="button"><i class="fa fa-plus-square"></i> Crear y Agregar Otro...</button>
         <button id="acceptBtnImg" type="button" name="button" class="btn mainbtn"><i class="fa fa-check"></i> Aceptar</button>
-
       </div>
     </div>    <!-- /Create User Button Div  -->
   </div><!-- /#wrapper -->

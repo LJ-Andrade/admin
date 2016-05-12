@@ -198,11 +198,11 @@ function ColorSelection()
 
     //Show Del Color Btn
     if($('.ColorSelect').hasClass('circleAddItemSelected')) {
-              $('.DelSelColors').show();
-            }
-            else {
-              $('.DelSelColors').hide();
-            }
+        $('.DelSelColors').show();
+      }
+      else {
+        $('.DelSelColors').hide();
+      }
   });
 }
 ColorSelection();
@@ -212,8 +212,9 @@ ColorSelection();
 function PutDaCalar()
 {
 	$("input[name=color]").change(function(){
-    var color = $('input[name=color]').val();
+    var color = $(this).val();
     $(".circlesAddItem ul").append('<li><div class="ColorSelect circle circleAddItem circleAddItemSelected" style="background-color:'+color+'"></div></li>');
+    ColorSelection();
 	});
 }
 PutDaCalar();

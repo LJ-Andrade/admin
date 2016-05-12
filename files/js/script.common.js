@@ -773,6 +773,7 @@ function utf8_decode (str_data) {
     $('#MultipleImgWd').hide();
     // Hide Accept Btn
     $('#acceptBtnImg').hide();
+
     // Show Single Selection Window
     function ShowSingleSelectionWindow()
     {
@@ -783,6 +784,8 @@ function utf8_decode (str_data) {
             $('#newInputs').hide( 500 );
             $('#createUser').hide();
             $('#createAndAdd').hide();
+            // Hide Confirm Modification Btn
+            $('#ConfModBtn').hide();
             // Show Accept Btn
             $('#acceptBtnImg').delay( 300 ).show();
         });
@@ -798,6 +801,8 @@ function utf8_decode (str_data) {
           $('#newInputs').show( 500 );
           $('#createUser').show();
           $('#createAndAdd').show();
+          // Show Confirm Modification Btn
+          $('#ConfModBtn').show();
           $('#acceptBtnImg').hide();
         });
 
@@ -842,6 +847,8 @@ function utf8_decode (str_data) {
             $('.LastClicked').click();
             $('#createUser').show();
             $('#createAndAdd').show();
+            // Show Confirm Modification Btn
+            $('#ConfModBtn').show();
             $('#acceptBtnImg').hide();
         });
     }

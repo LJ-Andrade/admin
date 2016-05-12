@@ -103,62 +103,98 @@
 
 
 
-<!-- TREE CHECKBOXES -->
-<div class="col-md-6 form-group checkboxDiv">
-  <ul>
-    <li class="treeLv1">
-      <input id="1" name="#" value="#" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox">
-      <label class="checkbox-custom-label" for="1"></label><span id="menu13" class="TreeElement"><i class="fa fa-smile-o"></i> Inicio</span>
-      <div id="menu13ErrorDiv" class="ErrorText Red"></div>
-    </li>
-    <li class="treeLv1">
-      <input id="2" name="#" value="#" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox">
-      <label class="checkbox-custom-label" for="2"></label>
-      <span id="#" style="cursor:pointer;" class="TreeElement">
-      <!-- Icon and Text --><i class="fa fa-smile-o"></i> Productos </span>
-      <div id="menu2ErrorDiv" class="ErrorText Red"></div>
-      <i class="fa fa-caret-down treeArrow" aria-hidden="true"></i><!-- Arrow -->
-    </li>
-    <ul id="#">
-      <li class="treeLv2">
-        <input id="3" name="#" value="#" class="CheckBox TreeCheckbox checkbox-custom" disabled="disabled" type="checkbox">
-        <label class="checkbox-custom-label" for="3"></label>
-        <span id="#" class="TreeElement"><i class="fa fa-smile-o"></i> Agregar Producto</span>
-        <div id="#" class="ErrorText Red"></div>
-      </li class="treeLv2">
-      <li class="treeLv2">
-        <input id="4" name="#" value="#" class="CheckBox TreeCheckbox checkbox-custom" disabled="disabled" type="checkbox">
-        <label class="checkbox-custom-label" for="4"></label>
-        <span id="#" class="TreeElement"><i class="fa fa-smile-o"></i> Agregar Producto</span>
-        <div id="#" class="ErrorText Red"></div>
-      </li class="treeLv2">
-      <li class="treeLv2">
-        <input id="5" name="#" value="#" class="CheckBox TreeCheckbox checkbox-custom" disabled="disabled" type="checkbox">
-        <label class="checkbox-custom-label" for="5"></label>
-        <span id="#" class="TreeElement"><i class="fa fa-smile-o"></i> Agregar Producto</span>
-        <div id="#" class="ErrorText Red"></div>
-      </li class="treeLv2">
-    </ul>
-  </ul>
-</div>
-<!-- /TREE CHECKBOXES -->
-<div class="col-md-6">
-  <button class="btn mainbtn testInfo" type="button" name="button">Test Info</button>
-  <button class="btn mainbtn testOk" type="button" name="button">Test Ok</button>
-</div>
+        <!-- TREE CHECKBOXES -->
+        <div class="col-md-6 form-group checkboxDiv">
+          <ul>
+            <li class="treeLv1">
+              <input id="1" name="#" value="#" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox">
+              <label class="checkbox-custom-label" for="1"></label><span id="menu13" class="TreeElement"><i class="fa fa-smile-o"></i> Inicio</span>
+              <div id="menu13ErrorDiv" class="ErrorText Red"></div>
+            </li>
+            <li class="treeLv1">
+              <input id="2" name="#" value="#" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox">
+              <label class="checkbox-custom-label" for="2"></label>
+              <span id="#" style="cursor:pointer;" class="TreeElement">
+              <!-- Icon and Text --><i class="fa fa-smile-o"></i> Productos </span>
+              <div id="menu2ErrorDiv" class="ErrorText Red"></div>
+              <i class="fa fa-caret-down treeArrow" aria-hidden="true"></i><!-- Arrow -->
+            </li>
+            <ul id="#">
+              <li class="treeLv2">
+                <input id="3" name="#" value="#" class="CheckBox TreeCheckbox checkbox-custom" disabled="disabled" type="checkbox">
+                <label class="checkbox-custom-label" for="3"></label>
+                <span id="#" class="TreeElement"><i class="fa fa-smile-o"></i> Agregar Producto</span>
+                <div id="#" class="ErrorText Red"></div>
+              </li class="treeLv2">
+              <li class="treeLv2">
+                <input id="4" name="#" value="#" class="CheckBox TreeCheckbox checkbox-custom" disabled="disabled" type="checkbox">
+                <label class="checkbox-custom-label" for="4"></label>
+                <span id="#" class="TreeElement"><i class="fa fa-smile-o"></i> Agregar Producto</span>
+                <div id="#" class="ErrorText Red"></div>
+              </li class="treeLv2">
+              <li class="treeLv2">
+                <input id="5" name="#" value="#" class="CheckBox TreeCheckbox checkbox-custom" disabled="disabled" type="checkbox">
+                <label class="checkbox-custom-label" for="5"></label>
+                <span id="#" class="TreeElement"><i class="fa fa-smile-o"></i> Agregar Producto</span>
+                <div id="#" class="ErrorText Red"></div>
+              </li class="treeLv2">
+            </ul>
+          </ul>
+        </div>
+        <!-- /TREE CHECKBOXES -->
+        <div class="col-md-6">
+          <button class="btn mainbtn testInfo" type="button" name="button">Test Info</button>
+          <button class="btn mainbtn testOk" type="button" name="button">Test Ok</button>
+        </div>
 
 
-          <div class="col-md-12 demotittles">
-            <h1>Title h1</h1>
-            <h2>Title h2</h2>
-            <h3>Title h3</h3>
-            <h4>Title h4</h4>
-            <h5>Title h5</h5>
-          </div>
-          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+        <div class="col-md-12 demotittles">
+          <h1>Title h1</h1>
+          <h2>Title h2</h2>
+          <h3>Title h3</h3>
+          <h4>Title h4</h4>
+          <h5>Title h5</h5>
+        </div>
+
         </div>
       </div><!-- Row -->
     </div><!-- /.container-fluid -->
+    <div class="clearfix"></div>
+
+    <!-- Cards For Links -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 genCard">
+          <a href="#">
+            <i class="fa fa-beer"></i><br>
+            <span>Categor&iacute;a</span>
+          </a>
+        </div>
+        <div class="col-md-3 genCard">
+          <a href="#">
+            <i class="fa fa-beer"></i><br>
+            <span>Categor&iacute;a</span>
+          </a>
+        </div>
+        <div class="col-md-3 genCard">
+          <a href="#">
+            <i class="fa fa-beer"></i><br>
+            <span>Categor&iacute;a</span>
+          </a>
+        </div>
+        <div class="col-md-3 genCard">
+          <a href="#">
+            <i class="fa fa-beer"></i><br>
+            <span>Categor&iacute;a</span>
+          </a>
+        </div>
+      </div>
+    </div><!-- /Cards For Links -->
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   </div><!-- /#wrapper -->
 <?php $Foot->setFoot(); ?>

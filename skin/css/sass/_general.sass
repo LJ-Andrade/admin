@@ -90,14 +90,11 @@ ul
   margin: 0 auto
 .centrartxt
   text-align: center
-
 .lastcol
   margin-right: 0
-
 .marg20
   margin-top: 20px
   margin-bottom: 20px
-
 .row-centered
   text-align: center
 .col-centered
@@ -105,20 +102,24 @@ ul
   float: none
   text-align: left
   margin-right: -4px
-
 .centrarbtn
   margin: 0
   Background-color: transparent
   text-align: center
 .txtcenter
   text-align: center
-
 .brd
   border: 1px solid red
-
 .radio100
   border-radius: 100%
 
+.flex-container
+  display: flex
+  justify-content: center
+  /* align horizontal */
+  align-items: center
+  /* align vertical */
+  border: 1px solid green
 /////////////////////// Pagination //////////////////////////
 .paginat
   text-align: center
@@ -174,6 +175,10 @@ ul
   background-color: rgba(255,255,255,.5)
   color: $blk
 
+@media (max-width: 290px)
+  .formitems
+    padding: 0
+    
 //////////////// Contador caracteres  //////////////////////
 form .indicator
   display: block
