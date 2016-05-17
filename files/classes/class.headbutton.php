@@ -59,7 +59,7 @@ class HeadButton
 		foreach ($this->Buttons as $Button) {
 			
 			if($Button['icon'])
-				$Value = '<i class="fa '.$Button['icon'].'"> '.$Button['title'].'</i>';
+				$Value = '<i class="fa '.$Button['icon'].'"></i> '.$Button['title'];
 			else
 				$Value = $Button['title'];
 			
