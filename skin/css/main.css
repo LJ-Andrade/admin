@@ -71,7 +71,8 @@ h5 {
   text-align: center; }
 
 p {
-  font-family: "Open Sans", sans-serif; }
+  font-family: "Open Sans", sans-serif;
+  margin: 0; }
 
 @media(max-width:341px) {
   .maintitletxt {
@@ -1249,8 +1250,7 @@ p .addusertxt:hover {
     max-width: 100%; }
 
 .overlayDetails {
-  padding: 10px 15px 0;
-  margin-top: 40px; }
+  padding: 10px 15px 0; }
   .overlayDetails hr {
     margin-top: 5px;
     margin-bottom: 5px;
@@ -1280,6 +1280,25 @@ p .addusertxt:hover {
     overflow: hidden;
     top: 0;
     left: 0; }
+
+.selectedItem {
+  max-width: 247px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  text-align: center;
+  cursor: default;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: block;
+  z-index: 1000; }
+  .selectedItem .fa {
+    font-size: 50px;
+    margin-top: 45%;
+    text-align: center;
+    color: #fff; }
+  .selectedItem:hover {
+    cursor: pointer; }
 
 .aspect {
   position: relative;
@@ -1526,6 +1545,12 @@ p .addusertxt:hover {
   border-bottom: 1px solid #39465B;
   background-color: transparent; }
 
+.checkboxSelProd input[type="checkbox"], input[type="radio"] {
+  margin: 0;
+  width: 50px; }
+  .checkboxSelProd input[type="checkbox"]:hover, input[type="radio"]:hover {
+    cursor: pointer; }
+
 .imgSelector {
   padding-top: 15px;
   padding-bottom: 15px;
@@ -1558,7 +1583,7 @@ p .addusertxt:hover {
   transition: all 0.3s ease 0s; }
   .imgSelectorContent:hover {
     opacity: 1;
-    background: rgba(0, 0, 0, 0.7) center no-repeat; }
+    background: rgba(64, 71, 120, 0.7) center no-repeat; }
   .imgSelectorContent .fa {
     font-size: 35px;
     color: #fff; }
@@ -1639,8 +1664,11 @@ p .addusertxt:hover {
       position: absolute;
       right: 0;
       padding: 5px 8px;
-      background-color: #000;
-      color: #fff; }
+      border-radius: 100%;
+      background-color: #585858;
+      color: #fff;
+      margin-right: 5px;
+      margin-top: 5px; }
       .activeImgs ul li i.delImgIco .fa {
         color: #fff; }
         .activeImgs ul li i.delImgIco .fa:hover {
@@ -1670,11 +1698,13 @@ p .addusertxt:hover {
       width: 50px;
       height: 50px; }
     .imgGallery ul li i.delImgIco {
-      padding: 2px 3px 1px 4px;
+      margin-right: -5px;
+      margin-top: -4px;
+      background: 0;
       font-size: 14px; }
     .imgGallery ul li i.moveImg {
-      font-size: 15px;
-      top: 15px; }
+      font-size: 12px;
+      top: 14px; }
 
 .selectImgGalleries {
   -webkit-box-shadow: 1px -1px 6px 5px rgba(0, 0, 0, 0.19);
@@ -1747,6 +1777,11 @@ a .mainbtn {
     color: #ccc;
     background: linear-gradient(to bottom, #a13931 0, #be4a3d 95%); }
 
+.modBtnList, .delBtnList {
+  padding: 4px 6px;
+  vertical-align: middle;
+  margin-top: 8px; }
+
 .thirdBtn {
   background: linear-gradient(to bottom, #868a3b 0, #9a9e4d 95%);
   transition: all 0.3s ease 0s; }
@@ -1762,45 +1797,6 @@ a .mainbtn {
     -moz-box-shadow: none;
     color: #fff;
     background: linear-gradient(to bottom, #707334 0, #828642 95%); }
-
-.selectBtn {
-  background: linear-gradient(to bottom, #b0afaf 0, #d6d6d6 95%);
-  color: #fff;
-  transition: all 0.3s ease 0s; }
-  .selectBtn:hover {
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    color: #fff;
-    background: linear-gradient(to bottom, #9e9999 0, #d0cbcb 95%); }
-  .selectBtn:focus, .selectBtn:active {
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    color: #fff;
-    background: linear-gradient(to bottom, #9e9999 0, #d0cbcb 95%); }
-
-.delColBtn {
-  padding: 5px 10px 6px;
-  margin-top: -23px;
-  margin-right: 6px; }
-  .delColBtn .fa {
-    color: #fff; }
-
-.itemProdSelectedBtn {
-  background: #44c43e;
-  transition: all 0.3s ease 0s;
-  box-shadow: inset 10px 10px 24px -8px rgba(0, 0, 0, 0.69);
-  -webkit-box-shadow: inset 10px 10px 24px -8px rgba(0, 0, 0, 0.69);
-  -moz-box-shadow: inset 10px 10px 24px -8px rgba(0, 0, 0, 0.69); }
-  .itemProdSelectedBtn:hover, .itemProdSelectedBtn:focus, .itemProdSelectedBtn:active {
-    box-shadow: inset 10px 10px 24px -8px rgba(0, 0, 0, 0.69);
-    -webkit-box-shadow: inset 10px 10px 24px -8px rgba(0, 0, 0, 0.69);
-    -moz-box-shadow: inset 10px 10px 24px -8px rgba(0, 0, 0, 0.69);
-    background: #44c43e; }
-
-.notSelectedBtn {
-  transition: all 0.3s ease 0s; }
 
 .acceptBtn {
   position: absolute;
@@ -1845,7 +1841,6 @@ a .mainbtn {
   padding: 5px 10px;
   border: none;
   border-radius: 0;
-  color: #000;
   background-color: #b8b8b8;
   transition: all 0.3s ease 0s; }
   .closeBtn:hover {
@@ -1947,21 +1942,7 @@ a .mainbtn {
   background: #056e90;
   box-shadow: inset 0px 0px 0px 4px #fff; }
 
-.gridly {
-  position: relative;
-  width: 960px; }
-
-.brick.small {
-  width: 140px;
-  height: 140px;
-  background-color: blue; }
-
-.brick.large {
-  width: 300px;
-  height: 300px; }
-
 .OnOffDiv {
-  position: absolute;
   background-color: #fff;
   padding: 15px 0;
   top: 0;
@@ -2007,9 +1988,6 @@ a .mainbtn {
   height: 20px;
   border-radius: 100%; }
 
-.circlesAddItem {
-  margin-top: 20px; }
-
 .circleAddItem {
   width: 30px;
   height: 30px; }
@@ -2036,10 +2014,20 @@ a .mainbtn {
     .circleInput input:hover {
       cursor: pointer; }
 
+.colorPalette {
+  width: 30px;
+  height: 30px; }
+  .colorPalette img {
+    margin-left: 4px;
+    margin-top: -23px;
+    width: 30px;
+    border-radius: 100%; }
+
 .delColorBtn {
+  padding: 5px 10px 6px;
   position: absolute;
-  margin-left: -18px;
   margin-top: -16px;
+  margin-left: 15px;
   background-color: #fff;
   padding: 2px;
   border-radius: 100%;
@@ -2050,6 +2038,14 @@ a .mainbtn {
     cursor: pointer; }
   .delColorBtn .fa {
     font-size: 10px; }
+
+.delColBtn {
+  margin-top: -22px;
+  margin-left: 6px;
+  border-radius: 100%; }
+  .delColBtn .fa {
+    color: #fff;
+    font-size: 16px; }
 
 .delModDiv {
   position: absolute;
@@ -2128,6 +2124,13 @@ a .mainbtn {
   box-shadow: inset 2px 3px 5px -3px rgba(0, 0, 0, 0.54); }
 
 .viewListMobile {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -webkit-box-align: cente;
+  align-items: center;
   color: #000;
   padding: 0;
   margin: 0;
@@ -2137,6 +2140,26 @@ a .mainbtn {
   .viewListMobile:hover {
     cursor: pointer; }
 
+.viewListMobileLarge {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -webkit-box-align: cente;
+  align-items: center;
+  color: #000;
+  padding: 0;
+  margin: 0;
+  margin: 2px 0;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 5px; }
+  .viewListMobileLarge p {
+    max-width: 50%; }
+  .viewListMobileLarge:hover {
+    cursor: pointer; }
+
 .viewListMobileMod {
   position: absolute;
   background-color: rgba(255, 255, 255, 0.9);
@@ -2144,12 +2167,22 @@ a .mainbtn {
   right: 0;
   left: 0;
   text-align: center;
-  padding: 8px 0;
+  padding: 4px 0;
   width: 100%; }
 
 .vlMobileTxt p {
   margin-top: 14px; }
 
+@media (min-width: 1200px) {
+  #ViewListMobile1, #ViewListMobile2 {
+    display: none !important; } }
+/* No greater than 1199px, no less than 500px */
+@media (max-width: 1199px) and (min-width: 500px) {
+  #ViewListMobile2, #viewlist {
+    display: none !important; } }
+@media (max-width: 500px) {
+  #ViewListMobile1, #viewlist {
+    display: none !important; } }
 .menulistico.fa-gears::before,
 .menulistico.fa-sitemap::before,
 .menulistico.fa-home::before,

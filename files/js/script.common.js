@@ -939,16 +939,10 @@ function utf8_decode (str_data) {
       $(this).toggleClass('selectImgGalleries');
     })
 
-///////////////// In View List - Show Del and Mod Buttons ////////////////////////
+/////////////////  LIST VIEW  ////////////////////////
+    // Mobile View
+    // Show Del & Mod Buttons
     $('.viewListMobileMod').hide();
     $('.viewListMobile').click(function() {
       $('.viewListMobileMod').toggle( 100 );
     });
-
-    // Only Appearing on mobile
-    if (screen.width > 600) {
-      $(".viewListMobile").hide();
-    }
-    else {
-      $(".viewListMobile").show();
-    }

@@ -1,4 +1,4 @@
-/////// Grals /////$RECYCLE.BIN\
+/////// Grals ////////
 .centerMe
   display: flex
   align-items: center
@@ -12,8 +12,6 @@
 
 .centerMe-bottom
   align-self: flex-end
-
-
 
 ////////// Top Banner /////////////////////////////
 .topCatBanner
@@ -40,8 +38,6 @@
   -webkit-box-shadow: 0px 5px 8px 5px rgba(0, 0, 0, 0.35)
   -moz-box-shadow: 0px 5px 8px 5px rgba(0, 0, 0, 0.35)
   box-shadow: 0px 5px 8px 5px rgba(0, 0, 0, 0.35)
-  // border-bottom: 5px inset $selectBtnSelected
-
 
 .overlayItem
   max-width: 277px
@@ -59,7 +55,6 @@
 
 .overlayDetails
   padding: 10px 15px 0
-  margin-top: 40px
   hr
     margin-top: 5px
     margin-bottom: 5px
@@ -88,6 +83,25 @@
     overflow: hidden
     top: 0
     left: 0
+
+.selectedItem
+  max-width: 247px
+  width: 100%
+  height: 100%
+  overflow: hidden
+  position: absolute
+  text-align: center
+  cursor: default
+  background-color: rgba(0,0,0,.5)
+  display: block
+  z-index: 1000
+  .fa
+    font-size: 50px
+    margin-top: 45%
+    text-align: center
+    color: #fff
+  &:hover
+    cursor: pointer
 
 .aspect
   position: relative
@@ -358,6 +372,15 @@ $addItemWidth: 800px
   border-bottom: 1px solid #39465B
   background-color: transparent
 
+/// Select Product checkbox
+
+.checkboxSelProd input[type="checkbox"], input[type="radio"]
+  margin: 0
+  width: 50px
+  &:hover
+    cursor: pointer
+
+
 ///////////////////// IMAGES //////////////////////////////////////
 
 // Selector Img Changer
@@ -393,7 +416,7 @@ $addItemWidth: 800px
   transition: all 0.3s ease 0s
   &:hover
     opacity: 1
-    background: rgba(0,0,0,0.7) center no-repeat
+    background: rgba(64, 71, 120, 0.7) center no-repeat
   .fa
     font-size: 35px
     color: #fff
@@ -477,8 +500,11 @@ $addItemWidth: 800px
         position: absolute
         right: 0
         padding: 5px 8px
-        background-color: #000
+        border-radius: 100%
+        background-color: #585858
         color: #fff
+        margin-right: 5px
+        margin-top: 5px
         .fa
           color: #fff
           &:hover
@@ -509,11 +535,13 @@ $addItemWidth: 800px
         width: 50px
         height: 50px
       i.delImgIco
-        padding: 2px 3px 1px 4px
+        margin-right: -5px
+        margin-top: -4px
+        background: 0
         font-size: 14px
       i.moveImg
-        font-size: 15px
-        top: 15px
+        font-size: 12px
+        top: 14px
 
 .selectImgGalleries
   -webkit-box-shadow: 1px -1px 6px 5px rgba(0,0,0,0.19)
@@ -588,6 +616,11 @@ a .mainbtn
     color: #ccc
     background: $mainbtnredhover
 
+.modBtnList,.delBtnList
+  padding: 4px 6px
+  vertical-align: middle
+  margin-top: 8px
+
 .thirdBtn
   background: $thirdBtn
   transition: all 0.3s ease 0s
@@ -603,48 +636,6 @@ a .mainbtn
     -moz-box-shadow: none
     color: #fff
     background: $thirdBtnHover
-
-.selectBtn
-  background: $selectBtn
-  color: #fff
-  transition: all 0.3s ease 0s
-  &:hover
-    box-shadow: none
-    -webkit-box-shadow: none
-    -moz-box-shadow: none
-    color: #fff
-    background: $selectBtnHover
-  &:focus, &:active
-    box-shadow: none
-    -webkit-box-shadow: none
-    -moz-box-shadow: none
-    color: #fff
-    background: $selectBtnHover
-
-.delColBtn
-  padding: 5px 10px 6px
-  margin-top: -23px
-  margin-right: 6px
-  .fa
-    color: #fff
-
-
-// Select Btn On Overlay Item
-.itemProdSelectedBtn
-  background: $selectBtnSelected
-  transition: all 0.3s ease 0s
-  box-shadow:  inset 10px 10px 24px -8px rgba(0,0,0,0.69)
-  -webkit-box-shadow: inset 10px 10px 24px -8px rgba(0,0,0,0.69)
-  -moz-box-shadow: inset 10px 10px 24px -8px rgba(0,0,0,0.69)
-
-  &:hover, &:focus, &:active
-    box-shadow:  inset 10px 10px 24px -8px rgba(0,0,0,0.69)
-    -webkit-box-shadow: inset 10px 10px 24px -8px rgba(0,0,0,0.69)
-    -moz-box-shadow: inset 10px 10px 24px -8px rgba(0,0,0,0.69)
-    background: $selectBtnSelected
-.notSelectedBtn
-  transition: all 0.3s ease 0s
-
 .acceptBtn
   position: absolute
   right: 0
@@ -689,7 +680,6 @@ a .mainbtn
   padding: 5px 10px
   border: none
   border-radius: 0
-  color: #000
   background-color: #b8b8b8
   transition: all 0.3s ease 0s
   &:hover
@@ -798,22 +788,22 @@ a .mainbtn
 
 /////////////////////// Drag And Drop /////////////////////////////////
 
-.gridly
-  position: relative
-  width: 960px
-
-.brick.small
-  width: 140px
-  height: 140px
-  background-color: blue
-
-.brick.large
-  width: 300px
-  height: 300px
+// .gridly
+//   position: relative
+//   width: 960px
+//
+// .brick.small
+//   width: 140px
+//   height: 140px
+//   background-color: blue
+//
+// .brick.large
+//   width: 300px
+//   height: 300px
 
 /// Switch Button Style ///
 .OnOffDiv
-  position: absolute
+  // position: absolute
   background-color: #fff
   padding: 15px 0
   top: 0
@@ -861,9 +851,6 @@ a .mainbtn
   height: 20px
   border-radius: 100%
 
-.circlesAddItem
-  margin-top: 20px
-
 .circleAddItem
   width: 30px
   height: 30px
@@ -890,10 +877,21 @@ a .mainbtn
     &:hover
       cursor: pointer
 
+.colorPalette
+  width: 30px
+  height: 30px
+
+  img
+    margin-left: 4px
+    margin-top: -23px
+    width: 30px
+    border-radius: 100%
+
 .delColorBtn
+  padding: 5px 10px 6px
   position: absolute
-  margin-left: -18px
   margin-top: -16px
+  margin-left: 15px
   background-color: #fff
   padding: 2px
   border-radius: 100%
@@ -904,6 +902,14 @@ a .mainbtn
     cursor: pointer
   .fa
     font-size: 10px
+
+.delColBtn
+  margin-top: -22px
+  margin-left: 6px
+  border-radius: 100%
+  .fa
+    color: #fff
+    font-size: 16px
 
 
 /////////////////////// Del Mod ////////////////////////////////
@@ -982,6 +988,13 @@ a .mainbtn
   box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
 
 .viewListMobile
+  display: -ms-flexbox
+  display: -webkit-flex
+  display: flex
+  -ms-flex-align: center
+  -webkit-align-items: center
+  -webkit-box-align: cente
+  align-items: center
   color: #000
   padding: 0
   margin: 0
@@ -990,6 +1003,27 @@ a .mainbtn
   background-color: rgba(255,255,255, .8)
   &:hover
     cursor: pointer
+
+.viewListMobileLarge
+  display: -ms-flexbox
+  display: -webkit-flex
+  display: flex
+  -ms-flex-align: center
+  -webkit-align-items: center
+  -webkit-box-align: cente
+  align-items: center
+  color: #000
+  padding: 0
+  margin: 0
+  margin: 2px 0
+  position: relative
+  background-color: rgba(255,255,255, .8)
+  padding: 5px
+  p
+    max-width: 50%
+  &:hover
+    cursor: pointer
+
 .viewListMobileMod
   position: absolute
   background-color: rgba(255,255,255, .9)
@@ -997,12 +1031,50 @@ a .mainbtn
   right: 0
   left: 0
   text-align: center
-  padding: 8px 0
+  padding: 4px 0
   width: 100%
-
+  
 .vlMobileTxt
   p
     margin-top: 14px
+
+// Responsivity
+
+// Large (Monitor)
+@media (min-width: 1200px)
+  #ViewListMobile1,#ViewListMobile2
+    display: none !important
+
+// Medium (Tablet)
+/* No greater than 1199px, no less than 500px */
+@media (max-width: 1199px) and (min-width: 500px)
+  #ViewListMobile2,#viewlist
+    display: none !important
+
+// Mobile
+@media (max-width: 500px)
+  #ViewListMobile1,#viewlist
+    display: none !important
+
+  // #ViewListMobile1
+  //   display: none !important
+//   #viewlist
+//     display: none !important
+//
+// // Medium (Tablet)
+// /* No greater than 900px, no less than 400px */
+// @media (max-width: 900px) and (min-width: 400px)
+//   #ViewListMobile2
+//     display: none !important
+//   #viewlist
+//     display: none !important
+//
+// // Mobile
+// @media (max-width: 1200px)
+//   #viewlist
+//     display: none !important
+
+
 
 //////// Menu Lists /////////////////
 

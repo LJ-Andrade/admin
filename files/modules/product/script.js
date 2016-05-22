@@ -54,10 +54,18 @@ $(function(){
   });
 });
 
-///////// Switch Viewmode ////////////////////////
+///////// Switch Viewmode & SelectItem ////////////////////////
 
 $(function(){
-    $('div[id="viewlist"]').hide();
+    // $('div[id="viewlist"]').hide();
+    // $('.selectedItem').hide();
+    $('.overlayDetails').click(function(){
+      $('.selectedItem').removeClass('Hidden');
+    });
+
+    $('.selectedItem').click(function(){
+      $('.selectedItem').addClass('Hidden');
+    });
 });
 
 //////////////////////// Submit Data ////////////////////////////////////
@@ -190,42 +198,26 @@ $("[name='status']").bootstrapSwitch();
 /////////////// Select Colors ////////////////////////////////
 
 function ColorSelection()
-{  //hide Del Color Btn
-  $('.DelSelColors').hide();
-  // Select Color
+{  // Select Color
   $('.ColorSelect').click(function(){
     $(this).toggleClass('circleAddItemSelected');
 
-    //Show Del Color Btn
+    //Show Delete Color Btn
     if($('.ColorSelect').hasClass('circleAddItemSelected')) {
-        $('.DelSelColors').show();
+        $('.DelSelColors').removeClass('Hidden');
       }
       else {
-        $('.DelSelColors').hide();
+        $('.DelSelColors').addClass('Hidden');
       }
   });
 }
 ColorSelection();
 
 // Create a Li with the selected color
-//(Sale bien pero no selecciona porque carga despues como pasaba con las imágenes)
 function PutDaCalar()
 {
-	$("input[name=color]").change(function(){
-    var color = $(this).val();
-    $(".circlesAddItem ul").append('<li><div class="ColorSelect circle circleAddItem circleAddItemSelected" style="background-color:'+color+'"></div></li>');
-    ColorSelection();
-	});
-}
-PutDaCalar();
-
-// No me funca (Igual me parece que los tachitos joden)
-function delColorBtn()
-{
-  $('.delColorBtn').hide();
-  $('.circleAddItem').hover(function(){
-  $('.delColorBtn').toggle();
-  // $(this).find('.delColorBtn').toggle();
+  $('.ColorSelector').click(function () {
+    alert ("tocado");
   });
 }
-delColorBtn();
+PutDaCalar();

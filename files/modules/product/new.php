@@ -59,12 +59,13 @@
               </div>
               <div class="circles circlesAddItem">
                 <ul>
-                  <li><button type="button" name="button" class="DelSelColors btn mainbtnred delColBtn"><i class="fa fa-trash-o"></i></button></li>
-                  <li><div class="circleInput"><input name="color" type="color" value="#8551d9" /> Elegir Color</div></li><br>
+                  <li class="Hidden"><div class="circleInput"><input name="color" type="color" value="#8551d9" /></div></li><br>
+                  <li><button type="button" name="button" class="Hidden DelSelColors btn mainbtnred delColBtn"><i class="fa fa-trash-o"></i></button></li>
                   <li><div class="ColorSelect circle circleAddItem" style="background-color: #fff"></div></li>
                   <li><div class="ColorSelect circle circleAddItem" style="background-color: #c17996"></div></li>
                   <li><div class="ColorSelect circle circleAddItem" style="background-color: #768754"></div></li>
                   <li><div class="ColorSelect circle circleAddItem" style="background-color: #5643a0"></div></li>
+                  <li><div class="ColorSelector colorPalette" name="color" type="color"><img src="../../../skin/images/body/icons/colorpalette.jpg" alt=""/></div></li>
                 </ul>
               </div>
             </div>
@@ -96,10 +97,9 @@
         </div><!-- /newInputs -->
         <!-- Images (HIDDEN) -->
         <div id="MultipleImgWd" class="row imgWindow">
-          <!-- <span id="cancelImgChange" class="eraseImgX"><i class="fa fa-times"></i></span> -->
           <button id="cancelImgChange" type="button" name="button" class="btn closeBtn"><i class="fa fa-times"></i></button>
             <div class="imgWindowTitle"><h5>Agregar o Cambiar Im&aacute;genes</h5></div>
-            <div class="col-md-12 activeImgs">
+            <div class="col-md-12 activeImgs SelectProdImg">
               <ul id="ImageBox" class="connected sortable grid">
                 <li class=""><img src="../../../skin/images/body/icons/add.jpg" alt="" class="img-responsive imgHover2"></li>
                 <li><img src="../../../skin/images/users/default/caras1.png" alt="" class="img-responsive">
@@ -127,6 +127,7 @@
           </div>
           <div class="col-md-12 SelectProdImg activeImgs imgGallery">
             <ul class="connected sortable grid no2">
+              <li class=""><img src="../../../skin/images/body/icons/add.jpg" alt="" class="img-responsive imgHover2"></li>
               <li><img src="../../../skin/images/users/default/caras1.png" alt="" class="img-responsive">
                 <span>
                   <i class="fa fa-arrows moveImg"></i>

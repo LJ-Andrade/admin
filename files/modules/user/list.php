@@ -16,8 +16,6 @@
       <div class="maintitle"><h4 class="maintitletxt">Listado de Usuarios Administradores</h4></div>
       <div class="glasscontainer1 optionsdiv">
         <?php $Buttons->ShowButtons(); ?>
-        
-        
       </div>
       <!-- Filters / Search -->
       <div class="container-fluid">

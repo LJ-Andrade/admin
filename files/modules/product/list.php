@@ -78,13 +78,16 @@
         </div><!-- /Filters -->
         <!--- General Product Wrapper (Grid) -->
         <div class="row-centered wrapOverlayItem">
-          <!-- Product -->
+          <!-- //////////  Product Here //////////////// -->
           <div class="col-md-4 col-sm-6 col-xs-12 col-centered overlayItem">
+            <div class="Hidden selectedItem">
+              <i class="fa fa-check-circle"></i>
+            </div>
             <div id="itemProdDiv" class="show overlay1 selectItemProd1">
               <img src="../../../skin/images/products/01.jpg" />
               <div class="mask">
-                <div class="OnOffDiv">
-                  <input type="checkbox" name="status" id="status" data-on-text="Publicado" data-off-text="Pausado" data-size="mini" data-label-width="auto" checked>
+                <div class="row OnOffDiv">
+                    <input type="checkbox" name="status" id="status" data-on-text="Publicado" data-off-text="Pausado" data-size="mini" data-label-width="auto" checked>
                 </div>
                 <div class="overlayDetails">
                 <h3><strong>Título</strong></h3>
@@ -106,18 +109,17 @@
                 <div class="delModDiv">
                   <a href="#"><button type="button" name="button" class="btn mainbtn"><i class="fa fa-pencil"></i></button></a>
                   <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred"><i class="fa fa-trash"></i></button></a>
-                  <a href="#"><button id="selectItemProd" type="button" name="button" class="btn mainbtn selectBtn notSelectedBtn"><i class="fa fa-plus"></i></button></a>
                 </div>
               </div>
             </div>
-          </div><!-- /Product -->
+          </div><!-- /Product-->
         </div><!--- /General Product Wrapper (Grid) -->
 
         <!-- Product List View -->
         <div id="viewlist" class="row">
           <!-- Titles  -->
           <div class="glassListRow listTitDiv">
-            <div class="col-md-1 col-sm-1 col-xs-12 listTit"><p>Imagen</p></div>
+            <div class="col-md-1 col-sm-1 col-xs-12 listTit"><p>Im&aacute;gen</p></div>
             <div class="col-md-2 col-sm-2 col-xs-12 listTit"><p>Titulo</p></div>
             <div class="col-md-2 col-sm-3 col-xs-12 listTit"><p>Descripci&oacute;n</p></div>
             <div class="col-md-2 col-sm-2 col-xs-12 listTit"><p>Composicion</p></div>
@@ -129,7 +131,7 @@
             <!-- <div id="emptylist" class="container-fluid glassListRow listrow" style="text-align:center;display:block;">
               <p>No existen productos, puede crear uno haciendo click&nbsp;<a href="new.php">aqui</a></p>
             </div> -->
-          <!-- Product (List) -->
+          <!-- ////////////   Product (List View) HERE ////////////////////////// -->
           <div id="#" class="glassListRow listRow">
             <div class="col-md-1 col-sm-1 col-xs-12 colList colListFirst">
               <img id="#" src="../../../skin/images/products/01.jpg" class="img-responsive listImg">
@@ -142,28 +144,35 @@
             <div class="col-md-1 col-sm-1 col-xs-12 colList"><p>Precio</p></div>
             <div class="col-md-1 col-sm-1 col-xs-12 colList colListLast">
               <div class="delModDivList text-center">
-                <a href="#"><button type="button" name="button" class="btn mainbtn"><i class="fa fa-pencil"></i></button></a>
-                <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred"><i class="fa fa-trash"></i></button></a>
+                <a href="#"><button type="button" name="button" class="btn mainbtn modBtnList"><i class="fa fa-pencil"></i></button></a>
+                <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred delBtnList"><i class="fa fa-trash"></i></button></a>
               </div>
             </div>
           </div>
           <!-- /Product (List)  -->
         </div><!-- /Product List View  -->
-        <!-- Product List View Mobile  -->
-        <div class="row viewListMobile">
-          <div class="col-md-12 col-xs-12 pad0">
-            <div class="col-md-4 col-xs-4 pad0">
-              <img id="#" src="../../../skin/images/products/01.jpg" class="img-responsive listImg">
+        <!-- ////////////////////  Product List View Mobile Large HERE //////////////////////////// -->
+        <div id="ViewListMobile1" class="row viewListMobileLarge">
+            <div class="col-md-3 col-sm-3 col-xs-3"><img id="#" src="../../../skin/images/products/01.jpg" class="img-responsive listImg"></div>
+            <div class="col-md-3 col-sm-3 col-xs-3"><p>Titulo</p></div>
+            <div class="col-md-3 col-sm-2 col-xs-4"><p>$precio</p></div>
+            <div class="col-md-3 col-sm-4 col-xs-4">
+              <a href="#"><button type="button" name="button" class="btn mainbtn modBtnList"><i class="fa fa-pencil"></i></button></a>
+              <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred delBtnList"><i class="fa fa-trash"></i></button></a>
             </div>
-            <div class="col-md-4 col-xs-4 vlMobileTxt pad0"><p>Vestido Loco</p></div>
-            <div class="col-md-1 col-xs-4 vlMobileTxt"><p>$150</p></div>
-          </div>
+        </div>
+        <!-- /Product List View Mobile Large -->
+        <!-- ////////////////////// Product List View Mobile Small HERE ///////////////// -->
+        <div id="ViewListMobile2" class="row viewListMobile">
+          <div class="col-md-4 col-xs-4"><img id="#" src="../../../skin/images/products/01.jpg" class="img-responsive listImg"></div>
+          <div class="col-md-4 col-xs-4"><p>Vestido Loco</p></div>
+          <div class="col-md-1 col-xs-4"><p>$150</p></div>
           <div class="col-xs-12 viewListMobileMod">
             <a href="#"><button type="button" name="button" class="btn mainbtn"><i class="fa fa-pencil"></i></button></a>
             <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred"><i class="fa fa-trash"></i></button></a>
           </div>
         </div>
-        <!-- /Product List View Mobile  -->
+        <!-- /Product List View Mobile Small  -->
       <!--Paginator-->
       <div class="paginat animated slideInUp">
         <ul class="pagination">
