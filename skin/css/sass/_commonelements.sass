@@ -188,35 +188,47 @@
 
 ///////////// Head Title, buttons and Options  ////////////////////////////////////////
 
-.titleDiv,.optionsDiv
+.titleDiv
   width: auto
   background-color: rgba(0,0,0, .1)
   padding: 10px 5px
   text-align: center
-  padding-bottom: 5px
   margin: 0
+  position: relative
   -webkit-transition: all 0.3s ease-out
   -moz-transition: all 0.3s ease-out
   -ms-transition: all 0.3s ease-out
   -o-transition: all 0.3s ease-out
   transition: all 0.3s ease-out
+  a
+    color: #000
 
 .titleDiv
   background-color: rgba(255,255,255, .7)
   margin-top: -25px
 
-.optionsDiv
-  margin-bottom: 20px
-// .optionsDiv
-//   padding-top: 20px
-//   margin: 0 auto
-//   margin-top: 20px
-//   margin-bottom: 20px
+.backOption
+  position: absolute
+  left: 0
+  margin-left: 15px
+  margin-bottom: 8px
 
-.backOpt
-  float: left
-  ul li
-  padding-top: 3px
+.optionsDiv
+  background-color: rgba(0,0,0, .1)
+  padding: 5px
+  justify-content: center
+  width: 100%
+  display: -ms-flexbox
+  display: -webkit-flex
+  display: flex
+  -ms-flex-align: center
+  -webkit-align-items: center
+  -webkit-box-align: center
+  align-items: center
+
+.optionBtn
+  padding: 5px 10px
+
 
 .optionIcons
   display: inline-block
@@ -563,132 +575,7 @@ $addItemWidth: 800px
           background: rgba(5, 110, 144, .2) center no-repeat
           cursor: pointer
 
-///////////////////// Buttons ////////////////////////////
-.mainbtn
-  margin: 5px
-  border: 0
-  padding: 9px 20px 9px
-  border-radius: 3px
-  -webkit-user-select: none
-  -moz-user-select: none
-  -ms-user-select: none
-  user-select: none
-  text-align: center
-  font-size: 14px
-  line-height: 1
-  -moz-osx-font-smoothing: grayscale
-  -webkit-font-smoothing: antialiased
-  box-shadow: 2px 2px 5px -3px rgba(0, 0, 0, 0.75)
-  -webkit-box-shadow: 2px 2px 5px -3px rgba(0, 0, 0, 0.75)
-  -moz-box-shadow: 2px 2px 5px -3px rgba(0, 0, 0, 0.75)
-  -webkit-transition: all 0.5s ease 0s
-  transition: all 0.5s ease 0s
-  background: $mainbtn
-  color: $maintbtntxt
-  &:hover
-    box-shadow: none
-    -webkit-box-shadow: none
-    -moz-box-shadow: none
-    color: #fff
-    background: $mainbtnhover
-  &:focus, &:active
-    box-shadow: none
-    -webkit-box-shadow: none
-    -moz-box-shadow: none
-    color: #fff
-    background: $mainbtnhover
-a .mainbtn
-  color: $logbtntxt
 
-.mainbtnred
-  background: $mainbtnred
-  transition: all 0.3s ease 0s
-  &:hover
-    box-shadow: none
-    -webkit-box-shadow: none
-    -moz-box-shadow: none
-    color: #fff
-    background: $mainbtnredhover
-  &:focus, &:active
-    box-shadow: none
-    -webkit-box-shadow: none
-    -moz-box-shadow: none
-    color: #ccc
-    background: $mainbtnredhover
-
-.modBtnList,.delBtnList
-  padding: 4px 6px
-  vertical-align: middle
-  margin-top: 8px
-
-.thirdBtn
-  background: $thirdBtn
-  transition: all 0.3s ease 0s
-  &:hover
-    box-shadow: none
-    -webkit-box-shadow: none
-    -moz-box-shadow: none
-    color: #fff
-    background: $thirdBtnHover
-  &:focus, &:active
-    box-shadow: none
-    -webkit-box-shadow: none
-    -moz-box-shadow: none
-    color: #fff
-    background: $thirdBtnHover
-.acceptBtn
-  position: absolute
-  right: 0
-  bottom: 0
-  margin: 20px
-  padding: 8px 20px 8px
-  border-radius: 3px
-  -webkit-user-select: none
-  -moz-user-select: none
-  -ms-user-select: none
-  user-select: none
-  text-align: center
-  font-size: 14px
-  line-height: 1
-  -moz-osx-font-smoothing: grayscale
-  -webkit-font-smoothing: antialiased
-  box-shadow: 2px 2px 5px -3px rgba(0, 0, 0, 0.75)
-  -webkit-box-shadow: 2px 2px 5px -3px rgba(0, 0, 0, 0.75)
-  -moz-box-shadow: 2px 2px 5px -3px rgba(0, 0, 0, 0.75)
-  -webkit-transition: all 0.5s ease 0s
-  transition: all 0.5s ease 0s
-  background: $mainbtn
-  color: #000
-  &:hover
-    box-shadow: none
-    -webkit-box-shadow: none
-    -moz-box-shadow: none
-    background: $mainbtnhover
-  &:focus, &:active
-    box-shadow: none
-    -webkit-box-shadow: none
-    -moz-box-shadow: none
-
-
-.switchRight
-  padding-top: 10px
-///
-.closeBtn
-  position: absolute
-  right: 0
-  top: 0
-  padding: 5px 10px
-  border: none
-  border-radius: 0
-  background-color: #b8b8b8
-  transition: all 0.3s ease 0s
-  &:hover
-    background-color: #dedede
-  &:focus, &:active
-    box-shadow: 0px 0px 0px
-    background-color: trasparent
-  .fa
-    color: #000
 
 /////////// TREES / CHECKBOXES ////////////////////////////
 
@@ -1033,10 +920,6 @@ a .mainbtn
   text-align: center
   padding: 4px 0
   width: 100%
-  
-.vlMobileTxt
-  p
-    margin-top: 14px
 
 // Responsivity
 
@@ -1056,48 +939,29 @@ a .mainbtn
   #ViewListMobile1,#viewlist
     display: none !important
 
-  // #ViewListMobile1
-  //   display: none !important
-//   #viewlist
-//     display: none !important
-//
-// // Medium (Tablet)
-// /* No greater than 900px, no less than 400px */
-// @media (max-width: 900px) and (min-width: 400px)
-//   #ViewListMobile2
-//     display: none !important
-//   #viewlist
-//     display: none !important
-//
-// // Mobile
-// @media (max-width: 1200px)
-//   #viewlist
-//     display: none !important
-
-
 
 //////// Menu Lists /////////////////
 
-.menulistico.fa-gears::before,
-.menulistico.fa-sitemap::before,
-.menulistico.fa-home::before,
-.menulistico.fa-list-ul::before,
-.menulistico.fa-user::before,
-.menulistico.fa-tree::before,
-.menulistico.fa-plus-square::before,
-.menulistico.fa-eye::before,
-.menulistico.fa-tree::before,
-.menulistico.fa-money::before,
-.menulistico.fa-bars::before,
-  font-size: 35px
-  padding-top: 5px
-  color: #fff
-  &:hover:before
-    color: #000
-
-.menulistcol1
-  padding-top: 8px
-
+// .menulistico.fa-gears::before,
+// .menulistico.fa-sitemap::before,
+// .menulistico.fa-home::before,
+// .menulistico.fa-list-ul::before,
+// .menulistico.fa-user::before,
+// .menulistico.fa-tree::before,
+// .menulistico.fa-plus-square::before,
+// .menulistico.fa-eye::before,
+// .menulistico.fa-tree::before,
+// .menulistico.fa-money::before,
+// .menulistico.fa-bars::before,
+//   font-size: 35px
+//   padding-top: 5px
+//   color: #fff
+//   &:hover:before
+//     color: #000
+//
+// .menulistcol1
+//   padding-top: 8px
+//
 /////////////// Effects ///////////////////////////////////////////
 .shadow
   -webkit-box-shadow: 0px -2px 5px 1px rgba(0,0,0,0.26)

@@ -9,77 +9,86 @@
 <body>
   <div id="wrapper">
     <?php include('../../includes/inc.nav.php'); ?> <!-- Navegation -->
-      <div class="container-fluid">
-        <!-- Title and options -->
-        <div class="row">
-          <div class="titleDiv"><!-- Page Title & back btn -->
-            <div class="optionIcons backOpt">
-              <ul>
-                <li id="backtolastpage" class="animated fadeIn SubTopBtn">
-                  <a href="javascript: history.go(-1)" class="btn subitbtn BackToLastPage" role="button">
-                  <i class="fa fa-angle-double-left"></i> Volver</a></li>
-              </ul>
-            </div>
-            <h4 class="maintitletxt"> Título</h4>
-          </div>
-          <div class="optionsDiv"><!-- Option Icons & Buttons-->
-            <button id="delselected" class="animated slideInDown mainbtn mainbtnred"><i class="fa fa-trash"></i> Eliminar seleccionados</button>
-            <a href="new.php"><button class="mainbtn"><i class="fa fa-user-plus"></i> Agregar Producto</button></a>
-            <div class="optionIcons">
-              <ul><!-- View Icons -->
-                <li id="viewlistbt" class="animated fadeIn SubTopBtn "><a href="#" class="btn subitbtn" role="button"><i class="fa fa-th-list  fa-fw"></i> Lista </a></li>
-                <li id="viewgridbt" class="animated fadeIn SubTopBtn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-th  fa-fw"></i> Grilla </a></li>
-                <!-- Search -->
-                <li id="showitemfiltersuser" class="animated fadeIn SubTopBtn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-search fa-fw"></i> Buscar</a></li>
-                <li id="showitemfilters" class="animated fadeIn SubTopBtn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-search fa-fw"></i> Buscar</a></li>
-                <!-- Add New Item -->
-                <li id="newprod" class="Hidden"><a href="../product/new.php" class="btn subitbtn SubTopBtn" role="button"><i class="fa fa-plus-square fa-fw"></i> Nuevo Producto</a></li>
-                <li id="newuser" class="Hidden"><a href="../user/new.php" class="btn subitbtn SubTopBtn" role="button"><i class="fa fa-user-plus  fa-fw"></i> Nuevo Usuario</a></li>
-              </ul>
-            </div>
-          </div><!-- /Title and options -->
+    <div class="container-fluid">
+      <!-- ///////// Title and options //////////-->
+      <div class="row">
+        <div class="titleDiv"><!-- Page Title & back btn -->
+          <div class="backOption"><a href=""><i class="fa fa-angle-double-left"></i> Volver</a></div>
+          <h4 class="maintitletxt"> Título</h4>
         </div>
-        <!-- Filters -->
-        <div class="container-fluid pad0">
-          <div id="filteritem" class="row filterdiv">
-            <form class="form-inline" role="form">
-              <div class="col-lg-3 col-sm-3 col-xs-12 form-group inputsgral">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-bookmark-o fa-fw"></i></span>
-                  <select class="form-control" name="category">
-                    <option>Categor&iacute;a...</option>
-                    <option>Camas</option>
-                    <option>Perros</option>
-                    <option>Sillas</option>
-                    <option>Mesas</option>
-                  </select>
-                </div>
+        <div class="optionsDiv"><!-- Options Buttons-->
+          <button id="delselected" class="animated slideInDown mainbtn mainbtnred"><i class="fa fa-trash"></i> Eliminar seleccionados</button>
+          <button id="" class="animated slideInDown mainbtn"><i class="fa fa-user-plus"></i> Agregar Producto</button>
+          <button id="" class="animated slideInDown mainbtn optionBtn"><i class="fa fa-search"></i></button>
+          <button id="" class="animated slideInDown mainbtn optionBtn"><i class="fa fa-th-list"></i></button>
+          <button id="" class="animated slideInDown mainbtn optionBtn"><i class="fa fa-th"></i></button>
+
+          <!-- <div class="optionIcons"> OBSOLETE
+            <ul>
+              <li><a href="new.php"><button class="mainbtn"><i class="fa fa-search"></i></a></li>
+              <li id="viewlistbt" class="animated fadeIn SubTopBtn "><a href="#" class="btn subitbtn" role="button"><i class="fa fa-th-list  fa-fw"></i> Lista </a></li>
+              <li id="viewgridbt" class="animated fadeIn SubTopBtn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-th  fa-fw"></i> Grilla </a></li>
+              <li id="showitemfiltersuser" class="animated fadeIn SubTopBtn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-search fa-fw"></i> Buscar</a></li>
+              <li id="showitemfilters" class="animated fadeIn SubTopBtn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-search fa-fw"></i> Buscar</a></li>
+              <li id="newuser" class="Hidden"><a href="../user/new.php" class="btn subitbtn SubTopBtn" role="button"><i class="fa fa-user-plus  fa-fw"></i> Nuevo Usuario</a></li>
+            </ul>
+          </div> OBSOLETE -->
+
+        </div><!-- /Title and options -->
+      </div>
+      <!-- //////////// Filters /////////// -->
+      <div class="container-fluid pad0">
+        <div id="filteritem" class="row filterdiv">
+          <form class="form-inline" role="form">
+            <div class="col-lg-3 col-sm-3 col-xs-12 form-group inputsgral">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-bookmark-o fa-fw"></i></span>
+                <select class="form-control" name="category">
+                  <option>Categor&iacute;a...</option>
+                  <option>Camas</option>
+                  <option>Perros</option>
+                  <option>Sillas</option>
+                  <option>Mesas</option>
+                </select>
               </div>
-              <div class="col-lg-3 col-sm-3 col-xs-12 form-group inputsgral">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-bookmark-o fa-fw"></i></span>
-                  <input type="text" class="form-control" placeholder="Nombre"/>
-                </div>
+            </div>
+            <div class="col-lg-3 col-sm-3 col-xs-12 form-group inputsgral">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-bookmark-o fa-fw"></i></span>
+                <input type="text" class="form-control" placeholder="Nombre"/>
               </div>
-              <div class="col-lg-3 col-sm-3 col-xs-12 form-group inputsgral">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-usd fa-fw"></i></span>
-                  <input type="text" class="form-control" placeholder="Precio"/>
-                </div>
+            </div>
+            <div class="col-lg-3 col-sm-3 col-xs-12 form-group inputsgral">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-usd fa-fw"></i></span>
+                <input type="text" class="form-control" placeholder="Precio"/>
               </div>
-              <div class="col-lg-3 col-sm-3 col-xs-12 form-group inputsgral">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-qrcode fa-fw"></i></span>
-                  <input type="text" class="form-control" placeholder="C&oacute;digo \ Modelo"/>
-                </div>
+            </div>
+            <div class="col-lg-3 col-sm-3 col-xs-12 form-group inputsgral">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-qrcode fa-fw"></i></span>
+                <input type="text" class="form-control" placeholder="C&oacute;digo \ Modelo"/>
               </div>
-            </form>
-          </div>
-        </div><!-- /Filters -->
-        <!--- General Product Wrapper (Grid) -->
-        <div class="row-centered wrapOverlayItem">
-          <!-- //////////  Product Here //////////////// -->
-          <div class="col-md-4 col-sm-6 col-xs-12 col-centered overlayItem">
+            </div>
+          </form>
+        </div>
+      </div><!-- /Filters -->
+
+
+          <!-- ////// Note /////////
+          There is 4 type of view:
+          #gridView = grid (large/desktop)
+          #viewlist = list (large/desktop)
+          #ViewListMobile1 = list (medium/tablet-notebook-landscape)
+          #ViewListMobile2 = list (small cell/vertical)
+         -->
+
+
+      <div class="row mainContainer">
+        <!--- //// General Product Wrapper (Grid) //// -->
+        <div class="row-centered wrapOverlayItem"><!-- This Div MUST wrap all the items/products divs -->
+          <!-- //////////  Product/Item HERE - #gridView//////////////// -->
+          <div id="gridView" class="col-md-4 col-sm-6 col-xs-12 col-centered overlayItem">
             <div class="Hidden selectedItem">
               <i class="fa fa-check-circle"></i>
             </div>
@@ -112,10 +121,10 @@
                 </div>
               </div>
             </div>
-          </div><!-- /Product-->
+          </div><!-- /Product/Item -->
         </div><!--- /General Product Wrapper (Grid) -->
 
-        <!-- Product List View -->
+        <!-- //////// Product List View Titles - #viewlist ///////////-->
         <div id="viewlist" class="row">
           <!-- Titles  -->
           <div class="glassListRow listTitDiv">
@@ -128,10 +137,7 @@
             <div class="col-md-1 col-sm-1 col-xs-12 listTit"><p>Precio</p></div>
             <div class="col-md-1 col-sm-1 col-xs-12 listTit listTitLast"><p>Mod.</p></div>
           </div> <!-- /Titles  -->
-            <!-- <div id="emptylist" class="container-fluid glassListRow listrow" style="text-align:center;display:block;">
-              <p>No existen productos, puede crear uno haciendo click&nbsp;<a href="new.php">aqui</a></p>
-            </div> -->
-          <!-- ////////////   Product (List View) HERE ////////////////////////// -->
+          <!-- ////////////   Product/Items (List)  ////////////////////////// -->
           <div id="#" class="glassListRow listRow">
             <div class="col-md-1 col-sm-1 col-xs-12 colList colListFirst">
               <img id="#" src="../../../skin/images/products/01.jpg" class="img-responsive listImg">
@@ -151,7 +157,7 @@
           </div>
           <!-- /Product (List)  -->
         </div><!-- /Product List View  -->
-        <!-- ////////////////////  Product List View Mobile Large HERE //////////////////////////// -->
+        <!-- ////////////////////  Product List View Mobile Large HERE - #ViewListMobile1 //////////////////////////// -->
         <div id="ViewListMobile1" class="row viewListMobileLarge">
             <div class="col-md-3 col-sm-3 col-xs-3"><img id="#" src="../../../skin/images/products/01.jpg" class="img-responsive listImg"></div>
             <div class="col-md-3 col-sm-3 col-xs-3"><p>Titulo</p></div>
@@ -160,9 +166,8 @@
               <a href="#"><button type="button" name="button" class="btn mainbtn modBtnList"><i class="fa fa-pencil"></i></button></a>
               <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred delBtnList"><i class="fa fa-trash"></i></button></a>
             </div>
-        </div>
-        <!-- /Product List View Mobile Large -->
-        <!-- ////////////////////// Product List View Mobile Small HERE ///////////////// -->
+        </div><!-- /Product List View Mobile Large -->
+        <!-- ////////////////////// Product List View Mobile Small HERE - #ViewListMobile2 ///////////////// -->
         <div id="ViewListMobile2" class="row viewListMobile">
           <div class="col-md-4 col-xs-4"><img id="#" src="../../../skin/images/products/01.jpg" class="img-responsive listImg"></div>
           <div class="col-md-4 col-xs-4"><p>Vestido Loco</p></div>
@@ -171,8 +176,8 @@
             <a href="#"><button type="button" name="button" class="btn mainbtn"><i class="fa fa-pencil"></i></button></a>
             <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred"><i class="fa fa-trash"></i></button></a>
           </div>
-        </div>
-        <!-- /Product List View Mobile Small  -->
+        </div><!-- /Product List View Mobile Small  -->
+      </div> <!-- /mainContainer / This Div Wrap ONLY all the existing products/Items views -->
       <!--Paginator-->
       <div class="paginat animated slideInUp">
         <ul class="pagination">
