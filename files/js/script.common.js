@@ -826,7 +826,7 @@ function utf8_decode (str_data) {
         $('.GenImg').click(function() {
           $('.selectImg').removeClass('selectImg');
           $(this).addClass('selectImg');
-          $(this).parent().children('.DelIconX').hide();
+          $(this).parent().children('span').children('.delImgIco').hide();
           var src = $(this).attr('src');
           $('.MainImg').each(function(){
             $(this).attr('src',src);
@@ -857,16 +857,16 @@ function utf8_decode (str_data) {
     // Del Icon On thumb
     function DeleteImageGallery()
     {
-        $('.DelIconX').hide();
-        $('.genericSingleImgs ul li, .multipleImgs ul li').hover(function() {
+        $('.delImgIco').hide();
+        $('.singleImg ul li, .multipleImgs ul li').hover(function() {
             if(!$(this).children('img').hasClass('LastClicked') && !$(this).children('img').hasClass('selectImg'))
-                $(this).find('.DelIconX').toggle();
+                $(this).find('.delImgIco').toggle();
             else
-                $(this).find('.DelIconX').hide();
+                $(this).find('.delImgIco').hide();
         });
         // Ver esto
-        $('.DelIconX').click(function() {
-            var img     = $(this).parent().children('img');
+        $('.delImgIco').click(function() {
+            var img     = $(this).parent().parent().children('img');
             var src     = img.attr('src');
             alertify.confirm(utf8_decode('¿Desea eliminar esta imagen de su galer&iacute;a?'), function(e){
                 if(e){
@@ -883,7 +883,7 @@ function utf8_decode (str_data) {
                             {
                                 notifyError('Hubo un problema al eliminar la imagen: '+data);
                             }else{
-                                img.fadeOut(500);
+                                img.parent().fadeOut(500);
                                 notifySuccess(utf8_decode('La imagen ha sido eliminada correctamente.'));
                             }
                         }

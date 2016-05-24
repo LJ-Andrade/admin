@@ -70,7 +70,7 @@
               <!-- Choose Img -->
               <div id="SelectImg" class="col-md-6 col-sm-12 imgSelector">
                 <div class="imgSelectorInner">
-                  <img src="../../../skin/images/products/cod1.jpg" class="img-responsive">
+                  <img src="<?php echo $Admin->DefaultImg ?>" class="img-responsive">
                   <div class="imgSelectorContent">
                     <div id="SelectImg">
                       <i class="fa fa-picture-o"></i><br>
@@ -89,12 +89,13 @@
                 <!-- Choose Img -->
                 <div id="SelectImg" class="col-md-12 imgSelector">
                   <div class="imgSelectorInner">
-                    <img src="<?php echo $Admin->DefaultImg ?>" class="MainImg img-responsive SelectNewImg">
-                    <div class="imgSelectorContent">
+                    <img src="<?php echo $Admin->DefaultImg ?>" class="MainImg img-responsive">
+                    <div class="imgSelectorContent SelectNewImg">
                       <div id="SelectImg"><i class="fa fa-picture-o"></i><br>Cambiar Im&aacute;gen</div>
                     </div>
                   </div>
                 </div><!-- /Choose Img -->
+                <?php echo insertElement('file','image','','Hidden'); ?>
                 <div class="col-md-12 activeImgs singleImg">
                   <ul id="ImageBox">
                     <li><img src="../../../skin/images/users/default/caras1.png" alt="" class="img-responsive">
@@ -106,6 +107,27 @@
                     <li><img src="../../../skin/images/users/default/caras1.png" alt="" class="img-responsive">
                       <span><i class="fa fa-trash delImgIco"></i></span>
                     </li>
+                    <?php
+                    foreach($Admin->AllImages() as $Image)
+                    {
+                      if($Image==$Admin->DefaultImg)
+                        $MainImg = 'selectImg LastClicked';
+                      else
+                        $MainImg = '';
+
+                      $GalleryID = array_reverse(explode('/',$Image));
+                      if($Admin->AdminID == $GalleryID[1])
+                        $DelIcon = '<span><i class="fa fa-trash delImgIco"></i></span>';
+                      else
+                        $DelIcon = '<span></span>';
+                    ?>
+                    <li>
+                      <img src="<?php echo $Image ?>" alt="" class="img-responsive GenImg <?php echo $MainImg; ?>" >
+                      <?php echo $DelIcon; ?>
+                    </li>
+                    <?php
+                    }
+                    ?>
                   </ul>
                 </div>
               </div><!-- /Images -->
