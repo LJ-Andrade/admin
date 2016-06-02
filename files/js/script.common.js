@@ -96,18 +96,17 @@ $(function(){
       });
 
 ////////////////// Appear Tree Div ///////////////////////////////
-    $('.treeDivRow').hide();
 
     $(function () {
       $("#showTreeDiv").click(function(){
-          $("#newInputs").hide();
-          $(".treeDivRow").fadeIn( 400 );
+          $("#newInputs,#createUser,#createAndAdd").addClass('Hidden');
+          $(".treeDivRow,#acceptPermGroup").removeClass('Hidden');
       })
     })
     $(function () {
       $("#acceptPermGroup").click(function(){
-        $(".treeDivRow").hide();
-          $("#newInputs").show();
+        $(".treeDivRow,#acceptPermGroup").addClass('Hidden');
+          $("#newInputs,#createUser,#createAndAdd").removeClass('Hidden');
       })
     })
 });
@@ -350,7 +349,8 @@ $(function(){
                     notifyError(result);
                 }else{
                     parents.forEach(function(parent){
-                        $("#"+parent).slideUp();
+                        $("#"+parent).addClass('animated rotateOut');
+                        $("#"+parent).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){$("#"+parent).remove();});
                     });
                     notifySuccess(utf8_decode(sucText));
                 }
@@ -597,10 +597,8 @@ $(function(){
                             document.location = target;
                         }
                     });
-                }else{
-                    //alertify.error("Has pulsado '" + alertify.labels.cancel + "'");
                 }
-            });
+            }).set('labels', {ok:'Si', cancel:'No'});
         });
 
 });
@@ -640,6 +638,28 @@ function inArray(needle, haystack) {
 function isVisible(object)
 {
     return $(object).is (':visible') && $(object).parents (':hidden').length == 0;
+}
+
+//////////////////////////////////////////////////// Hide/Show Element by Class ////////////////////////////////////////////////////////
+
+function showElement(element)
+{
+    $(element).removeClass('Hidden');
+}
+
+function hideElement(element)
+{
+    $(element).addClass('Hidden');
+}
+
+function toggleElement(element)
+{
+    if($(element).hasClass('Hidden'))
+    {
+        $(element).removeClass('Hidden');
+    }else{
+        $(element).addClass('Hidden');
+    }
 }
 
 
@@ -767,109 +787,106 @@ function utf8_decode (str_data) {
 
 /////////////////// IMAGES ////////////////////////////////////////////
 
-    // Hide Single Selection Window
-    $('#SingleImgWd').hide();
-    // Hide Multiple Selection Window
-    $('#MultipleImgWd').hide();
-    // Hide Accept Btn
-    $('#acceptBtnImg').hide();
-
     // Show Single Selection Window
     function ShowSingleSelectionWindow()
     {
         $('#SelectImg, #SelectSingleImg').click(function()
         {
-            $('#SingleImgWd').delay( 300 ).show( 500 );
-            $('#MultipleImgWd').delay( 300 ).show( 500 );
-            $('#newInputs').hide( 500 );
-            $('#createUser').hide();
-            $('#createAndAdd').hide();
-            // Hide Confirm Modification Btn
-            $('#ConfModBtn').hide();
-            // Show Accept Btn
-            $('#acceptBtnImg').delay( 300 ).show();
+            showElement('#SingleImgWd,#MultipleImgWd,#acceptBtnImg');
+            hideElement('#newInputs,#createUser,#createAndAdd,#ConfModBtn');
         });
     }
     ShowSingleSelectionWindow();
-
-    function ExitSelectionWindow()
-    {
-        $('#acceptBtnImg').click(function()
-        {
-          $('#SingleImgWd').hide( 500 );
-          $('#MultipleImgWd').hide( 500 );
-          $('#newInputs').show( 500 );
-          $('#createUser').show();
-          $('#createAndAdd').show();
-          // Show Confirm Modification Btn
-          $('#ConfModBtn').show();
-          $('#acceptBtnImg').hide();
-        });
-
-    }
-    ExitSelectionWindow();
 
     // Show Multiple Selection Window
     function ShowMultipleSelectionWindow()
     {
         $('#selectImgBtn').click(function()
         {
-            $('#MultipleImgWd').show( 500 );
-            $('#newInputs').hide( 500 );
+            showElement('#MultipleImgWd');
+            hideElement('#newInputs');
         });
     }
     ShowMultipleSelectionWindow();
 
-    // Select Thumb Img
-    function SelectThumbImg()
+    // Accept BtnBack
+    function BtnBack()
     {
-        $('.GenImg').click(function() {
-          $('.selectImg').removeClass('selectImg');
-          $(this).addClass('selectImg');
-          $(this).parent().children('span').children('.delImgIco').hide();
-          var src = $(this).attr('src');
-          $('.MainImg').each(function(){
-            $(this).attr('src',src);
-          });
-          $('#newimage').val(src);
+        $('#acceptBtnImg').click(function()
+        {
+          ExitSelectionWindow();
+          $(".LastClicked").removeClass('LastClicked');
+          $(".selectImg").addClass('LastClicked');
         });
     }
-    SelectThumbImg();
+    BtnBack();
 
     // Cancel Selection Windows (X)
     function CancelSelectionWindows()
     {
-        $('#cancelImgChange').click(function() {
-            $('#SingleImgWd').hide( 400 );
-            $('#MultipleImgWd').hide( 400 );
-            $('#newInputs').show( 500 );
-            $('#selectImgBtn').show();
+        $('#cancelImgChange').click(function()
+        {
+            ExitSelectionWindow();
             $('.LastClicked').click();
-            $('#createUser').show();
-            $('#createAndAdd').show();
-            // Show Confirm Modification Btn
-            $('#ConfModBtn').show();
-            $('#acceptBtnImg').hide();
         });
     }
     CancelSelectionWindows();
 
+    function ExitSelectionWindow()
+    {   
+        hideElement('#SingleImgWd,#MultipleImgWd,#acceptBtnImg');
+        showElement('#newInputs,#createUser,#createAndAdd,#ConfModBtn,#selectImgBtn');
+    }
+    //ExitSelectionWindow();
+
+    // Select Thumb Img
+    function SelectThumbImg()
+    {
+        $('.GenImg').click(function()
+        {
+            $('.selectImg').removeClass('selectImg');
+            $(this).addClass('selectImg');
+            $(this).children('.delImgIco').addClass('Hidden');
+            var src = $(this).parent().children('img').attr('src');
+            $('.MainImg').each(function()
+            {
+                $(this).attr('src',src);
+                $(this).addClass('animated pulse');
+                $(this).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){$(this).removeClass('animated pulse');});
+            });
+
+            $('#newimage').val(src);
+        });
+    }
+    SelectThumbImg();
+
+    function ImageGalleryHover()
+    {
+        $('.GenImg').hover(function() {
+            var container = $(this);
+            if(!container.hasClass('LastClicked') && !container.hasClass('selectImg'))
+            {
+                container.children('.delImgIco').removeClass('Hidden');
+            }else{
+                container.children('.delImgIco').addClass('Hidden');
+            }
+        });
+    }
+    ImageGalleryHover();
+
     // Del Icon On thumb
     function DeleteImageGallery()
     {
-        $('.delImgIco').hide();
-        $('.singleImg ul li, .multipleImgs ul li').hover(function() {
-            if(!$(this).children('img').hasClass('LastClicked') && !$(this).children('img').hasClass('selectImg'))
-                $(this).find('.delImgIco').toggle();
-            else
-                $(this).find('.delImgIco').hide();
-        });
-        // Ver esto
-        $('.delImgIco').click(function() {
-            var img     = $(this).parent().parent().children('img');
-            var src     = img.attr('src');
+        $('.delImgIco').click(function(event)
+        {
+            event.stopPropagation();
+            var container   = $(this).parent().parent();
+            var img         = container.children('img');
+            var src         = img.attr('src');
+            var deleteContainer;
             alertify.confirm(utf8_decode('¿Desea eliminar esta imagen de su galer&iacute;a?'), function(e){
-                if(e){
+                if(e)
+                {
                     var process = "process.php";
                     var string  = 'src='+ src + '&action=deleteimage';
 
@@ -883,32 +900,22 @@ function utf8_decode (str_data) {
                             {
                                 notifyError('Hubo un problema al eliminar la imagen: '+data);
                             }else{
-                                img.parent().fadeOut(500);
+                                // setTimeout(function() {
+                                //     container.remove();
+                                // }, 600);
+                                container.addClass('animated rotateOut nextToDelete');
+                                container.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){container.remove();});
                                 notifySuccess(utf8_decode('La imagen ha sido eliminada correctamente.'));
                             }
                         }
                     });
                 }
             });
-
+            preventDefault();
         });
     }
     DeleteImageGallery();
 
-
-    // Accept BtnBack
-    function BtnBack()
-    {
-        $('#AcceptImg').click(function() {
-          $('#SingleImgWd').hide( 400 );
-          $('#MultipleImgWd').hide( 400 );
-          $('#newInputs').show( 500 );
-          $('#selectImgBtn').show();
-          $(".LastClicked").removeClass('LastClicked');
-          $(".selectImg").addClass('LastClicked');
-        });
-    }
-    BtnBack();
 
     ////////////////////// Drag And Drop ///////////////////////////
     $(function() {

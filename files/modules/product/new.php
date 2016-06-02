@@ -9,18 +9,18 @@
     <?php echo insertElement("hidden","action",'insert'); ?>
     <!-- New Item Window -->
     <!-- WindowHead -->
-    <div class="row windowHead">
-      <div class="col-md-6 col-xs-12">
+    <div class="row windowHead animated zoomInUp">
+      <div class="col-md-6 col-xs-12 animated bounceInLeft">
         <h3><i class="fa fa-plus-square" aria-hidden="true"></i> Agregar Nuevo Producto</h3>
       </div>
-      <div class="col-md-6 col-xs-12 switchDiv switchHead">
+      <div class="col-md-6 col-xs-12 switchDiv switchHead animated bounceInRight">
         <input type="checkbox" name="status" id="status" data-on-text="Activo" data-off-text="Inactivo" data-size="mini" data-label-width="auto" checked>
       </div>
     </div><!-- /WindowHead -->
-    <div class="container animated fadeIn addItemDiv">
+    <div class="container animated fadeInDown addItemDiv">
       <div class="col-sm-12 form-box formitems">
         <!-- Inputs -->
-        <div id="newInputs">
+        <div id="newInputs" class="animated rotateInUpLeft">
           <div class="row"><!-- Title & Code -->
             <div class="col-md-6 form-group animated bounceInLeft">
               <input id="" name="user" class="form-first-name formNewItem" placeholder="T&iacute;tulo" type="text">
@@ -96,7 +96,7 @@
           </div><!-- /Choose Img -->
         </div><!-- /newInputs -->
         <!-- Images (HIDDEN) -->
-        <div id="MultipleImgWd" class="row imgWindow">
+        <div id="MultipleImgWd" class="row imgWindow Hidden">
           <button id="cancelImgChange" type="button" name="button" class="btn closeBtn"><i class="fa fa-times"></i></button>
             <div class="imgWindowTitle"><h5>Agregar o Cambiar Im&aacute;genes</h5></div>
             <div class="col-md-12 activeImgs SelectProdImg">
@@ -144,9 +144,9 @@
       <!-- Create User Button Div  -->
     <div class="container animated fadeInUp donediv">
       <div class="form-group">
-        <button id="createUser" type="button" name="button" class="btn mainbtn" role="button"><i class="fa fa-check-square-o fa-fw"></i> Crear Usuario</button>
-        <button id="createAndAdd" type="button" name="button" class="btn mainbtn" role="button"><i class="fa fa-plus-square"></i> Crear y Agregar Otro...</button>
-        <button id="acceptBtnImg" type="button" name="button" class="btn mainbtn"><i class="fa fa-check"></i> Aceptar</button>
+        <button id="createUser" type="button" name="button" class="btn mainbtn animated bounceInLeft" role="button"><i class="fa fa-check-square-o fa-fw"></i> Crear Producto</button>
+        <button id="createAndAdd" type="button" name="button" class="btn mainbtn animated bounceInRight" role="button"><i class="fa fa-plus-square"></i> Crear y Agregar Otro...</button>
+        <button id="acceptBtnImg" type="button" name="button" class="btn mainbtn Hidden animated bounceInRight"><i class="fa fa-check"></i> Aceptar</button>
       </div>
     </div>    <!-- /Create User Button Div  -->
   </div><!-- /#wrapper -->

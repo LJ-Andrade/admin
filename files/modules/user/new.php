@@ -2,8 +2,6 @@
     include("../../includes/inc.main.php");
     $Head->setTitle("Nuevo Usuario");
     $Head->setHead();
-
-    //$New      = new AdminData();
     $MenuTree = new Menu();
     $Group    = new GroupData();
 
@@ -17,18 +15,44 @@
     <?php echo insertElement("hidden","groups"); ?>
     <?php echo insertElement("hidden","newimage",$Admin->DefaultImg); ?>
       <!-- WindowHead -->
-      <div class="row windowHead">
-        <div class="col-md-6 col-xs-12">
-          <h3><i class="fa fa-plus-square" aria-hidden="true"></i> Agregar Nuevo Usuario</h3>
+      <div class="titleDiv">  
+        
+        
+              <a href="javascript: history.go(-1)" class="btn subitbtn BackToLastPage" role="button">
+              <i class="fa fa-angle-double-left"></i> Volver</a>
+        
+        
+      </div>
+
+      <div class="optionsDiv"><!-- Option Icons & Buttons-->
+          <button id="delselected" class="animated slideInDown mainbtn mainbtnred"><i class="fa fa-trash"></i> Eliminar seleccionados</button>
+          <a href="new.php"><button class="mainbtn"><i class="fa fa-user-plus"></i> Agregar Producto</button></a>
+          <div class="optionIcons">
+            <!-- <ul> --><!-- View Icons -->
+              <!-- <li id="viewlistbt" class="animated fadeIn SubTopBtn "><a href="#" class="btn subitbtn" role="button"><i class="fa fa-th-list  fa-fw"></i> Lista </a></li>
+              <li id="viewgridbt" class="animated fadeIn SubTopBtn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-th  fa-fw"></i> Grilla </a></li> -->
+              <!-- Search -->
+              <!-- <li id="showitemfiltersuser" class="animated fadeIn SubTopBtn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-search fa-fw"></i> Buscar</a></li>
+              <li id="showitemfilters" class="animated fadeIn SubTopBtn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-search fa-fw"></i> Buscar</a></li> -->
+              <!-- Add New Item -->
+              <!-- <li id="newprod" class="Hidden"><a href="../product/new.php" class="btn subitbtn SubTopBtn" role="button"><i class="fa fa-plus-square fa-fw"></i> Nuevo Producto</a></li>
+              <li id="newuser" class="Hidden"><a href="../user/new.php" class="btn subitbtn SubTopBtn" role="button"><i class="fa fa-user-plus  fa-fw"></i> Nuevo Usuario</a></li> -->
+            <!-- </ul> -->
+          </div>
+        </div><!-- /Title and options -->
+
+      <div class="row windowHead animated zoomInUp">
+        <div class="col-md-6 col-xs-12 animated bounceInLeft">
+          <h3><i class="fa fa-plus-square" aria-hidden="true"></i> Crear Usuario</h3>
         </div>
-        <div class="col-md-6 col-xs-12 switchDiv switchHead">
+        <div class="col-md-6 col-xs-12 switchDiv switchHead animated bounceInRight">
           <input type="checkbox" name="status" id="status" data-on-text="Activo" data-off-text="Inactivo" data-size="mini" data-label-width="auto" checked>
         </div>
       </div><!-- /WindowHead -->
-      <div class="container animated fadeIn addItemDiv">
+      <div class="container animated fadeInDown addItemDiv">
         <div class="col-md-12 form-box formitems">
           <!-- User Data -->
-          <div id="newInputs">
+          <div id="newInputs" class="animated rotateInUpLeft">
             <div class="row">
               <div class="col-md-6 form-group animated bounceInLeft"><!-- User -->
                 <?php echo insertElement('text','user','','form-first-name form-controlusers','placeholder="Usuario" tabindex="1" validateEmpty="El usuario es obligatorio." validateMinLength="3/El usuario debe contener 3 caracteres como mínimo." validateFromFile="process.php/El usuario ya existe/action:=validate"'); ?>
@@ -68,9 +92,9 @@
                 </div>
               </div>
               <!-- Choose Img -->
-              <div id="SelectImg" class="col-md-6 col-sm-12 imgSelector">
+              <div id="SelectImg" class="col-md-6 col-sm-12 imgSelector animated bounceInLeft">
                 <div class="imgSelectorInner">
-                  <img src="<?php echo $Admin->DefaultImg ?>" class="img-responsive">
+                  <img src="<?php echo $Admin->DefaultImg ?>" class="img-responsive MainImg">
                   <div class="imgSelectorContent">
                     <div id="SelectImg">
                       <i class="fa fa-picture-o"></i><br>
@@ -82,31 +106,22 @@
             </div><!-- /Image and Groups  -->
           </div><!-- New Inputs -->
           <!-- Single Image Selection Window (Hidden) -->
-              <div id="SingleImgWd" class="row imgWindow">
+              <div id="SingleImgWd" class="row imgWindow Hidden animated zoomInUp">
                 <!-- <span id="cancelImgChange" class="eraseImgX"><i class="fa fa-times"></i></span> -->
                 <button id="cancelImgChange" type="button" name="button" class="btn closeBtn"><i class="fa fa-times"></i></button>
                 <div class="imgWindowTitle"><h5>Agregar o Cambiar Im&aacute;genes</h5></div>
                 <!-- Choose Img -->
-                <div id="SelectImg" class="col-md-12 imgSelector">
+                <div id="SelectImg" class="col-md-12 imgSelector animated bounceInLeft">
                   <div class="imgSelectorInner">
-                    <img src="<?php echo $Admin->DefaultImg ?>" class="MainImg img-responsive">
+                    <img src="<?php echo $Admin->DefaultImg ?>" id="MainImageSelector" class="MainImg img-responsive">
                     <div class="imgSelectorContent SelectNewImg">
                       <div id="SelectImg"><i class="fa fa-picture-o"></i><br>Cambiar Im&aacute;gen</div>
                     </div>
                   </div>
                 </div><!-- /Choose Img -->
                 <?php echo insertElement('file','image','','Hidden'); ?>
-                <div class="col-md-12 activeImgs singleImg">
+                <div class="col-md-12 activeImgs singleImg animated bounceInRight">
                   <ul id="ImageBox">
-                    <li><img src="../../../skin/images/users/default/caras1.png" alt="" class="img-responsive">
-                      <span><i class="fa fa-trash delImgIco"></i></span>
-                    </li>
-                    <li><img src="../../../skin/images/users/default/caras1.png" alt="" class="img-responsive">
-                      <span><i class="fa fa-trash delImgIco"></i></span>
-                    </li>
-                    <li><img src="../../../skin/images/users/default/caras1.png" alt="" class="img-responsive">
-                      <span><i class="fa fa-trash delImgIco"></i></span>
-                    </li>
                     <?php
                     foreach($Admin->AllImages() as $Image)
                     {
@@ -116,13 +131,13 @@
                         $MainImg = '';
 
                       $GalleryID = array_reverse(explode('/',$Image));
-                      if($Admin->AdminID == $GalleryID[1])
-                        $DelIcon = '<span><i class="fa fa-trash delImgIco"></i></span>';
+                      if($Admin->AdminID == $GalleryID[1] && $Admin->Img != $Image)
+                        $DelIcon = '<span class="GenImg '.$MainImg.'"><i class="fa fa-trash delImgIco Hidden"></i></span>';
                       else
-                        $DelIcon = '<span></span>';
+                        $DelIcon = '<span class="GenImg '.$MainImg.'"></span>';
                     ?>
                     <li>
-                      <img src="<?php echo $Image ?>" alt="" class="img-responsive GenImg <?php echo $MainImg; ?>" >
+                      <img src="<?php echo $Image ?>" alt="" class="img-responsive" >
                       <?php echo $DelIcon; ?>
                     </li>
                     <?php
@@ -134,26 +149,24 @@
           <!-- /Single Image Selection Window (Hidden) -->
         </div><!-- /Formitems -->
         <!-- Menu Tree -->
-        <div class="row treeDivRow">
-          <div class="col-md-6 form-group animated bounceInBottom checkboxDiv">
+        <div class="row treeDivRow animated rotateIn Hidden">
+          <div class="col-md-6 form-group animated bounceInLeft checkboxDiv">
             <h4>Grupos Asociados</h4>
             <span id="GroupTree"></span>
           </div>
-          <div class="col-md-6 form-group animated bounceInBottom checkboxDiv">
+          <div class="col-md-6 form-group animated bounceInRight checkboxDiv">
             <h4>Permisos Especiales</h4>
             <?php echo $MenuTree->MakeTree(); ?>
-          </div>
-          <div class="col-md-12 acceptBtnDiv">
-            <button id="acceptPermGroup" type="button" name="button" class="btn mainbtn centrarbtn"><i class="fa fa-check"></i> Aceptar</button><br>
           </div>
         </div><!-- /Menu Tree -->
       </div><!-- /addItemDiv -->
       <!-- Create User Button Div  -->
       <div class="container animated fadeInUp donediv">
         <div class="form-group">
-          <button id="createUser" type="button" name="button" class="btn mainbtn" role="button"><i class="fa fa-check-square-o fa-fw"></i> Crear Usuario</button>
-          <button id="createAndAdd" type="button" name="button" class="btn mainbtn" role="button"><i class="fa fa-plus-square"></i> Crear y Agregar Otro...</button>
-          <button id="acceptBtnImg" type="button" name="button" class="btn mainbtn"><i class="fa fa-check"></i> Aceptar</button>
+          <button id="createUser" type="button" name="button" class="btn mainbtn animated bounceInLeft" role="button"><i class="fa fa-check-square-o fa-fw"></i> Crear Usuario</button>
+          <button id="createAndAdd" type="button" name="button" class="btn mainbtn animated bounceInRight" role="button"><i class="fa fa-plus-square"></i> Crear y Agregar Otro...</button>
+          <button id="acceptBtnImg" type="button" name="button" class="btn mainbtn Hidden animated bounceInRight"><i class="fa fa-check"></i> Aceptar</button>
+          <button id="acceptPermGroup" type="button" name="button" class="btn mainbtn centrarbtn animated bounceInRight Hidden"><i class="fa fa-check"></i> Aceptar</button><br>
         </div>
       </div>
       <!-- /Create User Button Div  -->

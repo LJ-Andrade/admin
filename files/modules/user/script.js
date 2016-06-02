@@ -14,7 +14,7 @@ $(document).ready(function(){
 });
 
 $(function(){
-	$("#create").click(function(){
+	$("#createUser").click(function(){
 		if(validate.validateFields('')){
 			var status = 'I';
 			if($("#status").is(':checked'))
@@ -38,7 +38,7 @@ $(function(){
 
 	$("input").keypress(function(e){
 		if(e.which==13){
-			$("#create").click();
+			$("#createUser").click();
 		}
 	});
 
@@ -48,9 +48,10 @@ $(function(){
 		var haveData	= function(returningData)
 		{
 			$('#newimage').val(returningData);
-			$('#ImageBox').append('<li><img src="'+returningData+'" alt="" class="img-responsive GenImg genImgThumb RecentlyAdded" ><span><i class="fa fa-trash delImgIco" aria-hidden="true"></i></span></li>');
+			$('#ImageBox').append('<li><img src="'+returningData+'" alt="" class="img-responsive" ><span class="GenImg RecentlyAdded"><i class="fa fa-trash delImgIco"></i></span></li>');
 			SelectThumbImg();
 			CancelSelectionWindows();
+			ImageGalleryHover();
 			DeleteImageGallery();
 			BtnBack();
 			$('.RecentlyAdded').click();
@@ -135,7 +136,7 @@ $(document).ready(function(){
             if(e){
             	var result;
             	$(".deleteThis").each(function(){
-            		var elem 	= $(this).find('.btndel');
+            		var elem 	= $(this).find('.deleteElement');
             		var id 		= elem.attr('deleteElement');
             		var parents = elem.attr('deleteParent').split("/");
             		var process = elem.attr('deleteProcess');
@@ -156,7 +157,8 @@ $(document).ready(function(){
 		                        return false;
 		                    }else{
 		                        parents.forEach(function(parent){
-			                        $("#"+parent).slideUp();
+			                        $("#"+parent).addClass('animated rotateOut');
+                        			$("#"+parent).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){$("#"+parent).remove();});
 			                    });
 		                    }
 		                }

@@ -7,10 +7,14 @@
     $MenuTree = new Menu();
     $MenuTree->SetCheckedMenues($AdminEdit->GetCheckedMenues());
 
-    $Title = "Modificar usuario '".$AdminEdit->FullName."'";
+    $Group    = new GroupData();
 
-    $Head->setTitle("Modificar Usuario");
+    $Title = "Editar usuario '".$AdminEdit->FullName."'";
+
+    $Head->setTitle("Editar Usuario");
     $Head->setHead();
+
+
 ?>
 <body>
   <div id="wrapper">
@@ -21,19 +25,19 @@
     <?php echo insertElement("hidden","groups"); ?>
     <?php echo insertElement("hidden","newimage",$AdminEdit->Img); ?>
       <!-- WindowHead -->
-      <div class="row windowHead">
-        <div class="col-md-6 col-xs-12">
-          <h3><i class="fa fa-plus-square"></i> <?php echo $Title ?></h3>
+      <div class="row windowHead animated zoomInUp">
+        <div class="col-md-6 col-xs-12 animated bounceInLeft">
+          <h3><i class="fa fa-plus-square" aria-hidden="true"></i> <?php echo $Title ?></h3>
         </div>
-        <div class="col-md-6 col-xs-12 switchDiv switchHead">
+        <div class="col-md-6 col-xs-12 switchDiv switchHead animated bounceInRight">
           <?php $Checked = $AdminData['status']=='A'? 'checked="checked"':''; ?>
-          <input type="checkbox" class="centered" name="status" id="status" data-on-text="Activo" data-off-text="Inactivo" data-size="mini" data-label-width="auto" <?php echo $Checked; ?> >
+          <input type="checkbox" name="status" id="status" data-on-text="Activo" data-off-text="Inactivo" data-size="mini" data-label-width="auto" <?php echo $Checked; ?>>
         </div>
       </div><!-- /WindowHead -->
-      <div class="container animated fadeIn addItemDiv">
+      <div class="container animated fadeInDown addItemDiv">
         <div class="col-md-12 form-box formitems">
           <!-- User Data -->
-          <div id="newInputs">
+          <div id="newInputs" class="animated rotateInUpLeft">
             <div class="row">
               <div class="col-md-6 form-group animated bounceInLeft"><!-- User -->
                 <?php echo insertElement('text','user',$AdminData['user'],'form-first-name form-controlusers','placeholder="Usuario" tabindex="1" validateEmpty="El usuario es obligatorio." validateMinLength="3/El usuario debe contener 3 caracteres como mínimo." validateFromFile="process.php/El usuario ya existe/actualuser:='.$AdminData['user'].'/action:=validate"'); ?>
@@ -59,18 +63,8 @@
               </div>
             </div>
             <!-- /User Data -->
-            <!-- Single Image - Groups/Perm -->
+            <!-- Image and Groups -->
             <div class="col-md-12">
-              <!-- Choose Img -->
-              <div id="SelectSingleImg" class="col-md-6 col-centered overlaySingleImg">
-                <div class="overlayInnerIcon overlayIcon">
-                  <img src="<?php echo $AdminEdit->Img ?>" class="MainImg img-responsive singleImg">
-                  <div class="mask">
-                  <p>Cambiar Imagen</p>
-                  <i class="fa fa-pencil-square-o"></i>
-                  </div>
-                </div>
-              </div><!-- /Choose Img -->
               <!-- Group and Perm -->
               <div class="col-md-6 form-group animated bounceInRight centrarbtn">
                 <div class="form-group">
@@ -78,87 +72,97 @@
                     <?php echo insertElement('select','profile',$AdminEdit->ProfileID,'form-controlusers','tabindex="6" validateEmpty="El perfil es obligatorio."',$DB->fetchAssoc("admin_profile","profile_id,title","status = 'A'","title"),'','Elegir Perfil'); ?>
                   </div>
                   <div class="marg20">
-                    <button id="showTreeDiv" class="btn mainbtn">Permisos y Grupo</button>
+                    <button id="showTreeDiv" class="btn mainbtn">Permisos y Grupos</button>
                   </div>
                 </div>
               </div>
-            </div><!-- /Single Image - Groups/Perm -->
+              <!-- Choose Img -->
+              <div id="SelectImg" class="col-md-6 col-sm-12 imgSelector animated bounceInLeft">
+                <div class="imgSelectorInner">
+                  <img src="<?php echo $AdminEdit->Img ?>" class="img-responsive MainImg">
+                  <div class="imgSelectorContent">
+                    <div id="SelectImg">
+                      <i class="fa fa-picture-o"></i><br>
+                      Cambiar Im&aacute;gen
+                    </div>
+                  </div>
+                </div>
+              </div><!-- /Choose Img -->
+            </div><!-- /Image and Groups  -->
           </div><!-- New Inputs -->
           <!-- Single Image Selection Window (Hidden) -->
-          <div id="SingleImgWd" class="row singleImgWindow">
-              <button id="cancelImgChange" type="button" name="button" class="btn closeBtn"><i class="fa fa-times"></i></button>
-            <div class="col-md-12">
-              <div class="col-md-12 col-centered">
-                <div class="overlayInnerIcon overlayIcon">
-                  <img src="<?php echo $AdminEdit->Img ?>" class="MainImg img-responsive singleImg SelectNewImg">
-                  <div class="mask SelectNewImg">
-                  <p>Cambiar Imagen</p>
-                  <i class="fa fa-pencil-square-o"></i>
+              <div id="SingleImgWd" class="row imgWindow Hidden animated zoomInUp">
+                <!-- <span id="cancelImgChange" class="eraseImgX"><i class="fa fa-times"></i></span> -->
+                <button id="cancelImgChange" type="button" name="button" class="btn closeBtn"><i class="fa fa-times"></i></button>
+                <div class="imgWindowTitle"><h5>Agregar o Cambiar Im&aacute;genes</h5></div>
+                <!-- Choose Img -->
+                <div id="SelectImg" class="col-md-12 imgSelector animated bounceInLeft">
+                  <div class="imgSelectorInner">
+                    <img src="<?php echo $AdminEdit->Img ?>" id="MainImageSelector" class="MainImg img-responsive">
+                    <div class="imgSelectorContent SelectNewImg">
+                      <div id="SelectImg"><i class="fa fa-picture-o"></i><br>Cambiar Im&aacute;gen</div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <?php echo insertElement('file','image','','Hidden'); ?>
-              <div class="clearfix visible-xs"></div>
-              <div class="col-md-12 genericSingleImgs">
-                <ul id="ImageBox">
-                  <?php
-                  if(!in_array($AdminEdit->Img, $Admin->AllImages()))
-                  {
-                  ?>
-                  <li><img src="<?php echo $AdminEdit->Img ?>" alt="" class="img-responsive GenImg genImgThumb selectImg LastClicked" /></li>
-                  <?php
-                  }
-                  foreach($Admin->AllImages() as $Image)
-                  {
-                    if($Image==$Admin->Img)
-                      $MainImg = 'selectImg LastClicked';
-                    else
-                      $MainImg = '';
+                </div><!-- /Choose Img -->
+                <?php echo insertElement('file','image','','Hidden'); ?>
+                <div class="col-md-12 activeImgs singleImg animated bounceInRight">
+                  <ul id="ImageBox">
+                    <?php
+                    if(!in_array($AdminEdit->Img, $Admin->AllImages()))
+                    {
+                    ?>
+                    <li>
+                      <img src="<?php echo $AdminEdit->Img ?>" alt="" class="img-responsive"/>
+                      <span class="GenImg selectImg LastClicked"><i class="fa fa-trash delImgIco Hidden"></i></span>
+                    </li>
+                    <?php
+                    }
+                    foreach($Admin->AllImages() as $Image)
+                    {
+                      if($Image==$Admin->Img)
+                        $MainImg = 'selectImg LastClicked';
+                      else
+                        $MainImg = '';
 
-                    $GalleryID = array_reverse(explode('/',$Image));
-                    if($Admin->AdminID == $GalleryID[1])
-                      $DelIcon = '<i class="fa fa-trash DelIconX" aria-hidden="true"></i>';
-                    else
-                      $DelIcon = '';
-                  ?>
-                  <li>
-                    <img src="<?php echo $Image ?>" alt="" class="img-responsive GenImg genImgThumb <?php echo $MainImg; ?>" />
-                    <?php echo $DelIcon; ?>
-                  </li>
-                  <?php
-                  }
-                  ?>
-                </ul>
-              </div>
-            </div>
-            <div class="col-md-12 acceptBtnImgDiv text-center">
-              <button id="AcceptImg" type="button" name="button" class="btn mainbtn centrarbtn"><i class="fa fa-check"></i> Aceptar</button>
-            </div>
-          </div>
+                      $GalleryID = array_reverse(explode('/',$Image));
+                      if($Admin->AdminID == $GalleryID[1] && $Admin->Img != $Image)
+                        $DelIcon = '<span class="GenImg '.$MainImg.'"><i class="fa fa-trash delImgIco Hidden"></i></span>';
+                      else
+                        $DelIcon = '<span class="GenImg '.$MainImg.'"></span>';
+                    ?>
+                    <li>
+                      <img src="<?php echo $Image ?>" alt="" class="img-responsive" >
+                      <?php echo $DelIcon; ?>
+                    </li>
+                    <?php
+                    }
+                    ?>
+                  </ul>
+                </div>
+              </div><!-- /Images -->
           <!-- /Single Image Selection Window (Hidden) -->
-        </div>
+        </div><!-- /Formitems -->
         <!-- Menu Tree -->
-        <div class="row treeDivRow">
-          <div class="col-md-6 form-group animated bounceInBottom checkboxDiv">
+        <div class="row treeDivRow animated rotateIn Hidden">
+          <div class="col-md-6 form-group animated bounceInLeft checkboxDiv">
             <h4>Grupos Asociados</h4>
             <span id="GroupTree"></span>
           </div>
-          <div class="col-md-6 form-group animated bounceInBottom checkboxDiv">
+          <div class="col-md-6 form-group animated bounceInRight checkboxDiv">
             <h4>Permisos Especiales</h4>
             <?php echo $MenuTree->MakeTree(); ?>
           </div>
-          <div class="col-md-12 acceptBtnDiv">
-            <button id="acceptPermGroup" type="button" name="button" class="btn mainbtn centrarbtn"><i class="fa fa-check"></i> Aceptar</button><br>
-          </div>
-        </div>
-        <!-- /Menu Tree -->
-      </div>
+        </div><!-- /Menu Tree -->
+      </div><!-- /addItemDiv -->
       <!-- Create User Button Div  -->
-      <div class="container animated fadeInUp donediv">
+      <div class="container animated zoomInDown donediv">
         <div class="form-group">
-          <a href="#" class="btn mainbtn" role="button" id="create"><i class="fa fa-check-square-o fa-fw"></i> Confirmar Modificaci&oacute;n</a>
+          <button id="createUser" type="button" name="button" class="btn mainbtn animated bounceInLeft" role="button"><i class="fa fa-check-square-o fa-fw"></i> Confirmar Edici&oacute;n</button>
+          <button id="acceptBtnImg" type="button" name="button" class="btn mainbtn Hidden animated bounceInRight"><i class="fa fa-check"></i> Aceptar</button>
+          <button id="acceptPermGroup" type="button" name="button" class="btn mainbtn centrarbtn animated bounceInRight Hidden"><i class="fa fa-check"></i> Aceptar</button><br>
         </div>
       </div>
       <!-- /Create User Button Div  -->
   </div><!-- /#wrapper -->
 <?php $Foot->setFoot(); ?>
+

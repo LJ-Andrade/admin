@@ -12,11 +12,17 @@
 <body>
   <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
   <div id="wrapper"><!--  Wrapper -->
-    <div class="container-fluid">
-      <div class="maintitle"><h4 class="maintitletxt">Listado de Usuarios Administradores</h4></div>
+    <!-- Title and options -->
+        <div class="titleDiv"><!-- Page Title & back btn -->
+          
+          <h4 class="maintitletxt"> Listado de Usuarios Administradores</h4>
+        </div>
+        
       <div class="glasscontainer1 optionsdiv">
         <?php $Buttons->ShowButtons(); ?>
       </div>
+        
+    <div class="container-fluid">
       <!-- Filters / Search -->
       <div class="container-fluid">
         <div id="filtersuser" class="row row-centered filterdiv">
