@@ -157,7 +157,8 @@
       <!-- Create User Button Div  -->
       <div class="container animated zoomInDown donediv">
         <div class="form-group">
-          <button id="createUser" type="button" name="button" class="btn mainbtn animated bounceInLeft" role="button"><i class="fa fa-check-square-o fa-fw"></i> Confirmar Edici&oacute;n</button>
+          <button id="createUser" type="button" name="button" class="btn mainbtn animated bounceInLeft MainButton" role="button"><i class="fa fa-check-square-o fa-fw"></i> Confirmar Edici&oacute;n</button>
+          <button type="button" name="button" class="btn mainbtn mainbtnred animated bounceInRight MainButton BackToLastPage"><i class="fa fa-times"></i> Cancelar</button>
           <button id="acceptBtnImg" type="button" name="button" class="btn mainbtn Hidden animated bounceInRight"><i class="fa fa-check"></i> Aceptar</button>
           <button id="acceptPermGroup" type="button" name="button" class="btn mainbtn centrarbtn animated bounceInRight Hidden"><i class="fa fa-check"></i> Aceptar</button><br>
         </div>

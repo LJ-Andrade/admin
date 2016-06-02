@@ -25,9 +25,9 @@ class HeadButton
 	function SetDefaultButtons($DefaultAdd=true,$DefaultDel=true)
 	{
 		if($DefaultAdd)
-			$this->SetButton($this->AddDefaultName,'mainbtn animated slideInDown','fa-user-plus','NewItem','new.php');
+			$this->SetButton($this->AddDefaultName,'mainbtn animated fadeIn optionBtn','fa-user-plus','NewItem','new.php');
 		if($DefaultDel)
-			$this->SetButton($this->DelDefaultName,'mainbtn animated fadeIn mainbtnred Hidden','fa-trash','delselected','');	
+			$this->SetButton($this->DelDefaultName,'mainbtn animated fadeIn mainbtnred Hidden optionBtn','fa-trash','delselected','');	
 	}
 	
 	function SetButton($Title,$Class='',$Icon='',$ID='',$Link='',$Extra='',$Order=0)

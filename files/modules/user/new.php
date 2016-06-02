@@ -14,32 +14,10 @@
     <?php echo insertElement("hidden","menues"); ?>
     <?php echo insertElement("hidden","groups"); ?>
     <?php echo insertElement("hidden","newimage",$Admin->DefaultImg); ?>
-      <!-- WindowHead -->
-      <div class="titleDiv">  
-        
-        
-              <a href="javascript: history.go(-1)" class="btn subitbtn BackToLastPage" role="button">
-              <i class="fa fa-angle-double-left"></i> Volver</a>
-        
-        
-      </div>
+      
+      
 
-      <div class="optionsDiv"><!-- Option Icons & Buttons-->
-          <button id="delselected" class="animated slideInDown mainbtn mainbtnred"><i class="fa fa-trash"></i> Eliminar seleccionados</button>
-          <a href="new.php"><button class="mainbtn"><i class="fa fa-user-plus"></i> Agregar Producto</button></a>
-          <div class="optionIcons">
-            <!-- <ul> --><!-- View Icons -->
-              <!-- <li id="viewlistbt" class="animated fadeIn SubTopBtn "><a href="#" class="btn subitbtn" role="button"><i class="fa fa-th-list  fa-fw"></i> Lista </a></li>
-              <li id="viewgridbt" class="animated fadeIn SubTopBtn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-th  fa-fw"></i> Grilla </a></li> -->
-              <!-- Search -->
-              <!-- <li id="showitemfiltersuser" class="animated fadeIn SubTopBtn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-search fa-fw"></i> Buscar</a></li>
-              <li id="showitemfilters" class="animated fadeIn SubTopBtn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-search fa-fw"></i> Buscar</a></li> -->
-              <!-- Add New Item -->
-              <!-- <li id="newprod" class="Hidden"><a href="../product/new.php" class="btn subitbtn SubTopBtn" role="button"><i class="fa fa-plus-square fa-fw"></i> Nuevo Producto</a></li>
-              <li id="newuser" class="Hidden"><a href="../user/new.php" class="btn subitbtn SubTopBtn" role="button"><i class="fa fa-user-plus  fa-fw"></i> Nuevo Usuario</a></li> -->
-            <!-- </ul> -->
-          </div>
-        </div><!-- /Title and options -->
+      
 
       <div class="row windowHead animated zoomInUp">
         <div class="col-md-6 col-xs-12 animated bounceInLeft">
@@ -161,12 +139,13 @@
         </div><!-- /Menu Tree -->
       </div><!-- /addItemDiv -->
       <!-- Create User Button Div  -->
-      <div class="container animated fadeInUp donediv">
+      <div class="container animated zoomInDown donediv">
         <div class="form-group">
-          <button id="createUser" type="button" name="button" class="btn mainbtn animated bounceInLeft" role="button"><i class="fa fa-check-square-o fa-fw"></i> Crear Usuario</button>
-          <button id="createAndAdd" type="button" name="button" class="btn mainbtn animated bounceInRight" role="button"><i class="fa fa-plus-square"></i> Crear y Agregar Otro...</button>
-          <button id="acceptBtnImg" type="button" name="button" class="btn mainbtn Hidden animated bounceInRight"><i class="fa fa-check"></i> Aceptar</button>
-          <button id="acceptPermGroup" type="button" name="button" class="btn mainbtn centrarbtn animated bounceInRight Hidden"><i class="fa fa-check"></i> Aceptar</button><br>
+          <button id="createUser" type="button" name="button" class="btn mainbtn animated bounceInLeft MainButton" role="button"><i class="fa fa-check-square-o fa-fw"></i> Crear Usuario</button>
+          <button id="createAndAdd" type="button" name="button" class="btn mainbtn animated bounceInUp MainButton" role="button"><i class="fa fa-plus-square"></i> Crear y Agregar Otro...</button>
+          <button type="button" name="button" class="btn mainbtn mainbtnred animated bounceInRight MainButton BackToLastPage"><i class="fa fa-times"></i> Cancelar</button>
+          <button id="acceptBtnImg" type="button" name="button" class="btn mainbtn Hidden animated bounceInRight OtherButton"><i class="fa fa-check"></i> Aceptar</button>
+          <button id="acceptPermGroup" type="button" name="button" class="btn mainbtn centrarbtn animated bounceInRight Hidden OtherButton"><i class="fa fa-check"></i> Aceptar</button><br>
         </div>
       </div>
       <!-- /Create User Button Div  -->

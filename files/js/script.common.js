@@ -793,7 +793,7 @@ function utf8_decode (str_data) {
         $('#SelectImg, #SelectSingleImg').click(function()
         {
             showElement('#SingleImgWd,#MultipleImgWd,#acceptBtnImg');
-            hideElement('#newInputs,#createUser,#createAndAdd,#ConfModBtn');
+            hideElement('#newInputs,.MainButton,#ConfModBtn');
         });
     }
     ShowSingleSelectionWindow();
@@ -835,7 +835,7 @@ function utf8_decode (str_data) {
     function ExitSelectionWindow()
     {   
         hideElement('#SingleImgWd,#MultipleImgWd,#acceptBtnImg');
-        showElement('#newInputs,#createUser,#createAndAdd,#ConfModBtn,#selectImgBtn');
+        showElement('#newInputs,.MainButton,#ConfModBtn,#selectImgBtn');
     }
     //ExitSelectionWindow();
 

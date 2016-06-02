@@ -3,15 +3,52 @@ $(window).scroll(function(){
   $('#wrapper')[0].scrollTop=$(window).scrollTop();
 });*/
 
+//var elementsToAnimate = new Array();
+
 $(document).ready(function(){
 	if(get['msg']=='insert')
 		notifySuccess('Usuario creado correctamente');
 	if(get['msg']=='update')
 		notifySuccess('Usuario modificado correctamente');
-	$('#newuser').fadeIn(500);
-	$('#viewlistbt').removeClass('Hidden');
-	$('#viewlist').hide();
+
+	$('#viewListBtn').click(function(){
+		$(this).addClass('Hidden')
+		$('#viewgrid').addClass('Hidden');
+		$('#viewlist, #viewGridBtn').removeClass('Hidden');
+	});
+
+	$('#viewGridBtn').click(function(){
+		$(this).addClass('Hidden')
+		$('#viewlist').addClass('Hidden');
+		$('#viewgrid, #viewListBtn').removeClass('Hidden');
+	});
+
+
+	//$('#newuser').fadeIn(500);
+	//$('#viewlistbt').removeClass('Hidden');
+	//$('#viewlist').hide();
+	// var i=0;
+	// $(".animateOnLoad").each(function(){
+	// 	// elementsToAnimate[i]=$(this);
+	// 	// i++;
+	// 	var elem = $(this);
+	// 	setTimeout(function(){elem.removeClass("Hidden");
+	// elem.addClass("animated fadeInRight");},1000);
+	// });
+	// i=0;
+	//animateElementsFromArray(elementsToAnimate,0);
 });
+
+function animateElementsFromArray(arrayWithElements,x)
+{
+	arrayWithElements[x].removeClass("Hidden");
+	arrayWithElements[x].addClass("animated fadeInRight");
+	arrayWithElements[x].one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+		x++;
+		if(x<arrayWithElements.length)
+			animateElementsFromArray(arrayWithElements,x);
+	});
+}
 
 $(function(){
 	$("#createUser").click(function(){
