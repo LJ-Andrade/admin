@@ -143,7 +143,7 @@
         </div><!-- /Product List View Mobile Large -->
         <!-- ////////////////////// Product List View Mobile Small HERE - #ViewListMobile2 ///////////////// -->
         <?php foreach($Users as $User){ $User = new AdminData($User['admin_id']);?>
-        <div id="ViewListMobile2" <!-- id="userlist<?php echo $User->AdminID ?>" --> class="row viewListMobile">
+        <div id="ViewListMobile2" class="row viewListMobile">
           <div class="col-md-4 col-xs-4"><img src="<?php echo $User->Img; ?>" class="img-responsive listImg"></div>
           <div class="col-md-4 col-xs-4"><p><?php echo $User->User; ?></p></div>
           <div class="col-md-4 col-xs-4"><p><?php echo $User->FullName; ?></p></div>

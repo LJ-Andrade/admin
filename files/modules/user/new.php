@@ -128,11 +128,11 @@
         </div><!-- /Formitems -->
         <!-- Menu Tree -->
         <div class="row treeDivRow animated rotateIn Hidden">
-          <div class="col-md-6 form-group animated bounceInLeft checkboxDiv">
+          <div class="col-md-6 col-xs-5 form-group animated bounceInLeft checkboxDiv">
             <h4>Grupos Asociados</h4>
             <span id="GroupTree"></span>
           </div>
-          <div class="col-md-6 form-group animated bounceInRight checkboxDiv">
+          <div class="col-md-6 col-xs-6 form-group animated bounceInRight checkboxDiv">
             <h4>Permisos Especiales</h4>
             <?php echo $MenuTree->MakeTree(); ?>
           </div>

@@ -99,14 +99,14 @@ $(function(){
 
     $(function () {
       $("#showTreeDiv").click(function(){
-          $("#newInputs,#createUser,#createAndAdd").addClass('Hidden');
+          $("#newInputs,.MainButton").addClass('Hidden');
           $(".treeDivRow,#acceptPermGroup").removeClass('Hidden');
       })
     })
     $(function () {
       $("#acceptPermGroup").click(function(){
         $(".treeDivRow,#acceptPermGroup").addClass('Hidden');
-          $("#newInputs,#createUser,#createAndAdd").removeClass('Hidden');
+          $("#newInputs,.MainButton").removeClass('Hidden');
       })
     })
 });
@@ -349,7 +349,7 @@ $(function(){
                     notifyError(result);
                 }else{
                     parents.forEach(function(parent){
-                        $("#"+parent).addClass('animated rotateOut');
+                        $("#"+parent).addClass('animated zoomOut');
                         $("#"+parent).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){$("#"+parent).remove();});
                     });
                     notifySuccess(utf8_decode(sucText));

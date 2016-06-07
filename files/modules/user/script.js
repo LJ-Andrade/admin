@@ -52,24 +52,37 @@ function animateElementsFromArray(arrayWithElements,x)
 
 $(function(){
 	$("#createUser").click(function(){
-		if(validate.validateFields('')){
-			var status = 'I';
-			if($("#status").is(':checked'))
-				status = 'A';
-			
-			var process		= 'process.php';
-			var target		= 'list.php?status='+status+'&msg='+ $("#action").val();
-			var haveData	= function(returningData)
-			{
-				$("input,select").blur();
-				notifyError(returningData);
-				//alert(returningData);
-			}
-			var noData		= function()
-			{
-				document.location = target;
-			}
-			sumbitFields(process,haveData,noData);
+		if(validate.validateFields(''))
+		{
+			if(get['id']>0)
+				confirmText = "modificar";
+			else
+				confirmText = "crear";
+
+			confirmText += " el usuario '"+$("#user").val()+"'";
+
+			alertify.confirm(utf8_decode('¿Desea '+confirmText+' ?'), function(e){
+				if(e)
+				{
+					var status = 'I';
+					if($("#status").is(':checked'))
+						status = 'A';
+					
+					var process		= 'process.php';
+					var target		= 'list.php?status='+status+'&msg='+ $("#action").val();
+					var haveData	= function(returningData)
+					{
+						$("input,select").blur();
+						notifyError(returningData);
+						//alert(returningData);
+					}
+					var noData		= function()
+					{
+						document.location = target;
+					}
+					sumbitFields(process,haveData,noData);
+				}
+			});
 		}
 	});
 
@@ -194,7 +207,7 @@ $(document).ready(function(){
 		                        return false;
 		                    }else{
 		                        parents.forEach(function(parent){
-			                        $("#"+parent).addClass('animated rotateOut');
+			                        $("#"+parent).addClass('animated zoomOut');
                         			$("#"+parent).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){$("#"+parent).remove();});
 			                    });
 		                    }

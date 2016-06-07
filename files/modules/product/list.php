@@ -5,6 +5,10 @@
 
   // $Status = $_GET['status']? $_GET['status']: "A' OR status = 'P";
   // $Products = $DB->fetchAssoc('product','product_id',"status='".$Status."'","title");
+
+  $Buttons = new HeadButton('Agregar Producto');
+  $Buttons->SetButton('Ver Listado','animated fadeIn mainbtn optionBtn','fa-th-list  fa-fw','viewListBtn');
+  $Buttons->SetButton('Ver Grilla','animated fadeIn mainbtn optionBtn Hidden','fa-th  fa-fw','viewGridBtn');
 ?>
 <body>
   <div id="wrapper">
@@ -16,12 +20,18 @@
           <div class="backOption"><a href=""><i class="fa fa-angle-double-left"></i> Volver</a></div>
           <h4 class="maintitletxt"> Título</h4>
         </div>
+        
+
+
+
+
         <div class="optionsDiv"><!-- Options Buttons-->
-          <button id="delselected" class="animated slideInDown mainbtn mainbtnred"><i class="fa fa-trash"></i> Eliminar seleccionados</button>
+          <?php $Buttons->ShowButtons(); ?>
+          <!-- <button id="delselected" class="animated slideInDown mainbtn mainbtnred"><i class="fa fa-trash"></i> Eliminar seleccionados</button>
           <button id="" class="animated slideInDown mainbtn"><i class="fa fa-user-plus"></i> Agregar Producto</button>
           <button id="" class="animated slideInDown mainbtn optionBtn"><i class="fa fa-search"></i></button>
           <button id="" class="animated slideInDown mainbtn optionBtn"><i class="fa fa-th-list"></i></button>
-          <button id="" class="animated slideInDown mainbtn optionBtn"><i class="fa fa-th"></i></button>
+          <button id="" class="animated slideInDown mainbtn optionBtn"><i class="fa fa-th"></i></button> -->
 
           <!-- <div class="optionIcons"> OBSOLETE
             <ul>
