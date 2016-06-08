@@ -833,7 +833,7 @@ function utf8_decode (str_data) {
     CancelSelectionWindows();
 
     function ExitSelectionWindow()
-    {   
+    {
         hideElement('#SingleImgWd,#MultipleImgWd,#acceptBtnImg');
         showElement('#newInputs,.MainButton,#ConfModBtn,#selectImgBtn');
     }
@@ -945,11 +945,3 @@ function utf8_decode (str_data) {
     $('.SelectProdImg li').click(function() {
       $(this).toggleClass('selectImgGalleries');
     })
-
-/////////////////  LIST VIEW  ////////////////////////
-    // Mobile View
-    // Show Del & Mod Buttons
-    $('.viewListMobileMod').hide();
-    $('.viewListMobile').click(function() {
-      $('.viewListMobileMod').toggle( 100 );
-    });

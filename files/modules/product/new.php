@@ -7,13 +7,25 @@
   <div id="wrapper">
     <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
     <?php echo insertElement("hidden","action",'insert'); ?>
+
+
+    <!-- ///// Title and options ///// -->
+    <div class="titleDiv">
+      <div class="backOption"><a href=""><i class="fa fa-angle-double-left"></i> Volver</a></div>
+      <h1>Agregar Nuevo Producto</h1>
+    </div>
+    <div class="optionsDiv"><!-- Options Buttons-->
+      <?php  ?>botones
+    </div><!-- /Title and options -->
+
+
     <!-- New Item Window -->
     <!-- WindowHead -->
     <div class="row windowHead animated zoomInUp">
-      <div class="col-md-6 col-xs-12 animated bounceInLeft">
-        <h3><i class="fa fa-plus-square" aria-hidden="true"></i> Agregar Nuevo Producto</h3>
+      <div class="col-md-7 col-xs-12 animated bounceInLeft">
+        <h5>Complete el formulario para agregar un producto</h5>
       </div>
-      <div class="col-md-6 col-xs-12 switchDiv switchHead animated bounceInRight">
+      <div class="col-md-5 col-xs-12 switchDiv switchHead animated bounceInRight">
         <input type="checkbox" name="status" id="status" data-on-text="Activo" data-off-text="Inactivo" data-size="mini" data-label-width="auto" checked>
       </div>
     </div><!-- /WindowHead -->

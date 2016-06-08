@@ -12,7 +12,7 @@
   <div class="main">
     <div class="container loginDiv">
       <div class="row logtitdiv">
-        <img src="../../../skin/images/body/icons/favicon.png" alt=""><span>VIMANA Auto-Admin &reg;</span>
+        <span>RENOVATIO &reg; | By <b>Innova</b></span>
       </div>
       <div class="row loginInner">
         <h4>Inicio de Sesi&oacute;n</h4>

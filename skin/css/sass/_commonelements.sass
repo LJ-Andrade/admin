@@ -186,12 +186,12 @@
     cursor: pointer
     background-color: rgba(0,0,0, .2)
 
-///////////// Head Title, buttons and Options  ////////////////////////////////////////
+///////////// Head Title, back button and option buttons ////////////////////////////////////////
 
 .titleDiv
   width: auto
-  background-color: rgba(0,0,0, .1)
-  padding: 10px 5px
+  background-color: rgba(255,255,255, .7)
+  padding: 1px 5px
   text-align: center
   margin: 0
   position: relative
@@ -200,18 +200,22 @@
   -ms-transition: all 0.3s ease-out
   -o-transition: all 0.3s ease-out
   transition: all 0.3s ease-out
+  display: -ms-flexbox
+  display: -webkit-flex
+  display: flex
+  -ms-flex-align: center
+  -webkit-align-items: center
+  -webkit-box-align: center
+  align-items: center
+  justify-content: center
   a
     color: #000
 
-.titleDiv
-  background-color: rgba(255,255,255, .7)
-  margin-top: -25px
-
 .backOption
   position: absolute
-  left: 0
-  margin-left: 15px
-  margin-bottom: 8px
+  left: 10px
+  top: 40%
+  bottom: 40%
 
 .optionsDiv
   background-color: rgba(0,0,0, .1)
@@ -226,30 +230,30 @@
   -webkit-box-align: center
   align-items: center
 
-.optionBtn
-  padding: 5px 10px
-
-
-.optionIcons
-  display: inline-block
-  ul
-    padding: 0
-    list-style: none
-    li
-      display: inline-block
-      margin-right: 10px
-      a
-        font-size: 14px
-        display: block
-        color: $subtopictxt
-        -webkit-transition: all 0.3s ease-in-out
-        -moz-transition: all 0.3s ease-in-out
-        -o-transition: all 0.3s ease-in-out
-        transition: all 0.3s ease-in-out
-        color: #000
-        &:hover
-          color: #fff
-          text-decoration: none
+// .optionBtn
+//   padding: 5px 10px
+//
+//
+// .optionIcons
+//   display: inline-block
+//   ul
+//     padding: 0
+//     list-style: none
+//     li
+//       display: inline-block
+//       margin-right: 10px
+//       a
+//         font-size: 14px
+//         display: block
+//         color: $subtopictxt
+//         -webkit-transition: all 0.3s ease-in-out
+//         -moz-transition: all 0.3s ease-in-out
+//         -o-transition: all 0.3s ease-in-out
+//         transition: all 0.3s ease-in-out
+//         color: #000
+//         &:hover
+//           color: #fff
+//           text-decoration: none
 
 /////////////////// Filters /////////////////////////
 
@@ -301,6 +305,7 @@ $addItemWidth: 800px
   padding: 10px 0
   max-width: $addItemWidth
   margin: 0 auto
+  margin-top: 20px
   text-align: center
   -webkit-box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
   -moz-box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
@@ -925,18 +930,18 @@ $addItemWidth: 800px
 
 // Large (Monitor)
 @media (min-width: 1200px)
-  #ViewListMobile1,#ViewListMobile2
+  .viewListMobile1,.viewListMobile2
     display: none !important
 
 // Medium (Tablet)
 /* No greater than 1199px, no less than 500px */
 @media (max-width: 1199px) and (min-width: 500px)
-  #ViewListMobile2,#viewlist
+  .viewListMobile2,.viewlist
     display: none !important
 
 // Mobile
 @media (max-width: 500px)
-  #ViewListMobile1,#viewlist
+  .viewListMobile1,.viewlist
     display: none !important
 
 
@@ -971,7 +976,7 @@ $addItemWidth: 800px
 
 ////////////// LOGIN //////////////////////////////////////////////
 body#login
-  background-image: url(../images/body/backgrounds/loginback.jpg)
+  background-image: url(../images/body/backgrounds/back.jpg)
 
 .login
   height: 100%
@@ -981,6 +986,7 @@ body#login
   max-width: 350px
 
 .logtitdiv
+  margin-top: 20%
   background-color: rgba($maintitdiv, .9)
   padding: 10px 0 10px 40px
   img
@@ -993,15 +999,15 @@ body#login
 .loginInner
   text-align: center
   padding: 15px 0
-  background-color: rgba(255,255,255, .5)
+  background: $loginBack
   h4
     font-size: 18px
     text-align: center
-    color: #000
+    color: #fff
 
 .rememberLoginDiv
   label
-    color: #383838
+    color: #fff
     transition: all 0.3s ease 0s
     &:hover
       color: $mainblue
@@ -1025,7 +1031,7 @@ body#login
 .formulog input
   background-color: transparent
   border: 0
-  border-bottom: 1px solid black
+  border-bottom: 1px solid #c5c5c5
   min-height: 50px
 
 // Main loginform icons
@@ -1042,14 +1048,14 @@ body#login
 .loguser
   margin-bottom: 30px
 
-.fa-unlock:before
+.fa-unlock:before,.fa-user:before
   font-size: 16px
   color: $logicons
 
 .formulog input[type=text],
 .formulog input[type=password]
   font-size: 13px
-  color: #000
+  color: rgb(208, 208, 208)
   font-weight: 400
   display: block
   width: 100%
@@ -1077,10 +1083,10 @@ body#login
 .forgotDiv
   padding: 10px 0
   a
-    color: #383838
+    color: #fff
     transition: all 0.3s ease 0s
     &:hover
-      color: $mainblue
+      color: #ccc
 
 .forgotsubtit
   font-size: 10px

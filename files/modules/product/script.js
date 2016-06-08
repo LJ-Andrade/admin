@@ -54,11 +54,9 @@ $(function(){
   });
 });
 
-///////// Switch Viewmode & SelectItem ////////////////////////
+///////// Select Product/Item ////////////////////////
 
 $(function(){
-    // $('div[id="viewlist"]').hide();
-    // $('.selectedItem').hide();
     $('.overlayDetails').click(function(){
       $('.selectedItem').removeClass('Hidden');
     });
@@ -68,7 +66,7 @@ $(function(){
     });
 });
 
-//////////////////////// Submit Data ////////////////////////////////////
+// //////////////////////// Submit Data ////////////////////////////////////
 $(function(){
   $("#create").click(function(){
     if(validate.validateFields('')){

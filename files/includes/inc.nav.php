@@ -5,5 +5,5 @@
         $Menu   = new Menu();
         $Menu   ->insertMenu($_SESSION['profile_id'],$_SESSION['admin_id']);
     ?>
-    <?php include("../../includes/inc.subtop.php"); ?>
+    <?php// include("../../includes/inc.subtop.php"); ?>
 </nav>

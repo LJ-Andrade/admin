@@ -9,75 +9,24 @@
     <?php include('../../includes/inc.nav.php'); ?> <!-- Navegation -->
     <div class="container-fluid">
       <div class="row">
-        <!-- Title and options -->
-        <div class="titleDiv"><!-- Page Title & back btn -->
-          <div class="optionIcons backOpt">
-            <ul>
-              <li id="backtolastpage" class="animated fadeIn SubTopBtn">
-                <a href="javascript: history.go(-1)" class="btn subitbtn BackToLastPage" role="button">
-                <i class="fa fa-angle-double-left"></i> Volver</a></li>
-            </ul>
-          </div>
-          <h4 class="maintitletxt"> Título</h4>
+
+
+
+        <!-- ///// Title and options //// -->
+        <div class="titleDiv">
+          <div class="backOption"><a href=""><i class="fa fa-angle-double-left"></i> Volver</a></div>
+          <h1>Título</h1>
         </div>
-        <div class="optionsDiv"><!-- Option Icons & Buttons-->
-          <button id="delselected" class="animated slideInDown mainbtn mainbtnred"><i class="fa fa-trash"></i> Eliminar seleccionados</button>
-          <a href="new.php"><button class="mainbtn"><i class="fa fa-user-plus"></i> Agregar Producto</button></a>
-          <div class="optionIcons">
-            <ul><!-- View Icons -->
-              <li id="viewlistbt" class="animated fadeIn SubTopBtn "><a href="#" class="btn subitbtn" role="button"><i class="fa fa-th-list  fa-fw"></i> Lista </a></li>
-              <li id="viewgridbt" class="animated fadeIn SubTopBtn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-th  fa-fw"></i> Grilla </a></li>
-              <!-- Search -->
-              <li id="showitemfiltersuser" class="animated fadeIn SubTopBtn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-search fa-fw"></i> Buscar</a></li>
-              <li id="showitemfilters" class="animated fadeIn SubTopBtn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-search fa-fw"></i> Buscar</a></li>
-              <!-- Add New Item -->
-              <li id="newprod" class="Hidden"><a href="../product/new.php" class="btn subitbtn SubTopBtn" role="button"><i class="fa fa-plus-square fa-fw"></i> Nuevo Producto</a></li>
-              <li id="newuser" class="Hidden"><a href="../user/new.php" class="btn subitbtn SubTopBtn" role="button"><i class="fa fa-user-plus  fa-fw"></i> Nuevo Usuario</a></li>
-            </ul>
-          </div>
+        <div class="optionsDiv"><!-- Options Buttons-->
+          <?php  ?>botones
         </div><!-- /Title and options -->
+
+
+
 
         <div class="container">
           <h2>Common Elements</h2>
-          <!--- Item-Cards -->
-          <div class="row-centered wrapOverlayItem">
-            <!-- Item / Product -->
-            <div class="col-md-4 col-sm-6 col-xs-12 col-centered overlayItem">
-              <div class="show overlay1">
-                <img src="../../../skin/images/products/01.jpg" />
-                <div class="mask">
-                  <div class="OnOffDiv">
-                    <input type="checkbox" name="status" id="status" data-on-text="Publicado" data-off-text="Pausado" data-size="mini" data-label-width="auto">
-                  </div>
-                  <div class="overlayDetails">
-                  <h3><strong>Título</strong></h3>
-                    <hr>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod td est laborum.</p>
-                    <h4><strong>Composición:</strong> Raso</h4>
-                    <h4><strong>Talles:</strong> Xs - S</h4>
-                    <div class="circles">
-                      <span><strong>Colores:</strong></span>
-            					<ul>
-            						<li><div class="circle" style="background-color: #fff"></div></li>
-            						<li><div class="circle" style="background-color: #c17996"></div></li>
-            						<li><div class="circle" style="background-color: #768754"></div></li>
-            						<li><div class="circle" style="background-color: #5643a0"></div></li>
-            					</ul>
-            				</div>
-                    <h4><strong>Precio:</strong> $1500</h4>
-                  </div>
-                  <div class="delModDiv">
-                    <a href="#"><button type="button" name="button" class="btn mainbtn"><i class="fa fa-pencil"></i></button></a>
-                    <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred"><i class="fa fa-trash"></i></button></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- /Item / Product-->
 
-            <div class="mobile-clear"></div>
-          </div>
-          <!--- /Item-Card -->
           <div class="row">
             <div class="container">
               <!-- Buttons -->
@@ -93,8 +42,8 @@
                 <a href="#"><button type="button" name="button" class="btn mainbtn"><i class="fa fa-pencil"></i></button></a>
                 <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred"><i class="fa fa-trash"></i></button></a>
                 <a href="#"><button type="button" name="button" class="btn mainbtn"><i class="fa fa-pencil"></i></button></a>
-                <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred"><i class="fa fa-trash"></i></button></a>
-                <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred"><i class="fa fa-times"></i></button></a>
+                <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred modBtnList"><i class="fa fa-trash"></i></button></a>
+                <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred delBtnList"><i class="fa fa-times"></i></button></a>
                 <a href="#"><button type="button" name="button" class="btn closeBtn"><i class="fa fa-times"></i></button></a>
               </div>
               <!-- /Buttons -->

@@ -16,37 +16,16 @@
     <div class="container-fluid">
       <!-- ///////// Title and options //////////-->
       <div class="row">
-        <div class="titleDiv"><!-- Page Title & back btn -->
+        <!-- Page Title & back btn -->
+        <div class="titleDiv">
           <div class="backOption"><a href=""><i class="fa fa-angle-double-left"></i> Volver</a></div>
-          <h4 class="maintitletxt"> Título</h4>
+          <h1>Título</h1>
         </div>
-        
-
-
-
-
         <div class="optionsDiv"><!-- Options Buttons-->
           <?php $Buttons->ShowButtons(); ?>
-          <!-- <button id="delselected" class="animated slideInDown mainbtn mainbtnred"><i class="fa fa-trash"></i> Eliminar seleccionados</button>
-          <button id="" class="animated slideInDown mainbtn"><i class="fa fa-user-plus"></i> Agregar Producto</button>
-          <button id="" class="animated slideInDown mainbtn optionBtn"><i class="fa fa-search"></i></button>
-          <button id="" class="animated slideInDown mainbtn optionBtn"><i class="fa fa-th-list"></i></button>
-          <button id="" class="animated slideInDown mainbtn optionBtn"><i class="fa fa-th"></i></button> -->
-
-          <!-- <div class="optionIcons"> OBSOLETE
-            <ul>
-              <li><a href="new.php"><button class="mainbtn"><i class="fa fa-search"></i></a></li>
-              <li id="viewlistbt" class="animated fadeIn SubTopBtn "><a href="#" class="btn subitbtn" role="button"><i class="fa fa-th-list  fa-fw"></i> Lista </a></li>
-              <li id="viewgridbt" class="animated fadeIn SubTopBtn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-th  fa-fw"></i> Grilla </a></li>
-              <li id="showitemfiltersuser" class="animated fadeIn SubTopBtn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-search fa-fw"></i> Buscar</a></li>
-              <li id="showitemfilters" class="animated fadeIn SubTopBtn"><a href="#" class="btn subitbtn" role="button"><i class="fa fa-search fa-fw"></i> Buscar</a></li>
-              <li id="newuser" class="Hidden"><a href="../user/new.php" class="btn subitbtn SubTopBtn" role="button"><i class="fa fa-user-plus  fa-fw"></i> Nuevo Usuario</a></li>
-            </ul>
-          </div> OBSOLETE -->
-
         </div><!-- /Title and options -->
       </div>
-      <!-- //////////// Filters /////////// -->
+      <!-- //////////// Search Filters /////////// -->
       <div class="container-fluid pad0">
         <div id="filteritem" class="row filterdiv">
           <form class="form-inline" role="form">
@@ -82,15 +61,15 @@
             </div>
           </form>
         </div>
-      </div><!-- /Filters -->
+      </div><!-- /Search Filters -->
 
 
           <!-- ////// Note /////////
-          There is 4 type of view:
-          #gridView = grid (large/desktop)
-          #viewlist = list (large/desktop)
-          #ViewListMobile1 = list (medium/tablet-notebook-landscape)
-          #ViewListMobile2 = list (small cell/vertical)
+          There are 4 types of view:
+          #GridView = grid (large/desktop)
+          .viewlist = list (large/desktop)
+          .ViewListMobile1 = list (medium/tablet-notebook-landscape)
+          .ViewListMobile2 = list (small cell/vertical)
          -->
 
 
@@ -98,8 +77,8 @@
         <!--- //// General Product Wrapper (Grid) //// -->
         <div class="row-centered wrapOverlayItem"><!-- This Div MUST wrap all the items/products divs -->
           <!-- //////////  Product/Item HERE - #gridView//////////////// -->
-          <div id="gridView" class="col-md-4 col-sm-6 col-xs-12 col-centered overlayItem">
-            <div class="Hidden selectedItem">
+          <div class="GridView col-md-4 col-sm-6 col-xs-12 col-centered overlayItem">
+            <div class="selectedItem Hidden">
               <i class="fa fa-check-circle"></i>
             </div>
             <div id="itemProdDiv" class="show overlay1 selectItemProd1">
@@ -135,7 +114,7 @@
         </div><!--- /General Product Wrapper (Grid) -->
 
         <!-- //////// Product List View Titles - #viewlist ///////////-->
-        <div id="viewlist" class="row">
+        <div id="" class="row viewlist">
           <!-- Titles  -->
           <div class="glassListRow listTitDiv">
             <div class="col-md-1 col-sm-1 col-xs-12 listTit"><p>Im&aacute;gen</p></div>
@@ -168,7 +147,7 @@
           <!-- /Product (List)  -->
         </div><!-- /Product List View  -->
         <!-- ////////////////////  Product List View Mobile Large HERE - #ViewListMobile1 //////////////////////////// -->
-        <div id="ViewListMobile1" class="row viewListMobileLarge">
+        <div id="" class="row viewListMobile1 viewListMobileLarge">
             <div class="col-md-3 col-sm-3 col-xs-3"><img id="#" src="../../../skin/images/products/01.jpg" class="img-responsive listImg"></div>
             <div class="col-md-3 col-sm-3 col-xs-3"><p>Titulo</p></div>
             <div class="col-md-3 col-sm-2 col-xs-4"><p>$precio</p></div>
@@ -178,7 +157,7 @@
             </div>
         </div><!-- /Product List View Mobile Large -->
         <!-- ////////////////////// Product List View Mobile Small HERE - #ViewListMobile2 ///////////////// -->
-        <div id="ViewListMobile2" class="row viewListMobile">
+        <div id="" class="row viewListMobile2 viewListMobile">
           <div class="col-md-4 col-xs-4"><img id="#" src="../../../skin/images/products/01.jpg" class="img-responsive listImg"></div>
           <div class="col-md-4 col-xs-4"><p>Vestido Loco</p></div>
           <div class="col-md-1 col-xs-4"><p>$150</p></div>

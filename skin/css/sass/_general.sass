@@ -8,16 +8,16 @@
 body
   font-family: $font1
   background-color: #5284ad
-  background-image: url(../images/body/backgrounds/back7.jpg)
+  background-image: url(../images/body/backgrounds/back.jpg)
   background-repeat: no-repeat
   background-attachment: fixed
   background-position: center center
   background-size: cover
-  margin-top: 95px
+  margin-top: 53px
 
 #wrapper
+  position: relative
   padding-left: 0
-  padding-top: 25px
   height: 100%
 
 @media(max-width:490px)
@@ -72,10 +72,6 @@ p
   font-family: $font1
   margin: 0
 
-@media(max-width:341px)
-  .maintitletxt
-    font-size: 14px
-
 ul
   list-style: none !important
 
@@ -83,6 +79,8 @@ ul
   text-align: center
 
 //////////// Custom Styles /////////////////////////////////////////
+.Hidden
+  display: none !important
 .pad0
   padding: 0
 .mar0, .marg0
@@ -194,7 +192,7 @@ ul
   .formitems
     padding: 0
 
-//////////////// Contador caracteres  //////////////////////
+//////////////// Character counter  //////////////////////
 form .indicator
   display: block
   height: 30px
@@ -251,24 +249,28 @@ form .indicator.empty
 ////////////// LOADER ////////////////////////////////////////////////
 
 div#page_loader
-  position: absolute
-  top: 0
-  bottom: 0%
-  left: 0
-  right: 0%
+  position: relative
   background-color: rgba(46,53,79, 1)
   z-index: 9998
+  display: -ms-flexbox
+  display: -webkit-flex
+  display: flex
+  -ms-flex-align: center
+  -webkit-align-items: center
+  -webkit-box-align: center
+  align-items: center
+  justify-content: center
 
 #loadgif
   position: absolute
-  top: 15%
-  left: 40%
-  width: 700px
-  height: 700px
   z-index: 9999
-
-.juira
-  text-align: center
-  position: absolute
-  bottom: 0
-  color: black
+  display: -ms-flexbox
+  display: -webkit-flex
+  display: flex
+  -ms-flex-align: center
+  -webkit-align-items: center
+  -webkit-box-align: center
+  align-items: center
+  justify-content: center
+  img
+    width: 150px

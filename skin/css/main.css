@@ -136,16 +136,16 @@ a .mainbtn {
 body {
   font-family: "Open Sans", sans-serif;
   background-color: #5284ad;
-  background-image: url(../images/body/backgrounds/back7.jpg);
+  background-image: url(../images/body/backgrounds/back.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center center;
   background-size: cover;
-  margin-top: 95px; }
+  margin-top: 53px; }
 
 #wrapper {
+  position: relative;
   padding-left: 0;
-  padding-top: 25px;
   height: 100%; }
 
 @media(max-width:490px) {
@@ -201,14 +201,14 @@ p {
   font-family: "Open Sans", sans-serif;
   margin: 0; }
 
-@media(max-width:341px) {
-  .maintitletxt {
-    font-size: 14px; } }
 ul {
   list-style: none !important; }
 
 .textcenter {
   text-align: center; }
+
+.Hidden {
+  display: none !important; }
 
 .pad0 {
   padding: 0; }
@@ -390,27 +390,31 @@ form .indicator.empty {
   color: red; }
 
 div#page_loader {
-  position: absolute;
-  top: 0;
-  bottom: 0%;
-  left: 0;
-  right: 0%;
+  position: relative;
   background-color: #2e354f;
-  z-index: 9998; }
+  z-index: 9998;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  align-items: center;
+  justify-content: center; }
 
 #loadgif {
   position: absolute;
-  top: 15%;
-  left: 40%;
-  width: 700px;
-  height: 700px;
-  z-index: 9999; }
-
-.juira {
-  text-align: center;
-  position: absolute;
-  bottom: 0;
-  color: black; }
+  z-index: 9999;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  align-items: center;
+  justify-content: center; }
+  #loadgif img {
+    width: 150px; }
 
 .alertok {
   background-color: rgba(118, 153, 182, 0.9);
@@ -679,7 +683,7 @@ div#page_loader {
   color: #ba4545; }
 
 .navbar-inverse {
-  background-color: #545890;
+  background-color: #4379b1;
   border-color: transparent; }
   .navbar-inverse .navbar-nav > li a {
     transition: all 0.2s ease 0s;
@@ -1518,8 +1522,8 @@ p .addusertxt:hover {
 
 .titleDiv {
   width: auto;
-  background-color: rgba(0, 0, 0, 0.1);
-  padding: 10px 5px;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 1px 5px;
   text-align: center;
   margin: 0;
   position: relative;
@@ -1527,19 +1531,23 @@ p .addusertxt:hover {
   -moz-transition: all 0.3s ease-out;
   -ms-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out; }
+  transition: all 0.3s ease-out;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  align-items: center;
+  justify-content: center; }
   .titleDiv a {
     color: #000; }
 
-.titleDiv {
-  background-color: rgba(255, 255, 255, 0.7);
-  margin-top: -25px; }
-
 .backOption {
   position: absolute;
-  left: 0;
-  margin-left: 15px;
-  margin-bottom: 8px; }
+  left: 10px;
+  top: 40%;
+  bottom: 40%; }
 
 .optionsDiv {
   background-color: rgba(0, 0, 0, 0.1);
@@ -1553,30 +1561,6 @@ p .addusertxt:hover {
   -webkit-align-items: center;
   -webkit-box-align: center;
   align-items: center; }
-
-.optionBtn {
-  padding: 5px 10px; }
-
-.optionIcons {
-  display: inline-block; }
-  .optionIcons ul {
-    padding: 0;
-    list-style: none; }
-    .optionIcons ul li {
-      display: inline-block;
-      margin-right: 10px; }
-      .optionIcons ul li a {
-        font-size: 14px;
-        display: block;
-        color: #383838;
-        -webkit-transition: all 0.3s ease-in-out;
-        -moz-transition: all 0.3s ease-in-out;
-        -o-transition: all 0.3s ease-in-out;
-        transition: all 0.3s ease-in-out;
-        color: #000; }
-        .optionIcons ul li a:hover {
-          color: #fff;
-          text-decoration: none; }
 
 #filteritem {
   display: none; }
@@ -1621,6 +1605,7 @@ p .addusertxt:hover {
   padding: 10px 0;
   max-width: 800px;
   margin: 0 auto;
+  margin-top: 20px;
   text-align: center;
   -webkit-box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69);
   -moz-box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69);
@@ -2202,14 +2187,14 @@ p .addusertxt:hover {
   width: 100%; }
 
 @media (min-width: 1200px) {
-  #ViewListMobile1, #ViewListMobile2 {
+  .viewListMobile1, .viewListMobile2 {
     display: none !important; } }
 /* No greater than 1199px, no less than 500px */
 @media (max-width: 1199px) and (min-width: 500px) {
-  #ViewListMobile2, #viewlist {
+  .viewListMobile2, .viewlist {
     display: none !important; } }
 @media (max-width: 500px) {
-  #ViewListMobile1, #viewlist {
+  .viewListMobile1, .viewlist {
     display: none !important; } }
 .shadow {
   -webkit-box-shadow: 0px -2px 5px 1px rgba(0, 0, 0, 0.26);
@@ -2217,7 +2202,7 @@ p .addusertxt:hover {
   box-shadow: 0px -2px 5px 1px rgba(0, 0, 0, 0.26); }
 
 body#login {
-  background-image: url(../images/body/backgrounds/loginback.jpg); }
+  background-image: url(../images/body/backgrounds/back.jpg); }
 
 .login {
   height: 100%;
@@ -2227,6 +2212,7 @@ body#login {
   max-width: 350px; }
 
 .logtitdiv {
+  margin-top: 20%;
   background-color: rgba(255, 255, 255, 0.9);
   padding: 10px 0 10px 40px; }
   .logtitdiv img {
@@ -2240,14 +2226,14 @@ body#login {
 .loginInner {
   text-align: center;
   padding: 15px 0;
-  background-color: rgba(255, 255, 255, 0.5); }
+  background: linear-gradient(to bottom, #8c839b 0, rgba(40, 39, 41, 0.52) 50%); }
   .loginInner h4 {
     font-size: 18px;
     text-align: center;
-    color: #000; }
+    color: #fff; }
 
 .rememberLoginDiv label {
-  color: #383838;
+  color: #fff;
   transition: all 0.3s ease 0s; }
   .rememberLoginDiv label:hover {
     color: #056e90; }
@@ -2269,31 +2255,31 @@ body#login {
 .formulog input {
   background-color: transparent;
   border: 0;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #c5c5c5;
   min-height: 50px; }
 
 .formulog label i {
   margin-right: 5px;
   display: inline-block;
   width: 10px;
-  color: #000;
+  color: #474747;
   margin-right: 25px; }
 
 .loguser, .logpass {
-  color: #383838;
+  color: #fff;
   text-align: left; }
 
 .loguser {
   margin-bottom: 30px; }
 
-.fa-unlock:before {
+.fa-unlock:before, .fa-user:before {
   font-size: 16px;
-  color: #000; }
+  color: #474747; }
 
 .formulog input[type=text],
 .formulog input[type=password] {
   font-size: 13px;
-  color: #000;
+  color: #d0d0d0;
   font-weight: 400;
   display: block;
   width: 100%;
@@ -2323,10 +2309,10 @@ body#login {
 .forgotDiv {
   padding: 10px 0; }
   .forgotDiv a {
-    color: #383838;
+    color: #fff;
     transition: all 0.3s ease 0s; }
     .forgotDiv a:hover {
-      color: #056e90; }
+      color: #ccc; }
 
 .forgotsubtit {
   font-size: 10px;
