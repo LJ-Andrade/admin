@@ -16,19 +16,19 @@ $(function(){
     });
 
 //////////////////////////////////////////////////// Toggle Grid and List //////////////////////////////////////////////////////
-    $("#viewlistbt").on( "click", function() {
-        $('div[id="viewgrid"]').hide( 500 );
-        $('div[id="viewlist"]').show( 500 );
-        $("#viewlistbt").addClass('Hidden');
-        $("#viewgridbt").removeClass('Hidden');
-     });
+    // $("#viewlistbt").on( "click", function() {
+    //     $('div[id="viewgrid"]').hide( 500 );
+    //     $('div[id="viewlist"]').show( 500 );
+    //     $("#viewlistbt").addClass('Hidden');
+    //     $("#viewgridbt").removeClass('Hidden');
+    //  });
 
-    $("#viewgridbt").on( "click", function() {
-        $('div[id="viewgrid"]').show( 500 );
-        $('div[id="viewlist"]').hide( 500 );
-        $("#viewgridbt").addClass('Hidden');
-        $("#viewlistbt").removeClass('Hidden');
-     });
+    // $("#viewgridbt").on( "click", function() {
+    //     $('div[id="viewgrid"]').show( 500 );
+    //     $('div[id="viewlist"]').hide( 500 );
+    //     $("#viewgridbt").addClass('Hidden');
+    //     $("#viewlistbt").removeClass('Hidden');
+    //  });
 
 //////////////////////////////////////////////////// Bootstrap Switch //////////////////////////////////////////////////////
     $(".SwitchCheckbox").bootstrapSwitch();

@@ -13,14 +13,14 @@ $(document).ready(function(){
 
 	$('#viewListBtn').click(function(){
 		$(this).addClass('Hidden')
-		$('#viewgrid').addClass('Hidden');
-		$('#viewlist, #viewGridBtn').removeClass('Hidden');
+		$('.viewgrid').addClass('Hidden');
+		$('.ListWrapper, #viewGridBtn').removeClass('Hidden');
 	});
 
 	$('#viewGridBtn').click(function(){
 		$(this).addClass('Hidden')
-		$('#viewlist').addClass('Hidden');
-		$('#viewgrid, #viewListBtn').removeClass('Hidden');
+		$('.ListWrapper').addClass('Hidden');
+		$('.viewgrid, #viewListBtn').removeClass('Hidden');
 	});
 
 
@@ -360,20 +360,5 @@ $(function(){
 	// Active Paused Product Switch
 	$("[name='status']").bootstrapSwitch();
 
-///////// Responsivity List View //////////////////////////////////
 
- if (screen.width < 1200) {
-		$(".titlist4, .col4listus, .titlist5, .col5listus").hide();
-		}
-		else {
-
-		$(".titlist4, .col4listus, .titlist5, .col5listus").show();
-		}
-
-	if (screen.width < 490) {
-		$(".viewlist").hide();
-		}
-		else {
-		$(".viewgrid").show();
-		}
 });
