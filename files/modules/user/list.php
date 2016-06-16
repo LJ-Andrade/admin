@@ -15,15 +15,20 @@
   <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
   <div id="wrapper"><!--  Wrapper -->
     <!-- Title and options -->
-        <div class="titleDiv"><!-- Page Title & back btn -->
-          
-          <h4 class="maintitletxt"> Listado de Usuarios Administradores</h4>
-        </div>
-        
-      <div class="glasscontainer1 optionsdiv">
-        <?php $Buttons->ShowButtons(); ?>
+    <div class="titleDiv">
+      <div class="col-md-6 breadCrumTitle">
+        <span class="breadCrums"><i class="fa fa-home"></i> Home</span><i class="fa fa-angle-right"></i>
+        <span class="breadCrums">Usuarios</span><i class="fa fa-angle-right"></i>
+        <span class="mainTitle"><i class="fa fa-user" aria-hidden="true"></i>
+         LISTADO DE USUARIOS ADMINISTRADORES</span>
       </div>
-        
+      <div class="col-md-6 titleDivOptions"><?php $Buttons->ShowButtons(); ?></div>
+    </div><!-- /Title and options -->
+
+    <!-- <div class="glasscontainer1 optionsdiv">
+
+    </div> -->
+
     <div class="container-fluid">
       <!-- Filters / Search -->
       <div class="container-fluid">
@@ -87,12 +92,6 @@
         <?php } ?>
       </div><!-- /Grid View  -->
 
-      
-
-
-
-
-
 
 
 
@@ -101,31 +100,29 @@
       <!-- //////// User List View Titles - #viewlist ///////////-->
         <div id="" class="viewlist row animated fadeIn">
           <!-- Titles  -->
-          <div class="glassListRow listTitDiv">
-            <div class="col-md-1 col-sm-1 col-xs-12 listTit"><p>Im&aacute;gen</p></div>
-            <div class="col-md-1 col-sm-1 col-xs-12 listTit"><p>Usuario</p></div>
-            <div class="col-md-2 col-sm-2 col-xs-12 listTit"><p>Nombre</p></div>
-            <div class="col-md-2 col-sm-2 col-xs-12 listTit"><p>Perfil</p></div>
-            <div class="col-md-2 col-sm-2 col-xs-12 listTit"><p>Grupos</p></div>
-            <div class="col-md-3 col-sm-3 col-xs-12 listTit"><p>Última Conexion</p></div>
-            <div class="col-md-1 col-sm-1 col-xs-12 listTit listTitLast"><p>Mod.</p></div>
+          <div class="glassListRow listRow listTits">
+            <div class="col-md-1 col-sm-1 col-xs-12"><p>Im&aacute;gen</p></div>
+            <div class="col-md-1 col-sm-1 col-xs-12"><p>Usuario</p></div>
+            <div class="col-md-2 col-sm-2 col-xs-12"><p>Nombre</p></div>
+            <div class="col-md-2 col-sm-2 col-xs-12"><p>Perfil</p></div>
+            <div class="col-md-2 col-sm-2 col-xs-12"><p>Grupos</p></div>
+            <div class="col-md-3 col-sm-3 col-xs-12"><p>&Uacute;ltima Conexi&oacute;n</p></div>
+            <div class="col-md-1 col-sm-1 col-xs-12"><p>Mod.</p></div>
           </div> <!-- /Titles  -->
           <!-- ////////////   Product/Items (List)  ////////////////////////// -->
           <?php foreach($Users as $User){ $User = new AdminData($User['admin_id']);?>
-          <div id="userlist<?php echo $User->AdminID ?>" class="glassListRow listRow <?php if($User->AdminID==$Admin->AdminID){ echo "undeleteable"; } ?>">
-            <div class="col-md-1 col-sm-1 col-xs-12 colList colListFirst">
+          <div id="userlist<?php echo $User->AdminID ?>" class="glassListRow listRow listHover <?php if($User->AdminID==$Admin->AdminID){ echo "undeleteable"; } ?>">
+            <div class="col-md-1 col-sm-1 col-xs-12">
               <img src="<?php echo $User->Img; ?>" class="img-responsive listImg">
             </div>
-            <div class="col-md-1 col-sm-1 col-xs-12 colList"><p><?php echo $User->User; ?></p></div>
-            <div class="col-md-2 col-sm-2 col-xs-12 colList"><p><?php echo $User->FullName; ?></p></div>
-            <div class="col-md-2 col-sm-2 col-xs-12 colList"><p><?php echo $User->ProfileName; ?></p></div>
-            <div class="col-md-2 col-sm-2 col-xs-12 colList"><p>Admin</p></div>
-            <div class="col-md-3 col-sm-3 col-xs-12 colList"><p><?php echo DateTimeFormat($User->AdminData['last_access']) ?></p></div>
-            <div class="col-md-1 col-sm-1 col-xs-12 colList colListLast">
-              <div class="delModDivList text-center">
-                <a href="edit.php?id=<?php echo $User->AdminID ?>"><button type="button" name="button" class="btn mainbtn modBtnList"><i class="fa fa-pencil"></i></button></a>
-                <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred delBtnList deleteElement" deleteElement="<?php echo $User->AdminID ?>" deleteParent="userlist<?php echo $User->AdminID ?>/user<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>'?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente"><i class="fa fa-trash"></i></button></a>
-              </div>
+            <div class="col-md-1 col-sm-1 col-xs-12"><p><?php echo $User->User; ?></p></div>
+            <div class="col-md-2 col-sm-2 col-xs-12"><p><?php echo $User->FullName; ?></p></div>
+            <div class="col-md-2 col-sm-2 col-xs-12"><p><?php echo $User->ProfileName; ?></p></div>
+            <div class="col-md-2 col-sm-2 col-xs-12"><p>Admin</p></div>
+            <div class="col-md-3 col-sm-3 col-xs-12"><p><?php echo DateTimeFormat($User->AdminData['last_access']) ?></p></div>
+            <div class="col-md-1 col-sm-1 col-xs-12">
+              <a href="edit.php?id=<?php echo $User->AdminID ?>"><button type="button" name="button" class="btn mainbtn modBtnList"><i class="fa fa-pencil"></i></button></a>
+              <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred delBtnList deleteElement" deleteElement="<?php echo $User->AdminID ?>" deleteParent="userlist<?php echo $User->AdminID ?>/user<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>'?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente"><i class="fa fa-trash"></i></button></a>
             </div>
           </div>
           <?php } ?>
@@ -134,9 +131,9 @@
         <?php foreach($Users as $User){ $User = new AdminData($User['admin_id']);?>
         <!-- ////////////////////  User List View Mobile Large HERE - #ViewListMobile1 //////////////////////////// -->
         <div id="" class="row viewListMobileLarge viewListMobile1">
-            <div class="col-md-3 col-sm-3 col-xs-3"><img id="#" src="<?php echo $User->Img; ?>" class="img-responsive listImg"></div>
+            <div class="col-md-2 col-sm-2 col-xs-3"><img id="#" src="<?php echo $User->Img; ?>" class="img-responsive listImg"></div>
             <div class="col-md-3 col-sm-3 col-xs-3"><p><?php echo $User->User; ?></p></div>
-            <div class="col-md-3 col-sm-3 col-xs-3"><p><?php echo $User->FullName; ?></p></div>
+            <div class="col-md-4 col-sm-4 col-xs-3"><p><?php echo $User->FullName; ?></p></div>
             <div class="col-md-3 col-sm-3 col-xs-3">
               <a href="edit.php?id=<?php echo $User->AdminID ?>"><button type="button" name="button" class="btn mainbtn modBtnList"><i class="fa fa-pencil"></i></button></a>
               <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred delBtnList deleteElement" deleteElement="<?php echo $User->AdminID ?>" deleteParent="userlist<?php echo $User->AdminID ?>/user<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>'?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente"><i class="fa fa-trash"></i></button></a>
@@ -146,18 +143,22 @@
         <!-- ////////////////////// User List View Mobile Small HERE - #ViewListMobile2 ///////////////// -->
         <?php foreach($Users as $User){ $User = new AdminData($User['admin_id']);?>
         <div id="" class="row viewListMobile viewListMobile2">
-          <div class="col-md-4 col-xs-4"><img src="<?php echo $User->Img; ?>" class="img-responsive listImg"></div>
-          <div class="col-md-4 col-xs-4"><p><?php echo $User->User; ?></p></div>
-          <div class="col-md-4 col-xs-4"><p><?php echo $User->FullName; ?></p></div>
-          <div class="col-xs-12 viewListMobileMod">
-            <a href="edit.php?id=<?php echo $User->AdminID ?>"><button type="button" name="button" class="btn mainbtn"><i class="fa fa-pencil"></i></button></a>
-            <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred deleteElement" deleteElement="<?php echo $User->AdminID ?>" deleteParent="userlist<?php echo $User->AdminID ?>/user<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>'?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente"><i class="fa fa-trash"></i></button></a>
+          <div class="col-md-4 col-xs-2 listMobile2Img"><img src="<?php echo $User->Img; ?>" class="img-responsive listImg"></div>
+          <div class="col-md-4 col-xs-5"><p><?php echo $User->User; ?></p></div>
+          <div class="col-md-4 col-xs-5"><p><?php echo $User->FullName; ?></p></div>
+          <div class="col-xs-12 viewListMobileMod animated fadeIn Hidden">
+            <a href="edit.php?id=<?php echo $User->AdminID ?>"><button type="button" name="button" class="btn mainbtn modBtnList"><i class="fa fa-pencil"></i></button></a>
+            <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred modBtnList deleteElement" deleteElement="<?php echo $User->AdminID ?>" deleteParent="userlist<?php echo $User->AdminID ?>/user<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User; ?>' ?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente"><i class="fa fa-trash"></i></button></a>
+
+            <div class="listMobileSelected">
+              <i class="fa fa-check"></i>
+            </div>
           </div>
         </div><!-- /User List View Mobile Small  -->
         <?php } ?>
       </div>
 
-      
+
 
 
       <!--Paginator-->

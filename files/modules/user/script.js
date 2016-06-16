@@ -11,17 +11,7 @@ $(document).ready(function(){
 	if(get['msg']=='update')
 		notifySuccess('Usuario modificado correctamente');
 
-	$('#viewListBtn').click(function(){
-		$(this).addClass('Hidden')
-		$('.viewgrid').addClass('Hidden');
-		$('.ListWrapper, #viewGridBtn').removeClass('Hidden');
-	});
 
-	$('#viewGridBtn').click(function(){
-		$(this).addClass('Hidden')
-		$('.ListWrapper').addClass('Hidden');
-		$('.viewgrid, #viewListBtn').removeClass('Hidden');
-	});
 
 
 	//$('#newuser').fadeIn(500);
@@ -67,7 +57,7 @@ $(function(){
 					var status = 'I';
 					if($("#status").is(':checked'))
 						status = 'A';
-					
+
 					var process		= 'process.php';
 					var target		= 'list.php?status='+status+'&msg='+ $("#action").val();
 					var haveData	= function(returningData)
@@ -115,7 +105,7 @@ $(function(){
 		}
 		sumbitFields(process,haveData,noData);
 	});
-	
+
 	$('.SelectNewImg').click(function(){
 		$("#image").click();
 	});
@@ -133,7 +123,7 @@ function fillGroups()
 	var process = 'process.php';
 
 	var string      = 'profile='+ profile +'&admin='+ admin +'&action=fillgroups';
-	
+
     var data;
     $.ajax({
         type: "POST",
@@ -171,7 +161,7 @@ function clickGroupCheckbox()
 {
 	$(".GroupCheckbox").click(function(){
    		getCheckedGroups();
-    });	
+    });
 }
 
 $(document).ready(function(){

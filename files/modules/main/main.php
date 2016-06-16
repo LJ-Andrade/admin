@@ -9,24 +9,19 @@
     <?php include('../../includes/inc.nav.php'); ?> <!-- Navegation -->
     <div class="container-fluid">
       <div class="row">
-
-
-
-        <!-- ///// Title and options //// -->
+        <!-- Title and options -->
         <div class="titleDiv">
-          <div class="backOption"><a href=""><i class="fa fa-angle-double-left"></i> Volver</a></div>
-          <h1>Título</h1>
-        </div>
-        <div class="optionsDiv"><!-- Options Buttons-->
-          <?php  ?>botones
+          <div class="col-md-6 breadCrumTitle">
+            <!-- <a href=""><span><i class="fa fa-angle-double-left"></i> Volver <b>|</b></span></a> -->
+            <span class="breadCrums"><i class="fa fa-home"></i> Home</span><i class="fa fa-angle-right"></i>
+            <span class="breadCrums">Usuarios</span><i class="fa fa-angle-right"></i>
+            <span class="mainTitle"><i class="fa fa-user" aria-hidden="true"></i>
+             COMMON ELEMENST</span>
+          </div>
+          <div class="col-md-6 titleDivOptions"><button type="button" class="mainbtn">Opcion</button></div>
         </div><!-- /Title and options -->
 
-
-
-
         <div class="container">
-          <h2>Common Elements</h2>
-
           <div class="row">
             <div class="container">
               <!-- Buttons -->
@@ -111,7 +106,7 @@
 
         </div>
       </div><!-- Row -->
-    </div><!-- /.container-fluid -->
+
     <div class="clearfix"></div>
 
     <!-- Cards For Links -->
@@ -144,8 +139,6 @@
       </div>
     </div><!-- /Cards For Links -->
 
-
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div><!-- /.container-fluid -->
   </div><!-- /#wrapper -->
 <?php $Foot->setFoot(); ?>

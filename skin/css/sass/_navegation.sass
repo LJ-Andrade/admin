@@ -1,28 +1,36 @@
 ///////////////   Navegation  //////////////////////
 ///////// Owner Name (Top Left) ///////////////////////////////
 
+.nav
+  .fa
+    color: $mainMenuIcons
+
 .ownername
-  color: #000
+  color: $topTextBrand
 .brand
-  color: $mainred
+  color: #fff
 
 /////////////////////// Nav Bar //////////////////////////////
+
 .navbar-inverse
-  background-color: $maintop
-  border-color: transparent 
+  background-color: $colorTop1
+  border-color: transparent
   .navbar-nav > li a
     transition: all 0.2s ease 0s
-    border-bottom: 0.5px solid rgba(56, 56, 56, 0.1)
     &:hover, &:focus
-      color: $sideddtxthover
-      border-left: 4px solid $sideline1
+      color: $mainMenuLiText
+      border-left: $menuLine2
   .navbar-nav > li > a
-    color: #000
-    color: $sidetxt
-  .navbar-brand
-    color: $toptxt
+    color: #fff
+    color: #fff
   .navbar-collapse, .navbar-form
-    background-color: rgba($side, .2)
+    // TOP //
+    background-color: $colorTop1
+    background: $colorTop1
+    background: -moz-linear-gradient(left, $colorTop1 0%, $colorTop2 100%)
+    background: -webkit-linear-gradient(left, $colorTop1 0%,$colorTop2 100%)
+    background: linear-gradient(to right, $colorTop1 0%,$colorTop2 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$colorTop', endColorstr='$colorTop2',GradientType=1 )
 @media(max-width:768px)
   .navbar-inverse .navbar-nav > li a
     width: auto
@@ -40,18 +48,18 @@
   li
     transition: all 0.2s ease 0s
     &:hover
-      border-left: $sideline1
+      border-left: $menuLine1
     a
       transition: all 0.2s ease 0s
       width: 225px
       &:hover
-        border-left: 5px solid $sideline1
+        border-left: $menuLine1
         background-color: #fff
         transition: all 0.2s ease 0s
         .navinicio
           border-left: 10px solid blue
       &:hover, &focus
-        background-color: rgba($hoverside, .6) !important
+        background-color: $mainMenuLiHover !important
       ul
         padding: 0
         li
@@ -68,26 +76,6 @@
             &:hover
               border-left: 5px solid $mainblue
 
-// Drop down menu and icons
-.sideddmenu
-  li
-    &:hover
-      border-left: $sideline4
-    ul
-      list-style: none
-  a
-    padding: 10px 5px 10px 44px
-    display: block
-    color: $sideddtxt
-    text-decoration: none
-    padding-top: 15px
-    padding-bottom: 15px
-    &:hover,&:focus
-      color: $sideddtxthover
-
-.sidemenu .sideintern
-  li
-    background-color: #ccc
 
 @media(min-width:768px)
   .side-nav
@@ -100,16 +88,37 @@
     border-radius: 0
     overflow-y: auto
     // Side Nav
-    background-color: rgba($side, .4)
+    background-color: $mainMenuBack
     bottom: 0
     overflow-x: hidden
     padding-bottom: 40px
     box-shadow: -1px 15px 4px -1px rgba(0, 0, 0, 0.53)
     li
-      background-color: rgba($side, .7)
+      background-color: $mainMenuLi
       a
         min-width: 100%
 
+
+// Drop down menu and icons
+.sideddmenu
+  li
+    background-color: $mainMenuDDBack
+    &:hover
+      border-left: $menuLine3
+    ul
+      list-style: none
+  a
+    padding: 10px 5px 10px 44px
+    display: block
+    color: $mainMenuLiText
+    text-decoration: none
+    padding-top: 15px
+    padding-bottom: 15px
+    &:hover,&:focus
+      color: $mainMenuLiText
+// .sidemenu .sideintern
+//   li
+//     background-color: #000
 //////// Top bar / User /////////////////////////
 
 .dropdown-menu

@@ -15,20 +15,44 @@ $(function(){
         window.history.go(-1);
     });
 
-//////////////////////////////////////////////////// Toggle Grid and List //////////////////////////////////////////////////////
-    // $("#viewlistbt").on( "click", function() {
-    //     $('div[id="viewgrid"]').hide( 500 );
-    //     $('div[id="viewlist"]').show( 500 );
-    //     $("#viewlistbt").addClass('Hidden');
-    //     $("#viewgridbt").removeClass('Hidden');
-    //  });
+//////////////////////////////////////////////////// Show List ///////////////////////////////////////////////////////////////
 
-    // $("#viewgridbt").on( "click", function() {
-    //     $('div[id="viewgrid"]').show( 500 );
-    //     $('div[id="viewlist"]').hide( 500 );
-    //     $("#viewgridbt").addClass('Hidden');
-    //     $("#viewlistbt").removeClass('Hidden');
-    //  });
+    $('#viewListBtn').click(function(){
+      $(this).addClass('Hidden')
+      $('.viewgrid').addClass('Hidden');
+      $('.ListWrapper, #viewGridBtn').removeClass('Hidden');
+    });
+
+    $('#viewGridBtn').click(function(){
+      $(this).addClass('Hidden')
+      $('.ListWrapper').addClass('Hidden');
+      $('.viewgrid, #viewListBtn').removeClass('Hidden');
+    });
+
+    ////// Select List Row //////
+    $('.listRow').click(function(){
+      $(this).toggleClass('listSelect');
+    });
+
+
+
+//////////////////////////////////////////////////// Toggle List Options //////////////////////////////////////////////////////
+    $('.viewListMobile').click(function(){
+      childElem = $(this).children('.viewListMobileMod');
+      //alert(childElem.hasClass('Hidden'));
+      if(childElem.hasClass('Hidden')){
+        //alert('entra');
+        childElem.removeClass('fadeOut Hidden');
+        childElem.addClass('fadeIn');
+      }else{
+        childElem.removeClass('fadeIn');
+        childElem.addClass('fadeOut');
+        childElem.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+          childElem.addClass('Hidden');
+        });
+      }
+
+    });
 
 //////////////////////////////////////////////////// Bootstrap Switch //////////////////////////////////////////////////////
     $(".SwitchCheckbox").bootstrapSwitch();
@@ -333,7 +357,8 @@ $(function(){
 $(function(){
 
     ////////////////////////////////////////////////////////////////// DELETE ACTION //////////////////////////////////////////////
-    $(".deleteElement").click(function(){
+    $(".deleteElement").click(function(event){
+        event.stopPropagation();
         var action      = "delete";
         var parents     = $(this).attr("deleteParent").split("/");
         var process     = $(this).attr("deleteProcess");
@@ -356,6 +381,7 @@ $(function(){
                 }
             }
         });
+
     });
 
     // function listActions(action,id,process,target)

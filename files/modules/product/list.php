@@ -16,13 +16,17 @@
     <div class="container-fluid">
       <!-- ///////// Title and options //////////-->
       <div class="row">
-        <!-- Page Title & back btn -->
+        <!-- Title and options -->
         <div class="titleDiv">
-          <div class="backOption"><a href=""><i class="fa fa-angle-double-left"></i> Volver</a></div>
-          <h1>Título</h1>
-        </div>
-        <div class="optionsDiv"><!-- Options Buttons-->
-          <?php $Buttons->ShowButtons(); ?>
+          <div class="col-md-6 breadCrumTitle">
+            <a href=""><span><i class="fa fa-angle-double-left"></i> Volver <b>|</b></span></a>
+
+            <span class="breadCrums"><i class="fa fa-home"></i> Home</span><i class="fa fa-angle-right"></i>
+            <span class="breadCrums">Productos</span><i class="fa fa-angle-right"></i>
+            <span class="mainTitle"><i class="fa fa-user" aria-hidden="true"></i>
+             LISTADO DE PRODUCTOS</span>
+          </div>
+          <div class="col-md-6 titleDivOptions"><?php $Buttons->ShowButtons(); ?></div>
         </div><!-- /Title and options -->
       </div>
       <!-- //////////// Search Filters /////////// -->
@@ -113,59 +117,64 @@
           </div><!-- /Product/Item -->
         </div><!--- /General Product Wrapper (Grid) -->
 
-        <!-- //////// Product List View Titles - #viewlist ///////////-->
-        <div id="" class="row viewlist">
-          <!-- Titles  -->
-          <div class="glassListRow listTitDiv">
-            <div class="col-md-1 col-sm-1 col-xs-12 listTit"><p>Im&aacute;gen</p></div>
-            <div class="col-md-2 col-sm-2 col-xs-12 listTit"><p>Titulo</p></div>
-            <div class="col-md-2 col-sm-3 col-xs-12 listTit"><p>Descripci&oacute;n</p></div>
-            <div class="col-md-2 col-sm-2 col-xs-12 listTit"><p>Composicion</p></div>
-            <div class="col-md-2 col-sm-2 col-xs-12 listTit"><p>Talles</p></div>
-            <div class="col-md-1 col-sm-1 col-xs-12 listTit"><p>Colores</p></div>
-            <div class="col-md-1 col-sm-1 col-xs-12 listTit"><p>Precio</p></div>
-            <div class="col-md-1 col-sm-1 col-xs-12 listTit listTitLast"><p>Mod.</p></div>
-          </div> <!-- /Titles  -->
-          <!-- ////////////   Product/Items (List)  ////////////////////////// -->
-          <div id="#" class="glassListRow listRow">
-            <div class="col-md-1 col-sm-1 col-xs-12 colList colListFirst">
-              <img id="#" src="../../../skin/images/products/01.jpg" class="img-responsive listImg">
-            </div>
-            <div class="col-md-2 col-sm-2 col-xs-12 colList"><p>Titulo Test</p></div>
-            <div class="col-md-2 col-sm-3 col-xs-12 colList"><p>Descripci&oacute;n blablabla</p></div>
-            <div class="col-md-2 col-sm-2 col-xs-12 colList"><p>Composicion</p></div>
-            <div class="col-md-2 col-sm-2 col-xs-12 colList"><p>Talles</p></div>
-            <div class="col-md-1 col-sm-1 col-xs-12 colList"><p>Colores</p></div>
-            <div class="col-md-1 col-sm-1 col-xs-12 colList"><p>Precio</p></div>
-            <div class="col-md-1 col-sm-1 col-xs-12 colList colListLast">
-              <div class="delModDivList text-center">
-                <a href="#"><button type="button" name="button" class="btn mainbtn modBtnList"><i class="fa fa-pencil"></i></button></a>
-                <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred delBtnList"><i class="fa fa-trash"></i></button></a>
+
+        <div class="ListWrapper Hidden">
+
+        <!-- //////// User List View Titles - #viewlist ///////////-->
+          <div id="" class="viewlist row animated fadeIn">
+            <!-- Titles  -->
+            <div class="glassListRow listRow listTits">
+              <div class="col-md-1 col-sm-1 col-xs-12"><p>Im&aacute;gen</p></div>
+              <div class="col-md-1 col-sm-1 col-xs-12"><p>T&iacute;tulo</p></div>
+              <div class="col-md-2 col-sm-2 col-xs-12"><p>Descripci&oacute;n</p></div>
+              <div class="col-md-2 col-sm-2 col-xs-12"><p>Composici&oacute;n</p></div>
+              <div class="col-md-1 col-sm-1 col-xs-12"><p>Talle</p></div>
+              <div class="col-md-2 col-sm-2 col-xs-12"><p>Colores</p></div>
+              <div class="col-md-1 col-sm-1 col-xs-12"><p>Precio</p></div>
+              <div class="col-md-2 col-sm-2 col-xs-12 listRowLast"><p>Mod.</p></div>
+            </div> <!-- /Titles  -->
+            <!-- ////////////   Product/Items (List)  ////////////////////////// -->
+            <div id="" class="glassListRow listRow listHover">
+              <div class="col-md-1 col-sm-1 col-xs-12">
+                <img src="../../../skin/images/users/3/user69110__3.jpeg" class="img-responsive listImg">
+              </div>
+              <div class="col-md-1 col-sm-1 col-xs-12"><p>Pijama</p></div>
+              <div class="col-md-2 col-sm-2 col-xs-12"><p>Pijama para dormir seguro en casa</p></div>
+              <div class="col-md-2 col-sm-2 col-xs-12"><p>Kevlar</p></div>
+              <div class="col-md-1 col-sm-1 col-xs-12"><p>XSS - L - SS</p></div>
+              <div class="col-md-2 col-sm-2 col-xs-12"><p>Blanco, rojo</p></div>
+              <div class="col-md-1 col-sm-1 col-xs-12"><p>$7000</p></div>
+              <div class="col-md-2 col-sm-2 col-xs-12">
+                <a href=""><button type="button" name="button" class="btn mainbtn modBtnList"><i class="fa fa-pencil"></i></button></a>
+                <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred delBtnList deleteElement" deleteElement="<?php echo $User->AdminID ?>" deleteParent="userlist<?php echo $User->AdminID ?>/user<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>'?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente"><i class="fa fa-trash"></i></button></a>
               </div>
             </div>
-          </div>
-          <!-- /Product (List)  -->
-        </div><!-- /Product List View  -->
-        <!-- ////////////////////  Product List View Mobile Large HERE - #ViewListMobile1 //////////////////////////// -->
-        <div id="" class="row viewListMobile1 viewListMobileLarge">
-            <div class="col-md-3 col-sm-3 col-xs-3"><img id="#" src="../../../skin/images/products/01.jpg" class="img-responsive listImg"></div>
-            <div class="col-md-3 col-sm-3 col-xs-3"><p>Titulo</p></div>
-            <div class="col-md-3 col-sm-2 col-xs-4"><p>$precio</p></div>
-            <div class="col-md-3 col-sm-4 col-xs-4">
-              <a href="#"><button type="button" name="button" class="btn mainbtn modBtnList"><i class="fa fa-pencil"></i></button></a>
-              <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred delBtnList"><i class="fa fa-trash"></i></button></a>
+            <!-- /User (List)  -->
+          </div><!-- /User List View  -->
+          <!-- ////////////////////  User List View Mobile Large HERE - #ViewListMobile1 //////////////////////////// -->
+          <div id="" class="row viewListMobileLarge viewListMobile1">
+              <div class="col-md-2 col-sm-2 col-xs-3"><img src="../../../skin/images/users/3/user69110__3.jpeg" class="img-responsive listImg"></div>
+              <div class="col-md-3 col-sm-3 col-xs-3"><p>Pijama</p></div>
+              <div class="col-md-4 col-sm-4 col-xs-3"><p>$7000</p></div>
+              <div class="col-md-3 col-sm-3 col-xs-3">
+                <a href=""><button type="button" name="button" class="btn mainbtn modBtnList"><i class="fa fa-pencil"></i></button></a>
+                <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred delBtnList deleteElement" deleteElement="<?php echo $User->AdminID ?>" deleteParent="userlist<?php echo $User->AdminID ?>/user<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>'?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente"><i class="fa fa-trash"></i></button></a>
+              </div>
+          </div><!-- /User List View Mobile Large -->
+          <!-- ////////////////////// User List View Mobile Small HERE - #ViewListMobile2 ///////////////// -->
+          <div id="" class="row viewListMobile viewListMobile2">
+            <div class="col-md-4 col-xs-2 listMobile2Img"><img src="../../../skin/images/users/3/user69110__3.jpeg" class="img-responsive listImg"></div>
+            <div class="col-md-4 col-xs-5"><p>Pijama</p></div>
+            <div class="col-md-4 col-xs-5"><p><p>$7000</p></p></div>
+            <div class="col-xs-12 viewListMobileMod animated fadeIn Hidden">
+              <a href="edit.php?id=<?php echo $User->AdminID ?>"><button type="button" name="button" class="btn mainbtn modBtnList"><i class="fa fa-pencil"></i></button></a>
+              <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred modBtnList deleteElement" deleteElement="<?php echo $User->AdminID ?>" deleteParent="userlist<?php echo $User->AdminID ?>/user<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User; ?>' ?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente"><i class="fa fa-trash"></i></button></a>
+              <div class="listMobileSelected">
+                <i class="fa fa-check"></i>
+              </div>
             </div>
-        </div><!-- /Product List View Mobile Large -->
-        <!-- ////////////////////// Product List View Mobile Small HERE - #ViewListMobile2 ///////////////// -->
-        <div id="" class="row viewListMobile2 viewListMobile">
-          <div class="col-md-4 col-xs-4"><img id="#" src="../../../skin/images/products/01.jpg" class="img-responsive listImg"></div>
-          <div class="col-md-4 col-xs-4"><p>Vestido Loco</p></div>
-          <div class="col-md-1 col-xs-4"><p>$150</p></div>
-          <div class="col-xs-12 viewListMobileMod">
-            <a href="#"><button type="button" name="button" class="btn mainbtn"><i class="fa fa-pencil"></i></button></a>
-            <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred"><i class="fa fa-trash"></i></button></a>
-          </div>
-        </div><!-- /Product List View Mobile Small  -->
+          </div><!-- /User List View Mobile Small  -->
+        </div>
       </div> <!-- /mainContainer / This Div Wrap ONLY all the existing products/Items views -->
       <!--Paginator-->
       <div class="paginat animated slideInUp">

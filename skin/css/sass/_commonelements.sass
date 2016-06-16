@@ -1,25 +1,25 @@
 /////// Grals ////////
-.centerMe
-  display: flex
-  align-items: center
-  justify-content: center
-
-.centerMe-item
-  max-width: 50%
-
-.centerMe-top
-  align-self: flex-start
-
-.centerMe-bottom
-  align-self: flex-end
+// .centerMe
+//   display: flex
+//   align-items: center
+//   justify-content: center
+//
+// .centerMe-item
+//   max-width: 50%
+//
+// .centerMe-top
+//   align-self: flex-start
+//
+// .centerMe-bottom
+//   align-self: flex-end
 
 ////////// Top Banner /////////////////////////////
-.topCatBanner
-  margin-top: -110px
-  height: 50px
-  img
-    min-width: 100%
-    max-width: 100%
+// .topCatBanner
+//   margin-top: -110px
+//   height: 50px
+//   img
+//     min-width: 100%
+//     max-width: 100%
 
 /////////////// Item Or Product Overlay /////////////////////////////////
 .wrapOverlayItem
@@ -170,13 +170,14 @@
 
 .glassListRow
   width: auto
-  background-color: rgba(0,0,0, .1)
+  background-color: $listRowColor
   text-align: center
   -webkit-transition: all 0.3s ease-out
   -moz-transition: all 0.3s ease-out
   -ms-transition: all 0.3s ease-out
   -o-transition: all 0.3s ease-out
   transition: all 0.3s ease-out
+
 
 .filerow
   margin: 5px
@@ -186,50 +187,21 @@
     cursor: pointer
     background-color: rgba(0,0,0, .2)
 
-///////////// Head Title, back button and option buttons ////////////////////////////////////////
 
-.titleDiv
-  width: auto
-  background-color: rgba(255,255,255, .7)
-  padding: 1px 5px
-  text-align: center
-  margin: 0
-  position: relative
-  -webkit-transition: all 0.3s ease-out
-  -moz-transition: all 0.3s ease-out
-  -ms-transition: all 0.3s ease-out
-  -o-transition: all 0.3s ease-out
-  transition: all 0.3s ease-out
-  display: -ms-flexbox
-  display: -webkit-flex
-  display: flex
-  -ms-flex-align: center
-  -webkit-align-items: center
-  -webkit-box-align: center
-  align-items: center
-  justify-content: center
-  a
-    color: #000
 
-.backOption
-  position: absolute
-  left: 10px
-  top: 40%
-  bottom: 40%
-
-.optionsDiv
-  background-color: rgba(0,0,0, .1)
-  padding: 5px
-  justify-content: center
-  width: 100%
-  display: -ms-flexbox
-  display: -webkit-flex
-  display: flex
-  -ms-flex-align: center
-  -webkit-align-items: center
-  -webkit-box-align: center
-  align-items: center
-
+// .optionsDiv
+//   background-color: rgba(0,0,0, .1)
+//   padding: 5px
+//   justify-content: center
+//   width: 100%
+//   display: -ms-flexbox
+//   display: -webkit-flex
+//   display: flex
+//   -ms-flex-align: center
+//   -webkit-align-items: center
+//   -webkit-box-align: center
+//   align-items: center
+//
 // .optionBtn
 //   padding: 5px 10px
 //
@@ -779,30 +751,6 @@ $addItemWidth: 800px
     width: 30px
     border-radius: 100%
 
-.delColorBtn
-  padding: 5px 10px 6px
-  position: absolute
-  margin-top: -16px
-  margin-left: 15px
-  background-color: #fff
-  padding: 2px
-  border-radius: 100%
-  height: 18px
-  width: 18px
-  padding-left: 3px
-  &:hover
-    cursor: pointer
-  .fa
-    font-size: 10px
-
-.delColBtn
-  margin-top: -22px
-  margin-left: 6px
-  border-radius: 100%
-  .fa
-    color: #fff
-    font-size: 16px
-
 
 /////////////////////// Del Mod ////////////////////////////////
 .delModDiv
@@ -819,65 +767,63 @@ $addItemWidth: 800px
 
 ////////////// LIST VIEW //////////////////////////////////////////
 .listRow
-  margin: 5px 0
-  margin-left: 5px
-  margin-right: 5px
-  padding: 2px
-  color: #fff
+  color: $listRowText
+  display: -ms-flexbox
+  display: -webkit-flex
+  display: flex
+  -ms-flex-align: center
+  -webkit-align-items: center
+  -webkit-box-align: center
+  // align-items: stretch
+  align-items: center
   text-align: left
-  display: flex
-  &:hover
-    cursor: pointer
-    background-color: rgba($listhover, 0.5)
-    -webkit-box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
-    -moz-box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
-    box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
-    color: $listhovertxt
-
-// List Titles
-.listTitDiv
-  margin: 5px
-  margin-left: 5px
-  margin-right: 5px
-  padding: 2px
-  padding-top: 10px
-  color: #fff
-  text-align: center
-  display: flex
-  background-color: rgba($mainblue, .5)
-.listTit
-  border-right: 1px solid rgba($gris, 0.5)
-  p
-    font-size: 14px
-.listTitLast
-  border-right: 0px
-
-// List Content
-.listImg
-  margin: 0 auto
-  width: 50px
   height: 50px
-  padding: 0
-  cursor: pointer
-@media (max-width: 765px)
-  .listImg
-    margin: 0
+  margin: 5px
+  padding: 5px
+  div:nth-child(1)
+    text-align: center
+  div:nth-child(n+2)
+    border-right: 1px solid rgba(222, 222, 222, 0.51)
+  div:last-child
+    border-right: 0 !important
+  img
+    border-radius: 100%
+    margin: 0 auto
+    width: 50px
+    height: 50px
+    padding: 0
+    cursor: pointer
+  p
+    padding: 10px 0
+  // &:hover
+  //   cursor: pointer
+  //   background-color: rgba($listhover, 0.5)
+  //   -webkit-box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
+  //   -moz-box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
+  //   box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
+  //   color: $listhovertxt
 
-.colList
-  border-right: 1px solid rgba($gris, 0.5)
-  padding-top: 15px
-  text-align: center
-.colListFirst
-  padding-top: 0
-.colListLast
-  border-right: 0px
-  padding-top: 0
 
-.listselect
-  background-color: rgba($mainblue, .5)
+.listHover
+  &:hover
+    background-color: $listRowHoverColor
+    -webkit-box-shadow: inset 2px 3px 5px -3px $listRowHoverColor
+    -moz-box-shadow: inset 2px 3px 5px -3px $listRowHoverColor
+    box-shadow: inset 2px 3px 5px -3px $listRowHoverColor
+    cursor: pointer
+
+.listSelect
+  background-color: $listSelect
   -webkit-box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
   -moz-box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
   box-shadow: inset 2px 3px 5px -3px rgba(0,0,0,0.54)
+  p
+    color: #fff
+
+.listTits
+  background-color: $listTitBack
+  color: $listTitText
+
 
 .viewListMobile
   display: -ms-flexbox
@@ -902,8 +848,9 @@ $addItemWidth: 800px
   display: flex
   -ms-flex-align: center
   -webkit-align-items: center
-  -webkit-box-align: cente
+  -webkit-box-align: center
   align-items: center
+  justify-content: center
   color: #000
   padding: 0
   margin: 0
@@ -913,18 +860,63 @@ $addItemWidth: 800px
   padding: 5px
   p
     max-width: 50%
+  img
+    border-radius: 100%
+    margin: 0 auto
+    width: 50px
+    height: 50px
+    padding: 0
   &:hover
     cursor: pointer
 
 .viewListMobileMod
+  display: -ms-flexbox
+  display: -webkit-flex
+  display: flex
+  -ms-flex-align: center
+  -webkit-align-items: center
+  -webkit-box-align: center
+  align-items: center
   position: absolute
-  background-color: rgba(255,255,255, .9)
-  top: 0
+  background-color: rgba(255,255,255, 1)
+  width: 40%
+  height: 100%
   right: 0
-  left: 0
+  top: 0
   text-align: center
-  padding: 4px 0
-  width: 100%
+
+.viewListMobile2
+  img
+    border-radius: 100%
+    margin: 4px 0
+    border-radius: 100%
+    width: 50px
+    height: 50px
+    padding: 0
+    margin-left: 5px
+.listMobile2Img
+  padding: 0
+  padding-left: 6px
+
+.listMobileSelected
+  display: -ms-flexbox
+  display: -webkit-flex
+  display: flex
+  -ms-flex-align: center
+  -webkit-align-items: center
+  -webkit-box-align: center
+  align-items: center
+  justify-content: center
+  background-color: rgb(111, 106, 201)
+  position: absolute
+  right: 0
+  top: 0
+  width: 30px
+  height: 100%
+  .fa
+    color: #fff
+
+
 
 // Responsivity
 
@@ -973,125 +965,6 @@ $addItemWidth: 800px
   -moz-box-shadow: 0px -2px 5px 1px rgba(0,0,0,0.26)
   box-shadow: 0px -2px 5px 1px rgba(0,0,0,0.26)
 
-
-////////////// LOGIN //////////////////////////////////////////////
-body#login
-  background-image: url(../images/body/backgrounds/back.jpg)
-
-.login
-  height: 100%
-  width: 100%
-
-.loginDiv
-  max-width: 350px
-
-.logtitdiv
-  margin-top: 20%
-  background-color: rgba($maintitdiv, .9)
-  padding: 10px 0 10px 40px
-  img
-    max-width: 40px
-    margin-right: 15px
-
-.rememberDiv
-  max-width: 350px
-  background-color: rgba(255,255,255, .5)
-.loginInner
-  text-align: center
-  padding: 15px 0
-  background: $loginBack
-  h4
-    font-size: 18px
-    text-align: center
-    color: #fff
-
-.rememberLoginDiv
-  label
-    color: #fff
-    transition: all 0.3s ease 0s
-    &:hover
-      color: $mainblue
-
-.rememberme input
-  min-height: 1px !important
-
-// Form
-.formulog
-  max-width: 350px
-  position: relative
-  // background: rgba($logback, .4)
-  color: #fff
-
-.formulog label
-  display: block
-  padding: 0 0 5px 2px
-  text-transform: uppercase
-  font-size: 14px
-
-.formulog input
-  background-color: transparent
-  border: 0
-  border-bottom: 1px solid #c5c5c5
-  min-height: 50px
-
-// Main loginform icons
-.formulog label i
-  margin-right: 5px
-  display: inline-block
-  width: 10px
-  color: $logicons
-  margin-right: 25px
-
-.loguser,.logpass
-  color: $loguserpass
-  text-align: left
-.loguser
-  margin-bottom: 30px
-
-.fa-unlock:before,.fa-user:before
-  font-size: 16px
-  color: $logicons
-
-.formulog input[type=text],
-.formulog input[type=password]
-  font-size: 13px
-  color: rgb(208, 208, 208)
-  font-weight: 400
-  display: block
-  width: 100%
-  padding: 5px
-  margin-bottom: 5px
-  -webkit-transition: all 0.3s ease-out
-  -moz-transition: all 0.3s ease-out
-  -ms-transition: all 0.3s ease-out
-  -o-transition: all 0.3s ease-out
-  transition: all 0.3s ease-out
-
-.formulog input[type=text]:hover,
-.formulog input[type=password]:hover
-  border-color: #fff
-.formulog label:hover ~ input
-  border-color: #fff
-.formulog input[type=text]:focus,
-.formulog input[type=password]:focus
-  border-color: #455568
-  outline: none
-
-.logBtn
-  margin: 15px 0
-
-.forgotDiv
-  padding: 10px 0
-  a
-    color: #fff
-    transition: all 0.3s ease 0s
-    &:hover
-      color: #ccc
-
-.forgotsubtit
-  font-size: 10px
-  text-align: center
-  color: #383838
 
 ///////////// Generic Cards (Main Links) ////////////////
 
