@@ -971,3 +971,5 @@ function utf8_decode (str_data) {
     $('.SelectProdImg li').click(function() {
       $(this).toggleClass('selectImgGalleries');
     })
+
+    

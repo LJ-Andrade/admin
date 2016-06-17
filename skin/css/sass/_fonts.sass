@@ -20,3 +20,40 @@ $selectImgTitle: rgb(255, 255, 255)
   text-align: right
 .txL
   text-align: left
+
+///// PLACEHOLDERS /////
+
+
+\::-webkit-input-placeholder
+  font-size: $placeHolderSize
+  color: $placeHolderColor
+  text-align: $placeHolderAlign
+
+\:-moz-placeholder
+  font-size: $placeHolderSize
+  color: $placeHolderColor
+  text-align: $placeHolderAlign
+
+
+\::-moz-placeholder
+  font-size: $placeHolderSize
+  color: $placeHolderColor
+  text-align: $placeHolderAlign
+
+
+\:-ms-input-placeholder
+  font-size: $placeHolderSize
+  color: $placeHolderColor
+  text-align: $placeHolderAlign
+
+/* Change the white to any color ;) */
+input:-webkit-autofill
+
+  -webkit-box-shadow: 0 0 0px 1000px rgba(255,255,255, 1) inset
+  -webkit-text-fill-color: #000 !important
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active
+  transition: background-color 5000s ease-in-out 0s

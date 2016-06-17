@@ -34,7 +34,7 @@
       <div class="container addItemDiv animated zoomIn">
         <div class="col-sm-12 form-box formitems">
           <!-- Inputs -->
-          <div id="newInputs"  >
+          <div id="newInputs" class="animated fadeIn" >
             <div class="row"><!-- Title & Code -->
               <div class="col-md-6 form-group ">
                 <input id="" name="user" class="form-first-name formNewItem" placeholder="T&iacute;tulo" type="text">
@@ -72,15 +72,13 @@
                   <span>Colores</span>
                 </div>
                 <div class="circles circlesAddItem">
-                  <ul>
-                    <li class="Hidden"><div class="circleInput"><input name="color" type="color" value="#8551d9" /></div></li><br>
-                    <li><button type="button" name="button" class="Hidden DelSelColors btn mainbtnred delColBtn"><i class="fa fa-trash-o"></i></button></li>
-                    <li><div class="ColorSelect circle circleAddItem" style="background-color: #fff"></div></li>
-                    <li><div class="ColorSelect circle circleAddItem" style="background-color: #c17996"></div></li>
-                    <li><div class="ColorSelect circle circleAddItem" style="background-color: #768754"></div></li>
-                    <li><div class="ColorSelect circle circleAddItem" style="background-color: #5643a0"></div></li>
-                    <li><div class="ColorSelector colorPalette" name="color" type="color"><img src="../../../skin/images/body/icons/colorpalette.jpg" alt=""/></div></li>
-                  </ul>
+                  <div class="circleInput Hidden animated fadeIn"><input name="color" type="color" value="#8551d9" /></div>
+                  <div class=""><button type="button" name="button" class="Hidden DelSelColors btn mainbtnred delColBtn"><i class="fa fa-trash-o"></i></button></div>
+                  <div class="ColorSelect circle circleAddItem" style="background-color: #fff"></div>
+                  <div class="ColorSelect circle circleAddItem" style="background-color: #c17996"></div>
+                  <div class="ColorSelect circle circleAddItem" style="background-color: #768754"></div>
+                  <div class="ColorSelect circle circleAddItem" style="background-color: #5643a0"></div>
+                  <div class="ColorSelector colorPalette" name="color" type="color"><img src="../../../skin/images/body/icons/colorpalette.jpg" alt=""/></div>
                 </div>
               </div>
             </div>
@@ -110,7 +108,7 @@
             </div><!-- /Choose Img -->
           </div><!-- /newInputs -->
           <!-- Images (HIDDEN) -->
-          <div id="MultipleImgWd" class="row imgWindow Hidden">
+          <div id="MultipleImgWd" class="row imgWindow animated fadeIn Hidden">
             <button id="cancelImgChange" type="button" name="button" class="btn closeBtn"><i class="fa fa-times"></i></button>
               <div class="imgWindowTitle"><h5>Agregar o Cambiar Im&aacute;genes</h5></div>
               <div class="col-md-12 activeImgs SelectProdImg">

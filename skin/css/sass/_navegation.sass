@@ -4,6 +4,9 @@
 .nav
   .fa
     color: $mainMenuIcons
+    &:hover
+      .fa
+        color: #fff
 
 .ownername
   color: $topTextBrand
@@ -45,6 +48,10 @@
 
 ////////////////////// Side Nav /////////////////////////////
 .side-nav
+  .fa
+    text-shadow: $mainMenuIconsShadow
+    font-size: $mainMenuIconTxt
+    margin-right: 5px
   li
     transition: all 0.2s ease 0s
     &:hover
@@ -54,12 +61,12 @@
       width: 225px
       &:hover
         border-left: $menuLine1
-        background-color: #fff
         transition: all 0.2s ease 0s
-        .navinicio
-          border-left: 10px solid blue
       &:hover, &focus
         background-color: $mainMenuLiHover !important
+        .fa
+          color: $mainMenuIconsHover
+          text-shadow: none
       ul
         padding: 0
         li
@@ -70,8 +77,7 @@
             padding: 10px 15px 10px 38px
             text-decoration: none
             color: $sideddtxt
-            padding-left: 60px
-            font-size: 12px
+            padding-left: 50px
             transition: all 0.2s ease 0s
             &:hover
               border-left: 5px solid $mainblue
@@ -107,8 +113,12 @@
       border-left: $menuLine3
     ul
       list-style: none
+    .fa
+      font-size: $mainMenuIconsDDTxt
+      color: $mainMenuIconsDD
   a
-    padding: 10px 5px 10px 44px
+    font-size: $mainMenuIconsDD
+    padding: 10px 5px 10px 25px
     display: block
     color: $mainMenuLiText
     text-decoration: none

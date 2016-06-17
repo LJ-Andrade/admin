@@ -233,11 +233,13 @@ $addItemWidth: 800px
   box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
   padding-top: 20px
   padding-bottom: 20px
+  transition: all 0.3s ease 0s
 .addItemTit
   text-align: center
   background-color: #fff
   max-width: $addItemWidth
   margin: 0 auto
+  transition: all 0.3s ease 0s
   h3
     color: $additemtit
     text-align: center
@@ -251,6 +253,7 @@ $addItemWidth: 800px
   -webkit-box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
   -moz-box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
   box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
+  transition: all 0.3s ease 0s
 
 .addItemNoformTit
   background-color: rgba(255, 255, 255, 0.5)
@@ -292,7 +295,6 @@ $addItemWidth: 800px
   padding: 6px 12px
   font-size: 14px
   line-height: 1.42857
-  color: #555
   transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s
   max-width: 100%
   border: 0
@@ -343,7 +345,7 @@ $addItemWidth: 800px
   transition: all 0.3s ease 0s
   &:hover
     opacity: 1
-    background: rgba(64, 71, 120, 0.7) center no-repeat
+    background: rgba(34, 34, 34, 0.62) center no-repeat
   .fa
     font-size: 35px
     color: #fff
@@ -654,15 +656,21 @@ $addItemWidth: 800px
   .mobile-clear
     clear: both
 
+
+
+// Color Selector
+
 .circles
-  text-align: left
-  ul
-    list-style: none
-    display: inline-block
-    margin: 0
-    margin-left: 15px
-    li
-      display: inline-block
+  display: -ms-flexbox
+  display: -webkit-flex
+  display: flex
+  -ms-flex-align: center
+  -webkit-align-items: center
+  -webkit-box-align: center
+  align-items: center
+  margin: 15px 5px 5px
+  div
+    margin: 0 3px
 
 .circle
   width: 20px
@@ -687,7 +695,6 @@ $addItemWidth: 800px
 
 .circleInput
   border-radius: 100%
-  margin-bottom: 5px
   input
     border: 0
     width: 25px
@@ -695,13 +702,17 @@ $addItemWidth: 800px
     &:hover
       cursor: pointer
 
+.delColBtn
+  .fa
+    color: #fff
+  &:hover
+  .fa
+    color: #fff
+
 .colorPalette
   width: 30px
   height: 30px
-
   img
-    margin-left: 4px
-    margin-top: -23px
     width: 30px
     border-radius: 100%
 
@@ -946,7 +957,7 @@ $addItemWidth: 800px
     font-size: 45px
     width: 70px
     height: 70px
-    color: rgb(64, 64, 64)
+    color: rgb(149, 149, 149)
   &:hover
     background-color: rgba($lightBlue, 0.56)
     cursor: pointer
