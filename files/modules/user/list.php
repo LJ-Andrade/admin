@@ -12,25 +12,25 @@
     $Users = $DB->fetchAssoc('admin_user','*',"status = '".$Status."' ","admin_id");
 ?>
 <body>
-  <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
   <div id="wrapper"><!--  Wrapper -->
-    <!-- Title and options -->
-    <div class="titleDiv">
-      <div class="col-md-6 breadCrumTitle">
-        <span class="breadCrums"><i class="fa fa-home"></i> Home</span><i class="fa fa-angle-right"></i>
-        <span class="breadCrums">Usuarios</span><i class="fa fa-angle-right"></i>
-        <span class="mainTitle"><i class="fa fa-user" aria-hidden="true"></i>
-         LISTADO DE USUARIOS ADMINISTRADORES</span>
-      </div>
-      <div class="col-md-6 titleDivOptions"><?php $Buttons->ShowButtons(); ?></div>
-    </div><!-- /Title and options -->
+    <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
+      <div class="container-fluid">
+        <!-- Title and options -->
+        <div class="row">
+          <div class="container-fluid titleDiv">
+            <div class="col-md-6 col-sm-7 col-xs-12 breadCrumTitle">
+              <span class="breadCrums"><i class="fa fa-home"></i></span><i class="fa fa-angle-right"></i>
+              <span class="breadCrums">Usuarios</span><i class="fa fa-angle-right"></i>
+              <span class="mainTitle"><i class="fa fa-user" aria-hidden="true"></i>
+               LISTADO DE USUARIOS ADMINISTRADORES</span>
+            </div>
+            <div class="col-md-6 col-sm-5 col-xs-12 titleDivOptions"><?php $Buttons->ShowButtons(); ?></div>
+          </div>
+        </div><!-- /Title and options -->
 
-    <!-- <div class="glasscontainer1 optionsdiv">
 
-    </div> -->
 
-    <div class="container-fluid">
-      <!-- Filters / Search -->
+       <!-- Filters / Search -->
       <div class="container-fluid">
         <div id="filtersuser" class="row row-centered filterdiv">
           <form class="form-inline filterformdiv" role="form">
@@ -92,11 +92,7 @@
         <?php } ?>
       </div><!-- /Grid View  -->
 
-
-
-
       <div class="ListWrapper Hidden">
-
       <!-- //////// User List View Titles - #viewlist ///////////-->
         <div id="" class="viewlist row animated fadeIn">
           <!-- Titles  -->
@@ -131,13 +127,13 @@
         <?php foreach($Users as $User){ $User = new AdminData($User['admin_id']);?>
         <!-- ////////////////////  User List View Mobile Large HERE - #ViewListMobile1 //////////////////////////// -->
         <div id="" class="row viewListMobileLarge viewListMobile1">
-            <div class="col-md-2 col-sm-2 col-xs-3"><img id="#" src="<?php echo $User->Img; ?>" class="img-responsive listImg"></div>
-            <div class="col-md-3 col-sm-3 col-xs-3"><p><?php echo $User->User; ?></p></div>
-            <div class="col-md-4 col-sm-4 col-xs-3"><p><?php echo $User->FullName; ?></p></div>
-            <div class="col-md-3 col-sm-3 col-xs-3">
-              <a href="edit.php?id=<?php echo $User->AdminID ?>"><button type="button" name="button" class="btn mainbtn modBtnList"><i class="fa fa-pencil"></i></button></a>
-              <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred delBtnList deleteElement" deleteElement="<?php echo $User->AdminID ?>" deleteParent="userlist<?php echo $User->AdminID ?>/user<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>'?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente"><i class="fa fa-trash"></i></button></a>
-            </div>
+          <div class="col-md-2 col-sm-2 col-xs-3"><img id="#" src="<?php echo $User->Img; ?>" class="img-responsive listImg"></div>
+          <div class="col-md-3 col-sm-3 col-xs-3"><p><?php echo $User->User; ?></p></div>
+          <div class="col-md-4 col-sm-4 col-xs-3"><p><?php echo $User->FullName; ?></p></div>
+          <div class="col-md-3 col-sm-3 col-xs-3">
+            <a href="edit.php?id=<?php echo $User->AdminID ?>"><button type="button" name="button" class="btn mainbtn modBtnList"><i class="fa fa-pencil"></i></button></a>
+            <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred delBtnList deleteElement" deleteElement="<?php echo $User->AdminID ?>" deleteParent="userlist<?php echo $User->AdminID ?>/user<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>'?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente"><i class="fa fa-trash"></i></button></a>
+          </div>
         </div><!-- /User List View Mobile Large -->
         <?php } ?>
         <!-- ////////////////////// User List View Mobile Small HERE - #ViewListMobile2 ///////////////// -->
@@ -157,10 +153,6 @@
         </div><!-- /User List View Mobile Small  -->
         <?php } ?>
       </div>
-
-
-
-
       <!--Paginator-->
       <!-- <div class="paginat animated slideInUp">
         <ul class="pagination">
@@ -174,8 +166,6 @@
         </ul>
       </div> -->
       <!-- /Pagination-->
-
-
     </div><!-- /.container-fluid -->
   </div><!-- /#wrapper -->
 <?php $Foot->setFoot(); ?>

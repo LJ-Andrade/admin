@@ -22,19 +22,15 @@ body
   position: relative
   padding-left: 0
   height: 100%
+  margin-bottom: 50px
+
+.pageWrapper
+  margin-bottom: 50px
 
 .contentWrapper
   background-color: $contentWrapper
   margin-top: -2px
   height: 100%
-
-@media(max-width:490px)
-  body
-    padding-top: 20px
-
-@media(max-width:600px)
-  body
-    padding-top: 25px
 
 @media(min-width:768px)
   #wrapper
@@ -44,7 +40,7 @@ body
 
 @media(max-width:960px)
   #wrapper
-    margin-top: 30px
+    margin-top: 24px
 
 a
   color: #fff
@@ -151,7 +147,7 @@ ul
 
 .titleDiv
   width: auto
-  height: 50px
+  min-height: 50px
   background-color: $titleDivTop
   padding: 1px 5px
   margin-bottom: 10px
@@ -172,6 +168,7 @@ ul
   span
     // font-size: 1.7rem
     font-weight: 300
+    white-space: nowrap
   a
     color: #000
   .breadCrumTitle
@@ -185,8 +182,9 @@ ul
     font-size: 20px
     font-weight: 300
     color: rgb(0, 0, 0)
-    .fa-user
-      color: #000
+    .mainTitle
+      .fa
+        color: #000
   .breadCrums
     font-size: 15px
     font-style: italic
@@ -194,6 +192,40 @@ ul
   .titleDivOptions
     text-align: right
 
+@media(max-width: 1410px)
+  .titleDiv
+    .breadCrums
+      font-size: 14px
+    .mainTitle
+      font-size: 16px
+
+@media(max-width: 1242px)
+  .titleDiv
+    .breadCrums
+      font-size: 12px
+    .mainTitle
+      font-size: 14px
+  .mainbtn
+    padding: 6px 6px 6px
+    font-size: 12px
+
+@media(max-width: 842px)
+  .titleDiv
+    display: block
+    padding: 5px 0
+    .titleDivOptions
+      text-align: center
+
+@media (max-width:866px) and (min-width:767px)
+  .titleDiv
+    display: flex
+
+@media(max-width: 340px)
+  .titleDiv
+    .breadCrums
+      font-size: 11px
+    .mainTitle
+      font-size: 11px
 
 /////////////////////// Pagination //////////////////////////
 .paginat

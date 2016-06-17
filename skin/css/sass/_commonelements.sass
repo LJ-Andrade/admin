@@ -1,26 +1,3 @@
-/////// Grals ////////
-// .centerMe
-//   display: flex
-//   align-items: center
-//   justify-content: center
-//
-// .centerMe-item
-//   max-width: 50%
-//
-// .centerMe-top
-//   align-self: flex-start
-//
-// .centerMe-bottom
-//   align-self: flex-end
-
-////////// Top Banner /////////////////////////////
-// .topCatBanner
-//   margin-top: -110px
-//   height: 50px
-//   img
-//     min-width: 100%
-//     max-width: 100%
-
 /////////////// Item Or Product Overlay /////////////////////////////////
 .wrapOverlayItem
   width: 87%
@@ -187,46 +164,6 @@
     cursor: pointer
     background-color: rgba(0,0,0, .2)
 
-
-
-// .optionsDiv
-//   background-color: rgba(0,0,0, .1)
-//   padding: 5px
-//   justify-content: center
-//   width: 100%
-//   display: -ms-flexbox
-//   display: -webkit-flex
-//   display: flex
-//   -ms-flex-align: center
-//   -webkit-align-items: center
-//   -webkit-box-align: center
-//   align-items: center
-//
-// .optionBtn
-//   padding: 5px 10px
-//
-//
-// .optionIcons
-//   display: inline-block
-//   ul
-//     padding: 0
-//     list-style: none
-//     li
-//       display: inline-block
-//       margin-right: 10px
-//       a
-//         font-size: 14px
-//         display: block
-//         color: $subtopictxt
-//         -webkit-transition: all 0.3s ease-in-out
-//         -moz-transition: all 0.3s ease-in-out
-//         -o-transition: all 0.3s ease-in-out
-//         transition: all 0.3s ease-in-out
-//         color: #000
-//         &:hover
-//           color: #fff
-//           text-decoration: none
-
 /////////////////// Filters /////////////////////////
 
 #filteritem
@@ -286,6 +223,7 @@ $addItemWidth: 800px
     color: $mainred
   h3
     font-size: 16px
+    font-weight: 500
 
 .additemdiv, .addItemDiv
   max-width: $addItemWidth
@@ -429,12 +367,12 @@ $addItemWidth: 800px
   padding: 20px 10px
   background-color: $innerwindow
 .imgWindowTitle
-  margin-top: 20px
-  margin-bottom: 10px
+  background-color: rgba(255,255,255,.8)
   text-align: left
   padding: 5px 15px
-  background-color: rgba(255,255,255,.8)
-  width: auto
+  width: 80%
+  margin: 0 auto
+  margin-bottom: 10px
 
 .imgHover
   &:hover
@@ -556,36 +494,52 @@ $addItemWidth: 800px
 
 /////////// TREES / CHECKBOXES ////////////////////////////
 
-.treeDivContainer
-  background-color: $innerwindow
+.treeDivRow
   padding: 20px 20px 0
+  margin: 0 auto
 
+.checkboxTitle
+  background-color: $mainWhite
+  border-radius: 5px 5px 0 0
+  h5
+    margin: 0
+    padding: 10px 0
 .checkboxDiv
-  background-color: rgba(255,255,255,.5)
-  padding: 10px
-  max-width: 280px
-  margin: 10px 10px
+  width: 100%
   ul
     margin: 0 auto
+    -webkit-box-shadow: 3px 4px 9px -9px rgba(0,0,0,0.75)
+    -moz-box-shadow: 3px 4px 9px -9px rgba(0,0,0,0.75)
+    box-shadow: 3px 4px 9px -9px rgba(0,0,0,0.75)
     li
       padding-top: 4px
       padding-bottom: 4px
+      padding-left: 10px
       margin: 0 auto
       color: white
+      transition: all 0.2s ease 0s
+
       i
         color: #f1f1f1
         margin-right: 5px
+      &:hover
+        cursor: pointer
+        background-color: rgba(255, 255, 255, 0.34)
+        label
+          color: #383838
 
   label
     font-size: 14px
     font-weight: 400
 
 .treeLv1
-  background-color: rgba(27, 37, 89, 0.72)
+  background-color: $checkBoxLv1
 .treeLv2
-  background-color: rgba(70, 80, 138, 0.72)
-  padding-left: 10px
-  padding-top: 5px
+  background-color: $checkBoxLv2
+  padding-left: 15px !important
+.treeLv3
+  background-color: rgb(144, 130, 181)
+  padding-left: 20px !important
 
 .treeArrow
   position: relative
@@ -969,19 +923,46 @@ $addItemWidth: 800px
 ///////////// Generic Cards (Main Links) ////////////////
 
 .genCard
-  background: $gradWhite
+  position: relative
   border-radius: 5px
   text-align: center
-  padding: 20px 15px
-  max-width: 200px
-  transition: all 0.3s ease 0s
+  max-width: 300px
   margin: 5px
+  padding: 5px
   a
     color: #000
-  span
-    font-size: 20px
+
+.genCardHead
+  background-color: $lightBlue
+  width: 100%
+  padding: 20px 0
+  border-radius: 5px 5px 0 0
+  transition: all 0.3s ease 0s
   .fa
-    font-size: 20px
+    text-align: center
+    background-color: #fff
+    border-radius: 100%
+    padding-top: 12px
+    font-size: 45px
+    width: 70px
+    height: 70px
+    color: rgb(64, 64, 64)
   &:hover
-    background: $gradWhiteHover
+    background-color: rgba($lightBlue, 0.56)
     cursor: pointer
+
+.genCardContent
+  padding: 10px 0
+  display: -ms-flexbox
+  display: -webkit-flex
+  display: flex
+  -ms-flex-align: center
+  -webkit-align-items: center
+  -webkit-box-align: center
+  align-items: center
+  justify-content: center
+  transition: all 0.3s ease 0s
+  background-color: $mainWhite
+  border-radius: 0 0 5px 5px
+  span
+    font-size: 15px
