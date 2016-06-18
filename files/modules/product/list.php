@@ -69,7 +69,7 @@
       <!--- Wrapper of ALL items -->
       <div class="row-centered wrapOverlayItem"><!-- This Div MUST wrap all the items/products divs -->
         <!-- Individual Item (Grid View) -->
-        <div class="GridView col-md-4 col-sm-6 col-xs-12 col-centered overlayItem">
+        <div class="GridView col-md-4 col-sm-6 col-xs-12 col-centered overlayItem animated fadeIn">
           <div class="selectedItem Hidden">
             <i class="fa fa-check-circle"></i>
           </div>

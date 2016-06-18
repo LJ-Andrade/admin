@@ -42,7 +42,7 @@
       <div class="container addItemDiv animated fadeIn">
         <div class="col-md-12 form-box formitems">
           <!-- User Data -->
-          <div id="newInputs">
+          <div id="newInputs" class="animated fadeIn">
             <div class="row">
               <div class="col-md-6 form-group"><!-- User -->
                 <?php echo insertElement('text','user','','form-first-name form-controlusers','placeholder="Usuario" tabindex="1" validateEmpty="El usuario es obligatorio." validateMinLength="3/El usuario debe contener 3 caracteres como mínimo." validateFromFile="process.php/El usuario ya existe/action:=validate"'); ?>
@@ -155,9 +155,8 @@
             <?php // echo $MenuTree->MakeTree(); ?>
           </div> -->
         </div><!-- /Menu Tree -->
-
-
       </div><!-- /addItemDiv -->
+
       <!-- Create User Button Div  -->
       <div class="container donediv animated fadeInUp">
         <div class="form-group">

@@ -40,6 +40,21 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s; }
 
+.modal .modal-header {
+  background-color: #335e98;
+  color: #fff; }
+  .modal .modal-header .close {
+    color: #fff;
+    opacity: 1;
+    top: 2px; }
+    .modal .modal-header .close:hover {
+      color: #ba4545;
+      text-shadow: none;
+      background-color: #fff;
+      top: 2px; }
+.modal .modal-footer {
+  border-top: 0; }
+
 .mainbtn {
   margin: 5px;
   border: 0;
@@ -231,7 +246,7 @@ html {
 body {
   font-family: "Roboto", sans-serif;
   background-color: #5284ad;
-  background-image: url(../images/body/backgrounds/back.jpg);
+  background-image: url(../images/body/backgrounds/back3.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center center;
@@ -294,9 +309,6 @@ h4 {
 h5 {
   font-size: 16px;
   font-weight: 300; }
-
-.container h1, .container h2, .container h3, .container h4, .container h5, .container-fluid h1, .container-fluid h2, .container-fluid h3, .container-fluid h4, .container-fluid h5 {
-  text-align: center; }
 
 p {
   font-family: "Roboto", sans-serif;
@@ -627,7 +639,7 @@ body#login {
   color: #fff;
   transition: all 0.3s ease 0s; }
   .rememberLoginDiv label:hover {
-    color: #056e90; }
+    color: #335e98; }
 
 .rememberme input {
   min-height: 1px !important; }
@@ -922,7 +934,7 @@ body#login {
     box-shadow: 2px 2px 5px -10px rgba(0, 0, 0, 0.77); }
 
 .alertify-button-ok {
-  background-color: #056e90; }
+  background-color: #335e98; }
   .alertify-button-ok:hover {
     background-color: #388fab;
     text-decoration: none;
@@ -967,7 +979,7 @@ body#login {
   color: #000; }
 
 .nav .fa {
-  color: #f67676; }
+  color: #7fe0b3; }
   .nav .fa:hover .fa {
     color: #fff; }
 
@@ -1007,7 +1019,7 @@ body#login {
 
 .side-nav .fa {
   text-shadow: 0px 0px 4px #090909;
-  font-size: 15px;
+  font-size: 18px;
   margin-right: 5px; }
 .side-nav li {
   transition: all 0.2s ease 0s; }
@@ -1022,7 +1034,7 @@ body#login {
     .side-nav li a:hover, .side-nav li afocus {
       background-color: #4f7e91 !important; }
       .side-nav li a:hover .fa, .side-nav li afocus .fa {
-        color: #383838;
+        color: #89c6b0;
         text-shadow: none; }
     .side-nav li a ul {
       padding: 0; }
@@ -1037,7 +1049,7 @@ body#login {
           padding-left: 50px;
           transition: all 0.2s ease 0s; }
           .side-nav li a ul li a:hover {
-            border-left: 5px solid #056e90; }
+            border-left: 5px solid #335e98; }
 
 @media(min-width:768px) {
   .side-nav {
@@ -1066,9 +1078,9 @@ body#login {
     list-style: none; }
   .sideddmenu li .fa {
     font-size: 14px;
-    color: #f6b4b4; }
+    color: #91ebc1; }
 .sideddmenu a {
-  font-size: #f6b4b4;
+  font-size: #91ebc1;
   padding: 10px 5px 10px 25px;
   display: block;
   color: #fff;
@@ -1100,11 +1112,11 @@ body#login {
   .top-nav {
     padding: 0; } }
 .top-nav li a:hover, .top-nav > li > a:focus, .top-nav > .open > a, .top-nav > .open > a:hover, .top-nav > .open > a:focus {
-  background-color: rgba #056e90, 0.7;
+  background-color: rgba #335e98, 0.7;
   color: #000; }
 
 .nav .open > a, .nav .open > a:focus, .nav .open > a:hover {
-  background-color: rgba #056e90, 0.7 !important; }
+  background-color: rgba #335e98, 0.7 !important; }
 
 .dropdown {
   width: 219px; }
@@ -1733,7 +1745,7 @@ p .addusertxt:hover {
 
 .additemdiv, .addItemDiv {
   max-width: 800px;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.49);
   -webkit-box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69);
   -moz-box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69);
   box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69);
@@ -1863,14 +1875,14 @@ p .addusertxt:hover {
     width: 140px;
     height: 140px; } }
 .imgWindow {
-  padding: 20px 10px;
+  padding: 0;
+  padding-bottom: 10px;
   background-color: rgba(255, 255, 255, 0.2); }
 
 .imgWindowTitle {
   background-color: rgba(255, 255, 255, 0.8);
   text-align: left;
   padding: 5px 15px;
-  width: 80%;
   margin: 0 auto;
   margin-bottom: 10px; }
 
@@ -1994,7 +2006,8 @@ p .addusertxt:hover {
   border-radius: 5px 5px 0 0; }
   .checkboxTitle h5 {
     margin: 0;
-    padding: 10px 0; }
+    padding: 10px 0;
+    text-align: center; }
 
 .checkboxDiv {
   width: 100%; }
@@ -2023,14 +2036,14 @@ p .addusertxt:hover {
     font-weight: 400; }
 
 .treeLv1 {
-  background-color: rgba(33, 82, 148, 0.75); }
+  background-color: rgba(33, 82, 148, 0.4); }
 
 .treeLv2 {
-  background-color: rgba(65, 107, 164, 0.81);
+  background-color: rgba(65, 107, 164, 0.41);
   padding-left: 15px !important; }
 
 .treeLv3 {
-  background-color: #9082b5;
+  background-color: rgba(85, 125, 179, 0.4);
   padding-left: 20px !important; }
 
 .treeArrow {
@@ -2104,14 +2117,14 @@ p .addusertxt:hover {
   .OnOffDiv .bootstrap-switch {
     border: 1px solid #a4a4a4; }
   .OnOffDiv .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary, .OnOffDiv .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary {
-    background-color: #056e90; }
+    background-color: #335e98; }
 
 .switchDiv .bootstrap-switch .bootstrap-switch-label {
   background-color: #ccc; }
 .switchDiv .bootstrap-switch {
   border: 1px solid #a4a4a4; }
 .switchDiv .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary, .switchDiv .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary {
-  background-color: #056e90; }
+  background-color: #335e98; }
 
 .switchHead {
   padding-top: 10px; }
@@ -2340,6 +2353,17 @@ p .addusertxt:hover {
 @media (max-width: 500px) {
   .viewListMobile1, .viewlist {
     display: none !important; } }
+.menuIcons ul li {
+  display: inline; }
+  .menuIcons ul li .fa {
+    font-size: 20px;
+    margin: 6px;
+    color: #464646;
+    transition: all 0.3s ease 0s; }
+    .menuIcons ul li .fa:hover {
+      cursor: pointer;
+      color: #335e98; }
+
 .shadow {
   -webkit-box-shadow: 0px -2px 5px 1px rgba(0, 0, 0, 0.26);
   -moz-box-shadow: 0px -2px 5px 1px rgba(0, 0, 0, 0.26);
@@ -2356,22 +2380,25 @@ p .addusertxt:hover {
     color: #000; }
 
 .genCardHead {
-  background-color: rgba(65, 107, 164, 0.81);
+  background-color: rgba(0, 0, 0, 0.1);
   width: 100%;
   padding: 20px 0;
   border-radius: 5px 5px 0 0;
-  transition: all 0.3s ease 0s; }
+  transition: all 0.3s ease 0s;
+  -webkit-box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75); }
   .genCardHead .fa {
     text-align: center;
-    background-color: #fff;
+    background-color: white;
     border-radius: 100%;
     padding-top: 12px;
     font-size: 45px;
     width: 70px;
     height: 70px;
-    color: #959595; }
+    color: #474747; }
   .genCardHead:hover {
-    background-color: rgba(65, 107, 164, 0.56);
+    background-color: #a8a8bd;
     cursor: pointer; }
 
 .genCardContent {
@@ -2385,18 +2412,30 @@ p .addusertxt:hover {
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease 0s;
-  background-color: rgba(255, 255, 255, 0.71);
-  border-radius: 0 0 5px 5px; }
+  background-color: white;
+  border-radius: 0 0 5px 5px;
+  -webkit-box-shadow: 7px -4px 5px -6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 7px -4px 5px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: 7px -4px 5px -6px rgba(0, 0, 0, 0.75); }
   .genCardContent span {
     font-size: 15px; }
 
 .demotittles {
   margin: 50px 10px 20px;
   padding: 10px;
-  background-color: rgba(255, 255, 255, 0.2); }
+  background-color: rgba(255, 255, 255, 0.49); }
 
 .democheck {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.49);
   padding: 50px; }
+
+.mainDemoTitles {
+  margin: 20px 0;
+  padding: 5px 0;
+  background-color: rgba(255, 255, 255, 0.49); }
+  .mainDemoTitles h2 {
+    text-align: center;
+    color: #383838;
+    font-weight: 300; }
 
 /*# sourceMappingURL=main.css.map */

@@ -227,7 +227,7 @@ $addItemWidth: 800px
 
 .additemdiv, .addItemDiv
   max-width: $addItemWidth
-  background-color: rgba(255,255,255,.4)
+  background-color: $transpContainer
   -webkit-box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
   -moz-box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
   box-shadow: 4px 2px 8px -6px rgba(0, 0, 0, 0.69)
@@ -366,13 +366,13 @@ $addItemWidth: 800px
 
 /////////// Single and Multiple Images Window (HIDDEN) ///////////////////
 .imgWindow
-  padding: 20px 10px
+  padding: 0
+  padding-bottom: 10px
   background-color: $innerwindow
 .imgWindowTitle
   background-color: rgba(255,255,255,.8)
   text-align: left
   padding: 5px 15px
-  width: 80%
   margin: 0 auto
   margin-bottom: 10px
 
@@ -506,6 +506,7 @@ $addItemWidth: 800px
   h5
     margin: 0
     padding: 10px 0
+    text-align: center
 .checkboxDiv
   width: 100%
   ul
@@ -520,7 +521,6 @@ $addItemWidth: 800px
       margin: 0 auto
       color: white
       transition: all 0.2s ease 0s
-
       i
         color: #f1f1f1
         margin-right: 5px
@@ -540,7 +540,7 @@ $addItemWidth: 800px
   background-color: $checkBoxLv2
   padding-left: 15px !important
 .treeLv3
-  background-color: rgb(144, 130, 181)
+  background-color: $checkBoxLv3
   padding-left: 20px !important
 
 .treeArrow
@@ -655,8 +655,6 @@ $addItemWidth: 800px
 
   .mobile-clear
     clear: both
-
-
 
 // Color Selector
 
@@ -786,7 +784,7 @@ $addItemWidth: 800px
     color: #fff
 
 .listTits
-  background-color: $listTitBack
+  background-color: $titsHead
   color: $listTitText
 
 
@@ -904,26 +902,22 @@ $addItemWidth: 800px
 
 //////// Menu Lists /////////////////
 
-// .menulistico.fa-gears::before,
-// .menulistico.fa-sitemap::before,
-// .menulistico.fa-home::before,
-// .menulistico.fa-list-ul::before,
-// .menulistico.fa-user::before,
-// .menulistico.fa-tree::before,
-// .menulistico.fa-plus-square::before,
-// .menulistico.fa-eye::before,
-// .menulistico.fa-tree::before,
-// .menulistico.fa-money::before,
-// .menulistico.fa-bars::before,
-//   font-size: 35px
-//   padding-top: 5px
-//   color: #fff
-//   &:hover:before
-//     color: #000
-//
-// .menulistcol1
-//   padding-top: 8px
-//
+.menuIcons
+  ul
+    li
+      display: inline
+      .fa
+        font-size: 20px
+        margin: 6px
+        color: #464646
+        transition: all 0.3s ease 0s
+        &:hover
+          cursor: pointer
+          color: $mainblue
+
+
+
+
 /////////////// Effects ///////////////////////////////////////////
 .shadow
   -webkit-box-shadow: 0px -2px 5px 1px rgba(0,0,0,0.26)
@@ -944,22 +938,23 @@ $addItemWidth: 800px
     color: #000
 
 .genCardHead
-  background-color: $lightBlue
+  background-color: $genericCard
   width: 100%
   padding: 20px 0
   border-radius: 5px 5px 0 0
   transition: all 0.3s ease 0s
+  @include box-shadowDown
   .fa
     text-align: center
-    background-color: #fff
+    background-color: $genericCardIconBack
     border-radius: 100%
     padding-top: 12px
     font-size: 45px
     width: 70px
     height: 70px
-    color: rgb(149, 149, 149)
+    color: $genericCardIcon
   &:hover
-    background-color: rgba($lightBlue, 0.56)
+    background-color: $genericCardHover
     cursor: pointer
 
 .genCardContent
@@ -973,7 +968,8 @@ $addItemWidth: 800px
   align-items: center
   justify-content: center
   transition: all 0.3s ease 0s
-  background-color: $mainWhite
+  background-color: $genericCardContent
   border-radius: 0 0 5px 5px
+  @include box-shadowUp
   span
     font-size: 15px

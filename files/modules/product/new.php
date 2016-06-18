@@ -161,6 +161,6 @@
           <button id="acceptBtnImg" type="button" name="button" class="btn mainbtn Hidden"><i class="fa fa-check"></i> Aceptar</button>
         </div>
       </div>    <!-- /Create User Button Div  -->
-    </div>
+    </div> <!-- /Container Fluid  -->
   </div><!-- /#wrapper -->
 <?php $Foot->setFoot(); ?>

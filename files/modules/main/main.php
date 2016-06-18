@@ -19,11 +19,61 @@
              COMMON ELEMENTS</span>
           </div>
           <div class="col-md-6 titleDivOptions"><button type="button" class="mainbtn">Opcion</button></div>
-        </div><!-- /Title and options -->
-      </div><!-- Row -->
+        </div>
+      </div><!-- /Title and options -->
+
+
+
+      <!-- Cards For Links -->
+      <div class="container">
+        <div class="mainDemoTitles"><h2>Generic Cards</h2></div>
+        <div class="col-md-4 genCard">
+          <div class="genCardHead">
+            <a href="#"><i class="fa fa-user-plus"></i></a>
+          </div>
+          <div class="genCardContent">
+            <span>Agregar Usuario</span>
+          </div>
+        </div>
+        <div class="col-md-4 genCard">
+          <div class="genCardHead">
+            <a href="#"><i class="fa fa-list-ul"></i></a>
+          </div>
+          <div class="genCardContent">
+            <span>Lista de Usuarios</span>
+          </div>
+        </div>
+        <div class="col-md-4 genCard">
+          <div class="genCardHead">
+            <a href="#"><i class="fa fa-trash"></i></a>
+          </div>
+          <div class="genCardContent">
+            <span>Usuarios Eliminados</span>
+          </div>
+        </div>
+      </div><!-- /Cards For Links -->
+      <br> <br> <br><br><br>
+
+      <div class="container">
+        <div class="mainDemoTitles"><h2>Creation Window (Single Image)</h2></div>
+        <?php include 'inc.singleImgForm.php'; ?>
+      </div><br><br><br><br>
+      <div class="container">
+        <div class="mainDemoTitles"><h2>Creation Window (Multiple Image)</h2></div>
+        <?php include 'inc.multipleImgForm.php'; ?>
+              <br> <br> <br><br><br>
+      </div>
+
+
+      <div class="container">
+        <div class="mainDemoTitles"><h2>Lists</h2></div>
+      </div>
+        <?php include 'inc.lists.php'; ?>
+        <br> <br> <br><br><br>
 
         <div class="container">
           <div class="row">
+            <div class="mainDemoTitles"><h2>Buttons</h2></div>
             <div class="container">
               <!-- Buttons -->
               <div class="col-md-12 demotittles">
@@ -44,65 +94,37 @@
               </div>
               <!-- /Buttons -->
             </div>
-
-            <br><br>
           </div>
-
-
-
-        <!-- TREE CHECKBOXES -->
-        <div class="col-md-4">
-          <?php include 'inc.checkbox.php'; ?>
-        </div>
-        <!-- /TREE CHECKBOXES -->
-        <div class="col-md-6">
-          <button class="btn mainbtn testInfo" type="button" name="button">Test Info</button>
-          <button class="btn mainbtn testOk" type="button" name="button">Test Ok</button>
         </div>
 
+        <br> <br> <br>
 
-
-
-        <div class="col-md-12 demotittles">
-          <h1>Title h1</h1>
-          <h2>Title h2</h2>
-          <h3>Title h3</h3>
-          <h4>Title h4</h4>
-          <h5>Title h5</h5>
+        <div class="row">
+          <div class="container">
+            <div class="mainDemoTitles"><h2>CheckBox</h2></div>
+            <!-- TREE CHECKBOXES -->
+            <div class="col-md-4">
+              <?php include 'inc.checkbox.php'; ?>
+            </div>
+            <!-- /TREE CHECKBOXES -->
+          </div>
         </div>
 
+        <br> <br> <br>
+
+
+        <div class="row">
+          <div class="container">
+            <div class="mainDemoTitles"><h2>Alerts</h2></div>
+            <div class="col-md-6">
+              <button class="btn mainbtn testInfo" type="button" name="button">Test Info</button>
+              <button class="btn mainbtn testOk" type="button" name="button">Test Ok</button>
+            </div>
+          </div>
         </div>
 
 
-        <div class="clearfix"></div>
 
-        <!-- Cards For Links -->
-        <div class="container">
-          <div class="col-md-4 genCard">
-            <div class="genCardHead">
-              <a href="#"><i class="fa fa-user-plus"></i></a>
-            </div>
-            <div class="genCardContent">
-              <span>Agregar Usuario</span>
-            </div>
-          </div>
-          <div class="col-md-4 genCard">
-            <div class="genCardHead">
-              <a href="#"><i class="fa fa-list-ul"></i></a>
-            </div>
-            <div class="genCardContent">
-              <span>Lista de Usuarios</span>
-            </div>
-          </div>
-          <div class="col-md-4 genCard">
-            <div class="genCardHead">
-              <a href="#"><i class="fa fa-trash"></i></a>
-            </div>
-            <div class="genCardContent">
-              <span>Usuarios Eliminados</span>
-            </div>
-          </div>
-        </div><!-- /Cards For Links -->
     </div><!-- /.container-fluid -->
   </div><!-- /#wrapper -->
 <?php $Foot->setFoot(); ?>
