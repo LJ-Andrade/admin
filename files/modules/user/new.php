@@ -9,27 +9,15 @@
 ?>
 <body>
   <div id="wrapper">
-    <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
+    <?php include('../../includes/inc.subtop.php'); ?>
     <?php echo insertElement("hidden","action",'insert'); ?>
     <?php echo insertElement("hidden","menues"); ?>
     <?php echo insertElement("hidden","groups"); ?>
     <?php echo insertElement("hidden","newimage",$Admin->DefaultImg); ?>
 
+    
+    
     <div class="container-fluid">
-      <!-- Title and options -->
-      <div class="row">
-        <div class="container-fluid titleDiv">
-          <div class="col-md-6 col-sm-7 col-xs-12 breadCrumTitle">
-            <span class="breadCrums"><i class="fa fa-home"></i></span><i class="fa fa-angle-right"></i>
-            <span class="breadCrums">Usuarios</span><i class="fa fa-angle-right"></i>
-            <span class="mainTitle"><i class="fa fa-user-plus"></i>
-             AGREGAR USUARIO</span>
-          </div>
-          <div class="col-md-6 col-sm-5 col-xs-12 titleDivOptions"><button type="button" class="mainbtn">Opcion</button></div>
-        </div>
-      </div><!-- /Title and options -->
-
-
       <div class="row windowHead animated fadeInDown">
         <button type="button" name="button" class="btn closeBtn MainButton BackToLastPage"><i class="fa fa-times"></i></button>
         <div class="col-md-6 col-xs-12">
@@ -141,10 +129,9 @@
         <!-- Menu Tree -->
         <div class="row treeDivRow animated fadeIn Hidden">
           <div class="col-md-6 col-xs-12">
-            <?php include 'inc.group.php'; ?>
+            <?php echo $MenuTree->MakeTree('Permisos Especiales'); ?>  
           </div>
-          <div class="col-md-6 col-xs-12">
-            <?php include 'inc.group.php'; ?>
+          <div id="GroupTree" class="col-md-6 col-xs-12">
           </div>
           <!-- <div class="col-md-6 col-xs-5 form-group checkboxDiv">
             <h4>Grupos Asociados</h4>

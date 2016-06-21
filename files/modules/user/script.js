@@ -118,6 +118,7 @@ $(function(){
 
 function fillGroups()
 {
+	toggleLoader();
 	var profile = $('#profile').val();
 	var admin 	= $('#id').val();
 	var process = 'process.php';
@@ -142,6 +143,7 @@ function fillGroups()
             $("#groups").val('');
         }
     });
+    toggleLoader();
 }
 
 function getCheckedGroups()
@@ -216,101 +218,39 @@ $(document).ready(function(){
             	}
             }
         });
-	})
-
-/////////////////////////// Switch View Mode /////////////////////////////////////
-	$("#viewlistbt").on( "click", function() {
-		$(".usergralselect").each(function(){
-			$(this).removeClass('deleteThis');
-			$(this).removeClass('usergralselect');
-			$(this).find('.userButtons').toggle();
-			$(this).find('.userMainSection').toggleClass("usergralselect", 500);
-		});
-
-		$('div[id="viewgrid"]').hide( 500 );
-		$('div[id="viewlist"]').show( 500 );
-		$("#viewlistbt").hide();
-		$("#viewgridbt").show( 0 );
-		$('#delselected').addClass('Hidden');
-	});
-
-	$("#viewgridbt").on( "click", function() {
-		$(".listselect").each(function(){
-			$(this).removeClass('deleteThis');
-			$(this).removeClass('listselect');
-		});
-		$('div[id="viewgrid"]').show( 500 );
-		$('div[id="viewlist"]').hide( 500 );
-		$("#viewgridbt").hide();
-		$("#viewlistbt").show( 0 );
-		$('#delselected').addClass('Hidden');
 	});
 
 
-///////////////////// User Icos Del Modify Appears On Hover ///////////////////////
+///////////////////// User Icons Del Modify ///////////////////////
 
- // Del & Mod User Icons appearing onclick
+	
+
+	// $(".listrow").click(function(){
+	// 	$(this).toggleClass("deleteThis");
+	// 	$(this).toggleClass("listselect");
+	// 	var totalSelected = 0;
+	// 	var admDelBtn;
+	// 	$(".listselect").each(function(){
+	// 		if($(this).hasClass('undeleteable'))
+	// 		{
+	// 			admDelBtn = $(this);
+	// 		}else{
+	// 			totalSelected++;
+	// 		}
+
+	// 	});
+	// 	if(totalSelected>1 && !admDelBtn){
+	// 		$('#delselected').removeClass('Hidden');
+	// 	}else{
+	// 		$('#delselected').addClass('Hidden');
+	// 	}
+	// });
+
+
+
 $(function(){
-	$('.UserButtons').hide();
-	$('.usergral').click(function() {
-		$(this).find('.UserButtons').toggle();
-		$(this).find('.userMainSection').toggleClass("usergralselect", 500);
-		$(this).find('.userMainSection').toggleClass("usergralselect", 500);
-});
-
-	// Select Users
-	$(".usergral").click(function(){
-		$(this).toggleClass("deleteThis");
-		$(this).toggleClass("usergralselect");
-		var totalSelected = 0;
-		var admDelBtn;
-		$(".usergralselect").each(function(){
-			if($(this).hasClass('undeleteable'))
-			{
-				admDelBtn = $(this);
-			}else{
-				totalSelected++;
-			}
-
-		});
-		if(totalSelected>1 && !admDelBtn){
-			$('#delselected').removeClass('Hidden');
-		}else{
-			$('#delselected').addClass('Hidden');
-		}
-	});
-
-	$(".listrow").click(function(){
-		$(this).toggleClass("deleteThis");
-		$(this).toggleClass("listselect");
-		var totalSelected = 0;
-		var admDelBtn;
-		$(".listselect").each(function(){
-			if($(this).hasClass('undeleteable'))
-			{
-				admDelBtn = $(this);
-			}else{
-				totalSelected++;
-			}
-
-		});
-		if(totalSelected>1 && !admDelBtn){
-			$('#delselected').removeClass('Hidden');
-		}else{
-			$('#delselected').addClass('Hidden');
-		}
-	});
-
-
-
 	// Hover Effect
-	$('.userMainSection').hover(function() {
-		$(this).addClass('userHover');
-	});
-
-	$('.userMainSection').mouseleave(function() {
-		$(this).removeClass('userHover');
-	});
+	
 
 	// // Select multiple rows
 	// var isMouseDown = false, isHighlighted;

@@ -67,7 +67,7 @@
               <button type="button" class="btn mainbtn" data-toggle="modal" data-target="#myModal">Agregar &Iacute;cono</button>
               <?php // echo insertElement('text','icon','','form-first-name formNewItem','tabindex="6" placeholder="&Iacute;cono"'); ?>
             </div>
-            <?php include 'inc.iconModal.php'; ?>
+            <?php include '../../includes/inc.modal.icon.php'; ?>
           </div>
         </div>
       </div>

@@ -25,9 +25,9 @@ class HeadButton
 	function SetDefaultButtons($DefaultAdd=true,$DefaultDel=true)
 	{
 		if($DefaultAdd)
-			$this->SetButton($this->AddDefaultName,'mainbtn animated fadeIn optionBtn','fa-user-plus','NewItem','new.php');
+			$this->SetButton($this->AddDefaultName,'mainbtn animated fadeIn modBtnList','fa-user-plus','NewItem','new.php');
 		if($DefaultDel)
-			$this->SetButton($this->DelDefaultName,'mainbtn animated fadeIn mainbtnred Hidden optionBtn','fa-trash','delselected','');	
+			$this->SetButton($this->DelDefaultName,'mainbtn animated fadeIn mainbtnred Hidden modBtnList','fa-trash','delselected','');	
 	}
 	
 	function SetButton($Title,$Class='',$Icon='',$ID='',$Link='',$Extra='',$Order=0)
@@ -38,7 +38,7 @@ class HeadButton
 		$NewButton['icon'] = $Icon;
 		$NewButton['id'] = $ID;
 		$NewButton['link'] = $Link;
-		$NewButton['extra'] = $Extra;
+		$NewButton['extra'] = $Extra.' title="'.$Title.'" alt="'.$Title.'"';
 
 		if($Order>0)
 			$this->Buttons[$Order] = $NewButton;
@@ -59,7 +59,7 @@ class HeadButton
 		foreach ($this->Buttons as $Button) {
 			
 			if($Button['icon'])
-				$Value = '<i class="fa '.$Button['icon'].'"></i> '.$Button['title'];
+				$Value = '<i class="fa '.$Button['icon'].'"></i> ';
 			else
 				$Value = $Button['title'];
 			

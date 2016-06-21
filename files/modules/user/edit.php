@@ -18,12 +18,16 @@
 ?>
 <body>
   <div id="wrapper">
-    <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
+    <?php include('../../includes/inc.subtop.php'); ?>
     <?php echo insertElement("hidden","action",'update'); ?>
     <?php echo insertElement("hidden","id",$Admin_id); ?>
     <?php echo insertElement("hidden","menues"); ?>
     <?php echo insertElement("hidden","groups"); ?>
     <?php echo insertElement("hidden","newimage",$AdminEdit->Img); ?>
+
+   
+    
+      
       <!-- WindowHead -->
       <div class="row windowHead animated zoomInUp">
         <div class="col-md-6 col-xs-12 animated bounceInLeft">
@@ -144,14 +148,18 @@
         </div><!-- /Formitems -->
         <!-- Menu Tree -->
         <div class="row treeDivRow animated rotateIn Hidden">
-          <div class="col-md-6 col-xs-5 form-group animated bounceInLeft checkboxDiv">
+          <!-- <div class="col-md-6 col-xs-5 form-group animated bounceInLeft checkboxDiv">
             <h4>Grupos Asociados</h4>
             <span id="GroupTree"></span>
+          </div> -->
+          <div class="col-md-6 col-xs-12">
+            <?php echo $MenuTree->MakeTree('Permisos Especiales'); ?>  
           </div>
-          <div class="col-md-6 col-xs-6 form-group animated bounceInRight checkboxDiv">
-            <h4>Permisos Especiales</h4>
-            <?php echo $MenuTree->MakeTree(); ?>
+          <div id="GroupTree" class="col-md-6 col-xs-12 GroupTree">
+            
           </div>
+          
+          
         </div><!-- /Menu Tree -->
       </div><!-- /addItemDiv -->
       <!-- Create User Button Div  -->

@@ -15,45 +15,6 @@ $(function(){
         window.history.go(-1);
     });
 
-//////////////////////////////////////////////////// Show List ///////////////////////////////////////////////////////////////
-
-    $('#viewListBtn').click(function(){
-      $(this).addClass('Hidden')
-      $('.viewgrid').addClass('Hidden');
-      $('.ListWrapper, #viewGridBtn').removeClass('Hidden');
-    });
-
-    $('#viewGridBtn').click(function(){
-      $(this).addClass('Hidden')
-      $('.ListWrapper').addClass('Hidden');
-      $('.viewgrid, #viewListBtn').removeClass('Hidden');
-    });
-
-    ////// Select List Row //////
-    $('.listRow').click(function(){
-      $(this).toggleClass('listSelect');
-    });
-
-
-
-//////////////////////////////////////////////////// Toggle List Options //////////////////////////////////////////////////////
-    $('.viewListMobile').click(function(){
-      childElem = $(this).children('.viewListMobileMod');
-      //alert(childElem.hasClass('Hidden'));
-      if(childElem.hasClass('Hidden')){
-        //alert('entra');
-        childElem.removeClass('fadeOut Hidden');
-        childElem.addClass('fadeIn');
-      }else{
-        childElem.removeClass('fadeIn');
-        childElem.addClass('fadeOut');
-        childElem.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-          childElem.addClass('Hidden');
-        });
-      }
-
-    });
-
 //////////////////////////////////////////////////// Bootstrap Switch //////////////////////////////////////////////////////
     $(".SwitchCheckbox").bootstrapSwitch();
 
@@ -94,28 +55,30 @@ $(function(){
 
     $(function(){
         $(".TreeElement").click(function(){
-            var elem = $(this).parent().next("ul");
-            if(elem.hasClass('Hidden'))
+            var elem    = $(this).next("ul");
+            if($(this).children('input').is(':checked'))
             {
-                elem.removeClass('Hidden');
-                elem.toggle();
-                elem.slideToggle();
+                elem.slideUp();
             }else{
-                elem.slideToggle();
+                elem.slideDown();
             }
+            preventDefault();
         });
-        $(".TreeCheckbox").click(function(){
+        $(".TreeCheckbox").click(function(event){
+            
             var childMenu = $('#parent'+$(this).val());
             if($(this).is(':checked'))
             {
-                if(!childMenu.is(':visible'))
-                    $(this).parent().children('.TreeElement').click();
+                //if(!childMenu.is(':visible'))
+                    //$(this).children('.TreeElement').click();
+                //$(this).children('.TreeElement').each(function(){alert('enrta child TreeElement')});
                 enableChildrens(childMenu);
             }else{
                 childMenu.children('li').children('input').attr("disabled",true);
                 disableChildrens(childMenu);
             }
-                    getCheckedMenues();
+            event.stopPropagation();
+            getCheckedMenues();
         });
       });
 
@@ -429,6 +392,98 @@ $(function(){
         });
         return data;
     }
+
+
+//////////////////////////////////////////////////// Show Item List ///////////////////////////////////////////////////////////////
+
+    $('#viewListBtn').click(function(){
+      $(this).addClass('Hidden')
+      $('.viewgrid').addClass('Hidden');
+      $('.ListWrapper, #viewGridBtn').removeClass('Hidden');
+    });
+
+    $('#viewGridBtn').click(function(){
+      $(this).addClass('Hidden')
+      $('.ListWrapper').addClass('Hidden');
+      $('.viewgrid, #viewListBtn').removeClass('Hidden');
+    });
+
+
+//////////////////////////////////////////////////// Toggle Mobile List Options //////////////////////////////////////////////////////
+    function selectMobileRow(row)
+    {
+        childElem = row.children('.viewListMobileMod');
+        //alert(childElem.hasClass('Hidden'));
+        if(childElem.hasClass('Hidden')){
+            //alert('entra');
+            //childElem.removeClass('fadeOut');
+            childElem.removeClass('Hidden');
+            //childElem.addClass('fadeIn');
+        }else{
+            //childElem.removeClass('fadeIn');
+            //childElem.addClass('fadeOut');
+            //childElem.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                childElem.addClass('Hidden');
+            //});
+       }
+    }
+
+    function hideItemGridButtons(item)
+    {
+        item.find('.UserButtons').toggleClass('Hidden');
+        //item.find('.userMainSection').toggleClass("usergralselect", 500);
+    }
+
+    
+
+    //////////////////////////////////////////////////// Grid and List Multiple Deletion ///////////////////////////////////////
+    
+    $('.itemGrid').hover(function() {
+        $(this).addClass('userHover');
+    });
+
+    $('.itemGrid').mouseleave(function() {
+        $(this).removeClass('userHover');
+    });
+
+
+    $(".deleteableItem").click(function(){
+        $(this).toggleClass("deleteThis");
+        //$(this).toggleClass("usergralselect");
+
+        var item            = $(this).attr("item");
+        var totalSelected   = 0;
+        var admDelBtn;
+
+        $("#itemGrid"+item).toggleClass('deleteThis');
+        hideItemGridButtons($("#itemGrid"+item));
+        $("#itemGrid"+item).toggleClass('usergralselect');
+        $("#itemList"+item).toggleClass('deleteThis');
+        $("#itemList"+item).toggleClass('listSelect');
+        $("#itemMobile1List"+item).toggleClass('deleteThis');
+        $("#itemMobile2List"+item).toggleClass('deleteThis');
+        selectMobileRow($("#itemMobile2List"+item));
+        
+
+        $(".deleteThis").each(function(){
+            if($(this).hasClass('undeleteable'))
+            {
+                admDelBtn = $(this);
+            }else{
+                totalSelected++;
+            }
+        });
+
+        totalSelected = totalSelected/4;
+
+        if(totalSelected>1 && !admDelBtn){
+            $('#delselected').removeClass('Hidden');
+        }else{
+            $('#delselected').addClass('Hidden');
+        }
+    });
+
+
 
     //////////////////////////////////////////////////// Pager /////////////////////////////////////////////////////////////////
     function fillPagerDestiny(parent,page)

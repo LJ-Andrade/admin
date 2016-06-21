@@ -10,6 +10,7 @@ class GroupData extends DataBase
 	var $Data 		= array();
 	var $AdminID;
 	var $ID;
+	var $Icon;
 
 	const DEFAULTIMG		= "../../../skin/images/body/pictures/usergen.png";
 
@@ -126,12 +127,12 @@ class GroupData extends DataBase
 
 	public function GroupTree($ProfileID=0,$AdminID=0)
 	{
+		$HTML 				= '<div class="form-group checkboxDiv"><div class="checkboxTitle"><h5>Grupos Asociados</h5></div><ul>';
 		if($ProfileID!=0)
 		{
 			$this->AdminID 	= $AdminID;
 			$CheckedGroups 	= $this->GetCheckedGroups();
-			$Groups			= $this->fetchAssoc('admin_group','*',"group_id IN (SELECT group_id FROM relation_group_profile WHERE profile_id = ".$ProfileID.")","title");
-			$HTML 				= '<ul>';
+			$Groups			= $this->fetchAssoc('admin_group','*',"group_id IN (SELECT group_id FROM relation_group_profile WHERE profile_id = ".$ProfileID.")","title");			
 
 			foreach($Groups as $Group)
 			{
@@ -142,11 +143,12 @@ class GroupData extends DataBase
 					$Checked = '';
 				}
 
-				$HTML		.= '<li>'.insertElement('checkbox','group'.$Group['group_id'],$Group['group_id'],'checkbox-custom GroupCheckbox','value="'.$Group['group_id'].'"'.$Checked).'<label class="checkbox-custom-label" for="group'.$Group['group_id'].'"></label><span id="group'.$Group['group_id'].'" class=""> '.$Group['title'].'</span></li>';
+				$HTML		.= '<li class="treeLv1">'.insertElement('checkbox','group'.$Group['group_id'],$Group['group_id'],'checkbox-custom GroupCheckbox CheckBox','value="'.$Group['group_id'].'"'.$Checked).'<label class="checkbox-custom-label" for="group'.$Group['group_id'].'"> <i class="fa fa-users"></i> '.$Group['title'].'</label></li>';
 			}
-
-			return $HTML.'</ul>';
+		}else{
+			$HTML		.= '<li class="treeLv1">No hay grupos asociados a este perfil<li>';
 		}
+		return $HTML.'</ul></div>';
 	}
 
 }
