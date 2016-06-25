@@ -39,7 +39,7 @@ class Menu extends DataBase
 		echo '<div class="collapse navbar-collapse navbar-ex1-collapse"><ul class="navimgback nav navbar-nav side-nav">';
 		foreach($Rows as $Row)
 		{
-			$DropDown = $this->hasChild($Row['menu_id'])? '<i class="fa fa-fw fa-angle-down "></i>' : '';
+			$DropDown = $this->hasChild($Row['menu_id'])? '<i class="fa fa-fw fa-angle-down menuArrow "></i>' : '';
 			echo '<li><a href="'.$Row['link'].'" data-toggle="collapse" data-target="#ddmenu'.$Row['menu_id'].'"><i class="fa fa-fw '.$Row['icon'].'"></i> '.$Row['title'].$DropDown.'</a>';
 			$this->insertSubMenu($Row['menu_id']);
 			echo '</li>';
@@ -70,7 +70,7 @@ class Menu extends DataBase
 		if($this->Link == "menu/switcher.php" && $ID == 0)
 		{
 			$MenuID = !$_GET['id']? "0":$_GET['id'];
-			
+
 			$Menu = $this->fetchAssoc('menu','*'," menu_id = ".$MenuID);
 		}else{
 			if($ID==0)
@@ -78,11 +78,11 @@ class Menu extends DataBase
 			else
 				$Menu = $this->fetchAssoc('menu','*'," menu_id = ".$ID);
 		}
-		
+
 
 		$Parent = $Menu[0]['parent_id'];
 
-		$Link = !$Menu[0]['link'] || $Menu[0]['link']=="#"?"../menu/switcher.php?id=".$ID:$Menu[0]['link']; 
+		$Link = !$Menu[0]['link'] || $Menu[0]['link']=="#"?"../menu/switcher.php?id=".$ID:$Menu[0]['link'];
 
 
 
@@ -109,11 +109,11 @@ class Menu extends DataBase
 				}
 				$this->Children[] = $Child;
 			}
-			
+
 		}
 		return $this->Children;
 	}
-    
+
 
 	public function setLink()
 	{
