@@ -56,7 +56,7 @@ class Menu extends DataBase
 			echo '<ul id="ddmenu'.$Parent_id.'" class="collapse sideddmenu">';
 			foreach($Rows as $Row)
 			{
-				$DropDown = $this->hasChild($Row['menu_id'])? '<i class="fa fa-fw fa-angle-down "></i>' : '';
+				$DropDown = $this->hasChild($Row['menu_id'])? '<i class="fa fa-fw fa-angle-down menuArrow"></i>' : '';
 				echo '<li><a href="'.$Row['link'].'" data-toggle="collapse" data-target="#ddmenu'.$Row['menu_id'].'"><i class="fa fa-fw '.$Row['icon'].'"></i> '.$Row['title'].$DropDown.'</a>';
 				$this->insertSubMenu($Row['menu_id']);
 				echo '</li>';

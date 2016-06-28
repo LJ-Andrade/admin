@@ -15,8 +15,8 @@
     <?php echo insertElement("hidden","groups"); ?>
     <?php echo insertElement("hidden","newimage",$Admin->DefaultImg); ?>
 
-    
-    
+
+
     <div class="container-fluid">
       <div class="row windowHead animated fadeInDown">
         <button type="button" name="button" class="btn closeBtn MainButton BackToLastPage"><i class="fa fa-times"></i></button>
@@ -129,7 +129,7 @@
         <!-- Menu Tree -->
         <div class="row treeDivRow animated fadeIn Hidden">
           <div class="col-md-6 col-xs-12">
-            <?php echo $MenuTree->MakeTree('Permisos Especiales'); ?>  
+            <?php echo $MenuTree->MakeTree('Permisos Especiales'); ?>
           </div>
           <div id="GroupTree" class="col-md-6 col-xs-12">
           </div>

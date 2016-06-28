@@ -8,20 +8,8 @@
   <div id="wrapper">
   <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
   <?php echo insertElement("hidden","action",'insert'); ?>
-    <div class="container-fluid">
-      <!-- Title and options -->
-      <div class="row">
-        <div class="titleDiv">
-          <div class="col-md-6 breadCrumTitle">
-            <!-- <a href=""><span><i class="fa fa-angle-double-left"></i> Volver <b>|</b></span></a> -->
-            <span class="breadCrums"><i class="fa fa-home"></i></span><i class="fa fa-angle-right"></i>
-            <span class="breadCrums">Categor&iacute;as</span><i class="fa fa-angle-right"></i>
-            <span class="mainTitle"><i class="fa fa-user" aria-hidden="true"></i>
-             AGREGAR NUEVA CATEGOR&Iacute;</span>
-          </div>
-          <div class="col-md-6 titleDivOptions"><button type="button" class="mainbtn">Opcion</button></div>
-        </div>
-      </div><!-- /Title and options -->
+  <?php include '../../includes/inc.subTop.php'; ?>
+    <div class="container-fluid pageWrapper">
 
 
 

@@ -7,19 +7,8 @@
   <div id="wrapper">
     <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
     <?php echo insertElement("hidden","action",'insert'); ?>
-    <div class="container-fluid">
-      <!-- Title and options -->
-      <div class="row animated fadeIn">
-        <div class="titleDiv">
-          <div class="col-md-6 col-sm-7 col-xs-12 breadCrumTitle">
-            <span class="breadCrums"><i class="fa fa-home"></i></span><i class="fa fa-angle-right"></i>
-            <span class="breadCrums">Productos</span><i class="fa fa-angle-right"></i>
-            <span class="mainTitle"><i class="fa fa-tags" aria-hidden="true"></i>
-             AGREGAR NUEVO PRODUCTO</span>
-          </div>
-          <div class="col-md-6 col-sm-5 col-xs-12 titleDivOptions"><button type="button" class="mainbtn">Opcion</button></div>
-        </div>
-      </div><!-- /Title and options -->
+    <?php include '../../includes/inc.subTop.php'; ?>
+    <div class="container-fluid pageWrapper">
 
       <!-- New Item Window -->
       <!-- WindowHead -->

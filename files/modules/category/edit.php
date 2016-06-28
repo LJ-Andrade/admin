@@ -14,8 +14,9 @@
   <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
   <?php echo insertElement("hidden","action",'update'); ?>
   <?php echo insertElement("hidden","id",$ID); ?>
-
-
+  <?php include '../../includes/inc.subTop.php'; ?>
+  <div class="container-fluid pageWrapper">
+    
     <div class="row windowHead">
       <div class="col-md-6 col-xs-12">
         <h3><i class="fa fa-plus-square" aria-hidden="true"></i>  Modificar Categor&iacute;a</h3>
@@ -85,6 +86,7 @@
         <button id="ConfModBtn" type="button" name="button" class="btn mainbtn"><i class="fa fa-check-square-o fa-fw"></i> Confirmar Modificaci&oacute;n</button>
         <button id="acceptBtnImg" type="button" name="button" class="btn mainbtn"><i class="fa fa-check"></i> Aceptar</button>
       </div>
+    </div>
     </div>
   </div><!-- /#wrapper -->
 <?php $Foot->setFoot(); ?>
