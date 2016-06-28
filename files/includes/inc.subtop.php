@@ -1,12 +1,15 @@
-<!-- Title and options -->
-  <div class="titleDiv">
-    <div class="col-md-6 breadCrumTitle">
-      <!-- <a href=""><span><i class="fa fa-angle-double-left"></i> Volver <b>|</b></span></a> -->
-      <span class="breadCrums"><i class="fa fa-home"></i></span><i class="fa fa-angle-right"></i>
-      <span class="breadCrums">Usuarios</span><i class="fa fa-angle-right"></i>
-      <span class="mainTitle"><i class="fa fa-user" aria-hidden="true"></i>
-        COMMON ELEMENTS</span>
+<!-- Sub Top Bar -->
+
+    <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
+
+    <!-- Title and options -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="container-fluid titleDiv">
+                <?php include('../../includes/inc.breadcrums.php'); ?>
+            <div class="col-md-6 col-sm-5 col-xs-12 titleDivOptions"><?php if(is_object($Buttons)) $Buttons->ShowButtons(); ?></div>
+        </div>
     </div>
-    <div class="col-md-6 titleDivOptions"><button type="button" class="mainbtn">Opcion</button></div>
-  </div>
-  <!-- /Title and options -->
+    <!-- /Title and options -->
+<!-- /Subtop -->
+    
