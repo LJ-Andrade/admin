@@ -13,57 +13,44 @@
 <body>
   <div id="wrapper">
     <?php include('../../includes/inc.nav.php'); ?> <!-- Navegation -->
-    <div class="container-fluid">
-      <!-- Title and options -->
-      <div class="row">
-        <div class="container-fluid titleDiv">
-          <div class="col-md-6 col-sm-7 col-xs-12 breadCrumTitle">
-            <span class="breadCrums"><i class="fa fa-home"></i></span><i class="fa fa-angle-right"></i>
-            <span class="breadCrums">Productos</span><i class="fa fa-angle-right"></i>
-            <span class="mainTitle"><i class="fa fa-user" aria-hidden="true"></i>
-             LISTADO DE PRODUCTOS</span>
-          </div>
-          <div class="col-md-6 col-sm-5 col-xs-12 titleDivOptions"><?php $Buttons->ShowButtons(); ?></div>
-        </div>
-      </div><!-- /Title and options -->
+    <?php include '../../includes/inc.subTop.php'; ?>
+    <div class="container-fluid pageWrapper">
 
 
       <!-- Search Filters -->
-      <div class="container-fluid pad0">
-        <div id="filteritem" class="row filterdiv">
-          <form class="form-inline" role="form">
-            <div class="col-lg-3 col-sm-3 col-xs-12 form-group inputsgral">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-bookmark-o fa-fw"></i></span>
-                <select class="form-control" name="category">
-                  <option>Categor&iacute;a...</option>
-                  <option>Camas</option>
-                  <option>Perros</option>
-                  <option>Sillas</option>
-                  <option>Mesas</option>
-                </select>
-              </div>
+      <div id="filteritem" class="row filterdiv">
+        <form class="form-inline" role="form">
+          <div class="col-lg-3 col-sm-3 col-xs-12 form-group inputsgral">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-bookmark-o fa-fw"></i></span>
+              <select class="form-control" name="category">
+                <option>Categor&iacute;a...</option>
+                <option>Camas</option>
+                <option>Perros</option>
+                <option>Sillas</option>
+                <option>Mesas</option>
+              </select>
             </div>
-            <div class="col-lg-3 col-sm-3 col-xs-12 form-group inputsgral">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-bookmark-o fa-fw"></i></span>
-                <input type="text" class="form-control" placeholder="Nombre"/>
-              </div>
+          </div>
+          <div class="col-lg-3 col-sm-3 col-xs-12 form-group inputsgral">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-bookmark-o fa-fw"></i></span>
+              <input type="text" class="form-control" placeholder="Nombre"/>
             </div>
-            <div class="col-lg-3 col-sm-3 col-xs-12 form-group inputsgral">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-usd fa-fw"></i></span>
-                <input type="text" class="form-control" placeholder="Precio"/>
-              </div>
+          </div>
+          <div class="col-lg-3 col-sm-3 col-xs-12 form-group inputsgral">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-usd fa-fw"></i></span>
+              <input type="text" class="form-control" placeholder="Precio"/>
             </div>
-            <div class="col-lg-3 col-sm-3 col-xs-12 form-group inputsgral">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-qrcode fa-fw"></i></span>
-                <input type="text" class="form-control" placeholder="C&oacute;digo \ Modelo"/>
-              </div>
+          </div>
+          <div class="col-lg-3 col-sm-3 col-xs-12 form-group inputsgral">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-qrcode fa-fw"></i></span>
+              <input type="text" class="form-control" placeholder="C&oacute;digo \ Modelo"/>
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div><!-- /Search Filters -->
 
       <!--- Wrapper of ALL items -->

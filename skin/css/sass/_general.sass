@@ -11,21 +11,28 @@ html
 body
   font-family: $font1
   background-color: #5284ad
-  background-image: url(../images/body/backgrounds/back3.jpg)
+  background-image: url(../images/body/backgrounds/back.jpg)
   background-repeat: no-repeat
   background-attachment: fixed
   background-position: center center
   background-size: cover
   margin-top: 53px
+  height: 100%
+  position: relative
 
 #wrapper
-  position: relative
   padding-left: 0
-  height: 100%
-  margin-bottom: 50px
+  padding-bottom: 150px
 
 .pageWrapper
+  padding-top: 70px
   margin-bottom: 50px
+  background-position: bottom left, bottom right, top right, top left
+  -moz-background-size: 52% 52%
+  -webkit-background-size: 52% 52%
+  background-size: 52% 52%
+  background-repeat: no-repeat
+
 
 .contentWrapper
   background-color: $contentWrapper
@@ -147,7 +154,8 @@ ul
   background-color: $titleDivTop
   padding: 1px 5px
   margin-bottom: 10px
-  position: relative
+  position: fixed
+  width: 100%
   -webkit-transition: all 0.3s ease-out
   -moz-transition: all 0.3s ease-out
   -ms-transition: all 0.3s ease-out
@@ -161,6 +169,7 @@ ul
   -webkit-box-align: center
   align-items: center
   flex-direction: row
+  z-index: 500
   span
     // font-size: 1.7rem
     font-weight: 300
@@ -222,118 +231,7 @@ ul
       font-size: 11px
     .mainTitle
       font-size: 11px
-
-/////////////////////// Pagination //////////////////////////
-.paginat
-  text-align: center
-  position: fixed
-  bottom: 0
-  left: 50%
-  margin-bottom: -15px
-
-@media(max-width: 768px)
-  .paginat
-    left: 0
-    right: 0
-
-.pagination > li:last-child > a, .pagination > li:last-child > span
-  border-radius: 0
-.pagination > li:first-child > a, .pagination > li:first-child > span
-  border-radius: 0
-.pagination > li > a, .pagination > li > span
-  background-color: rgba($pagbk, .5)
-  border-color: rgba($pagborder, .3)
-  color: $pagtxt
-
-/////////////////// Placeholders //////////////////////////////////////
-.formitems input[type=text],
-.formitems input[type=password]
-  font-size: 13px
-  font-weight: 400
-  display: block
-  width: 100%
-  padding: 5px
-  margin-bottom: 5px
-  -webkit-transition: all 0.3s ease-out
-  -moz-transition: all 0.3s ease-out
-  -ms-transition: all 0.3s ease-out
-  -o-transition: all 0.3s ease-out
-  transition: all 0.3s ease-out
-.formitems input[type=text]:hover,
-.formitems input[type=password]:hover
-  border-color: #fff
-.formitems label:hover ~ input
-  border-color: #fff
-.formitems input[type=text]:focus,
-.formitems input[type=password]:focus
-  border-color: #455568
-  outline: none
-.formitems textarea
-  min-height: 100px
-
-.formitems select
-  background: rgba(255,255,255,.3)
-  background-color: rgba(255,255,255,.5)
-  color: #000
-
-
-
-@media (max-width: 290px)
-  .formitems
-    padding: 0
-
-//////////////// Character counter  //////////////////////
-form .indicator
-  display: block
-  height: 30px
-  width: 0
-  background-color: #ccc
-  transition: .2s
-  -webkit-transition: .2s
-
-form .indicator span.current-length
-  position: absolute
-  display: block
-  font-weight: bold
-  color: #444
-  padding: 5px 0 0 10px
-  font-size: 14px
-
-form .indicator.low
-  background-color: rgba(38, 166, 91, .4)
-form .indicator.med
-  background-color: rgba(38, 166, 91, .5)
-form .indicator.high
-  background-color: rgba(38, 166, 91, .7)
-form .indicator.full
-  background-color: rgba(192, 57, 43, .7)
-form .indicator.empty
-  background-color:  rgba(38, 166, 91, .2)
-
-.remchar
-  margin-top: 10px
-
-//////////////////// Breadcrums ///////////////////////
-.breadcrumb
-  padding: 0px
-  margin-bottom: 0px
-  list-style: none
-  background-color: transparent
-  border-radius: 0px
-  transition: all 0.3s ease-in-out
-  a
-    color: #000
-    &:hover
-      color: #404040
-
-// Líneas separadoras
-.breadcrumb > li + li::before
-  padding: 0 5px
-  color: #000
-  content: "/\00a0"
-
-.crumactive
-  color: red
+      
 
 
 ////////////// LOADER ////////////////////////////////////////////////
