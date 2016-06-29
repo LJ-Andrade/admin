@@ -4,8 +4,6 @@
   $Head->setHead();
 ?>
 <body>
-  <?php include('../../includes/inc.loader.php'); ?> <!-- Loader -->
-  <?php include('../../includes/inc.nav.php'); ?> <!-- Navegation -->
   <div id="wrapper">
     <?php include '../../includes/inc.subTop.php'; ?>
     <div class="container-fluid pageWrapper">

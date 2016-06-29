@@ -46,21 +46,21 @@ class ProfileData extends DataBase
 			$Actions	= 	'<img src="../../../skin/images/body/icons/pencil.png" id="edit_'.$Reg['profile_id'].'" />';
 			$Actions	.= 	'<img src="../../../skin/images/body/icons/cross.png" id="delete_'.$Reg['profile_id'].'" />';
 
-			$List	.= '<div id="profile'.$Reg['profile_id'].'" class="col-centered col-lg-3 col-sm-6 col-xs-12 animated fadeIn usergral">
+			$List	.= '<div id="profile'.$Reg['profile_id'].'" class="col-centered col-lg-3 col-sm-6 col-xs-12 animated fadeIn usergral usergralProfile">
 							<div class="userMainSection">
 								<div class="userimgdiv"><img src="'.$Reg['image'].'" class="img-responsive userimg"></div>
 								<div class="row usernamediv">
 		                            <span class="usernametxt"><span class="col-sm-12">'.$Reg['title'].'</span> <span class="col-lg-12 col-sm-12 col-xs-12">('.count($Profile->GetUsers()).' usuarios)</span></span><br>
 		                        </div>
 		                     </div>
-		                    <div id="usericosid" class="usericos">
-		                        <ul class="userButtons animated slideInUp">
-		                            <li class="btnmod animated fadeIn"><a href="edit.php?id='.$Reg['profile_id'].'" ><i class="fa fa-fw fa-pencil"></i></a></li>
 
-		                            <li class="deleteElement btndel animated fadeIn" deleteElement="'.$Reg['profile_id'].'" deleteParent="profile'.$Reg['profile_id'].'/profilelist'.$Reg['profile_id'].'" deleteProcess="process.php" confirmText="¿Desea eliminar el perfil \''.ucfirst($Reg['title']).'\'?" successText="El perfil \''.ucfirst($Reg['title']).'\' ha sido eliminado correctamente"><i class="fa fa-fw fa-trash"></i></li>
+		                        <div id="usericosid" class="delModDivList userButtons animated slideInUp text-center">
+		                            <a href="edit.php?id='.$Reg['profile_id'].'" ><button type="button" name="button" class="btn mainbtn"><i class="fa fa-pencil"></i></button></a>
 
-		                        </ul>
-		                    </div>
+		                            <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred deleteElement" deleteElement="'.$Reg['profile_id'].'" deleteParent="profile'.$Reg['profile_id'].'/profilelist'.$Reg['profile_id'].'" deleteProcess="process.php" confirmText="¿Desea eliminar el perfil \''.ucfirst($Reg['title']).'\'?" successText="El perfil \''.ucfirst($Reg['title']).'\' ha sido eliminado correctamente"><i class="fa fa-fw fa-trash"></i></button></a>
+
+		                        </div>
+
 		                </div>';
         }
 

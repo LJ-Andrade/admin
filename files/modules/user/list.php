@@ -13,11 +13,9 @@
 ?>
 <body>
   <div id="wrapper"><!--  Wrapper -->
-      
       <?php include('../../includes/inc.subtop.php'); ?>
-
-       <!-- Filters / Search -->
-      <div class="container-fluid">
+      <div class="container-fluid pageWrapper">
+        <!-- Filters / Search -->
         <div id="filtersuser" class="row row-centered filterdiv">
           <form class="form-inline filterformdiv" role="form">
             <div class="col-lg-3 col-sm-3 col-xs-12 form-group inputsgral">
@@ -105,7 +103,7 @@
             <div class="col-md-2 col-sm-2 col-xs-12"><p><?php echo $User->ProfileName; ?></p></div>
             <div class="col-md-2 col-sm-2 col-xs-12"><p>Admin</p></div>
             <div class="col-md-3 col-sm-3 col-xs-12"><p><?php echo DateTimeFormat($User->AdminData['last_access']) ?></p></div>
-            <div class="col-md-1 col-sm-1 col-xs-12">
+            <div class="col-md-1 col-sm-1 col-xs-12 japi">
               <a href="edit.php?id=<?php echo $User->AdminID ?>"><button type="button" name="button" class="btn mainbtn modBtnList"><i class="fa fa-pencil"></i></button></a>
               <a href="#"><button type="button" name="button" class="btn mainbtn mainbtnred delBtnList deleteElement" deleteElement="<?php echo $User->AdminID ?>" deleteParent="itemGrid<?php echo $User->AdminID ?>/itemList<?php echo $User->AdminID ?>/itemMobile1List<?php echo $User->AdminID ?>/itemMobile2List<?php echo $User->AdminID ?>" deleteProcess="process.php" confirmText="¿Desea eliminar el usuario '<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>'?" successText="'<?php echo $User->FullName ?>' alias '<?php echo $User->User ?>' ha sido eliminado correctamente"><i class="fa fa-trash"></i></button></a>
             </div>
@@ -115,8 +113,8 @@
         </div><!-- /User List View  -->
         <?php foreach($Users as $User){ $User = new AdminData($User['admin_id']);?>
         <!-- ////////////////////  User List View Mobile Large HERE - #ViewListMobile1 //////////////////////////// -->
-        <div id="itemMobile1List<?php echo $User->AdminID ?>" item="<?php echo $User->AdminID ?>" class="row viewListMobileLarge viewListMobile1 deleteableItem">
-          <div class="col-md-2 col-sm-2 col-xs-3"><img id="#" src="<?php echo $User->Img; ?>" class="img-responsive listImg"></div>
+        <div id="itemMobile1List<?php echo $User->AdminID ?>" item="<?php echo $User->AdminID ?>" class="row glassListRow viewListMobileLarge viewListMobile1 deleteableItem">
+          <div class="col-md-2 col-sm-2 col-xs-3"><img id="#" src="<?php echo $User->Img; ?>" class="img-responsive"></div>
           <div class="col-md-3 col-sm-3 col-xs-3"><p><?php echo $User->User; ?></p></div>
           <div class="col-md-4 col-sm-4 col-xs-3"><p><?php echo $User->FullName; ?></p></div>
           <div class="col-md-3 col-sm-3 col-xs-3">
@@ -127,8 +125,8 @@
         <?php } ?>
         <!-- ////////////////////// User List View Mobile Small HERE - #ViewListMobile2 ///////////////// -->
         <?php foreach($Users as $User){ $User = new AdminData($User['admin_id']);?>
-        <div id="itemMobile2List<?php echo $User->AdminID ?>" item="<?php echo $User->AdminID ?>" class="row viewListMobile viewListMobile2 deleteableItem">
-          <div class="col-md-4 col-xs-2 listMobile2Img"><img src="<?php echo $User->Img; ?>" class="img-responsive listImg"></div>
+        <div id="itemMobile2List<?php echo $User->AdminID ?>" item="<?php echo $User->AdminID ?>" class="row glassListRow viewListMobile viewListMobile2 deleteableItem">
+          <div class="col-md-4 col-xs-2"><img src="<?php echo $User->Img; ?>" class="img-responsive"></div>
           <div class="col-md-4 col-xs-5"><p><?php echo $User->User; ?></p></div>
           <div class="col-md-4 col-xs-5"><p><?php echo $User->FullName; ?></p></div>
           <div class="col-xs-12 viewListMobileMod animated Hidden">

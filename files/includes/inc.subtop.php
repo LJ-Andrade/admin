@@ -1,7 +1,5 @@
 <!-- Sub Top Bar -->
-
     <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
-
     <!-- Title and options -->
     <div class="container-fluid">
         <div class="row">
@@ -12,4 +10,3 @@
     </div>
     <!-- /Title and options -->
 <!-- /Subtop -->
-    

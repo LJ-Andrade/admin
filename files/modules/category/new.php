@@ -6,14 +6,11 @@
 ?>
 <body>
   <div id="wrapper">
-  <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
   <?php echo insertElement("hidden","action",'insert'); ?>
   <?php include '../../includes/inc.subTop.php'; ?>
     <div class="container-fluid pageWrapper">
-
-
-
-      <div class="row windowHead">
+      <!-- WindowHead -->
+      <div class="row windowHead animated fadeInDown">
         <div class="col-md-6 col-xs-12">
           <h3>Complete el formulario</h3>
         </div>
@@ -22,6 +19,7 @@
           <div id="statusErrorDiv" class="ErrorText Red"></div>
         </div>
       </div>
+      <!-- /WindowHead -->
       <div class="container animated fadeIn addItemDiv">
         <div class="col-md-12 form-box formitems">
           <!-- User Data -->
@@ -36,7 +34,7 @@
             </div>
             <!-- /User Data -->
             <!-- Single Image -->
-            <div class="col-md-12">
+
               <!-- Choose Img -->
               <div class="col-md-12 imgSelector">
                 <div class="imgSelectorInner">
@@ -49,7 +47,7 @@
                   </div>
                 </div>
               </div><!-- /Choose Img -->
-            </div><!-- /Single Image-->
+
           </div><!-- New Inputs -->
 
           <!-- Single Image Selection Window (Hidden) -->

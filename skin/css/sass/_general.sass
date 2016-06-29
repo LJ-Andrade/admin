@@ -33,6 +33,10 @@ body
   background-size: 52% 52%
   background-repeat: no-repeat
 
+@media(max-width:768px)
+  .container-fluid
+    padding-left: 2px
+    padding-right: 2px
 
 .contentWrapper
   background-color: $contentWrapper
@@ -124,12 +128,13 @@ ul
   border-radius: 100%
 
 .flex-container
+  display: -webkit-box
+  display: -ms-flexbox
   display: flex
-  justify-content: center
-  /* align horizontal */
+  -webkit-box-align: center
+  -ms-flex-align: center
+  -ms-grid-row-align: center
   align-items: center
-  /* align vertical */
-  border: 1px solid green
 
 .flex-allCenter
   justify-content: center
@@ -225,13 +230,21 @@ ul
   .titleDiv
     display: flex
 
+@media(max-width: 430px)
+  .breadCrumTitle
+    display: none
+  .titleDiv
+    margin-top: -2px
+    width: 105%
+
+
 @media(max-width: 340px)
   .titleDiv
     .breadCrums
       font-size: 11px
     .mainTitle
       font-size: 11px
-      
+
 
 
 ////////////// LOADER ////////////////////////////////////////////////

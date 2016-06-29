@@ -12,10 +12,8 @@
 ?>
 <body>
   <div id="wrapper">
-    <?php include('../../includes/inc.nav.php'); ?> <!-- Navegation -->
     <?php include '../../includes/inc.subTop.php'; ?>
     <div class="container-fluid pageWrapper">
-
 
       <!-- Search Filters -->
       <div id="filteritem" class="row filterdiv">
@@ -72,14 +70,10 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod td est laborum.</p>
                 <h4><strong>Composición:</strong> Raso</h4>
                 <h4><strong>Talles:</strong> Xs - S</h4>
-                <div class="circles">
-                  <span><strong>Colores:</strong></span>
-                  <ul>
-                    <li><div class="circle" style="background-color: #fff"></div></li>
-                    <li><div class="circle" style="background-color: #c17996"></div></li>
-                    <li><div class="circle" style="background-color: #768754"></div></li>
-                    <li><div class="circle" style="background-color: #5643a0"></div></li>
-                  </ul>
+                <div class="circles circlesAddItem circlesDisplay">
+                  <div class="circle" style="background-color: #c17996"></div>
+                  <div class="circle" style="background-color: #768754"></div>
+                  <div class="circle" style="background-color: #5643a0"></div>
                 </div>
                 <h4><strong>Precio:</strong> $1500</h4>
               </div>
@@ -90,10 +84,11 @@
             </div>
           </div>
         </div><!-- / Individual Item-->
+
       </div><!--- / Wrapper of ALL items -->
 
 
-      <div class="ListWrapper Hidden"><!-- Wrapper of all lists -->
+      <div class="ListWrapper"><!-- Wrapper of all lists -->
         <!--  // List DeskTop // -->
         <div id="" class="viewlist row animated fadeIn">
           <!-- Titles  -->
@@ -105,7 +100,7 @@
             <div class="col-md-1 col-sm-1 col-xs-12"><p>Talle</p></div>
             <div class="col-md-2 col-sm-2 col-xs-12"><p>Colores</p></div>
             <div class="col-md-1 col-sm-1 col-xs-12"><p>Precio</p></div>
-            <div class="col-md-2 col-sm-2 col-xs-12 listRowLast"><p>Mod.</p></div>
+            <div class="col-md-2 col-sm-2 col-xs-12"><p>Mod.</p></div>
           </div> <!-- /Titles  -->
           <!-- Items -->
           <div id="" class="glassListRow listRow listHover">
@@ -125,7 +120,7 @@
           </div><!-- /Items -->
         </div><!--  /List DeskTop -->
         <!-- List Mobile Large -->
-        <div id="" class="row viewListMobileLarge viewListMobile1 animated fadeIn">
+        <div id="" class="row glassListRow viewListMobileLarge viewListMobile1 animated fadeIn">
             <div class="col-md-2 col-sm-2 col-xs-3"><img src="../../../skin/images/users/3/user69110__3.jpeg" class="img-responsive listImg"></div>
             <div class="col-md-3 col-sm-3 col-xs-3"><p>Pijama</p></div>
             <div class="col-md-4 col-sm-4 col-xs-3"><p>$7000</p></div>
@@ -135,7 +130,7 @@
             </div>
         </div><!-- / List Mobile Large -->
         <!-- List Mobile Small -->
-        <div id="" class="row viewListMobile viewListMobile2 animated fadeIn">
+        <div id="" class="row glassListRow viewListMobile viewListMobile2 animated fadeIn">
           <div class="col-md-4 col-xs-2 listMobile2Img"><img src="../../../skin/images/users/3/user69110__3.jpeg" class="img-responsive listImg"></div>
           <div class="col-md-4 col-xs-5"><p>Pijama</p></div>
           <div class="col-md-4 col-xs-5"><p><p>$7000</p></p></div>

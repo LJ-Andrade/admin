@@ -15,9 +15,8 @@
     <?php echo insertElement("hidden","groups"); ?>
     <?php echo insertElement("hidden","newimage",$Admin->DefaultImg); ?>
 
-    
-    
-    <div class="container-fluid">
+    <div class="container-fluid pageWrapper">
+      <!-- WindowHead -->
       <div class="row windowHead animated fadeInDown">
         <button type="button" name="button" class="btn closeBtn MainButton BackToLastPage"><i class="fa fa-times"></i></button>
         <div class="col-md-6 col-xs-12">
@@ -30,7 +29,7 @@
       <div class="container addItemDiv animated fadeIn">
         <div class="col-md-12 form-box formitems">
           <!-- User Data -->
-          <div id="newInputs" class="animated fadeIn">
+          <div id="newInputs">
             <div class="row">
               <div class="col-md-6 form-group"><!-- User -->
                 <?php echo insertElement('text','user','','form-first-name form-controlusers','placeholder="Usuario" tabindex="1" validateEmpty="El usuario es obligatorio." validateMinLength="3/El usuario debe contener 3 caracteres como mínimo." validateFromFile="process.php/El usuario ya existe/action:=validate"'); ?>
@@ -129,7 +128,7 @@
         <!-- Menu Tree -->
         <div class="row treeDivRow animated fadeIn Hidden">
           <div class="col-md-6 col-xs-12">
-            <?php echo $MenuTree->MakeTree('Permisos Especiales'); ?>  
+            <?php echo $MenuTree->MakeTree('Permisos Especiales'); ?>
           </div>
           <div id="GroupTree" class="col-md-6 col-xs-12">
           </div>

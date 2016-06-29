@@ -8,16 +8,11 @@
     $Profile = new ProfileData();
 ?>
 <body>
-  <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
   <div id="wrapper"><!--  Wrapper -->
-    <div class="container-fluid">
-      <div class="maintitle"><h4 class="maintitletxt">Listado de Perfiles</h4></div>
-      <div class="glasscontainer1 optionsdiv">
-        <span id="delselected" class="delselected animated slideInDown"><i class="fa fa-trash"></i> Eliminar seleccionados</span>
-        <a href="new.php"><button class="mainbtn"><i class="fa fa-plus-square"></i> Agregar Perfil</button></a>
-      </div>
+    <?php include('../../includes/inc.subtop.php'); ?>
+    <div class="container-fluid pageWrapper">
+
       <!-- Filters / Search -->
-      <div class="container-fluid">
         <div id="filtersuser" class="row row-centered filterdiv">
           <form class="form-inline filterformdiv" role="form">
             <div class="col-lg-3 col-sm-3 col-xs-12 form-group inputsgral">
@@ -51,8 +46,7 @@
               </div>
             </div>
           </form>
-        </div>
-      </div><!-- /Container Filters / Search -->
+        </div><!-- /Container Filters / Search -->
       <!-- Grid View -->
       <div id="viewgrid" class="row-centered rowgridview">
         <?php echo $Profile->MakeProfileList();  ?>
