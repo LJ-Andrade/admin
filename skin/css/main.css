@@ -1577,7 +1577,7 @@ ul.alert-dropdown {
   max-width: 800px; }
 
 .windowHead {
-  background-color: #c36565;
+  background-color: rgba(0, 0, 0, 0.44);
   padding: 10px 0;
   max-width: 800px;
   margin: 0 auto;
@@ -1616,7 +1616,7 @@ ul.alert-dropdown {
     text-align: center; }
 
 .donediv {
-  background-color: #c36565;
+  background-color: rgba(0, 0, 0, 0.44);
   padding: 25px 0 10px 0;
   max-width: 800px;
   width: 100%;
