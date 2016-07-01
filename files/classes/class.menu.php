@@ -36,7 +36,23 @@ class Menu extends DataBase
 		$this->GetMenues($PorfileID,$AdminID);
 		$Rows	= $this->fetchAssoc('menu','*',"parent_id = 0 AND status = 'A' AND menu_id IN (".implode(",",$this->IDs).")","position");
 
-		echo '<div class="collapse navbar-collapse navbar-ex1-collapse"><ul class="navimgback nav navbar-nav side-nav">';
+		echo '<div class="collapse navbar-collapse navbar-ex1-collapse"><ul class="navimgback nav navbar-nav side-nav">
+					<div class="navRightTopItem">
+						<i class="fa fa-cogs MoreOptionsRight" aria-hidden="true"></i>
+					Opciones avanzadas
+
+					</div>
+					<div class="navRightTopItemOptions animated fadeIn Hidden">
+					<i class="fa fa-angle-right" aria-hidden="true"></i>
+					Otras Opciones <br />
+					<i class="fa fa-angle-right" aria-hidden="true"></i>
+					M&aacute;s opciones<br />
+					<i class="fa fa-angle-right" aria-hidden="true"></i>
+					M&aacute;s opciones<br />
+					<i class="fa fa-angle-right" aria-hidden="true"></i>
+					M&aacute;s opciones<br />
+					</div>
+		';
 		foreach($Rows as $Row)
 		{
 			$DropDown = $this->hasChild($Row['menu_id'])? '<i class="fa fa-fw fa-angle-down menuArrow "></i>' : '';

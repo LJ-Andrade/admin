@@ -146,11 +146,11 @@
       <!-- Create User Button Div  -->
       <div class="container donediv animated fadeInUp">
         <div class="form-group">
-          <button id="createUser" type="button" name="button" class="btn mainbtn MainButton" role="button"><i class="fa fa-check-square-o fa-fw"></i> Crear Usuario</button>
-          <button id="createAndAdd" type="button" name="button" class="btn mainbtn MainButton" role="button"><i class="fa fa-plus-square"></i> Crear y Agregar Otro...</button>
-          <button type="button" name="button" class="btn mainbtn mainbtnred MainButton BackToLastPage"><i class="fa fa-times"></i> Cancelar</button>
-          <button id="acceptBtnImg" type="button" name="button" class="btn mainbtn Hidden OtherButton"><i class="fa fa-check"></i> Aceptar</button>
-          <button id="acceptPermGroup" type="button" name="button" class="btn mainbtn centrarbtn Hidden OtherButton"><i class="fa fa-check"></i> Aceptar</button><br></div>
+          <button id="createUser" type="button" name="button" class="btn mainbtn newItemBtn MainButton" role="button"><i class="fa fa-check-square-o fa-fw"></i> Crear Usuario</button>
+          <button id="createAndAdd" type="button" name="button" class="btn mainbtn newItemBtn MainButton" role="button"><i class="fa fa-plus-square"></i> Crear y Agregar Otro...</button>
+          <button type="button" name="button" class="btn mainbtn btnForDark MainButton BackToLastPage"><i class="fa fa-times"></i> Cancelar</button>
+          <button id="acceptBtnImg" type="button" name="button" class="btn mainbtn newItemBtn  Hidden OtherButton"><i class="fa fa-check"></i> Aceptar</button>
+          <button id="acceptPermGroup" type="button" name="button" class="btn mainbtn  newItemBtn centrarbtn Hidden OtherButton"><i class="fa fa-check"></i> Aceptar</button><br></div>
       </div><!-- /Create User Button Div  -->
 
     </div><!-- /container-fluid -->

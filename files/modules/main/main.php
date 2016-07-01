@@ -8,7 +8,7 @@
     <?php include '../../includes/inc.subTop.php'; ?>
     <div class="container-fluid pageWrapper">
         <!-- Cards For Links -->
-        <div class="mainDemoTitles"><h2>Accesos R&aacute;pidos</h2></div>
+
         <div class="cardContainer">
           <div class="col-md-4 col-sm-6 col-xs-12 genCard">
             <div class="genCardHead">

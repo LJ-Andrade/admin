@@ -224,7 +224,7 @@ $addItemWidth: 800px
   max-width: $addItemWidth
 
 .windowHead
-  background-color: rgba(255,255,255,.9)
+  background-color: $newItemTitAndDone
   padding: 10px 0
   max-width: $addItemWidth
   margin: 0 auto
@@ -238,6 +238,8 @@ $addItemWidth: 800px
   h3
     font-size: 16px
     font-weight: 500
+    color: #fff
+    text-align: left
 
 .additemdiv, .addItemDiv
   max-width: $addItemWidth
@@ -260,7 +262,7 @@ $addItemWidth: 800px
     text-align: center
 
 .donediv
-  background-color: rgba(255,255,255,.9)
+  background-color: $newItemTitAndDone
   padding: 25px 0 10px 0
   max-width: $addItemWidth
   width: 100%
@@ -702,12 +704,18 @@ $addItemWidth: 800px
   .bootstrap-switch .bootstrap-switch-label
     background-color: #ccc
   .bootstrap-switch
-    border: 1px solid #a4a4a4
+    border: 2px solid #fff
   .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary
-    background-color: $mainblue
+    background-color: #5dab69
+  .bootstrap-switch.bootstrap-switch-focused
+    box-shadow: none
+
+.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-default, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-default
+  color: #fff
+  background: rgb(168, 70, 70)
 
 .switchHead
-  padding-top: 10px
+  padding-top: 5px
 
 @media only screen and (max-width: 767px)
   .wrapOverlayItem

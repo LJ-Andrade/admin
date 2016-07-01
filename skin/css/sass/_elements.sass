@@ -105,6 +105,20 @@ a .mainbtn
     -moz-box-shadow: none
 
 
+.newItemBtn
+  background: $newItemBtn
+  color: #000
+  &:hover
+    background: $newItemBtnHover
+    color: #383838
+
+.btnForDark
+  background: rgb(135, 65, 65)
+  color: #fff
+  &:hover
+    background: $newItemBtnHover
+    color: #383838
+
 .switchRight
   padding-top: 10px
 ///
@@ -115,8 +129,8 @@ a .mainbtn
   padding: 5px 10px
   z-index: 5
   border: none
-  border-radius: 0
-  background-color: rgba(224, 224, 224, 0.45)
+  border-radius: 0 0 0 5px
+  background-color: rgba(255, 255, 255, 1)
 
   transition: all 0.3s ease 0s
   &:hover

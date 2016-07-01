@@ -6,32 +6,32 @@
   text-decoration: none
 
 html
+  background-color: #5284ad
   height: 100%
 
 body
   font-family: $font1
-  background-color: #5284ad
   background-image: url(../images/body/backgrounds/back.jpg)
+  // background: rgba(255, 255, 255, 0.4)
   background-repeat: no-repeat
   background-attachment: fixed
   background-position: center center
   background-size: cover
   margin-top: 53px
-  height: 100%
   position: relative
+  height: 100% !important
+  min-height: 100%
 
 #wrapper
   padding-left: 0
   padding-bottom: 150px
+  height: 100%
 
 .pageWrapper
   padding-top: 70px
-  margin-bottom: 50px
-  background-position: bottom left, bottom right, top right, top left
-  -moz-background-size: 52% 52%
-  -webkit-background-size: 52% 52%
-  background-size: 52% 52%
-  background-repeat: no-repeat
+  // background: rgba(255, 255, 255, 0.4)
+  background-repeat: repeat
+  height: 100%
 
 @media(max-width:768px)
   .container-fluid
@@ -46,6 +46,7 @@ body
 @media(min-width:768px)
   #wrapper
     padding-left: 225px
+    height: 100%
   #wrapperlogin
     padding-left: 0
 

@@ -182,9 +182,9 @@
         <!-- Create User Button Div  -->
       <div class="container animated fadeInUp donediv">
         <div class="form-group">
-          <button id="createUser" type="button" name="button" class="btn mainbtn" role="button"><i class="fa fa-check-square-o fa-fw"></i> Crear Producto</button>
-          <button id="createAndAdd" type="button" name="button" class="btn mainbtn" role="button"><i class="fa fa-plus-square"></i> Crear y Agregar Otro...</button>
-          <button id="acceptBtnImg" type="button" name="button" class="btn mainbtn Hidden"><i class="fa fa-check"></i> Aceptar</button>
+          <button id="createUser" type="button" name="button" class="btn mainbtn newItemBtn" role="button"><i class="fa fa-check-square-o fa-fw"></i> Crear Producto</button>
+          <button id="createAndAdd" type="button" name="button" class="btn mainbtn newItemBtn" role="button"><i class="fa fa-plus-square"></i> Crear y Agregar Otro...</button>
+          <button id="acceptBtnImg" type="button" name="button" class="btn mainbtn newItemBtn Hidden"><i class="fa fa-check"></i> Aceptar</button>
         </div>
       </div>    <!-- /Create User Button Div  -->
     </div> <!-- /Container Fluid  -->

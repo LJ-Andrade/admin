@@ -65,7 +65,7 @@ $(function(){
             preventDefault();
         });
         $(".TreeCheckbox").click(function(event){
-            
+
             var childMenu = $('#parent'+$(this).val());
             if($(this).is(':checked'))
             {
@@ -434,10 +434,10 @@ $(function(){
         //item.find('.userMainSection').toggleClass("usergralselect", 500);
     }
 
-    
+
 
     //////////////////////////////////////////////////// Grid and List Multiple Deletion ///////////////////////////////////////
-    
+
     $('.itemGrid').hover(function() {
         $(this).addClass('userHover');
     });
@@ -463,7 +463,7 @@ $(function(){
         $("#itemMobile1List"+item).toggleClass('deleteThis');
         $("#itemMobile2List"+item).toggleClass('deleteThis');
         selectMobileRow($("#itemMobile2List"+item));
-        
+
 
         $(".deleteThis").each(function(){
             if($(this).hasClass('undeleteable'))
@@ -1027,4 +1027,10 @@ function utf8_decode (str_data) {
       $(this).toggleClass('selectImgGalleries');
     })
 
-    
+
+
+    ////////////// NAV RIGHT MORE OPTIONS ///////////////////
+
+    $('.MoreOptionsRight').click(function() {
+      $('.navRightTopItemOptions').toggleClass('Hidden');
+    })
