@@ -51,7 +51,7 @@
           </div><!-- New Inputs -->
 
           <!-- Single Image Selection Window (Hidden) -->
-          <div id="SingleImgWd" class="row imgWindow">
+          <div id="SingleImgWd" class="row imgWindow Hidden">
             <!-- <span id="cancelImgChange" class="eraseImgX"><i class="fa fa-times"></i></span> -->
             <button id="cancelImgChange" type="button" name="button" class="btn closeBtn"><i class="fa fa-times"></i></button>
             <div class="imgWindowTitle"><h5>Agregar o Cambiar Im&aacute;genes</h5></div>

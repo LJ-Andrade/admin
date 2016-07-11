@@ -200,17 +200,16 @@ a .mainbtn {
     -moz-box-shadow: none; }
 
 .newItemBtn {
-  background: linear-gradient(to bottom, #ffffff 0, #c3c3c3 95%);
-  color: #000; }
+  background: linear-gradient(to bottom, #abecb7 0, #197b4a 95%);
+  color: #fff; }
   .newItemBtn:hover {
-    background: linear-gradient(to bottom, #ececec 0, #bbbbbb 95%);
-    color: #383838; }
+    background: linear-gradient(to bottom, #bee6c6 0, #1f8854 95%); }
 
 .btnForDark {
   background: #874141;
   color: #fff; }
   .btnForDark:hover {
-    background: linear-gradient(to bottom, #ececec 0, #bbbbbb 95%);
+    background: linear-gradient(to bottom, #bee6c6 0, #1f8854 95%);
     color: #383838; }
 
 .switchRight {
@@ -386,14 +385,13 @@ body {
   background-attachment: fixed;
   background-position: center center;
   background-size: cover;
-  margin-top: 53px;
   position: relative;
-  height: 100% !important;
   min-height: 100%; }
 
 #wrapper {
   padding-left: 0;
   padding-bottom: 150px;
+  margin-top: 53px;
   height: 100%; }
 
 .pageWrapper {
@@ -1577,7 +1575,7 @@ ul.alert-dropdown {
   max-width: 800px; }
 
 .windowHead {
-  background-color: rgba(0, 0, 0, 0.44);
+  background-color: rgba(0, 0, 0, 0.15);
   padding: 10px 0;
   max-width: 800px;
   margin: 0 auto;
@@ -1616,7 +1614,7 @@ ul.alert-dropdown {
     text-align: center; }
 
 .donediv {
-  background-color: rgba(0, 0, 0, 0.44);
+  background-color: rgba(0, 0, 0, 0.15);
   padding: 25px 0 10px 0;
   max-width: 800px;
   width: 100%;
@@ -2029,6 +2027,10 @@ ul.alert-dropdown {
 
 .switchHead {
   padding-top: 5px; }
+  .switchHead span {
+    color: #fff;
+    padding-right: 10px;
+    padding-top: 2px; }
 
 @media only screen and (max-width: 767px) {
   .wrapOverlayItem {
@@ -2106,9 +2108,6 @@ ul.alert-dropdown {
   width: 30px;
   height: 30px;
   margin: 2px;
-  -moz-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
   transition: all 0.3s ease 0s; }
   .colorPalette img {
     width: 30px; }
@@ -2302,6 +2301,13 @@ ul.alert-dropdown {
       cursor: pointer;
       color: #335e98; }
 
+.menuSelectIcon span {
+  background-color: rgba(255, 255, 255, 0.41);
+  padding: 15px; }
+  .menuSelectIcon span .fa {
+    font-size: 20px;
+    margin-left: 10px; }
+
 .shadow {
   -webkit-box-shadow: 0px -2px 5px 1px rgba(0, 0, 0, 0.26);
   -moz-box-shadow: 0px -2px 5px 1px rgba(0, 0, 0, 0.26);
@@ -2356,6 +2362,21 @@ ul.alert-dropdown {
   box-shadow: 7px -4px 5px -6px rgba(0, 0, 0, 0.75); }
   .genCardContent span {
     font-size: 15px; }
+
+#helpModal span.colorPaletteHelp img {
+  width: 22px;
+  margin-right: 4px;
+  margin-left: 4px;
+  padding-bottom: 5px; }
+#helpModal .fa {
+  font-size: 18px;
+  color: #858ac8;
+  margin-right: 10px; }
+
+.helpModalTrigger {
+  text-align: center; }
+  .helpModalTrigger:hover {
+    cursor: pointer; }
 
 .demotittles {
   margin: 50px 10px 20px;

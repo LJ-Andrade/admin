@@ -18,10 +18,10 @@
       <!-- WindowHead -->
       <div class="row windowHead">
         <div class="col-md-6 col-xs-12">
-          <h3><i class="fa fa-bars" aria-hidden="true"></i> Complete el formulario para agregar un men&uacute;</h3>
+          <h3>Complete el formulario para agregar un men&uacute;</h3>
         </div>
         <div class="col-md-6 col-xs-12 switchDiv switchHead">
-          <span class="userstatustit">Men&uacute; P&uacute;blico: </span>
+          <span>Men&uacute; P&uacute;blico: </span>
           <?php echo insertElement('checkbox','public','','centered','tabindex="7" data-on-text="Si" data-off-text="No" data-size="mini" data-label-width="auto" checked'); ?>
         </div>
       </div><!-- /WindowHead -->
@@ -51,11 +51,11 @@
             <div class="col-md-6 form-group animated bounceInLeft">
               <?php echo insertElement('text','position','','form-first-name formNewItem','tabindex="5" placeholder="Posici&oacute;n"'); ?>
             </div>
-            <div class="col-md-6 form-group animated bounceInRight">
+            <div class="col-md-6 form-group animated bounceInRight menuSelectIcon">
               <button type="button" class="btn mainbtn" data-toggle="modal" data-target="#myModal">Agregar &Iacute;cono</button>
               <?php // echo insertElement('text','icon','','form-first-name formNewItem','tabindex="6" placeholder="&Iacute;cono"'); ?>
+              <span>&Iacute;cono Actual: <i class="fa fa-bars" aria-hidden="true"></i></span>
             </div>
-
           </div>
         </div>
       </div>
