@@ -49,7 +49,8 @@ if($_GET['code'] || $_SESSION['access_token']) {
 	//$body 	= "site_id=MLA";
 	//$body 	= 'site_id=MLA';
 	$Result = $meli->post('/users/user_test', $body, $params);
-	$result = $meli->get('/users/219218138',$params);
+	//$result = $meli->get('/users/219218138',$params);
+	$result = $meli->get('/users/me',$params);
 
 	$body	= array(
 				"title"=>"Item de test - No Ofertar",
@@ -60,33 +61,22 @@ if($_GET['code'] || $_SESSION['access_token']) {
 				"buying_mode"=>"buy_it_now",
 				"listing_type_id"=>"bronze",
 				"condition"=>"new",
-				"description"=>"Item:,  Ray-Ban WAYFARER Gloss Black RB2140 901  Model: RB2140. Size: 50mm. Name: WAYFARER. Color: Gloss Black. Includes Ray-Ban Carrying Case and Cleaning Cloth. New in Box",
-				"video_id"=>"YOUTUBE_ID_HERE",
+				"description"=>"Item:,  Ray-Man WAYFARER Gloss Black RB2140 901  Model: RB2140. Size: 50mm. Name: WAYFARER. Color: Gloss Black. Includes Ray-Ban Carrying Case and Cleaning Cloth. New in Box",
+				"video_id"=>"RXWn6kftTHY",
 				"warranty"=>"12 months by Ray Ban",
-				
+				"pictures" => array(
+						array(
+							"source" => "https://upload.wikimedia.org/wikipedia/commons/f/fd/Ray_Ban_Original_Wayfarer.jpg"
+						),
+						array(
+							"source" => "https://upload.wikimedia.org/wikipedia/commons/a/ab/Teashades.gif"
+						)
+					)
 			);
-
-// 	'{
-//   "title":"Item de test - No Ofertar",
-//   "category_id":"MLA5529",
-//   "price":10,
-//   "currency_id":"ARS",
-//   "available_quantity":1,
-//   "buying_mode":"buy_it_now",
-//   "listing_type_id":"bronze",
-//   "condition":"new",
-//   "description": "Item:,  Ray-Ban WAYFARER Gloss Black RB2140 901  Model: RB2140. Size: 50mm. Name: WAYFARER. Color: Gloss Black. Includes Ray-Ban Carrying Case and Cleaning Cloth. New in Box",
-//   "video_id": "YOUTUBE_ID_HERE",
-//   "warranty": "12 months by Ray Ban",
-//   "pictures":[
-//     {"source":"https://upload.wikimedia.org/wikipedia/commons/f/fd/Ray_Ban_Original_Wayfarer.jpg"},
-//     {"source":"https://en.wikipedia.org/wiki/File:Teashades.gif"}
-//   ]
-// }';
 
 	$CreateItem = $meli->post('/items',$body,$params);
 
-	$FullName = $result['body']->first_name." ".$result['body']->last_name;
+	//$FullName = $result['body']->first_name." ".$result['body']->last_name;
 
 	echo '<pre>';
 	 	echo json_encode($CreateItem);

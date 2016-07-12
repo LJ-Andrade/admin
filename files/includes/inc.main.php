@@ -33,6 +33,14 @@
 		$Admin 		= new AdminData();
 		$Cookies 	= new Login($Admin->User);
 		$Cookies->setCookies();
+
+		// $URL 	= 'http://localhost/projects/admin/files/modules/main/process.php';
+		// $Meli 		= new Meli('4853777712698373', 'zhBim3Li6QKCTUht49YLnhpbT66CQwGm', $_SESSION['access_token'], $_SESSION['refresh_token']);
+		// if(!$_SESSION['code'] && !$_SESSION['access_token']) {
+		// 	// Redirects to ML if APP don't have access
+		// 	header("Location: ".$Meli->getAuthUrl($URL, Meli::$AUTH_URL['MLA']));
+		// 	die();
+		// }
 	}
 	
 	/* ADDING SLASHES TO PUBLIC VARIABLES */
