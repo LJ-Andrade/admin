@@ -21,7 +21,7 @@
         </div>
       </div><!-- /WindowHead -->
       <div class="container addItemDiv animated zoomIn">
-        <div class="col-sm-12 form-box formitems">
+        <div class="row col-sm-12 form-box">
           <!-- Inputs -->
           <div id="newInputs" class="animated fadeIn" >
             <div class="row"><!-- Title & Code -->
@@ -158,11 +158,10 @@
               <div class="clearfix"></div>
             </div> -->
           </div><!-- /Images -->
+          <!-- Help Modal Trigger -->
+          <div class="helpModalTrigger"><span data-toggle="modal" data-target="#helpModal" >Ayuda <i class="fa fa-question-circle" aria-hidden="true"></i> </span></div>
+          <!-- /Help Modal Trigger-->
         </div><!-- /FormItems -->
-        <!-- Help Modal Trigger -->
-        <div class="helpModalTrigger"><span data-toggle="modal" data-target="#helpModal" >Ayuda <i class="fa fa-question-circle" aria-hidden="true"></i> </span>
-        <!-- /Help Modal Trigger-->
-        </div>
       </div><!-- /addItemDiv -->
         <!-- Create User Button Div  -->
       <div class="container animated fadeInUp donediv">
@@ -174,6 +173,11 @@
       </div>    <!-- /Create User Button Div  -->
     </div> <!-- /Container Fluid  -->
   </div><!-- /#wrapper -->
+
+
+
+
+  <!-- /////////////// MODALS //////////////////// -->
   <!-- HELP MODAL -->
   <div id="helpModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -231,9 +235,9 @@
             <div class="ColorSelectModal circle circleAddItem" style="background-color: #768754"></div>
             <div class="ColorSelectModal circle circleAddItem" style="background-color: #5643a0"></div>
           </div>
-          <button type="button" name="button" class="DelColorModalBtn  btn mainbtn mainbtnred modBtnList "><i class="fa fa-trash"></i> Eliminar Colores</button>
         </div>
         <div class="modal-footer">
+          <button type="button" name="button" class="btn mainbtn modalBtnRed" data-dismiss="modal">Eliminar Seleccionados</button>
           <button type="button" name="button" class="btn mainbtn" data-dismiss="modal">OK</button><br>
         </div>
       </div>

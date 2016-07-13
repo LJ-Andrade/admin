@@ -200,15 +200,9 @@ function ColorSelection()
   $('.ColorSelect').click(function(){
     $(this).toggleClass('circleAddItemSelected');
   });
-  //Show Delete Color Btn
-   if($('.ColorSelectModal').hasClass('colorSelectModal')) {
-       $('.DelColorModalBtn').removeClass('Hidden');
-     }
-     else {
-       $('.DelColorModalBtn').addClass('Hidden');
-     }
 };
 ColorSelection();
+
 
 function ColorSelectionModal()
 {  // Select Color
@@ -217,6 +211,7 @@ function ColorSelectionModal()
   });
 }
 ColorSelectionModal();
+
 
 // Create a Li with the selected color
 function PutDaCalar()
