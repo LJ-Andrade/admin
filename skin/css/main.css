@@ -1222,7 +1222,7 @@ body#login {
     border: none;
     border-radius: 0;
     overflow-y: auto;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(141, 141, 141, 0.38);
     bottom: 0;
     overflow-x: hidden;
     padding-bottom: 40px;
@@ -1628,7 +1628,14 @@ ul.alert-dropdown {
 
 .addItemNoformTit {
   background-color: rgba(255, 255, 255, 0.5);
-  padding: 5px 10px; }
+  padding: 5px 10px;
+  position: relative; }
+  .addItemNoformTit .adminColors {
+    position: absolute;
+    right: 5px;
+    top: 8px; }
+    .addItemNoformTit .adminColors p {
+      font-size: 12px; }
 
 .addItemSizes {
   text-align: center;
@@ -2072,12 +2079,24 @@ ul.alert-dropdown {
     border: 1px solid #fff; }
 
 .circleAddItemSelected {
-  background-color: #da6363 !important;
   -webkit-box-shadow: inset 6px 9px 9px -9px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: inset 6px 9px 9px -9px rgba(0, 0, 0, 0.75);
   box-shadow: inset 6px 9px 9px -9px rgba(0, 0, 0, 0.75); }
 
 .circleAddItemSelected:before {
+  content: "✔";
+  font-weight: 800;
+  color: white;
+  left: 8px;
+  position: relative;
+  top: 5px; }
+
+.colorSelectModal {
+  -webkit-box-shadow: inset 6px 9px 9px -9px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: inset 6px 9px 9px -9px rgba(0, 0, 0, 0.75);
+  box-shadow: inset 6px 9px 9px -9px rgba(0, 0, 0, 0.75); }
+
+.colorSelectModal:before {
   content: "X";
   font-weight: 800;
   color: white;

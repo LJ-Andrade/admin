@@ -59,6 +59,9 @@
               <div class="col-md-6 form-group">
                 <div class="addItemNoformTit">
                   <span>Colores</span>
+                  <!-- Colors Modal Trigger -->
+                  <div class="helpModalTrigger adminColors"><span data-toggle="modal" data-target="#colorsModal" >Administrar Colores</i></span></div>
+                  <!-- /Colors Modal Trigger-->
                 </div>
                 <div class="circles circlesAddItem">
                   <div class="circleInput Hidden animated fadeIn"><input name="color" type="color" value="#8551d9" /></div>
@@ -67,8 +70,6 @@
                   <div class="ColorSelect circle circleAddItem" style="background-color: #c17996"></div>
                   <div class="ColorSelect circle circleAddItem" style="background-color: #768754"></div>
                   <div class="ColorSelect circle circleAddItem" style="background-color: #5643a0"></div>
-
-
                 </div>
                 <div><button type="button" name="button" class="Hidden DelSelColors btn mainbtnred delColBtn animated fadeIn"><i class="fa fa-trash-o"></i> Eliminar</button></div>
               </div>
@@ -79,9 +80,9 @@
               <form class="form-group">
                 <?php echo insertElement('textarea','description',$Data['description'],'form-controlitems textareaitems text-center','placeholder="Descripción" rows="4" maxlength="150"'); ?>
                 <div class="remchar"><p> Caracteres restantes: </p></div>
-                <div class="indicator-wrapper">
-                  <div class="indicator"><span class="current-length">150</span></div>
-                </div>
+                  <div class="indicator-wrapper">
+                    <div class="indicator"><span class="current-length">150</span></div>
+                  </div>
               </form>
             </div>
             <!-- /Description (Character counter) -->
@@ -102,16 +103,15 @@
           <div id="MultipleImgWd" class="row imgWindow animated fadeIn Hidden">
             <button id="cancelImgChange" type="button" name="button" class="btn closeBtn"><i class="fa fa-times"></i></button>
               <div class="imgWindowTitle">
-              <div class="row tipAndButton">
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                  <button id="createUser" type="button" name="button" class="btn mainbtn" role="button"><i class="fa fa-check-square-o fa-fw"></i> Agregar Im&aacute;gen</button>
-                </div>
-                <div class="col-md-9 col-sm-6 col-xs-12">
-                  <div class="tipText"><i class="fa fa-question-circle" aria-hidden="true"></i><p> Arrastre las im&aacute;genes para ordenarlas</p></div>
+                <div class="row tipAndButton">
+                  <div class="col-md-3 col-sm-6 col-xs-12">
+                    <button id="createUser" type="button" name="button" class="btn mainbtn" role="button"><i class="fa fa-check-square-o fa-fw"></i> Agregar Im&aacute;gen</button>
+                  </div>
+                  <div class="col-md-9 col-sm-6 col-xs-12">
+                    <div class="tipText"><i class="fa fa-question-circle" aria-hidden="true"></i><p> Arrastre las im&aacute;genes para ordenarlas</p></div>
+                  </div>
                 </div>
               </div>
-              </div>
-
               <div class="col-md-12 activeImgs SelectProdImg">
                 <ul id="ImageBox" class="connected sortable grid">
                   <li><img src="../../../skin/images/users/default/caras1.png" alt="" class="img-responsive">
@@ -140,10 +140,6 @@
                   </li>
                 </ul>
               </div>
-
-
-
-
             <!-- BORRAR CLASES y JS QUE NO SIRVA -->
             <!-- <div class="col-md-12">
               <button id="adDragBtn" type="button" name="button" class="btn mainbtn"><i class="fa fa-picture-o"></i> Galer&iacute;a</button>
@@ -161,15 +157,11 @@
           		</ul>
               <div class="clearfix"></div>
             </div> -->
-
-
-
-
           </div><!-- /Images -->
         </div><!-- /FormItems -->
-        <!-- Help -->
+        <!-- Help Modal Trigger -->
         <div class="helpModalTrigger"><span data-toggle="modal" data-target="#helpModal" >Ayuda <i class="fa fa-question-circle" aria-hidden="true"></i> </span>
-        <!-- /Help -->
+        <!-- /Help Modal Trigger-->
         </div>
       </div><!-- /addItemDiv -->
         <!-- Create User Button Div  -->
@@ -182,10 +174,7 @@
       </div>    <!-- /Create User Button Div  -->
     </div> <!-- /Container Fluid  -->
   </div><!-- /#wrapper -->
-
-
   <!-- HELP MODAL -->
-  <!-- /// ICONS MODAL ///-->
   <div id="helpModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <!-- Modal content-->
@@ -200,9 +189,8 @@
           <b><i class="fa fa-tint"></i> COLORES:</b></span>
           <p><b>Agregar Colores:</b> haga click en la paleta de colores   <span class="colorPaletteHelp" name="color" type="color"><img src="../../../skin/images/body/icons/colpicker.png" alt=""/>
            y seleccione un color. <br>
-           Todos los colores seleccionados saldr&aacute;n en la descripci&oacute;n del producto <br>
-          <b>Eliminar Colores:</b> haga click en los que dese&eacute; eliminar y luego en el bot&oacute;n "Eliminar"
-          </p>
+           Luego tilde sobre los colores que deben salir publicados<br>
+          <b>Eliminar Colores:</b> Haga click en "administrar colores" donde podr&aacute; tanto eliminar como agregar nuevos colores</p>
           <hr>
           <p><i class="fa fa-bars"></i><b> DESCRIPCI&Oacute;N:</b><br>
             Llene el campo para agregar una descripci&oacute; al producto. El l&iacute;mite de caracteres es de hasta 150. El progresor le avisar&aacute; cuantos caracteres restan.
@@ -215,14 +203,44 @@
             Arrastre las im&aacute;genes para ordenarlas.<br>
             La im&aacute;gen que quede a la izquierda ser&aacute; la destacada y la que se ver&aacute; en el cat&aacute;logo.
           </p>
-
         </div>
         <div class="modal-footer">
           <button type="button" name="button" class="btn mainbtn" data-dismiss="modal">OK</button><br>
         </div>
       </div>
     </div>
-  </div><!-- /// ICONS MODAL /// -->
+  </div>
+  <!-- Help Modal -->
+
+  <!-- Colors Modal -->
+  <div id="colorsModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Administrar Colores</i></h4>
+        </div>
+        <div class="modal-body">
+          <p>Seleccione los colores que desea eliminar y luego haga click en "Eliminar Colores"</p>
+          <div class="circles circlesAddItem">
+            <div class="circleInput Hidden animated fadeIn"><input name="color" type="color" value="#8551d9"/></div>
+            <div class="ColorSelector colorPalette" name="color" type="color"><img src="../../../skin/images/body/icons/colpicker.png" alt=""/></div>
+            <div class="ColorSelectModal circle circleAddItem" style="background-color: #b83232"></div>
+            <div class="ColorSelectModal circle circleAddItem" style="background-color: #c17996"></div>
+            <div class="ColorSelectModal circle circleAddItem" style="background-color: #768754"></div>
+            <div class="ColorSelectModal circle circleAddItem" style="background-color: #5643a0"></div>
+          </div>
+          <button type="button" name="button" class="DelColorModalBtn  btn mainbtn mainbtnred modBtnList "><i class="fa fa-trash"></i> Eliminar Colores</button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" name="button" class="btn mainbtn" data-dismiss="modal">OK</button><br>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Colos Modal -->
+
 
 
 <?php $Foot->setFoot(); ?>

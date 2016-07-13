@@ -60,9 +60,6 @@
       <?php  include 'inc.lists.php'; ?>
       <br> <br> <br><br><br>
 
-
-      <!-- BUTTONS -->
-
         <!-- Buttons -->
         <div class="col-md-6 demoButtons">
           <a href="#"><button type="button" name="button" class="btn mainbtn"> Button</button></a>

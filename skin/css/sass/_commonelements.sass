@@ -277,6 +277,13 @@ $addItemWidth: 800px
 .addItemNoformTit
   background-color: rgba(255, 255, 255, 0.5)
   padding: 5px 10px
+  position: relative
+  .adminColors
+    position: absolute
+    right: 5px
+    top: 8px
+    p
+      font-size: 12px
 
 .addItemSizes
   text-align: center
@@ -763,12 +770,25 @@ $addItemWidth: 800px
     cursor: pointer
     border: 1px solid #fff
 .circleAddItemSelected
-  background-color: rgb(218, 99, 99) !important
   -webkit-box-shadow: inset 6px 9px 9px -9px rgba(0, 0, 0, 0.75)
   -moz-box-shadow: inset 6px 9px 9px -9px rgba(0, 0, 0, 0.75)
   box-shadow: inset 6px 9px 9px -9px rgba(0, 0, 0, 0.75)
 
 .circleAddItemSelected:before
+  content: "\2714"
+  font-weight: 800
+  color: rgb(255, 255, 255)
+  left: 8px
+  position: relative
+  top: 5px
+
+
+.colorSelectModal
+  -webkit-box-shadow: inset 6px 9px 9px -9px rgba(0, 0, 0, 0.75)
+  -moz-box-shadow: inset 6px 9px 9px -9px rgba(0, 0, 0, 0.75)
+  box-shadow: inset 6px 9px 9px -9px rgba(0, 0, 0, 0.75)
+
+.colorSelectModal:before
   content: "X"
   font-weight: 800
   color: rgb(255, 255, 255)
