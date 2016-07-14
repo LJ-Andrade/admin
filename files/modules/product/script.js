@@ -199,17 +199,19 @@ function ColorSelection()
 {  // Select Color
   $('.ColorSelect').click(function(){
     $(this).toggleClass('circleAddItemSelected');
+  });
+};
+ColorSelection();
 
-    //Show Delete Color Btn
-    if($('.ColorSelect').hasClass('circleAddItemSelected')) {
-        $('.DelSelColors').removeClass('Hidden');
-      }
-      else {
-        $('.DelSelColors').addClass('Hidden');
-      }
+
+function ColorSelectionModal()
+{  // Select Color
+  $('.ColorSelectModal').click(function(){
+    $(this).toggleClass('colorSelectModal');
   });
 }
-ColorSelection();
+ColorSelectionModal();
+
 
 // Create a Li with the selected color
 function PutDaCalar()
