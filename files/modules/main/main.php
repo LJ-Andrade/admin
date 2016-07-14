@@ -11,41 +11,47 @@
 
         <div class="cardContainer">
           <div class="col-md-4 col-sm-6 col-xs-12 genCard">
-            <div class="genCardHead">
-              <a href="#"><i class="fa fa-tags"></i></a>
-            </div>
+            <a href="../product/new.php">
+              <div class="genCardHead">
+                <i class="fa fa-tags"></i>
+              </div>
+            </a>
             <div class="genCardContent">
               <span>Agregar Producto</span>
             </div>
           </div>
           <div class="col-md-4 col-sm-6 col-xs-12 genCard">
-            <div class="genCardHead">
-              <a href="#"><i class="fa fa-list-ul"></i></a>
-            </div>
+            <a href="../product/list.php">
+              <div class="genCardHead">
+                <i class="fa fa-list-ul"></i>
+              </div>
+            </a>
             <div class="genCardContent">
               <span>Lista de Productos</span>
             </div>
           </div>
           <div class="col-md-4 col-sm-6 col-xs-12 genCard">
-            <div class="genCardHead">
-              <a href="#"><i class="fa fa-user-plus"></i></a>
-            </div>
+            <a href="../user/new.php">
+              <div class="genCardHead">
+                <i class="fa fa-user-plus"></i>
+              </div>
+            </a>
             <div class="genCardContent">
               <span>Agregar Usuario</span>
             </div>
           </div>
           <div class="col-md-4 col-sm-6 col-xs-12 genCard">
-            <div class="genCardHead">
-              <a href="#"><i class="fa fa-list-ul"></i></a>
-            </div>
+            <a href="../user/list.php">
+              <div class="genCardHead">
+                <i class="fa fa-list-ul"></i>
+              </div>
+            </a>
             <div class="genCardContent">
               <span>Lista de Usuarios</span>
             </div>
           </div>
         </div><!-- /Cards For Links -->
-        <div class="container">
-          <a href="../elements/listElements.php">Common Elements</a>
-        </div>
+
 
     </div><!-- /.container-fluid -->
   </div><!-- /#wrapper -->

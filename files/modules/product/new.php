@@ -16,6 +16,7 @@
           <h3>Complete el formulario para agregar un producto</h3>
         </div>
         <div class="col-md-5 col-xs-12 switchDiv switchHead">
+          <span>Estado Inicial: </span>
           <input type="checkbox" name="status" id="status" data-on-text="Activo" data-off-text="Inactivo" data-size="mini" data-label-width="auto" checked>
         </div>
       </div><!-- /WindowHead -->
@@ -61,25 +62,13 @@
                 </div>
                 <div class="circles circlesAddItem">
                   <div class="circleInput Hidden animated fadeIn"><input name="color" type="color" value="#8551d9" /></div>
-                  <div class="ColorSelect circle circleAddItem" style="background-color: #fff"></div>
+                  <div class="ColorSelector colorPalette" name="color" type="color"><img src="../../../skin/images/body/icons/colpicker.png" alt=""/></div>
+                  <div class="ColorSelect circle circleAddItem" style="background-color: #b83232"></div>
                   <div class="ColorSelect circle circleAddItem" style="background-color: #c17996"></div>
                   <div class="ColorSelect circle circleAddItem" style="background-color: #768754"></div>
                   <div class="ColorSelect circle circleAddItem" style="background-color: #5643a0"></div>
-                  <div class="ColorSelect circle circleAddItem" style="background-color: #fff"></div>
-                  <div class="ColorSelect circle circleAddItem" style="background-color: #c17996"></div>
-                  <div class="ColorSelect circle circleAddItem" style="background-color: #768754"></div>
-                  <div class="ColorSelect circle circleAddItem" style="background-color: #5643a0"></div>
-                  <div class="ColorSelect circle circleAddItem" style="background-color: #fff"></div>
-                  <div class="ColorSelect circle circleAddItem" style="background-color: #c17996"></div>
-                  <div class="ColorSelect circle circleAddItem" style="background-color: #5643a0"></div>
-                  <div class="ColorSelect circle circleAddItem" style="background-color: #fff"></div>
-                  <div class="ColorSelect circle circleAddItem" style="background-color: #c17996"></div>
-                  <div class="ColorSelect circle circleAddItem" style="background-color: #768754"></div>
-                  <div class="ColorSelect circle circleAddItem" style="background-color: #5643a0"></div>
-                  <div class="ColorSelect circle circleAddItem" style="background-color: #fff"></div>
-                  <div class="ColorSelect circle circleAddItem" style="background-color: #c17996"></div>
 
-                  <div class="ColorSelector colorPalette" name="color" type="color"><img src="../../../skin/images/body/icons/colorpalette.jpg" alt=""/></div>
+
                 </div>
                 <div><button type="button" name="button" class="Hidden DelSelColors btn mainbtnred delColBtn animated fadeIn"><i class="fa fa-trash-o"></i> Eliminar</button></div>
               </div>
@@ -178,6 +167,10 @@
 
           </div><!-- /Images -->
         </div><!-- /FormItems -->
+        <!-- Help -->
+        <div class="helpModalTrigger"><span data-toggle="modal" data-target="#helpModal" >Ayuda <i class="fa fa-question-circle" aria-hidden="true"></i> </span>
+        <!-- /Help -->
+        </div>
       </div><!-- /addItemDiv -->
         <!-- Create User Button Div  -->
       <div class="container animated fadeInUp donediv">
@@ -189,4 +182,47 @@
       </div>    <!-- /Create User Button Div  -->
     </div> <!-- /Container Fluid  -->
   </div><!-- /#wrapper -->
+
+
+  <!-- HELP MODAL -->
+  <!-- /// ICONS MODAL ///-->
+  <div id="helpModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Ayuda para el usuario</i></h4>
+        </div>
+        <div class="modal-body">
+          <p>Le informaci&oacute;n colocada en el formulario saldr&aacute; luego en el sitio web como un nuevo producto en la secci&oacute;n cat&aacute;logo.</p>
+          <hr>
+          <b><i class="fa fa-tint"></i> COLORES:</b></span>
+          <p><b>Agregar Colores:</b> haga click en la paleta de colores   <span class="colorPaletteHelp" name="color" type="color"><img src="../../../skin/images/body/icons/colpicker.png" alt=""/>
+           y seleccione un color. <br>
+           Todos los colores seleccionados saldr&aacute;n en la descripci&oacute;n del producto <br>
+          <b>Eliminar Colores:</b> haga click en los que dese&eacute; eliminar y luego en el bot&oacute;n "Eliminar"
+          </p>
+          <hr>
+          <p><i class="fa fa-bars"></i><b> DESCRIPCI&Oacute;N:</b><br>
+            Llene el campo para agregar una descripci&oacute; al producto. El l&iacute;mite de caracteres es de hasta 150. El progresor le avisar&aacute; cuantos caracteres restan.
+          </p>
+          <hr>
+          <p><i class="fa fa-file-image-o"></i><b> SELECCI&Oacute;N DE IM&Aacute;GENES:</b><br>
+            Haga click en cambiar im&aacute;gen para entrar al menu de selecci&oacute;n de im&aacute;genes.<br>
+            Luego presione el bot&oacute;n "Seleccionar Im&aacute;gen" para cargar las mismas.<br>
+            <b>Orden y Prioridad</b>:<br>
+            Arrastre las im&aacute;genes para ordenarlas.<br>
+            La im&aacute;gen que quede a la izquierda ser&aacute; la destacada y la que se ver&aacute; en el cat&aacute;logo.
+          </p>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" name="button" class="btn mainbtn" data-dismiss="modal">OK</button><br>
+        </div>
+      </div>
+    </div>
+  </div><!-- /// ICONS MODAL /// -->
+
+
 <?php $Foot->setFoot(); ?>
