@@ -292,10 +292,15 @@ $addItemWidth: 800px
   position: relative
   .adminColors
     position: absolute
-    right: 5px
-    top: -4px
+    right: 2px
+    top: -9px
+    transition: all 0.5s ease
+    padding: 5px
     p
       font-size: 12px
+    &:hover
+      background-color: rgba(255, 255, 255, 0.4)
+      padding: 5px
 
 .addItemSizes
   text-align: center
@@ -819,6 +824,7 @@ $addItemWidth: 800px
 .delColBtn
   color: #fff
   padding: 5px 20px 5px
+  margin-top: 10px
   .fa
     color: #fff
     padding-right: 5px
