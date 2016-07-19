@@ -200,16 +200,18 @@ a .mainbtn {
     -moz-box-shadow: none; }
 
 .newItemBtn {
-  background: linear-gradient(to bottom, #abecb7 0, #197b4a 95%);
+  background: linear-gradient(to bottom, #b8c948 0, #32874b 95%);
   color: #fff; }
   .newItemBtn:hover {
-    background: linear-gradient(to bottom, #bee6c6 0, #1f8854 95%); }
+    background: linear-gradient(to bottom, #41b658 0, #1f8854 95%); }
+  .newItemBtn:active, .newItemBtn:focus {
+    background: linear-gradient(to bottom, #41b658 0, #1f8854 95%); }
 
 .btnForDark {
   background: #874141;
   color: #fff; }
   .btnForDark:hover {
-    background: linear-gradient(to bottom, #bee6c6 0, #1f8854 95%);
+    background: linear-gradient(to bottom, #41b658 0, #1f8854 95%);
     color: #383838; }
 
 .switchRight {
@@ -1649,10 +1651,15 @@ ul.alert-dropdown {
   position: relative; }
   .addItemNoformTit .adminColors {
     position: absolute;
-    right: 5px;
-    top: -4px; }
+    right: 2px;
+    top: -9px;
+    transition: all 0.5s ease;
+    padding: 5px; }
     .addItemNoformTit .adminColors p {
       font-size: 12px; }
+    .addItemNoformTit .adminColors:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+      padding: 5px; }
 
 .addItemSizes {
   text-align: center;
@@ -2132,7 +2139,8 @@ ul.alert-dropdown {
 
 .delColBtn {
   color: #fff;
-  padding: 5px 20px 5px; }
+  padding: 5px 20px 5px;
+  margin-top: 10px; }
   .delColBtn .fa {
     color: #fff;
     padding-right: 5px;

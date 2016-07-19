@@ -203,21 +203,11 @@ function ColorSelection()
 };
 ColorSelection();
 
-
-function ColorSelectionModal()
-{  // Select Color
-  $('.ColorSelectModal').click(function(){
-    $(this).toggleClass('colorSelectModal');
-  });
-}
-ColorSelectionModal();
-
-
-// Create a Li with the selected color
-function PutDaCalar()
+// Open Color Picker
+function colorPicker()
 {
-  $('.ColorSelector').click(function () {
+  $('.ColorPicker').click(function () {
     alert ("tocado");
   });
 }
-PutDaCalar();
+colorPicker();

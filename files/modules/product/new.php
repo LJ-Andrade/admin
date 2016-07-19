@@ -60,16 +60,15 @@
                 <div class="addItemNoformTit">
                   <span>Colores</span>
                   <!-- Colors Modal Trigger -->
-                  <div class="helpModalTrigger adminColors"><span data-toggle="modal" data-target="#colorsModal" >Administrar Colores</i></span></div>
+                  <div class="helpModalTrigger adminColors"><span data-toggle="modal" data-target="#colorsModal" >Galer&iacute;a (M&aacute;s usados)</i></span></div>
                   <!-- /Colors Modal Trigger-->
                 </div>
                 <div class="circles circlesAddItem">
                   <div class="circleInput Hidden animated fadeIn"><input name="color" type="color" value="#8551d9" /></div>
-                  <div class="ColorSelector colorPalette" name="color" type="color"><img src="../../../skin/images/body/icons/colpicker.png" alt=""/></div>
+                  <div class="ColorPicker colorPalette" name="color" type="color"><img src="../../../skin/images/body/icons/colpicker.png" alt=""/></div>
                   <div class="ColorSelect circle circleAddItem" style="background-color: #b83232"></div>
-                  <div class="ColorSelect circle circleAddItem" style="background-color: #c17996"></div>
-                  <div class="ColorSelect circle circleAddItem" style="background-color: #768754"></div>
-                  <div class="ColorSelect circle circleAddItem" style="background-color: #5643a0"></div>
+                  <div><p>No hay colores seleccionados</p></div>
+                  <div><button type="button" name="button" class="btn mainbtnred delColBtn animated fadeIn"><i class="fa fa-trash-o"></i> Eliminar</button></div>
                 </div>
                 <div><button type="button" name="button" class="Hidden DelSelColors btn mainbtnred delColBtn animated fadeIn"><i class="fa fa-trash-o"></i> Eliminar</button></div>
               </div>
@@ -191,10 +190,11 @@
           <p>Le informaci&oacute;n colocada en el formulario saldr&aacute; luego en el sitio web como un nuevo producto en la secci&oacute;n cat&aacute;logo.</p>
           <hr>
           <b><i class="fa fa-tint"></i> COLORES:</b></span>
-          <p><b>Agregar Colores:</b> haga click en la paleta de colores   <span class="colorPaletteHelp" name="color" type="color"><img src="../../../skin/images/body/icons/colpicker.png" alt=""/>
-           y seleccione un color. <br>
-           Luego tilde sobre los colores que deben salir publicados<br>
-          <b>Eliminar Colores:</b> Haga click en "administrar colores" donde podr&aacute; tanto eliminar como agregar nuevos colores</p>
+          <p><b>Agregar Colores:</b> Haga click en la paleta de colores   <span class="colorPaletteHelp" name="color" type="color"><img src="../../../skin/images/body/icons/colpicker.png" alt=""/>
+           y seleccione el o los colores de su producto. <br>
+           <b>Galer&iacute;a (M&aacute;s usados):</b>
+            Seleccione y guarde los colores que m&aacute; utiliza para una carga r&aacute;pida de productos.<br>
+          <b>Eliminar Colores:</b> Selecciones y haga click en eliminar para borrar los colores</p>
           <hr>
           <p><i class="fa fa-bars"></i><b> DESCRIPCI&Oacute;N:</b><br>
             Llene el campo para agregar una descripci&oacute; al producto. El l&iacute;mite de caracteres es de hasta 150. El progresor le avisar&aacute; cuantos caracteres restan.
@@ -226,19 +226,20 @@
           <h4 class="modal-title">Administrar Colores</i></h4>
         </div>
         <div class="modal-body">
-          <p>Seleccione los colores que desea eliminar y luego haga click en "Eliminar Colores"</p>
+          <p>Guarde aqu&iacute; los colores que m&aacute;s utiliza para la carga r&aacute;pida de productos.<br>
+          Seleccione y clique&eacute; "Agregar Seleccionados" para agregarlos a los colores de el producto.<hr></p>
           <div class="circles circlesAddItem">
             <div class="circleInput Hidden animated fadeIn"><input name="color" type="color" value="#8551d9"/></div>
-            <div class="ColorSelector colorPalette" name="color" type="color"><img src="../../../skin/images/body/icons/colpicker.png" alt=""/></div>
-            <div class="ColorSelectModal circle circleAddItem" style="background-color: #b83232"></div>
-            <div class="ColorSelectModal circle circleAddItem" style="background-color: #c17996"></div>
-            <div class="ColorSelectModal circle circleAddItem" style="background-color: #768754"></div>
-            <div class="ColorSelectModal circle circleAddItem" style="background-color: #5643a0"></div>
+            <div class="ColorPicker colorPalette" name="color" type="color"><img src="../../../skin/images/body/icons/colpicker.png" alt=""/></div>
+            <div class="ColorSelect circle circleAddItem" style="background-color: #b83232"></div>
+            <div class="ColorSelect circle circleAddItem" style="background-color: #b69595"></div>
+            <div class="ColorSelect circle circleAddItem" style="background-color: #2d02fa"></div>
+            <div class="ColorSelect circle circleAddItem" style="background-color: #d5be26"></div>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" name="button" class="btn mainbtn modalBtnRed" data-dismiss="modal">Eliminar Seleccionados</button>
-          <button type="button" name="button" class="btn mainbtn" data-dismiss="modal">OK</button><br>
+          <button type="button" name="button" class="btn mainbtn modalBtnRed" data-dismiss="modal"><i class="fa fa-trash-o"></i> Eliminar Seleccionados</button>
+          <button type="button" name="button" class="btn mainbtn" data-dismiss="modal"><i class="fa fa-plus"></i> Agregar Seleccionados</button><br>
         </div>
       </div>
     </div>
