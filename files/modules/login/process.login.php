@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 	/* INCLUDES */
 	include("../../includes/inc.main.php");
@@ -8,7 +8,7 @@
 	$Login->setLogin();
 	/* PROCESS */
 	if($Login->UserExist){ /* User Existence */
-		
+
 		if($Login->IsMaxTries){ /* Attempts to Login */
 			$Login->queryMaxTries(); /* Max Tries Reached */
 			echo "1";

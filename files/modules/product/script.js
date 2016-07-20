@@ -196,7 +196,11 @@ $("[name='status']").bootstrapSwitch();
 /////////////// Select Colors ////////////////////////////////
 
 function ColorSelection()
-{  // Select Color
+{  // Select Color Inside Modal
+  $('.ColorSelectModal').click(function(){
+    $(this).toggleClass('colorSelectedModal');
+  });
+  // Select Color Outside Modal
   $('.ColorSelect').click(function(){
     $(this).toggleClass('circleAddItemSelected');
   });
