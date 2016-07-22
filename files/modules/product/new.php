@@ -68,12 +68,11 @@
                   <div class="ColorPicker colorPalette" name="color" type="color"><img src="../../../skin/images/body/icons/colpicker.png" alt=""/></div>
                   <div class="ColorSelect circle circleAddItem" style="background-color: #b83232"></div>
                   <div><p>No hay colores seleccionados</p></div>
-                  <div><button type="button" name="button" class="btn mainbtnred delColBtn animated fadeIn"><i class="fa fa-trash-o"></i> Eliminar</button></div>
+                  <div><button type="button" name="button" class="btn mainbtnred delColBtn animated fadeIn"><i class="fa fa-trash-o"></i></button></div>
                 </div>
-                <div><button type="button" name="button" class="Hidden DelSelColors btn mainbtnred delColBtn animated fadeIn"><i class="fa fa-trash-o"></i> Eliminar</button></div>
               </div>
             </div>
-            <!-- Description & To Select Image Link -->
+            <!-- Description & Select Image  -->
             <!-- Description (Character counter) -->
             <div class="col-md-6 form-group addItemDescription">
               <form class="form-group">
@@ -101,61 +100,44 @@
           <!-- Images (HIDDEN) -->
           <div id="MultipleImgWd" class="row imgWindow animated fadeIn Hidden">
             <button id="cancelImgChange" type="button" name="button" class="btn closeBtn"><i class="fa fa-times"></i></button>
-              <div class="imgWindowTitle">
-                <div class="row tipAndButton">
-                  <div class="col-md-3 col-sm-6 col-xs-12">
-                    <button id="createUser" type="button" name="button" class="btn mainbtn" role="button"><i class="fa fa-check-square-o fa-fw"></i> Agregar Im&aacute;gen</button>
-                  </div>
-                  <div class="col-md-9 col-sm-6 col-xs-12">
-                    <div class="tipText"><i class="fa fa-question-circle" aria-hidden="true"></i><p> Arrastre las im&aacute;genes para ordenarlas</p></div>
-                  </div>
+            <div class="imgWindowTitle">
+              <div class="row tipAndButton">
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                  <button id="createUser" type="button" name="button" class="btn mainbtn" role="button"><i class="fa fa-check-square-o fa-fw"></i> Agregar Im&aacute;gen</button>
+                </div>
+                <div class="col-md-9 col-sm-6 col-xs-12">
+                  <div class="tipText"><i class="fa fa-question-circle" aria-hidden="true"></i><p> Arrastre las im&aacute;genes para ordenarlas</p></div>
                 </div>
               </div>
-              <div class="col-md-12 activeImgs SelectProdImg">
-                <ul id="ImageBox" class="connected sortable grid">
-                  <li><img src="../../../skin/images/users/default/caras1.png" alt="" class="img-responsive">
-                    <span>
-                      <i class="fa fa-arrows moveImg"></i>
-                      <i class="fa fa-trash delImgIco"></i>
-                      <i class="fa fa-arrow-left moveLeft"></i>
-                      <i class="fa fa-arrow-right moveRight"></i>
-                    </span>
-                  </li>
-                  <li><img src="../../../skin/images/users/default/caras2.png" alt="" class="img-responsive">
-                    <span>
-                      <i class="fa fa-arrows moveImg"></i>
-                      <i class="fa fa-trash delImgIco"></i>
-                      <i class="fa fa-arrow-left moveLeft"></i>
-                      <i class="fa fa-arrow-right moveRight"></i>
-                    </span>
-                  </li>
-                  <li><img src="../../../skin/images/users/default/usuario.jpg" alt="" class="img-responsive">
-                    <span>
-                      <i class="fa fa-arrows moveImg"></i>
-                      <i class="fa fa-trash delImgIco"></i>
-                      <i class="fa fa-arrow-left moveLeft"></i>
-                      <i class="fa fa-arrow-right moveRight"></i>
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            <!-- BORRAR CLASES y JS QUE NO SIRVA -->
-            <!-- <div class="col-md-12">
-              <button id="adDragBtn" type="button" name="button" class="btn mainbtn"><i class="fa fa-picture-o"></i> Galer&iacute;a</button>
             </div>
-            <div class="col-md-12 SelectProdImg activeImgs imgGallery">
-              <ul class="connected sortable grid no2">
-                <li class=""><img src="../../../skin/images/body/icons/add.jpg" alt="" class="img-responsive imgHover2"></li>
+            <div class="col-md-12 activeImgs SelectProdImg">
+              <ul id="ImageBox" class="connected sortable grid">
                 <li><img src="../../../skin/images/users/default/caras1.png" alt="" class="img-responsive">
                   <span>
                     <i class="fa fa-arrows moveImg"></i>
                     <i class="fa fa-trash delImgIco"></i>
+                    <i class="fa fa-arrow-left moveLeft"></i>
+                    <i class="fa fa-arrow-right moveRight"></i>
                   </span>
                 </li>
-                <i style="display: none;" class="fa fa-trash DelIconX" aria-hidden="true"></i>
-          		</ul>
-              <div class="clearfix"></div>
-            </div> -->
+                <li><img src="../../../skin/images/users/default/caras2.png" alt="" class="img-responsive">
+                  <span>
+                    <i class="fa fa-arrows moveImg"></i>
+                    <i class="fa fa-trash delImgIco"></i>
+                    <i class="fa fa-arrow-left moveLeft"></i>
+                    <i class="fa fa-arrow-right moveRight"></i>
+                  </span>
+                </li>
+                <li><img src="../../../skin/images/users/default/usuario.jpg" alt="" class="img-responsive">
+                  <span>
+                    <i class="fa fa-arrows moveImg"></i>
+                    <i class="fa fa-trash delImgIco"></i>
+                    <i class="fa fa-arrow-left moveLeft"></i>
+                    <i class="fa fa-arrow-right moveRight"></i>
+                  </span>
+                </li>
+              </ul>
+            </div>
           </div><!-- /Images -->
           <!-- Help Modal Trigger -->
           <div class="helpModalTrigger"><span data-toggle="modal" data-target="#helpModal" >Ayuda <i class="fa fa-question-circle" aria-hidden="true"></i> </span></div>
@@ -231,10 +213,10 @@
           <div class="circles circlesAddItem">
             <div class="circleInput Hidden animated fadeIn"><input name="color" type="color" value="#8551d9"/></div>
             <div class="ColorPicker colorPalette" name="color" type="color"><img src="../../../skin/images/body/icons/colpicker.png" alt=""/></div>
-            <div class="ColorSelect circle circleAddItem" style="background-color: #b83232"></div>
-            <div class="ColorSelect circle circleAddItem" style="background-color: #b69595"></div>
-            <div class="ColorSelect circle circleAddItem" style="background-color: #2d02fa"></div>
-            <div class="ColorSelect circle circleAddItem" style="background-color: #d5be26"></div>
+            <div class="ColorSelectModal circle circleAddItem" style="background-color: #b83232"></div>
+            <div class="ColorSelectModal circle circleAddItem" style="background-color: #b69595"></div>
+            <div class="ColorSelectModal circle circleAddItem" style="background-color: #2d02fa"></div>
+            <div class="ColorSelectModal circle circleAddItem" style="background-color: #d5be26"></div>
           </div>
         </div>
         <div class="modal-footer">

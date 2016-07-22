@@ -2101,12 +2101,12 @@ ul.alert-dropdown {
     cursor: pointer;
     border: 1px solid #fff; }
 
-.circleAddItemSelected {
+.colorSelectedModal {
   -webkit-box-shadow: inset 6px 9px 9px -9px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: inset 6px 9px 9px -9px rgba(0, 0, 0, 0.75);
   box-shadow: inset 6px 9px 9px -9px rgba(0, 0, 0, 0.75); }
 
-.circleAddItemSelected:before {
+.colorSelectedModal:before {
   content: "✔";
   font-weight: 800;
   color: white;
@@ -2114,13 +2114,13 @@ ul.alert-dropdown {
   position: relative;
   top: 5px; }
 
-.colorSelectModal {
+.circleAddItemSelected {
   background-color: #929292 !important;
   -webkit-box-shadow: inset 6px 9px 9px -9px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: inset 6px 9px 9px -9px rgba(0, 0, 0, 0.75);
   box-shadow: inset 6px 9px 9px -9px rgba(0, 0, 0, 0.75); }
 
-.colorSelectModal:before {
+.circleAddItemSelected:before {
   content: "X";
   font-weight: 800;
   color: white;
@@ -2139,8 +2139,8 @@ ul.alert-dropdown {
 
 .delColBtn {
   color: #fff;
-  padding: 5px 20px 5px;
-  margin-top: 10px; }
+  padding: 5px;
+  padding-left: 10px; }
   .delColBtn .fa {
     color: #fff;
     padding-right: 5px;
