@@ -345,9 +345,6 @@ form .indicator.full {
 form .indicator.empty {
   background-color: rgba(38, 166, 91, 0.2); }
 
-.remchar {
-  margin-top: 10px; }
-
 .breadcrumb {
   padding: 0px;
   margin-bottom: 0px;
@@ -1375,6 +1372,87 @@ ul.alert-dropdown {
     background-color: transparent;
     margin-left: 10px;
     color: #383838; }
+
+.sectionTitle {
+  margin-left: 30px; }
+  .sectionTitle h1 {
+    font-size: 30;
+    font-weight: 300;
+    color: #fff; }
+    .sectionTitle h1 .fa {
+      margin-right: 10px; }
+
+.mainForms {
+  width: 95%;
+  padding: 0; }
+  .mainForms .mainFormsInner {
+    background-color: #e6e6e6;
+    padding: 15px;
+    -webkit-box-shadow: 10px 10px 15px -12px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 15px -12px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 10px 15px -12px rgba(0, 0, 0, 0.75); }
+  .mainForms .titleHead {
+    background-color: rgba(0, 0, 0, 0.15);
+    padding: 15px 20px; }
+    .mainForms .titleHead span {
+      color: #fff;
+      font-size: 16px;
+      font-weight: 300;
+      margin: 0; }
+  .mainForms .form-group input {
+    padding: 10px;
+    width: 100%;
+    max-width: 100%;
+    border: 0;
+    border-radius: 0; }
+  .mainForms .form-group textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    border: 0;
+    border-radius: 0; }
+  .mainForms .form-group .indicator-wrapper {
+    border-bottom: 1px solid #6f6f6f;
+    border-left: 1px solid #6f6f6f;
+    border-right: 1px solid #6f6f6f;
+    padding-left: 10px;
+    padding-top: 10px; }
+  .mainForms .sizes {
+    text-align: center;
+    margin: 0;
+    margin-top: 15px; }
+    .mainForms .sizes ul {
+      padding: 2px; }
+      .mainForms .sizes ul li {
+        text-align: center;
+        display: inline-block;
+        width: 39px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        padding-top: 4px;
+        background-color: rgba(255, 255, 255, 0.5); }
+
+.mainFormsSubTit {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 5px 10px;
+  position: relative; }
+  .mainFormsSubTit .adminColors {
+    position: absolute;
+    right: 2px;
+    top: -9px;
+    transition: all 0.5s ease;
+    padding: 5px; }
+    .mainFormsSubTit .adminColors p {
+      font-size: 12px; }
+    .mainFormsSubTit .adminColors:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+      padding: 5px; }
+
+.addItemSizes .checkbox-custom, .addItemSizes .checkbox-custom-label, .addItemSizes .radio-custom, .addItemSizes .radio-custom-label {
+  padding-top: 4px; }
+
+.addItemSizes .checkbox-custom + .checkbox-custom-label:before, .addItemSizes .radio-custom + .radio-custom-label:before {
+  border: 0 !important; }
 
 .wrapOverlayItem {
   width: 87%;

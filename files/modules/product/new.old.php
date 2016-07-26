@@ -8,61 +8,7 @@
     <?php echo insertElement("hidden","action",'insert'); ?>
     <?php include '../../includes/inc.subTop.php'; ?>
     <div class="container-fluid pageWrapper">
-      <!-- New Item (New Interface) -->
-      <div class="sectionTitle">
-        <h1><i class="fa fa-tag"></i>Nuevo Producto</h1></div>
-      <div class="container mainForms">
-          <!-- Head -->
-          <div class="titleHead">
-            <span>Complete los campos para crear un <b>nuevo producto</b></span>
-          </div>
-        <div class="mainFormsInner">
-          <!-- Head -->
-          <div class="row">
-            <div class="col-md-6">
-              <form class="form-group">
-                <div class="form-group">
-                  <input id="" type="text" name="title" placeholder="T&iacute;tulo">
-                </div>
-                <div class="form-group">
-                  <input id="" type="text" name="code" placeholder="C&oacute;digo">
-                </div>
-                <div class="form-group">
-                  <input id="" type="text" name="composition" placeholder="Composici&oacute;n">
-                </div>
-                <div class="form-group">
-                  <input id="" type="text" name="price" placeholder="Precio">
-                </div>
-                <!-- Description -->
-                <?php echo insertElement('textarea','description',$Data['description'],'text-center','placeholder="Descripción" rows="4" maxlength="150"'); ?>
-                <div class="indicator-wrapper">
-                  <p> Caracteres restantes: </p>
-                  <div class="indicator"><span class="current-length">150</span></div>
-                </div>
-              </form>
-            </div>
-            <div class="col-md-6">
-              <div class="mainFormsSubTit">
-                <span>Talles</span>
-              </div>
-              <div class="form-group sizes">
-                <ul>
-                  <li><input id="sizeXS" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeXS"><span>XS</span></li>
-                  <li><input id="sizeS" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeS"><span>S</span></li>
-                  <li><input id="sizeM" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeM"><span>M</span></li>
-                  <li><input id="sizeL" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeL"><span>L</span></li>
-                  <li><input id="sizeXL" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeXL"><span>XL</span></li>
-                  <li><input id="sizeXXL" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeXXL"><span>XXL</span></li>
-                </ul>
-              </div>
-              <div class="mainFormsSubTit">
-                <span>Colores</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- /New Item - New Interface -->
+
       <!-- New Item Window -->
       <!-- WindowHead -->
       <div class="row windowHead animated fadeInDown">
@@ -75,6 +21,7 @@
         </div>
       </div><!-- /WindowHead -->
       <div class="container addItemDiv animated zoomIn">
+        Hola
         <div class="row col-sm-12 form-box">
           <!-- Inputs -->
           <div id="newInputs" class="animated fadeIn" >
