@@ -1,0 +1,18 @@
+/////// MIXINS ////////
+
+// SHADOW //
+@mixin box-shadowUp( $horiz : 7px , $vert : -4px , $blur : 5px , $spread : -6px , $color : rgba(0,0,0,0.75) )
+  -webkit-box-shadow: $horiz $vert $blur $spread $color
+  -moz-box-shadow: $horiz $vert $blur $spread $color
+  box-shadow: $horiz $vert $blur $spread $color
+
+@mixin box-shadowDown( $horiz : 7px , $vert : 6px , $blur : 5px , $spread : -6px , $color : rgba(0,0,0,0.75) )
+  -webkit-box-shadow: $horiz $vert $blur $spread $color
+  -moz-box-shadow: $horiz $vert $blur $spread $color
+  box-shadow: $horiz $vert $blur $spread $color
+
+
+@mixin box-shadowSoft( $horiz : 10px , $vert : 10px , $blur : 15px , $spread : -12px , $color : rgba(0,0,0,0.75))
+  -webkit-box-shadow: $horiz $vert $blur $spread $color
+  -moz-box-shadow: $horiz $vert $blur $spread $color
+  box-shadow: $horiz $vert $blur $spread $color

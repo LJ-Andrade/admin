@@ -1,0 +1,281 @@
+// General Styles
+*
+  margin: 0
+  padding: 0
+  outline: 0
+  text-decoration: none
+
+html
+  background-color: #5284ad
+  height: 100%
+
+body
+  font-family: $font1
+  background-image: url(../images/body/backgrounds/back.jpg)
+  // background: rgba(255, 255, 255, 0.4)
+  background-repeat: no-repeat
+  background-attachment: fixed
+  background-position: center center
+  background-size: cover
+  position: relative
+  min-height: 100%
+
+#wrapper
+  padding-left: 0
+  padding-bottom: 150px
+  margin-top: 53px
+  height: 100%
+
+.pageWrapper
+  padding-top: 70px
+  // background: rgba(255, 255, 255, 0.4)
+  background-repeat: repeat
+  height: 100%
+
+@media(max-width:768px)
+  .container-fluid
+    padding-left: 2px
+    padding-right: 2px
+
+.contentWrapper
+  background-color: $contentWrapper
+  margin-top: -2px
+  height: 100%
+
+@media(min-width:768px)
+  #wrapper
+    padding-left: 225px
+    height: 100%
+  #wrapperlogin
+    padding-left: 0
+
+@media(max-width:960px)
+  #wrapper
+    margin-top: 24px
+
+a
+  color: #fff
+  text-decoration: none
+  outline: 0
+  &:hover
+    color: #fff
+    text-decoration: none
+    outline: 0
+  &:active,&:focus
+    outline: 0
+
+
+h1, h2, h3, h4, h5,
+  font-family: $font1
+  margin-top: 10px
+h1
+  font-size: 28px
+  font-weight: 400
+h2
+  font-size: 24px
+h3
+  font-size: 20px
+  font-weight: 400
+h4
+  font-size: 18px
+  font-weight: 300
+h5
+  font-size: 16px
+  font-weight: 300
+
+p
+  font-family: $font1
+  margin: 0
+
+ul
+  list-style: none !important
+
+.textcenter
+  text-align: center
+
+//////////// Custom Styles /////////////////////////////////////////
+.Hidden
+  display: none !important
+.pad0
+  padding: 0
+.mar0, .marg0
+  margin: 0
+.padL0
+  padding-left: 0px
+.padR0
+  padding-left: 0px
+.centrarimg
+  margin: 0 auto
+.centrartxt
+  text-align: center
+.lastcol
+  margin-right: 0
+.marg20
+  margin-top: 20px
+  margin-bottom: 20px
+.row-centered
+  text-align: center
+.col-centered
+  display: inline-block
+  float: none
+  text-align: left
+  margin-right: -4px
+.centrarbtn
+  margin: 0
+  Background-color: transparent
+  text-align: center
+.txtcenter
+  text-align: center
+.brd
+  border: 1px solid red
+.radio100
+  border-radius: 100%
+
+.flex-container
+  display: -webkit-box
+  display: -ms-flexbox
+  display: flex
+  -webkit-box-align: center
+  -ms-flex-align: center
+  -ms-grid-row-align: center
+  align-items: center
+
+.flex-allCenter
+  justify-content: center
+  width: 100%
+  display: -ms-flexbox
+  display: -webkit-flex
+  display: flex
+  -ms-flex-align: center
+  -webkit-align-items: center
+  -webkit-box-align: center
+  align-items: center
+
+.mainContainer
+  margin: 25px 0 40px
+
+
+///////////// Head Title  ////////////////////////////////////////
+
+.titleDiv
+  width: auto
+  min-height: 50px
+  background-color: $titleDivTop
+  padding: 1px 5px
+  margin-bottom: 10px
+  position: fixed
+  width: 100%
+  -webkit-transition: all 0.3s ease-out
+  -moz-transition: all 0.3s ease-out
+  -ms-transition: all 0.3s ease-out
+  -o-transition: all 0.3s ease-out
+  transition: all 0.3s ease-out
+  display: -ms-flexbox
+  display: -webkit-flex
+  display: flex
+  -ms-flex-align: center
+  -webkit-align-items: center
+  -webkit-box-align: center
+  align-items: center
+  flex-direction: row
+  z-index: 500
+  span
+    // font-size: 1.7rem
+    font-weight: 300
+    white-space: nowrap
+  a
+    color: #000
+  .breadCrumTitle
+    span
+      margin: 0 10px
+    .fa
+      font-weight: 400
+      font-size: 16px
+      color: rgb(89, 89, 89)
+  .mainTitle
+    font-size: 20px
+    font-weight: 300
+    color: rgb(0, 0, 0)
+    .mainTitle
+      .fa
+        color: #000
+  .breadCrums
+    font-size: 15px
+    font-style: italic
+    font-weight: 300
+  .titleDivOptions
+    text-align: right
+
+@media(max-width: 1410px)
+  .titleDiv
+    .breadCrums
+      font-size: 14px
+    .mainTitle
+      font-size: 16px
+
+@media(max-width: 1242px)
+  .titleDiv
+    .breadCrums
+      font-size: 12px
+    .mainTitle
+      font-size: 14px
+  .mainbtn
+    padding: 6px 6px 6px
+    font-size: 12px
+
+@media(max-width: 842px)
+  .titleDiv
+    display: block
+    padding: 5px 0
+    .titleDivOptions
+      text-align: center
+
+@media (max-width:866px) and (min-width:767px)
+  .titleDiv
+    display: flex
+
+@media(max-width: 430px)
+  .breadCrumTitle
+    display: none
+  .titleDiv
+    margin-top: -2px
+    width: 105%
+
+
+@media(max-width: 340px)
+  .titleDiv
+    .breadCrums
+      font-size: 11px
+    .mainTitle
+      font-size: 11px
+
+
+
+////////////// LOADER ////////////////////////////////////////////////
+
+div#page_loader
+  position: relative
+  background-color: rgba(46,53,79, 1)
+  z-index: 9998
+  display: -ms-flexbox
+  display: -webkit-flex
+  display: flex
+  -ms-flex-align: center
+  -webkit-align-items: center
+  -webkit-box-align: center
+  align-items: center
+  justify-content: center
+
+#loadgif
+  position: absolute
+  z-index: 9999
+  display: -ms-flexbox
+  display: -webkit-flex
+  display: flex
+  -ms-flex-align: center
+  -webkit-align-items: center
+  -webkit-box-align: center
+  align-items: center
+  justify-content: center
+  img
+    width: 150px

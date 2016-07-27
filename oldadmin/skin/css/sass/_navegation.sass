@@ -1,0 +1,263 @@
+///////////////   Navegation  //////////////////////
+///////// Owner Name (Top Left) ///////////////////////////////
+
+.nav
+  .fa
+    color: $mainMenuIcons
+    &:hover
+      .fa
+        color: #fff
+
+.ownername
+  color: $topTextBrand
+.brand
+  color: #fff
+
+
+
+/////////////////////// Nav Bar //////////////////////////////
+
+.navbar-inverse
+  background-color: $colorTop1
+  border-color: transparent
+  .navbar-nav > li a
+    transition: all 0.2s ease 0s
+    &:hover, &:focus
+      color: $mainMenuLiText
+      border-left: $menuLine2
+  .navbar-nav > li > a
+    color: #fff
+  .navbar-collapse, .navbar-form
+    // TOP //
+    background-color: $colorTop1
+    background: $colorTop1
+    background: -moz-linear-gradient(left, $colorTop1 0%, $colorTop2 100%)
+    background: -webkit-linear-gradient(left, $colorTop1 0%,$colorTop2 100%)
+    background: linear-gradient(to right, $colorTop1 0%,$colorTop2 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$colorTop', endColorstr='$colorTop2',GradientType=1 )
+@media(max-width:768px)
+  .navbar-inverse .navbar-nav > li a
+    width: auto
+
+@media(max-width:768px)
+  .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form
+    ul
+      // background-color: rgba($side, 1)
+
+.navbar-collapse
+  border-top: 0px
+
+////////////////////// Side Nav /////////////////////////////
+.side-nav
+  .fa
+    font-size: $mainMenuIconTxt
+    margin-right: 5px
+    background-color: #fff
+    border-radius: 12px 0px 12px 12px
+    height: 28px
+    width: 28px
+    padding-top: 5px
+  .menuArrow
+    background-color: transparent !important
+    color: #fff !important
+  li
+    transition: all 0.2s ease 0s
+    &:hover
+      border-left: $menuLine1
+    a
+      transition: all 0.2s ease 0s
+      width: 225px
+      &:hover
+        border-left: $menuLine1
+        transition: all 0.2s ease 0s
+      &:hover, &focus
+        background-color: $mainMenuLiHover !important
+        .fa
+          color: $mainMenuIconsHover
+          text-shadow: none
+      ul
+        padding: 0
+        li
+          background-color: #fff
+          transition: all 0.2s ease 0s
+          a
+            display: block
+            padding: 10px 15px 10px 38px
+            text-decoration: none
+            color: $sideddtxt
+            padding-left: 50px
+            transition: all 0.2s ease 0s
+            &:hover
+              border-left: 5px solid $mainblue
+
+
+@media(min-width:768px)
+  .side-nav
+    position: fixed
+    top: 52px
+    left: 225px
+    width: 225px
+    margin-left: -225px
+    border: none
+    border-radius: 0
+    overflow-y: auto
+    // Side Nav
+    background-color: $mainMenuBack
+    bottom: 0
+    overflow-x: hidden
+    padding-bottom: 40px
+    box-shadow: -1px 15px 4px -1px rgba(0, 0, 0, 0.53)
+    li
+      background-color: $mainMenuLi
+      a
+        min-width: 100%
+
+
+// Drop down menu and icons
+.sideddmenu
+  li
+    background-color: $mainMenuDDBack
+    &:hover
+      border-left: $menuLine3
+    ul
+      list-style: none
+    .fa
+      font-size: $mainMenuIconsDDTxt
+      padding-top: 7px
+  a
+    font-size: $mainMenuIconsDD
+    padding: 10px 5px 10px 25px
+    display: block
+    color: $mainMenuLiText
+    text-decoration: none
+    padding-top: 15px
+    padding-bottom: 15px
+    &:hover,&:focus
+      color: $mainMenuLiText
+// .sidemenu .sideintern
+//   li
+//     background-color: #000
+//////// Top bar / User /////////////////////////
+
+.dropdown-menu
+  padding: 0
+  .fa
+    margin-right: 26px
+    margin-left: 5px
+.brand
+  font-size: 12px
+
+@media(max-width:340px)
+  .brand
+    display: none
+
+/* User Loged Img */
+.userloginimg
+  height: 40px
+  border-radius: 100%
+  margin: 0 15px
+
+@media(max-width:340px)
+  .top-nav
+    padding: 0
+
+.top-nav li a:hover, .top-nav > li > a:focus, .top-nav > .open > a, .top-nav > .open > a:hover, .top-nav > .open > a:focus
+  background-color: rgba ($usernamehover, 0.7)
+  color: $usernametxthover
+
+.nav .open > a, .nav .open > a:focus, .nav .open > a:hover
+  background-color: rgba ($usernamehover, 0.7) !important
+
+.dropdown
+  width: 219px
+
+.top-nav
+  padding: 0 15px
+  li
+    display: inline-block
+    float: left
+    a
+      padding: 0
+      padding-top: 6px
+      padding-bottom: 5px
+      line-height: 20px
+      color: $username
+      -webkit-transition: all 0.5s ease 0s
+      transition: all 0.5s ease 0s
+      &:hover
+        color: #000
+  .open
+    .dropdown-menu
+      float: left
+      position: absolute
+      margin-top: 0
+      border-top-left-radius: 0
+      border-top-right-radius: 0
+      background-color: #fff
+      -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175)
+      box-shadow: 0 6px 12px rgba(0,0,0,.175)
+      // Capa de Dropdown User
+      z-index: 9999
+      border-radius: 0
+      li
+        color: #000
+        a
+          background-color: rgba($side, .3)
+          color: $userdd
+          min-width: 218px
+          color: $texts
+          &:hover
+            //Color hover DD user
+            background-color: $userddhover
+            color: $userddtxthover
+
+ul.message-dropdown
+  padding: 0
+  max-height: 250px
+  overflow-x: hidden
+  overflow-y: auto
+
+/* Width User logged */
+
+li.message-preview
+  width: 275px
+  border-bottom: 1px solid rgba(0,0,0,.15)
+li.message-preview > a
+  padding-top: 15px
+  padding-bottom: 15px
+li.message-footer
+  margin: 5px 0
+ul.alert-dropdown
+  width: 200px
+
+// Hide User Bar on Mobile
+@media (max-width: 767px)
+  .top-nav
+    display: none
+
+
+// Test Sidebar
+///////////////// navRightTopItem ////////////////////////////
+.navRightTopItem
+  margin: 10px
+  margin-bottom: 5px
+  padding: 5px
+  background-color: rgba(255, 255, 255, 0.2)
+  color: #fff
+  .fa
+    background-color: transparent
+    color: #fff
+    margin-left: 5px
+    transition: all 0.3s ease 0s
+    &:hover
+      color: #272727
+      cursor: pointer
+.navRightTopItemOptions
+  padding: 10px
+  margin: 0 10px 10px
+  background-color: rgba(255, 255, 255, 0.2)
+  color: #fff
+  .fa
+    background-color: transparent
+    margin-left: 10px
+    color: #383838
