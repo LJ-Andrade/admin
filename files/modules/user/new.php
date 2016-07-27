@@ -4,8 +4,6 @@
     $Head->setHead();
     $MenuTree = new Menu();
     $Group    = new GroupData();
-
-
 ?>
 <body>
   <div id="wrapper">

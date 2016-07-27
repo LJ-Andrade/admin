@@ -207,11 +207,11 @@ function ColorSelection()
 };
 ColorSelection();
 
-// Open Color Picker
-function colorPicker()
-{
-  $('.ColorPicker').click(function () {
-    alert ("tocado");
+$(document).ready(function() {
+  $('#init').on('click', function() {
+    $('select[name="colorpicker-picker-longlist"]').simplecolorpicker({picker: true, theme: 'glyphicons'});
   });
-}
-colorPicker();
+
+  // By default, activate simplecolorpicker plugin on HTML selects
+  $('#init').trigger('click');
+});

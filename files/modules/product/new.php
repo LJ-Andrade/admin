@@ -11,37 +11,39 @@
       <!-- New Item (New Interface) -->
       <div class="sectionTitle">
         <h1><i class="fa fa-tag"></i>Nuevo Producto</h1></div>
-      <div class="container mainForms">
+      <div class="container mainForms animated fadeIn">
           <!-- Head -->
           <div class="titleHead">
             <span>Complete los campos para crear un <b>nuevo producto</b></span>
           </div>
+          <!-- /Head -->
         <div class="mainFormsInner">
-          <!-- Head -->
           <div class="row">
-            <div class="col-md-6">
-              <form class="form-group">
+            <div class="form-group col-md-6"><!-- col-md-6 (Text inputs)-->
+              <form>
                 <div class="form-group">
                   <input id="" type="text" name="title" placeholder="T&iacute;tulo">
                 </div>
-                <div class="form-group">
-                  <input id="" type="text" name="code" placeholder="C&oacute;digo">
-                </div>
-                <div class="form-group">
-                  <input id="" type="text" name="composition" placeholder="Composici&oacute;n">
-                </div>
-                <div class="form-group">
-                  <input id="" type="text" name="price" placeholder="Precio">
+                <div class="row">
+                  <div class="form-group col-md-4 col-sm-12 col-xs-12">
+                    <input id="" type="text" name="composition" placeholder="Composici&oacute;n">
+                  </div>
+                  <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                    <input id="" type="text" name="code" placeholder="C&oacute;digo">
+                  </div>
+                  <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                    <input id="" type="text" name="price" placeholder="Precio">
+                  </div>
                 </div>
                 <!-- Description -->
                 <?php echo insertElement('textarea','description',$Data['description'],'text-center','placeholder="Descripción" rows="4" maxlength="150"'); ?>
                 <div class="indicator-wrapper">
-                  <p> Caracteres restantes: </p>
+                  <p>Caracteres restantes</p>
                   <div class="indicator"><span class="current-length">150</span></div>
                 </div>
               </form>
-            </div>
-            <div class="col-md-6">
+            </div><!-- col-md-6  (Text inputs) -->
+            <div class="col-md-6"><!-- col-md-6 (Sizes, colors, stock)-->
               <div class="mainFormsSubTit">
                 <span>Talles</span>
               </div>
@@ -55,14 +57,97 @@
                   <li><input id="sizeXXL" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeXXL"><span>XXL</span></li>
                 </ul>
               </div>
-              <div class="mainFormsSubTit">
-                <span>Colores</span>
+              <!-- Colors -->
+              <div class="row col-md-6">
+                <div class="mainFormsSubTit">
+                  <span>Colores</span>
+                </div>
+                <!-- Primary Color -->
+                <div class="col-md-6 col-xs-6 colorPickerMain">
+                  <div class="cPTitle"><p>Primario</p></div>
+                  <div class="cPcatalogue">
+                    <button id="init" class="btn btn-primary Hidden">Init the jQuery plugin</button>
+                    <select id="colorP" name="colorpicker-picker-longlist">
+                      <option value="#ac725e">#ac725e</option>
+                      <option value="#d06b64">#d06b64</option>
+                      <option value="#f83a22">#f83a22</option>
+                      <option value="#fa573c">#fa573c</option>
+                      <option value="#ff7537">#ff7537</option>
+                      <option value="#ffad46">#ffad46</option>
+                      <option value="#42d692">#42d692</option>
+                      <option value="#16a765">#16a765</option>
+                      <option value="#7bd148">#7bd148</option>
+                      <option value="#b3dc6c">#b3dc6c</option>
+                      <option value="#fbe983">#fbe983</option>
+                      <option value="#fad165">#fad165</option>
+                      <option value="#92e1c0">#92e1c0</option>
+                      <option value="#9fe1e7">#9fe1e7</option>
+                      <option value="#9fc6e7">#9fc6e7</option>
+                      <option value="#4986e7">#4986e7</option>
+                      <option value="#9a9cff">#9a9cff</option>
+                      <option value="#b99aff">#b99aff</option>
+                      <option value="#c2c2c2">#c2c2c2</option>
+                      <option value="#cabdbf">#cabdbf</option>
+                      <option value="#cca6ac">#cca6ac</option>
+                      <option value="#f691b2">#f691b2</option>
+                      <option value="#cd74e6">#cd74e6</option>
+                      <option value="#a47ae2">#a47ae2</option>
+                    </select>
+                  </div>
+                </div>
+                <!-- Secondary Color -->
+                <div class="col-md-6 col-xs-6 colorPickerMain">
+                  <div class="cPTitle"><p>Secundario</p></div>
+                  <div class="cPcatalogue">
+                    <button id="init" class="btn btn-primary Hidden">Init the jQuery plugin</button>
+                    <select id="colorP" name="colorpicker-picker-longlist">
+                      <option value="#ac725e">#ac725e</option>
+                      <option value="#d06b64">#d06b64</option>
+                      <option value="#f83a22">#f83a22</option>
+                      <option value="#fa573c">#fa573c</option>
+                      <option value="#ff7537">#ff7537</option>
+                      <option value="#ffad46">#ffad46</option>
+                      <option value="#42d692">#42d692</option>
+                      <option value="#16a765">#16a765</option>
+                      <option value="#7bd148">#7bd148</option>
+                      <option value="#b3dc6c">#b3dc6c</option>
+                      <option value="#fbe983">#fbe983</option>
+                      <option value="#fad165">#fad165</option>
+                      <option value="#92e1c0">#92e1c0</option>
+                      <option value="#9fe1e7">#9fe1e7</option>
+                      <option value="#9fc6e7">#9fc6e7</option>
+                      <option value="#4986e7">#4986e7</option>
+                      <option value="#9a9cff">#9a9cff</option>
+                      <option value="#b99aff">#b99aff</option>
+                      <option value="#c2c2c2">#c2c2c2</option>
+                      <option value="#cabdbf">#cabdbf</option>
+                      <option value="#cca6ac">#cca6ac</option>
+                      <option value="#f691b2">#f691b2</option>
+                      <option value="#cd74e6">#cd74e6</option>
+                      <option value="#a47ae2">#a47ae2</option>
+                    </select>
+                  </div>
+                </div>
               </div>
+              <div class="col-md-6">
+                <div class="mainFormsSubTit">
+                  <span>  Stock</span>
+                </div>
+              </div>
+            </div><!-- col-md-6 (Sizes, colors, stock)-->
+          </div><!-- /row -->
+          <div class="row"><!-- row (Images) -->
+            <div class="col-md-12 brd">
+            Hola
             </div>
-          </div>
-        </div>
-      </div>
-      <!-- /New Item - New Interface -->
+          </div><!-- /row (Images) -->
+        </div><!-- /mainFormsInner -->
+
+      </div><!-- /mainForms -New Item - New Interface -->
+
+
+
+
       <!-- New Item Window -->
       <!-- WindowHead -->
       <div class="row windowHead animated fadeInDown">
@@ -282,6 +367,9 @@
   </div>
   <!-- Colos Modal -->
 
+  <script type="text/javascript">
 
+
+  </script>
 
 <?php $Foot->setFoot(); ?>
