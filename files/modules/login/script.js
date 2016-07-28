@@ -1,8 +1,16 @@
 
 $(document).ready(function() {
 	if(get['error']=='login' || get['error']=='login#'){
-		notifyError("Para ingresar a esta sección debe estar conectado.");
+		alert("Para ingresar a esta sección debe estar conectado.");
 	}
+});
+
+$(function () {
+	$('input').iCheck({
+		checkboxClass: 'icheckbox_square-blue',
+		radioClass: 'iradio_square-blue',
+		increaseArea: '20%' // optional
+	});
 });
 
 function sumbitLogin(){
@@ -14,7 +22,7 @@ function sumbitLogin(){
 	var error		= 'Verifique los datos ingresados';
 	var values		= 'user='+ user + '&password=' + password + '&target=' + target + '&error=' + error + '&rememberuser=' + rememberuser ;
 	var	process		= "process.login.php";
-	toggleLoader();
+	//toggleLoader();
 	$.ajax({
 			type: "POST",
 			url: process,
@@ -24,14 +32,15 @@ function sumbitLogin(){
 				if(!data){
 					document.location = target;
 				}else{
-					notifyError(error);
+					//notifyError(error);
 					//$("#ShowError").html(error);
 					//$("#ShowErrorWrapper").fadeIn(1000).delay(5000).fadeOut(1000);//.setTimeout(function() {$("#ShowError").fadeOut();}, 5000);
-					//alert(error);
+					alert(error);
+					console.log(data);
 				}
 			}
 	});
-	toggleLoader();
+	//toggleLoader();
 }
 
 $(function(){
@@ -40,12 +49,11 @@ $(function(){
 			sumbitLogin();
 		}
 	});
-	
+
 	$("input").keypress(function(e){
 		if(e.which==13){
 			$(".ButtonLogin").click();
 		}
 	});
-	
-});
 
+});

@@ -1,14 +1,5 @@
                                             ////// JavaScript Document //////
 
-
-$(document).ready(function() {
-//////////////////////////////////////////////////// Scrollbar Styles //////////////////////////////////////////////////////
-    $("html").niceScroll({cursorwidth: '8px', cursorborder: 0, cursorborderradius: 0, autohidemode: false, zindex: 999, cursorcolor: '#2C3E50', cursoropacitymax: .5 });
-
-//////////////////////////////////////////////////// Subtop Icons //////////////////////////////////////////////////////
-    if(get['msg']!="logok")$('#backtolastpage').removeClass('Hidden');
-});
-
 $(function(){
 //////////////////////////////////////////////////// Back Button //////////////////////////////////////////////////////
     $(".BackToLastPage").click(function(){
@@ -16,193 +7,195 @@ $(function(){
     });
 
 //////////////////////////////////////////////////// Bootstrap Switch //////////////////////////////////////////////////////
-    $(".SwitchCheckbox").bootstrapSwitch();
+    //$(".SwitchCheckbox").bootstrapSwitch();
 
 //////////////////////////////////////////////////////////// Menu Tree //////////////////////////////////////////////////////////////
-    function disableChildrens(parent)
-    {
-        parent.children('li').children('input').attr("disabled",true);
-        parent.children('ul').each(function(){
-            disableChildrens($(this));
-        });
-        parent.children('li').children('input').attr("checked",false);
-    }
+//     function disableChildrens(parent)
+//     {
+//         parent.children('li').children('input').attr("disabled",true);
+//         parent.children('ul').each(function(){
+//             disableChildrens($(this));
+//         });
+//         parent.children('li').children('input').attr("checked",false);
+//     }
+//
+//     function enableChildrens(parent)
+//     {
+//         parent.children('li').children('input').attr("disabled",false);
+//         // parent.children('ul').each(function(){
+//         //  enableChildrens($(this));
+//         // });
+//     }
+//
+//     function getCheckedMenues()
+//     {
+//         var values = '';
+//         $(".TreeCheckbox").each(function(){
+//             if($(this).is(":checked"))
+//                 if(values=='')
+//                     values = $(this).val();
+//                 else
+//                     values = values + ',' + $(this).val();
+//         });
+//         $("#menues").val(values);
+//     }
+//
+//     $(document).ready(function(){
+//         getCheckedMenues();
+//     });
+//
+//     $(function(){
+//         $(".TreeElement").click(function(){
+//             var elem    = $(this).next("ul");
+//             if($(this).children('input').is(':checked'))
+//             {
+//                 elem.slideUp();
+//             }else{
+//                 elem.slideDown();
+//             }
+//             preventDefault();
+//         });
+//         $(".TreeCheckbox").click(function(event){
+//
+//             var childMenu = $('#parent'+$(this).val());
+//             if($(this).is(':checked'))
+//             {
+//                 //if(!childMenu.is(':visible'))
+//                     //$(this).children('.TreeElement').click();
+//                 //$(this).children('.TreeElement').each(function(){alert('enrta child TreeElement')});
+//                 enableChildrens(childMenu);
+//             }else{
+//                 childMenu.children('li').children('input').attr("disabled",true);
+//                 disableChildrens(childMenu);
+//             }
+//             event.stopPropagation();
+//             getCheckedMenues();
+//         });
+//       });
+//
+// ////////////////// Appear Tree Div ///////////////////////////////
+//
+//     $(function () {
+//       $("#showTreeDiv").click(function(){
+//           $("#newInputs,.MainButton").addClass('Hidden');
+//           $(".treeDivRow,#acceptPermGroup").removeClass('Hidden');
+//       })
+//     })
+//     $(function () {
+//       $("#acceptPermGroup").click(function(){
+//         $(".treeDivRow,#acceptPermGroup").addClass('Hidden');
+//           $("#newInputs,.MainButton").removeClass('Hidden');
+//       })
+//     })
 
-    function enableChildrens(parent)
-    {
-        parent.children('li').children('input').attr("disabled",false);
-        // parent.children('ul').each(function(){
-        //  enableChildrens($(this));
-        // });
-    }
 
-    function getCheckedMenues()
-    {
-        var values = '';
-        $(".TreeCheckbox").each(function(){
-            if($(this).is(":checked"))
-                if(values=='')
-                    values = $(this).val();
-                else
-                    values = values + ',' + $(this).val();
-        });
-        $("#menues").val(values);
-    }
-
-    $(document).ready(function(){
-        getCheckedMenues();
-    });
-
-    $(function(){
-        $(".TreeElement").click(function(){
-            var elem    = $(this).next("ul");
-            if($(this).children('input').is(':checked'))
-            {
-                elem.slideUp();
-            }else{
-                elem.slideDown();
-            }
-            preventDefault();
-        });
-        $(".TreeCheckbox").click(function(event){
-
-            var childMenu = $('#parent'+$(this).val());
-            if($(this).is(':checked'))
-            {
-                //if(!childMenu.is(':visible'))
-                    //$(this).children('.TreeElement').click();
-                //$(this).children('.TreeElement').each(function(){alert('enrta child TreeElement')});
-                enableChildrens(childMenu);
-            }else{
-                childMenu.children('li').children('input').attr("disabled",true);
-                disableChildrens(childMenu);
-            }
-            event.stopPropagation();
-            getCheckedMenues();
-        });
-      });
-
-////////////////// Appear Tree Div ///////////////////////////////
-
-    $(function () {
-      $("#showTreeDiv").click(function(){
-          $("#newInputs,.MainButton").addClass('Hidden');
-          $(".treeDivRow,#acceptPermGroup").removeClass('Hidden');
-      })
-    })
-    $(function () {
-      $("#acceptPermGroup").click(function(){
-        $(".treeDivRow,#acceptPermGroup").addClass('Hidden');
-          $("#newInputs,.MainButton").removeClass('Hidden');
-      })
-    })
 });
 
 
 //////////////////////////////////////////////////// Characters limiter //////////////////////////////////////////////////////
-$('input, textarea').keyup(function() {
-  var max = $(this).attr('maxLength');
-  var curr = this.value.length;
-  var percent = (curr/max) * 100;
-  var indicator = $(this).parent().children('.indicator-wrapper').children('.indicator').first();
-
-  // Shows characters left
-  indicator.children('.current-length').html(max - curr);
-
-  // Change colors
-  if (percent > 30 && percent <= 50) { indicator.attr('class', 'indicator low'); }
-  else if (percent > 50 && percent <= 70) { indicator.attr('class', 'indicator med'); }
-  else if (percent > 70 && percent < 100) { indicator.attr('class', 'indicator high'); }
-  else if (percent == 100) { indicator.attr('class', 'indicator full'); }
-  else { indicator.attr('class', 'indicator empty'); }
-  indicator.width(percent + '%');
-});
+// $('input, textarea').keyup(function() {
+//   var max = $(this).attr('maxLength');
+//   var curr = this.value.length;
+//   var percent = (curr/max) * 100;
+//   var indicator = $(this).parent().children('.indicator-wrapper').children('.indicator').first();
+//
+//   // Shows characters left
+//   indicator.children('.current-length').html(max - curr);
+//
+//   // Change colors
+//   if (percent > 30 && percent <= 50) { indicator.attr('class', 'indicator low'); }
+//   else if (percent > 50 && percent <= 70) { indicator.attr('class', 'indicator med'); }
+//   else if (percent > 70 && percent < 100) { indicator.attr('class', 'indicator high'); }
+//   else if (percent == 100) { indicator.attr('class', 'indicator full'); }
+//   else { indicator.attr('class', 'indicator empty'); }
+//   indicator.width(percent + '%');
+// });
 
 //////////////////////////////////////////////////// Page Loader //////////////////////////////////////////////////////
-    function toggleLoader()
-    {
-        if(isVisible($('#page_loader')))
-        {
-            $('#page_loader').fadeOut( 500 );
-        }else{
-            $('#page_loader').fadeIn( 500 );
-        }
-    }
+    // function toggleLoader()
+    // {
+    //     if(isVisible($('#page_loader')))
+    //     {
+    //         $('#page_loader').fadeOut( 500 );
+    //     }else{
+    //         $('#page_loader').fadeIn( 500 );
+    //     }
+    // }
 
 //////////////////////////////////////////////////// Notify //////////////////////////////////////////////////////
-function notifyError(msgNotify)
-{
-    $.notify({
-        // options
-        message: '<div style="text-align:center;">'+msgNotify+'</div>'
-    },{
-        // settings
-        type: 'danger',
-        allow_dismiss: false,
-        placement: {
-            from: "top",
-            align: "center"
-        }
-    });
-}
-
-function notifySuccess(msgNotify)
-{
-    $.notify({
-        // options
-        message: '<div style="text-align:center;">'+msgNotify+'</div>'
-    },{
-        // settings
-        type: 'success',
-        allow_dismiss: false,
-        placement: {
-            from: "bottom",
-            align: "center"
-        }
-    });
-}
-
-function notifyInfo(msgNotify)
-{
-    $.notify({
-        // options
-        message: '<div style="text-align:center;">'+msgNotify+'</div>'
-    },{
-        // settings
-        type: 'info',
-        allow_dismiss: false,
-        placement: {
-            from: "bottom",
-            align: "right"
-        }
-    });
-}
-
-function notifyWarning(msgNotify)
-{
-    $.notify({
-        // options
-        message: '<div style="text-align:center;">'+msgNotify+'</div>'
-    },{
-        // settings
-        type: 'warning',
-        placement: {
-            from: "bottom",
-            align: "right"
-        }
-    });
-}
-
-function notifyMsg(typeMsg,msgNotify)
-{
-    $.notify({
-        // options
-        message: msgNotify
-    },{
-        // settings
-        type: typeMsg
-    });
-}
+// function notifyError(msgNotify)
+// {
+//     $.notify({
+//         // options
+//         message: '<div style="text-align:center;">'+msgNotify+'</div>'
+//     },{
+//         // settings
+//         type: 'danger',
+//         allow_dismiss: false,
+//         placement: {
+//             from: "top",
+//             align: "center"
+//         }
+//     });
+// }
+//
+// function notifySuccess(msgNotify)
+// {
+//     $.notify({
+//         // options
+//         message: '<div style="text-align:center;">'+msgNotify+'</div>'
+//     },{
+//         // settings
+//         type: 'success',
+//         allow_dismiss: false,
+//         placement: {
+//             from: "bottom",
+//             align: "center"
+//         }
+//     });
+// }
+//
+// function notifyInfo(msgNotify)
+// {
+//     $.notify({
+//         // options
+//         message: '<div style="text-align:center;">'+msgNotify+'</div>'
+//     },{
+//         // settings
+//         type: 'info',
+//         allow_dismiss: false,
+//         placement: {
+//             from: "bottom",
+//             align: "right"
+//         }
+//     });
+// }
+//
+// function notifyWarning(msgNotify)
+// {
+//     $.notify({
+//         // options
+//         message: '<div style="text-align:center;">'+msgNotify+'</div>'
+//     },{
+//         // settings
+//         type: 'warning',
+//         placement: {
+//             from: "bottom",
+//             align: "right"
+//         }
+//     });
+// }
+//
+// function notifyMsg(typeMsg,msgNotify)
+// {
+//     $.notify({
+//         // options
+//         message: msgNotify
+//     },{
+//         // settings
+//         type: typeMsg
+//     });
+// }
 //////////////////////////////////////////////////// Submit Data //////////////////////////////////////////////////////
 function submitData()
 {
@@ -320,32 +313,32 @@ $(function(){
 $(function(){
 
     ////////////////////////////////////////////////////////////////// DELETE ACTION //////////////////////////////////////////////
-    $(".deleteElement").click(function(event){
-        event.stopPropagation();
-        var action      = "delete";
-        var parents     = $(this).attr("deleteParent").split("/");
-        var process     = $(this).attr("deleteProcess");
-        var conText     = utf8_encode($(this).attr("confirmText"));
-        var sucText     = utf8_encode($(this).attr("successText"));
-        var id          = $(this).attr("deleteElement");
-
-        alertify.confirm(utf8_decode(conText), function(e){
-            if(e){
-                var result;
-                result = deleteElement(action,id,process);
-                if(result){
-                    notifyError(result);
-                }else{
-                    parents.forEach(function(parent){
-                        $("#"+parent).addClass('animated zoomOut');
-                        $("#"+parent).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){$("#"+parent).remove();});
-                    });
-                    notifySuccess(utf8_decode(sucText));
-                }
-            }
-        });
-
-    });
+    // $(".deleteElement").click(function(event){
+    //     event.stopPropagation();
+    //     var action      = "delete";
+    //     var parents     = $(this).attr("deleteParent").split("/");
+    //     var process     = $(this).attr("deleteProcess");
+    //     var conText     = utf8_encode($(this).attr("confirmText"));
+    //     var sucText     = utf8_encode($(this).attr("successText"));
+    //     var id          = $(this).attr("deleteElement");
+    //
+    //     alertify.confirm(utf8_decode(conText), function(e){
+    //         if(e){
+    //             var result;
+    //             result = deleteElement(action,id,process);
+    //             if(result){
+    //                 notifyError(result);
+    //             }else{
+    //                 parents.forEach(function(parent){
+    //                     $("#"+parent).addClass('animated zoomOut');
+    //                     $("#"+parent).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){$("#"+parent).remove();});
+    //                 });
+    //                 notifySuccess(utf8_decode(sucText));
+    //             }
+    //         }
+    //     });
+    //
+    // });
 
     // function listActions(action,id,process,target)
     // {
@@ -379,109 +372,109 @@ $(function(){
     //     }
     // }
 
-    function deleteElement(action,id,process)
-    {
-        var string      = 'id='+ id + '&action=' + action;
-        var data;
-        $.ajax({
-            type: "POST",
-            url: process,
-            data: string,
-            cache: false,
-            success: data
-        });
-        return data;
-    }
+    // function deleteElement(action,id,process)
+    // {
+    //     var string      = 'id='+ id + '&action=' + action;
+    //     var data;
+    //     $.ajax({
+    //         type: "POST",
+    //         url: process,
+    //         data: string,
+    //         cache: false,
+    //         success: data
+    //     });
+    //     return data;
+    // }
 
 
 //////////////////////////////////////////////////// Show Item List ///////////////////////////////////////////////////////////////
 
-    $('#viewListBtn').click(function(){
-      $(this).addClass('Hidden')
-      $('.viewgrid').addClass('Hidden');
-      $('.ListWrapper, #viewGridBtn').removeClass('Hidden');
-    });
-
-    $('#viewGridBtn').click(function(){
-      $(this).addClass('Hidden')
-      $('.ListWrapper').addClass('Hidden');
-      $('.viewgrid, #viewListBtn').removeClass('Hidden');
-    });
+    // $('#viewListBtn').click(function(){
+    //   $(this).addClass('Hidden')
+    //   $('.viewgrid').addClass('Hidden');
+    //   $('.ListWrapper, #viewGridBtn').removeClass('Hidden');
+    // });
+    //
+    // $('#viewGridBtn').click(function(){
+    //   $(this).addClass('Hidden')
+    //   $('.ListWrapper').addClass('Hidden');
+    //   $('.viewgrid, #viewListBtn').removeClass('Hidden');
+    // });
 
 
 //////////////////////////////////////////////////// Toggle Mobile List Options //////////////////////////////////////////////////////
-    function selectMobileRow(row)
-    {
-        childElem = row.children('.viewListMobileMod');
-        //alert(childElem.hasClass('Hidden'));
-        if(childElem.hasClass('Hidden')){
-            //alert('entra');
-            //childElem.removeClass('fadeOut');
-            childElem.removeClass('Hidden');
-            //childElem.addClass('fadeIn');
-        }else{
-            //childElem.removeClass('fadeIn');
-            //childElem.addClass('fadeOut');
-            //childElem.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-                childElem.addClass('Hidden');
-            //});
-       }
-    }
-
-    function hideItemGridButtons(item)
-    {
-        item.find('.UserButtons').toggleClass('Hidden');
-        //item.find('.userMainSection').toggleClass("usergralselect", 500);
-    }
+    // function selectMobileRow(row)
+    // {
+    //     childElem = row.children('.viewListMobileMod');
+    //     //alert(childElem.hasClass('Hidden'));
+    //     if(childElem.hasClass('Hidden')){
+    //         //alert('entra');
+    //         //childElem.removeClass('fadeOut');
+    //         childElem.removeClass('Hidden');
+    //         //childElem.addClass('fadeIn');
+    //     }else{
+    //         //childElem.removeClass('fadeIn');
+    //         //childElem.addClass('fadeOut');
+    //         //childElem.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+    //             childElem.addClass('Hidden');
+    //         //});
+    //    }
+    // }
+    //
+    // function hideItemGridButtons(item)
+    // {
+    //     item.find('.UserButtons').toggleClass('Hidden');
+    //     //item.find('.userMainSection').toggleClass("usergralselect", 500);
+    // }
 
 
 
     //////////////////////////////////////////////////// Grid and List Multiple Deletion ///////////////////////////////////////
 
-    $('.itemGrid').hover(function() {
-        $(this).addClass('userHover');
-    });
-
-    $('.itemGrid').mouseleave(function() {
-        $(this).removeClass('userHover');
-    });
-
-
-    $(".deleteableItem").click(function(){
-        $(this).toggleClass("deleteThis");
-        //$(this).toggleClass("usergralselect");
-
-        var item            = $(this).attr("item");
-        var totalSelected   = 0;
-        var admDelBtn;
-
-        $("#itemGrid"+item).toggleClass('deleteThis');
-        hideItemGridButtons($("#itemGrid"+item));
-        $("#itemGrid"+item).toggleClass('usergralselect');
-        $("#itemList"+item).toggleClass('deleteThis');
-        $("#itemList"+item).toggleClass('listSelect');
-        $("#itemMobile1List"+item).toggleClass('deleteThis');
-        $("#itemMobile2List"+item).toggleClass('deleteThis');
-        selectMobileRow($("#itemMobile2List"+item));
-
-
-        $(".deleteThis").each(function(){
-            if($(this).hasClass('undeleteable'))
-            {
-                admDelBtn = $(this);
-            }else{
-                totalSelected++;
-            }
-        });
-
-        totalSelected = totalSelected/4;
-
-        if(totalSelected>1 && !admDelBtn){
-            $('#delselected').removeClass('Hidden');
-        }else{
-            $('#delselected').addClass('Hidden');
-        }
-    });
+    // $('.itemGrid').hover(function() {
+    //     $(this).addClass('userHover');
+    // });
+    //
+    // $('.itemGrid').mouseleave(function() {
+    //     $(this).removeClass('userHover');
+    // });
+    //
+    //
+    // $(".deleteableItem").click(function(){
+    //     $(this).toggleClass("deleteThis");
+    //     //$(this).toggleClass("usergralselect");
+    //
+    //     var item            = $(this).attr("item");
+    //     var totalSelected   = 0;
+    //     var admDelBtn;
+    //
+    //     $("#itemGrid"+item).toggleClass('deleteThis');
+    //     hideItemGridButtons($("#itemGrid"+item));
+    //     $("#itemGrid"+item).toggleClass('usergralselect');
+    //     $("#itemList"+item).toggleClass('deleteThis');
+    //     $("#itemList"+item).toggleClass('listSelect');
+    //     $("#itemMobile1List"+item).toggleClass('deleteThis');
+    //     $("#itemMobile2List"+item).toggleClass('deleteThis');
+    //     selectMobileRow($("#itemMobile2List"+item));
+    //
+    //
+    //     $(".deleteThis").each(function(){
+    //         if($(this).hasClass('undeleteable'))
+    //         {
+    //             admDelBtn = $(this);
+    //         }else{
+    //             totalSelected++;
+    //         }
+    //     });
+    //
+    //     totalSelected = totalSelected/4;
+    //
+    //     if(totalSelected>1 && !admDelBtn){
+    //         $('#delselected').removeClass('Hidden');
+    //     }else{
+    //         $('#delselected').addClass('Hidden');
+    //     }
+    // });
 
 
 
@@ -665,8 +658,8 @@ $(function(){
 
         $("#Logout").click(function(){
 
-            alertify.confirm(utf8_decode("¿Desea salir del administrador?"), function(e){
-                if(e){
+            // alertify.confirm(utf8_decode("¿Desea salir del administrador?"), function(e){
+            //     if(e){
                     var target      = '../login/login.php';
                     var process     = '../login/process.logout.php';
 
@@ -678,30 +671,30 @@ $(function(){
                             document.location = target;
                         }
                     });
-                }
-            }).set('labels', {ok:'Si', cancel:'No'});
+            //     }
+            // }).set('labels', {ok:'Si', cancel:'No'});
         });
 
 });
 
 
 //////////////////////////////////////////////////// Customized File Field ////////////////////////////////////////////////////
-$(function(){
-    $("input:file").change(function(){
-        $("#File"+$(this).attr("id")).focus();
-        $("#File"+$(this).attr("id")).val($(this).val());
-        $("#File"+$(this).attr("id")).blur();
-    });
-
-
-    $("input").click(function(){
-
-        if($(this).attr("id").substring(0,4)=="File"){
-            $(this).blur();
-            $("#"+$(this).attr("id").substring(4)).click();
-        }
-    });
-});
+// $(function(){
+//     $("input:file").change(function(){
+//         $("#File"+$(this).attr("id")).focus();
+//         $("#File"+$(this).attr("id")).val($(this).val());
+//         $("#File"+$(this).attr("id")).blur();
+//     });
+//
+//
+//     $("input").click(function(){
+//
+//         if($(this).attr("id").substring(0,4)=="File"){
+//             $(this).blur();
+//             $("#"+$(this).attr("id").substring(4)).click();
+//         }
+//     });
+// });
 
 
 //////////////////////////////////////////////////// Value In Array ////////////////////////////////////////////////////
@@ -865,172 +858,3 @@ function utf8_decode (str_data) {
 
   return tmp_arr.join('');
 }
-
-/////////////////// IMAGES ////////////////////////////////////////////
-
-    // Show Single Selection Window
-    function ShowSingleSelectionWindow()
-    {
-        $('#SelectImg, #SelectSingleImg').click(function()
-        {
-            showElement('#SingleImgWd,#MultipleImgWd,#acceptBtnImg');
-            hideElement('#newInputs,.MainButton,#ConfModBtn');
-        });
-    }
-    ShowSingleSelectionWindow();
-
-    // Show Multiple Selection Window
-    function ShowMultipleSelectionWindow()
-    {
-        $('#selectImgBtn').click(function()
-        {
-            showElement('#MultipleImgWd');
-            hideElement('#newInputs');
-        });
-    }
-    ShowMultipleSelectionWindow();
-
-    // Accept BtnBack
-    function BtnBack()
-    {
-        $('#acceptBtnImg').click(function()
-        {
-          ExitSelectionWindow();
-          $(".LastClicked").removeClass('LastClicked');
-          $(".selectImg").addClass('LastClicked');
-        });
-    }
-    BtnBack();
-
-    // Cancel Selection Windows (X)
-    function CancelSelectionWindows()
-    {
-        $('#cancelImgChange').click(function()
-        {
-            ExitSelectionWindow();
-            $('.LastClicked').click();
-        });
-    }
-    CancelSelectionWindows();
-
-    function ExitSelectionWindow()
-    {
-        hideElement('#SingleImgWd,#MultipleImgWd,#acceptBtnImg');
-        showElement('#newInputs,.MainButton,#ConfModBtn,#selectImgBtn');
-    }
-    //ExitSelectionWindow();
-
-    // Select Thumb Img
-    function SelectThumbImg()
-    {
-        $('.GenImg').click(function()
-        {
-            $('.selectImg').removeClass('selectImg');
-            $(this).addClass('selectImg');
-            $(this).children('.delImgIco').addClass('Hidden');
-            var src = $(this).parent().children('img').attr('src');
-            $('.MainImg').each(function()
-            {
-                $(this).attr('src',src);
-                $(this).addClass('animated pulse');
-                $(this).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){$(this).removeClass('animated pulse');});
-            });
-
-            $('#newimage').val(src);
-        });
-    }
-    SelectThumbImg();
-
-    function ImageGalleryHover()
-    {
-        $('.GenImg').hover(function() {
-            var container = $(this);
-            if(!container.hasClass('LastClicked') && !container.hasClass('selectImg'))
-            {
-                container.children('.delImgIco').removeClass('Hidden');
-            }else{
-                container.children('.delImgIco').addClass('Hidden');
-            }
-        });
-    }
-    ImageGalleryHover();
-
-    // Del Icon On thumb
-    function DeleteImageGallery()
-    {
-        $('.delImgIco').click(function(event)
-        {
-            event.stopPropagation();
-            var container   = $(this).parent().parent();
-            var img         = container.children('img');
-            var src         = img.attr('src');
-            var deleteContainer;
-            alertify.confirm(utf8_decode('¿Desea eliminar esta imagen de su galer&iacute;a?'), function(e){
-                if(e)
-                {
-                    var process = "process.php";
-                    var string  = 'src='+ src + '&action=deleteimage';
-
-                    $.ajax({
-                        type: "POST",
-                        url: process,
-                        data: string,
-                        cache: false,
-                        success: function(data){
-                            if(data)
-                            {
-                                notifyError('Hubo un problema al eliminar la imagen: '+data);
-                            }else{
-                                // setTimeout(function() {
-                                //     container.remove();
-                                // }, 600);
-                                container.addClass('animated rotateOut nextToDelete');
-                                container.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){container.remove();});
-                                notifySuccess(utf8_decode('La imagen ha sido eliminada correctamente.'));
-                            }
-                        }
-                    });
-                }
-            });
-            preventDefault();
-        });
-    }
-    DeleteImageGallery();
-
-
-    ////////////////////// Drag And Drop ///////////////////////////
-    $(function() {
-      $('.sortable').sortable();
-      $('.handles').sortable({
-        handle: 'span'
-      });
-      $('.connected').sortable({
-        connectWith: '.connected'
-      });
-      $('.exclude').sortable({
-        items: ':not(.disabled)'
-      });
-    });
-
-  //// Advance Images (Temp) Open or Colapse ////
-    $('.imgGallery').hide();
-    $('.advabcedDragBtn').click(function() {
-      $('.imgGallery').toggle();
-    })
-
-    $('#adDragBtn').click(function() {
-      $('.imgGallery').toggle( 400 );
-    });
-
-    // Select Images (Actives and Gallery)
-    $('.SelectProdImg li').click(function() {
-      $(this).toggleClass('selectImgGalleries');
-    })
-
-
-
-    ////////////// NAV RIGHT MORE OPTIONS ///////////////////
-
-    $('.MoreOptionsRight').click(function() {
-      $('.navRightTopItemOptions').toggleClass('Hidden');
-    })

@@ -1,9 +1,10 @@
 <?php
 
 	include_once("../../classes/class.database.php");
+	include_once("../../classes/class.api.rest.php");
 	include_once("../../functions/func.common.php");
 
-	
+
 	/* CONECTION STARTS */
 	switch($_SERVER["HTTP_HOST"]){
 
@@ -21,7 +22,7 @@
 
 	include_dir("../../classes");
 
-	session_name("admin");
+	session_name("renovatio");
 	session_cache_expire(15800);
 	session_start();
 

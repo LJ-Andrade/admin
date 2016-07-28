@@ -3,6 +3,7 @@
 class Head
 {
 	var $Title;
+	var $SubTitle;
 	var $DocType	= '<!DOCTYPE html>';
 	var $HTML		= '<html lang="es">';
 	var $Link		= array();
@@ -10,22 +11,27 @@ class Head
 	var $Meta		= array();
 	var $Favicon	= '';
 	var $Charset	= "iso-8859-1";
-	
+
 	function __construct()
 	{
-		
+
 	}
-	
+
 	function setHTML($HTML)
 	{
 		$this->HTML	= $HTML;
 	}
-	
+
 	function setTitle($Title)
 	{
-		$this->Title	= "<title>".$Title."</title>";
+		$this->Title	= $Title;
 	}
-	
+
+	function setSubTitle($Title)
+	{
+		$this->SubTitle	= $Title;
+	}
+
 	function setHead(){
 		echo $this->DocType;
 		echo $this->HTML;
@@ -33,7 +39,7 @@ class Head
 		echo '<meta http-equiv="Content-Type" content="application/xhtml+xml; charset='.$this->Charset.'">';
     	echo '<meta charset="'.$this->Charset.'" >';
 		include("../../includes/inc.head.php");
-		echo $this->Title;
+		echo "<title> Renovatio | ".$this->Title."</title>";
 		echo $this->Favicon;
 		$this->echoLink();
 		$this->echoMeta();
@@ -46,12 +52,12 @@ class Head
 			    <![endif]-->';
 		echo "</head>";
 	}
-	
+
 	function setDocType($DocType)
 	{
 		$this->DocType	= $DocType;
 	}
-	
+
 	function setLink($href,$rel,$type)
 	{
 		$this->Link[]	= '<link href="'.$href.'" rel="'.$rel.'" type="'.$type.'" />';
@@ -61,39 +67,39 @@ class Head
 	{
 		$this->Link[]	= '<link href="'.$href.'" rel="'.$rel.'" type="'.$type.'" />';
 	}
-	
+
 	function setScript($src)
 	{
 		$this->Script[]	= '<script src="'.$src.'" ></script>';
 	}
-	
+
 	function setMeta($param1,$param2,$param3)
 	{
 		$this->Meta[]	= '<meta '.$param1.' '.$param2.' '.$param3.' />';
 	}
-	
+
 	function echoLink(){
 		foreach($this->Link as $Link)
 		{
 			echo $Link;
 		}
 	}
-	
+
 	function echoScript(){
 		foreach($this->Script as $Script)
 		{
 			echo $Script;
 		}
-		
+
 	}
-	
+
 	function echoMeta(){
 		foreach($this->Meta as $Meta)
 		{
 			echo $Meta;
 		}
 	}
-	
+
 	function setFavicon($Rute)
 	{
 		$this->Favicon = '	<link rel="apple-touch-icon" href="'.$Rute.'">
@@ -102,12 +108,22 @@ class Head
     						<link rel="apple-touch-icon" sizes="144x144" href="'.$Rute.'">
     						<link rel="shortcut icon" href="'.$Rute.'" type="image/x-icon">';
 	}
-	
+
 	function setCharset($Charset)
 	{
 		$this->Charset	= $Charset;
 	}
-		
+
+	function getTitle()
+	{
+		return $this->Title;
+	}
+
+	function getSubTitle()
+	{
+		return $this->SubTitle;
+	}
+
 }
 
 ?>

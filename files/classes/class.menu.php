@@ -4,12 +4,14 @@ class Menu extends DataBase
 {
 
 	//var $Menues = array();
-	var $IDs 			= array();
-	var $MenuData 		= array();
-	var $Parents 		= array();
+	var $IDs 						= array();
+	var $MenuData 			= array();
+	var $Parents 				= array();
 	var $CheckedMenues 	= array();
-	var $Link 			= "";
-	var $Children 		= array();
+	var $Link 					= "";
+	var $LinkTitle 			= "";
+	var $LinkData 			= array();
+	var $Children 			= array();
 
 	const PROFILE		= 333;
 
@@ -18,7 +20,27 @@ class Menu extends DataBase
 		$this->Connect();
 		$Data			= $MenuID>0? $this->fetchAssoc('menu','*',"menu_id = ".$MenuID) : array();
 		$this->MenuData	= $Data[0];
-		$this->setLink();
+	}
+
+	public function GetLinkData()
+	{
+		if(count($this->LinkData)<1)
+		{
+			$Data 						= $this->fetchAssoc('menu','*',"link = '../".$this->getLink()."'");
+			$this->LinkData 	= $Data[0];
+			$this->LinkTitle 	= $Data[0]['title'];
+
+		}
+		return $this->LinkData;
+	}
+
+	public function GetLinkTitle()
+	{
+		if(!$this->LinkTitle)
+		{
+			$this->GetLinkData();
+		}
+		return $this->LinkTitle;
 	}
 
 	public function GetData()
@@ -36,32 +58,28 @@ class Menu extends DataBase
 		$this->GetMenues($PorfileID,$AdminID);
 		$Rows	= $this->fetchAssoc('menu','*',"parent_id = 0 AND status = 'A' AND menu_id IN (".implode(",",$this->IDs).")","position");
 
-		echo '<div class="collapse navbar-collapse navbar-ex1-collapse"><ul class="navimgback nav navbar-nav side-nav">';
-		// <div class="navRightTopItem">
-		// 	<i class="fa fa-cogs MoreOptionsRight" aria-hidden="true"></i>
-		// Opciones avanzadas
-		//
-		// </div>
-		// <div class="navRightTopItemOptions animated fadeIn Hidden">
-		// <i class="fa fa-angle-right" aria-hidden="true"></i>
-		// Otras Opciones <br />
-		// <i class="fa fa-angle-right" aria-hidden="true"></i>
-		// M&aacute;s opciones<br />
-		// <i class="fa fa-angle-right" aria-hidden="true"></i>
-		// M&aacute;s opciones<br />
-		// <i class="fa fa-angle-right" aria-hidden="true"></i>
-		// M&aacute;s opciones<br />
-		// </div>
-
 
 		foreach($Rows as $Row)
 		{
-			$DropDown = $this->hasChild($Row['menu_id'])? '<i class="fa fa-fw fa-angle-down menuArrow "></i>' : '';
-			echo '<li><a href="'.$Row['link'].'" data-toggle="collapse" data-target="#ddmenu'.$Row['menu_id'].'"><i class="fa fa-fw '.$Row['icon'].'"></i> '.$Row['title'].$DropDown.'</a>';
-			$this->insertSubMenu($Row['menu_id']);
+			if($this->hasChild($Row['menu_id']))
+			{
+					$DropDown 		= '<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>';
+					$ParentClass 	= ' treeview ';
+					$Link 				= '';
+					$Active 			= '';
+			}else{
+					$DropDown 		= '';
+					$ParentClass 	= '';
+					$Link 				= $Row['link'];
+					if($this->getLink() == $Link)
+						$Active 		= ' active ';
+					else
+						$Active 		= '';
+			}
+			echo '<li class="'.$ParentClass.$Active.'"><a href="'.$Link.'" data-target="#ddmenu'.$Row['menu_id'].'"><i class="fa '.$Row['icon'].'"></i> <span>'.$Row['title'].$DropDown.'</span></a>';
+				$this->insertSubMenu($Row['menu_id']);
 			echo '</li>';
 		}
-		echo '</ul></div>';
 	}
 
 	public function insertSubMenu($Parent_id)
@@ -70,12 +88,25 @@ class Menu extends DataBase
 		$NumRows	= count($Rows);
 		if($NumRows>0)
 		{
-			echo '<ul id="ddmenu'.$Parent_id.'" class="collapse sideddmenu">';
+			echo '<ul class="treeview-menu">';
 			foreach($Rows as $Row)
 			{
-				$DropDown = $this->hasChild($Row['menu_id'])? '<i class="fa fa-fw fa-angle-down menuArrow"></i>' : '';
-				echo '<li><a href="'.$Row['link'].'" data-toggle="collapse" data-target="#ddmenu'.$Row['menu_id'].'"><i class="fa fa-fw '.$Row['icon'].'"></i> '.$Row['title'].$DropDown.'</a>';
-				$this->insertSubMenu($Row['menu_id']);
+				if($this->hasChild($Row['menu_id']))
+				{
+						$DropDown 		= '<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>';
+						$Link 				= '';
+						$Active 			= '';
+				}else{
+						$DropDown 		= '';
+						$Link 				= $Row['link'];
+						if($this->getLink() == $Link)
+							$Active 		= ' active ';
+						else
+							$Active 		= '';
+				}
+				//$DropDown = $this->hasChild($Row['menu_id'])? '<i class="fa fa-fw fa-angle-down menuArrow"></i>' : '';
+				echo '<li class="'.$Active.'"><a href="'.$Link.'" data-target="#ddmenu'.$Row['menu_id'].'"><i class="fa '.$Row['icon'].'"></i> '.$Row['title'].$DropDown.'</a>';
+					$this->insertSubMenu($Row['menu_id']);
 				echo '</li>';
 			}
 			echo '</ul>';
@@ -84,14 +115,14 @@ class Menu extends DataBase
 
 	public function insertBreadCrumbs($ID=0)
 	{
-		if($this->Link == "menu/switcher.php" && $ID == 0)
+		if($this->getLink() == "menu/switcher.php" && $ID == 0)
 		{
 			$MenuID = !$_GET['id']? "0":$_GET['id'];
 
 			$Menu = $this->fetchAssoc('menu','*'," menu_id = ".$MenuID);
 		}else{
 			if($ID==0)
-				$Menu = $this->fetchAssoc('menu','*',"link LIKE '%".$this->Link."' ");
+				$Menu = $this->fetchAssoc('menu','*',"link = '../".$this->getLink()."' ");
 			else
 				$Menu = $this->fetchAssoc('menu','*'," menu_id = ".$ID);
 		}
@@ -104,13 +135,16 @@ class Menu extends DataBase
 
 
 		if($Parent!=0) $this->insertBreadCrumbs($Parent);
-
-		echo ' <i class="fa fa-angle-right"></i>';
+		//
+		// echo ' <i class="fa fa-angle-right"></i>';
 
 		if($ID==0)
-			echo '<span class="mainTitle"><i class="fa '.$Menu[0]['icon'].'" aria-hidden="true"></i> '.$Menu[0]['title'].'</span>';
-		else
-			echo '<span class="breadCrums"><a href="'.$Link.'"><i class="fa '.$Menu[0]['icon'].'" aria-hidden="true"></i> '.$Menu[0]['title'].'</a></span>';
+		{
+			$Title = '<i class="fa '.$Menu[0]['icon'].'"></i> '.$Menu[0]['title'];
+		}else{
+			$Title = '<a href=""><i class="fa '.$Menu[0]['icon'].'"></i> '.$Menu[0]['title'].'</a>';
+		}
+		echo '<li>'.$Title.'</li>';
 	}
 
 	public function getChildren()
@@ -132,10 +166,15 @@ class Menu extends DataBase
 	}
 
 
-	public function setLink()
+	public function getLink()
 	{
-					$ActualUrl  = explode("/",$_SERVER['PHP_SELF']);
-	    $this->Link = $ActualUrl[count($ActualUrl)-2]."/".basename($_SERVER['PHP_SELF']);
+		if(!$this->Link)
+		{
+			$ActualUrl  = explode("/",$_SERVER['PHP_SELF']);
+			$this->Link = $ActualUrl[count($ActualUrl)-2]."/".basename($_SERVER['PHP_SELF']);
+
+		}
+		return $this->Link;
 	}
 
 	public function GetMenues($PorfileID=0,$AdminID=0)
@@ -341,29 +380,6 @@ class Menu extends DataBase
 		}
 		return $HTML.'</ul>';
 	}
-
-	// public function MakeNewTree($Parent=0)
-	// {
-	// 	$Menues	= $this->fetchAssoc('menu','*',"parent_id = ".$Parent." AND status <> 'I'","position");
-	// 	$HTML 	= $Parent == 0? '<ul>': '<ul style="margin-left:1em;display:none;" id="parent'.$Parent.'">';
-	//
-	// 	foreach($Menues as $Menu)
-	// 	{
-	// 		$Parents 	= $this->GetParents();
-	// 		$IsParent 	= in_array($Menu['menu_id'],$Parents);
-	//
-	// 		$Arrow		= $IsParent? ' style="cursor:pointer;" ' : '';
-	// 		$Disabled 	= $Parent != 0? ' disabled="disabled" ':'';
-	//
-	// 		$HTML	.= '<li>'.insertElement('checkbox','menu'.$Menu['menu_id'],$Menu['menu_id'],'TreeCheckbox checkbox-custom','value="'.$Menu['menu_id'].'"'.$Disabled).'<label class="checkbox-custom-label" for="menu'.$Menu['menu_id'].'"></label><span id="menu'.$Menu['menu_id'].'" '.$Arrow.' class="TreeElement" "> '.$Menu['title'].'</span></li>';
-	// 		if($IsParent)
-	// 		{
-	// 			$HTML	.= $this->MakeNewTree($Menu['menu_id']);
-	// 		}
-	// 	}
-	//
-	// 	return $HTML.'</ul>';
-	// }
 
 	public function GetParents()
 	{

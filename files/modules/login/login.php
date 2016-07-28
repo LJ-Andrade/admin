@@ -1,92 +1,55 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>RENOVATIO</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.6 -->
-  <link rel="stylesheet" href="../../../vendors/bootstrap/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../../../skin/css/base.min.css">
-  <!-- iCheck -->
-  <link rel="stylesheet" href="../../../vendors/iCheck/square/blue.css">
+<?php
+  include("../../includes/inc.main.php");
+  $Head->setStyle("../../../vendors/iCheck/square/blue.css");
+  $Head->setTitle("Renovatio | Login");
+  $Head->setHead();
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-</head>
+  if($_COOKIE['rememberuser']){
+      $Checked = 'checked="checked"';
+  }
+?>
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href=""><b>Admin</b>LTE</a>
+    <a href=""><b>Re</b>novatio</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
+    <p class="login-box-msg">Iniciar sesi&oacute;n</p>
 
-    <form action="../main/index.php" method="post">
+
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
+        <input type="email" class="form-control" name="user" id="user" placeholder="Email o Usuario">
         <span class="fa fa-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+        <input type="password" class="form-control" name="password" id="password" placeholder="Contrase&ntilde;a">
         <span class="fa fa-lock form-control-feedback"></span>
       </div>
       <div class="row">
         <div class="col-xs-8">
           <div class="checkbox icheck">
             <label>
-              <input type="checkbox"> Remember Me
+              <input type="checkbox" <?php echo $Checked ?> name="rememberuser" id="rememberuser" value="1" > Recordarme
             </label>
           </div>
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+          <button type="button" class="btn btn-primary btn-block btn-flat ButtonLogin">Ingresar</button>
         </div>
         <!-- /.col -->
       </div>
-    </form>
 
-    <div class="social-auth-links text-center">
-      <p>- OR -</p>
-      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
-        Facebook</a>
-      <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
-        Google+</a>
-    </div>
-    <!-- /.social-auth-links -->
 
-    <a href="#">I forgot my password</a><br>
-    <a href="register.html" class="text-center">Register a new membership</a>
+    <a href="forgotuser.php">Olvidé mi contrase&ntilde;a</a><br>
 
   </div>
   <!-- /.login-box-body -->
 </div>
 <!-- /.login-box -->
 
-
-<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script><!-- jQuery -->
-<script src="../../../vendors/bootstrap/js/bootstrap.min.js"></script><!-- Bootstrap 3.3.6 -->
-<script src="../../../vendors/iCheck/icheck.min.js"></script><!-- iCheck -->
-<script>
-  $(function () {
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' // optional
-    });
-  });
-</script>
-</body>
-</html>
+<?php
+$Foot->setScript("../../../vendors/iCheck/icheck.min.js");
+$Foot->setFoot();
+?>
