@@ -71,10 +71,12 @@ class Menu extends DataBase
 					$DropDown 		= '';
 					$ParentClass 	= '';
 					$Link 				= $Row['link'];
-					if($this->getLink() == $Link)
+					if('../'.$this->getLink() == $Link)
+					{
 						$Active 		= ' active ';
-					else
+					}else{
 						$Active 		= '';
+					}
 			}
 			echo '<li class="'.$ParentClass.$Active.'"><a href="'.$Link.'" data-target="#ddmenu'.$Row['menu_id'].'"><i class="fa '.$Row['icon'].'"></i> <span>'.$Row['title'].$DropDown.'</span></a>';
 				$this->insertSubMenu($Row['menu_id']);
@@ -99,12 +101,13 @@ class Menu extends DataBase
 				}else{
 						$DropDown 		= '';
 						$Link 				= $Row['link'];
-						if($this->getLink() == $Link)
+						if('../'.$this->getLink() == $Link)
+						{
 							$Active 		= ' active ';
-						else
+						}else{
 							$Active 		= '';
+						}
 				}
-				//$DropDown = $this->hasChild($Row['menu_id'])? '<i class="fa fa-fw fa-angle-down menuArrow"></i>' : '';
 				echo '<li class="'.$Active.'"><a href="'.$Link.'" data-target="#ddmenu'.$Row['menu_id'].'"><i class="fa '.$Row['icon'].'"></i> '.$Row['title'].$DropDown.'</a>';
 					$this->insertSubMenu($Row['menu_id']);
 				echo '</li>';
