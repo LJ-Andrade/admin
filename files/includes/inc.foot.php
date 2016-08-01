@@ -6,10 +6,10 @@
 <script src="../../../vendors/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
 <script src="../../../vendors/fastclick/fastclick.js"></script>
+<!-- iCheck -->
+<script src="../../../vendors/iCheck/icheck.min.js"></script>
 <!-- Admin App -->
 <script src="../../../files/js/app.min.js"></script>
-<!-- For demo purposes -->
-<script src="../../../files/js/demo.js"></script>
 <!-- Alertify -->
 <script src="../../../vendors/alertify/script.alertify.js"></script>
 <!-- Validations -->

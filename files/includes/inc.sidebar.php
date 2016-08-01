@@ -2,17 +2,17 @@
 <!-- Control Sidebar -->
 <aside class="control-sidebar control-sidebar-dark">
   <!-- Create the tabs -->
-  <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+  <!-- <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
 
     <li class="active"><a href='#control-sidebar-theme-demo-options-tab' data-toggle='tab'><i class='fa fa-wrench'></i></a>
 
-  </ul>
+  </ul> -->
   <!-- Tab panes -->
   <div class="tab-content">
     <div class="tab-pane active" id="ccontrol-sidebar-theme-demo-options-tab">
-      <h3 class='control-sidebar-heading'>Opciones visuales</h3>
 
-      <h4 class='control-sidebar-heading'>Estilos</h4>
+
+      <h4 class='control-sidebar-heading'>Cambiar Colores:</h4>
       <ul class="list-unstyled clearfix">
         <li style="float:left; width: 33.33333%; padding: 5px;">
           <a href='javascript:void(0);' data-skin='skin-blue' style='display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)' class='clearfix full-opacity-hover'>
@@ -109,14 +109,6 @@
           <p class='text-center no-margin' style='font-size: 12px;'>Amarillo Claro</p>
         </li>
       </ul>
-
-      <div class="form-group heckbox icheck">
-        <label class="control-sidebar-subheading">
-          <input type="checkbox" data-sidebarskin="toggle" class="pull-right" id="change_sidebar_color" />
-          Cambiar el color de este men&uacute;
-        </label>
-        <p>Puedes cambiar entre claro y oscuro</p>
-      </div>
 
     </div>
 

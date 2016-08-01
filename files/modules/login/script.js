@@ -3,25 +3,29 @@ $(document).ready(function() {
 	if(get['error']=='login' || get['error']=='login#'){
 		alert("Para ingresar a esta sección debe estar conectado.");
 	}
+	if(get['error']=='customer' || get['error']=='customer#'){
+		alert("El cliente se encuentra deshabilitado por falta de pago.");
+	}
 });
 
-$(function () {
-	$('input').iCheck({
-		checkboxClass: 'icheckbox_square-blue',
-		radioClass: 'iradio_square-blue',
-		increaseArea: '20%' // optional
-	});
-});
+// $(function () {
+// 	$('input').iCheck({
+// 		checkboxClass: 'icheckbox_square-blue',
+// 		radioClass: 'iradio_square-blue',
+// 		increaseArea: '20%' // optional
+// 	});
+// });
 
 function sumbitLogin(){
 	var rememberuser = $("#rememberuser:checked").val();
 
-	var password 	= $("#password").val();
-	var user		= $("#user").val();
-	var target		= '../main/main.php?msg=logok';
-	var error		= 'Verifique los datos ingresados';
-	var values		= 'user='+ user + '&password=' + password + '&target=' + target + '&error=' + error + '&rememberuser=' + rememberuser ;
-	var	process		= "process.login.php";
+	var password 			= $("#password").val();
+	var user					= $("#user").val();
+	var target				= '../main/main.php?msg=logok';
+	var errorLogin		= 'Verifique los datos ingresados.';
+	var errorCustomer	= 'El cliente se encuentra deshabilitado por falta de pago.';
+	var values				= 'user='+ user + '&password=' + password + '&rememberuser=' + rememberuser ; //+ '&target=' + target + '&error=' + error;
+	var	process				= "process.login.php";
 	//toggleLoader();
 	$.ajax({
 			type: "POST",
@@ -35,8 +39,14 @@ function sumbitLogin(){
 					//notifyError(error);
 					//$("#ShowError").html(error);
 					//$("#ShowErrorWrapper").fadeIn(1000).delay(5000).fadeOut(1000);//.setTimeout(function() {$("#ShowError").fadeOut();}, 5000);
-					alert(error);
-					console.log(data);
+					if(data=="4")
+					{
+						alert(errorCustomer);
+						console.log(data);
+					}else{
+						alert(errorLogin);
+						console.log(data);
+					}
 				}
 			}
 	});

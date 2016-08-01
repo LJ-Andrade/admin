@@ -1,9 +1,8 @@
 <!-- =============================================== -->
 
 <header class="main-header">
-
   <!-- Logo -->
-  <a href="../../index2.html" class="logo">
+  <a href="../main/main.php" class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
     <span class="logo-mini"><b>R</b>VT</span>
     <!-- logo for regular state and mobile devices -->
@@ -13,12 +12,7 @@
   <!-- Header Navbar: style can be found in header.less -->
   <nav class="navbar navbar-static-top">
     <!-- Sidebar toggle button-->
-    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </a>
+    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button" id="SidebarToggle"></a>
 
     <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">
@@ -63,10 +57,10 @@
             <!-- Menu Footer-->
             <li class="user-footer">
               <div class="pull-left">
-                <a href="#" class="btn btn-default btn-flat">Perfil</a>
+                <a href="#" class="btn btn-primary btn-flat">Perfil</a>
               </div>
               <div class="pull-right">
-                <a href="../login/process.logout.php" class="btn btn-default btn-flat">Cerrar Sesi&oacute;n</a>
+                <a href="../login/process.logout.php" class="btn btn-danger btn-flat">Cerrar Sesi&oacute;n</a>
               </div>
             </li>
           </ul>

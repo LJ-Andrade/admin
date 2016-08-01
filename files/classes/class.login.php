@@ -10,7 +10,7 @@ class Login extends DataBase
 	var 	$Tries;
 	var		$IsMaxTries;
 	var		$AdminData = array();
-	var		$UserExist;
+	var		$UserExists;
 	var 	$PassMatch;
 	var 	$Target;
 	var		$Return;
@@ -18,7 +18,7 @@ class Login extends DataBase
 
 	const 	HOURS 		= 2;
 	const 	MAX_TRIES	= 13;
-	const 	LOGIN		= 'login/process.login.php';
+	const 	LOGIN			= 'login/process.login.php';
 
 	public function __construct($User,$Password='',$Remember=0,$PasswordHash='')
 	{
@@ -27,14 +27,14 @@ class Login extends DataBase
 		$this->User					= $User;
 		$this->Password			= $Password;
 		$this->PasswordHash	= $PasswordHash? $PasswordHash : md5($Password);
-		$this->AdminData 		= $this->fetchAssoc('admin_user','*',"user = '".$this->User."' AND status = 'A'");
+		$this->AdminData 		= $this->fetchAssoc('admin_user','*'," (user = '".$this->User."' OR email='".$this->User."' )AND status = 'A'");
 		$this->RememberUser = $Remember==1;
 		$this->IP 					= getenv("REMOTE_ADDR");
 	}
 
 	public function setLogin()
 	{
-		$this->UserExist 	= count($this->AdminData) > 0;
+		$this->UserExists = count($this->AdminData) > 0;
 		$this->PassMatch	= $this->AdminData[0]['password'] == $this->PasswordHash;
 		$this->Tries			= $this->AdminData[0]['tries']+1;
 		$this->IsMaxTries	= $PasswordHash? false : $this->Tries > $this->getMaxTries();
@@ -42,19 +42,20 @@ class Login extends DataBase
 
 	public function setSessionVars()
 	{
-		$_SESSION['user'] 			= $this->AdminData[0]['user'];
-		$_SESSION['admin_id'] 	= $this->AdminData[0]['admin_id'];
-		$_SESSION['first_name'] = $this->AdminData[0]['first_name'];
-		$_SESSION['last_name'] 	= $this->AdminData[0]['last_name'];
-		$_SESSION['profile_id'] = $this->AdminData[0]['profile_id'];
+		$_SESSION['user'] 				= $this->AdminData[0]['user'];
+		$_SESSION['admin_id'] 		= $this->AdminData[0]['admin_id'];
+		$_SESSION['customer_id'] 	= $this->AdminData[0]['customer_id'];
+		$_SESSION['first_name'] 	= $this->AdminData[0]['first_name'];
+		$_SESSION['last_name'] 		= $this->AdminData[0]['last_name'];
+		$_SESSION['profile_id'] 	= $this->AdminData[0]['profile_id'];
 	}
 
 	public function setCookies()
 	{
 		$time	= time()+(3600*$this->getHours());
-		setcookie("user", 		$this->AdminData[0]['user'], 		$time, "/");
-		setcookie("password", 	$this->AdminData[0]['password'],	$time, "/");
-		$Year 	= time() + 31536000;
+		$Year = time() + 31536000;
+		setcookie("user",$this->AdminData[0]['user'],$time, "/");
+		setcookie("password",$this->AdminData[0]['password'],$time, "/");
 		if($this->RememberUser && $this->Link==self::LOGIN)
 		{
 			setcookie('rememberuser',$this->AdminData[0]['user'],$Year);
@@ -69,28 +70,22 @@ class Login extends DataBase
 
 	public function queryMaxTries()
 	{
-		$Success 				= $this->execQuery("insert",'login_log','user,password,ip,tries,event',"'".$this->User."','".$this->Password."','".$this->IP."','".$this->Tries."','Inhabilitado por Revocaci&oacute;n'");
-
-		$SuccessInhabilitation	= $this->execQuery('update','admin_user',"tries = 0, status = 'I'","user = '".$this->User."'");
-
+		$Success 								= $this->execQuery("insert",'login_log','user,password,ip,tries,event',"'".$this->User."','".$this->Password."','".$this->IP."','".$this->Tries."','Inhabilitado por Revocaci&oacute;n'");
+		$SuccessInhabilitation 	= $this->execQuery('update','admin_user',"tries = 0, status = 'I'","user = '".$this->User."'");
 		return ($Success && $SuccessInhabilitation);
 	}
 
 	public function queryLogin()
 	{
 		$SuccessReset 			= $this->execQuery('update','admin_user',"tries = 0, last_access = NOW()","user = '".$this->User."'");
-
 		$SuccessLogin 			= $this->execQuery('insert','login_log','user,ip,event',"'".$this->User."','".$this->IP."','OK'");
-
 		return $SuccessLogin && $SuccessReset;
 	}
 
 	public function queryPasswordFail()
 	{
 		$SuccessIncreaseTries 	= $this->execQuery('update','admin_user',"tries = '".$this->Tries."'","user = '".$this->User."'");
-
 		$SuccessWrongPassword 	= $this->execQuery('insert','login_log',"user,password,ip,tries,event","'".$this->User."','".$this->Password."','".$this->IP."','".$this->Tries."','Clave Incorrecta'");
-
 
 		if($SuccessIncreaseTries && $SuccessWrongPassword){
 			return true;
@@ -102,11 +97,31 @@ class Login extends DataBase
 	public function queryWrongUser()
 	{
 		$SuccessWrongUser	= $this->execQuery('insert','login_log',"user,password,ip,event","'".$this->User."','".$this->Password."','".$this->IP."','Usuario invalido'");
-
 		if($SuccessWrongUser){
 			return true;
 		}else{
 			return false;
+		}
+	}
+
+	public function checkCustomer()
+	{
+		$Data 		= $this->fetchAssoc("customer","status","customer_id=".$this->AdminData[0]['customer_id']);
+		$Customer = $Data[0];
+		$Result 	= self::isValidCustomerStatus($Customer['status']);
+		return $Result;
+	}
+
+	public static function isValidCustomerStatus($Status)
+	{
+		switch ($Status) {
+			case 'A':
+				return true;
+			break;
+
+			default:
+				return false;
+			break;
 		}
 	}
 
@@ -118,13 +133,13 @@ class Login extends DataBase
 
 	public static function getHours()
 	{
-    	return self::HOURS;
-  	}
+  	return self::HOURS;
+	}
 
-  	public static function getMaxTries()
-  	{
-    	return self::MAX_TRIES;
-  	}
+	public static function getMaxTries()
+	{
+  	return self::MAX_TRIES;
+	}
 }
 
 

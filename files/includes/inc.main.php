@@ -6,19 +6,14 @@
 
 
 	/* CONECTION STARTS */
-	switch($_SERVER["HTTP_HOST"]){
-
-		case "localhost":
-			$DB = new DataBase();
-			break;
-
-		default:
-			$DB = new DataBase();
-			break;
-	}
+	$DB = new DataBase();
 
 	/* REDIRECTS IF THERE WAS AN ERROR */
-	if(!$DB->Connect()) header("Location: ../../includes/inc.error.php?error=".$DB->Error);
+	if(!$DB->Connect())
+	{
+		header("Location: ../../includes/inc.error.php?error=".$DB->Error);
+		die();
+	}
 
 	include_dir("../../classes");
 
@@ -28,19 +23,16 @@
 
 	/* SECURIRTY CHECKS */
 	$Security		= new Security();
-	if($Security	->checkProfile($_SESSION['admin_id']))
+	if($Security->checkProfile($_SESSION['admin_id']))
 	{
 		$Admin 		= new AdminData();
 		$Cookies 	= new Login($Admin->User);
 		$Cookies->setCookies();
-
-		// $URL 	= 'http://localhost/projects/admin/files/modules/main/process.php';
-		// $Meli 		= new Meli('4853777712698373', 'zhBim3Li6QKCTUht49YLnhpbT66CQwGm', $_SESSION['access_token'], $_SESSION['refresh_token']);
-		// if(!$_SESSION['code'] && !$_SESSION['access_token']) {
-		// 	// Redirects to ML if APP don't have access
-		// 	header("Location: ".$Meli->getAuthUrl($URL, Meli::$AUTH_URL['MLA']));
-		// 	die();
-		// }
+		if(!$Security->checkCustomer($_SESSION['customer_id']))
+		{
+			header("Location: ../login/process.logout.php?error=customer");
+			die();
+		}
 	}
 
 	/* ADDING SLASHES TO PUBLIC VARIABLES */

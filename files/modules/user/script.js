@@ -1,33 +1,9 @@
-/*
-$(window).scroll(function(){
-  $('#wrapper')[0].scrollTop=$(window).scrollTop();
-});*/
-
-//var elementsToAnimate = new Array();
-
-$(document).ready(function(){
-	if(get['msg']=='insert')
-		notifySuccess('Usuario creado correctamente');
-	if(get['msg']=='update')
-		notifySuccess('Usuario modificado correctamente');
-
-
-
-
-	//$('#newuser').fadeIn(500);
-	//$('#viewlistbt').removeClass('Hidden');
-	//$('#viewlist').hide();
-	// var i=0;
-	// $(".animateOnLoad").each(function(){
-	// 	// elementsToAnimate[i]=$(this);
-	// 	// i++;
-	// 	var elem = $(this);
-	// 	setTimeout(function(){elem.removeClass("Hidden");
-	// elem.addClass("animated fadeInRight");},1000);
-	// });
-	// i=0;
-	//animateElementsFromArray(elementsToAnimate,0);
-});
+// $(document).ready(function(){
+// 	if(get['msg']=='insert')
+// 		notifySuccess('Usuario creado correctamente');
+// 	if(get['msg']=='update')
+// 		notifySuccess('Usuario modificado correctamente');
+// });
 
 function animateElementsFromArray(arrayWithElements,x)
 {
@@ -118,7 +94,7 @@ $(function(){
 
 function fillGroups()
 {
-	toggleLoader();
+	//toggleLoader();
 	var profile = $('#profile').val();
 	var admin 	= $('#id').val();
 	var process = 'process.php';
@@ -143,7 +119,7 @@ function fillGroups()
             $("#groups").val('');
         }
     });
-    toggleLoader();
+    //toggleLoader();
 }
 
 function getCheckedGroups()
@@ -220,58 +196,7 @@ $(document).ready(function(){
         });
 	});
 
-
-///////////////////// User Icons Del Modify ///////////////////////
-
-	
-
-	// $(".listrow").click(function(){
-	// 	$(this).toggleClass("deleteThis");
-	// 	$(this).toggleClass("listselect");
-	// 	var totalSelected = 0;
-	// 	var admDelBtn;
-	// 	$(".listselect").each(function(){
-	// 		if($(this).hasClass('undeleteable'))
-	// 		{
-	// 			admDelBtn = $(this);
-	// 		}else{
-	// 			totalSelected++;
-	// 		}
-
-	// 	});
-	// 	if(totalSelected>1 && !admDelBtn){
-	// 		$('#delselected').removeClass('Hidden');
-	// 	}else{
-	// 		$('#delselected').addClass('Hidden');
-	// 	}
-	// });
-
-
-
 $(function(){
-	// Hover Effect
-	
-
-	// // Select multiple rows
-	// var isMouseDown = false, isHighlighted;
-	// 	$(".listrow")
-	// 		.mousedown(function () {
-	// 			isMouseDown = true;
-	// 			//$(this).click("listselect");
-	// 			isHighlighted = $(this).hasClass("listselect");
-	// 			return false; // prevent text selection
-	// 		})
-	// 		.mouseover(function () {
-	// 			if (isMouseDown) {
-	// 				$(this).toggleClass("listselect", isHighlighted);
-	// 			}
-	// 		})
-	// 		.bind("selectstart", function () {
-	// 			return false;
-	// 		});
-
-	// $(document).mouseup(function () {isMouseDown = false;});
-
 ////////////////// User Creation Window /////////////////////////
 
 	// Insert Img
@@ -286,9 +211,5 @@ $(function(){
 	$('#file').click(function(){
 	    fileInput.click();
 	}).show();
-
-	// Active Paused Product Switch
-	$("[name='status']").bootstrapSwitch();
-
 
 });

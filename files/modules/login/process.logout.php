@@ -18,6 +18,6 @@
 	setcookie("password", "", 0 ,"/");
 
 	// Redirect
-	header("Location: ../login/login.php");
+	header("Location: ../login/login.php?error=".$_GET['error']);
 
 ?>

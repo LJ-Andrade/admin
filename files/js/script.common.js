@@ -1,10 +1,145 @@
                                             ////// JavaScript Document //////
-
+// $(document).ready(function(){
+//   var sidebarMenu = getCookie("sidebarmenu");
+//   if(sidebarMenu)
+//   {
+//     $("body").addClass(sidebarMenu);
+//   }
+// });
+/////////////////////////////////////////////////// Menu Sidebar //////////////////////////////////////////
 $(function(){
-//////////////////////////////////////////////////// Back Button //////////////////////////////////////////////////////
-    $(".BackToLastPage").click(function(){
-        window.history.go(-1);
-    });
+  $('#SidebarToggle').click(function(){
+    if($('body').hasClass('sidebar-collapse'))
+    {
+      setCookie("sidebarmenu",'', 365);
+    }else{
+      setCookie("sidebarmenu",'sidebar-collapse', 365);
+    }
+  });
+});
+/////////////////////////////////////////////////// iCheckbox /////////////////////////////////////////////
+$(function(){
+  $('.iCheckbox').iCheck({
+    inheritID: true,
+    cursor: true,
+    checkboxClass: 'iCheckbox_changeable icheckbox_'+iCheckSkin(),
+    radioClass: 'iRadio_changeable iradio_'+iCheckSkin()
+    //increaseArea: '10%' // optional
+  });
+});
+
+function iCheckSkin()
+{
+
+  switch(localStorage.getItem('skin'))
+  {
+    case "skin-green":
+    case "skin-green-light":
+      return "square-green";
+    break;
+
+    case "skin-red":
+    case "skin-red-light":
+      return "square-red";
+    break;
+
+    case "skin-purple":
+    case "skin-purple-light":
+      return "square-purple";
+    break;
+
+    case "skin-yellow":
+    case "skin-yellow-light":
+      return "square-orange";
+    break;
+
+    case "skin-blue":
+    case "skin-blue-light":
+      return "square-blue";
+    break;
+
+    case "skin-black":
+    case "skin-black-light":
+      return "square";
+    break;
+
+    default:
+      return "square-grey";
+    break;
+  }
+}
+
+// function changeiCheckboxesSkin(iSkin)
+// {
+//   var newSkin = iCheckSkin(iSkin);
+//
+//   $(".iRadio_changeable").each(function(){
+//     for(var i = 0; i < my_skins.length; i++)
+//     {
+//       $(this).removeClass("iradio_"+iCheckSkin(my_skins[i]));
+//     }
+//     $(this).addClass("iradio_"+newSkin);
+//   });
+//
+//   $(".iCheckbox_changeable").each(function(){
+//     for(var i = 0; i < my_skins.length; i++)
+//     {
+//       $(this).removeClass("icheckbox_"+iCheckSkin(my_skins[i]));
+//     }
+//     $(this).addClass("icheckbox_"+newSkin);
+//   });
+// }
+
+/////////////////////////////////////// Change Skins ////////////////////////////////////////
+
+var my_skins = [
+  "skin-blue",
+  "skin-black",
+  "skin-red",
+  "skin-yellow",
+  "skin-purple",
+  "skin-green",
+  "skin-blue-light",
+  "skin-black-light",
+  "skin-red-light",
+  "skin-yellow-light",
+  "skin-purple-light",
+  "skin-green-light"
+];
+
+setup();
+
+/* Replace Skin */
+
+function change_skin(cls) {
+  $.each(my_skins, function (i) {
+    $("body").removeClass(my_skins[i]);
+  });
+
+  $("body").addClass(cls);
+  storeLocal('skin', cls);
+  setCookie('renovatio-skin', cls, 365);
+  return false;
+}
+
+/* Default Skin Configuration */
+
+function setup() {
+  var tmp = getLocal('skin');
+  if (tmp && $.inArray(tmp, my_skins))
+  {
+    change_skin(tmp);
+    //changeiCheckboxesSkin(tmp);
+  }
+
+  $("[data-skin]").on('click', function (e) {
+    if($(this).hasClass('knob'))
+      return;
+    e.preventDefault();
+    change_skin($(this).data('skin'));
+    //changeiCheckboxesSkin($(this).data('skin'));
+  });
+}
 
 //////////////////////////////////////////////////// Submit Data //////////////////////////////////////////////////////
 function submitData()
@@ -481,4 +616,59 @@ function utf8_decode (str_data) {
   }
 
   return tmp_arr.join('');
+}
+
+
+///////////////////////////////////// COOKIES ////////////////////////////////////
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+//////////////////////////// COOKIE EXAMPLE //////////////////
+// function checkCookie() {
+//     var user = getCookie("username");
+//     if (user != "") {
+//         alert("Welcome again " + user);
+//     } else {
+//         user = prompt("Please enter your name:", "");
+//         if (user != "" && user != null) {
+//             setCookie("username", user, 365);
+//         }
+//     }
+// }
+
+
+/////////////////////////////////////////////// Local Storage ///////////////////////////////////////////
+
+function storeLocal(name, val) {
+  if (typeof (Storage) !== "undefined") {
+    localStorage.setItem(name, val);
+  } else {
+    window.alert('Please use a modern browser to properly view this template!');
+  }
+}
+
+function getLocal(name) {
+  if (typeof (Storage) !== "undefined") {
+    return localStorage.getItem(name);
+  } else {
+    window.alert('Please use a modern browser to properly view this template!');
+  }
 }
