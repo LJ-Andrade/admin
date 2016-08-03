@@ -6,6 +6,82 @@
 //     $("body").addClass(sidebarMenu);
 //   }
 // });
+
+//////////////////////////////////////////////////// Notify //////////////////////////////////////////////////////
+function notifyError(msgNotify)
+{
+    $.notify({
+        // options
+        message: '<div style="text-align:center;">'+msgNotify+'</div>'
+    },{
+        // settings
+        type: 'danger',
+        allow_dismiss: false,
+        placement: {
+            from: "top",
+            align: "center"
+        }
+    });
+}
+
+function notifySuccess(msgNotify)
+{
+    $.notify({
+        // options
+        message: '<div style="text-align:center;">'+msgNotify+'</div>'
+    },{
+        // settings
+        type: 'success',
+        allow_dismiss: false,
+        placement: {
+            from: "bottom",
+            align: "center"
+        }
+    });
+}
+
+function notifyInfo(msgNotify)
+{
+    $.notify({
+        // options
+        message: '<div style="text-align:center;">'+msgNotify+'</div>'
+    },{
+        // settings
+        type: 'info',
+        allow_dismiss: false,
+        placement: {
+            from: "bottom",
+            align: "right"
+        }
+    });
+}
+
+function notifyWarning(msgNotify)
+{
+    $.notify({
+        // options
+        message: '<div style="text-align:center;">'+msgNotify+'</div>'
+    },{
+        // settings
+        type: 'warning',
+        placement: {
+            from: "bottom",
+            align: "right"
+        }
+    });
+}
+
+function notifyMsg(typeMsg,msgNotify)
+{
+    $.notify({
+        // options
+        message: msgNotify
+    },{
+        // settings
+        type: typeMsg
+    });
+}
+
 /////////////////////////////////////////////////// Menu Sidebar //////////////////////////////////////////
 $(function(){
   $('#SidebarToggle').click(function(){

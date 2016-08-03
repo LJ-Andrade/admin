@@ -1,10 +1,10 @@
 
 $(document).ready(function() {
 	if(get['error']=='login' || get['error']=='login#'){
-		alert("Para ingresar a esta sección debe estar conectado.");
+		notifyError("Para ingresar a esta sección debe estar conectado.");
 	}
 	if(get['error']=='customer' || get['error']=='customer#'){
-		alert("El cliente se encuentra deshabilitado por falta de pago.");
+		notifyError("El cliente se encuentra deshabilitado por falta de pago.");
 	}
 });
 
@@ -41,10 +41,10 @@ function sumbitLogin(){
 					//$("#ShowErrorWrapper").fadeIn(1000).delay(5000).fadeOut(1000);//.setTimeout(function() {$("#ShowError").fadeOut();}, 5000);
 					if(data=="4")
 					{
-						alert(errorCustomer);
+						notifyError(errorCustomer);
 						console.log(data);
 					}else{
-						alert(errorLogin);
+						notifyError(errorLogin);
 						console.log(data);
 					}
 				}

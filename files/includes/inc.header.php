@@ -42,7 +42,7 @@
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <img src="<?php echo $Admin->Img; ?>" class="user-image" alt="User Image">
-            <span class="hidden-xs"><?php echo $Admin->FullName; ?></span>
+            <span class="hidden-xs" id="userfullname"><?php echo $Admin->FullName; ?></span>
           </a>
           <ul class="dropdown-menu">
             <!-- User image -->

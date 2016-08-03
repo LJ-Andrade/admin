@@ -2,6 +2,8 @@
 <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="../../../vendors/bootstrap/bootstrap.min.js"></script>
+<!-- Bootstrap Notify -->
+<script src="../../../vendors/bootstrap-notify/notify.js"></script>
 <!-- SlimScroll -->
 <script src="../../../vendors/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->

@@ -3,14 +3,8 @@
 
 function welcomeMessage()
 {
-  //notifyInfo('<img src="' + $("#usernametext").children("img").attr("src") + '" class="userloginimg">' + "<br>" + "<br>" + '¡Bienvenido '+ $("#usernametext").text() +'!');
+  notifyInfo('<img src="' + $(".img-circle").attr("src") + '" width="90" height="90" class="img-circle">' + "<br>" + "<br>" + '¡Bienvenido '+ $("#userfullname").html() +'!');
 }
-
-$(function(){
-  $("#oklogmsg").click(function(){
-    welcomeMessage();
-  });
-});
 
 $(document).ready(function() {
 
