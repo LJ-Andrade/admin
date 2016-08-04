@@ -78,7 +78,7 @@ class Menu extends DataBase
 						$Active 		= '';
 					}
 			}
-			echo '<li class="'.$ParentClass.$Active.'"><a href="'.$Link.'" data-target="#ddmenu'.$Row['menu_id'].'"><i class="fa '.$Row['icon'].'"></i> <span>'.$Row['title'].$DropDown.'</span></a>';
+			echo '<li class="'.$ParentClass.$Active.'"><a href="'.$Link.'" data-target="#ddmenu'.$Row['menu_id'].'"><i class="fa '.$Row['icon'].'"></i> <span>'.$Row['title'].'</span>'.$DropDown.'</a>';
 				$this->insertSubMenu($Row['menu_id']);
 			echo '</li>';
 		}

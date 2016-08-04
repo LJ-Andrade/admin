@@ -1,6 +1,6 @@
 <?php
   include("../../includes/inc.main.php");
-  $Head->setTitle("Renovatio | Login");
+  $Head->setTitle("Login");
   $Head->setHead();
 
   if($_COOKIE['rememberuser']){
@@ -39,10 +39,7 @@
         </div>
         <!-- /.col -->
       </div>
-
-
-    <a href="forgotuser.php">Olvidé mi contrase&ntilde;a</a><br>
-
+    <a href="forgotuser.php">Olvid&eacute; mi contrase&ntilde;a</a><br>
   </div>
   <!-- /.login-box-body -->
 </div>

@@ -4,11 +4,12 @@ class DataBase
 {
 
 	var $UserDB		= 'root';
-	var $PasswordDB	= 'root';
+	var $PasswordDB	= '';
 	var $DataBase	= 'renovatio';
 	var $ServerDB	= '127.0.0.1';
 	var $TypeDB 	= 'Mysql';
 	var $SchemaDB	= 'testing,public';
+	var $PortDB 	= 3306;
 
 	var $AfectedRows;
 	var $StreamConnection;
@@ -18,7 +19,7 @@ class DataBase
 
 
 
-	public function __construct($UserDB='root', $PasswordDB='root', $DataBase='renovatio', $ServerDB='127.0.0.1',$TypeDB='Mysql'){
+	public function __construct($UserDB='root', $PasswordDB='', $DataBase='renovatio', $ServerDB='127.0.0.1',$TypeDB='Mysql'){
 		$this->UserDB 		= $UserDB;
 		$this->PasswordDB	= $PasswordDB;
 		$this->DataBase		= $DataBase;
@@ -80,7 +81,7 @@ class DataBase
 		switch($this->TypeDB)
         {
         	case "Mysql":
-            	$this->StreamConnection = mysqli_connect($this->ServerDB,$this->UserDB,$this->PasswordDB);
+            	$this->StreamConnection = mysqli_connect($this->ServerDB,$this->UserDB,$this->PasswordDB,$this->DataBase,$this->PortDB);
 			break;
 			case "Postgress":
 				$this->StreamConnection = pg_connect("host=".$this->ServerDB." port=5432 dbname=".$this->DataBase." user=".$this->UserDB." password=".$this->PasswordDB);
