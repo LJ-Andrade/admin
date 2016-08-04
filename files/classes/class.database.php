@@ -4,7 +4,7 @@ class DataBase
 {
 
 	var $UserDB		= 'root';
-	var $PasswordDB	= '';
+	var $PasswordDB	= 'root';
 	var $DataBase	= 'renovatio';
 	var $ServerDB	= '127.0.0.1';
 	var $TypeDB 	= 'Mysql';
@@ -19,7 +19,7 @@ class DataBase
 
 
 
-	public function __construct($UserDB='root', $PasswordDB='', $DataBase='renovatio', $ServerDB='127.0.0.1',$TypeDB='Mysql'){
+	public function __construct($UserDB='root', $PasswordDB='root', $DataBase='renovatio', $ServerDB='127.0.0.1',$TypeDB='Mysql'){
 		$this->UserDB 		= $UserDB;
 		$this->PasswordDB	= $PasswordDB;
 		$this->DataBase		= $DataBase;
