@@ -18,18 +18,18 @@ class Login extends DataBase
 
 	const 	HOURS 		= 2;
 	const 	MAX_TRIES	= 13;
-	const 	LOGIN			= 'login/process.login.php';
+	const 	LOGIN		= 'login/process.login.php';
 
 	public function __construct($User,$Password='',$Remember=0,$PasswordHash='')
 	{
 		$this->Connect();
 		$this->getLink();
-		$this->User					= $User;
-		$this->Password			= $Password;
+		$this->User			= $User;
+		$this->Password		= $Password;
 		$this->PasswordHash	= $PasswordHash? $PasswordHash : md5($Password);
-		$this->AdminData 		= $this->fetchAssoc('admin_user','*'," (user = '".$this->User."' OR email='".$this->User."' )AND status = 'A'");
+		$this->AdminData 	= $this->fetchAssoc('admin_user','*'," (user = '".$this->User."' OR email='".$this->User."' )AND status = 'A'");
 		$this->RememberUser = $Remember==1;
-		$this->IP 					= getenv("REMOTE_ADDR");
+		$this->IP 			= getenv("REMOTE_ADDR");
 	}
 
 	public function setLogin()
@@ -42,12 +42,24 @@ class Login extends DataBase
 
 	public function setSessionVars()
 	{
-		$_SESSION['user'] 				= $this->AdminData[0]['user'];
+		$_SESSION['user'] 			= $this->AdminData[0]['user'];
 		$_SESSION['admin_id'] 		= $this->AdminData[0]['admin_id'];
 		$_SESSION['customer_id'] 	= $this->AdminData[0]['customer_id'];
 		$_SESSION['first_name'] 	= $this->AdminData[0]['first_name'];
 		$_SESSION['last_name'] 		= $this->AdminData[0]['last_name'];
 		$_SESSION['profile_id'] 	= $this->AdminData[0]['profile_id'];
+		$_SESSION['meli']			= boolval($this->AdminData[0]['meli']);
+		$MeliAppData = $this->fetchAssoc("renovatio_configuration","*");
+		$_SESSION['meli_client_id'] = $MeliAppData[0]['meli_client_id'];
+		$_SESSION['meli_secret'] 	= $MeliAppData[0]['meli_secret'];
+		
+		if($_SESSION['meli'])
+		{
+			$_SESSION['meli_code'] 			= $this->AdminData[0]['meli_code'];
+			$_SESSION['meli_access_token'] 	= $this->AdminData[0]['meli_access_token'];
+			$_SESSION['meli_refresh_token'] = $this->AdminData[0]['meli_refresh_token'];
+			$_SESSION['meli_expires_in'] 	= $this->AdminData[0]['meli_expires_in'];
+		}
 	}
 
 	public function setCookies()

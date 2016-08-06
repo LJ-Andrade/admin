@@ -1,11 +1,11 @@
 <?php
+	session_name("renovatio");
+	session_cache_expire(15800);
+	session_start();
 
 	include_once("../../classes/class.database.php");
-	include_once("../../classes/class.api.rest.php");
-	include_once("../../functions/func.common.php");
-
-
-	/* CONECTION STARTS */
+	
+	/* CONNECTION STARTS */
 	$DB = new DataBase();
 
 	/* REDIRECTS IF THERE WAS AN ERROR */
@@ -14,13 +14,16 @@
 		header("Location: ../../includes/inc.error.php?error=".$DB->Error);
 		die();
 	}
-
+	
+	include_once("../../classes/class.api.rest.php");
+	include_once("../../functions/func.common.php");
 	include_dir("../../classes");
 
-	session_name("renovatio");
-	session_cache_expire(15800);
-	session_start();
-
+	/* MELI REDIRECT URL */
+	$MeliURL = 'https://renovatio-cheketo.c9users.io/files/modules/test/landing.php';
+	/* MELI NOTIFICATIONS URL */
+	$MeliNotificationsURL = 'https://renovatio-cheketo.c9users.io/files/modules/test/notifications.php';
+	
 	/* SECURIRTY CHECKS */
 	$Security		= new Security();
 	if($Security->checkProfile($_SESSION['admin_id']))
@@ -32,6 +35,14 @@
 		{
 			header("Location: ../login/process.logout.php?error=customer");
 			die();
+		}
+		if($_SESSION['meli'])
+		{
+			$Meli = new Meli($_SESSION['meli_client_id'],$_SESSION['meli_secret'],$_SESSION['meli_access_token'],$_SESSION['meli_refresh_token']);
+			if($_SESSION['meli_refresh_token'])
+			{
+				$Meli->refreshMeliToken();
+			}
 		}
 	}
 

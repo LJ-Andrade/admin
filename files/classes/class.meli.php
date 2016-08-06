@@ -45,6 +45,7 @@ class Meli {
     protected $redirect_uri;
     protected $access_token;
     protected $refresh_token;
+    protected $DB;
 
     /**
      * Constructor method. Set all variables to connect in Meli
@@ -59,6 +60,33 @@ class Meli {
         $this->client_secret = $client_secret;
         $this->access_token = $access_token;
         $this->refresh_token = $refresh_token;
+        $this->DB = new DataBase();
+        $this->DB->Connect();
+    }
+    
+    
+    /**
+     * Refreshes MELI Access Token
+     */
+    public function refreshMeliToken()
+    {
+        if($_SESSION['meli_expires_in'] < time())
+    	{
+    		try
+    		{
+    			// Make the refresh proccess
+    			$Refresh = $this->refreshAccessToken();
+    			// Now we create the sessions with the new parameters
+    			$_SESSION['meli_access_token'] = $Refresh['body']->access_token;
+    			$_SESSION['meli_expires_in'] = time() + $Refresh['body']->expires_in;
+    			$_SESSION['meli_refresh_token'] = $Refresh['body']->refresh_token;
+    			$this->DB->execQuery("UPDATE","admin_user","meli_access_token='".$_SESSION['meli_access_token']."', meli_refresh_token='".$_SESSION['meli_refresh_token']."', meli_expires_in=".$_SESSION['meli_expires_in'],"admin_id=".$_SESSION['admin_id']);
+    		}
+    		catch (Exception $e)
+    		{
+    		  	echo "Exception: ",  $e->getMessage(), "\n";
+    		}
+    	}
     }
 
     /**

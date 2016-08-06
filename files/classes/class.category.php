@@ -81,6 +81,24 @@
 				return $Dependecies;
 			}
 		}
+		
+		public function InsertCategory($ID,$ParentID="",$Site,$Meli)
+		{
+			$Result 	= $Meli->get('categories/'.$ID);
+			$Category	= $Result['body'];
+			$Query		= "),('".$Category->id."','".$ParentID."','".$Site."','".$Category->name."','".$Category->picture."'";
+			$Children	= $Category->children_categories;
+			foreach($Children as $Child)
+			{
+				$Query	.= self::InsertCategory($Child->id,$ID,$Site,$Meli);
+			}
+			return $Query;
+			
+			// echo "<pre>";
+			// 	print_r($Result);
+			// echo "</pre>";
+			// die();
+		}
 	}
 
 ?>
