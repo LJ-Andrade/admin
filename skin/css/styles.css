@@ -1,6 +1,5 @@
 @charset "UTF-8";
 .ButtonLogin {
-  background-color: #3e4e8e;
   border: 0;
   margin-top: 8px; }
 
@@ -43,17 +42,17 @@
   align-items: center; }
 
 .login-page {
-  background: url(../images/body/backgrounds/back.jpg) no-repeat center center fixed;
+  background: url(../images/body/backgrounds/back1.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover; }
 
 .login-box-body, .register-box-body {
-  background-color: rgba(255, 255, 255, 0.52);
-  -webkit-box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  background: linear-gradient(to bottom, rgba(106, 153, 200, 0.34) 0, rgba(40, 55, 71, 0.8) 95%);
+  -webkit-box-shadow: 2px 2px 11px -5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 2px 11px -5px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 2px 11px -5px rgba(0, 0, 0, 0.75);
   color: #000; }
   .login-box-body p, .register-box-body p {
     color: #000; }
@@ -63,6 +62,10 @@
       color: white; }
 
 .login-logo a {
+  color: #383838; }
+
+.login-box-body .checkbox span {
+  margin-left: 10px;
   color: #fff; }
 
 div#page_loader {

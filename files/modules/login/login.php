@@ -14,9 +14,7 @@
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Iniciar sesi&oacute;n</p>
-
-
+    <p class="login-box-msg">INICIAR SESI&Oacute;N</p>
       <div class="form-group has-feedback">
         <input type="email" class="form-control" name="user" id="user" placeholder="Email o Usuario" value="<?php echo $_COOKIE['rememberuser'];?>">
         <span class="fa fa-envelope form-control-feedback"></span>
@@ -29,7 +27,7 @@
         <div class="col-xs-8">
           <div class="checkbox icheck">
             <label>
-              <input type="checkbox" <?php echo $Checked ?> class="iCheckbox" name="rememberuser" id="rememberuser" value="1" > Recordarme
+              <input type="checkbox" <?php echo $Checked ?> class="iCheckbox" name="rememberuser" id="rememberuser" value="1" > <span>Recordarme</span>
             </label>
           </div>
         </div>
