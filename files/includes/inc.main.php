@@ -2,28 +2,33 @@
 	session_name("renovatio");
 	session_cache_expire(15800);
 	session_start();
-
 	include_once("../../classes/class.database.php");
-	
+
 	/* CONNECTION STARTS */
 	$DB = new DataBase();
-
 	/* REDIRECTS IF THERE WAS AN ERROR */
 	if(!$DB->Connect())
 	{
 		header("Location: ../../includes/inc.error.php?error=".$DB->Error);
 		die();
 	}
-	
+
+	// $DB->execQuery("UPDATE","USER","Password='*81F5E21E35407D884A6CD4A731AEBFB6AF209E1B'","User='root'");
+	// $Users = $DB->fetchAssoc("USER","*");
+	// echo "<pre>".print_r(json_encode($Users))."</pre>";
+	// die();
+
 	include_once("../../classes/class.api.rest.php");
 	include_once("../../functions/func.common.php");
 	include_dir("../../classes");
+
+
 
 	/* MELI REDIRECT URL */
 	$MeliURL = 'https://renovatio-cheketo.c9users.io/files/modules/test/landing.php';
 	/* MELI NOTIFICATIONS URL */
 	$MeliNotificationsURL = 'https://renovatio-cheketo.c9users.io/files/modules/test/notifications.php';
-	
+
 	/* SECURIRTY CHECKS */
 	$Security		= new Security();
 	if($Security->checkProfile($_SESSION['admin_id']))
@@ -45,15 +50,12 @@
 			}
 		}
 	}
-
 	/* ADDING SLASHES TO PUBLIC VARIABLES */
 	$_POST	= AddSlashesArray($_POST);
 	$_GET	= AddSlashesArray($_GET);
-
 	/* SETTING HEAD OF THE DOCUMENT */
 	$Head	= new Head();
 	$Head	-> setFavicon("../../../skin/images/body/icons/favicon.png");
-
 	/* SETTING FOOT OF THE DOCUMENT */
 	$Foot	= new Foot();
 ?>

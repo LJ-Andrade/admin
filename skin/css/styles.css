@@ -95,6 +95,53 @@ div#page_loader {
   #loadgif img {
     width: 150px; }
 
+.alertok {
+  background-color: #319abb;
+  font-weight: bold;
+  border: 0;
+  border-radius: 0px;
+  color: #fff;
+  width: 250px;
+  padding: 20px 0;
+  text-align: center; }
+
+.alerterror {
+  background-color: #c94c4c;
+  border: 0;
+  border-radius: 0px;
+  color: #fff;
+  width: 200px;
+  padding: 20px 0;
+  text-align: center; }
+
+.alertadvice {
+  background-color: #40985b;
+  border: 0;
+  border-radius: 0px;
+  color: #fff;
+  width: 200px;
+  padding: 20px 0;
+  text-align: center; }
+
+.alert-success, .alert-info {
+  color: #3c763d;
+  border: 0;
+  color: #fff;
+  max-width: 300px;
+  min-height: 100px;
+  padding: 30px;
+  border-radius: 5px;
+  border-top: 20px solid rgba(255, 255, 255, 0.2); }
+  .alert-success .fa, .alert-info .fa {
+    font-size: 50px; }
+
+.alert-success {
+  background-color: #40985b; }
+
+.alert-info {
+  background-color: #cdcdcd;
+  color: #000; }
+
 .main-header .sidebar-toggle::before {
   content: ""; }
 
