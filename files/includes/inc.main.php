@@ -38,7 +38,7 @@
 		}
 		if($_SESSION['meli'])
 		{
-			$Meli = new Meli($_SESSION['meli_client_id'],$_SESSION['meli_secret'],$_SESSION['meli_access_token'],$_SESSION['meli_refresh_token']);
+			$Meli = new Meli($_SESSION['meli_application_id'],$_SESSION['meli_secret'],$_SESSION['meli_access_token'],$_SESSION['meli_refresh_token']);
 			if($_SESSION['meli_refresh_token'])
 			{
 				$Meli->refreshMeliToken();

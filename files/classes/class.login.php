@@ -50,7 +50,7 @@ class Login extends DataBase
 		$_SESSION['profile_id'] 	= $this->AdminData[0]['profile_id'];
 		$_SESSION['meli']			= boolval($this->AdminData[0]['meli']);
 		$MeliAppData = $this->fetchAssoc("renovatio_configuration","*");
-		$_SESSION['meli_client_id'] = $MeliAppData[0]['meli_client_id'];
+		$_SESSION['meli_application_id'] = $MeliAppData[0]['meli_application_id'];
 		$_SESSION['meli_secret'] 	= $MeliAppData[0]['meli_secret'];
 		
 		if($_SESSION['meli'])

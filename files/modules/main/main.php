@@ -4,18 +4,15 @@
   $Head->setTitle($Menu->GetLinkTitle());
   $Head->setHead();
   
-  
-  
-  /******* MELI TEST **********/
+  /******* MELI **********/
   if($_SESSION['meli'])
   {
-    $Meli   = new Meli($_SESSION['meli_client_id'],$_SESSION['meli_secret'],$_SESSION['meli_access_token'],$_SESSION['meli_refresh_token']);
     $Params = array('access_token'=>$_SESSION['meli_access_token']);
     $Result = $Meli->get('/users/me',$Params);
     $Me     = $Result['body'];
     $Checked = ' checked="checked" ';
   }
-  /******* MELI TEST **********/
+  /******* MELI **********/
   
   include('../../includes/inc.top.php');
  ?>

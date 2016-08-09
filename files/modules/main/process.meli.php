@@ -13,7 +13,7 @@
     }else{
         /// MELI LOGIN
         $_SESSION['meli'] = true;
-        $Meli = new Meli($_SESSION['meli_client_id'],$_SESSION['meli_secret']);
+        $Meli = new Meli($_SESSION['meli_application_id'],$_SESSION['meli_secret']);
         header("Location: ".$Meli->getAuthUrl($MeliURL, Meli::$AUTH_URL['MLA']));
     }
     die();
