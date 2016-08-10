@@ -2,11 +2,11 @@
 
 class Foot
 {
-	var $HTML			= '<body><html>';
-	var $Link			= array();
+	var $HTML		= '<body><html>';
+	var $Link		= array();
 	var $Script		= array();
-	var $Meta			= array();
-	var $Includes = array();
+	var $Meta		= array();
+	var $Includes	= array();
 
 	const INCFOOT = "../../includes/inc.foot.php";
 
@@ -20,6 +20,7 @@ class Foot
 		$this->echoIncludes();
 		$this->echoLink();
 		$this->echoMeta();
+		$this->setScript('script.js');
 		$this->echoScript();
 		$this->echoHTML();
 	}

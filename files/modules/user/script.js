@@ -215,18 +215,13 @@ $(function(){
 });
 
 //////////////// Select Input With Tags //////////////////////////
-$(function() {
-	$('.selectTags').select2({
-		placeholder: "Grupos",
-		allowClear: true,
-		theme: "classic"
-	});
-})
+	$(function() {
+		$('.selectTags').select2({
+			allowClear: true
+		});
+	})
 
 ///////////////// TreeCheckboxes Multiple Select ///////////////////
-$(function() {
-	var options = { sortable: true,
-	 								hideSidePanel: true,
-								 	showSectionOnSelected: false 	};
-	$("select#demo1").treeMultiselect(options);
-})
+	$('#treeview-checkbox').treeview({
+	  // Options
+	});

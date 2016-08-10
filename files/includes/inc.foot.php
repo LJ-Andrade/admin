@@ -18,5 +18,3 @@
 <script src="../../js/script.validate.js"></script>
 <!-- Renovatio Script -->
 <script src="../../js/script.common.js"></script>
-<!-- Module Script -->
-<script src="script.js"></script>

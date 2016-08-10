@@ -1,5 +1,213 @@
+/// Colors ///
+$lightLine: 1px solid rgba(228, 228, 228, 0.8)
+
 ////////// BUTTON  //////////////
+
+.btn
+  border: 0
+  @include transition(0.3s)
+
+.btnGreen
+  background-color: rgb(69, 189, 102)
+  margin: 2px 2px
+  &:hover,&:active,&:focus
+    background-color: rgb(92, 200, 122)
+.btnBlue
+  background-color: rgb(76, 126, 185)
+  margin: 2px 2px
+  &:hover,&:active,&:focus
+    background-color: rgb(130, 162, 201)
+.btnRed
+  background-color: rgb(207, 86, 83)
+  margin: 2px 2px
+  &:hover,&:active,&:focus
+    background-color: rgb(205, 115, 113)
 
 .ButtonLogin
   border: 0
   margin-top: 8px
+
+// Button Container
+.btnGrey
+  background-color: rgb(214, 214, 214)
+  color: #000
+  &:hover,&:active,&:focus
+    background-color: rgb(164, 164, 164)
+    color: #fff
+
+.btnRightMobCent
+  text-align: right
+
+@media (max-width: 765px)
+  .btnRightMobCent
+    text-align: center
+
+
+///////// CONTAINERS /////////////
+.innerContainer
+  border: $lightLine
+  padding: 15px
+  padding-top: 5px
+
+
+
+//////// TITLES //////////////////
+.subTitleB
+  padding-bottom: 5px
+  background-color: rgba(240, 240, 240, 0.18)
+  border-bottom: 2px solid #e1e1e1
+  padding: 5px
+  padding-left: 10px
+  .fa
+    margin-right: 5px
+    font-size: 14px
+
+
+
+//////// FORMS ///////////////////
+
+// Tags //
+
+.select2-selection
+  width: auto !important
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice
+  background-color: rgb(76, 126, 185)
+  border: 0
+
+////////// TREE CHECKBOXES ///////
+.treeCheckBoxDiv
+  margin: 20px 0
+  padding: 5px 20px
+  border: $lightLine
+  input
+    margin-right: 10px
+
+////////// IMAGES //////////////
+.imagesMain
+  margin-top: 20px
+
+@media (max-width: 1200px)
+  .imagesMain
+    margin-top: 0
+  .imagesMain >div
+    margin: 10px 0
+
+.imagesContainer
+  border: $lightLine
+  padding: 5px 15px 20px
+  text-align: center
+  min-height: 300px
+  // .imageChanger
+  //   img
+  //     width: 200px
+  //     max-width: 100%
+  //     @include border-radius(100%)
+  //     @include transition(0.3s)
+  //     &:hover
+  //       cursor: pointer
+  //       @include box-shadowDown
+  //       filter: brightness(1.3)
+  //   span
+  //     position: absolute
+  //     color: #fff
+  //     &:hover
+  //       span
+  //         margin-top: -50px
+  //         display: block
+
+
+// Round Image Selector With Overlay
+.imgSelector
+  padding-top: 15px
+  padding-bottom: 15px
+  margin: 0 auto
+  img
+    position: absolute
+    display: block
+    z-index: 1
+    width: 190px
+    height: 190px
+    border-radius: 100%
+    margin: 0 auto
+
+.imgSelectorInner
+  width: 190px
+  height: 190px
+  margin: 0 auto
+
+.imgSelectorContent
+  position: absolute
+  display: table
+  z-index: 2
+  opacity: 0
+  width: 190px
+  height: 190px
+  border-radius: 100%
+  vertical-align: middle
+  text-align: center
+  margin: auto
+  transition: all 0.3s ease 0s
+  &:hover
+    opacity: 1
+    background: rgba(34, 34, 34, 0.62) center no-repeat
+    @include box-shadowDown
+    filter: brightness(1.3)
+  .fa
+    font-size: 35px
+    color: #fff
+  div
+    display: table-cell
+    vertical-align: middle
+    cursor: pointer
+    color: #fff
+
+@media (max-width: 290px)
+  .imgSelectorInner, .imgSelectorContent
+    width: 120px
+    height: 120px
+  .imgSelector
+    img
+      width: 120px
+      height: 120px
+
+
+// Small Thumbs
+.smallThumbsList
+  ul
+    padding: 0
+    margin: 0
+    margin-top: 20px
+    li
+      position: relative
+      list-style: none
+      display: inline-block
+      margin-bottom: 15px
+      margin-left: 3px
+      margin-right: 3px
+      img
+        width: 90px
+        max-width: 100%
+        @include border-radius(100%)
+        @include transition(0.3s)
+        &:hover
+          cursor: pointer
+          @include box-shadowDown
+
+
+// MODALS //
+.modal
+  .modal-header
+    background-color: $mainblue
+    color: #fff
+    .close
+      color: #fff
+      opacity: 1
+      top: 2px
+      &:hover
+        color: $mainred
+        text-shadow: none
+        background-color: #fff
+        top: 2px
+  .modal-footer
+    border-top: 0
