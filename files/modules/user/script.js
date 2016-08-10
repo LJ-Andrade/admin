@@ -215,6 +215,8 @@ $(function(){
 });
 
 //////////////// Select Input With Tags //////////////////////////
+// DOCUMENTATION > https://select2.github.io/examples.html
+
 	$(function() {
 		$('.selectTags').select2({
 			allowClear: true
@@ -222,6 +224,8 @@ $(function(){
 	})
 
 ///////////////// TreeCheckboxes Multiple Select ///////////////////
+// DOCUMENTATION >  http://www.jquery-az.com/jquery-treeview-with-checkboxes-2-examples-with-bootstrap
+
 	$('#treeview-checkbox').treeview({
 	  // Options
 	});

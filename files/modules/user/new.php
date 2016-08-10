@@ -114,11 +114,17 @@
                 <img src="<?php echo $Admin->Img; ?>" class="img-responsive MainImg">
                 <div class="imgSelectorContent">
                   <div id="SelectImg">
-                    <i class="fa fa-picture-o"></i><br>
-                    Cambiar Imágen
+                    <i class="fa fa-upload"></i><br>
+                   <p>Cargar Nueva Im&aacute;gen</p>
                   </div>
                 </div>
+               
               </div>
+               
+            </div>
+            <div class="text-bottom">
+              <p><i class="fa fa-upload" aria-hidden="true"></i>
+              Haga Click sobre la im&aacute;gen </br> para cargar una desde su dispositivo</p>
             </div>
           </div>
         </div><!-- /Actual Image -->
@@ -138,6 +144,10 @@
                 <li><img src="../../../skin/images/users/03.png" alt="" /></li>
               </ul>
             </div>
+             <div class="text-bottom">
+               <p><i class="fa fa-check" aria-hidden="true"></i>
+               Seleccione una im&aacute;gen para utilizarla</p>
+            </div>
           </div>
         </div><!-- /Generic Images -->
         <!-- Recent Images -->
@@ -151,6 +161,10 @@
                 <li><img src="../../../skin/images/users/1/03.jpeg" alt="" /></li>
                 <li><img src="../../../skin/images/users/1/04.jpg" alt="" /></li>
               </ul>
+            </div>
+             <div class="text-bottom">
+               <p><i class="fa fa-check" aria-hidden="true"></i>
+              Seleccione una im&aacute;gen para utilizarla</p>
             </div>
           </div>
         </div><!-- /Recent Images -->
@@ -208,8 +222,3 @@ $Foot->setScript('../../../vendors/treemultiselect/treeview.min.js');
 
 include('../../includes/inc.bottom.php');
 ?>
-<script type="text/javascript">
-$('#treeview-checkbox').treeview({
-  // Options
-});
-</script>
