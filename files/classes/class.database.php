@@ -1,24 +1,17 @@
 <?php
-
 class DataBase
 {
-
-	var $UserDB		= 'root';
+	var $UserDB		  = 'root';
 	var $PasswordDB	= 'root';
-	var $DataBase	= 'renovatio';
-	var $ServerDB	= '127.0.0.1';
-	var $TypeDB 	= 'Mysql';
-	var $SchemaDB	= 'testing,public';
-	var $PortDB 	= 3306;
-
+	var $DataBase	  = 'renovatio';
+	var $ServerDB	  = '127.0.0.1';
+	var $TypeDB 	  = 'Mysql';
+	var $SchemaDB	  = 'testing,public';
+	var $PortDB 	  = 3306;
 	var $AfectedRows;
 	var $StreamConnection;
 	var $Error;
-
 	var $LastQuery;
-
-
-
 	public function __construct($UserDB='root', $PasswordDB='root', $DataBase='renovatio', $ServerDB='127.0.0.1',$TypeDB='Mysql'){
 		$this->UserDB 		= $UserDB;
 		$this->PasswordDB	= $PasswordDB;
@@ -26,10 +19,8 @@ class DataBase
 		$this->ServerDB		= $ServerDB;
 		$this->TypeDB		= $TypeDB;
 	}
-
 	public function Connect(){
 		$this->StartConnection();
-
 		if(!$this->StreamConnection){
 			$this->Error = "No ha sido posible conectarse a la base de datos, error en la funcion 'connect': ".$this->ConnectionError();
 			return false;
@@ -42,7 +33,6 @@ class DataBase
 			}
 		}
 	}
-
 	public function SelectDB()
 	{
 		switch($this->TypeDB)
@@ -58,7 +48,6 @@ class DataBase
 			break;
 		}
 	}
-
 	public function ConnectionError()
 	{
 		switch($this->TypeDB)
@@ -75,7 +64,6 @@ class DataBase
 			break;
 		}
 	}
-
 	public function StartConnection()
 	{
 		switch($this->TypeDB)
@@ -91,7 +79,6 @@ class DataBase
             break;
 		}
 	}
-
 	public function GetInsertId()
 	{
 		switch($this->TypeDB)
@@ -101,7 +88,6 @@ class DataBase
 			break;
 		}
 	}
-
 	public function Disconnect()
 	{
 		switch($this->TypeDB)
@@ -117,12 +103,10 @@ class DataBase
 			break;
 		}
 	}
-
 	public function getQuery($Operation,$Table,$Fields='',$Where='',$Order='',$Limit='')
 	{
 		return $Query	= $this->queryBuild($Operation,$Table,$Fields,$Where,$Order,$Limit);
 	}
-
 	public function execQuery($Operation,$Table,$Fields='',$Where='',$Order='',$Limit='')
 	{
 		$Query	= $this->queryBuild($Operation,$Table,$Fields,$Where,$Order,$Limit);
@@ -135,7 +119,6 @@ class DataBase
 			break;
 		}
 	}
-
 	public function fetchAssoc($Table,$Fields='',$Where='',$Order='',$Limit='')
 	{
 		$Query	= $this->queryBuild("SELECT",$Table,$Fields,$Where,$Order,$Limit);
@@ -150,7 +133,6 @@ class DataBase
 			break;
 		}
 	}
-
 	public function fetchRow($Table,$Fields='',$Where='',$Order='',$Limit='')
 	{
 		$Query	= $this->queryBuild("SELECT",$Table,$Fields,$Where,$Order,$Limit);
@@ -165,7 +147,6 @@ class DataBase
 			break;
 		}
 	}
-
 	public function numRows($Table,$Fields='',$Where='',$Order='',$Limit='')
 	{
 		switch($this->TypeDB)
@@ -177,7 +158,6 @@ class DataBase
 			break;
 		}
 	}
-
 	public function affectedRows()
 	{
 		switch($this->TypeDB)
@@ -187,37 +167,29 @@ class DataBase
 			break;
 		}
 	}
-
 	public function queryBuild($Operation,$Table,$Fields='',$Where='',$Order='',$Limit='')
 	{
 		if($Fields)
 			$Fields	= utf8_decode($Fields);
-
 		if($Where)
 			$Where	= utf8_decode($Where);
-
 		switch(strtolower($Operation))
 		{
 			case "select":
 				$Query = $this->selectBuild($Table,$Fields,$Where,$Order,$Limit);
 			break;
-
 			case "insert":
 				$Query = $this->insertBuild($Table,$Fields,$Where);
 			break;
-
 			case "update":
 				$Query = $this->updateBuild($Table,$Fields,$Where);
 			break;
-
 			case "delete":
 				$Query = $this->deleteBuild($Table,$Fields);
 			break;
-
 			case "data":
 				$Query = $this->dataBuild($Table);
 			break;
-
 			default:
 				$Query = $Table;
 			break;
@@ -225,7 +197,6 @@ class DataBase
 		$this->LastQuery = $Query;
 		return $Query;
 	}
-
 	public function selectBuild($Table,$Fields,$Where='',$Order='',$Limit='')
 	{
 		switch($this->TypeDB)
@@ -239,7 +210,6 @@ class DataBase
 			break;
 		}
 	}
-
 	public function insertBuild($Table,$Fields,$Values)
 	{
 		switch($this->TypeDB)
@@ -249,7 +219,6 @@ class DataBase
 			break;
 		}
 	}
-
 	public function updateBuild($Table,$Values,$Where)
 	{
 		switch($this->TypeDB)
@@ -260,7 +229,6 @@ class DataBase
 			break;
 		}
 	}
-
 	public function deleteBuild($Table,$Where)
 	{
 		switch($this->TypeDB)
@@ -271,7 +239,6 @@ class DataBase
 			break;
 		}
 	}
-
 	public function dataBuild($Table)
 	{
 		switch($this->TypeDB)
@@ -281,17 +248,13 @@ class DataBase
 			break;
 		}
 	}
-
 	public function lastQuery()
 	{
 		return $this->LastQuery;
 	}
-
 	public function lastError()
 	{
 		return $this->Error;
 	}
-
 }
-
 ?>
