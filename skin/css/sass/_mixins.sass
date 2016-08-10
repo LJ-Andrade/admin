@@ -16,3 +16,13 @@
   -webkit-box-shadow: $horiz $vert $blur $spread $color
   -moz-box-shadow: $horiz $vert $blur $spread $color
   box-shadow: $horiz $vert $blur $spread $color
+
+
+@mixin border-radius($radio)
+  -webkit-border-radius: $radio
+  -moz-border-radius: $radio
+  border-radius: $radio
+
+@mixin transition($segs)
+  -webkit-transition: all $segs ease 0s
+  transition: all $segs ease 0s
