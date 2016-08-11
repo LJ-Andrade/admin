@@ -1,159 +1,88 @@
 $(document).ready(function(){
 	if(get['msg']=='insert')
-		notifySuccess('Usuario creado correctamente');
+		notifySuccess("Usuario'"+get['user']+"' creado correctamente");
 	if(get['msg']=='update')
 		notifySuccess('Usuario modificado correctamente');
 });
 
-// function animateElementsFromArray(arrayWithElements,x)
-// {
-// 	arrayWithElements[x].removeClass("Hidden");
-// 	arrayWithElements[x].addClass("animated fadeInRight");
-// 	arrayWithElements[x].one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-// 		x++;
-// 		if(x<arrayWithElements.length)
-// 			animateElementsFromArray(arrayWithElements,x);
-// 	});
-// }
-
-// $(function(){
-// 	$("#createUser").click(function(){
-// 		if(validate.validateFields(''))
-// 		{
-// 			if(get['id']>0)
-// 				confirmText = "modificar";
-// 			else
-// 				confirmText = "crear";
-
-// 			confirmText += " el usuario '"+$("#user").val()+"'";
-
-// 			alertify.confirm(utf8_decode('¿Desea '+confirmText+' ?'), function(e){
-// 				if(e)
-// 				{
-// 					var status = 'I';
-// 					if($("#status").is(':checked'))
-// 						status = 'A';
-
-// 					var process		= 'process.php';
-// 					var target		= 'list.php?status='+status+'&msg='+ $("#action").val();
-// 					var haveData	= function(returningData)
-// 					{
-// 						$("input,select").blur();
-// 						notifyError(returningData);
-// 						//alert(returningData);
-// 					}
-// 					var noData		= function()
-// 					{
-// 						document.location = target;
-// 					}
-// 					sumbitFields(process,haveData,noData);
-// 				}
-// 			});
-// 		}
-// 	});
-
-// 	$("input").keypress(function(e){
-// 		if(e.which==13){
-// 			$("#createUser").click();
-// 		}
-// 	});
-
-// /////////////////////////// Upload Image /////////////////////////////////////
-// 	$("#image").change(function(){
-// 		var process		= 'process.php?action=newimage';
-// 		var haveData	= function(returningData)
-// 		{
-// 			$('#newimage').val(returningData);
-// 			$('#ImageBox').append('<li><img src="'+returningData+'" alt="" class="img-responsive" ><span class="GenImg RecentlyAdded"><i class="fa fa-trash delImgIco"></i></span></li>');
-// 			SelectThumbImg();
-// 			CancelSelectionWindows();
-// 			ImageGalleryHover();
-// 			DeleteImageGallery();
-// 			BtnBack();
-// 			$('.RecentlyAdded').click();
-// 			$('.RecentlyAdded').removeClass('RecentlyAdded');
-// 			return false;
-
-// 		}
-// 		var noData		= function()
-// 		{
-// 			//document.location = target;
-// 		}
-// 		sumbitFields(process,haveData,noData);
-// 	});
-
-// 	$('.SelectNewImg').click(function(){
-// 		$("#image").click();
-// 	});
-
-// /////////////////////////// Fill Groups /////////////////////////////////////
 $(function(){
-	$('#profile').change(function(){
-		fillGroups();
+	$("#BtnCreate,#BtnCreateNext").click(function(){
+		if(validate.validateFields(''))
+		{
+			var BtnID = $(this).attr("id")
+			if(get['id']>0)
+				confirmText = "modificar";
+			else
+				confirmText = "crear";
+
+			confirmText += " el usuario '"+$("#user").val()+"'";
+
+			alertify.confirm(utf8_decode('¿Desea '+confirmText+' ?'), function(e){
+				if(e)
+				{
+					// var status = 'I';
+					// if($("#status").is(':checked'))
+					// 	status = 'A';
+
+					var process		= 'process.php';
+					if(BtnID=="BtnCreate")
+					{
+						var target		= 'list.php?user='+$('#user').val()+'&msg='+ $("#action").val();
+					}else{
+						var target		= 'new.php?user='+$('#user').val()+'&msg='+ $("#action").val();
+					}
+					var haveData	= function(returningData)
+					{
+						$("input,select").blur();
+						notifyError("Ha ocurrido un error durante el proceso de creaci&oacute;n.");
+						console.log(returningData);
+					}
+					var noData		= function()
+					{
+						document.location = target;
+					}
+					sumbitFields(process,haveData,noData);
+				}
+			});
+		}
+	});
+
+	$("input").keypress(function(e){
+		if(e.which==13){
+			$("#BtnCreate").click();
+		}
 	});
 });
+// /////////////////////////// Upload Image /////////////////////////////////////
+$(function(){
+	$("#image").change(function(){
+		var process		= 'process.php?action=newimage';
+		var haveData	= function(returningData)
+		{
+			$('#newimage').val(returningData);
+			$(".MainImg").attr("src",returningData);
+			$('#UserImages').append('<li><img src="'+returningData+'" class="ImgSelecteable"></li>');
+			selectImg();
+		}
+		var noData		= function(){}
+		sumbitFields(process,haveData,noData);
+	});
 
-function fillGroups()
+	$('.imgSelectorContent').click(function(){
+		$("#image").click();
+	});
+	
+	selectImg();
+});
+
+function selectImg()
 {
-	$('.selectTags').select2().val(["CA", "AL"]).trigger("change");
-	//toggleLoader();
-	var profile = $('#profile').val();
-	var admin 	= $('#id').val();
-	var process = 'process.php';
-
-	var string      = 'profile='+ profile +'&admin='+ admin +'&action=fillgroups';
-
-    var data;
-    $.ajax({
-        type: "POST",
-        url: process,
-        data: string,
-        cache: false,
-        success: function(data){
-            if(data)
-            {
-                //$('.selectTags').select2().val(["CA", "AL"]).trigger("change");
-                $('#groups-wrapper').html(data);
-                console.log(data);
-                //$('#groups').attr("disabled","");
-            }else{
-                $('#groups').html('<h4 class="subTitleB"><i class="fa fa-users"></i> Grupos</h4><select id="groups" class="form-control select2 selectTags" multiple="multiple" disabled="disabled" data-placeholder="Seleccione los grupos" style="width: 100%;"></select>');
-                console.log("empty groups");
-                //$('#groups').attr("disabled","disabled");
-            }
-			$('.selectTags').select2();
-            // getCheckedGroups();
-            // clickGroupCheckbox();
-        }
-    });
-    //toggleLoader();
+	$(".ImgSelecteable").click(function(){
+		var src = $(this).attr("src");
+		$(".MainImg").attr("src",src);
+		$("#newimage").val(src);
+	});
 }
-
-// function getCheckedGroups()
-// {
-//     var values = '';
-//     $(".GroupCheckbox").each(function(){
-//         if($(this).is(":checked"))
-//             if(values=='')
-//                 values = $(this).val();
-//             else
-//             	values = values + ',' + $(this).val();
-//     });
-//     $("#groups").val(values);
-// }
-
-// function clickGroupCheckbox()
-// {
-// 	$(".GroupCheckbox").click(function(){
-//   		getCheckedGroups();
-//     });
-// }
-
-// $(document).ready(function(){
-// 	fillGroups();
-//     getCheckedGroups();
-// });
-
 
 // /////////////////////////// Massive Delete /////////////////////////////////////
 // 	$("#delselected").click(function(){
@@ -203,30 +132,79 @@ function fillGroups()
 //         });
 // 	});
 
-// $(function(){
-// ////////////////// User Creation Window /////////////////////////
-
-// 	// Insert Img
-// 	var wrapper = $('<div/>').css({height:0,width:0,'overflow':'hidden'});
-// 	var fileInput = $(':file').wrap(wrapper);
-
-// 	fileInput.change(function(){
-// 	    $this = $(this);
-// 	    $('#file').text($this.val());
-// 	})
-
-// 	$('#file').click(function(){
-// 	    fileInput.click();
-// 	}).show();
-
-// });
-
 //////////////// Select Input With Tags //////////////////////////
 $(function() {
 	$('.selectTags').select2({
 		tags: true
 	});
+	
+	$('.selectTags').on("change", function (e) { setGroups(); });
 });
+
+// /////////////////////////// Fill Groups /////////////////////////////////////
+$(document).ready(function(){
+	fillGroups();
+	setGroups();
+});
+
+$(function(){
+	$('#profile').change(function(){
+		fillGroups();
+	});
+});
+
+function setGroups()
+{
+	var groups = "0";
+	$(".select2-selection__choice").each(function(){
+		var optionName = $(this).attr("title");
+		$("#group").children("option").each(function(){
+			if($(this).html()==optionName)
+			{
+				groups += ","+$(this).attr("value");
+			}
+		});
+	});
+	$("#groups").val(groups);
+	//alert(groups);
+}
+
+function fillGroups()
+{
+	//$('.selectTags').select2().val(["CA", "AL"]).trigger("change");
+	//toggleLoader();
+	var profile = $('#profile').val();
+	var admin 	= $('#id').val();
+	var process = 'process.php';
+
+	var string      = 'profile='+ profile +'&admin='+ admin +'&action=fillgroups';
+
+    var data;
+    $.ajax({
+        type: "POST",
+        url: process,
+        data: string,
+        cache: false,
+        success: function(data){
+            if(data)
+            {
+                //$('.selectTags').select2().val(["CA", "AL"]).trigger("change");
+                $('#groups-wrapper').html(data);
+                //console.log(data);
+                //$('#groups').attr("disabled","");
+            }else{
+                $('#groups').html('<h4 class="subTitleB"><i class="fa fa-users"></i> Grupos</h4><select id="group" class="form-control select2 selectTags" multiple="multiple" disabled="disabled" data-placeholder="Seleccione los grupos" style="width: 100%;"></select>');
+                //console.log("empty groups");
+                //$('#groups').attr("disabled","disabled");
+            }
+			$('.selectTags').select2();
+            $('.selectTags').on("change", function () { setGroups(); });
+            // getCheckedGroups();
+            // clickGroupCheckbox();
+        }
+    });
+    //toggleLoader();
+}
 
 ///////////////// TreeCheckboxes Multiple Select ///////////////////
 $(document).ready(function(){

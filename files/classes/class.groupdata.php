@@ -127,7 +127,7 @@ class GroupData extends DataBase
 
 	public function GetGroups($ProfileID=0,$AdminID=0)
 	{
-		$HTML 				= '<h4 class="subTitleB"><i class="fa fa-users"></i> Grupos</h4><select id="groups" class="form-control select2 selectTags" multiple="multiple" data-placeholder="Seleccione los grupos" style="width: 100%;">';
+		$HTML 				= '<h4 class="subTitleB"><i class="fa fa-users"></i> Grupos</h4><select id="group" class="form-control select2 selectTags" multiple="multiple" data-placeholder="Seleccione los grupos" style="width: 100%;">';
 		if($ProfileID!=0)
 		{
 			$this->AdminID 	= $AdminID;

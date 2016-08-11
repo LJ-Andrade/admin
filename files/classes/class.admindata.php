@@ -227,7 +227,7 @@ class AdminData extends DataBase
 			{
 				if(strlen($Image)>4 && $Image[0]!=".")
 				{
-					$this->DefaultImages[] = $Image;
+					$this->DefaultImages[] = $Dir."/".$Image;
 				}
 			}
 		}
@@ -246,7 +246,7 @@ class AdminData extends DataBase
 			{
 				if(strlen($Image)>4 && $Image[0]!=".")
 				{
-					$this->UserImages[] = $Image;
+					$this->UserImages[] = $Dir."/".$Image;
 				}
 			}
 		}
@@ -261,28 +261,28 @@ class AdminData extends DataBase
 		return $TempDir;
 	}
 
-	public function CleanTmpImgDir()
-	{
-		$Images = $this->DefaultImages($this->ImgGalDir());
-		foreach($Imgaes as $Image)
-		{
-			$Img = $this->ImgGalDir().$Image;
-			if(file_exists($Img)) unlink($Img);
-		}
-	}
+	// public function CleanTmpImgDir()
+	// {
+	// 	$Images = $this->DefaultImages($this->ImgGalDir());
+	// 	foreach($Imgaes as $Image)
+	// 	{
+	// 		$Img = $this->ImgGalDir().$Image;
+	// 		if(file_exists($Img)) unlink($Img);
+	// 	}
+	// }
 
-	public function AllImages()
-	{
-		$Images = array();
-		foreach($this->DefaultImages() as $Image)
-		{
-			$Images[] = $this->DefaultImgDir.'/'.$Image;
-		}
-		foreach ($this->UserImages() as $Image)
-		{
-        	$Images[] = $this->ImgGalDir().$Image;
-        }
-        return $Images;
-	}
+	// public function AllImages()
+	// {
+	// 	$Images = array();
+	// 	foreach($this->DefaultImages() as $Image)
+	// 	{
+	// 		$Images[] = $this->DefaultImgDir.'/'.$Image;
+	// 	}
+	// 	foreach ($this->UserImages() as $Image)
+	// 	{
+ //       	$Images[] = $this->ImgGalDir().$Image;
+ //       }
+ //       return $Images;
+	// }
 }
 ?>

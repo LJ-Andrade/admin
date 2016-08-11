@@ -11,7 +11,7 @@
 
 ?>
   <?php echo insertElement("hidden","action",'insert'); ?>
-  <?php echo insertElement("hidden","menues","13"); ?>
+  <?php echo insertElement("hidden","menues",""); ?>
   <?php echo insertElement("hidden","groups",""); ?>
   <?php echo insertElement("hidden","newimage",$Admin->DefaultImg); ?>
 
@@ -63,15 +63,15 @@
                 <div class="form-group" id="groups-wrapper">
                   <h4 class="subTitleB"><i class="fa fa-users"></i> Grupos</h4>
                   
-                  <select id="groups" class="form-control select2 selectTags" multiple="multiple" data-placeholder="Seleccione los grupos" style="width: 100%;">
+                  <select id="group" class="form-control select2 selectTags" multiple="multiple" data-placeholder="Seleccione los grupos" style="width: 100%;">
                     <?php //$Group->GetGroups(); ?>
-                    <option id="1" selected="selected">Alabama</option>
-                    <option id="2" selected="selected">Alaska</option>
-                    <option id="7" selected="selected">California</option>
-                    <option id="6">Alabama2</option>
-                    <option id="3">Alaska2</option>
-                    <option id="5">California2</option>
-                    <option id="4">Alabama3</option>
+                    <!--<option value="1" selected="selected">Alabama</option>-->
+                    <!--<option value="2" selected="selected">Alaska</option>-->
+                    <!--<option value="7" selected="selected">California</option>-->
+                    <!--<option value="6">Alabama2</option>-->
+                    <!--<option value="3">Alaska2</option>-->
+                    <!--<option value="5">California2</option>-->
+                    <!--<option value="4">Alabama3</option>-->
                   </select>
                 
                 </div>
@@ -101,16 +101,15 @@
             <h4 class="subTitleB"><i class="fa fa-picture-o"></i> Im&aacute;gen Actual</h4>
             <div class="flex-allCenter imgSelector">
               <div class="imgSelectorInner">
-                <img src="<?php echo $Admin->Img; ?>" class="img-responsive MainImg">
+                <img src="<?php echo $Admin->DefaultImg ?>" class="img-responsive MainImg">
+                <?php echo insertElement('file','image','','Hidden'); ?>
                 <div class="imgSelectorContent">
                   <div id="SelectImg">
                     <i class="fa fa-upload"></i><br>
                    <p>Cargar Nueva Im&aacute;gen</p>
                   </div>
                 </div>
-               
               </div>
-               
             </div>
             <div class="text-bottom">
               <p><i class="fa fa-upload" aria-hidden="true"></i>
@@ -122,16 +121,14 @@
         <div class="col-lg-5 col-md-12 col-sm-6 col-xs-12">
           <div class="imagesContainer">
             <h4 class="subTitleB"><i class="fa fa-picture-o"></i> Im&aacute;genes Gen&eacute;ricas</h4>
-            <div class="smallThumbsList">
-              <ul class="flex-container flex-wrap">
-                <li><img src="../../../skin/images/users/01.png" alt="" /></li>
-                <li><img src="../../../skin/images/users/02.png" alt="" /></li>
-                <li><img src="../../../skin/images/users/03.png" alt="" /></li>
-                <li><img src="../../../skin/images/users/04.png" alt="" /></li>
-                <li><img src="../../../skin/images/users/05.png" alt="" /></li>
-                <li><img src="../../../skin/images/users/01.png" alt="" /></li>
-                <li><img src="../../../skin/images/users/02.png" alt="" /></li>
-                <li><img src="../../../skin/images/users/03.png" alt="" /></li>
+            <div class="smallThumbsList flex-justify-center">
+              <ul>
+                <?php 
+                  foreach($Admin->DefaultImages() as $Image)
+                  { 
+                    echo '<li><img src="'.$Image.'" class="ImgSelecteable"></li>';
+                  }
+                ?>
               </ul>
             </div>
              <div class="text-bottom">
@@ -144,12 +141,14 @@
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
           <div class="imagesContainer">
             <h4 class="subTitleB"><i class="fa fa-picture-o"></i> Im&aacute;genes usadas anteriormente</h4>
-            <div class="smallThumbsList">
-              <ul class="flex-container flex-wrap ">
-                <li><img src="../../../skin/images/users/1/01.png" alt="" /></li>
-                <li><img src="../../../skin/images/users/1/02.jpeg" alt="" /></li>
-                <li><img src="../../../skin/images/users/1/03.jpeg" alt="" /></li>
-                <li><img src="../../../skin/images/users/1/04.jpg" alt="" /></li>
+            <div class="smallThumbsList flex-justify-center">
+              <ul id="UserImages">
+                <?php 
+                  foreach($Admin->UserImages() as $Image)
+                  { 
+                    echo '<li><img src="'.$Image.'" class="ImgSelecteable"></li>';
+                  }
+                ?>
               </ul>
             </div>
              <div class="text-bottom">
@@ -161,12 +160,14 @@
       </div><!-- IMAGES -->
     </div><!-- /.box-body -->
     <div class="box-footer btnRightMobCent">
-      <button type="button" class="btn btn-success btnGreen "><i class="fa fa-plus"></i> Crear Nuevo Usuario</button>
-      <button type="button" class="btn btn-success btnBlue"><i class="fa fa-plus"></i> Crear y Agregar Otro</button>
-      <button type="button" class="btn btn-danger btnRed"><i class="fa fa-times"></i> Cancelar</button>
+      <button type="button" class="btn btn-success btnGreen" id="BtnCreate"><i class="fa fa-plus"></i> Crear Nuevo Usuario</button>
+      <button type="button" class="btn btn-success btnBlue" id="BtnCreateNext"><i class="fa fa-plus"></i> Crear y Agregar Otro</button>
+      <button type="button" class="btn btn-danger btnRed" id="BtnCancel"><i class="fa fa-times"></i> Cancelar</button>
     </div><!-- box-footer -->
   </div><!-- /.box -->
+  <!-- Help Modal Trigger -->
   <button type="button" class="btn btn-success btnGrey" data-toggle="modal" data-target="#helpModal" ><i class="fa fa-question-circle"></i> Ayuda</button>
+  <!-- Help Modal Trigger -->
   <!-- //// HELP MODAL //// -->
   <div id="helpModal" class="modal fade" role="dialog">
     <div class="modal-dialog">

@@ -746,3 +746,49 @@ function getLocal(name) {
     window.alert('Please use a modern browser to properly view this template!');
   }
 }
+
+
+//////////////////////// LISTS & GRID //////////////////////////////
+
+// Add Selected Status Color
+$('.listRow').click(function(){
+  $(this).toggleClass('listRowSelected');
+});
+
+// Show Action Buttons
+$('.listRow').click(function() {
+    if ($('.listActions').hasClass('Hidden')) {
+    $('.listActions').removeClass('Hidden');
+  } else {
+    $('.listActions').addClass('Hidden');
+  }
+})
+
+// Show Delete All Button
+$('.listRow').click(function() {
+  $('.deleteSelectedAbs').toggleClass('Hidden');
+})
+
+// Grid or Img Selector Selected Status
+$('.RoundItemSelect').click(function(){
+  $('.imgSelectorContent').toggleClass('imgSelectorClicked');
+
+  if ($('.roundItemBigActions .btnBlue').hasClass('Hidden')) {
+    $('.btnBlue').removeClass('Hidden');
+  } else {
+    $('.btnBlue').addClass('Hidden');
+
+  }
+  if ($('.roundItemBigActions .btnRed').hasClass('Hidden')) {
+    $('.btnRed').removeClass('Hidden');
+  } else {
+    $('.btnRed').addClass('Hidden');
+  }
+
+  if (  $('.roundItemBigActions .btnGreen').hasClass('Hidden')) {
+    $('.btnGreen').removeClass('Hidden');
+  } else {
+    $('.btnGreen').addClass('Hidden');
+  }
+
+})
