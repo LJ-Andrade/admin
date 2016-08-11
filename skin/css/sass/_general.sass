@@ -1,6 +1,7 @@
 //////////// Custom Styles /////////////////////////////////////////
 .Hidden
   display: none !important
+  @include transition(0.2s)
 .pad0
   padding: 0
 .mar0
@@ -24,10 +25,27 @@
   -ms-flex-align: center
   -ms-grid-row-align: center
   align-items: center
+
+.flex-justify-center
+  display: -webkit-box
+  display: -ms-flexbox
+  display: flex
+  -webkit-box-align: center
+  -ms-flex-align: center
+  -ms-grid-row-align: center
+  align-items: center
+  -webkit-box-pack: center
+  -ms-flex-pack: center
   -webkit-box-pack: center
   -ms-flex-pack: center
   justify-content: center
 
+.flexLeftVertCent
+  display: -webkit-box
+  display: -ms-flexbox
+  display: flex
+  align-items: center
+  justify-content: flex-start
 
 .flex-allCenter
   justify-content: center
@@ -60,7 +78,7 @@
 
 .flex-wrap
   flex-wrap: wrap
-  
+
 ////////////// TEXT ALIGNMENT ////////////////////////
 .text-bottom
   position: absolute
@@ -95,7 +113,7 @@
   .checkbox
     span
       margin-left: 10px
-      color: #fff 
+      color: #fff
 
 ////////////// LOADER //////////////////////////////////
 
@@ -125,3 +143,8 @@ div#page_loader
   justify-content: center
   img
     width: 150px
+
+/// RESPONSIVITY ///
+@media (max-width: 990px)
+  .hideMobile990
+    display: none

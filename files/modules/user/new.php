@@ -118,9 +118,7 @@
                    <p>Cargar Nueva Im&aacute;gen</p>
                   </div>
                 </div>
-               
               </div>
-               
             </div>
             <div class="text-bottom">
               <p><i class="fa fa-upload" aria-hidden="true"></i>
@@ -176,7 +174,9 @@
       <button type="button" class="btn btn-danger btnRed"><i class="fa fa-times"></i> Cancelar</button>
     </div><!-- box-footer -->
   </div><!-- /.box -->
+  <!-- Help Modal Trigger -->
   <button type="button" class="btn btn-success btnGrey" data-toggle="modal" data-target="#helpModal" ><i class="fa fa-question-circle"></i> Ayuda</button>
+  <!-- Help Modal Trigger -->
   <!-- //// HELP MODAL //// -->
   <div id="helpModal" class="modal fade" role="dialog">
     <div class="modal-dialog">

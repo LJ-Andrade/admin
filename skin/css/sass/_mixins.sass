@@ -12,11 +12,10 @@
   box-shadow: $horiz $vert $blur $spread $color
 
 
-@mixin box-shadowSoft( $horiz : 10px , $vert : 10px , $blur : 15px , $spread : -12px , $color : rgba(0,0,0,0.75))
+@mixin box-shadowSoft( $horiz : 1px , $vert : 3px , $blur : 5px , $spread : -5px , $color : rgba(0,0,0,0.75))
   -webkit-box-shadow: $horiz $vert $blur $spread $color
   -moz-box-shadow: $horiz $vert $blur $spread $color
   box-shadow: $horiz $vert $blur $spread $color
-
 
 @mixin border-radius($radio)
   -webkit-border-radius: $radio
