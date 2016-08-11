@@ -509,28 +509,26 @@ $(function(){
 
 
 //////////////////////////////////////////////////// Logout ////////////////////////////////////////////////////
-$(function(){
+// $(function(){
+//         $("#Logout").click(function(){
+//             alertify.confirm(utf8_decode("¿Desea salir del administrador?"), function(e){
+//                  if(e){
+//                     var target      = '../login/login.php';
+//                     var process     = '../login/process.logout.php';
 
-        $("#Logout").click(function(){
+//                     $.ajax({
+//                         type: "POST",
+//                         url: process,
+//                         cache: false,
+//                         success: function(){
+//                             document.location = target;
+//                         }
+//                     });
+//                 }
+//             }).set('labels', {ok:'Si', cancel:'No'});
+//         });
 
-            // alertify.confirm(utf8_decode("¿Desea salir del administrador?"), function(e){
-            //     if(e){
-                    var target      = '../login/login.php';
-                    var process     = '../login/process.logout.php';
-
-                    $.ajax({
-                        type: "POST",
-                        url: process,
-                        cache: false,
-                        success: function(){
-                            document.location = target;
-                        }
-                    });
-            //     }
-            // }).set('labels', {ok:'Si', cancel:'No'});
-        });
-
-});
+// });
 
 //////////////////////////////////////////////////// Value In Array ////////////////////////////////////////////////////
 function inArray(needle, haystack) {

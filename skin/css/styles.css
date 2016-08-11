@@ -178,6 +178,19 @@
 .modal .modal-footer {
   border-top: 0; }
 
+.horizontal-list ul li {
+  display: inline-block;
+  list-style: none;
+  margin: 10px; }
+
+.roundItemBig .roundItemText {
+  text-align: center;
+  margin-top: 10px; }
+  .roundItemBig .roundItemText p {
+    margin: 0; }
+.roundItemBig .fa {
+  font-size: 14px !important; }
+
 .Hidden {
   display: none !important; }
 
@@ -210,6 +223,20 @@
   -ms-flex-align: center;
   -ms-grid-row-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+
+.flex-justify-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -ms-grid-row-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center; }

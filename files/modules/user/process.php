@@ -160,7 +160,7 @@ switch(strtolower($_POST['action']))
 		$Admin 		= $_POST['admin'];
 		
         $Groups 	= new GroupData();
-        echo $Groups->GroupTree($Profile,$Admin);
+        echo $Groups->GetGroups($Profile,$Admin);
 		
 		die;
 	break;

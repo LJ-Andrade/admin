@@ -343,45 +343,30 @@ class Menu extends DataBase
 		return $this->CheckedMenues;
 	}
 
-	public function MakeTree($Name='',$Parent=0)
-	{
-		$Name 	= $Name? '<div class="checkboxTitle"><h5>'.$Name.'</h5></div>':'';
-		$HTML 	= '<div class="form-group checkboxDiv">'.$Name;
-		$HTML 	.= $this->FillTree($Parent);
-		return $HTML.'</div>';
-	}
+	// public function MakeTree($Name='',$Parent=0)
+	// {
+	// 	$Name 	= $Name? '<div class="checkboxTitle"><h5>'.$Name.'</h5></div>':'';
+	// 	$HTML 	= '<div class="form-group checkboxDiv">'.$Name;
+	// 	$HTML 	.= $this->FillTree($Parent);
+	// 	return $HTML.'</div>';
+	// }
 
-	public function FillTree($Parent=0,$Level=1)
+	public function MakeTree($Parent=0)
 	{
-		$CheckedMenues 	= $this->GetCheckedMenues();
-		$Menues			= $this->fetchAssoc('menu','*',"parent_id = ".$Parent." AND status <> 'I'","position");
-		$Display 		= in_array($Parent,$CheckedMenues)? '':' style="display:none" ';
-		$Parents 		= $this->GetParents();
-		$HTML 			= $Parent==0? '<ul id="parent'.$Parent.'">':'<ul '.$Display.' id="parent'.$Parent.'">';
-		$Level 			= $Level>3? 1:$Level;
-
+		$HTML		= '<ul>';
+		$Menues 	= $this->fetchAssoc('menu','*',"parent_id = ".$Parent." AND status <> 'I'","position");
+		$Parents	= $this->GetParents();
 		foreach($Menues as $Menu)
 		{
-			$IsParent 	= in_array($Menu['menu_id'],$Parents);
-
-			$Arrow		= $IsParent? '<i class="fa fa-caret-down" aria-hidden="true"></i>' : '';
-			if(in_array($Menu['menu_id'],$CheckedMenues))
+			$HTML .= '<li data-value="'.$Menu['menu_id'].'"> <i class="fa '.$Menu['icon'].'"></i> '.$Menu['title'];
+			if(in_array($Menu['menu_id'],$Parents))
 			{
-				$Checked 	= ' checked="checked" ';
-				$Disabled 	= '';
-			}else{
-				$Disabled 	= $Parent != 0 && !in_array($Parent,$CheckedMenues)? ' disabled="disabled" ':'';
-				$Checked = '';
+				$HTML .= $this->MakeTree($Menu['menu_id']);
 			}
-
-			//$HTML		.= '<li class="treeLv1">'.insertElement('checkbox','menu'.$Menu['menu_id'],$Menu['menu_id'],'CheckBox TreeCheckbox checkbox-custom','value="'.$Menu['menu_id'].'"'.$Disabled.$Checked).'<label class="checkbox-custom-label" for="menu'.$Menu['menu_id'].'"></label><span id="menu'.$Menu['menu_id'].'" '.$Arrow.' class="TreeElement"> '.$Menu['title'].'</span></li>';
-			$HTML		.= '<li class="TreeElement treeLv'.$Level.'">'.insertElement('checkbox','menu'.$Menu['menu_id'],$Menu['menu_id'],'CheckBox TreeCheckbox checkbox-custom','value="'.$Menu['menu_id'].'"'.$Disabled.$Checked).'<label class="checkbox-custom-label" for="menu'.$Menu['menu_id'].'"> <i class="fa '.$Menu['icon'].'"></i> '.$Menu['title'].'</label>'.$Arrow.'</li>';
-			if($IsParent)
-			{
-				$HTML	.= $this->FillTree($Menu['menu_id'],$Level+1);
-			}
+			$HTML .= '</li>';
 		}
-		return $HTML.'</ul>';
+		$HTML .= '</ul>';
+		return $HTML;
 	}
 
 	public function GetParents()

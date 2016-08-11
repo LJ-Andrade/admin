@@ -11,8 +11,8 @@
 
 ?>
   <?php echo insertElement("hidden","action",'insert'); ?>
-  <?php echo insertElement("hidden","menues"); ?>
-  <?php echo insertElement("hidden","groups"); ?>
+  <?php echo insertElement("hidden","menues","13"); ?>
+  <?php echo insertElement("hidden","groups",""); ?>
   <?php echo insertElement("hidden","newimage",$Admin->DefaultImg); ?>
 
    <div class="box"> <!--box-success-->
@@ -27,22 +27,22 @@
             <div class="mw100">
               <h4 class="subTitleB"><i class="fa fa-pencil"></i> Datos Principales</h4>
               <div class="form-group">
-                <?php echo insertElement('text','user','','form-control','placeholder="Usuario" tabindex="1" validateEmpty="El usuario es obligatorio." validateMinLength="3/El usuario debe contener 3 caracteres como mínimo." validateFromFile="process.php/El usuario ya existe/action:=validate"'); ?>
+                <?php echo insertElement('text','user','','form-control','placeholder="Usuario" tabindex="1" validateEmpty="El usuario es obligatorio." validateMinLength="3/El usuario debe contener 3 caracteres como m&iacute;nimo." validateFromFile="process.php/El usuario ya existe/action:=validate"'); ?>
               </div>
               <div class="form-group">
-                <?php echo insertElement('password','password','','form-control','placeholder="Contrase&ntilde;a" validateMinLength="4/La contraseña debe contener 4 caracteres como mínimo." tabindex="3"'); ?>
+                <?php echo insertElement('password','password','','form-control','placeholder="Contrase&ntilde;a" validateMinLength="4/La contrase&ntilde;a debe contener 4 caracteres como m&iacute;nimo." tabindex="2"'); ?>
               </div>
               <div class="form-group">
-                <?php echo insertElement('password','password_confirm','','form-control','placeholder="Confirmar Contrase&ntilde;a" validateEqualToField="password/Las contraseñas deben coincidir." tabindex="4"'); ?>
+                <?php echo insertElement('password','password_confirm','','form-control','placeholder="Confirmar Contrase&ntilde;a" validateEqualToField="password/Las contrase&ntilde;as deben coincidir." tabindex="3"'); ?>
               </div>
               <div class="form-group">
-                <?php echo insertElement('text','email','','form-control','placeholder="Email" validateEmail="Ingrese un email válido." validateMinLength="4/El email debe contener 4 caracteres como mínimo." tabindex="2" validateFromFile="process.php/El email ya existe/action:=validate_email"'); ?>
+                <?php echo insertElement('text','email','','form-control','placeholder="Email" validateEmail="Ingrese un email válido." validateMinLength="4/El email debe contener 4 caracteres como m&iacute;nimo." tabindex="4" validateFromFile="process.php/El email ya existe/action:=validate_email"'); ?>
               </div>
               <div class="form-group">
-                <?php echo insertElement('text','first_name','','form-control','placeholder="Nombre" validateEmpty="El nombre es obligatorio." validateMinLength="2/El nombre debe contener 2 caracteres como mínimo." tabindex="5"'); ?>
+                <?php echo insertElement('text','first_name','','form-control','placeholder="Nombre" validateEmpty="El nombre es obligatorio." validateMinLength="2/El nombre debe contener 2 caracteres como m&iacute;nimo." tabindex="5"'); ?>
               </div>
               <div class="form-group">
-                <?php echo insertElement('text','last_name','','form-control','placeholder="Apellido" validateEmpty="El apellido es obligatorio." validateMinLength="2/El apellido debe contener 2 caracteres como mínimo." tabindex="6"'); ?>
+                <?php echo insertElement('text','last_name','','form-control','placeholder="Apellido" validateEmpty="El apellido es obligatorio." validateMinLength="2/El apellido debe contener 2 caracteres como m&iacute;nimo." tabindex="6"'); ?>
               </div>
             </div>
           </div>
@@ -50,59 +50,49 @@
         <div class="col-md-6">
           <div class="innerContainer">
             <div class="row">
-              <div class="col-lg-6 col-md-12">
-                <div class="form-group">
-                  <h4 class="subTitleB"><i class="fa fa-sitemap"></i> Grupos</h4>
-                  <select class="form-control select2 selectTags" multiple="multiple" data-placeholder="Seleccione los grupos" style="width: 100%;">
-                    <option>Alabama</option>
-                    <option>Alaska</option>
-                    <option>California</option>
-                    <option>Alabama</option>
-                    <option>Alaska</option>
-                    <option>California</option>
-                    <option>Alabama</option>
-                  </select>
-                </div>
-              </div>
+              <!-- Profile -->
               <div class="col-lg-6 col-md-12">
                 <div class="form-group">
                   <h4 class="subTitleB"><i class="fa fa-eye"></i> Perfiles</h4>
-                  <select class="form-control select2" style="width: 100%;">
-                    <option selected="selected" class="disabled">Seleccione un perfil ...</option>
-                    <option>Perfil 2</option>
-                  </select>
+                  <?php echo insertElement('select','profile','','form-control','validateEmpty="El perfil es obligatorio." tabindex="7"',$DB->fetchAssoc('admin_profile','profile_id,title',"status='A' AND customer_id=".$_SESSION['customer_id']),'',"Seleccione un perfil.."); ?>
+                
                 </div>
               </div>
+              <!-- Groups -->
+              <div class="col-lg-6 col-md-12">
+                <div class="form-group" id="groups-wrapper">
+                  <h4 class="subTitleB"><i class="fa fa-users"></i> Grupos</h4>
+                  
+                  <select id="groups" class="form-control select2 selectTags" multiple="multiple" data-placeholder="Seleccione los grupos" style="width: 100%;">
+                    <?php //$Group->GetGroups(); ?>
+                    <option id="1" selected="selected">Alabama</option>
+                    <option id="2" selected="selected">Alaska</option>
+                    <option id="7" selected="selected">California</option>
+                    <option id="6">Alabama2</option>
+                    <option id="3">Alaska2</option>
+                    <option id="5">California2</option>
+                    <option id="4">Alabama3</option>
+                  </select>
+                
+                </div>
+              </div>
+              
             </div>
           </div>
         </div><!-- User Data -->
+        
+        
         <!-- Tree Chekbox -->
         <div class="col-md-6">
           <div id="treeview-checkbox" class="treeCheckBoxDiv">
             <h4 class="subTitleB"><i class="fa fa-key"></i> Permisos</h4>
-            <ul>
-              <li>Permiso 1
-                <ul>
-                  <li data-value="table" class="">Permiso 1a</li>
-                  <li data-value="table" class="">Permiso 1b</li>
-                </ul>
-              </li>
-            </ul>
-            <ul>
-              <li>Permiso 2
-                <ul>
-                  <li data-value="table">Permiso 2a
-                    <ul>
-                      <li data-value="table">Permiso 2aa
-                    </ul>
-                  </li>
-                  <li data-value="table" class="">Permiso 2b</li>
-                </ul>
-              </li>
-            </ul>
+            <?php echo $Menu->MakeTree(); ?>
           </div><!-- treeview-checkbox -->
         </div><!-- User Data -->
       </div><!-- row -->
+      
+      
+      
       <!-- IMAGES -->
       <!-- Actual Image -->
       <div class="row imagesMain">
