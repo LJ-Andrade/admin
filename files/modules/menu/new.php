@@ -19,7 +19,7 @@
     </div>
     <div class="box-body">
       <div class="row">
-        <div class="col-xs-4">
+        <div class="col-xs-12 col-sm-12 col-lg-4">
           <div class="form-group">
             <div class="input-group">
               <div class="input-group-btn">
@@ -42,7 +42,7 @@
             </select>
           </div>
         </div>
-        <div class="col-xs-4">
+        <div class="col-xs-12 col-sm-6 col-lg-4">
           <div class="form-group">
             <div class="input-group">
               <div class="input-group-btn">
@@ -60,7 +60,7 @@
             </select>
           </div>
         </div>
-        <div class="col-xs-4">
+        <div class="col-xs-12 col-sm-6 col-lg-4">
           <div class="form-group">
             <div class="input-group">
               <div class="input-group-btn">
