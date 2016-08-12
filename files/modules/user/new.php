@@ -7,8 +7,7 @@
     $Head->setStyle('../../../vendors/select2/select2.min.css'); // Select Inputs With Tags
     $Head->setHead();
     include('../../includes/inc.top.php');
-
-
+    include('../../includes/inc.modals.php');
 ?>
   <?php echo insertElement("hidden","action",'insert'); ?>
   <?php echo insertElement("hidden","menues"); ?>
@@ -130,8 +129,8 @@
         <div class="col-lg-5 col-md-12 col-sm-6 col-xs-12">
           <div class="imagesContainer">
             <h4 class="subTitleB"><i class="fa fa-picture-o"></i> Im&aacute;genes Gen&eacute;ricas</h4>
-            <div class="smallThumbsList">
-              <ul class="flex-container flex-wrap">
+            <div class="smallThumbsList flex-justify-center">
+              <ul>
                 <li><img src="../../../skin/images/users/01.png" alt="" /></li>
                 <li><img src="../../../skin/images/users/02.png" alt="" /></li>
                 <li><img src="../../../skin/images/users/03.png" alt="" /></li>
@@ -152,8 +151,8 @@
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
           <div class="imagesContainer">
             <h4 class="subTitleB"><i class="fa fa-picture-o"></i> Im&aacute;genes usadas anteriormente</h4>
-            <div class="smallThumbsList">
-              <ul class="flex-container flex-wrap ">
+            <div class="smallThumbsList flex-justify-center">
+              <ul>
                 <li><img src="../../../skin/images/users/1/01.png" alt="" /></li>
                 <li><img src="../../../skin/images/users/1/02.jpeg" alt="" /></li>
                 <li><img src="../../../skin/images/users/1/03.jpeg" alt="" /></li>
@@ -171,7 +170,7 @@
     <div class="box-footer btnRightMobCent">
       <button type="button" class="btn btn-success btnGreen "><i class="fa fa-plus"></i> Crear Nuevo Usuario</button>
       <button type="button" class="btn btn-success btnBlue"><i class="fa fa-plus"></i> Crear y Agregar Otro</button>
-      <button type="button" class="btn btn-danger btnRed"><i class="fa fa-times"></i> Cancelar</button>
+      <button type="button" class="btn btn-danger btnRed" data-toggle="modal" data-target="#deleteUserModal"><i class="fa fa-times"></i> Cancelar</button>
     </div><!-- box-footer -->
   </div><!-- /.box -->
   <!-- Help Modal Trigger -->

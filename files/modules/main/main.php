@@ -3,7 +3,7 @@
   $Menu   = new Menu();
   $Head->setTitle($Menu->GetLinkTitle());
   $Head->setHead();
-  
+
   /******* MELI **********/
   if($_SESSION['meli'])
   {
@@ -13,8 +13,9 @@
     $Checked = ' checked="checked" ';
   }
   /******* MELI **********/
-  
+
   include('../../includes/inc.top.php');
+  include('../../includes/inc.loader.php');
  ?>
 
    <div class="form-group heckbox icheck">
@@ -24,13 +25,14 @@
      </label>
      <p>Esto es una prueba</p>
    </div>
-  
-  
+
+   <button id="activateLoader" type="button" class="btn btnBlue animated fadeIn">Activate Loader</button>
+   <br><br>
+
   <?php if($_SESSION['meli']){ ?>
     <div class="form-group">
       <button type="button" id="melinosync">Devincular mi cuenta de Mercado Libre</button>
     </div>
-    
    <div class="box box-success">
    <div class="box-header with-border">
      <h3 class="box-title">Informaci&oacute;n de tu usuario de Mercado Libre</h3>

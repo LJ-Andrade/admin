@@ -776,21 +776,27 @@ $('.RoundItemSelect').click(function(){
   $('.imgSelectorContent').toggleClass('imgSelectorClicked');
 
   if ($('.roundItemBigActions .btnBlue').hasClass('Hidden')) {
-    $('.btnBlue').removeClass('Hidden');
+    $('.roundItemBigActions .btnBlue').removeClass('Hidden');
   } else {
-    $('.btnBlue').addClass('Hidden');
+    $('.roundItemBigActions .btnBlue').addClass('Hidden');
 
   }
   if ($('.roundItemBigActions .btnRed').hasClass('Hidden')) {
-    $('.btnRed').removeClass('Hidden');
+    $('.roundItemBigActions .btnRed').removeClass('Hidden');
   } else {
-    $('.btnRed').addClass('Hidden');
+    $('.roundItemBigActions .btnRed').addClass('Hidden');
   }
 
   if (  $('.roundItemBigActions .btnGreen').hasClass('Hidden')) {
-    $('.btnGreen').removeClass('Hidden');
+    $('.roundItemBigActions .btnGreen').removeClass('Hidden');
   } else {
-    $('.btnGreen').addClass('Hidden');
+    $('.roundItemBigActions .btnGreen').addClass('Hidden');
   }
 
+})
+
+//////// LOADER ////////
+
+$('#activateLoader').click(function(){
+  $('.loader').removeClass('Hidden');
 })

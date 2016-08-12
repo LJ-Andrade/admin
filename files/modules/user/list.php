@@ -5,8 +5,8 @@
   $Head->setSubTitle("Listado de Usuarios");
   $Head->setHead();
   include('../../includes/inc.top.php');
+  include('../../includes/inc.modals.php');
  ?>
-
   <div class="box">
     <div class="box-body">
       <div class="changeView">
@@ -22,8 +22,8 @@
                 <img src="<?php echo $Admin->Img; ?>" class="img-responsive MainImg">
                 <div class="imgSelectorContent">
                   <div class="roundItemBigActions">
-                    <a href="index.php"><button type="button" class="btn btnBlue" name="button"><i class="fa fa-pencil"></i></button></a>
-                    <a href="index.php"><button type="button" class="btn btnRed" name="button"><i class="fa fa-trash-o"></i></button></a>
+                    <a href="#"><button type="button" class="btn btnBlue" name="button"><i class="fa fa-pencil"></i></button></a>
+                    <a href="#"><button type="button" class="btn btnRed" name="button" data-toggle="modal" data-target="#deleteUserModal"><i class="fa fa-trash-o"></i></button></a>
                     <a href="#"><button type="button" class="btn btnGreen Hidden" name="button"><i class="fa fa-check"></i></button></a>
                   </div>
                 </div>
@@ -69,9 +69,11 @@
                 <span class="smallDetails">Detalles grupos</span>
               </div>
             </div>
-            <div class="listActions Hidden">
-              <a><button type="button" class="btn btnBlue"><i class="fa fa-pencil"></i></button></a>
-              <a><button type="button" class="btn btnRed"><i class="fa fa-trash"></i></button></a>
+            <div class="listActions flex-justify-center Hidden">
+              <div>
+                <a><button type="button" class="btn btnBlue"><i class="fa fa-pencil"></i></button></a>
+                <a><button type="button" class="btn btnRed" data-toggle="modal" data-target="#deleteUserModal"><i class="fa fa-trash"></i></button></a>
+              </div>
             </div>
           </div>
           <!-- List Item -->
@@ -102,9 +104,11 @@
                 <span class="smallDetails">Detalles grupos</span>
               </div>
             </div>
-            <div class="listActions Hidden">
-              <a><button type="button" class="btn btnBlue"><i class="fa fa-pencil"></i></button></a>
-              <a><button type="button" class="btn btnRed"><i class="fa fa-trash"></i></button></a>
+            <div class="listActions flex-justify-center Hidden">
+              <div>
+                <a><button type="button" class="btn btnBlue"><i class="fa fa-pencil"></i></button></a>
+                <a><button type="button" class="btn btnRed"  data-toggle="modal" data-target="#deleteUserModal"><i class="fa fa-trash"></i></button></a>
+              </div>
             </div>
           </div>
           <!-- List Item -->
@@ -118,7 +122,7 @@
   <!-- Help Modal Trigger -->
 <!-- DELETE SELECTED BUTTON -->
 <a href="#">
-  <div class="deleteSelectedAbs Hidden">
+  <div class="deleteSelectedAbs Hidden" data-toggle="modal" data-target="#delMultipleUsersModal">
     Eliminar Seleccionados
   </div>
 </a>

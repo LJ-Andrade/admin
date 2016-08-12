@@ -69,9 +69,11 @@
                 <span class="smallDetails">Detalles grupos</span>
               </div>
             </div>
-            <div class="listActions Hidden">
-              <a><button type="button" class="btn btnBlue"><i class="fa fa-pencil"></i></button></a>
-              <a><button type="button" class="btn btnRed"><i class="fa fa-trash"></i></button></a>
+            <div class="listActions flex-justify-center Hidden">
+              <div>
+                <a><button type="button" class="btn btnBlue"><i class="fa fa-pencil"></i></button></a>
+                <a><button type="button" class="btn btnRed"><i class="fa fa-trash"></i></button></a>
+              </div>
             </div>
           </div>
           <!-- List Item -->
@@ -102,9 +104,11 @@
                 <span class="smallDetails">Detalles grupos</span>
               </div>
             </div>
-            <div class="listActions Hidden">
-              <a><button type="button" class="btn btnBlue"><i class="fa fa-pencil"></i></button></a>
-              <a><button type="button" class="btn btnRed"><i class="fa fa-trash"></i></button></a>
+            <div class="listActions flex-justify-center Hidden">
+              <div>
+                <a><button type="button" class="btn btnBlue"><i class="fa fa-pencil"></i></button></a>
+                <a><button type="button" class="btn btnRed"><i class="fa fa-trash"></i></button></a>
+              </div>
             </div>
           </div>
           <!-- List Item -->
