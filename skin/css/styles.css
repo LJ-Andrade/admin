@@ -9,21 +9,24 @@
   margin: 2px 2px;
   color: #fff; }
   .btnGreen:hover, .btnGreen:active, .btnGreen:focus {
-    background-color: #5cc87a; }
+    background-color: #5cc87a;
+    color: #fff; }
 
 .btnBlue {
   background-color: #4c7eb9;
   margin: 2px 2px;
   color: #fff; }
   .btnBlue:hover, .btnBlue:active, .btnBlue:focus {
-    background-color: #82a2c9; }
+    background-color: #82a2c9;
+    color: #fff; }
 
 .btnRed {
   background-color: #cf5653;
   margin: 2px 2px;
   color: #fff; }
   .btnRed:hover, .btnRed:active, .btnRed:focus {
-    background-color: #cd7371; }
+    background-color: #cd7371;
+    color: #fff; }
 
 .ButtonLogin {
   border: 0;
@@ -46,7 +49,13 @@
   border: 1px solid rgba(228, 228, 228, 0.8);
   padding: 15px;
   padding-top: 5px; }
+  .innerContainer .bootstrap-switch {
+    margin-bottom: 15px;
+    margin-left: 25px; }
 
+@media (max-width: 990px) {
+  .innerContainer {
+    margin: 10px 0; } }
 .subTitleB {
   padding-bottom: 5px;
   background-color: rgba(240, 240, 240, 0.18);
@@ -120,9 +129,9 @@
   .imgSelectorContent:hover {
     opacity: 1;
     background: rgba(34, 34, 34, 0.62) center no-repeat;
-    -webkit-box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75);
-    box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75) !important;
+    -moz-box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75) !important;
+    box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75) !important;
     filter: brightness(1.3); }
   .imgSelectorContent .fa {
     font-size: 35px;
@@ -136,9 +145,9 @@
 .imgSelectorClicked {
   opacity: 1;
   background: rgba(34, 34, 34, 0.62) center no-repeat;
-  -webkit-box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75);
-  box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75) !important;
+  -moz-box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75) !important;
+  box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75) !important;
   filter: brightness(1.3); }
 
 @media (max-width: 290px) {
@@ -170,9 +179,9 @@
       transition: all 0.3s ease 0s; }
       .smallThumbsList ul li img:hover {
         cursor: pointer;
-        -webkit-box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75);
-        -moz-box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75);
-        box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75); }
+        -webkit-box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75) !important;
+        -moz-box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75) !important;
+        box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75) !important; }
 
 .modal .modal-header {
   background-color: #6f69bd;
@@ -206,9 +215,9 @@
   font-size: 14px !important; }
 
 .roundItemBigSelected img {
-  -webkit-box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75);
-  box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75); }
+  -webkit-box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75) !important;
+  -moz-box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75) !important;
+  box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75) !important; }
 
 .listRow {
   background-color: #f8f8f8;
@@ -281,9 +290,9 @@
   position: absolute;
   background-color: #c25252;
   border-radius: 5px;
-  -webkit-box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75);
-  box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75) !important;
+  -moz-box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75) !important;
+  box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75) !important;
   padding: 15px;
   font-size: 20px;
   color: #fff;
@@ -330,6 +339,35 @@
     color: #000; }
     .changeView .btn:hover {
       background-color: #cbcbcb; }
+
+.bootstrap-switch {
+  border: 2px solid #ededed !important; }
+
+.iconMenu {
+  border: 1px solid #ccc;
+  padding-left: 10px;
+  padding-top: 2px;
+  height: 34px; }
+  .iconMenu span.iconMenuText {
+    margin-right: 10px; }
+  .iconMenu span.iconMenuIcon {
+    font-size: 20px; }
+  .iconMenu .btn {
+    padding: 4px 12px; }
+
+.iconModalContent i:hover {
+  cursor: pointer; }
+.iconModalContent .fa {
+  font-size: 16px;
+  margin: 5px; }
+
+.iconSelected {
+  border: 3px solid #c6ac6b;
+  width: 40px;
+  height: 30px;
+  padding: 5px; }
+  .iconSelected .fa {
+    font-size: 25px !important; }
 
 .Hidden {
   display: none !important;

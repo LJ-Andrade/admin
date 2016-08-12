@@ -7,8 +7,7 @@
     $Head->setStyle('../../../vendors/select2/select2.min.css'); // Select Inputs With Tags
     $Head->setHead();
     include('../../includes/inc.top.php');
-
-
+    include('../../includes/inc.modals.php');
 ?>
   <?php echo insertElement("hidden","action",'insert'); ?>
   <?php echo insertElement("hidden","menues",""); ?>
@@ -55,14 +54,14 @@
                 <div class="form-group">
                   <h4 class="subTitleB"><i class="fa fa-eye"></i> Perfiles</h4>
                   <?php echo insertElement('select','profile','','form-control','validateEmpty="El perfil es obligatorio." tabindex="7"',$DB->fetchAssoc('admin_profile','profile_id,title',"status='A' AND customer_id=".$_SESSION['customer_id']),'',"Seleccione un perfil.."); ?>
-
+                
                 </div>
               </div>
               <!-- Groups -->
               <div class="col-lg-6 col-md-12">
                 <div class="form-group" id="groups-wrapper">
                   <h4 class="subTitleB"><i class="fa fa-users"></i> Grupos</h4>
-
+                  
                   <select id="group" class="form-control select2 selectTags" multiple="multiple" data-placeholder="Seleccione los grupos" style="width: 100%;">
                     <?php //$Group->GetGroups(); ?>
                     <!--<option value="1" selected="selected">Alabama</option>-->
@@ -73,15 +72,15 @@
                     <!--<option value="5">California2</option>-->
                     <!--<option value="4">Alabama3</option>-->
                   </select>
-
+                
                 </div>
               </div>
-
+              
             </div>
           </div>
         </div><!-- User Data -->
-
-
+        
+        
         <!-- Tree Chekbox -->
         <div class="col-md-6">
           <div id="treeview-checkbox" class="treeCheckBoxDiv">
@@ -90,9 +89,9 @@
           </div><!-- treeview-checkbox -->
         </div><!-- User Data -->
       </div><!-- row -->
-
-
-
+      
+      
+      
       <!-- IMAGES -->
       <!-- Actual Image -->
       <div class="row imagesMain">
@@ -123,12 +122,23 @@
             <h4 class="subTitleB"><i class="fa fa-picture-o"></i> Im&aacute;genes Gen&eacute;ricas</h4>
             <div class="smallThumbsList flex-justify-center">
               <ul>
-                <?php
+<<<<<<< HEAD
+                <li><img src="../../../skin/images/users/01.png" alt="" /></li>
+                <li><img src="../../../skin/images/users/02.png" alt="" /></li>
+                <li><img src="../../../skin/images/users/03.png" alt="" /></li>
+                <li><img src="../../../skin/images/users/04.png" alt="" /></li>
+                <li><img src="../../../skin/images/users/05.png" alt="" /></li>
+                <li><img src="../../../skin/images/users/01.png" alt="" /></li>
+                <li><img src="../../../skin/images/users/02.png" alt="" /></li>
+                <li><img src="../../../skin/images/users/03.png" alt="" /></li>
+=======
+                <?php 
                   foreach($Admin->DefaultImages() as $Image)
-                  {
+                  { 
                     echo '<li><img src="'.$Image.'" class="ImgSelecteable"></li>';
                   }
                 ?>
+>>>>>>> 3483100881f9f360bb820a2f17efd53aac14a10a
               </ul>
             </div>
              <div class="text-bottom">
@@ -142,13 +152,21 @@
           <div class="imagesContainer">
             <h4 class="subTitleB"><i class="fa fa-picture-o"></i> Im&aacute;genes usadas anteriormente</h4>
             <div class="smallThumbsList flex-justify-center">
+<<<<<<< HEAD
+              <ul>
+                <li><img src="../../../skin/images/users/1/01.png" alt="" /></li>
+                <li><img src="../../../skin/images/users/1/02.jpeg" alt="" /></li>
+                <li><img src="../../../skin/images/users/1/03.jpeg" alt="" /></li>
+                <li><img src="../../../skin/images/users/1/04.jpg" alt="" /></li>
+=======
               <ul id="UserImages">
-                <?php
+                <?php 
                   foreach($Admin->UserImages() as $Image)
-                  {
+                  { 
                     echo '<li><img src="'.$Image.'" class="ImgSelecteable"></li>';
                   }
                 ?>
+>>>>>>> 3483100881f9f360bb820a2f17efd53aac14a10a
               </ul>
             </div>
              <div class="text-bottom">
@@ -160,9 +178,15 @@
       </div><!-- IMAGES -->
     </div><!-- /.box-body -->
     <div class="box-footer btnRightMobCent">
+<<<<<<< HEAD
+      <button type="button" class="btn btn-success btnGreen "><i class="fa fa-plus"></i> Crear Nuevo Usuario</button>
+      <button type="button" class="btn btn-success btnBlue"><i class="fa fa-plus"></i> Crear y Agregar Otro</button>
+      <button type="button" class="btn btn-danger btnRed" data-toggle="modal" data-target="#deleteUserModal"><i class="fa fa-times"></i> Cancelar</button>
+=======
       <button type="button" class="btn btn-success btnGreen" id="BtnCreate"><i class="fa fa-plus"></i> Crear Nuevo Usuario</button>
       <button type="button" class="btn btn-success btnBlue" id="BtnCreateNext"><i class="fa fa-plus"></i> Crear y Agregar Otro</button>
       <button type="button" class="btn btn-danger btnRed" id="BtnCancel"><i class="fa fa-times"></i> Cancelar</button>
+>>>>>>> 3483100881f9f360bb820a2f17efd53aac14a10a
     </div><!-- box-footer -->
   </div><!-- /.box -->
   <!-- Help Modal Trigger -->

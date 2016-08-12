@@ -7,9 +7,9 @@
   box-shadow: $horiz $vert $blur $spread $color
 
 @mixin box-shadowDown( $horiz : 7px , $vert : 6px , $blur : 5px , $spread : -6px , $color : rgba(0,0,0,0.75) )
-  -webkit-box-shadow: $horiz $vert $blur $spread $color
-  -moz-box-shadow: $horiz $vert $blur $spread $color
-  box-shadow: $horiz $vert $blur $spread $color
+  -webkit-box-shadow: $horiz $vert $blur $spread $color !important
+  -moz-box-shadow: $horiz $vert $blur $spread $color !important
+  box-shadow: $horiz $vert $blur $spread $color !important
 
 
 @mixin box-shadowSoft( $horiz : 1px , $vert : 3px , $blur : 5px , $spread : -5px , $color : rgba(0,0,0,0.75))

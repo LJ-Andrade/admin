@@ -22,7 +22,7 @@ $(function(){
 			sumbitFields(process,haveData,noData);
 		}
 	});
-	
+
 	$("input").keypress(function(e){
 		if(e.which==13){
 			$("#create").click();
@@ -31,11 +31,11 @@ $(function(){
 
 	// Active Inactive Switch
 	$("[name='public']").bootstrapSwitch();
-});	
+});
 
 ///////////////////////   Del Selected  //////////////////////////////////////////
 
-$(document).ready(function() { 
+$(document).ready(function() {
 			$('#delselected').hide();
 			$(".listrow").click(function() {
 			      $('#delselected').show ( 0 );
@@ -76,6 +76,17 @@ $(function() {
 		$('.listrow').click(function() {
 				$('#optionsmenu').fadeIn();
 				$('#delselecteduser').fadeIn();
-				
+
 				})
 });
+
+
+//////// Menu Icon Selection /////////
+$('.iconModalContent i').click(function(e){
+	if ($(this).hasClass('iconSelected')) {
+    $(this).removeClass('iconSelected');
+	} else {
+		$('.iconModalContent i').removeClass('iconSelected' );
+		$(this).addClass('iconSelected');
+	}
+})

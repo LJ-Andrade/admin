@@ -793,6 +793,8 @@ $('.RoundItemSelect').click(function(){
 
 })
 
+
+
 //////// LOADER ////////
 
 $('#activateLoader').click(function(){

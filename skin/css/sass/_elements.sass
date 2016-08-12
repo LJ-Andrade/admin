@@ -15,18 +15,21 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
   color: #fff
   &:hover,&:active,&:focus
     background-color: rgb(92, 200, 122)
+    color: #fff
 .btnBlue
   background-color: rgb(76, 126, 185)
   margin: 2px 2px
   color: #fff
   &:hover,&:active,&:focus
     background-color: rgb(130, 162, 201)
+    color: #fff
 .btnRed
   background-color: rgb(207, 86, 83)
   margin: 2px 2px
   color: #fff
   &:hover,&:active,&:focus
     background-color: rgb(205, 115, 113)
+    color: #fff
 
 .ButtonLogin
   border: 0
@@ -54,7 +57,13 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
   border: $lightLine
   padding: 15px
   padding-top: 5px
+  .bootstrap-switch
+    margin-bottom: 15px
+    margin-left: 25px
 
+@media (max-width: 990px)
+  .innerContainer
+    margin: 10px 0
 
 
 //////// TITLES //////////////////
@@ -206,7 +215,7 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
         top: 2px
   .modal-footer
     border-top: 0
-  
+
 
 ////////// LISTS ////////////////
 // Grid View
@@ -357,3 +366,37 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
     color: #000
     &:hover
       background-color: rgb(203, 203, 203)
+
+//// BOOTSTRAP SWITCH ////
+.bootstrap-switch
+  border: 2px solid #ededed !important
+
+
+// Icon Menu //
+.iconMenu
+  border: 1px solid #ccc
+  padding-left: 10px
+  padding-top: 2px
+  height: 34px
+  span.iconMenuText
+    margin-right: 10px
+  span.iconMenuIcon
+    font-size: 20px
+  .btn
+    padding: 4px 12px
+
+.iconModalContent
+  i
+    &:hover
+      cursor: pointer
+  .fa
+    font-size: 16px
+    margin: 5px
+
+.iconSelected
+  border: 3px solid #c6ac6b
+  width: 40px
+  height: 30px
+  padding: 5px
+  .fa
+    font-size: 25px !important
