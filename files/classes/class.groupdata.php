@@ -125,30 +125,27 @@ class GroupData extends DataBase
 		return $this->Users;
 	}
 
-	public function GroupTree($ProfileID=0,$AdminID=0)
+	public function GetGroups($ProfileID=0,$AdminID=0)
 	{
-		$HTML 				= '<div class="form-group checkboxDiv"><div class="checkboxTitle"><h5>Grupos Asociados</h5></div><ul>';
+		$HTML 				= '<h4 class="subTitleB"><i class="fa fa-users"></i> Grupos</h4><select id="group" class="form-control select2 selectTags" multiple="multiple" data-placeholder="Seleccione los grupos" style="width: 100%;">';
 		if($ProfileID!=0)
 		{
 			$this->AdminID 	= $AdminID;
 			$CheckedGroups 	= $this->GetCheckedGroups();
-			$Groups			= $this->fetchAssoc('admin_group','*',"group_id IN (SELECT group_id FROM relation_group_profile WHERE profile_id = ".$ProfileID.")","title");			
+			$Groups			= $this->fetchAssoc('admin_group','*',"customer_id=".$_SESSION['customer_id']." AND status='A'  AND group_id IN (SELECT group_id FROM relation_group_profile WHERE profile_id = ".$ProfileID.")","title");			
 
 			foreach($Groups as $Group)
 			{
 				if($CheckedGroups && in_array($Group['group_id'],$CheckedGroups))
 				{
-					$Checked 	= ' checked="checked" ';
+					$Selected = ' selected="selected" ';
 				}else{
-					$Checked = '';
+					$Selected = '';
 				}
-
-				$HTML		.= '<li class="treeLv1">'.insertElement('checkbox','group'.$Group['group_id'],$Group['group_id'],'checkbox-custom GroupCheckbox CheckBox','value="'.$Group['group_id'].'"'.$Checked).'<label class="checkbox-custom-label" for="group'.$Group['group_id'].'"> <i class="fa fa-users"></i> '.$Group['title'].'</label></li>';
+				$HTML		.= '<option '.$Selected.' value="'.$Group['group_id'].'">'.$Group['title'].'</option>';
 			}
-		}else{
-			$HTML		.= '<li class="treeLv1">No hay grupos asociados a este perfil<li>';
 		}
-		return $HTML.'</ul></div>';
+		return $HTML.'</select>';
 	}
 
 }

@@ -22,15 +22,15 @@ switch(strtolower($_POST['action']))
 		$Image 		= $_POST['newimage'];
 		$User		= htmlentities(strtolower($_POST['user']));
 		$Password	= md5(htmlentities($_POST['password']));
-		$FirstName	= htmlentities($_POST['first_name']);
-		$LastName	= htmlentities($_POST['last_name']);
-		$Email 		= htmlentities($_POST['email']);
+		$FirstName	= htmlentities(ucfirst($_POST['first_name']));
+		$LastName	= htmlentities(ucfirst($_POST['last_name']));
+		$Email 		= htmlentities(strtolower($_POST['email']));
 		$ProfileID	= $_POST['profile'];
-		$Status		= $_POST['status']=="on"? 'A': 'I';
+		$Status		= 'A';//= $_POST['status']=="on"? 'A': 'I';
 		$Groups		= $_POST['groups'] ? explode(",",$_POST['groups']) : array();
 		$Menues		= $_POST['menues'] ? explode(",",$_POST['menues']) : array();
 		
-		$Insert		= $DB->execQuery('insert','admin_user','user,password,first_name,last_name,email,status,profile_id,img',"'".$User."','".$Password."','".$FirstName."','".$LastName."','".$Email."','".$Status."','".$ProfileID."','".$Image."'");
+		$Insert		= $DB->execQuery('insert','admin_user','user,password,first_name,last_name,email,status,profile_id,img,creation_date,creator_id,customer_id',"'".$User."','".$Password."','".$FirstName."','".$LastName."','".$Email."','".$Status."','".$ProfileID."','".$Image."',NOW(),".$_SESSION['admin_id'].",".$_SESSION['customer_id']);
 		$NewID 		= $DB->GetInsertId();
 
 
@@ -43,22 +43,25 @@ switch(strtolower($_POST['action']))
 			copy($Temp,$Image);
 		}
 		$DB->execQuery('update','admin_user',"img='".$Image."'","admin_id=".$NewID);
-
+		
 		
 		for($i=0;$i<count($Groups);$i++)
 		{
-			$Values .= $i==0? $NewID.",".$Groups[$i] : "),(".$NewID.",".$Groups[$i];
+			if(intval($Groups[$i])>0)
+				$Values .= !$Values? $NewID.",".$Groups[$i] : "),(".$NewID.",".$Groups[$i];
 		}
 		$DB->execQuery('insert','relation_admin_group','admin_id,group_id',$Values);
-
+		
 		$Values = "";
 
 		for($i=0;$i<count($Menues);$i++)
 		{
-			$Values .= $i==0? $NewID.",".$Menues[$i] : "),(".$NewID.",".$Menues[$i];
+			if(intval($Menues[$i])>0)
+				$Values .= !$Values? $NewID.",".$Menues[$i] : "),(".$NewID.",".$Menues[$i];
 		}
 		$DB->execQuery('insert','menu_exception','admin_id,menu_id',$Values);
-		die;
+		
+		die();
 		
 	break;
 
@@ -160,7 +163,7 @@ switch(strtolower($_POST['action']))
 		$Admin 		= $_POST['admin'];
 		
         $Groups 	= new GroupData();
-        echo $Groups->GroupTree($Profile,$Admin);
+        echo $Groups->GetGroups($Profile,$Admin);
 		
 		die;
 	break;
