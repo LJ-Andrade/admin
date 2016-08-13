@@ -19,7 +19,7 @@
     </div>
     <div class="box-body">
       <div class="row">
-        <div class="col-xs-4">
+        <div class="col-xs-12 col-sm-12 col-lg-4">
           <div class="form-group">
             <div class="input-group">
               <div class="input-group-btn">
@@ -42,7 +42,7 @@
             </select>
           </div>
         </div>
-        <div class="col-xs-4">
+        <div class="col-xs-12 col-sm-6 col-lg-4">
           <div class="form-group">
             <div class="input-group">
               <div class="input-group-btn">
@@ -60,7 +60,7 @@
             </select>
           </div>
         </div>
-        <div class="col-xs-4">
+        <div class="col-xs-12 col-sm-6 col-lg-4">
           <div class="form-group">
             <div class="input-group">
               <div class="input-group-btn">
@@ -79,7 +79,7 @@
     </div>
     <!-- /.box-body -->
     <div class="box-footer btnRightMobCent">
-      <button type="button" class="btn btn-success btnGreen" id="BtnCreate"><i class="fa fa-plus"></i> Crear Nuevo Usuario</button>
+      <button type="button" class="btn btn-success btnGreen" id="BtnCreate"><i class="fa fa-plus"></i> Crear Nuevo Men&uacute;</button>
       <button type="button" class="btn btn-success btnBlue" id="BtnCreateNext"><i class="fa fa-plus"></i> Crear y Agregar Otro</button>
       <button type="button" class="btn btn-danger btnRed" id="BtnCancel"><i class="fa fa-times"></i> Cancelar</button>
     </div><!-- box-footer -->
