@@ -45,27 +45,6 @@
 @media (max-width: 765px) {
   .btnRightMobCent {
     text-align: center; } }
-.innerContainer {
-  border: 1px solid rgba(228, 228, 228, 0.8);
-  padding: 15px;
-  padding-top: 5px; }
-  .innerContainer .bootstrap-switch {
-    margin-bottom: 15px;
-    margin-left: 25px; }
-
-@media (max-width: 990px) {
-  .innerContainer {
-    margin: 10px 0; } }
-.subTitleB {
-  padding-bottom: 5px;
-  background-color: rgba(240, 240, 240, 0.18);
-  border-bottom: 2px solid #e1e1e1;
-  padding: 5px;
-  padding-left: 10px; }
-  .subTitleB .fa {
-    margin-right: 5px;
-    font-size: 14px; }
-
 .select2-selection {
   width: auto !important; }
 
@@ -413,40 +392,121 @@
   background: #056e90;
   box-shadow: inset 0px 0px 0px 4px #fff; }
 
-.addItemDescription {
-  background-color: rgba(221, 221, 221, 0.5);
-  padding: 5px 10px; }
+.textWithCounter {
+  border: 1px solid rgba(228, 228, 228, 0.8);
+  background-color: rgba(175, 175, 175, 0.2); }
+  .textWithCounter input {
+    padding: 10px;
+    width: 100%;
+    max-width: 100%;
+    border: 0;
+    border-radius: 0; }
+  .textWithCounter textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    border: 0;
+    border-radius: 0;
+    text-align: left; }
+  .textWithCounter .indicator-wrapper {
+    padding-left: 10px;
+    padding-top: 10px;
+    background-color: rgba(238, 238, 238, 0.5);
+    padding: 0;
+    padding-top: 5px; }
+    .textWithCounter .indicator-wrapper p {
+      margin-bottom: -25px;
+      margin-left: 40px;
+      color: #000; }
+  .textWithCounter .indicator {
+    display: block;
+    height: 30px;
+    width: 0;
+    background-color: #dedede;
+    transition: 0.2s;
+    -webkit-transition: 0.2s; }
+    .textWithCounter .indicator span.current-length {
+      position: absolute;
+      display: block;
+      font-weight: bold;
+      color: #444;
+      padding: 5px 0 0 10px;
+      font-size: 14px; }
+  .textWithCounter .indicator.low {
+    background-color: rgba(38, 166, 91, 0.4); }
+  .textWithCounter .indicator.med {
+    background-color: rgba(38, 166, 91, 0.5); }
+  .textWithCounter .indicator.high {
+    background-color: rgba(38, 166, 91, 0.7); }
+  .textWithCounter .indicator.full {
+    background-color: rgba(196, 78, 66, 0.7); }
+    .textWithCounter .indicator.full span {
+      color: #fff; }
 
-.form-group2 input {
-  padding: 10px;
-  width: 100%;
-  max-width: 100%;
-  border: 0;
-  border-radius: 0; }
-.form-group2 textarea {
-  width: 100%;
-  max-width: 100%;
-  padding: 10px;
-  border: 0;
-  border-radius: 0;
-  text-align: left; }
-.form-group2 .indicator-wrapper {
-  padding-left: 10px;
-  padding-top: 10px;
-  background-color: rgba(255, 255, 255, 0.5);
+.colorPickerMain {
   padding: 0;
-  padding-top: 5px; }
-  .form-group2 .indicator-wrapper p {
-    margin-bottom: -25px;
-    margin-left: 40px; }
+  padding-left: 20px; }
+  .colorPickerMain ul {
+    padding: 0; }
+    .colorPickerMain ul li {
+      display: inline-block;
+      list-style: none;
+      position: relative; }
+  .colorPickerMain h5 {
+    text-align: center; }
+  .colorPickerMain .input-group .input-group-addon {
+    background-color: #f0f0f0;
+    border: 1px solid #5d5d5d;
+    border-radius: 5px; }
+    .colorPickerMain .input-group .input-group-addon i {
+      height: 30px;
+      width: 30px; }
+  .colorPickerMain .colorpicker {
+    min-width: 0px; }
+  .colorPickerMain .colorpicker::before {
+    position: absolute;
+    top: -7px;
+    left: 6px;
+    display: inline-block;
+    border-right: 7px solid transparent;
+    border-bottom: 0 !important;
+    border-left: 0px !important;
+    border-bottom-color: rgba(0, 0, 0, 0.2);
+    content: ""; }
+  .colorPickerMain .input-group-addon {
+    padding: 0; }
 
-form .indicator {
-  display: block;
-  height: 30px;
-  width: 0;
-  background-color: #ccc;
-  transition: 0.2s;
-  -webkit-transition: 0.2s; }
+.colorPickerCatalogue {
+  margin-bottom: 15px;
+  padding: 0 15px; }
+  .colorPickerCatalogue ul li {
+    margin-right: 10px; }
+    .colorPickerCatalogue ul li .deleteColor, .colorPickerCatalogue ul li .favouriteColor {
+      position: absolute;
+      z-index: 9999;
+      top: -5px;
+      border-radius: 100%; }
+      .colorPickerCatalogue ul li .deleteColor span, .colorPickerCatalogue ul li .favouriteColor span {
+        padding: 2px;
+        width: 24px;
+        height: 25px;
+        padding-left: 7px;
+        color: #fff; }
+    .colorPickerCatalogue ul li span {
+      display: none;
+      transition: all 0.3s ease 0s; }
+    .colorPickerCatalogue ul li .deleteColor {
+      background-color: #9f5c5c;
+      right: -8px; }
+    .colorPickerCatalogue ul li .favouriteColor {
+      background-color: #4cad6d;
+      left: -8px; }
+    .colorPickerCatalogue ul li:hover span {
+      display: block;
+      cursor: pointer; }
+  .colorPickerCatalogue .favouriteColors {
+    border: 1px solid rgba(228, 228, 228, 0.8);
+    padding: 5px 10px; }
 
 .loader {
   background: rgba(0, 0, 0, 0.83);
@@ -497,6 +557,28 @@ form .indicator {
 
 .mw100 {
   min-width: 100%; }
+
+.innerContainer {
+  border: 1px solid rgba(228, 228, 228, 0.8);
+  padding: 15px;
+  padding-top: 5px;
+  margin: 10px 0; }
+  .innerContainer .bootstrap-switch {
+    margin-bottom: 15px;
+    margin-left: 25px; }
+
+@media (max-width: 990px) {
+  .innerContainer {
+    margin: 10px 0; } }
+.subTitleB {
+  padding-bottom: 5px;
+  background-color: rgba(240, 240, 240, 0.18);
+  border-bottom: 2px solid #e1e1e1;
+  padding: 5px;
+  padding-left: 10px; }
+  .subTitleB .fa {
+    margin-right: 5px;
+    font-size: 14px; }
 
 .flex-container {
   display: -webkit-box;

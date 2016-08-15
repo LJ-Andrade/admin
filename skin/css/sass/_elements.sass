@@ -52,32 +52,6 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
     text-align: center
 
 
-///////// CONTAINERS /////////////
-.innerContainer
-  border: $lightLine
-  padding: 15px
-  padding-top: 5px
-  .bootstrap-switch
-    margin-bottom: 15px
-    margin-left: 25px
-
-@media (max-width: 990px)
-  .innerContainer
-    margin: 10px 0
-
-
-//////// TITLES //////////////////
-.subTitleB
-  padding-bottom: 5px
-  background-color: rgba(240, 240, 240, 0.18)
-  border-bottom: 2px solid #e1e1e1
-  padding: 5px
-  padding-left: 10px
-  .fa
-    margin-right: 5px
-    font-size: 14px
-
-
 
 //////// FORMS ///////////////////
 
@@ -448,12 +422,9 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
   background: #056e90
   box-shadow: inset 0px 0px 0px 4px #fff
 
-///// Text With Character Counter /////
-.addItemDescription
-  background-color: rgba(221, 221, 221, 0.5)
-  padding: 5px 10px
-
-.form-group2
+///// Textarea With Character Counter /////
+.textWithCounter
+  border: $lightLine
   input
     padding: 10px
     width: 100%
@@ -470,23 +441,110 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
   .indicator-wrapper
     padding-left: 10px
     padding-top: 10px
-    background-color: rgba(255, 255, 255, 0.5)
+    background-color: rgba(238, 238, 238, 0.5)
     padding: 0
     padding-top: 5px
     p
       margin-bottom: -25px
       margin-left: 40px
+      color: #000
+  .indicator
+    display: block
+    height: 30px
+    width: 0
+    background-color: #dedede
+    transition: 0.2s
+    -webkit-transition: 0.2s
+    span.current-length
+      position: absolute
+      display: block
+      font-weight: bold
+      color: #444
+      padding: 5px 0 0 10px
+      font-size: 14px
+  // Different States
+  .indicator.empty
+  background-color:  rgba(175, 175, 175, 0.2)
+  .indicator.low
+    background-color: rgba(38, 166, 91, .4)
+  .indicator.med
+    background-color: rgba(38, 166, 91, .5)
+  .indicator.high
+    background-color: rgba(38, 166, 91, .7)
+  .indicator.full
+    background-color: rgba(196, 78, 66, 0.7)
+    span
+      color: #fff
 
-form .indicator
-  display: block
-  height: 30px
-  width: 0
-  background-color: #ccc
-  transition: 0.2s
-  -webkit-transition: 0.2s
+/////////// Color Picker ////////////
 
+.colorPickerMain
+  padding: 0
+  padding-left: 20px
+  ul
+    padding: 0
+    li
+      display: inline-block
+      list-style: none
+      position: relative
+
+  h5
+    text-align: center
+  .input-group .input-group-addon
+    background-color: rgb(240, 240, 240)
+    border: 1px solid rgb(93, 93, 93)
+    border-radius: 5px
+    i
+      height: 30px
+      width: 30px
+  .colorpicker
+    min-width: 0px
+  .colorpicker::before
+    position: absolute
+    top: -7px
+    left: 6px
+    display: inline-block
+    border-right: 7px solid transparent
+    border-bottom: 0 !important
+    border-left: 0px !important
+    border-bottom-color: rgba(0,0,0,0.2)
+    content: ''
+  .input-group-addon
+    padding: 0
+
+.colorPickerCatalogue
+  margin-bottom: 15px
+  padding: 0 15px
+  ul li
+    margin-right: 10px
+    .deleteColor,.favouriteColor
+      position: absolute
+      z-index: 9999
+      top: -5px
+      border-radius: 100%
+      span
+        padding: 2px
+        width: 24px
+        height: 25px
+        padding-left: 7px
+        color: #fff
+    span
+      display: none
+      transition: all 0.3s ease 0s
+    .deleteColor
+      background-color: #9f5c5c
+      right: -8px
+    .favouriteColor
+      background-color: #4cad6d
+      left: -8px
+    &:hover
+      span
+        display: block
+        cursor: pointer
+  .favouriteColors
+    border: $lightLine
+    padding: 5px 10px
 ////////// Loader ///////////
-
 .loader
   background: rgba(0, 0, 0, 0.83)
   width: 100%

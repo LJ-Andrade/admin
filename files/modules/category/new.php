@@ -58,9 +58,6 @@
           </div>
         </div>
       </div><!-- row -->
-
-
-
       <!-- IMAGES -->
       <!-- Actual Image -->
       <div class="row imagesMain">

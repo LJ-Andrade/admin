@@ -5,6 +5,7 @@
     $Group  = new GroupData();
     $Head->setTitle($Menu->GetLinkTitle());
     $Head->setStyle('../../../vendors/bootstrap-switch/bootstrap-switch.css'); // Switch On Off
+    $Head->setStyle('../../../vendors/colorpicker/bootstrap-colorpicker.min.css'); // Color Picker
     $Head->setHead();
     include('../../includes/inc.top.php');
 
@@ -37,27 +38,23 @@
               <div class="form-group">
                 <input type="email" class="form-control" placeholder="Precio">
               </div>
-            <!-- Description -->
-            <div class="form-group2">
-              <form>
-
+            <!-- Description (Character Counter)-->
+            <div class="form-group textWithCounter">
               <textarea id="description" name="description" class="text-center" placeholder="Descripción" rows="4" maxlength="150"></textarea>
               <div class="indicator-wrapper">
                 <p>Caracteres restantes</p>
                 <div class="indicator"><span class="current-length">150</span></div>
               </div>
-              </form>
-
             </div>
-            <!-- Description -->
+            <!-- Description (Character Counter) -->
             </div>
           </div>
         </div>
         <div class="col-md-6">
-          <div class="flex-allCenter innerContainer">
-            <div class="">
-              <h4 class="subTitleB"><i class="fa fa-tag"></i> Talles</h4>
-              <div class="form-group boxed-horiz-list">
+          <div class="innerContainer">
+            <h4 class="subTitleB"><i class="fa fa-tag"></i> Talles</h4>
+            <div class="flex-allCenter form-group boxed-horiz-list">
+              <div>
                 <ul>
                   <li><input id="sizeXS" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeXS"><span>XS</span></li>
                   <li><input id="sizeS" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeS"><span>S</span></li>
@@ -69,17 +66,85 @@
               </div>
             </div>
           </div>
-          <div class="flex-allCenter innerContainer">
-            <div class="">
-              <h4 class="subTitleB"><i class="fa fa-tag"></i> Estado Inicial</h4>
-              <div class="switchCheckbox">
-                <input type="checkbox" name="switchCheckbox" data-on-text="Activo" data-off-text="Inactivo" data-label-width="auto" checked>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
+          <div class="innerContainer">
+            <h4 class="subTitleB"><i class="fa fa-tag"></i> Colores</h4>
 
+              <!-- Color Picker -->
+              <div class="form-group">
+                <div class="row colorPickerMain colorPickerCatalogue">
+                  <div class="col-md-6">
+                    <h4>Para Cat&aacute;logo</h4>
+                    <ul>
+                      <li>
+                        <div class="deleteColor animated fadeIn"><span class=""><i class="fa fa-trash"></i></span></div>
+                        <div class="input-group colorpicker colorpicker-element">
+                          <div class="input-group-addon">
+                            <i></i>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="deleteColor animated fadeIn"><span class=""><i class="fa fa-trash"></i></span></div>
+                        <div class="input-group colorpicker colorpicker-element">
+                          <div class="input-group-addon">
+                            <i></i>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                    <button type="button" class="btn btnBlue">Agregar Color</button></li>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="favouriteColors">
+                      <h4>Colores Preferidos</h4>
+                      <ul>
+                        <li>
+                          <div class="favouriteColor animated fadeIn"><span class=""><i class="fa fa-arrow-left"></i></span></div>
+                          <div class="deleteColor animated fadeIn"><span class=""><i class="fa fa-trash"></i></span></div>
+                          <div class="input-group colorpicker colorpicker-element">
+                            <div class="input-group-addon">
+                              <i></i>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="favouriteColor animated fadeIn"><span class=""><i class="fa fa-arrow-left"></i></span></div>
+                          <div class="deleteColor animated fadeIn"><span class=""><i class="fa fa-trash"></i></span></div>
+                          <div class="input-group colorpicker colorpicker-element">
+                            <div class="input-group-addon">
+                              <i></i>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                      <button type="button" class="btn btnBlue nput-group-addon">Agregar Color</button></li>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <div class="colorPickerMain">
+                  <h4>Para Mercado Libre</h4>
+                  <ul>
+                    <li>
+                      <div class="input-group colorpicker colorpicker-element">
+                        <div class="input-group-addon">
+                          <i></i>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="input-group colorpicker colorpicker-element">
+                        <div class="input-group-addon">
+                          <i></i>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <!-- /.input group -->
+              </div>
+
+          </div>
         </div>
       </div><!-- row -->
 
@@ -150,6 +215,10 @@
           </div>
         </div><!-- /Recent Images -->
       </div><!-- IMAGES -->
+      <div class="switchCheckbox text-center">
+        <h4>Estado Inicial</h4>
+        <input type="checkbox" name="switchCheckbox" data-on-text="Activo" data-off-text="Inactivo" data-label-width="auto" checked>
+      </div>
     </div><!-- /.box-body -->
     <div class="box-footer btnRightMobCent">
       <button type="button" class="btn btn-success btnGreen" id="BtnCreate"><i class="fa fa-plus"></i> Crear Nuevo Usuario</button>
@@ -183,9 +252,16 @@
   <!-- Help Modal -->
 <?php
 $Foot->setScript('../../../vendors/bootstrap-switch/script.bootstrap-switch.min.js');
+$Foot->setScript('../../../vendors/colorpicker/bootstrap-colorpicker.min.js');
 include('../../includes/inc.bottom.php');
 ?>
 <script type="text/javascript">
 ////////////////// Bootstrap Switch ////////////
 $("[name='switchCheckbox']").bootstrapSwitch();
+
+
+/////////////// Color picker ///////////////////
+// Documentation > http://mjolnic.com/bootstrap-colorpicker/
+$(".colorpicker").colorpicker();
+
 </script>
