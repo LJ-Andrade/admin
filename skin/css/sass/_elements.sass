@@ -198,7 +198,6 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
           cursor: pointer
           @include box-shadowDown
 
-
 // MODALS //
 .modal
   .modal-header
@@ -400,6 +399,91 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
   padding: 5px
   .fa
     font-size: 25px !important
+
+////////// BOXED CHECKBOXES  SIZES (XS, S, SM, L, etc.) /////////
+
+.boxed-horiz-list
+  text-align: center
+  margin: 0
+  margin-top: 15px
+  ul
+    padding: 2px
+    li
+      text-align: center
+      display: inline-block
+      width: 39px
+      margin-top: 2px
+      margin-bottom: 2px
+      padding-top: 4px
+      background-color: rgba(226, 226, 226, 0.5)
+
+////////// Square CheckBoxes /////////////////////////////
+
+.checkbox-custom, .radio-custom
+  opacity: 0
+  position: absolute
+
+.checkbox-custom, .checkbox-custom-label, .radio-custom, .radio-custom-label
+  display: inline-block
+  vertical-align: middle
+  margin: 1px 5px
+  cursor: pointer
+
+.checkbox-custom-label, .radio-custom-label
+  position: relative
+
+.checkbox-custom + .checkbox-custom-label:before, .radio-custom + .radio-custom-label:before
+  content: ''
+  background: #fff
+  border: 2px solid #ddd
+  display: inline-block
+  vertical-align: middle
+  width: 20px
+  height: 20px
+  padding: 2px
+  margin-right: 2px
+  text-align: center
+
+.checkbox-custom:checked + .checkbox-custom-label:before
+  background: #056e90
+  box-shadow: inset 0px 0px 0px 4px #fff
+
+///// Text With Character Counter /////
+.addItemDescription
+  background-color: rgba(221, 221, 221, 0.5)
+  padding: 5px 10px
+
+.form-group2
+  input
+    padding: 10px
+    width: 100%
+    max-width: 100%
+    border: 0
+    border-radius: 0
+  textarea
+    width: 100%
+    max-width: 100%
+    padding: 10px
+    border: 0
+    border-radius: 0
+    text-align: left
+  .indicator-wrapper
+    padding-left: 10px
+    padding-top: 10px
+    background-color: rgba(255, 255, 255, 0.5)
+    padding: 0
+    padding-top: 5px
+    p
+      margin-bottom: -25px
+      margin-left: 40px
+
+form .indicator
+  display: block
+  height: 30px
+  width: 0
+  background-color: #ccc
+  transition: 0.2s
+  -webkit-transition: 0.2s
 
 ////////// Loader ///////////
 
