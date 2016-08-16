@@ -512,6 +512,12 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
   .input-group-addon
     padding: 0
 
+.colorPickerML
+  ul li
+    margin-right: 15px
+    border: $lightLine
+    padding: 5px
+
 .colorPickerCatalogue
   margin-bottom: 15px
   padding: 0 15px
@@ -526,7 +532,6 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
         padding: 2px
         width: 24px
         height: 25px
-        padding-left: 7px
         color: #fff
     span
       display: none
@@ -534,16 +539,51 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
     .deleteColor
       background-color: #9f5c5c
       right: -8px
+      span
+        padding-left: 7px
     .favouriteColor
       background-color: #4cad6d
       left: -8px
+      span
+        padding-left: 5px
     &:hover
       span
         display: block
         cursor: pointer
+  .activeColors
+    border: $lightLine
+    padding: 5px 10px
   .favouriteColors
     border: $lightLine
     padding: 5px 10px
+    margin-top: 5px
+    position: relative
+  .useFavColorUp
+    position: absolute
+    background-color: #fff
+    border-top: 2px solid #fff
+    border-bottom: $lightLine
+    border-left: $lightLine
+    border-right: $lightLine
+    padding: 5px 15px
+    left: 45%
+    top: -1px
+    .fa
+      font-size: 20px
+  .addNewColor
+    img
+      margin-top: -30px
+      transition: all 0.3s ease 0s
+      width: 30px
+    &:hover
+      cursor: pointer
+      img
+        width: 35px
+  @media (max-width: 765px)
+    .useFavColor
+
+  @media (max-width: 765px)
+  .class
 ////////// Loader ///////////
 .loader
   background: rgba(0, 0, 0, 0.83)

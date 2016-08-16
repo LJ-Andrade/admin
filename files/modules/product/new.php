@@ -68,13 +68,14 @@
           </div>
           <div class="innerContainer">
             <h4 class="subTitleB"><i class="fa fa-tag"></i> Colores</h4>
-
-              <!-- Color Picker -->
-              <div class="form-group">
-                <div class="row colorPickerMain colorPickerCatalogue">
-                  <div class="col-md-6">
-                    <h4>Para Cat&aacute;logo</h4>
+            <!-- Color Picker -->
+            <div class="form-group">
+              <div class="row colorPickerMain colorPickerCatalogue">
+                <div class="col-md-12">
+                  <div class="activeColors">
+                    <h4>Colores del Producto</h4>
                     <ul>
+                      <!-- Active Color Item -->
                       <li>
                         <div class="deleteColor animated fadeIn"><span class=""><i class="fa fa-trash"></i></span></div>
                         <div class="input-group colorpicker colorpicker-element">
@@ -83,6 +84,8 @@
                           </div>
                         </div>
                       </li>
+                      <!-- /Active Color Item -->
+                      <!-- Active Color Item -->
                       <li>
                         <div class="deleteColor animated fadeIn"><span class=""><i class="fa fa-trash"></i></span></div>
                         <div class="input-group colorpicker colorpicker-element">
@@ -91,61 +94,84 @@
                           </div>
                         </div>
                       </li>
+                      <!-- /Active Color Item -->
+                      <!-- Color Palette Icon-->
+                      <li>
+                        <div class="addNewColor">
+                          <img src="../../../skin/images/body/icons/colorpicker.png" alt="" />
+                        </div>
+                      </li>
+                      <!-- /Color Palette Icon-->
                     </ul>
-                    <button type="button" class="btn btnBlue">Agregar Color</button></li>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="favouriteColors">
-                      <h4>Colores Preferidos</h4>
-                      <ul>
-                        <li>
-                          <div class="favouriteColor animated fadeIn"><span class=""><i class="fa fa-arrow-left"></i></span></div>
-                          <div class="deleteColor animated fadeIn"><span class=""><i class="fa fa-trash"></i></span></div>
-                          <div class="input-group colorpicker colorpicker-element">
-                            <div class="input-group-addon">
-                              <i></i>
-                            </div>
+                  </div><!-- activeColors -->
+                </div><!-- col-md-12 -->
+                <div class="col-md-12">
+                  <div class="favouriteColors">
+                    <div class="useFavColorUp"><i class="fa fa-arrow-circle-o-up"></i></div>
+                    <h4>Colores Favoritos</h4>
+                    <ul>
+                      <!-- Favourite Color -->
+                      <li>
+                        <div class="favouriteColor animated fadeIn"><span class=""><i class="fa fa-arrow-up"></i></span></div>
+                        <div class="deleteColor animated fadeIn"><span class=""><i class="fa fa-trash"></i></span></div>
+                        <div class="input-group colorpicker colorpicker-element">
+                          <div class="input-group-addon">
+                            <i></i>
                           </div>
-                        </li>
-                        <li>
-                          <div class="favouriteColor animated fadeIn"><span class=""><i class="fa fa-arrow-left"></i></span></div>
-                          <div class="deleteColor animated fadeIn"><span class=""><i class="fa fa-trash"></i></span></div>
-                          <div class="input-group colorpicker colorpicker-element">
-                            <div class="input-group-addon">
-                              <i></i>
-                            </div>
+                        </div>
+                      </li>
+                      <!-- Favourite Color -->
+                      <!-- /Favourite Color -->
+                      <li>
+                        <div class="favouriteColor animated fadeIn"><span class=""><i class="fa fa-arrow-up"></i></span></div>
+                        <div class="deleteColor animated fadeIn"><span class=""><i class="fa fa-trash"></i></span></div>
+                        <div class="input-group colorpicker colorpicker-element">
+                          <div class="input-group-addon">
+                            <i></i>
                           </div>
-                        </li>
-                      </ul>
-                      <button type="button" class="btn btnBlue nput-group-addon">Agregar Color</button></li>
+                        </div>
+                      </li>
+                      <!-- /Favourite Color -->
+                      <!-- Color Palette Icon-->
+                      <li>
+                        <div class="addNewColor">
+                          <img src="../../../skin/images/body/icons/colorpicker.png" alt="" />
+                        </div>
+                      </li>
+                      <!-- /Color Palette Icon-->
+                    </ul>
+                  </div><!-- favouriteColors -->
+                </div><!-- col-md-12 -->
+              </div><!-- colorPickerCatalogue -->
+              <hr>
+              <div class="colorPickerMain colorPickerML">
+                <h4>Para Mercado Libre</h4>
+                <ul>
+                  <!-- Active Color ML -->
+                  <li>
+                    <p>Color Principal</p>
+                    <div class="input-group colorpicker colorpicker-element">
+                      <div class="input-group-addon">
+                        <i></i>
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <hr>
-                <div class="colorPickerMain">
-                  <h4>Para Mercado Libre</h4>
-                  <ul>
-                    <li>
-                      <div class="input-group colorpicker colorpicker-element">
-                        <div class="input-group-addon">
-                          <i></i>
-                        </div>
+                  </li>
+                  <!-- /Active Color ML -->
+                  <!-- Active Color ML -->
+                  <li>
+                    <p>Color Secundario</p>
+                    <div class="input-group colorpicker colorpicker-element">
+                      <div class="input-group-addon">
+                        <i></i>
                       </div>
-                    </li>
-                    <li>
-                      <div class="input-group colorpicker colorpicker-element">
-                        <div class="input-group-addon">
-                          <i></i>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-                <!-- /.input group -->
-              </div>
-
-          </div>
-        </div>
+                    </div>
+                  </li>
+                  <!-- /Active Color ML -->
+                </ul>
+              </div><!-- colorPickerMain -->
+            </div><!-- form-group -->
+          </div><!-- inner-container -->
+        </div><!-- col-md-6 -->
       </div><!-- row -->
 
 

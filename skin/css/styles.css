@@ -476,6 +476,11 @@
   .colorPickerMain .input-group-addon {
     padding: 0; }
 
+.colorPickerML ul li {
+  margin-right: 15px;
+  border: 1px solid rgba(228, 228, 228, 0.8);
+  padding: 5px; }
+
 .colorPickerCatalogue {
   margin-bottom: 15px;
   padding: 0 15px; }
@@ -490,7 +495,6 @@
         padding: 2px;
         width: 24px;
         height: 25px;
-        padding-left: 7px;
         color: #fff; }
     .colorPickerCatalogue ul li span {
       display: none;
@@ -498,15 +502,44 @@
     .colorPickerCatalogue ul li .deleteColor {
       background-color: #9f5c5c;
       right: -8px; }
+      .colorPickerCatalogue ul li .deleteColor span {
+        padding-left: 7px; }
     .colorPickerCatalogue ul li .favouriteColor {
       background-color: #4cad6d;
       left: -8px; }
+      .colorPickerCatalogue ul li .favouriteColor span {
+        padding-left: 5px; }
     .colorPickerCatalogue ul li:hover span {
       display: block;
       cursor: pointer; }
-  .colorPickerCatalogue .favouriteColors {
+  .colorPickerCatalogue .activeColors {
     border: 1px solid rgba(228, 228, 228, 0.8);
     padding: 5px 10px; }
+  .colorPickerCatalogue .favouriteColors {
+    border: 1px solid rgba(228, 228, 228, 0.8);
+    padding: 5px 10px;
+    margin-top: 5px;
+    position: relative; }
+  .colorPickerCatalogue .useFavColorUp {
+    position: absolute;
+    background-color: #fff;
+    border-top: 2px solid #fff;
+    border-bottom: 1px solid rgba(228, 228, 228, 0.8);
+    border-left: 1px solid rgba(228, 228, 228, 0.8);
+    border-right: 1px solid rgba(228, 228, 228, 0.8);
+    padding: 5px 15px;
+    left: 45%;
+    top: -1px; }
+    .colorPickerCatalogue .useFavColorUp .fa {
+      font-size: 20px; }
+  .colorPickerCatalogue .addNewColor img {
+    margin-top: -30px;
+    transition: all 0.3s ease 0s;
+    width: 30px; }
+  .colorPickerCatalogue .addNewColor:hover {
+    cursor: pointer; }
+    .colorPickerCatalogue .addNewColor:hover img {
+      width: 35px; }
 
 .loader {
   background: rgba(0, 0, 0, 0.83);
