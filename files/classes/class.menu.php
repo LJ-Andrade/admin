@@ -2,45 +2,45 @@
 
 class Menu extends DataBase
 {
-
-	//var $Menues = array();
-	var $IDs 						= array();
+	var $IDs 				= array();
 	var $MenuData 			= array();
-	var $Parents 				= array();
-	var $CheckedMenues 	= array();
-	var $Link 					= "";
-	var $LinkTitle 			= "";
-	var $LinkData 			= array();
+	var $Parents 			= array();
+	var $CheckedMenues 		= array();
+	var $Link 				= "";
 	var $Children 			= array();
-
-	const PROFILE		= 333;
+	const PROFILE			= 333;
 
 	public function __construct($MenuID=0)
 	{
 		$this->Connect();
-		$Data			= $MenuID>0? $this->fetchAssoc('menu','*',"menu_id = ".$MenuID) : array();
-		$this->MenuData	= $Data[0];
+		if($MenuID>0)
+		{
+			$Data	= $this->fetchAssoc('menu','*',"menu_id = ".$MenuID);
+			$this->MenuData	= $Data[0];
+		}else{
+			$this->MenuData	= $this->GetLinkData();
+		}
 	}
 
 	public function GetLinkData()
 	{
-		if(count($this->LinkData)<1)
+		if(count($this->MenuData)<1)
 		{
-			$Data 						= $this->fetchAssoc('menu','*',"link = '../".$this->getLink()."'");
-			$this->LinkData 	= $Data[0];
-			$this->LinkTitle 	= $Data[0]['title'];
+			$Data 				= $this->fetchAssoc('menu','*',"link = '../".$this->getLink()."'");
+			$this->MenuData 	= $Data[0];
 
 		}
-		return $this->LinkData;
+		return $this->MenuData;
 	}
 
-	public function GetLinkTitle()
+	public function GetTitle()
 	{
-		if(!$this->LinkTitle)
-		{
-			$this->GetLinkData();
-		}
-		return $this->LinkTitle;
+		return $this->MenuData['title'];
+	}
+	
+	public function GetHTMLicon()
+	{
+		return '<i class="icon fa '.$this->MenuData['icon'].'"></i>';
 	}
 
 	public function GetData()
@@ -342,14 +342,6 @@ class Menu extends DataBase
 	{
 		return $this->CheckedMenues;
 	}
-
-	// public function MakeTree($Name='',$Parent=0)
-	// {
-	// 	$Name 	= $Name? '<div class="checkboxTitle"><h5>'.$Name.'</h5></div>':'';
-	// 	$HTML 	= '<div class="form-group checkboxDiv">'.$Name;
-	// 	$HTML 	.= $this->FillTree($Parent);
-	// 	return $HTML.'</div>';
-	// }
 
 	public function MakeTree($Parent=0)
 	{

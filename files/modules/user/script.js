@@ -5,6 +5,8 @@ $(document).ready(function(){
 		notifySuccess('Usuario modificado correctamente');
 });
 
+
+///////////////////////// CREATE/EDIT USER ////////////////////////////////////
 $(function(){
 	$("#BtnCreate,#BtnCreateNext").click(function(){
 		if(validate.validateFields(''))
@@ -23,7 +25,7 @@ $(function(){
 					// var status = 'I';
 					// if($("#status").is(':checked'))
 					// 	status = 'A';
-
+					toggleLoader();
 					var process		= 'process.php';
 					if(BtnID=="BtnCreate")
 					{
@@ -42,6 +44,7 @@ $(function(){
 						document.location = target;
 					}
 					sumbitFields(process,haveData,noData);
+					toggleLoader();
 				}
 			});
 		}
@@ -56,16 +59,21 @@ $(function(){
 // /////////////////////////// Upload Image /////////////////////////////////////
 $(function(){
 	$("#image").change(function(){
+		toggleLoader();
 		var process		= 'process.php?action=newimage';
 		var haveData	= function(returningData)
 		{
 			$('#newimage').val(returningData);
 			$(".MainImg").attr("src",returningData);
+			$('.MainImg').addClass('pulse').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+		      $(this).removeClass('pulse');
+		    });
 			$('#UserImages').append('<li><img src="'+returningData+'" class="ImgSelecteable"></li>');
 			selectImg();
 		}
 		var noData		= function(){}
 		sumbitFields(process,haveData,noData);
+		toggleLoader();
 	});
 
 	$('.imgSelectorContent').click(function(){
@@ -80,65 +88,68 @@ function selectImg()
 	$(".ImgSelecteable").click(function(){
 		var src = $(this).attr("src");
 		$(".MainImg").attr("src",src);
+		$('.MainImg').addClass('pulse').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+	      $(this).removeClass('pulse');
+	    });
 		$("#newimage").val(src);
 	});
 }
 
-// /////////////////////////// Massive Delete /////////////////////////////////////
-// 	$("#delselected").click(function(){
-// 		alertify.confirm(utf8_decode('¿Desea eliminar los usuarios seleccionados?'), function(e){
-//             if(e){
-//             	var result;
-//             	$(".deleteThis").each(function(){
-//             		var elem 	= $(this).find('.deleteElement');
-//             		var id 		= elem.attr('deleteElement');
-//             		var parents = elem.attr('deleteParent').split("/");
-//             		var process = elem.attr('deleteProcess');
+/////////////////////////// User Delete /////////////////////////////////////
+$(".deleteElement").click(function(){
+	var element     = $(this);
+	var elementID	= $(this).attr("id").split("_");
+	var id			= elementID[1];
+	var row			= $("#row_"+id);
+	var userName	= row.attr("title");
+	alertify.confirm(utf8_decode('¿Desea eliminar a '+userName+'?'), function(e){
+		if(e)
+		{
+			var result;
+			toggleLoader();
+			result = deleteElement(element);
+			toggleLoader();
+		}
+		if(result)
+		{
+			notifySuccess(utf8_decode(userName+' ha sido eliminado.'));
+		}else{
+			notifyError('Hubo un problema al intentar eliminar a '+userName);
+		}
+	});	
+});
 
-//                 	var string      = 'id='+ id + '&action=delete';
-//                 	console.log(elem);
-// 			        var data;
-// 			        $.ajax({
-// 			            type: "POST",
-// 			            url: process,
-// 			            data: string,
-// 			            cache: false,
-// 			            success: function(data){
-// 		                    if(data)
-// 		                    {
-// 		                        notifyError('Hubo un problema al eliminar los usuarios: '+data);
-// 		                        result = data;
-// 		                        return false;
-// 		                    }else{
-// 		                        parents.forEach(function(parent){
-// 			                        $("#"+parent).addClass('animated zoomOut');
-//                         			$("#"+parent).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){$("#"+parent).remove();});
-// 			                    });
-// 		                    }
-// 		                }
-// 			        });
-//             	});
+/////////////////////////// Massive User Delete /////////////////////////////////////
+$(".deleteSelectedAbs").click(function(){
+	alertify.confirm(utf8_decode('¿Desea eliminar los usuarios seleccionados?'), function(e){
+        if(e){
+        	toggleLoader();
+        	var result;
+        	$(".SelectedRow").children('.listActions').children('div').children('.deleteElement').each(function(){
+        		result = deleteElement($(this));
+        	});
+			toggleLoader();
 
-
-//             	if(result)
-//             	{
-//             		notifyError('Hubo un problema al eliminar los usuarios: '+result);
-//             	}else{
-//             		$('#delselected').addClass('Hidden');
-//             		$(".deleteThis").each(function(){ $(this).removeClass('deleteThis'); });
-//             		notifySuccess(utf8_decode('Los usuarios seleccionados han sido eliminados.'));
-//             	}
-//             }
-//         });
-// 	});
+        	if(result)
+        	{
+        		$('.deleteSelectedAbs').addClass('Hidden');
+        		notifySuccess(utf8_decode('Los usuarios seleccionados han sido eliminados.'));
+        	}else{
+        		notifyError('Hubo un problema al intentar eliminar los usuarios');
+        	}
+        }
+    });
+});
 
 //////////////// Select Input With Tags //////////////////////////
 $(function() {
-	$('.selectTags').select2({
-		tags: true
-	});
-	
-	$('.selectTags').on("change", function (e) { setGroups(); });
+	if($('.selectTags').length)
+	{
+		$('.selectTags').select2({
+			tags: true
+		});
+		$('.selectTags').on("change", function (e) { setGroups(); });
+	}
 });
 
 // /////////////////////////// Fill Groups /////////////////////////////////////
@@ -149,7 +160,9 @@ $(document).ready(function(){
 
 $(function(){
 	$('#profile').change(function(){
+		toggleLoader();
 		fillGroups();
+		toggleLoader();
 	});
 });
 
@@ -166,13 +179,11 @@ function setGroups()
 		});
 	});
 	$("#groups").val(groups);
-	//alert(groups);
 }
 
 function fillGroups()
 {
-	//$('.selectTags').select2().val(["CA", "AL"]).trigger("change");
-	//toggleLoader();
+	toggleLoader();
 	var profile = $('#profile').val();
 	var admin 	= $('#id').val();
 	var process = 'process.php';
@@ -188,28 +199,27 @@ function fillGroups()
         success: function(data){
             if(data)
             {
-                //$('.selectTags').select2().val(["CA", "AL"]).trigger("change");
                 $('#groups-wrapper').html(data);
-                //console.log(data);
-                //$('#groups').attr("disabled","");
             }else{
                 $('#groups').html('<h4 class="subTitleB"><i class="fa fa-users"></i> Grupos</h4><select id="group" class="form-control select2 selectTags" multiple="multiple" disabled="disabled" data-placeholder="Seleccione los grupos" style="width: 100%;"></select>');
-                //console.log("empty groups");
-                //$('#groups').attr("disabled","disabled");
             }
-			$('.selectTags').select2();
-            $('.selectTags').on("change", function () { setGroups(); });
-            // getCheckedGroups();
-            // clickGroupCheckbox();
+            if($('.selectTags').length)
+			{
+				$('.selectTags').select2();
+	            $('.selectTags').on("change", function () { setGroups(); });
+			}
         }
     });
-    //toggleLoader();
+    toggleLoader();
 }
 
 ///////////////// TreeCheckboxes Multiple Select ///////////////////
 $(document).ready(function(){
-	$('#treeview-checkbox').treeview();
-	fillCheckboxTree();
+	if($('#treeview-checkbox').length)
+	{
+		$('#treeview-checkbox').treeview();
+		fillCheckboxTree();
+	}
 });
 
 $(function() {

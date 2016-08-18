@@ -750,53 +750,113 @@ function getLocal(name) {
 
 //////////////////////// LISTS & GRID //////////////////////////////
 
-// Add Selected Status Color
+// Row element selected
 $('.listRow').click(function(){
-  $(this).toggleClass('listRowSelected');
+    toggleRow($(this));
 });
 
-// Show Action Buttons
-$('.listRow').click(function() {
-    if ($('.listActions').hasClass('Hidden')) {
-    $('.listActions').removeClass('Hidden');
-  } else {
-    $('.listActions').addClass('Hidden');
-  }
-})
-
-// Show Delete All Button
-$('.listRow').click(function() {
-  $('.deleteSelectedAbs').toggleClass('Hidden');
-})
-
-// Grid or Img Selector Selected Status
+// Grid element selected
 $('.RoundItemSelect').click(function(){
-  $('.imgSelectorContent').toggleClass('imgSelectorClicked');
+    var id = $(this).attr("id").split("_");
+    var row = $("#row_"+id[1]);
+    toggleRow(row);
+});
 
-  if ($('.roundItemBigActions .btnBlue').hasClass('Hidden')) {
-    $('.roundItemBigActions .btnBlue').removeClass('Hidden');
-  } else {
-    $('.roundItemBigActions .btnBlue').addClass('Hidden');
+function toggleRow(element)
+{
+    element.toggleClass('SelectedRow');
+    element.toggleClass('listRowSelected');
+    var actions = element.children('.listActions');
+    actions.toggleClass('Hidden');
+    
+    showDeleteButton();
+    
+    //Toggle grid
+    var id = element.attr("id").split("_");
+    var grid = $("#grid_"+id[1]);
+    toggleGrid(grid);
+}
 
-  }
-  if ($('.roundItemBigActions .btnRed').hasClass('Hidden')) {
-    $('.roundItemBigActions .btnRed').removeClass('Hidden');
-  } else {
-    $('.roundItemBigActions .btnRed').addClass('Hidden');
-  }
+function toggleGrid(element)
+{
+    element.toggleClass('SelectedGrid');
+    element.children('div').children('div').children('div').toggleClass('imgSelectorClicked');
+    element.children('div').children('div').children('div').children('div').children('a').children('button').each(function(){
+        $(this).toggleClass('Hidden'); 
+    });
+}
 
-  if (  $('.roundItemBigActions .btnGreen').hasClass('Hidden')) {
-    $('.roundItemBigActions .btnGreen').removeClass('Hidden');
-  } else {
-    $('.roundItemBigActions .btnGreen').addClass('Hidden');
-  }
+function showDeleteButton()
+{
+    if($('.SelectedRow').length>1 && checkDeleteRestrictions())
+    {
+        $('.deleteSelectedAbs').removeClass('Hidden');
+    }else{
+        $('.deleteSelectedAbs').addClass('Hidden');
+    }
+}
 
+function checkDeleteRestrictions()
+{
+    var x=true;
+    $('.SelectedRow').each(function(){
+        if($(this).hasClass('undeleteable'))
+            x=false;
+    });
+    return x;
+}
+
+$(".ShowGrid,.ShowList").click(function(){
+     $(".GridElement").toggleClass("Hidden");
+     $(".ListElement").toggleClass("Hidden");
+     
+});
+
+function deleteElement(element)
+{
+	var elementID	= element.attr('id').split("_");
+	var id			= elementID[1];
+	var row			= $("#row_"+id);
+	var grid		= $("#grid_"+id);
+	var process 	= element.attr('process');
+	var string      = 'id='+ id + '&action=delete';
+	var result;
+	
+    $.ajax({
+        type: "POST",
+        url: process,
+        data: string,
+        cache: false,
+        async: false,
+        success: function(data){
+            if(data)
+            {
+                console.log(data);
+                result = false;
+            }else{
+                grid.remove();
+			    row.remove();
+            	result = true;
+            }
+        }
+    });
+    console.log(result);
+    return result;
+}
+
+//////////////////////////////////////// LOADER ////////////////////////////////////////
+$('.activateLoader').click(function(){
+  toggleLoader();
 })
 
+function toggleLoader()
+{
+  $('.loader').toggleClass('Hidden');
+}
 
-
-//////// LOADER ////////
-
-$('#activateLoader').click(function(){
-  $('.loader').removeClass('Hidden');
-})
+//////////////////////////////// CANCEL BUTTON /////////////////////////////////
+$(function(){
+	$("#BtnCancel").click(function(){
+		window.history.back();
+	});
+});

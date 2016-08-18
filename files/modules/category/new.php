@@ -3,7 +3,7 @@
     //$Head->setTitle("Nuevo Usuario");
     $Menu   = new Menu();
     $Group  = new GroupData();
-    $Head->setTitle($Menu->GetLinkTitle());
+    $Head->setTitle($Menu->GetTitle());
     $Head->setStyle('../../../vendors/bootstrap-switch/bootstrap-switch.css'); // Switch On Off
     $Head->setHead();
     include('../../includes/inc.top.php');

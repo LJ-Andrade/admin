@@ -1,7 +1,8 @@
 <?php
   include('../../includes/inc.main.php');
   $Menu   = new Menu();
-  $Head->setTitle($Menu->GetLinkTitle());
+  $Head->setTitle($Menu->GetTitle());
+  $Head->setIcon($Menu->GetHTMLicon());
   $Head->setHead();
 
   /******* MELI **********/
@@ -15,7 +16,6 @@
   /******* MELI **********/
 
   include('../../includes/inc.top.php');
-  include('../../includes/inc.loader.php');
  ?>
 
    <div class="form-group heckbox icheck">

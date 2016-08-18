@@ -1,177 +1,227 @@
 <?php
     include("../../includes/inc.main.php");
-    $Admin_id = $_GET['id'];
-    $AdminEdit  = new AdminData($Admin_id);
-    $AdminData  = $AdminEdit->GetData();
-
-    $MenuTree = new Menu();
-    $MenuTree->SetCheckedMenues($AdminEdit->GetCheckedMenues());
-
-    $Group    = new GroupData();
-
-    $Title = "Editar usuario '".$AdminEdit->FullName."'";
-
-    $Head->setTitle("Editar Usuario");
+    $Admin_id   = $_GET['id'];
+    $Edit       = new AdminData($Admin_id);
+    $Data       = $Edit->GetData();
+    
+    if(!$_GET['id'] || empty($Data))
+    {
+      header('Location: list.php?error=user');
+      die();
+    }
+    
+    //$Head->setTitle("Nuevo Usuario");
+    $Menu   = new Menu();
+    $Group  = new GroupData();
+    $Head->setTitle($Menu->GetTitle());
+    $Head->setIcon($Menu->GetHTMLicon());
+    $Head->setStyle('../../../vendors/select2/select2.min.css'); // Select Inputs With Tags
     $Head->setHead();
+    
+    
+    $Exceptions = $DB->fetchAssoc("menu_exception","menu_id","admin_id=".$Admin_id);
+    $Menues     = "0";
+    foreach($Exceptions as $Exception)
+    {
+      $Menues .= ",".$Exception['menu_id'];
+    }
+    
+    include('../../includes/inc.top.php');
 
 
 ?>
-<body>
-  <div id="wrapper">
-    <?php include('../../includes/inc.subtop.php'); ?>
-    <?php echo insertElement("hidden","action",'update'); ?>
-    <?php echo insertElement("hidden","id",$Admin_id); ?>
-    <?php echo insertElement("hidden","menues"); ?>
-    <?php echo insertElement("hidden","groups"); ?>
-    <?php echo insertElement("hidden","newimage",$AdminEdit->Img); ?>
+  <?php echo insertElement("hidden","action",'update'); ?>
+  <?php echo insertElement("hidden","id",$Admin_id); ?>
+  <?php echo insertElement("hidden","menues",$Menues); ?>
+  <?php echo insertElement("hidden","groups",""); ?>
+  <?php echo insertElement("hidden","newimage",$Admin->Img); ?>
 
-
-
-    <div class="conatiner-fluid pageWrapper">
-      <!-- WindowHead -->
-      <div class="row windowHead animated fadeInDown">
-        <div class="col-md-6 col-xs-12 ">
-          <h3><i class="fa fa-plus-square" aria-hidden="true"></i> <?php echo $Title ?></h3>
-        </div>
-        <div class="col-md-6 col-xs-12 switchDiv switchHead">
-          <?php $Checked = $AdminData['status']=='A'? 'checked="checked"':''; ?>
-          <input type="checkbox" name="status" id="status" data-on-text="Activo" data-off-text="Inactivo" data-size="mini" data-label-width="auto" <?php echo $Checked; ?>>
-        </div>
-      </div><!-- /WindowHead -->
-      <div class="container animated fadeIn addItemDiv">
-        <div class="col-md-12 form-box formitems">
-          <!-- User Data -->
-          <div id="newInputs">
-            <div class="row">
-              <div class="col-md-6 form-group"><!-- User -->
-                <?php echo insertElement('text','user',$AdminData['user'],'form-first-name form-controlusers','placeholder="Usuario" tabindex="1" validateEmpty="El usuario es obligatorio." validateMinLength="3/El usuario debe contener 3 caracteres como mínimo." validateFromFile="process.php/El usuario ya existe/actualuser:='.$AdminData['user'].'/action:=validate"'); ?>
+   <div class="box"> <!--box-success-->
+    <div class="box-header with-border">
+      <h3 class="box-title">Complete el formulario</h3>
+    </div><!-- /.box-header -->
+    <div class="box-body">
+      <div class="row">
+        <!-- User Data -->
+        <div class="col-md-6">
+          <div class="flex-allCenter innerContainer">
+            <div class="mw100">
+              <h4 class="subTitleB"><i class="fa fa-pencil"></i> Datos Principales</h4>
+              <div class="form-group">
+                <?php echo insertElement('text','user',$Data['user'],'form-control','placeholder="Usuario" tabindex="1" validateEmpty="El usuario es obligatorio." validateMinLength="3/El usuario debe contener 3 caracteres como m&iacute;nimo." validateFromFile="process.php/El usuario ya existe/actualuser:='.$Data['user'].'/action:=validate"'); ?>
               </div>
-              <div class="col-md-6 form-group"><!-- Name -->
-                <?php echo insertElement('text','first_name',$AdminData['first_name'],'form-first-name form-controlusers','placeholder="Nombre" validateEmpty="El nombre es obligatorio." validateMinLength="2/El nombre debe contener 2 caracteres como mínimo." tabindex="3"'); ?>
+              <div class="form-group">
+                <?php echo insertElement('password','password','','form-control','placeholder="Contrase&ntilde;a" validateMinLength="4/La contrase&ntilde;a debe contener 4 caracteres como m&iacute;nimo." tabindex="2"'); ?>
+              </div>
+              <div class="form-group">
+                <?php echo insertElement('password','password_confirm','','form-control','placeholder="Confirmar Contrase&ntilde;a" validateEqualToField="password/Las contrase&ntilde;as deben coincidir." tabindex="3"'); ?>
+              </div>
+              <div class="form-group">
+                <?php echo insertElement('text','email',$Data['email'],'form-control','placeholder="Email" validateEmail="Ingrese un email v&aacute;lido." validateMinLength="4/El email debe contener 4 caracteres como m&iacute;nimo." tabindex="4" validateFromFile="process.php/El email ya existe/actualemail:='.$Data['email'].'/action:=validate_email"'); ?>
+              </div>
+              <div class="form-group">
+                <?php echo insertElement('text','first_name',$Data['first_name'],'form-control','placeholder="Nombre" validateEmpty="El nombre es obligatorio." validateMinLength="2/El nombre debe contener 2 caracteres como m&iacute;nimo." tabindex="5"'); ?>
+              </div>
+              <div class="form-group">
+                <?php echo insertElement('text','last_name',$Data['last_name'],'form-control','placeholder="Apellido" validateEmpty="El apellido es obligatorio." validateMinLength="2/El apellido debe contener 2 caracteres como m&iacute;nimo." tabindex="6"'); ?>
               </div>
             </div>
+          </div>
+        </div><!-- User Data -->
+        <div class="col-md-6">
+          <div class="innerContainer">
             <div class="row">
-              <div class="col-md-6 form-group"><!-- PassWord -->
-                <?php echo insertElement('password','password','','form-first-name form-controlusers','placeholder="Contrase&ntilde;a" validateMinLength="4/La contraseña debe contener 4 caracteres como mínimo." tabindex="2"'); ?>
-              </div>
-              <div class="col-md-6 form-group">
-                <?php echo insertElement('text','last_name',$AdminData['last_name'],'form-first-name form-controlusers','placeholder="Apellido" validateEmpty="El apellido es obligatorio." validateMinLength="2/El apellido debe contener 2 caracteres como mínimo." tabindex="4"'); ?>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6 form-group"><!-- Confirm PassWord -->
-                <?php echo insertElement('password','password_confirm','','form-first-name form-controlusers','placeholder="Confirmar Contrase&ntilde;a" validateEqualToField="password/Las contraseñas deben coincidir." tabindex="2"'); ?>
-              </div>
-              <div class="col-md-6 form-group"><!-- E-Mail -->
-                <?php echo insertElement('text','email',$AdminData['email'],'form-first-name form-controlusers','placeholder="Email" validateEmail="Ingrese un email válido." validateMinLength="4/El email debe contener 4 caracteres como mínimo." tabindex="4"'); ?>
-              </div>
-            </div>
-            <!-- /User Data -->
-            <!-- Image and Groups -->
-            <div class="col-md-12">
-              <!-- Group and Perm -->
-              <div class="col-md-6 form-group centrarbtn">
+              <!-- Profile -->
+              <div class="col-lg-6 col-md-12">
                 <div class="form-group">
-                  <div class="marg20">
-                    <?php echo insertElement('select','profile',$AdminEdit->ProfileID,'form-controlusers','tabindex="6" validateEmpty="El perfil es obligatorio."',$DB->fetchAssoc("admin_profile","profile_id,title","status = 'A'","title"),'','Elegir Perfil'); ?>
-                  </div>
-                  <div class="marg20">
-                    <button id="showTreeDiv" class="btn mainbtn">Permisos y Grupos</button>
+                  <h4 class="subTitleB"><i class="fa fa-eye"></i> Perfiles</h4>
+                  <?php echo insertElement('select','profile',$Data['profile_id'],'form-control','validateEmpty="El perfil es obligatorio." tabindex="7"',$DB->fetchAssoc('admin_profile','profile_id,title',"status='A' AND customer_id=".$_SESSION['customer_id']),'',"Seleccione un perfil.."); ?>
+
+                </div>
+              </div>
+              <!-- Groups -->
+              <div class="col-lg-6 col-md-12">
+                <div class="form-group" id="groups-wrapper">
+                  <h4 class="subTitleB"><i class="fa fa-users"></i> Grupos</h4>
+
+                  <select id="group" class="form-control select2 selectTags" multiple="multiple" data-placeholder="Seleccione los grupos" style="width: 100%;">
+                  </select>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div><!-- User Data -->
+
+
+        <!-- Tree Chekbox -->
+        <div class="col-md-6">
+          <div id="treeview-checkbox" class="treeCheckBoxDiv">
+            <h4 class="subTitleB"><i class="fa fa-key"></i> Permisos</h4>
+            <?php echo $Menu->MakeTree(); ?>
+          </div><!-- treeview-checkbox -->
+        </div><!-- User Data -->
+      </div><!-- row -->
+
+
+
+      <!-- IMAGES -->
+      <!-- Actual Image -->
+      <div class="row imagesMain">
+        <div class="col-lg-3 col-md-12 col-sm-6 col-xs-12">
+          <div class="imagesContainer">
+            <h4 class="subTitleB"><i class="fa fa-picture-o"></i> Im&aacute;gen Actual</h4>
+            <div class="flex-allCenter imgSelector">
+              <div class="imgSelectorInner">
+                <img src="<?php echo $Edit->Img ?>" class="img-responsive MainImg animated">
+                <?php echo insertElement('file','image','','Hidden'); ?>
+                <div class="imgSelectorContent">
+                  <div id="SelectImg">
+                    <i class="fa fa-upload"></i><br>
+                   <p>Cargar Nueva Im&aacute;gen</p>
                   </div>
                 </div>
               </div>
-              <!-- Choose Img -->
-              <div id="SelectImg" class="col-md-6 col-sm-12 imgSelector">
-                <div class="imgSelectorInner">
-                  <img src="<?php echo $AdminEdit->Img ?>" class="img-responsive MainImg">
-                  <div class="imgSelectorContent">
-                    <div id="SelectImg">
-                      <i class="fa fa-picture-o"></i><br>
-                      Cambiar Im&aacute;gen
-                    </div>
-                  </div>
-                </div>
-              </div><!-- /Choose Img -->
-            </div><!-- /Image and Groups  -->
-          </div><!-- New Inputs -->
-          <!-- Single Image Selection Window (Hidden) -->
-              <div id="SingleImgWd" class="row imgWindow Hidden animated fadeIn">
-                <!-- <span id="cancelImgChange" class="eraseImgX"><i class="fa fa-times"></i></span> -->
-                <button id="cancelImgChange" type="button" name="button" class="btn closeBtn"><i class="fa fa-times"></i></button>
-                <div class="imgWindowTitle"><h5>Agregar o Cambiar Im&aacute;genes</h5></div>
-                <!-- Choose Img -->
-                <div id="SelectImg" class="col-md-12 imgSelector">
-                  <div class="imgSelectorInner">
-                    <img src="<?php echo $AdminEdit->Img ?>" id="MainImageSelector" class="MainImg img-responsive">
-                    <div class="imgSelectorContent SelectNewImg">
-                      <div id="SelectImg"><i class="fa fa-picture-o"></i><br>Cambiar Im&aacute;gen</div>
-                    </div>
-                  </div>
-                </div><!-- /Choose Img -->
-                <?php echo insertElement('file','image','','Hidden'); ?>
-                <div class="col-md-12 activeImgs singleImg">
-                  <ul id="ImageBox">
-                    <?php
-                    if(!in_array($AdminEdit->Img, $Admin->AllImages()))
-                    {
-                    ?>
-                    <li>
-                      <img src="<?php echo $AdminEdit->Img ?>" alt="" class="img-responsive"/>
-                      <span class="GenImg selectImg LastClicked"><i class="fa fa-trash delImgIco Hidden"></i></span>
-                    </li>
-                    <?php
-                    }
-                    foreach($Admin->AllImages() as $Image)
-                    {
-                      if($Image==$Admin->Img)
-                        $MainImg = 'selectImg LastClicked';
-                      else
-                        $MainImg = '';
-
-                      $GalleryID = array_reverse(explode('/',$Image));
-                      if($Admin->AdminID == $GalleryID[1] && $Admin->Img != $Image)
-                        $DelIcon = '<span class="GenImg '.$MainImg.'"><i class="fa fa-trash delImgIco Hidden"></i></span>';
-                      else
-                        $DelIcon = '<span class="GenImg '.$MainImg.'"></span>';
-                    ?>
-                    <li>
-                      <img src="<?php echo $Image ?>" alt="" class="img-responsive" >
-                      <?php echo $DelIcon; ?>
-                    </li>
-                    <?php
-                    }
-                    ?>
-                  </ul>
-                </div>
-              </div><!-- /Images -->
-          <!-- /Single Image Selection Window (Hidden) -->
-        </div><!-- /Formitems -->
-        <!-- Menu Tree -->
-        <div class="row treeDivRow Hidden">
-          <!-- <div class="col-md-6 col-xs-5 form-group animated bounceInLeft checkboxDiv">
-            <h4>Grupos Asociados</h4>
-            <span id="GroupTree"></span>
-          </div> -->
-          <div class="col-md-6 col-xs-12">
-            <?php echo $MenuTree->MakeTree('Permisos Especiales'); ?>
+            </div>
+            <div class="text-bottom">
+              <p><i class="fa fa-upload" aria-hidden="true"></i>
+              Haga Click sobre la im&aacute;gen </br> para cargar una desde su dispositivo</p>
+            </div>
           </div>
-          <div id="GroupTree" class="col-md-6 col-xs-12 GroupTree">
-
+        </div><!-- /Actual Image -->
+        <!-- Generic Images -->
+        <div class="col-lg-5 col-md-12 col-sm-6 col-xs-12">
+          <div class="imagesContainer">
+            <h4 class="subTitleB"><i class="fa fa-picture-o"></i> Im&aacute;genes Gen&eacute;ricas</h4>
+            <div class="smallThumbsList flex-justify-center">
+              <ul>
+                <?php
+                  foreach($Admin->DefaultImages() as $Image)
+                  {
+                    echo '<li><img src="'.$Image.'" class="ImgSelecteable"></li>';
+                  }
+                ?>
+              </ul>
+            </div>
+             <div class="text-bottom">
+               <p><i class="fa fa-check" aria-hidden="true"></i>
+               Seleccione una im&aacute;gen para utilizarla</p>
+            </div>
           </div>
-
-
-        </div><!-- /Menu Tree -->
-      </div><!-- /addItemDiv -->
-      <!-- Create User Button Div  -->
-      <div class="container animated fadeInUp donediv">
-        <div class="form-group">
-          <button id="createUser" type="button" name="button" class="btn mainbtn MainButton" role="button"><i class="fa fa-check-square-o fa-fw"></i> Confirmar Edici&oacute;n</button>
-          <button type="button" name="button" class="btn mainbtn mainbtnred MainButton BackToLastPage"><i class="fa fa-times"></i> Cancelar</button>
-          <button id="acceptBtnImg" type="button" name="button" class="btn mainbtn Hidden"><i class="fa fa-check"></i> Aceptar</button>
-          <button id="acceptPermGroup" type="button" name="button" class="btn mainbtn centrarbtn Hidden"><i class="fa fa-check"></i> Aceptar</button><br>
+        </div><!-- /Generic Images -->
+        <!-- Recent Images -->
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+          <div class="imagesContainer">
+            <h4 class="subTitleB"><i class="fa fa-picture-o"></i> Im&aacute;genes usadas anteriormente</h4>
+            <div class="smallThumbsList flex-justify-center">
+              <ul id="UserImages">
+                <?php
+                  foreach($Admin->UserImages() as $Image)
+                  {
+                    echo '<li><img src="'.$Image.'" class="ImgSelecteable"></li>';
+                  }
+                ?>
+              </ul>
+            </div>
+             <div class="text-bottom">
+               <p><i class="fa fa-check" aria-hidden="true"></i>
+              Seleccione una im&aacute;gen para utilizarla</p>
+            </div>
+          </div>
+        </div><!-- /Recent Images -->
+      </div><!-- IMAGES -->
+    </div><!-- /.box-body -->
+    <div class="box-footer btnRightMobCent">
+      <button type="button" class="btn btn-success btnGreen" id="BtnCreate"><i class="fa fa-pencil"></i> Editar Usuario</button>
+      <button type="button" class="btn btn-danger btnRed" id="BtnCancel"><i class="fa fa-times"></i> Cancelar</button>
+    </div><!-- box-footer -->
+  </div><!-- /.box -->
+  <!-- Help Modal Trigger -->
+  <button type="button" class="btn btn-success btnGrey" data-toggle="modal" data-target="#helpModal" ><i class="fa fa-question-circle"></i> Ayuda</button>
+  <!-- Help Modal Trigger -->
+  <!-- //// HELP MODAL //// -->
+  <div id="helpModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Ayuda para el usuario</i></h4>
+        </div>
+        <div class="modal-body">
+          <p><b><i class="fa fa-pencil"></i> DATOS PRINCIPALES:</b> Complete los campos con la informaci&oacute;n sobre el usuario</p>
+          <hr>
+          <p><b><i class="fa fa-sitemap"></i> GRUPOS:</b> Para seleccionar los grupos haga click sobre el campo "Grupos" y presione ENTER. Repita la operaci&oacute;n hasta
+            seleccionar todos los grupos pertinentes.</p>
+          <hr>
+          <p><b><i class="fa fa-eye"></i> PERFILES:</b> Haga click en el campo y seleccione un perfil</p>
+          <hr>
+          <p><b><i class="fa fa-key"></i> PERMISOS:</b> Tilde las cajas correspondientes a los permisos a otorgar.</p>
+          <hr>
+          <p><i class="fa fa-file-image-o"></i><b> SELECCI&Oacute;N DE IM&Aacute;GENES:</b><br>
+            <b>Subir Im&aacute;gen:</b> Haga click en "Im&aacute;gen Actual" para subir una im&aacute;gen desde su dispositivo <br>
+            <b>Im&aacute;gen Gen&eacute;rica:</b> Si no tiene una i&aacute;gen puede utilizar una porporcionada por el sistema <br>
+            <b>&Uacute;ltimas Im&aacute;genes:</b> Puede volver a utilizar una im&aacute;en utilizada anteriormente<br>
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" name="button" class="btn btn-success btnBlue" data-dismiss="modal">Comprendido</button><br>
         </div>
       </div>
-      <!-- /Create User Button Div  -->
     </div>
-  </div><!-- /#wrapper -->
-<?php $Foot->setFoot(); ?>
+  </div>
+  <!-- Help Modal -->
+
+<?php
+// Select Inputs With Tags
+// DOCUMENTATION > https://select2.github.io/examples.html
+$Foot->setScript('../../../vendors/select2/select2.min.js');
+// ----
+// Tree With Checkbox
+// DOCUMENTATION >  http://www.jquery-az.com/jquery-treeview-with-checkboxes-2-examples-with-bootstrap
+$Foot->setScript('../../../vendors/treemultiselect/logger.min.js');
+$Foot->setScript('../../../vendors/treemultiselect/treeview.min.js');
+
+include('../../includes/inc.bottom.php');
+?>

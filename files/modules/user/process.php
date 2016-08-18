@@ -6,6 +6,7 @@ if($_GET['action']=='newimage')
 {
 	if(count($_FILES['image'])>0)
 		{
+			// $Images = $Admin->UserImages(); // Para cuando se requiera limitar la cantidad de imágenes.
 			$TempDir = $Admin->ImgGalDir();
 			$Name	= "user".intval(rand()*rand()/rand())."__".$Admin->AdminID;
 			$Img	= new FileData($_FILES['image'],$TempDir,$Name);
@@ -78,24 +79,13 @@ switch(strtolower($_POST['action']))
 			$PasswordFilter	= ",password='".$Password."'";
 		}
 
-		if($_POST['password'] && $_POST['oldpassword'])
-		{
-			if(md5(htmlentities($_POST['oldpassword']))!=$Edit->AdminData['password'])
-			{
-				echo "Ha ingresado incorrectamente su antigua clave.";
-				die;
-			}
-			$Password		= md5(htmlentities($_POST['password']));
-			$PasswordFilter	= ",password='".$Password."'";
-		}
-
 		$Image 		= $_POST['newimage'];
 		$User		= htmlentities(strtolower($_POST['user']));
 		$FirstName	= htmlentities($_POST['first_name']);
 		$LastName	= htmlentities($_POST['last_name']);
 		$Email 		= htmlentities($_POST['email']);
 		$ProfileID	= $_POST['profile'];
-		$Status		= $_POST['status']=="on"? 'A': 'I';
+		$Status		= 'A';//$_POST['status']=="on"? 'A': 'I';
 		$Groups		= $_POST['groups'] ? explode(",",$_POST['groups']) : array();
 		$Menues		= $_POST['menues'] ? explode(",",$_POST['menues']) : array();
 
@@ -153,6 +143,18 @@ switch(strtolower($_POST['action']))
 	    	$TotalRegs  = $DB->numRows('admin_user','*',"user = '".$User."' AND user<> '".$ActualUser."'");
     	else
 		    $TotalRegs  = $DB->numRows('admin_user','*',"user = '".$User."'");
+		if($TotalRegs>0) echo $TotalRegs;
+		die;
+	break;
+	
+	case 'validate_email':
+		$Email 			= strtolower(utf8_encode($_POST['email']));
+		$ActualEmail 	= strtolower(utf8_encode($_POST['actualemail']));
+
+	    if($ActualEmail)
+	    	$TotalRegs  = $DB->numRows('admin_user','*',"email = '".$Email."' AND email<> '".$ActualEmail."'");
+    	else
+		    $TotalRegs  = $DB->numRows('admin_user','*',"email = '".$Email."'");
 		if($TotalRegs>0) echo $TotalRegs;
 		die;
 	break;

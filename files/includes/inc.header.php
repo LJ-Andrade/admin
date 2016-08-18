@@ -1,5 +1,5 @@
+<?php include('../../includes/inc.loader.php'); ?>
 <!-- =============================================== -->
-
 <header class="main-header">
   <!-- Logo -->
   <a href="../main/main.php" class="logo">

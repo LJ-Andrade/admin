@@ -10,6 +10,7 @@ class Head
 	var $Script		= array();
 	var $Meta		= array();
 	var $Favicon	= '';
+	var $Icon		= '';
 	var $Charset	= "iso-8859-1";
 
 	function __construct()
@@ -108,6 +109,11 @@ class Head
     						<link rel="apple-touch-icon" sizes="144x144" href="'.$Rute.'">
     						<link rel="shortcut icon" href="'.$Rute.'" type="image/x-icon">';
 	}
+	
+	function setIcon($HTML)
+	{
+		$this->Icon = $HTML;
+	}
 
 	function setCharset($Charset)
 	{
@@ -117,6 +123,11 @@ class Head
 	function getTitle()
 	{
 		return $this->Title;
+	}
+	
+	function getIcon()
+	{
+		return $this->Icon;
 	}
 
 	function getSubTitle()

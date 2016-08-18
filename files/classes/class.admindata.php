@@ -10,6 +10,7 @@ class AdminData extends DataBase
 	var	$ProfileID;
 	var	$ProfileName;
 	var	$User;
+	var	$Email;
 	var	$Img;
 	var $AdminData;
 	var $DefaultImg	= '../../../skin/images/users/default/default.jpg';
@@ -34,72 +35,139 @@ class AdminData extends DataBase
 		$this->FirstName	= $this->AdminData['first_name'];
 		$this->LastName		= $this->AdminData['last_name'];
 		$this->User			= $this->AdminData['user'];
+		$this->Email		= $this->AdminData['email'];
 		$this->ProfileID	= $this->AdminData['profile_id'];
 		$this->Img			= file_exists($this->AdminData['img'])? $this->AdminData['img'] : $this->DefaultImg;
 		$this->FullName		= $this->FirstName." ".$this->LastName;
 		$this->FullUserName	= $this->FirstName." ".$this->LastName." (".$this->User.")";
-		$this->LastAccess	= "&Uacute;ltimo acceso: ".DateTimeFormat($this->AdminData['last_access']);
+		$this->LastAccess	= $this->AdminData['last_access']=="0000-00-00 00:00:00"? "Nunca se ha conectado":"&Uacute;ltima conexi&oacute;n:".DateTimeFormat($this->AdminData['last_access']);
 		$ProfileData		= $this->fetchAssoc('admin_profile','*'," profile_id = ".$this->ProfileID);
 		$this->ProfileName	= $ProfileData[0]['title'];
 	}
 	
-	public function MakeList($From=-1, $To=-1,$Where="")
-	{	
-
+	public function MakeRegs($Mode="List",$Where="",$From=-1, $To=-1)
+	{
+		$Where = $Where? " AND ".$Where : "";
 		$Limit = $From>=0 && $To>=0 ? $From.",".$To : "";
-		$AdminRegs	= $this->fetchAssoc('admin_user','*',"status = 'A' AND profile_id > ".$this->ProfileID." ".$Where,"first_name",$Limit); 
-		$AtLeastOne	= false;
-		for($i=0;$i<count($AdminRegs);$i++)
+		$ProfileFilter = $this->ProfileID!=333? " profile_id > ".$this->ProfileID." AND " : "";
+		$Rows	= $this->fetchAssoc('admin_user','*',$ProfileFilter."customer_id=".$_SESSION['customer_id'].$Where,"first_name",$Limit); 
+		for($i=0;$i<count($Rows);$i++)
 		{
-			$AdminReg	=	new AdminData($AdminRegs[$i]['admin_id']);
-			$Actions	= 	'<img src="../../../skin/images/body/icons/pencil.png" action="edit" class="actionImg" target="edit.php" id="admin_'.$AdminReg->AdminID.'" />';
-			$Actions	.= 	$AdminRegs[$i]['admin_id']!=$_SESSION['admin_id'] ? '<img src="../../../skin/images/body/icons/cross.png" class="actionImg" action="delete" process="process.abm.php" id="admin_'.$AdminReg->AdminID.'" />': '' ;
-				
-			$Regs	.= '<div class="RegWrapper BlackGray" id="Row'.$AdminReg->AdminID.'">
-							<div class="ImgWrapper Left"><img src="'.$AdminReg->Img.'" /></div>
-							<div class="DataWrapper Left">
-								<div class="BlueCyan">'.$AdminReg->User.'</div>
-								<div>'.$AdminReg->FullName.'</div>
-								<div class="Green">'.$AdminReg->ProfileName.'</div>
-							</div>
-							<div class="InfoWrapper Left">'.$AdminReg->LastAccess.'</div>
-							<div class="ActionsWrapper Right">'.$Actions.'</div>
-							<div class="Clear"></div>
-						</div>';  
-			$AtLeastOne	= true;
+			
+			$Row	=	new AdminData($Rows[$i]['admin_id']);
+			
+			$Actions	= 	'<a href="edit.php?id='.$Row->AdminID.'"><button type="button" class="btn btnBlue"><i class="fa fa-pencil"></i></button></a>';
+			
+			if($Row->AdminID!=$_SESSION['admin_id'])
+			{
+				$Actions	.= '<a class="deleteElement" process="process.php" id="delete_'.$Row->AdminID.'"><button type="button" class="btn btnRed"><i class="fa fa-trash"></i></button></a>';
+				$Restrict	= '';
+			}else{
+				$Restrict	= ' undeleteable ';
+			}
+			
+			switch(strtolower($Mode))
+			{
+				case "list":
+					
+					$RowBackground = $i % 2 == 0? '':' listRow2 ';	
+					$Regs	.= '<div class="row listRow'.$RowBackground.$Restrict.'" id="row_'.$Row->AdminID.'" title="'.$Row->FullName.'">
+									<div class="col-lg-3 col-md-4 col-xs-6">
+										<div class="listRowInner">
+											<img class="img-circle" src="'.$Row->Img.'" alt="'.$Row->FullName.'">
+											<span class="itemRowtitle">'.$Row->FullName.' ('.$Row->User.')</span>
+											<span class="smallDetails">'.$Row->LastAccess.'<!--22/25/24 | 22:00Hs.--></span>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 hideMobile990">
+										<div class="listRowInner">
+											<span class="smallDetails">Email</span>
+											<span class="itemRowtitle">'.$Row->Email.'</span>
+										</div>
+									</div>
+									<div class="col-lg-2 col-sm-2 hideMobile990">
+										<div class="listRowInner">
+											<span class="smallDetails">Perfil</span>
+											<span class="itemRowtitle">'.ucfirst($Row->ProfileName).'</span>
+										</div>
+									</div>
+									<div class="col-lg-2 col-sm-2 hideMobile990">
+										<div class="listRowInner">
+											<span class="smallDetails">Grupos</span>
+											<span class="itemRowtitle">
+												Group Tags
+											</span>
+										</div>
+									</div>
+									<div class="listActions flex-justify-center Hidden">
+										<div>'.$Actions.'</div>
+									</div>
+								</div>';
+				break;
+				case "grid":
+					$Actions.= 	'<a href="#"><button type="button" class="btn btnGreen Hidden" name="button"><i class="fa fa-check"></i></button></a>';
+					$Regs	.= '<li id="grid_'.$Row->AdminID.'" class="RoundItemSelect roundItemBig'.$Restrict.'" title="'.$Row->FullName.'">
+						            <div class="flex-allCenter imgSelector">
+						              <div class="imgSelectorInner">
+						                <img src="'.$Row->Img.'" alt="'.$Row->FullName.'" class="img-responsive">
+						                <div class="imgSelectorContent">
+						                  <div class="roundItemBigActions">
+						                    '.$Actions.'
+						                  </div>
+						                </div>
+						              </div>
+						              <div class="roundItemText">
+						                <p><b>'.$Row->FullName.'</b></p>
+						                <p>('.$Row->User.')</p>
+						                <p>'.ucfirst($Row->ProfileName).'</p>
+						              </div>
+						            </div>
+						          </li>';
+				break;
+			}
         } 
-        if(!$AtLeastOne) $Regs	.= '<div class="RegWrapper DarkRed" id="EmptyRow" style="text-align:center;padding:40px;font-size:20px;">No hay registros.</div>';
+        if(!$Regs) $Regs.= '<div class="callout callout-info"><h4><i class="icon fa fa-info-circle"></i> No existe ning&uacute;n usuario.</h4><p>Puede crear un nuevo usuario haciendo click <a href="new.php">aqui</a>.</p></div>';
 		return $Regs;
 	}
-
-	public function MakeListInactive($From=-1, $To=-1,$Where="")
+	
+	public function MakeList($Where="",$From=-1, $To=-1)
 	{	
-
-		$Limit = $From>=0 && $To>=0 ? $From.",".$To : "";
-		$AdminRegs	= $this->fetchAssoc('admin_user','*',"status = 'I' AND profile_id > ".$this->ProfileID." ".$Where,"first_name",$Limit); 
-		$AtLeastOne	= false;
-		for($i=0;$i<count($AdminRegs);$i++)
-		{
-			$AdminReg	=	new AdminData($AdminRegs[$i]['admin_id']);
-			$Actions	= 	'<img src="../../../skin/images/body/icons/pencil.png" action="edit" class="actionImg" target="edit.php" id="admin_'.$AdminReg->AdminID.'" />';
-			$Actions	.= 	$AdminRegs[$i]['admin_id']!=$_SESSION['admin_id'] ? '<img src="../../../skin/images/body/icons/cross.png" class="actionImg" action="delete" process="process.abm.php" id="admin_'.$AdminReg->AdminID.'" />': '' ;
-				
-			$Regs	.= '<div class="RegWrapper BlackGray" id="Row'.$AdminReg->AdminID.'">
-							<div class="ImgWrapper Left"><img src="'.$AdminReg->Img.'" /></div>
-							<div class="DataWrapper Left">
-								<div class="BlueCyan">'.$AdminReg->User.'</div>
-								<div>'.$AdminReg->FullName.'</div>
-								<div class="Green">'.$AdminReg->ProfileName.'</div>
-							</div>
-							<div class="InfoWrapper Left">'.$AdminReg->LastAccess.'</div>
-							<div class="ActionsWrapper Right">'.$Actions.'</div>
-							<div class="Clear"></div>
-						</div>';  
-			$AtLeastOne	= true;
-        } 
-        if(!$AtLeastOne) $Regs	.= '<div class="RegWrapper DarkRed" id="EmptyRow" style="text-align:center;padding:40px;font-size:20px;">No hay registros.</div>';
-		return $Regs;
+		return $this->MakeRegs("List",$Where,$From, $To);
 	}
+	
+	public function MakeGrid($Where="",$From=-1, $To=-1)
+	{
+		return $this->MakeRegs("Grid",$Where,$From,$To);
+	}
+
+	// public function MakeListInactive($From=-1, $To=-1,$Where="")
+	// {	
+
+	// 	$Limit = $From>=0 && $To>=0 ? $From.",".$To : "";
+	// 	$AdminRegs	= $this->fetchAssoc('admin_user','*',"status = 'I' AND profile_id > ".$this->ProfileID." ".$Where,"first_name",$Limit); 
+	// 	$AtLeastOne	= false;
+	// 	for($i=0;$i<count($AdminRegs);$i++)
+	// 	{
+	// 		$AdminReg	=	new AdminData($AdminRegs[$i]['admin_id']);
+	// 		$Actions	= 	'<img src="../../../skin/images/body/icons/pencil.png" action="edit" class="actionImg" target="edit.php" id="admin_'.$AdminReg->AdminID.'" />';
+	// 		$Actions	.= 	$AdminRegs[$i]['admin_id']!=$_SESSION['admin_id'] ? '<img src="../../../skin/images/body/icons/cross.png" class="actionImg" action="delete" process="process.abm.php" id="admin_'.$AdminReg->AdminID.'" />': '' ;
+				
+	// 		$Regs	.= '<div class="RegWrapper BlackGray" id="Row'.$AdminReg->AdminID.'">
+	// 						<div class="ImgWrapper Left"><img src="'.$AdminReg->Img.'" /></div>
+	// 						<div class="DataWrapper Left">
+	// 							<div class="BlueCyan">'.$AdminReg->User.'</div>
+	// 							<div>'.$AdminReg->FullName.'</div>
+	// 							<div class="Green">'.$AdminReg->ProfileName.'</div>
+	// 						</div>
+	// 						<div class="InfoWrapper Left">'.$AdminReg->LastAccess.'</div>
+	// 						<div class="ActionsWrapper Right">'.$Actions.'</div>
+	// 						<div class="Clear"></div>
+	// 					</div>';  
+	// 		$AtLeastOne	= true;
+ //       } 
+ //       if(!$AtLeastOne) $Regs	.= '<div class="RegWrapper DarkRed" id="EmptyRow" style="text-align:center;padding:40px;font-size:20px;">No hay registros.</div>';
+	// 	return $Regs;
+//	}
 
 	public function GetData()
 	{

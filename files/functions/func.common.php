@@ -113,18 +113,34 @@
 		return $Array;
 	}
 	
-	function DateTimeFormat($DateTime)
+	function DateTimeFormat($DateTime,$Mode='')
 	// Returns a formated date
 	{
-		$DateTime	= explode(" ",$DateTime);
-		$Time		= $DateTime[1];
-		$Date		= explode("-",$DateTime[0]);
-		$Day		= $Date[2];
-		$Month		= MonthFormat(intval($Date[1]));
-		$Year		= $Date[0];
-		
-		$DateTime	= $Day." de ".$Month." del ".$Year;
-		return		$Time? $DateTime.", a las ".$Time : $DateTime;
+		switch($Mode)
+		{
+			case 'full':
+				$DateTime	= explode(" ",$DateTime);
+				$Time		= $DateTime[1];
+				$Date		= explode("-",$DateTime[0]);
+				$Day		= $Date[2];
+				$Month		= MonthFormat(intval($Date[1]));
+				$Year		= $Date[0];
+				
+				$DateTime	= $Day." de ".$Month." del ".$Year;
+				return		$Time? $DateTime.", a las ".$Time : $DateTime;
+			break;
+			default:
+				$DateTime	= explode(" ",$DateTime);
+				$Time		= $DateTime[1];
+				$Date		= explode("-",$DateTime[0]);
+				$Day		= $Date[2];
+				$Month		= $Date[1];
+				$Year		= substr($Date[0],2);
+				
+				$DateTime	= $Day."/".$Month."/".$Year;
+				return		$Time? $DateTime."|".$Time."Hs." : $DateTime;
+			break;
+		}
 		
 	}
 	
