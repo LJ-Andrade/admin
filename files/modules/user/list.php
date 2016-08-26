@@ -8,9 +8,9 @@
   
   if($_GET['status'])
   {
-    $Where = "status='".$_GET['status']."'";
+    $Admin->SetWhereCondition("status","=",addslashes($_GET['status']));
   }else{
-    $Where = "status='A'";
+    $Admin->SetWhereCondition("status","=","A");
   }
   
   include('../../includes/inc.top.php');
@@ -19,19 +19,19 @@
   <div class="box">
     <div class="box-body">
       <div class="changeView">
-        <button class="ShowList GridElement btn"><i class="fa fa-list"></i></button>
-        <button class="ShowGrid ListElement btn Hidden"><i class="fa fa-th-large"></i></button>
+        <button class="ShowList GridElement btn Hidden"><i class="fa fa-list"></i></button>
+        <button class="ShowGrid ListElement btn"><i class="fa fa-th-large"></i></button>
       </div>
       <div class="GridView row horizontal-list flex-justify-center GridElement Hidden">
         <ul>
-          <?php echo $Admin->MakeGrid($Where); ?>
+          <?php echo $Admin->MakeGrid(); ?>
         </ul>
       </div><!-- /.horizontal-list -->
 
       <!-- Item List View -->
       <div class="row ListView ListElement">
         <div class="container-fluid">
-          <?php echo $Admin->MakeList($Where); ?>
+          <?php echo $Admin->MakeList(); ?>
         </div><!-- container-fluid -->
       </div><!-- row -->
     </div><!-- /.box-body -->
@@ -39,13 +39,13 @@
   <!-- Help Modal Trigger -->
   <button type="button" class="btn btn-success btnGrey" data-toggle="modal" data-target="#helpModal" ><i class="fa fa-question-circle"></i> Ayuda</button>
   <!-- Help Modal Trigger -->
-<!-- DELETE SELECTED BUTTON -->
-<a href="#">
-  <div class="deleteSelectedAbs Hidden">
-    Eliminar Seleccionados
-  </div>
-</a>
-<!-- DELETE SELECTED BUTTON-->
+  <!-- DELETE SELECTED BUTTON -->
+  <a href="#">
+    <div class="deleteSelectedAbs Hidden">
+      Eliminar Seleccionados
+    </div>
+  </a>
+  <!-- DELETE SELECTED BUTTON-->
 
 <!-- //// HELP MODAL //// -->
 <div id="helpModal" class="modal fade" role="dialog">

@@ -12,6 +12,8 @@ class DataBase
 	var $StreamConnection;
 	var $Error;
 	var $LastQuery;
+	var $Where;
+	
 	public function __construct($UserDB='root', $PasswordDB='root', $DataBase='renovatio', $ServerDB='127.0.0.1',$TypeDB='Mysql'){
 		$this->UserDB 		= $UserDB;
 		$this->PasswordDB	= $PasswordDB;
@@ -256,5 +258,82 @@ class DataBase
 	{
 		return $this->Error;
 	}
+	
+	
+	///////////////////////////////////// Where Handler ////////////////////////////////
+	public function GetWhere()
+	{
+		return $this->Where;
+	}
+	
+	public function SetWhereCondition($Key="",$Operation="=",$Value="",$Connector="AND")
+	{
+		if(isset($Key))
+		{
+			$this->Where .= " ".$Connector." ".$Key." ".$Operation." '".$Value."'";
+			return $this->GetWhere();	
+		}
+	}
+	
+	public function AddWhereString($String="")
+	{
+		$this->Where .= $String;
+		return $this->GetWhere();
+	}
+	
+	// public function SetWhereConditionsGET()
+	// {
+	// 	foreach ($_GET as $Key=>$Value)
+	// 	{
+	// 		$SearchKey = explode('_',$Key);
+	// 		if(strtolower($SearchKey[0])=="search")
+	// 		{
+	// 			if(!empty($Where))
+	// 			{
+	// 				$this->Where .= " AND ";
+	// 			}
+	// 			$this->Where .= $SearchKey[1]." = '".$Value."'";
+	// 		}
+	// 	}
+	// 	return $this->GetWhere();
+	// }
+	
+	// public function SetWhereConditionsPOST()
+	// {
+	// 	foreach ($_POST as $Key=>$Value)
+	// 	{
+	// 		$SearchKey = explode('_',$Key);
+	// 		if(strtolower($SearchKey[0])=="search")
+	// 		{
+	// 			if(!empty($Where))
+	// 			{
+	// 				$this->Where .= " AND ";
+	// 			}
+	// 			$this->Where .= $SearchKey[1]." = '".$Value."'";
+	// 		}
+	// 	}
+	// 	return $this->GetWhere();
+	// }
+	
+	public function SetWhere($Where="")
+	{
+		$this->Where = $Where;
+		return $this->GetWhere();
+	}
+	
+	public function StartConditionBlock()
+	{
+		$this->Where .= " ( ";
+		
+	}
+	
+	public function EndConditionBlock()
+	{
+		$this->Where .= " ) ";
+		
+	}
+	
+	
+	
 }
 ?>

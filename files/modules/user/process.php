@@ -169,6 +169,23 @@ switch(strtolower($_POST['action']))
 		
 		die;
 	break;
+	
+	//////////////////////////////////// SEARCHER & PAGER ////////////////////////////////////////////////////////
+	
+	if($_POST['name'])
+	{
+		$Name = $_POST['name'];
+		$Admin->AddWhereString(" AND (first_name LIKE '%".$Name."%' OR last_name LIKE '%".$Name."%')");	
+	}
+	if($_POST['email']) $Admin->SetWhereCondition("email","LIKE","%".$_POST['email']."%");
+	if($_POST['user']) $Admin->SetWhereCondition("user","LIKE","%".$_POST['user']."%");
+	if($_POST['status']) $Admin->SetWhereCondition("status","=", $_POST['status']);
+	if($_POST['profile']) $Admin->SetWhereCondition("profile","=", $_POST['profile']);
+	if($_POST['group'])
+	{
+		$Admin->AddWhereString(" AND admin_id IN (SELECT admin_id FROM realtion_admin_group WHERE group_id = ".$_POST['group'].")");	
+	}
+	
 
 	//////////////////////////////////// PAGER ////////////////////////////////////////////////////////
 	case 'pager':

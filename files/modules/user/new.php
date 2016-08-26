@@ -30,10 +30,10 @@
                 <?php echo insertElement('text','user','','form-control','placeholder="Usuario" tabindex="1" validateEmpty="El usuario es obligatorio." validateMinLength="3/El usuario debe contener 3 caracteres como m&iacute;nimo." validateFromFile="process.php/El usuario ya existe/action:=validate"'); ?>
               </div>
               <div class="form-group">
-                <?php echo insertElement('password','password','','form-control','placeholder="Nueva Contrase&ntilde;a" validateMinLength="4/La contrase&ntilde;a debe contener 4 caracteres como m&iacute;nimo." tabindex="2"'); ?>
+                <?php echo insertElement('password','password','','form-control','placeholder="Contrase&ntilde;a" validateEmpty="La constrase&ntilde;a es obligatoria." validateMinLength="4/La contrase&ntilde;a debe contener 4 caracteres como m&iacute;nimo." tabindex="2"'); ?>
               </div>
               <div class="form-group">
-                <?php echo insertElement('password','password_confirm','','form-control','placeholder="Confirmar Nueva Contrase&ntilde;a" validateEqualToField="password/Las contrase&ntilde;as deben coincidir." tabindex="3"'); ?>
+                <?php echo insertElement('password','password_confirm','','form-control','placeholder="Confirmar Contrase&ntilde;a" validateEmpty="La confirmaci&oacute;n de constrase&ntilde;a es obligatoria." validateEqualToField="password/Las contrase&ntilde;as deben coincidir." tabindex="3"'); ?>
               </div>
               <div class="form-group">
                 <?php echo insertElement('text','email','','form-control','placeholder="Email" validateEmail="Ingrese un email v&aacute;lido." validateMinLength="4/El email debe contener 4 caracteres como m&iacute;nimo." tabindex="4" validateFromFile="process.php/El email ya existe/action:=validate_email"'); ?>

@@ -17,7 +17,6 @@ class AdminData extends DataBase
 	var $DefaultImgDir = '../../../skin/images/users/default';
 	var $ImgGalDir = '../../../skin/images/users/';
 	var $LastAccess;
-	var $Where 			= "";
 	var $Groups 		= array();
 	var $Parent 		= array();
 	var $Menues 		= array();
@@ -43,19 +42,25 @@ class AdminData extends DataBase
 		$this->LastAccess	= $this->AdminData['last_access']=="0000-00-00 00:00:00"? "Nunca se ha conectado":"&Uacute;ltima conexi&oacute;n:".DateTimeFormat($this->AdminData['last_access']);
 		$ProfileData		= $this->fetchAssoc('admin_profile','*'," profile_id = ".$this->ProfileID);
 		$this->ProfileName	= $ProfileData[0]['title'];
+		
+		$this->SetWhere("customer_id=".$_SESSION['customer_id']);
 	}
 	
-	public function MakeRegs($Mode="List",$Where="",$From=-1, $To=-1)
+	public function MakeRegs($Mode="List",$From=-1, $To=-1)
 	{
-		$Where = $Where? " AND ".$Where : "";
+		//$Where = $Where? " AND ".$Where : "";
+		//$ProfileFilter = $this->ProfileID!=333? " profile_id > ".$this->ProfileID." AND " : "";
+		$Order = "first_name";
 		$Limit = $From>=0 && $To>=0 ? $From.",".$To : "";
-		$ProfileFilter = $this->ProfileID!=333? " profile_id > ".$this->ProfileID." AND " : "";
-		$Rows	= $this->fetchAssoc('admin_user','*',$ProfileFilter."customer_id=".$_SESSION['customer_id'].$Where,"first_name",$Limit); 
+		
+		if($this->ProfileID!=333)
+		{
+			$this->SetWhereCondition("profile_id",">",$this->ProfileID);
+		}
+		$Rows	= $this->fetchAssoc('admin_user','*',$this->GetWhere(),$Order,$Limit); 
 		for($i=0;$i<count($Rows);$i++)
 		{
-			
 			$Row	=	new AdminData($Rows[$i]['admin_id']);
-			
 			$Actions	= 	'<a href="edit.php?id='.$Row->AdminID.'"><button type="button" class="btn btnBlue"><i class="fa fa-pencil"></i></button></a>';
 			
 			if($Row->AdminID!=$_SESSION['admin_id'])
@@ -130,44 +135,15 @@ class AdminData extends DataBase
 		return $Regs;
 	}
 	
-	public function MakeList($Where="",$From=-1, $To=-1)
+	public function MakeList($From=-1, $To=-1)
 	{	
-		return $this->MakeRegs("List",$Where,$From, $To);
+		return $this->MakeRegs("List",$From, $To);
 	}
 	
-	public function MakeGrid($Where="",$From=-1, $To=-1)
+	public function MakeGrid($From=-1, $To=-1)
 	{
-		return $this->MakeRegs("Grid",$Where,$From,$To);
+		return $this->MakeRegs("Grid",$From,$To);
 	}
-
-	// public function MakeListInactive($From=-1, $To=-1,$Where="")
-	// {	
-
-	// 	$Limit = $From>=0 && $To>=0 ? $From.",".$To : "";
-	// 	$AdminRegs	= $this->fetchAssoc('admin_user','*',"status = 'I' AND profile_id > ".$this->ProfileID." ".$Where,"first_name",$Limit); 
-	// 	$AtLeastOne	= false;
-	// 	for($i=0;$i<count($AdminRegs);$i++)
-	// 	{
-	// 		$AdminReg	=	new AdminData($AdminRegs[$i]['admin_id']);
-	// 		$Actions	= 	'<img src="../../../skin/images/body/icons/pencil.png" action="edit" class="actionImg" target="edit.php" id="admin_'.$AdminReg->AdminID.'" />';
-	// 		$Actions	.= 	$AdminRegs[$i]['admin_id']!=$_SESSION['admin_id'] ? '<img src="../../../skin/images/body/icons/cross.png" class="actionImg" action="delete" process="process.abm.php" id="admin_'.$AdminReg->AdminID.'" />': '' ;
-				
-	// 		$Regs	.= '<div class="RegWrapper BlackGray" id="Row'.$AdminReg->AdminID.'">
-	// 						<div class="ImgWrapper Left"><img src="'.$AdminReg->Img.'" /></div>
-	// 						<div class="DataWrapper Left">
-	// 							<div class="BlueCyan">'.$AdminReg->User.'</div>
-	// 							<div>'.$AdminReg->FullName.'</div>
-	// 							<div class="Green">'.$AdminReg->ProfileName.'</div>
-	// 						</div>
-	// 						<div class="InfoWrapper Left">'.$AdminReg->LastAccess.'</div>
-	// 						<div class="ActionsWrapper Right">'.$Actions.'</div>
-	// 						<div class="Clear"></div>
-	// 					</div>';  
-	// 		$AtLeastOne	= true;
- //       } 
- //       if(!$AtLeastOne) $Regs	.= '<div class="RegWrapper DarkRed" id="EmptyRow" style="text-align:center;padding:40px;font-size:20px;">No hay registros.</div>';
-	// 	return $Regs;
-//	}
 
 	public function GetData()
 	{
@@ -328,29 +304,5 @@ class AdminData extends DataBase
 		if(!file_exists($TempDir)) mkdir($TempDir);
 		return $TempDir;
 	}
-
-	// public function CleanTmpImgDir()
-	// {
-	// 	$Images = $this->DefaultImages($this->ImgGalDir());
-	// 	foreach($Imgaes as $Image)
-	// 	{
-	// 		$Img = $this->ImgGalDir().$Image;
-	// 		if(file_exists($Img)) unlink($Img);
-	// 	}
-	// }
-
-	// public function AllImages()
-	// {
-	// 	$Images = array();
-	// 	foreach($this->DefaultImages() as $Image)
-	// 	{
-	// 		$Images[] = $this->DefaultImgDir.'/'.$Image;
-	// 	}
-	// 	foreach ($this->UserImages() as $Image)
-	// 	{
- //       	$Images[] = $this->ImgGalDir().$Image;
- //       }
- //       return $Images;
-	// }
 }
 ?>
