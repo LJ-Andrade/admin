@@ -1,7 +1,7 @@
 
 $(document).ready(function() {
 	if(get['error']=='login' || get['error']=='login#'){
-		notifyError("Para ingresar a esta sección debe estar conectado.");
+		notifyError("Para ingresar a esta secci&oacute;n debe estar conectado.");
 	}
 	if(get['error']=='customer' || get['error']=='customer#'){
 		notifyError("El cliente se encuentra deshabilitado por falta de pago.");
@@ -18,31 +18,27 @@ $(document).ready(function() {
 
 function sumbitLogin(){
 	var rememberuser = $("#rememberuser:checked").val();
-
-	var password 			= $("#password").val();
-	var user					= $("#user").val();
-	var target				= '../main/main.php?msg=logok';
+	var password 		= $("#password").val();
+	var user			= $("#user").val();
+	var target			= '../main/main.php?msg=logok';
 	var errorLogin		= 'Verifique los datos ingresados.';
 	var errorCustomer	= 'El cliente se encuentra deshabilitado por falta de pago.';
-	var values				= 'user='+ user + '&password=' + password + '&rememberuser=' + rememberuser ; //+ '&target=' + target + '&error=' + error;
-	var	process				= "process.login.php";
-	//toggleLoader();
+	var values			= 'user='+ user + '&password=' + password + '&rememberuser=' + rememberuser ;
+	var	process			= "process.login.php";
+	toggleLoader();
 	$.ajax({
 			type: "POST",
 			url: process,
 			data: values,
 			cache: false,
+			async: false,
 			success: function(data){
 				if(!data){
 					document.location = target;
 				}else{
-					//notifyError(error);
-					//$("#ShowError").html(error);
-					//$("#ShowErrorWrapper").fadeIn(1000).delay(5000).fadeOut(1000);//.setTimeout(function() {$("#ShowError").fadeOut();}, 5000);
 					if(data=="4")
 					{
 						notifyError(errorCustomer);
-						console.log(data);
 					}else{
 						notifyError(errorLogin);
 						console.log(data);
@@ -50,7 +46,7 @@ function sumbitLogin(){
 				}
 			}
 	});
-	//toggleLoader();
+	toggleLoader();
 }
 
 $(function(){

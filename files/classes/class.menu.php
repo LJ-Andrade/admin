@@ -78,7 +78,7 @@ class Menu extends DataBase
 						$Active 		= '';
 					}
 			}
-			echo '<li class="'.$ParentClass.$Active.'"><a href="'.$Link.'" data-target="#ddmenu'.$Row['menu_id'].'"><i class="fa '.$Row['icon'].'"></i> <span>'.$Row['title'].'</span>'.$DropDown.'</a>';
+			echo '<li class="'.$ParentClass.$Active.'"><a href="'.$Link.'" data-target="#ddmenu'.$Row['menu_id'].'" class="faa-parent animated-hover"><i class="fa '.$Row['icon'].' faa-tada"></i> <span>'.$Row['title'].'</span>'.$DropDown.'</a>';
 				$this->insertSubMenu($Row['menu_id']);
 			echo '</li>';
 		}
@@ -108,7 +108,7 @@ class Menu extends DataBase
 							$Active 		= '';
 						}
 				}
-				echo '<li class="'.$Active.'"><a href="'.$Link.'" data-target="#ddmenu'.$Row['menu_id'].'"><i class="fa '.$Row['icon'].'"></i> '.$Row['title'].$DropDown.'</a>';
+				echo '<li class="'.$Active.'"><a href="'.$Link.'" data-target="#ddmenu'.$Row['menu_id'].'" class="faa-parent animated-hover"><i class="fa '.$Row['icon'].' faa-tada"></i> '.$Row['title'].$DropDown.'</a>';
 					$this->insertSubMenu($Row['menu_id']);
 				echo '</li>';
 			}

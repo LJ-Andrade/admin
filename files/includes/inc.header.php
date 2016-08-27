@@ -19,7 +19,7 @@
         <!-- Notifications: style can be found in dropdown.less -->
         <li class="dropdown notifications-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <i class="fa fa-bell-o"></i>
+            <i class="fa fa-bell faa-ring animated"></i>
             <span class="label label-danger">10</span>
           </a>
           <ul class="dropdown-menu">
