@@ -222,10 +222,13 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
   padding: 10px
   margin: 5px 0
   position: relative
-  @include transition(0.3s)
+  @include transition(0.1s)
   &:hover
-    background-color: rgb(214, 214, 214)
+    background-color: rgb(152, 152, 152)
+    color: #fff
     cursor: pointer
+    span.smallDetails
+      color: #fff !important
   .listRowInner
     .itemRowtitle
       font-size: 14px
@@ -240,9 +243,12 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
   background-color: #e7e7e7
 
 .listRowSelected
-  background-color: rgba(228, 228, 228, 1)
+  background-color: #a3ccb1
   border: 1px solid rgb(185, 185, 185)
   border-left: 5px solid green
+  color: #fff
+  span.smallDetails
+    color: #fff !important
   @include box-shadowSoft
   .listRowInner
     .smallDetails
@@ -476,121 +482,112 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
     span
       color: #fff
 
-/////////// Color Picker ////////////
 
-.colorPickerMain
-  padding: 0
-  padding-left: 20px
+//////////////////////////////////////
+//                                  //
+//         COLOR PICKER             //
+//                                  //
+//////////////////////////////////////
+
+.colorPickerContainer
+  display: -webkit-box
+  display: -ms-flexbox
+  display: flex
+  -webkit-box-align: center
+  -ms-flex-align: center
+  -ms-grid-row-align: center
+  align-items: center
+  -webkit-box-pack: center
+  -ms-flex-pack: center
+  justify-content: center
+  position: relative
+
+
+.colorPicker
+  padding: 20px
+  max-width: 500px
   ul
-    padding: 0
+    border: 1px solid red
+    padding-left: 0
+    border: 0
     li
-      display: inline-block
-      list-style: none
       position: relative
-
-  h5
-    text-align: center
-  .input-group .input-group-addon
-    background-color: rgb(240, 240, 240)
-    border: 1px solid rgb(93, 93, 93)
-    border-radius: 5px
-    i
-      height: 30px
-      width: 30px
-  .colorpicker
-    min-width: 0px
-  .colorpicker::before
-    position: absolute
-    top: -7px
-    left: 6px
-    display: inline-block
-    border-right: 7px solid transparent
-    border-bottom: 0 !important
-    border-left: 0px !important
-    border-bottom-color: rgba(0,0,0,0.2)
-    content: ''
-  .input-group-addon
-    padding: 0
-
-.colorPickerML
-  ul li
-    margin-right: 15px
-    border: $lightLine
-    padding: 5px
-
-.colorPickerCatalogue
-  margin-bottom: 15px
-  padding: 0 15px
-  ul li
-    margin-right: 10px
-    .deleteColor,.favouriteColor
-      position: absolute
-      z-index: 9999
-      top: -5px
-      border-radius: 100%
-      span
-        padding: 2px
-        width: 24px
-        height: 25px
-        color: #fff
-    span
-      display: none
-      transition: all 0.3s ease 0s
-    .deleteColor
-      background-color: #9f5c5c
-      right: -8px
-      span
-        padding-left: 7px
-    .favouriteColor
-      background-color: #4cad6d
-      left: -8px
-      span
-        padding-left: 5px
-    &:hover
-      span
-        display: block
+      border: 1px solid rgb(217, 217, 217)
+      margin: 0
+      margin-left: 1px
+      margin-right: 0px
+      background-color: rgb(172, 72, 116)
+      list-style: none
+      display: inline-block
+      width: 25px
+      height: 25px
+      &:hover
         cursor: pointer
-  .activeColors
-    border: $lightLine
-    padding: 5px 10px
-  .favouriteColors
-    border: $lightLine
-    padding: 5px 10px
-    margin-top: 5px
+    .cpIcon
+      position: absolute
+      padding-top: 3px
+      padding-left: 3px
+      color: #fff
+      .fa
+        font-size: 16px
+        display: none
+        @include txShadow
+    li.liSelected
+      border: 1px solid rgb(0, 0, 0)
+    .cpSelected
+      .fa
+        display: block
+  .cpBoxLibrary
+    // float: left
+  .cpBoxSelected
     position: relative
-  .useFavColorUp
-    position: absolute
-    background-color: #fff
-    border-top: 2px solid #fff
-    border-bottom: $lightLine
-    border-left: $lightLine
-    border-right: $lightLine
-    padding: 5px 15px
-    left: 45%
-    top: -1px
-    .fa
-      font-size: 20px
-  .addNewColor
-    img
-      margin-top: -30px
-      transition: all 0.3s ease 0s
-      width: 30px
-    &:hover
-      cursor: pointer
-      img
-        width: 35px
-  @media (max-width: 765px)
-    .useFavColor
+    width: 150px
+    height: 90px
+    margin-bottom: 15px
+    background-color: rgb(246, 246, 246)
+    @include flexColumn
+    .cpBoxSelectedItem
+      @include box-shadowSoft
+      width: 40px
+      height: 40px
+      background-color: rgb(189, 85, 85)
+      border-radius: 100%
+    .cpBoxSelectedItemOk
+      background-color: rgb(33, 84, 89)
+    .closeColorPicker
+      position: absolute
+      right: -20px
+      top: 0
+      background-color: #f6f6f6
+      padding: 2px 6px
+      &:hover
+        cursor: pointer
+.colorPickerBtn
+  text-align: center
 
-  @media (max-width: 765px)
-  .class
-////////// Loader ///////////
+
+
+@media (max-width: 991px)
+  .colorPicker
+    padding: 0
+    @include flexColumn
+    .cpBoxSelected
+      width: 95%
+
+
+
+
+//////////////////////////////////////
+//                                  //
+//              LOADER              //
+//                                  //
+//////////////////////////////////////
 .loader
   background: rgba(0, 0, 0, 0.83)
   width: 100%
   height: 100%
-  min-height: 100%
-  position: absolute
+  max-height: 100%
+  position: fixed
   top: 0
   left: 0
   z-index: 10000
@@ -608,3 +605,6 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
   -webkit-box-direction: normal
   -ms-flex-direction: column
   flex-direction: column
+  img.loaderLogo
+    width: 250px
+    max-width: 100%

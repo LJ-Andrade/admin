@@ -26,7 +26,7 @@
      <p>Esto es una prueba</p>
    </div>
 
-   <button id="activateLoader" type="button" class="btn btnBlue animated fadeIn">Activate Loader</button>
+   <button id="activateLoader" type="button" onclick="toggleLoader()" class="btn btnBlue animated fadeIn">Activate Loader</button>
    <br><br>
 
   <?php if($_SESSION['meli']){ ?>
@@ -46,7 +46,7 @@
     </pre>
    </div>
    <div class="box-footer">
-     Ah re loco!
+     Ah re loco! 
    </div>
  </div>
  <?php }else{ ?>

@@ -195,26 +195,64 @@ $("[name='status']").bootstrapSwitch();
 
 /////////////// Select Colors ////////////////////////////////
 
-function ColorSelection()
-{  // Select Color Inside Modal
-  $('.ColorSelectModal').click(function(){
-    $(this).toggleClass('colorSelectedModal');
-  });
-  // Select Color Outside Modal
-  $('.ColorSelect').click(function(){
-    $(this).toggleClass('circleAddItemSelected');
-  });
-};
-ColorSelection();
+// function ColorSelection()
+// {  // Select Color Inside Modal
+//   $('.ColorSelectModal').click(function(){
+//     $(this).toggleClass('colorSelectedModal');
+//   });
+//   // Select Color Outside Modal
+//   $('.ColorSelect').click(function(){
+//     $(this).toggleClass('circleAddItemSelected');
+//   });
+// };
+// ColorSelection();
+//
+// $(document).ready(function() {
+//   $('#init').on('click', function() {
+//     $('select[name="colorpicker-picker-longlist"]').simplecolorpicker({picker: true, theme: 'glyphicons'});
+//   });
+//
+//   // By default, activate simplecolorpicker plugin on HTML selects
+//   $('#init').trigger('click');
+// });
 
-$(document).ready(function() {
-  $('#init').on('click', function() {
-    $('select[name="colorpicker-picker-longlist"]').simplecolorpicker({picker: true, theme: 'glyphicons'});
-  });
 
-  // By default, activate simplecolorpicker plugin on HTML selects
-  $('#init').trigger('click');
+///////////// Color picker ///////////////////
+
+//Select Primary Color
+$('#cpLibrary1 ul li').click(function(){
+  $('#cpLibrary1 ul li').removeClass('cpSelected liSelected');
+  $(this).toggleClass('cpSelected liSelected');
 });
+
+// Select Secondary Color
+$('#cpLibrary2 ul li').click(function(){
+  $('#cpLibrary2 ul li').removeClass('cpSelected liSelected');
+  $(this).toggleClass('cpSelected liSelected');
+});
+
+// Show Selected Primary Color
+$('#cpLibrary1 ul li').click(function(){
+  var colorPC = $(this).data('hex');
+  $('#selectedColor1').css("background-color", colorPC);
+});
+
+// Show Selectes Secondary Color
+$('#cpLibrary2 ul li').click(function(){
+  var colorPC = $(this).data('hex');
+  $('#selectedColor2').css("background-color", colorPC);
+});
+
+$('.ShowCP2').click(function(){
+  $(this).addClass('Hidden');
+  $('.ColorPicker2').removeClass('Hidden');
+});
+
+$('.CloseColorPicker').click(function(){
+  $('.ColorPicker2').addClass('Hidden');
+  $('.ShowCP2').removeClass('Hidden');
+});
+
 
 
 //////////////////// Character Counter ///////////////////////////

@@ -768,9 +768,9 @@ function toggleRow(element)
     element.toggleClass('listRowSelected');
     var actions = element.children('.listActions');
     actions.toggleClass('Hidden');
-    
+
     showDeleteButton();
-    
+
     //Toggle grid
     var id = element.attr("id").split("_");
     var grid = $("#grid_"+id[1]);
@@ -782,7 +782,7 @@ function toggleGrid(element)
     element.toggleClass('SelectedGrid');
     element.children('div').children('div').children('div').toggleClass('imgSelectorClicked');
     element.children('div').children('div').children('div').children('div').children('a').children('button').each(function(){
-        $(this).toggleClass('Hidden'); 
+        $(this).toggleClass('Hidden');
     });
 }
 
@@ -809,7 +809,7 @@ function checkDeleteRestrictions()
 $(".ShowGrid,.ShowList").click(function(){
      $(".GridElement").toggleClass("Hidden");
      $(".ListElement").toggleClass("Hidden");
-     
+
 });
 
 function deleteElement(element)
@@ -821,7 +821,7 @@ function deleteElement(element)
 	var process 	= element.attr('process');
 	var string      = 'id='+ id + '&action=delete';
 	var result;
-	
+
     $.ajax({
         type: "POST",
         url: process,
@@ -853,6 +853,14 @@ function toggleLoader()
 {
   $('.loader').toggleClass('Hidden');
 }
+  //check this
+  if ($('.loader').hasClass('Hidden')) {
+
+  }
+  else {
+    // This prevent scroll on loader
+    $('html, body').css({ 'overflow': 'hidden', 'height': '100%' })
+  }
 
 //////////////////////////////// CANCEL BUTTON /////////////////////////////////
 $(function(){

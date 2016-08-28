@@ -22,6 +22,30 @@
   -moz-border-radius: $radio
   border-radius: $radio
 
+// Text Shadows
+@mixin txShadow()
+  text-shadow: 1px 0px 2px #969696
+
+
+// Transitions
 @mixin transition($segs)
   -webkit-transition: all $segs ease 0s
   transition: all $segs ease 0s
+
+
+// Flexbox
+@mixin flexColumn
+  display: -webkit-box
+  display: -ms-flexbox
+  display: flex
+  -webkit-box-align: center
+  -ms-flex-align: center
+  -ms-grid-row-align: center
+  align-items: center
+  -webkit-box-pack: center
+  -ms-flex-pack: center
+  justify-content: center
+  -webkit-box-orient: vertical
+  -webkit-box-direction: normal
+  -ms-flex-direction: column
+  flex-direction: column

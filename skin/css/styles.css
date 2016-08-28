@@ -203,11 +203,14 @@
   padding: 10px;
   margin: 5px 0;
   position: relative;
-  -webkit-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s; }
+  -webkit-transition: all 0.1s ease 0s;
+  transition: all 0.1s ease 0s; }
   .listRow:hover {
-    background-color: #d6d6d6;
+    background-color: #989898;
+    color: #fff;
     cursor: pointer; }
+    .listRow:hover span.smallDetails {
+      color: #fff !important; }
   .listRow .listRowInner .itemRowtitle {
     font-size: 14px; }
   .listRow .listActions {
@@ -221,12 +224,15 @@
   background-color: #e7e7e7; }
 
 .listRowSelected {
-  background-color: #e4e4e4;
+  background-color: #a3ccb1;
   border: 1px solid #b9b9b9;
   border-left: 5px solid green;
+  color: #fff;
   -webkit-box-shadow: 1px 3px 5px -5px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 1px 3px 5px -5px rgba(0, 0, 0, 0.75);
   box-shadow: 1px 3px 5px -5px rgba(0, 0, 0, 0.75); }
+  .listRowSelected span.smallDetails {
+    color: #fff !important; }
   .listRowSelected .listRowInner .smallDetails {
     color: #000; }
 
@@ -443,110 +449,119 @@
     .textWithCounter .indicator.full span {
       color: #fff; }
 
-.colorPickerMain {
-  padding: 0;
-  padding-left: 20px; }
-  .colorPickerMain ul {
-    padding: 0; }
-    .colorPickerMain ul li {
-      display: inline-block;
+.colorPickerContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -ms-grid-row-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative; }
+
+.colorPicker {
+  padding: 20px;
+  max-width: 500px; }
+  .colorPicker ul {
+    border: 1px solid red;
+    padding-left: 0;
+    border: 0; }
+    .colorPicker ul li {
+      position: relative;
+      border: 1px solid #d9d9d9;
+      margin: 0;
+      margin-left: 1px;
+      margin-right: 0px;
+      background-color: #ac4874;
       list-style: none;
-      position: relative; }
-  .colorPickerMain h5 {
-    text-align: center; }
-  .colorPickerMain .input-group .input-group-addon {
-    background-color: #f0f0f0;
-    border: 1px solid #5d5d5d;
-    border-radius: 5px; }
-    .colorPickerMain .input-group .input-group-addon i {
-      height: 30px;
-      width: 30px; }
-  .colorPickerMain .colorpicker {
-    min-width: 0px; }
-  .colorPickerMain .colorpicker::before {
-    position: absolute;
-    top: -7px;
-    left: 6px;
-    display: inline-block;
-    border-right: 7px solid transparent;
-    border-bottom: 0 !important;
-    border-left: 0px !important;
-    border-bottom-color: rgba(0, 0, 0, 0.2);
-    content: ""; }
-  .colorPickerMain .input-group-addon {
-    padding: 0; }
-
-.colorPickerML ul li {
-  margin-right: 15px;
-  border: 1px solid rgba(228, 228, 228, 0.8);
-  padding: 5px; }
-
-.colorPickerCatalogue {
-  margin-bottom: 15px;
-  padding: 0 15px; }
-  .colorPickerCatalogue ul li {
-    margin-right: 10px; }
-    .colorPickerCatalogue ul li .deleteColor, .colorPickerCatalogue ul li .favouriteColor {
+      display: inline-block;
+      width: 25px;
+      height: 25px; }
+      .colorPicker ul li:hover {
+        cursor: pointer; }
+    .colorPicker ul .cpIcon {
       position: absolute;
-      z-index: 9999;
-      top: -5px;
+      padding-top: 3px;
+      padding-left: 3px;
+      color: #fff; }
+      .colorPicker ul .cpIcon .fa {
+        font-size: 16px;
+        display: none;
+        text-shadow: 1px 0px 2px #969696; }
+    .colorPicker ul li.liSelected {
+      border: 1px solid black; }
+    .colorPicker ul .cpSelected .fa {
+      display: block; }
+  .colorPicker .cpBoxSelected {
+    position: relative;
+    width: 150px;
+    height: 90px;
+    margin-bottom: 15px;
+    background-color: #f6f6f6;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -ms-grid-row-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+    .colorPicker .cpBoxSelected .cpBoxSelectedItem {
+      -webkit-box-shadow: 1px 3px 5px -5px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 1px 3px 5px -5px rgba(0, 0, 0, 0.75);
+      box-shadow: 1px 3px 5px -5px rgba(0, 0, 0, 0.75);
+      width: 40px;
+      height: 40px;
+      background-color: #bd5555;
       border-radius: 100%; }
-      .colorPickerCatalogue ul li .deleteColor span, .colorPickerCatalogue ul li .favouriteColor span {
-        padding: 2px;
-        width: 24px;
-        height: 25px;
-        color: #fff; }
-    .colorPickerCatalogue ul li span {
-      display: none;
-      transition: all 0.3s ease 0s; }
-    .colorPickerCatalogue ul li .deleteColor {
-      background-color: #9f5c5c;
-      right: -8px; }
-      .colorPickerCatalogue ul li .deleteColor span {
-        padding-left: 7px; }
-    .colorPickerCatalogue ul li .favouriteColor {
-      background-color: #4cad6d;
-      left: -8px; }
-      .colorPickerCatalogue ul li .favouriteColor span {
-        padding-left: 5px; }
-    .colorPickerCatalogue ul li:hover span {
-      display: block;
-      cursor: pointer; }
-  .colorPickerCatalogue .activeColors {
-    border: 1px solid rgba(228, 228, 228, 0.8);
-    padding: 5px 10px; }
-  .colorPickerCatalogue .favouriteColors {
-    border: 1px solid rgba(228, 228, 228, 0.8);
-    padding: 5px 10px;
-    margin-top: 5px;
-    position: relative; }
-  .colorPickerCatalogue .useFavColorUp {
-    position: absolute;
-    background-color: #fff;
-    border-top: 2px solid #fff;
-    border-bottom: 1px solid rgba(228, 228, 228, 0.8);
-    border-left: 1px solid rgba(228, 228, 228, 0.8);
-    border-right: 1px solid rgba(228, 228, 228, 0.8);
-    padding: 5px 15px;
-    left: 45%;
-    top: -1px; }
-    .colorPickerCatalogue .useFavColorUp .fa {
-      font-size: 20px; }
-  .colorPickerCatalogue .addNewColor img {
-    margin-top: -30px;
-    transition: all 0.3s ease 0s;
-    width: 30px; }
-  .colorPickerCatalogue .addNewColor:hover {
-    cursor: pointer; }
-    .colorPickerCatalogue .addNewColor:hover img {
-      width: 35px; }
+    .colorPicker .cpBoxSelected .cpBoxSelectedItemOk {
+      background-color: #215459; }
+    .colorPicker .cpBoxSelected .closeColorPicker {
+      position: absolute;
+      right: -20px;
+      top: 0;
+      background-color: #f6f6f6;
+      padding: 2px 6px; }
+      .colorPicker .cpBoxSelected .closeColorPicker:hover {
+        cursor: pointer; }
 
+.colorPickerBtn {
+  text-align: center; }
+
+@media (max-width: 991px) {
+  .colorPicker {
+    padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -ms-grid-row-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+    .colorPicker .cpBoxSelected {
+      width: 95%; } }
 .loader {
   background: rgba(0, 0, 0, 0.83);
   width: 100%;
   height: 100%;
-  min-height: 100%;
-  position: absolute;
+  max-height: 100%;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 10000;
@@ -564,6 +579,9 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column; }
+  .loader img.loaderLogo {
+    width: 250px;
+    max-width: 100%; }
 
 .Hidden {
   display: none !important;
@@ -603,6 +621,9 @@
 @media (max-width: 990px) {
   .innerContainer {
     margin: 10px 0; } }
+.contentContainer {
+  margin-top: 35px; }
+
 .subTitleB {
   padding-bottom: 5px;
   background-color: rgba(240, 240, 240, 0.18);

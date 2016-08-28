@@ -5,14 +5,14 @@
   $Head->setIcon($Menu->GetHTMLicon());
   $Head->setSubTitle("Listado de Usuarios");
   $Head->setHead();
-  
+
   if($_GET['status'])
   {
     $Admin->SetWhereCondition("status","=",addslashes($_GET['status']));
   }else{
     $Admin->SetWhereCondition("status","=","A");
   }
-  
+
   include('../../includes/inc.top.php');
   include('../../includes/inc.modals.php');
  ?>
@@ -22,18 +22,19 @@
         <button class="ShowList GridElement btn Hidden"><i class="fa fa-list"></i></button>
         <button class="ShowGrid ListElement btn"><i class="fa fa-th-large"></i></button>
       </div>
-      <div class="GridView row horizontal-list flex-justify-center GridElement Hidden">
-        <ul>
-          <?php echo $Admin->MakeGrid(); ?>
-        </ul>
-      </div><!-- /.horizontal-list -->
-
-      <!-- Item List View -->
-      <div class="row ListView ListElement">
-        <div class="container-fluid">
-          <?php echo $Admin->MakeList(); ?>
-        </div><!-- container-fluid -->
-      </div><!-- row -->
+      <div class="contentContainer"><!-- List Container -->
+        <div class="GridView row horizontal-list flex-justify-center GridElement Hidden animated fadeIn">
+          <ul>
+            <?php echo $Admin->MakeGrid(); ?>
+          </ul>
+        </div><!-- /.horizontal-list -->
+        <!-- Item List View -->
+        <div class="row ListView ListElement animated fadeIn">
+          <div class="container-fluid">
+            <?php echo $Admin->MakeList(); ?>
+          </div><!-- container-fluid -->
+        </div><!-- row -->
+      </div><!-- /Content Container -->
     </div><!-- /.box-body -->
   </div><!-- /.box -->
   <!-- Help Modal Trigger -->

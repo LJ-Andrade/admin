@@ -22,7 +22,7 @@
     </div><!-- /.box-header -->
     <div class="box-body">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-lg-6 col-md-12">
           <div class="flex-allCenter innerContainer">
             <div class="mw100">
               <h4 class="subTitleB"><i class="fa fa-tag"></i> Datos Principales</h4>
@@ -50,7 +50,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-lg-6 col-md-12">
           <div class="innerContainer">
             <h4 class="subTitleB"><i class="fa fa-tag"></i> Talles</h4>
             <div class="flex-allCenter form-group boxed-horiz-list">
@@ -69,107 +69,105 @@
           <div class="innerContainer">
             <h4 class="subTitleB"><i class="fa fa-tag"></i> Colores</h4>
             <!-- Color Picker -->
-            <div class="form-group">
-              <div class="row colorPickerMain colorPickerCatalogue">
-                <div class="col-md-12">
-                  <div class="activeColors">
-                    <h4>Colores del Producto</h4>
-                    <ul>
-                      <!-- Active Color Item -->
-                      <li>
-                        <div class="deleteColor animated fadeIn"><span class=""><i class="fa fa-trash"></i></span></div>
-                        <div class="input-group colorpicker colorpicker-element">
-                          <div class="input-group-addon">
-                            <i></i>
-                          </div>
-                        </div>
-                      </li>
-                      <!-- /Active Color Item -->
-                      <!-- Active Color Item -->
-                      <li>
-                        <div class="deleteColor animated fadeIn"><span class=""><i class="fa fa-trash"></i></span></div>
-                        <div class="input-group colorpicker colorpicker-element">
-                          <div class="input-group-addon">
-                            <i></i>
-                          </div>
-                        </div>
-                      </li>
-                      <!-- /Active Color Item -->
-                      <!-- Color Palette Icon-->
-                      <li>
-                        <div class="addNewColor">
-                          <img src="../../../skin/images/body/icons/colorpicker.png" alt="" />
-                        </div>
-                      </li>
-                      <!-- /Color Palette Icon-->
-                    </ul>
-                  </div><!-- activeColors -->
-                </div><!-- col-md-12 -->
-                <div class="col-md-12">
-                  <div class="favouriteColors">
-                    <div class="useFavColorUp"><i class="fa fa-arrow-circle-o-up"></i></div>
-                    <h4>Colores Favoritos</h4>
-                    <ul>
-                      <!-- Favourite Color -->
-                      <li>
-                        <div class="favouriteColor animated fadeIn"><span class=""><i class="fa fa-arrow-up"></i></span></div>
-                        <div class="deleteColor animated fadeIn"><span class=""><i class="fa fa-trash"></i></span></div>
-                        <div class="input-group colorpicker colorpicker-element">
-                          <div class="input-group-addon">
-                            <i></i>
-                          </div>
-                        </div>
-                      </li>
-                      <!-- Favourite Color -->
-                      <!-- /Favourite Color -->
-                      <li>
-                        <div class="favouriteColor animated fadeIn"><span class=""><i class="fa fa-arrow-up"></i></span></div>
-                        <div class="deleteColor animated fadeIn"><span class=""><i class="fa fa-trash"></i></span></div>
-                        <div class="input-group colorpicker colorpicker-element">
-                          <div class="input-group-addon">
-                            <i></i>
-                          </div>
-                        </div>
-                      </li>
-                      <!-- /Favourite Color -->
-                      <!-- Color Palette Icon-->
-                      <li>
-                        <div class="addNewColor">
-                          <img src="../../../skin/images/body/icons/colorpicker.png" alt="" />
-                        </div>
-                      </li>
-                      <!-- /Color Palette Icon-->
-                    </ul>
-                  </div><!-- favouriteColors -->
-                </div><!-- col-md-12 -->
-              </div><!-- colorPickerCatalogue -->
-              <hr>
-              <div class="colorPickerMain colorPickerML">
-                <h4>Para Mercado Libre</h4>
-                <ul>
-                  <!-- Active Color ML -->
-                  <li>
-                    <p>Color Principal</p>
-                    <div class="input-group colorpicker colorpicker-element">
-                      <div class="input-group-addon">
-                        <i></i>
-                      </div>
-                    </div>
-                  </li>
-                  <!-- /Active Color ML -->
-                  <!-- Active Color ML -->
-                  <li>
-                    <p>Color Secundario</p>
-                    <div class="input-group colorpicker colorpicker-element">
-                      <div class="input-group-addon">
-                        <i></i>
-                      </div>
-                    </div>
-                  </li>
-                  <!-- /Active Color ML -->
-                </ul>
-              </div><!-- colorPickerMain -->
-            </div><!-- form-group -->
+            <div class="ColorPicker1 colorPickerContainer">
+              <div class="row colorPicker">
+                <div id="cpLibrary1" class="col-md-8 col-sm-12 col-xs-12 cpBoxLibrary">
+                  <ul class="">
+                    <li style="background-color: #000000" data-hex="#000000"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #666666" data-hex="#666666"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #990000" data-hex="#990000"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #FF0000" data-hex="#FF0000"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #B45F06" data-hex="#B45F06"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #E06666" data-hex="#E06666"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #38761D" data-hex="#38761D"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #0C9800" data-hex="#0C9800"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #BF9000" data-hex="#BF9000"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #FF9900" data-hex="#FF9900"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #93C47D" data-hex="#93C47D"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #F6B26B" data-hex="#F6B26B"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #FFD966" data-hex="#FFD966"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #741B47" data-hex="#741B47"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #134F5C" data-hex="#134F5C"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #0B5394" data-hex="#0B5394"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #1717FF" data-hex="#1717FF"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #7600FF" data-hex="#7600FF"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #E828FF" data-hex="#E828FF"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #8E7CC3" data-hex="#8E7CC3"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #C27BA0" data-hex="#C27BA0"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #76A5AF" data-hex="#76A5AF"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #6FA8DC" data-hex="#6FA8DC"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #83DDFF" data-hex="#83DDFF"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #D9D2E9" data-hex="#D9D2E9"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #EAD1DC" data-hex="#EAD1DC"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #CFE2F3" data-hex="#CFE2F3"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #CCCCCC" data-hex="#CCCCCC"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #FFFF00" data-hex="#FFFF00"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #F4CCCC" data-hex="#F4CCCC"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #FCE5CD" data-hex="#FCE5CD"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #FFF2CC" data-hex="#FFF2CC"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #D0E0E3" data-hex="#D0E0E3"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #D9EAD3" data-hex="#D9EAD3"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #FFFFFF" data-hex="#FFFFFF"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                  </ul>
+                </div>
+                <div class="col-md-4 col-sm-12 col-xs-12 cpBoxSelected">
+                  Color Primario
+                  <div id="selectedColor1" class="cpBoxSelectedItem"></div>
+                </div>
+              </div>
+            </div><!-- /ColorPicker -->
+            <div class="colorPickerBtn txC">
+              <button type="button" class="ShowCP2 btn btnGreen animated fadeIn">Combinar con otro color</button>
+            </div>
+            <!-- Color Picker -->
+            <div class="ColorPicker2 Hidden colorPickerContainer animated fadeIn">
+              <div class="row colorPicker">
+                <div id="cpLibrary2" class="col-md-8 col-sm-12 col-xs-12 cpBoxLibrary">
+                  <ul class="">
+                    <li style="background-color: #000000" data-hex="#000000"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #666666" data-hex="#666666"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #990000" data-hex="#990000"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #FF0000" data-hex="#FF0000"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #B45F06" data-hex="#B45F06"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #E06666" data-hex="#E06666"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #38761D" data-hex="#38761D"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #0C9800" data-hex="#0C9800"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #BF9000" data-hex="#BF9000"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #FF9900" data-hex="#FF9900"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #93C47D" data-hex="#93C47D"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #F6B26B" data-hex="#F6B26B"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #FFD966" data-hex="#FFD966"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #741B47" data-hex="#741B47"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #134F5C" data-hex="#134F5C"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #0B5394" data-hex="#0B5394"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #1717FF" data-hex="#1717FF"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #7600FF" data-hex="#7600FF"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #E828FF" data-hex="#E828FF"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #8E7CC3" data-hex="#8E7CC3"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #C27BA0" data-hex="#C27BA0"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #76A5AF" data-hex="#76A5AF"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #6FA8DC" data-hex="#6FA8DC"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #83DDFF" data-hex="#83DDFF"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #D9D2E9" data-hex="#D9D2E9"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #EAD1DC" data-hex="#EAD1DC"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #CFE2F3" data-hex="#CFE2F3"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #CCCCCC" data-hex="#CCCCCC"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #FFFF00" data-hex="#FFFF00"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #F4CCCC" data-hex="#F4CCCC"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #FCE5CD" data-hex="#FCE5CD"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #FFF2CC" data-hex="#FFF2CC"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #D0E0E3" data-hex="#D0E0E3"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #D9EAD3" data-hex="#D9EAD3"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #FFFFFF" data-hex="#FFFFFF"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                  </ul>
+                </div>
+                <div class="col-md-4 col-sm-12 col-xs-12 cpBoxSelected">
+                  Color Secundario
+                  <div id="selectedColor2" class="cpBoxSelectedItem"></div>
+                    <div class="CloseColorPicker closeColorPicker"><i class="fa fa-times"></i></div>
+                </div>
+              </div>
+            </div><!-- /ColorPicker -->
           </div><!-- inner-container -->
         </div><!-- col-md-6 -->
       </div><!-- row -->
