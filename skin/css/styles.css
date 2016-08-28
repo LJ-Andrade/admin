@@ -537,6 +537,10 @@
 .colorPickerBtn {
   text-align: center; }
 
+@media (max-width: 1296px) and (min-width: 1197px) {
+  .cpBoxLibrary {
+    padding: 0;
+    max-width: 250px; } }
 @media (max-width: 991px) {
   .colorPicker {
     padding: 0;
