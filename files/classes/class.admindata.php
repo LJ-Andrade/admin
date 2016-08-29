@@ -39,7 +39,7 @@ class AdminData extends DataBase
 		$this->Img			= file_exists($this->AdminData['img'])? $this->AdminData['img'] : $this->DefaultImg;
 		$this->FullName		= $this->FirstName." ".$this->LastName;
 		$this->FullUserName	= $this->FirstName." ".$this->LastName." (".$this->User.")";
-		$this->LastAccess	= $this->AdminData['last_access']=="0000-00-00 00:00:00"? "Nunca se ha conectado":"&Uacute;ltima conexi&oacute;n:".DateTimeFormat($this->AdminData['last_access']);
+		$this->LastAccess	= $this->AdminData['last_access']=="0000-00-00 00:00:00"? "Nunca se ha conectado":"&Uacute;ltima conexi&oacute;n: ".DateTimeFormat($this->AdminData['last_access']);
 		$ProfileData		= $this->fetchAssoc('admin_profile','*'," profile_id = ".$this->ProfileID);
 		$this->ProfileName	= $ProfileData[0]['title'];
 		

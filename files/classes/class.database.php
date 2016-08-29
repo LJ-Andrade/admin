@@ -281,40 +281,6 @@ class DataBase
 		return $this->GetWhere();
 	}
 	
-	// public function SetWhereConditionsGET()
-	// {
-	// 	foreach ($_GET as $Key=>$Value)
-	// 	{
-	// 		$SearchKey = explode('_',$Key);
-	// 		if(strtolower($SearchKey[0])=="search")
-	// 		{
-	// 			if(!empty($Where))
-	// 			{
-	// 				$this->Where .= " AND ";
-	// 			}
-	// 			$this->Where .= $SearchKey[1]." = '".$Value."'";
-	// 		}
-	// 	}
-	// 	return $this->GetWhere();
-	// }
-	
-	// public function SetWhereConditionsPOST()
-	// {
-	// 	foreach ($_POST as $Key=>$Value)
-	// 	{
-	// 		$SearchKey = explode('_',$Key);
-	// 		if(strtolower($SearchKey[0])=="search")
-	// 		{
-	// 			if(!empty($Where))
-	// 			{
-	// 				$this->Where .= " AND ";
-	// 			}
-	// 			$this->Where .= $SearchKey[1]." = '".$Value."'";
-	// 		}
-	// 	}
-	// 	return $this->GetWhere();
-	// }
-	
 	public function SetWhere($Where="")
 	{
 		$this->Where = $Where;

@@ -163,10 +163,8 @@ switch(strtolower($_POST['action']))
 	case 'fillgroups':
 		$Profile 	= $_POST['profile'];
 		$Admin 		= $_POST['admin'];
-		
         $Groups 	= new GroupData();
         echo $Groups->GetGroups($Profile,$Admin);
-		
 		die;
 	break;
 	
