@@ -852,15 +852,13 @@ $('.activateLoader').click(function(){
 function toggleLoader()
 {
   $('.loader').toggleClass('Hidden');
+    if (!$('.loader').hasClass('Hidden')) {
+      // This prevent scroll on loader
+      $('html').css({ 'overflow': 'hidden', 'height': '100%' });
+    } else {
+      $('html').css({ 'overflow-Y': 'scroll', 'height': '100%' });
+    }
 }
-  //check this
-  if ($('.loader').hasClass('Hidden')) {
-
-  }
-  else {
-    // This prevent scroll on loader
-    $('html, body').css({ 'overflow': 'hidden', 'height': '100%' })
-  }
 
 //////////////////////////////// CANCEL BUTTON /////////////////////////////////
 $(function(){

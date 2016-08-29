@@ -7,8 +7,6 @@
     $Head->setStyle('../../../vendors/select2/select2.min.css'); // Select Inputs With Tags
     $Head->setHead();
     include('../../includes/inc.top.php');
-
-
 ?>
   <?php echo insertElement("hidden","action",'insert'); ?>
   <?php echo insertElement("hidden","menues",""); ?>
