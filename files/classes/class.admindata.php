@@ -22,15 +22,15 @@ class AdminData extends DataBase
 	var $Menues 		= array();
 	var $DefaultImages 	= array();
 	var $UserImages 	= array();
-	
+
 	public function __construct($AdminID='')
 	{
 		$this->Connect();
 		$this->AdminID 		= $AdminID==''? $_SESSION['admin_id'] : $AdminID;
-		
+
 		$this->AdminData 	= $this->fetchAssoc('admin_user','*',"admin_id = '".$this->AdminID."'");
 		$this->AdminData	= $this->AdminData[0];
-		
+
 		$this->FirstName	= $this->AdminData['first_name'];
 		$this->LastName		= $this->AdminData['last_name'];
 		$this->User			= $this->AdminData['user'];
@@ -42,27 +42,27 @@ class AdminData extends DataBase
 		$this->LastAccess	= $this->AdminData['last_access']=="0000-00-00 00:00:00"? "Nunca se ha conectado":"&Uacute;ltima conexi&oacute;n: ".DateTimeFormat($this->AdminData['last_access']);
 		$ProfileData		= $this->fetchAssoc('admin_profile','*'," profile_id = ".$this->ProfileID);
 		$this->ProfileName	= $ProfileData[0]['title'];
-		
+
 		$this->SetWhere("customer_id=".$_SESSION['customer_id']);
 	}
-	
+
 	public function MakeRegs($Mode="List",$From=-1, $To=-1)
 	{
 		//$Where = $Where? " AND ".$Where : "";
 		//$ProfileFilter = $this->ProfileID!=333? " profile_id > ".$this->ProfileID." AND " : "";
 		$Order = "first_name";
 		$Limit = $From>=0 && $To>=0 ? $From.",".$To : "";
-		
+
 		if($this->ProfileID!=333)
 		{
 			$this->SetWhereCondition("profile_id",">",$this->ProfileID);
 		}
-		$Rows	= $this->fetchAssoc('admin_user','*',$this->GetWhere(),$Order,$Limit); 
+		$Rows	= $this->fetchAssoc('admin_user','*',$this->GetWhere(),$Order,$Limit);
 		for($i=0;$i<count($Rows);$i++)
 		{
 			$Row	=	new AdminData($Rows[$i]['admin_id']);
 			$Actions	= 	'<a href="edit.php?id='.$Row->AdminID.'"><button type="button" class="btn btnBlue"><i class="fa fa-pencil"></i></button></a>';
-			
+
 			if($Row->AdminID!=$_SESSION['admin_id'])
 			{
 				$Actions	.= '<a class="deleteElement" process="process.php" id="delete_'.$Row->AdminID.'"><button type="button" class="btn btnRed"><i class="fa fa-trash"></i></button></a>';
@@ -70,40 +70,48 @@ class AdminData extends DataBase
 			}else{
 				$Restrict	= ' undeleteable ';
 			}
-			
+
 			switch(strtolower($Mode))
 			{
 				case "list":
-					
-					$RowBackground = $i % 2 == 0? '':' listRow2 ';	
+
+					$RowBackground = $i % 2 == 0? '':' listRow2 ';
 					$Regs	.= '<div class="row listRow'.$RowBackground.$Restrict.'" id="row_'.$Row->AdminID.'" title="'.$Row->FullName.'">
-									<div class="col-lg-3 col-md-4 col-xs-6">
+									<div class="col-lg-3 col-md-3 col-sm-10 col-xs-10">
 										<div class="listRowInner">
 											<img class="img-circle" src="'.$Row->Img.'" alt="'.$Row->FullName.'">
 											<span class="itemRowtitle">'.$Row->FullName.' ('.$Row->User.')</span>
 											<span class="smallDetails">'.$Row->LastAccess.'<!--22/25/24 | 22:00Hs.--></span>
 										</div>
 									</div>
-									<div class="col-lg-3 col-md-3 hideMobile990">
+									<div class="col-lg-2 col-md-3 col-sm-2 hideMobile990">
 										<div class="listRowInner">
 											<span class="smallDetails">Email</span>
 											<span class="itemRowtitle">'.$Row->Email.'</span>
 										</div>
 									</div>
-									<div class="col-lg-2 col-sm-2 hideMobile990">
+									<div class="col-lg-3 col-md-2 col-sm-2 hideMobile990">
 										<div class="listRowInner">
 											<span class="smallDetails">Perfil</span>
 											<span class="itemRowtitle">'.ucfirst($Row->ProfileName).'</span>
 										</div>
 									</div>
-									<div class="col-lg-2 col-sm-2 hideMobile990">
+									<div class="col-lg-3 col-md-3 col-sm-3 hideMobile990">
 										<div class="listRowInner">
 											<span class="smallDetails">Grupos</span>
 											<span class="itemRowtitle">
-												Group Tags
+												<div class="horizontal-list">
+													<ul>
+														<li class="mini-tag blueBack">Group1</li>
+														<li class="mini-tag greenBack">Group1</li>
+														<li class="mini-tag redBack">Group1</li>
+														<li class="mini-tag greyBack">Group1</li>
+													</ul>
+												</div>
 											</span>
 										</div>
 									</div>
+									<div class="col-lg-1 col-md-1 col-sm-1 hideMobile990"></div>
 									<div class="listActions flex-justify-center Hidden">
 										<div>'.$Actions.'</div>
 									</div>
@@ -130,16 +138,16 @@ class AdminData extends DataBase
 						          </li>';
 				break;
 			}
-        } 
+        }
         if(!$Regs) $Regs.= '<div class="callout callout-info"><h4><i class="icon fa fa-info-circle"></i> No existe ning&uacute;n usuario.</h4><p>Puede crear un nuevo usuario haciendo click <a href="new.php">aqui</a>.</p></div>';
 		return $Regs;
 	}
-	
+
 	public function MakeList($From=-1, $To=-1)
-	{	
+	{
 		return $this->MakeRegs("List",$From, $To);
 	}
-	
+
 	public function MakeGrid($From=-1, $To=-1)
 	{
 		return $this->MakeRegs("Grid",$From,$To);
@@ -157,7 +165,7 @@ class AdminData extends DataBase
 		}else{
 			$Groups = array();
 			$Rs 	= $this->fetchAssoc('relation_admin_group','*',"admin_id=".$this->AdminID,"group_id");
-			
+
 			foreach ($Rs as $Row) {
 				$Groups[] = $Row['group_id'];
 			}
@@ -166,17 +174,17 @@ class AdminData extends DataBase
 		}
 
 	}
-	
+
 	public function GetImg()
 	{
 		return $this->Img;
 	}
-	
+
 	public function GetProfileID()
 	{
 		return $this->ProfileID;
 	}
-	
+
 	public function GetTotalRegs($Where="",$Status="A")
 	{
 		return $this->numRows('admin_user','*',"status = '".$Status."' AND profile_id > ".$this->ProfileID." ".$Where);
@@ -199,27 +207,27 @@ class AdminData extends DataBase
 			$this->GetCheckedMenues($this->AdminID);
 			$this->GetParents();
 		}
-		
-		$Menues	= $this->fetchAssoc('menu','*',"parent_id = ".$Parent." AND status <> 'I'"); 
-		
+
+		$Menues	= $this->fetchAssoc('menu','*',"parent_id = ".$Parent." AND status <> 'I'");
+
 		foreach($Menues as $Menu)
 		{
 			$IsParent = in_array($Menu['menu_id'],$this->Parents);
-			
+
 			if(in_array($Menu['menu_id'],$this->Menues))
 			{
 				$Hidden 	= '';
 				$Selected	= ' checked = "checked" ';
 				$Arrow	= $IsParent? '<div class="Arrow ArrowLeft" id="img'.$Menu['menu_id'].'"></div>' : "";
-				
+
 			}else{
 				$Hidden 	= ' Hidden ';
 				$Selected	= '';
 				$Arrow	= $IsParent? '<div class="Arrow ArrowDown" id="img'.$Menu['menu_id'].'"></div>' : "";
 			}
-			
+
 			if($Parent!=0)$Disabled	= $this->IsDisabled($Menu['parent_id']);
-			
+
 			$HTML	.= '<div>'.insertElement('checkbox','menu',$Menu['menu_id'],'Left Pointer MenuCheckbox Menu'.$Menu['parent_id'],$Selected.$Disabled).'<div class="Parent Left Frutiger12px BlueCyan" id="'.$Menu['menu_id'].'">'.$Menu['title'].'</div>'.$Arrow.'<div class="Clear"></div></div>';
 			if($IsParent)
 			{
@@ -228,7 +236,7 @@ class AdminData extends DataBase
 				$HTML	.= "</div>";
 			}
 		}
-		
+
 		return $HTML;
 	}
 
@@ -249,7 +257,7 @@ class AdminData extends DataBase
 	public function GetParents()
 	{
 		$Parents	= $this->fetchAssoc('menu','DISTINCT(parent_id)',"parent_id <> 0 AND status <> 'I'");
-		
+
 		foreach($Parents as $Parent){
 			$this->Parents[] = $Parent['parent_id'];
 		}

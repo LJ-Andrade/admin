@@ -1,6 +1,30 @@
-/////// MIXINS ////////
+////////////////////////////////////////
+//                                    //
+//            TRANSITIONS             //
+//                                    //
+////////////////////////////////////////
 
-// SHADOW //
+// Transitions
+@mixin transition($segs)
+  -webkit-transition: all $segs ease 0s
+  transition: all $segs ease 0s
+
+
+////////////////////////////////////////
+//                                    //
+//             SHADOWS                //
+//                                    //
+////////////////////////////////////////
+
+// BOX-SHADOW //
+// box-shadow: [horizontal offset] [vertical offset] [blur radius] [optional spread radius] [color]
+
+//  @include box-shadow(5px,5px,5px,5px, rgb(46, 46, 46))
+@mixin box-shadow( $horiz, $vert, $blur, $spread, $color)
+  -webkit-box-shadow: $horiz $vert $blur $spread $color
+  -moz-box-shadow: $horiz $vert $blur $spread $color
+  box-shadow: $horiz $vert $blur $spread $color
+
 @mixin box-shadowUp( $horiz : 7px , $vert : -4px , $blur : 5px , $spread : -6px , $color : rgba(0,0,0,0.75) )
   -webkit-box-shadow: $horiz $vert $blur $spread $color
   -moz-box-shadow: $horiz $vert $blur $spread $color
@@ -10,7 +34,6 @@
   -webkit-box-shadow: $horiz $vert $blur $spread $color !important
   -moz-box-shadow: $horiz $vert $blur $spread $color !important
   box-shadow: $horiz $vert $blur $spread $color !important
-
 
 @mixin box-shadowSoft( $horiz : 1px , $vert : 3px , $blur : 5px , $spread : -5px , $color : rgba(0,0,0,0.75))
   -webkit-box-shadow: $horiz $vert $blur $spread $color
@@ -22,18 +45,27 @@
   -moz-border-radius: $radio
   border-radius: $radio
 
-// Text Shadows
+
+// TEXT SHADOW //
+//1. value = The X-coordinate - 2. value = The Y-coordinate - 3. value = The blur radius - 4. value = The color of the shadow
+
+//  @include tShadow(5px,5px,5px, rgb(46, 46, 46))
+@mixin text-shadow($x, $y, $blur, $color)
+  -webkit-text-shadow: $x $y $blur $color
+  -moz-text-shadow: $x $y $blur $color
+  -moz-text-shadow: $x $y $blur $color
+  -o-text-shadow: $x $y $blur $color
+  text-shadow: $x $y $blur $color
+
+
 @mixin txShadow()
   text-shadow: 1px 0px 2px #969696
 
-
-// Transitions
-@mixin transition($segs)
-  -webkit-transition: all $segs ease 0s
-  transition: all $segs ease 0s
-
-
-// Flexbox
+////////////////////////////////////////
+//                                    //
+//             FLEXBOX                //
+//                                    //
+////////////////////////////////////////
 @mixin flexColumn
   display: -webkit-box
   display: -ms-flexbox
@@ -49,3 +81,83 @@
   -webkit-box-direction: normal
   -ms-flex-direction: column
   flex-direction: column
+
+@mixin flex-center
+  display: -webkit-box
+  display: -ms-flexbox
+  display: flex
+  -webkit-box-align: center
+  -ms-flex-align: center
+  -ms-grid-row-align: center
+  align-items: center
+  -webkit-box-pack: center
+  -ms-flex-pack: center
+  justify-content: center
+
+@mixin flex-inline-centered
+  display: -webkit-box
+  display: -ms-flexbox
+  display: flex
+  -webkit-box-align: center
+  -ms-flex-align: center
+  -ms-grid-row-align: center
+  align-items: center
+  -webkit-box-pack: center
+  -ms-flex-pack: center
+  justify-content: center
+  flex-grow: 1
+
+////////////////////////////////////////
+//                                    //
+//            TRANSFORMS              //
+//                                    //
+////////////////////////////////////////
+
+
+// TRANSLATE //
+//@include translate(0,-20px)
+@mixin translate( $x , $y )
+  -ms-transform: translate($x, $y)
+  -webkit-transform: translate($x, $y)
+  transform: translate($x, $y)
+
+  // SCALE //
+// @include scale(1.1 , 1.1)
+
+@mixin scale($x , $y)
+  -ms-transform: scale($x, $y)
+  -webkit-transform: scale($x, $y)
+  transform: scale($x, $y)
+
+////////////////////////////////////////
+//                                    //
+//              ARROWS                //
+//                                    //
+////////////////////////////////////////
+
+@mixin arrowLeft($top,$right,$bottom,$color)
+  width: 0
+  height: 0
+  border-top: $top solid transparent
+  border-right: $right solid $color
+  border-bottom: $bottom solid transparent
+
+@mixin arrowRight($top,$left,$bottom,$color)
+  width: 0
+  height: 0
+  border-top: $top solid transparent
+  border-bottom: $bottom solid transparent
+  border-left: $left solid $color
+
+@mixin arrowDown($top,$right,$left,$color)
+  width: 0
+  height: 0
+  border-top: 10px solid $color
+  border-right: 10px solid transparent
+  border-left: 10px solid transparent
+
+@mixin  arrowUp($bottom,$right,$left,$color)
+  height: 0
+  border-right: $right solid transparent
+  border-left: $left solid transparent
+  border-bottom: $bottom solid $color

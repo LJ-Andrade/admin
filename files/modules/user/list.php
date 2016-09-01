@@ -18,7 +18,47 @@
  ?>
   <div class="box">
     <div class="box-body">
+      <!-- New User Button -->
+      <button type="button" class="NewUser btn btnGreen animated fadeIn"><i class="fa fa-user-plus"></i> Nuevo Usuario</button>
+      <!-- /New User Button -->
+      <!-- Search Filters -->
+      <div class="SearFilters searchFiltersHorizontal animated fadeIn Hidden">
+        <form class="form-inline">
+          <!-- Name -->
+          <div class="form-group">
+            <input type="name" class="form-control" id="name" placeholder="Nombre">
+          </div>
+          <!-- User -->
+          <div class="form-group">
+            <input type="name" class="form-control" id="user" placeholder="Usuario">
+          </div>
+          <!-- Email -->
+          <div class="form-group">
+            <input type="name" class="form-control" id="email" placeholder="E-mail">
+          </div>
+          <!-- Profile -->
+          <select id="profile" name="profile" class="form-control" placeholder="Perfil">
+            <option value="" disabled selected>Perfil</option>
+            <option value="1">Opcion 1</option>
+            <option value="2">Opcion 1</option>
+          </select>
+          <!-- Group -->
+          <select id="profile" name="profile" class="form-control" placeholder="Perfil">
+            <option value="" disabled selected>Grupo</option>
+            <option value="1">Opcion 1</option>
+            <option value="2">Opcion 1</option>
+          </select>
+          <!-- Submit Button -->
+          <button type="submit" class="btn btnGreen">Buscar</button>
+          <!-- Decoration Arrow -->
+          <div class="arrow-right-border">
+            <div class="arrow-right-sf"></div>
+          </div>
+        </form>
+      </div>
+      <!-- /Search Filters -->
       <div class="changeView">
+        <button class="ShowFilters SearchElement btn"><i class="fa fa-search"></i></button>
         <button class="ShowList GridElement btn Hidden"><i class="fa fa-list"></i></button>
         <button class="ShowGrid ListElement btn"><i class="fa fa-th-large"></i></button>
       </div>

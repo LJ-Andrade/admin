@@ -79,7 +79,7 @@ $(function(){
 	$('.imgSelectorContent').click(function(){
 		$("#image").click();
 	});
-	
+
 	selectImg();
 });
 
@@ -109,14 +109,16 @@ $(".deleteElement").click(function(){
 			toggleLoader();
 			result = deleteElement(element);
 			toggleLoader();
+
+			if(result)
+			{
+				notifySuccess(utf8_decode(userName+' ha sido eliminado.'));
+			}else{
+				notifyError('Hubo un problema al intentar eliminar a '+userName);
+			}
 		}
-		if(result)
-		{
-			notifySuccess(utf8_decode(userName+' ha sido eliminado.'));
-		}else{
-			notifyError('Hubo un problema al intentar eliminar a '+userName);
-		}
-	});	
+
+	});
 });
 
 /////////////////////////// Massive User Delete /////////////////////////////////////
@@ -246,3 +248,9 @@ function fillCheckboxTree()
 		}
 	});
 }
+
+/////////////////////// SEARCH FILTERS /////////////////////////
+	$('.ShowFilters').click(function(){
+		$('.SearFilters').toggleClass('Hidden');
+		$('.NewUser').toggleClass('Hidden');
+	})
