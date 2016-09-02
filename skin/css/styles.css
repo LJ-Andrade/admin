@@ -682,6 +682,20 @@
     .textWithCounter .indicator.full span {
       color: #fff; }
 
+.pagination > li:first-child > a, .pagination > li:first-child > span {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0; }
+
+.pagination > li > a:focus, .pagination > li > a:hover, .pagination > li > span:focus, .pagination > li > span:hover {
+  background-color: #63c175;
+  color: #fff; }
+
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+  background-color: #5daf6c;
+  border: 1px solid #d5d5d5; }
+
 .Hidden {
   display: none !important;
   -webkit-transition: all 0.2s ease 0s;

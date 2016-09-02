@@ -76,6 +76,19 @@
         </div><!-- row -->
       </div><!-- /Content Container -->
     </div><!-- /.box-body -->
+    <div class="box-footer clearfix">
+      <!-- Paginator -->
+      <ul class="pagination no-margin pull-right">
+        <li><a href="#"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></i></a></li>
+        <li class="active"><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></i></a></li>
+        <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
+      </ul>
+      <!-- Paginator -->
+    </div>
   </div><!-- /.box -->
   <!-- Help Modal Trigger -->
   <button type="button" class="btn btn-success btnGrey" data-toggle="modal" data-target="#helpModal" ><i class="fa fa-question-circle"></i> Ayuda</button>
