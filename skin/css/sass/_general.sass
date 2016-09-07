@@ -1,7 +1,6 @@
 //////////// Custom Styles /////////////////////////////////////////
 .Hidden
   display: none !important
-  @include transition(0.2s)
 .pad0
   padding: 0
 .mar0
@@ -11,30 +10,11 @@
 .padR0
   padding-left: 0px
 .brd
-  border: 1px solid red
+  border: 2px solid red
 .w100
   width: 100%
 .mw100
   min-width: 100%
-
-
-///////// CONTAINERS /////////////
-.innerContainer
-  border: $lightLine
-  padding: 15px
-  padding-top: 5px
-  margin: 10px 0
-  .bootstrap-switch
-    margin-bottom: 15px
-    margin-left: 25px
-
-@media (max-width: 990px)
-  .innerContainer
-    margin: 10px 0
-
-.contentContainer
-  margin-top: 35px
-
 
 
 //////// TITLES //////////////////
@@ -48,7 +28,11 @@
     margin-right: 5px
     font-size: 14px
 
-
+//////////////////////////////////////
+//                                  //
+//              FLEXBOX             //
+//                                  //
+//////////////////////////////////////
 
 .flex-container
   display: -webkit-box
@@ -108,7 +92,6 @@
   display: -ms-flexbox
   display: flex
 
-
 .flex-wrap
   -ms-flex-wrap: wrap
   flex-wrap: wrap
@@ -116,14 +99,14 @@
 .flex-noWrap
   -ms-flex-wrap: nowrap
   flex-wrap: nowrap
-////////////// TEXT ALIGNMENT ////////////////////////
-.text-bottom
-  position: absolute
-  bottom: 0
-  right: 0
-  left: 0
 
-////////////// LOGIN ///////////////////////////////////
+
+//////////////////////////////////////
+//                                  //
+//              LOGIN               //
+//                                  //
+//////////////////////////////////////
+
 .login-page
   background: url(../images/body/backgrounds/back1.jpg) no-repeat center center fixed
   -webkit-background-size: cover
@@ -152,34 +135,6 @@
       margin-left: 10px
       color: #fff
 
-////////////// LOADER //////////////////////////////////
-
-div#page_loader
-  position: relative
-  background-color: rgba(46,53,79, 1)
-  z-index: 9998
-  display: -ms-flexbox
-  display: -webkit-flex
-  display: flex
-  -ms-flex-align: center
-  -webkit-align-items: center
-  -webkit-box-align: center
-  align-items: center
-  justify-content: center
-
-#loadgif
-  position: absolute
-  z-index: 9999
-  display: -ms-flexbox
-  display: -webkit-flex
-  display: flex
-  -ms-flex-align: center
-  -webkit-align-items: center
-  -webkit-box-align: center
-  align-items: center
-  justify-content: center
-  img
-    width: 150px
 
 /// RESPONSIVITY ///
 @media (max-width: 990px)

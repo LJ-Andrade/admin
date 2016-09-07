@@ -273,3 +273,47 @@ $('input, textarea').keyup(function() {
   else { indicator.attr('class', 'indicator empty'); }
   indicator.width(percent + '%');
 });
+
+
+/////////////////////// Categories Behavior ///////////////////////////
+
+
+//-----  Highlight Selected MAIN Category----- //
+$(".squareMenuMain").children().click(function() {
+  $('.squareItemMenu').addClass('squareItemDisabled');
+  $('.squareItemMenu').removeClass('squareItemActive');
+  $('.squareItemMenu .arrow-css').addClass('Hidden');
+
+  $(this).removeClass('squareItemDisabled');
+  $(this).addClass('squareItemActive');
+  $('.arrow-css', this).removeClass('Hidden');
+})
+
+
+$('.CategoryVehicleTrigger').click(function(){
+  $('.CategoryVehicles').removeClass('Hidden');
+  $('.CategoryRealState').addClass('Hidden');
+  $('.CategoryServices').addClass('Hidden');
+  $('.CategoryProducts').addClass('Hidden');
+})
+$('.CategoryRealStateTrigger').click(function(){
+  $('.CategoryVehicles').addClass('Hidden');
+  $('.CategoryRealState').removeClass('Hidden');
+  $('.CategoryServices').addClass('Hidden');
+  $('.CategoryProducts').addClass('Hidden');
+})
+$('.CategoryServicesTrigger').click(function(){
+  $('.CategoryVehicles').addClass('Hidden');
+  $('.CategoryRealState').addClass('Hidden');
+  $('.CategoryServices').removeClass('Hidden');
+  $('.CategoryProducts').addClass('Hidden');
+})
+$('.CategoryProductsTrigger').click(function(){
+  $('.CategoryVehicles').addClass('Hidden');
+  $('.CategoryRealState').addClass('Hidden');
+  $('.CategoryServices').addClass('Hidden');
+  $('.CategoryProducts').removeClass('Hidden');
+})
+
+
+//

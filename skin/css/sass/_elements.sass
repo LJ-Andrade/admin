@@ -23,8 +23,125 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
   background-color: rgb(205, 205, 205)
   color: #fff
 
+$MLYellow: #f0ad4e
+$MLRed: #dd6259
+$MLBlue: #428bca
+$MLGreen: #5cb85c
 
 
+//////////////////////////////////////
+//                                  //
+//            CONTAINER             //
+//                                  //
+//////////////////////////////////////
+
+.innerContainer
+  border: $lightLine
+  padding: 15px
+  padding-top: 5px
+  margin: 10px 0
+  .bootstrap-switch
+    margin-bottom: 15px
+    margin-left: 25px
+
+@media (max-width: 990px)
+  .innerContainer
+    margin: 10px 0
+
+.contentContainer
+  margin-top: 35px
+
+.col-centered
+  display: inline-block
+  float: none
+  text-align: center
+
+// ---------- Square Item Menu With Img ---------- //
+.squareMenuMain
+  @include flex-row-cent-wrap
+  .squareItemMenu
+    flex: 1
+    width: 220px
+    border-radius: 5px
+    text-align: center
+    margin: 20px 10px 10px
+    padding: 15px 5px 5px
+    border: 1px solid #ccc
+    max-width: 100%
+    img
+      max-width: 100%
+    span
+      @include transition(0.2)
+      color: #585858
+      font-size: 22px
+  &:hover
+    cursor: pointer
+  .squareYellow
+    @include transition(0.2s)
+    span
+      color: $MLYellow
+    &:hover
+      border: 1px solid $MLYellow
+  .squareRed
+    @include transition(0.2s)
+    span
+      color: $MLRed
+    &:hover
+      border: 1px solid $MLRed
+  .squareBlue
+    @include transition(0.2s)
+    span
+      color: $MLBlue
+    &:hover
+      border: 1px solid $MLBlue
+  .squareGreen
+    @include transition(0.2s)
+    span
+      color: $MLGreen
+    &:hover
+      border: 1px solid $MLGreen
+  .squareItemDisabled
+    opacity: 0.4
+  .squareItemActive
+    border: 1px solid rgb(157, 157, 157)
+
+  @media (max-width: 765px)
+    .squareItemMenu
+      width: 100px
+      margin: 2px
+      img
+        width: 50px
+      span
+        font-size: 16px
+
+.squareItemArrowYellow
+  @include arrowDown(10px,10px,10px,$MLYellow)
+.squareItemArrowRed
+  @include arrowDown(10px,10px,10px,$MLRed)
+.squareItemArrowBlue
+  @include arrowDown(10px,10px,10px,$MLBlue)
+.squareItemArrowGreen
+  @include arrowDown(10px,10px,10px,$MLGreen)
+
+
+//-----  Square Item Vertical List / Scroll ------//
+
+.squareItemVertList
+  height: 300px
+  width: 250px
+  border: 1px solid #ccc
+  overflow: scroll
+  overflow-x: hidden
+  padding: 0
+  ul li
+    padding: 2px 5px
+    &:hover
+      cursor: pointer
+      background-color: #ccc
+  ul
+    li.slActive
+      background-color: rgb(173, 177, 136)
+      color: #fff
 //////////////////////////////////////
 //                                  //
 //              BUTTONS             //
@@ -61,6 +178,8 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
   border: 0
   margin-top: 8px
 
+.categorySelectBtn
+  padding: 10px 30px
 
 // Button Container
 .btnGrey
@@ -79,7 +198,11 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
 
 
 
-//////// FORMS ///////////////////
+//////////////////////////////////////
+//                                  //
+//           FORMS                  //
+//                                  //
+//////////////////////////////////////
 
 // Tags //
 
@@ -102,8 +225,6 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
   border: $lightLine
   input
     margin-right: 10px
-
-
 
 
 //////////////////////////////////////
@@ -242,6 +363,7 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
 ///// Vertical List ///
 .verical-list
   ul
+    padding-left: 0
     padding: 0
     margin: 0
     li
@@ -250,6 +372,7 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
 //// Grid View /////
 .horizontal-list
   ul
+    padding-left: 0
     padding: 0
     margin: 0
     li
@@ -432,7 +555,13 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
   .fa
     font-size: 25px !important
 
-////////// BOXED CHECKBOXES  SIZES (XS, S, SM, L, etc.) /////////
+//////////////////////////////////////
+//                                  //
+//         CHECKBOXES               //
+//                                  //
+//////////////////////////////////////
+
+/*------- BOXED CHECKBOXES  SIZES (XS, S, SM, L, etc.) ------- /
 
 .boxed-horiz-list
   text-align: center
@@ -449,7 +578,7 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
       padding-top: 4px
       background-color: rgba(226, 226, 226, 0.5)
 
-////////// Square CheckBoxes /////////////////////////////
+/*------- Square CheckBoxes   ------- /
 
 .checkbox-custom, .radio-custom
   opacity: 0
@@ -498,7 +627,6 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
   -ms-flex-pack: center
   justify-content: center
   position: relative
-
 
 .colorPicker
   padding: 20px
@@ -590,20 +718,7 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
   top: 0
   left: 0
   z-index: 10000
-  display: -webkit-box
-  display: -ms-flexbox
-  display: flex
-  -webkit-box-align: center
-  -ms-flex-align: center
-  -ms-grid-row-align: center
-  align-items: center
-  -webkit-box-pack: center
-  -ms-flex-pack: center
-  justify-content: center
-  -webkit-box-orient: vertical
-  -webkit-box-direction: normal
-  -ms-flex-direction: column
-  flex-direction: column
+  @include flexColumn
   img.loaderLogo
     width: 250px
     max-width: 100%
@@ -666,6 +781,7 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
 //                                  //
 //////////////////////////////////////
 
+// Dont Delete This - Is Documentation for implementation
 // Html
 // <div class="arrowCss">
 //   <div class="arrow-right"></div>
@@ -706,7 +822,6 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
   @include border-radius(5px)
   padding: 1px 2px
   margin: 1px
-
 
 
 //// BOOTSTRAP SWITCH ////

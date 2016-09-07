@@ -1,166 +1,259 @@
 <?php
     include("../../includes/inc.main.php");
-    $Head->setTitle("Nuevo Producto");
+    //$Head->setTitle("Nuevo Usuario");
+    $Menu   = new Menu();
+    $Group  = new GroupData();
+    $Head->setTitle($Menu->GetTitle());
+    $Head->setStyle('../../../vendors/bootstrap-switch/bootstrap-switch.css'); // Switch On Off
+    $Head->setStyle('../../../vendors/colorpicker/bootstrap-colorpicker.min.css'); // Color Picker
     $Head->setHead();
-?>
-<body>
-  <div id="wrapper">
-    <?php echo insertElement("hidden","action",'insert'); ?>
-    <?php include '../../includes/inc.subTop.php'; ?>
-    <div class="container-fluid pageWrapper">
+    include('../../includes/inc.top.php');
 
-      <!-- New Item Window -->
-      <!-- WindowHead -->
-      <div class="row windowHead animated fadeInDown">
-        <div class="col-md-7 col-xs-12">
-          <h3>Complete el formulario para agregar un producto</h3>
-        </div>
-        <div class="col-md-5 col-xs-12 switchDiv switchHead">
-          <span>Estado Inicial: </span>
-          <input type="checkbox" name="status" id="status" data-on-text="Activo" data-off-text="Inactivo" data-size="mini" data-label-width="auto" checked>
-        </div>
-      </div><!-- /WindowHead -->
-      <div class="container addItemDiv animated zoomIn">
-        Hola
-        <div class="row col-sm-12 form-box">
-          <!-- Inputs -->
-          <div id="newInputs" class="animated fadeIn" >
-            <div class="row"><!-- Title & Code -->
-              <div class="col-md-6 form-group ">
-                <input id="" name="user" class="form-first-name formNewItem" placeholder="T&iacute;tulo" type="text">
+
+?>
+  <?php echo insertElement("hidden","action",'insert'); ?>
+  <?php echo insertElement("hidden","menues",""); ?>
+  <?php echo insertElement("hidden","groups",""); ?>
+  <?php echo insertElement("hidden","newimage",$Admin->DefaultImg); ?>
+
+   <div class="box"> <!--box-success-->
+    <div class="box-header with-border">
+      <h3 class="box-title">Complete el formulario</h3>
+    </div><!-- /.box-header -->
+    <div class="box-body">
+      <div class="row">
+        <div class="col-lg-6 col-md-12">
+          <div class="flex-allCenter innerContainer">
+            <div class="mw100">
+              <h4 class="subTitleB"><i class="fa fa-tag"></i> Datos Principales</h4>
+              <div class="form-group">
+                <input type="email" class="form-control" placeholder="Nombre del Producto">
               </div>
-              <div class="col-md-6 form-group">
-                <input id="" name="user" class="form-first-name formNewItem" placeholder="C&oacute;digo" type="text">
+              <div class="form-group">
+                <input type="email" class="form-control" placeholder="C&oacute;digo">
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" placeholder="Composici&oacute;n">
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" placeholder="Precio">
+              </div>
+            <!-- Description (Character Counter)-->
+            <div class="form-group textWithCounter">
+              <textarea id="description" name="description" class="text-center" placeholder="Descripción" rows="4" maxlength="150"></textarea>
+              <div class="indicator-wrapper">
+                <p>Caracteres restantes</p>
+                <div class="indicator"><span class="current-length">150</span></div>
               </div>
             </div>
-            <div class="row"><!-- Composition & Price -->
-              <div class="col-md-6 form-group">
-                <input id="" name="user" class="form-first-name formNewItem" placeholder="Composici&oacute;n" type="text">
-              </div>
-              <div class="col-md-6 form-group">
-                <input id="" name="user" class="form-first-name formNewItem" placeholder="Precio" type="text">
+            <!-- Description (Character Counter) -->
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12">
+          <div class="innerContainer">
+            <h4 class="subTitleB"><i class="fa fa-tag"></i> Talles</h4>
+            <div class="flex-allCenter form-group boxed-horiz-list">
+              <div>
+                <ul>
+                  <li><input id="sizeXS" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeXS"><span>XS</span></li>
+                  <li><input id="sizeS" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeS"><span>S</span></li>
+                  <li><input id="sizeM" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeM"><span>M</span></li>
+                  <li><input id="sizeL" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeL"><span>L</span></li>
+                  <li><input id="sizeXL" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeXL"><span>XL</span></li>
+                  <li><input id="sizeXXL" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeXXL"><span>XXL</span></li>
+                </ul>
               </div>
             </div>
-            <div class="row"><!-- Sizes & Colors -->
-              <div class="col-md-6 form-group">
-                <div class="addItemNoformTit">
-                  <span>Talles</span>
-                </div>
-                <div class="form-group addItemSizes">
-                  <ul>
-                    <li><input id="sizeXS" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeXS"><span>XS</span></li>
-                    <li><input id="sizeS" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeS"><span>S</span></li>
-                    <li><input id="sizeM" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeM"><span>M</span></li>
-                    <li><input id="sizeL" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeL"><span>L</span></li>
-                    <li><input id="sizeXL" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeXL"><span>XL</span></li>
-                    <li><input id="sizeXXL" class="CheckBox TreeCheckbox checkbox-custom" type="checkbox"><label class="checkbox-custom-label" for="sizeXXL"><span>XXL</span></li>
+          </div>
+          <div class="innerContainer">
+            <h4 class="subTitleB"><i class="fa fa-tag"></i> Colores</h4>
+            <!-- Color Picker -->
+            <div class="ColorPicker1 colorPickerContainer">
+              <div class="row colorPicker">
+                <div id="cpLibrary1" class="col-md-8 col-sm-12 col-xs-12 cpBoxLibrary">
+                  <ul class="">
+                    <li style="background-color: #000000" data-hex="#000000"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #666666" data-hex="#666666"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #990000" data-hex="#990000"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #FF0000" data-hex="#FF0000"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #B45F06" data-hex="#B45F06"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #E06666" data-hex="#E06666"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #38761D" data-hex="#38761D"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #0C9800" data-hex="#0C9800"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #BF9000" data-hex="#BF9000"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #FF9900" data-hex="#FF9900"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #93C47D" data-hex="#93C47D"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #F6B26B" data-hex="#F6B26B"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #FFD966" data-hex="#FFD966"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #741B47" data-hex="#741B47"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #134F5C" data-hex="#134F5C"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #0B5394" data-hex="#0B5394"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #1717FF" data-hex="#1717FF"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #7600FF" data-hex="#7600FF"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #E828FF" data-hex="#E828FF"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #8E7CC3" data-hex="#8E7CC3"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #C27BA0" data-hex="#C27BA0"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #76A5AF" data-hex="#76A5AF"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #6FA8DC" data-hex="#6FA8DC"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #83DDFF" data-hex="#83DDFF"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #D9D2E9" data-hex="#D9D2E9"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #EAD1DC" data-hex="#EAD1DC"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #CFE2F3" data-hex="#CFE2F3"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #CCCCCC" data-hex="#CCCCCC"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #FFFF00" data-hex="#FFFF00"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #F4CCCC" data-hex="#F4CCCC"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #FCE5CD" data-hex="#FCE5CD"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #FFF2CC" data-hex="#FFF2CC"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #D0E0E3" data-hex="#D0E0E3"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #D9EAD3" data-hex="#D9EAD3"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #FFFFFF" data-hex="#FFFFFF"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
                   </ul>
                 </div>
-              </div>
-              <div class="col-md-6 form-group">
-                <div class="addItemNoformTit">
-                  <span>Colores</span>
-                  <!-- Colors Modal Trigger -->
-                  <div class="helpModalTrigger adminColors"><span data-toggle="modal" data-target="#colorsModal" >Galer&iacute;a (M&aacute;s usados)</i></span></div>
-                  <!-- /Colors Modal Trigger-->
-                </div>
-                <div class="circles circlesAddItem">
-                  <div class="circleInput Hidden animated fadeIn"><input name="color" type="color" value="#8551d9" /></div>
-                  <div class="ColorPicker colorPalette" name="color" type="color"><img src="../../../skin/images/body/icons/colpicker.png" alt=""/></div>
-                  <div class="ColorSelect circle circleAddItem" style="background-color: #b83232"></div>
-                  <div><p>No hay colores seleccionados</p></div>
-                  <div><button type="button" name="button" class="btn mainbtnred delColBtn animated fadeIn"><i class="fa fa-trash-o"></i></button></div>
+                <div class="col-md-4 col-sm-12 col-xs-12 cpBoxSelected">
+                  Color Primario
+                  <div id="selectedColor1" class="cpBoxSelectedItem"></div>
                 </div>
               </div>
+            </div><!-- /ColorPicker -->
+            <div class="colorPickerBtn txC">
+              <button type="button" class="ShowCP2 btn btnGreen animated fadeIn">Combinar con otro color</button>
             </div>
-            <!-- Description & Select Image  -->
-            <!-- Description (Character counter) -->
-            <div class="col-md-6 form-group addItemDescription">
-              <form class="form-group">
-                <?php echo insertElement('textarea','description',$Data['description'],'form-controlitems textareaitems text-center','placeholder="Descripción" rows="4" maxlength="150"'); ?>
-                <div class="remchar"><p> Caracteres restantes: </p></div>
-                  <div class="indicator-wrapper">
-                    <div class="indicator"><span class="current-length">150</span></div>
-                  </div>
-              </form>
-            </div>
-            <!-- /Description (Character counter) -->
-            <!-- Choose Img -->
-            <div class="col-md-6 col-sm-12 imgSelector">
+            <!-- Color Picker -->
+            <div class="ColorPicker2 Hidden colorPickerContainer animated fadeIn">
+              <div class="row colorPicker">
+                <div id="cpLibrary2" class="col-md-8 col-sm-12 col-xs-12 cpBoxLibrary">
+                  <ul class="">
+                    <li style="background-color: #000000" data-hex="#000000"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #666666" data-hex="#666666"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #990000" data-hex="#990000"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #FF0000" data-hex="#FF0000"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #B45F06" data-hex="#B45F06"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #E06666" data-hex="#E06666"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #38761D" data-hex="#38761D"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #0C9800" data-hex="#0C9800"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #BF9000" data-hex="#BF9000"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #FF9900" data-hex="#FF9900"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #93C47D" data-hex="#93C47D"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #F6B26B" data-hex="#F6B26B"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #FFD966" data-hex="#FFD966"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #741B47" data-hex="#741B47"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #134F5C" data-hex="#134F5C"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #0B5394" data-hex="#0B5394"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #1717FF" data-hex="#1717FF"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #7600FF" data-hex="#7600FF"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #E828FF" data-hex="#E828FF"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #8E7CC3" data-hex="#8E7CC3"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #C27BA0" data-hex="#C27BA0"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #76A5AF" data-hex="#76A5AF"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #6FA8DC" data-hex="#6FA8DC"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #83DDFF" data-hex="#83DDFF"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #D9D2E9" data-hex="#D9D2E9"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #EAD1DC" data-hex="#EAD1DC"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #CFE2F3" data-hex="#CFE2F3"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #CCCCCC" data-hex="#CCCCCC"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #FFFF00" data-hex="#FFFF00"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #F4CCCC" data-hex="#F4CCCC"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #FCE5CD" data-hex="#FCE5CD"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #FFF2CC" data-hex="#FFF2CC"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #D0E0E3" data-hex="#D0E0E3"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #D9EAD3" data-hex="#D9EAD3"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                    <li style="background-color: #FFFFFF" data-hex="#FFFFFF"><div class="cpIcon"><i class="fa fa-check"></i></div></li>
+                  </ul>
+                </div>
+                <div class="col-md-4 col-sm-12 col-xs-12 cpBoxSelected">
+                  Color Secundario
+                  <div id="selectedColor2" class="cpBoxSelectedItem"></div>
+                    <div class="CloseColorPicker closeColorPicker"><i class="fa fa-times"></i></div>
+                </div>
+              </div>
+            </div><!-- /ColorPicker -->
+          </div><!-- inner-container -->
+        </div><!-- col-md-6 -->
+      </div><!-- row -->
+
+
+
+      <!-- IMAGES -->
+      <!-- Actual Image -->
+      <div class="row imagesMain">
+        <div class="col-lg-3 col-md-12 col-sm-6 col-xs-12">
+          <div class="imagesContainer">
+            <h4 class="subTitleB"><i class="fa fa-picture-o"></i> Im&aacute;gen Actual</h4>
+            <div class="flex-allCenter imgSelector">
               <div class="imgSelectorInner">
-                <img src="../../../skin/images/products/cod1.jpg" class="img-responsive">
+                <img src="<?php echo $Admin->DefaultImg ?>" class="img-responsive MainImg">
+                <?php echo insertElement('file','image','','Hidden'); ?>
                 <div class="imgSelectorContent">
                   <div id="SelectImg">
-                    <i class="fa fa-picture-o"></i><br>
-                    Cambiar Im&aacute;gen
+                    <i class="fa fa-upload"></i><br>
+                   <p>Cargar Nueva Im&aacute;gen</p>
                   </div>
                 </div>
               </div>
-            </div><!-- /Choose Img -->
-          </div><!-- /newInputs -->
-          <!-- Images (HIDDEN) -->
-          <div id="MultipleImgWd" class="row imgWindow animated fadeIn Hidden">
-            <button id="cancelImgChange" type="button" name="button" class="btn closeBtn"><i class="fa fa-times"></i></button>
-            <div class="imgWindowTitle">
-              <div class="row tipAndButton">
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                  <button id="createUser" type="button" name="button" class="btn mainbtn" role="button"><i class="fa fa-check-square-o fa-fw"></i> Agregar Im&aacute;gen</button>
-                </div>
-                <div class="col-md-9 col-sm-6 col-xs-12">
-                  <div class="tipText"><i class="fa fa-question-circle" aria-hidden="true"></i><p> Arrastre las im&aacute;genes para ordenarlas</p></div>
-                </div>
-              </div>
             </div>
-            <div class="col-md-12 activeImgs SelectProdImg">
-              <ul id="ImageBox" class="connected sortable grid">
-                <li><img src="../../../skin/images/users/default/caras1.png" alt="" class="img-responsive">
-                  <span>
-                    <i class="fa fa-arrows moveImg"></i>
-                    <i class="fa fa-trash delImgIco"></i>
-                    <i class="fa fa-arrow-left moveLeft"></i>
-                    <i class="fa fa-arrow-right moveRight"></i>
-                  </span>
-                </li>
-                <li><img src="../../../skin/images/users/default/caras2.png" alt="" class="img-responsive">
-                  <span>
-                    <i class="fa fa-arrows moveImg"></i>
-                    <i class="fa fa-trash delImgIco"></i>
-                    <i class="fa fa-arrow-left moveLeft"></i>
-                    <i class="fa fa-arrow-right moveRight"></i>
-                  </span>
-                </li>
-                <li><img src="../../../skin/images/users/default/usuario.jpg" alt="" class="img-responsive">
-                  <span>
-                    <i class="fa fa-arrows moveImg"></i>
-                    <i class="fa fa-trash delImgIco"></i>
-                    <i class="fa fa-arrow-left moveLeft"></i>
-                    <i class="fa fa-arrow-right moveRight"></i>
-                  </span>
-                </li>
+            <div class="text-bottom">
+              <p><i class="fa fa-upload" aria-hidden="true"></i>
+              Haga Click sobre la im&aacute;gen </br> para cargar una desde su dispositivo</p>
+            </div>
+          </div>
+        </div><!-- /Actual Image -->
+        <!-- Generic Images -->
+        <div class="col-lg-5 col-md-12 col-sm-6 col-xs-12">
+          <div class="imagesContainer">
+            <h4 class="subTitleB"><i class="fa fa-picture-o"></i> Im&aacute;genes Gen&eacute;ricas</h4>
+            <div class="smallThumbsList flex-justify-center">
+              <ul>
+                <?php
+                  foreach($Admin->DefaultImages() as $Image)
+                  {
+                    echo '<li><img src="'.$Image.'" class="ImgSelecteable"></li>';
+                  }
+                ?>
               </ul>
             </div>
-          </div><!-- /Images -->
-          <!-- Help Modal Trigger -->
-          <div class="helpModalTrigger"><span data-toggle="modal" data-target="#helpModal" >Ayuda <i class="fa fa-question-circle" aria-hidden="true"></i> </span></div>
-          <!-- /Help Modal Trigger-->
-        </div><!-- /FormItems -->
-      </div><!-- /addItemDiv -->
-        <!-- Create User Button Div  -->
-      <div class="container animated fadeInUp donediv">
-        <div class="form-group">
-          <button id="createUser" type="button" name="button" class="btn mainbtn newItemBtn" role="button"><i class="fa fa-check-square-o fa-fw"></i> Crear Producto</button>
-          <button id="createAndAdd" type="button" name="button" class="btn mainbtn newItemBtn" role="button"><i class="fa fa-plus-square"></i> Crear y Agregar Otro...</button>
-          <button id="acceptBtnImg" type="button" name="button" class="btn mainbtn newItemBtn Hidden"><i class="fa fa-check"></i> Aceptar</button>
-        </div>
-      </div>    <!-- /Create User Button Div  -->
-    </div> <!-- /Container Fluid  -->
-  </div><!-- /#wrapper -->
-
-
-
-
-  <!-- /////////////// MODALS //////////////////// -->
-  <!-- HELP MODAL -->
+             <div class="text-bottom">
+               <p><i class="fa fa-check" aria-hidden="true"></i>
+               Seleccione una im&aacute;gen para utilizarla</p>
+            </div>
+          </div>
+        </div><!-- /Generic Images -->
+        <!-- Recent Images -->
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+          <div class="imagesContainer">
+            <h4 class="subTitleB"><i class="fa fa-picture-o"></i> Im&aacute;genes usadas anteriormente</h4>
+            <div class="smallThumbsList flex-justify-center">
+              <ul id="UserImages">
+                <?php
+                  foreach($Admin->UserImages() as $Image)
+                  {
+                    echo '<li><img src="'.$Image.'" class="ImgSelecteable"></li>';
+                  }
+                ?>
+              </ul>
+            </div>
+             <div class="text-bottom">
+               <p><i class="fa fa-check" aria-hidden="true"></i>
+              Seleccione una im&aacute;gen para utilizarla</p>
+            </div>
+          </div>
+        </div><!-- /Recent Images -->
+      </div><!-- IMAGES -->
+      <div class="switchCheckbox text-center">
+        <h4>Estado Inicial</h4>
+        <input type="checkbox" name="switchCheckbox" data-on-text="Activo" data-off-text="Inactivo" data-label-width="auto" checked>
+      </div>
+    </div><!-- /.box-body -->
+    <div class="box-footer btnRightMobCent">
+      <button type="button" class="btn btn-success btnGreen" id="BtnCreate"><i class="fa fa-plus"></i> Crear Nuevo Usuario</button>
+      <button type="button" class="btn btn-success btnBlue" id="BtnCreateNext"><i class="fa fa-plus"></i> Crear y Agregar Otro</button>
+      <button type="button" class="btn btn-danger btnRed" id="BtnCancel"><i class="fa fa-times"></i> Cancelar</button>
+    </div><!-- box-footer -->
+  </div><!-- /.box -->
+  <!-- Help Modal Trigger -->
+  <button type="button" class="btn btn-success btnGrey" data-toggle="modal" data-target="#helpModal" ><i class="fa fa-question-circle"></i> Ayuda</button>
+  <!-- Help Modal Trigger -->
+  <!-- //// HELP MODAL //// -->
   <div id="helpModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <!-- Modal content-->
@@ -170,65 +263,29 @@
           <h4 class="modal-title">Ayuda para el usuario</i></h4>
         </div>
         <div class="modal-body">
-          <p>Le informaci&oacute;n colocada en el formulario saldr&aacute; luego en el sitio web como un nuevo producto en la secci&oacute;n cat&aacute;logo.</p>
-          <hr>
-          <b><i class="fa fa-tint"></i> COLORES:</b></span>
-          <p><b>Agregar Colores:</b> Haga click en la paleta de colores   <span class="colorPaletteHelp" name="color" type="color"><img src="../../../skin/images/body/icons/colpicker.png" alt=""/>
-           y seleccione el o los colores de su producto. <br>
-           <b>Galer&iacute;a (M&aacute;s usados):</b>
-            Seleccione y guarde los colores que m&aacute; utiliza para una carga r&aacute;pida de productos.<br>
-          <b>Eliminar Colores:</b> Selecciones y haga click en eliminar para borrar los colores</p>
-          <hr>
-          <p><i class="fa fa-bars"></i><b> DESCRIPCI&Oacute;N:</b><br>
-            Llene el campo para agregar una descripci&oacute; al producto. El l&iacute;mite de caracteres es de hasta 150. El progresor le avisar&aacute; cuantos caracteres restan.
-          </p>
-          <hr>
-          <p><i class="fa fa-file-image-o"></i><b> SELECCI&Oacute;N DE IM&Aacute;GENES:</b><br>
-            Haga click en cambiar im&aacute;gen para entrar al menu de selecci&oacute;n de im&aacute;genes.<br>
-            Luego presione el bot&oacute;n "Seleccionar Im&aacute;gen" para cargar las mismas.<br>
-            <b>Orden y Prioridad</b>:<br>
-            Arrastre las im&aacute;genes para ordenarlas.<br>
-            La im&aacute;gen que quede a la izquierda ser&aacute; la destacada y la que se ver&aacute; en el cat&aacute;logo.
+          <p>
+            Ayuda sobre categorias
           </p>
         </div>
         <div class="modal-footer">
-          <button type="button" name="button" class="btn mainbtn" data-dismiss="modal">OK</button><br>
+          <button type="button" name="button" class="btn btn-success btnBlue" data-dismiss="modal">Comprendido</button><br>
         </div>
       </div>
     </div>
   </div>
   <!-- Help Modal -->
-
-  <!-- Colors Modal -->
-  <div id="colorsModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Administrar Colores</i></h4>
-        </div>
-        <div class="modal-body">
-          <p>Guarde aqu&iacute; los colores que m&aacute;s utiliza para la carga r&aacute;pida de productos.<br>
-          Seleccione y clique&eacute; "Agregar Seleccionados" para agregarlos a los colores de el producto.<hr></p>
-          <div class="circles circlesAddItem">
-            <div class="circleInput Hidden animated fadeIn"><input name="color" type="color" value="#8551d9"/></div>
-            <div class="ColorPicker colorPalette" name="color" type="color"><img src="../../../skin/images/body/icons/colpicker.png" alt=""/></div>
-            <div class="ColorSelectModal circle circleAddItem" style="background-color: #b83232"></div>
-            <div class="ColorSelectModal circle circleAddItem" style="background-color: #b69595"></div>
-            <div class="ColorSelectModal circle circleAddItem" style="background-color: #2d02fa"></div>
-            <div class="ColorSelectModal circle circleAddItem" style="background-color: #d5be26"></div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" name="button" class="btn mainbtn modalBtnRed" data-dismiss="modal"><i class="fa fa-trash-o"></i> Eliminar Seleccionados</button>
-          <button type="button" name="button" class="btn mainbtn" data-dismiss="modal"><i class="fa fa-plus"></i> Agregar Seleccionados</button><br>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Colos Modal -->
+<?php
+$Foot->setScript('../../../vendors/bootstrap-switch/script.bootstrap-switch.min.js');
+$Foot->setScript('../../../vendors/colorpicker/bootstrap-colorpicker.min.js');
+include('../../includes/inc.bottom.php');
+?>
+<script type="text/javascript">
+////////////////// Bootstrap Switch ////////////
+$("[name='switchCheckbox']").bootstrapSwitch();
 
 
+/////////////// Color picker ///////////////////
+// Documentation > http://mjolnic.com/bootstrap-colorpicker/
+$(".colorpicker").colorpicker();
 
-<?php $Foot->setFoot(); ?>
+</script>

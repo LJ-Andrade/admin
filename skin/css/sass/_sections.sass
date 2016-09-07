@@ -1,0 +1,74 @@
+/////////////////////////////////////
+//                                 //
+//           CATEGORIES            //
+//                                 //
+/////////////////////////////////////
+
+
+.categoryBoxBody
+  min-height: 800px
+// ------- First Screen ----//
+
+
+
+.productCategory1
+  margin-top: 15px
+  position: relative
+  max-width: 100%
+  .arrow-css
+    position: absolute
+    left: 45%
+    // margin-left: -50px
+    bottom: -11px
+  h4
+    text-align: center
+
+.productCategory2
+  margin-top: 15px
+  border-radius: 5px
+  max-width: 100%
+  .categoryList
+    border: 1px solid rgba(#cccccc, 0.49)
+    border-radius: 5px
+    padding: 15px
+    .categoryTitle
+      text-align: center
+      margin-bottom: 10px
+      span
+        font-size: 16px
+    ul
+      height: 350px
+      overflow-x: scroll
+      white-space: nowrap
+      padding-left: 0
+      li
+        border: 1px solid #ccc
+        display: inline-block
+        padding: 15px
+        width: 260px
+        max-width: 100%
+        margin-right: 10px
+        margin-top: 0
+        -msie-border-radius: 5px
+        border-radius: 5px
+        white-space: nowrap
+        height: 290px
+        vertical-align: top
+        select
+          border: none
+          width: 100%
+          overflow-y: auto
+          vertical-align: top
+          height: 250px
+          outline: none
+        span
+          height: 100%
+          @include flexColumn
+          i
+            margin-bottom: 10px
+          .fa
+            font-size: 35px
+            color: #fff
+            background-color: $MLGreen
+            @include border-radius(100%)
+            padding: 5px
