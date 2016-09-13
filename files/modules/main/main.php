@@ -24,6 +24,10 @@
        Cuenta vinculada con Mercado Libre
      </label>
      <p>Esto es una prueba</p>
+    <button id="alertDemoError" type="button" class="btn btnRed">Error</button>
+    <button id="alertDemoSuccess" type="button" class="btn btnGreen">Success</button>
+    <button id="alertDemoInfo" type="button" class="btn btnBlue">Info</button>
+    <button id="alertDemoWarning" type="button" class="btn btnYellow">Warning</button>
    </div>
 
    <button id="activateLoader" type="button" onclick="toggleLoader()" class="btn btnBlue animated fadeIn">Activate Loader</button>
@@ -46,7 +50,9 @@
     </pre>
    </div>
    <div class="box-footer">
-     Ah re loco! 
+     Ah re loco!
+
+
    </div>
  </div>
  <?php }else{ ?>

@@ -12,7 +12,7 @@ $(document).ready(function() {
   {
       welcomeMessage();
   }
-  
+
   $('#meli_status').iCheck('disable');
 
 });
@@ -21,8 +21,26 @@ $(function(){
   $("#melisync").click(function(){
     window.location = "process.meli.php";
   });
-  
+
   $("#melinosync").click(function(){
     window.location = "process.meli.php?sync=no";
   });
 });
+
+
+/// Alert Demo ///
+$('#alertDemoError').click(function(){
+  notifyError();
+})
+
+$('#alertDemoSuccess').click(function(){
+  notifySuccess();
+})
+
+$('#alertDemoInfo').click(function(){
+  notifyInfo();
+})
+
+$('#alertDemoWarning').click(function(){
+  notifyWarning();
+})

@@ -35,7 +35,7 @@ function notifySuccess(msgNotify)
         allow_dismiss: false,
         placement: {
             from: "bottom",
-            align: "center"
+            align: "right"
         }
     });
 }

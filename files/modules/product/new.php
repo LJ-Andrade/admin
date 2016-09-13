@@ -16,14 +16,15 @@
   <?php echo insertElement("hidden","groups",""); ?>
   <?php echo insertElement("hidden","newimage",$Admin->DefaultImg); ?>
 
-   <div class="box">
+  <!-- ///////// FIRST SCREEN ////////// -->
+  <div class="box Hidden">
     <!--box-success-->
     <!-- <div class="box-header with-border">
       <h3 class="box-title">Complete el formulario</h3>
     </div>
     <! .box-header -->
     <div class="box-body categoryBoxBody">
-      <div class="row"><!-- Main Row -->
+      <div class="row"><!-- First Screen Row -->
         <!-- CONTENT -->
         <!-- Categories Menu -->
         <div class="container productCategory1">
@@ -253,60 +254,63 @@
           <!-- / Item -->
         </div>
         <!-- /Products -->
-
-
-
-
-
-      </div><!-- Mainrow -->
-      <!-- <div class="switchCheckbox text-center">
-        <h4>Estado Inicial</h4>
-        <input type="checkbox" name="switchCheckbox" data-on-text="Activo" data-off-text="Inactivo" data-label-width="auto" checked>
-      </div> -->
+      </div><!-- Firs Screen Row -->
     </div><!-- /.box-body -->
-    <!-- <div class="box-footer btnRightMobCent">
-      <button type="button" class="btn btn-success btnGreen" id="BtnCreate"><i class="fa fa-plus"></i> Crear Nuevo Usuario</button>
-      <button type="button" class="btn btn-success btnBlue" id="BtnCreateNext"><i class="fa fa-plus"></i> Crear y Agregar Otro</button>
-      <button type="button" class="btn btn-danger btnRed" id="BtnCancel"><i class="fa fa-times"></i> Cancelar</button>
-    </div> -->
-    <!-- box-footer -->
   </div><!-- /.box -->
-  <!-- Help Modal Trigger -->
-  <button type="button" class="btn btn-success btnGrey" data-toggle="modal" data-target="#helpModal" ><i class="fa fa-question-circle"></i> Ayuda</button>
-  <!-- Help Modal Trigger -->
-  <!-- //// HELP MODAL //// -->
-  <div id="helpModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Ayuda para el usuario</i></h4>
-        </div>
-        <div class="modal-body">
-          <p>
-            Ayuda sobre categorias
-          </p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" name="button" class="btn btn-success btnBlue" data-dismiss="modal">Comprendido</button><br>
-        </div>
+  <!-- ///////// END FIRST SCREEN ////////// -->
+
+
+
+  <div class="box">
+    <div class="box-header flex-justify-center">
+      <div class="container500">
+        <h4 class="subTitleB"><i class="fa fa-tag"></i> Detalles del Producto</h4>
+        <form method="post">
+          <div class="form-group">
+            <input type="name" class="form-control" placeholder="Nombre del Producto">
+          </div>
+          <div class="row form-group inline-form-custom">
+            <div class="col-xs-12 col-sm-4">
+              <input type="name" class="form-control" placeholder="Composici&oacute;n">
+            </div>
+            <div class="col-xs-12 col-sm-4">
+              <input type="name" class="form-control" placeholder="C&oacute;digo">
+            </div>
+            <div class="col-xs-12 col-sm-4">
+              <input type="name" class="form-control" placeholder="Precio">
+            </div>
+          </div>
+
+          <!-- Description (Character Counter)-->
+          <div class="form-group textWithCounter">
+            <textarea id="description" name="description" class="text-center" placeholder="Descripción" rows="4" maxlength="150"></textarea>
+            <div class="indicator-wrapper">
+              <p>Caracteres restantes</p>
+              <div class="indicator"><span class="current-length">150</span></div>
+            </div>
+          </div>
+          <div class="txC">
+            <button type="button" class="btn btnBlue">Continuar</button>
+          </div>
+
+        </form>
+        <!-- Description (Character Counter) -->
       </div>
     </div>
   </div>
+
+
   <!-- Help Modal -->
 <?php
 $Foot->setScript('../../../vendors/bootstrap-switch/script.bootstrap-switch.min.js');
-$Foot->setScript('../../../vendors/colorpicker/bootstrap-colorpicker.min.js');
+// $Foot->setScript('../../../vendors/colorpicker/bootstrap-colorpicker.min.js');
 include('../../includes/inc.bottom.php');
 ?>
 <script type="text/javascript">
 ////////////////// Bootstrap Switch ////////////
 $("[name='switchCheckbox']").bootstrapSwitch();
 
-
 /////////////// Color picker ///////////////////
 // Documentation > http://mjolnic.com/bootstrap-colorpicker/
-$(".colorpicker").colorpicker();
-
+// $(".colorpicker").colorpicker();
 </script>

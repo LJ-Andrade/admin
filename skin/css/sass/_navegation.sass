@@ -1,2 +1,13 @@
 .main-header .sidebar-toggle::before
   content: "\f053"
+
+
+@media (max-width: 765px)
+  .main-header
+    position: fixed
+    top: 0
+    width: 100%
+    .logo
+      display: none !important
+  .main-sidebar, .left-side
+    padding-top: 50px

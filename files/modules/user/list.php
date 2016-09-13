@@ -77,6 +77,18 @@
       </div><!-- /Content Container -->
     </div><!-- /.box-body -->
     <div class="box-footer clearfix">
+      <div class="pull-left">
+        <div class="form-inline">
+          <label for="inputEmail3" class="control-label">N&deg; Resultados </label>
+          <select class="form-control">
+            <option>10</option>
+            <option>20</option>
+            <option>30</option>
+            <option>40</option>
+            <option>50</option>
+          </select>
+        </div>
+      </div>
       <!-- Paginator -->
       <ul class="pagination no-margin pull-right">
         <li><a href="#"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li>
