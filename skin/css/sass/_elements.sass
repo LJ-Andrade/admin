@@ -22,10 +22,6 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
   .innerContainer
     margin: 10px 0
 
-.container500
-  width: 500px
-  max-width: 100%
-
 .contentContainer
   margin-top: 35px
 
@@ -182,7 +178,8 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
   .btnRightMobCent
     text-align: center
 
-
+.smallBtn
+  padding: 1px 10px
 
 //////////////////////////////////////
 //                                  //
@@ -517,7 +514,7 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
       color: rgb(224, 224, 224)
   .btn
     background-color: rgb(219, 219, 219)
-    margin: 3px
+    margin: 7px 2px
     color: #000
     &:hover
       background-color: rgb(203, 203, 203)
@@ -627,7 +624,7 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
   position: relative
 
 .colorPicker
-  padding: 20px
+  padding: 20px 10px 0
   max-width: 500px
   ul
     border: 1px solid red
@@ -685,8 +682,6 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
       padding: 2px 6px
       &:hover
         cursor: pointer
-.colorPickerBtn
-  text-align: center
 
 @media (max-width:1296px) and (min-width:1197px)
   .cpBoxLibrary
@@ -887,6 +882,16 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
 //                                  //
 //////////////////////////////////////
 
+@media (max-width: 765px)
+  .paginationLeft
+    label
+      display: none
+
+@media (max-width: 400px)
+  .paginationLeft
+    margin-bottom: 10px
+
+
 .pagination > li:first-child > a, .pagination > li:first-child > span
   border-top-left-radius: 0
   border-bottom-left-radius: 0
@@ -900,3 +905,18 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
 .pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover
   background-color: rgb(93, 175, 108)
   border: 1px solid rgb(213, 213, 213)
+
+.paginationPages
+  float: right !important
+
+.paginationSelect
+  float: left !important
+
+@media (max-width: 450px)
+  .pagination > li > a, .pagination > li > span
+    padding: 6px 8px
+
+@media (max-width: 765px)
+  .paginationSelect
+    margin-bottom: 5px
+    text-align: center

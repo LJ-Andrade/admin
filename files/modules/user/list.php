@@ -62,7 +62,7 @@
         <button class="ShowList GridElement btn Hidden"><i class="fa fa-list"></i></button>
         <button class="ShowGrid ListElement btn"><i class="fa fa-th-large"></i></button>
       </div>
-      <div class="contentContainer"><!-- List Container -->
+      <div class="contentContainer txC"><!-- List Container -->
         <div class="GridView row horizontal-list flex-justify-center GridElement Hidden animated fadeIn">
           <ul>
             <?php echo $Admin->MakeGrid(); ?>
@@ -77,9 +77,10 @@
       </div><!-- /Content Container -->
     </div><!-- /.box-body -->
     <div class="box-footer clearfix">
-      <div class="pull-left">
-        <div class="form-inline">
-          <label for="inputEmail3" class="control-label">N&deg; Resultados </label>
+      <!-- Paginator -->
+
+      <div class="pull-left form-inline paginationLeft">
+          <label for="inputEmail3" class="control-label">Resultados </label>
           <select class="form-control">
             <option>10</option>
             <option>20</option>
@@ -87,18 +88,19 @@
             <option>40</option>
             <option>50</option>
           </select>
-        </div>
       </div>
-      <!-- Paginator -->
-      <ul class="pagination no-margin pull-right">
-        <li><a href="#"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li>
-        <li><a href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></i></a></li>
-        <li class="active"><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></i></a></li>
-        <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
-      </ul>
+
+
+        <ul class="paginationRight pagination no-margin pull-right">
+          <li><a href="#"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></i></a></li>
+          <li class="active"><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></i></a></li>
+          <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
+        </ul>
+
       <!-- Paginator -->
     </div>
   </div><!-- /.box -->

@@ -169,10 +169,6 @@
 @media (max-width: 990px) {
   .innerContainer {
     margin: 10px 0; } }
-.container500 {
-  width: 500px;
-  max-width: 100%; }
-
 .contentContainer {
   margin-top: 35px; }
 
@@ -353,6 +349,9 @@
 @media (max-width: 765px) {
   .btnRightMobCent {
     text-align: center; } }
+.smallBtn {
+  padding: 1px 10px; }
+
 .select2-selection {
   width: auto !important; }
 
@@ -648,7 +647,7 @@
     color: #e0e0e0; }
   .changeView .btn {
     background-color: #dbdbdb;
-    margin: 3px;
+    margin: 7px 2px;
     color: #000; }
     .changeView .btn:hover {
       background-color: #cbcbcb; }
@@ -739,7 +738,7 @@
   position: relative; }
 
 .colorPicker {
-  padding: 20px;
+  padding: 20px 10px 0;
   max-width: 500px; }
   .colorPicker ul {
     border: 1px solid red;
@@ -809,9 +808,6 @@
       padding: 2px 6px; }
       .colorPicker .cpBoxSelected .closeColorPicker:hover {
         cursor: pointer; }
-
-.colorPickerBtn {
-  text-align: center; }
 
 @media (max-width: 1296px) and (min-width: 1197px) {
   .cpBoxLibrary {
@@ -989,6 +985,12 @@
     .textWithCounter .indicator.full span {
       color: #fff; }
 
+@media (max-width: 765px) {
+  .paginationLeft label {
+    display: none; } }
+@media (max-width: 400px) {
+  .paginationLeft {
+    margin-bottom: 10px; } }
 .pagination > li:first-child > a, .pagination > li:first-child > span {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -1003,6 +1005,19 @@
   background-color: #5daf6c;
   border: 1px solid #d5d5d5; }
 
+.paginationPages {
+  float: right !important; }
+
+.paginationSelect {
+  float: left !important; }
+
+@media (max-width: 450px) {
+  .pagination > li > a, .pagination > li > span {
+    padding: 6px 8px; } }
+@media (max-width: 765px) {
+  .paginationSelect {
+    margin-bottom: 5px;
+    text-align: center; } }
 .alertok {
   background-color: rgba(233, 233, 233, 0.9);
   font-weight: bold;
@@ -1353,5 +1368,56 @@
             -moz-border-radius: 100%;
             border-radius: 100%;
             padding: 5px; }
+
+.sizes {
+  margin-top: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -ms-grid-row-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+  .sizes table {
+    margin-top: 15px;
+    width: 80%; }
+  .sizes .sizesActionDelete {
+    width: 40px; }
+  .sizes .fa-trash {
+    color: red; }
+    .sizes .fa-trash:hover {
+      color: #d9a4a4;
+      cursor: pointer; }
+  .sizes .fa-plus {
+    color: #57ba6d; }
+    .sizes .fa-plus:hover {
+      cursor: pointer;
+      cursor: #1ae06f; }
+
+.multipleImg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -ms-grid-row-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center; }
+  .multipleImg li {
+    margin: 5px; }
+    .multipleImg li img {
+      width: 80px;
+      height: 80px; }
+  .multipleImg li.mainImg {
+    text-align: center; }
+    .multipleImg li.mainImg img {
+      width: 110px;
+      height: 110px; }
 
 /*# sourceMappingURL=styles.css.map */

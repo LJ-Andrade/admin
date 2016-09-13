@@ -275,7 +275,7 @@ $('input, textarea').keyup(function() {
 });
 
 
-/////////////////////// Categories Behavior ///////////////////////////
+/////////////////////// Categories Behavior DEMO ///////////////////////////
 
 
 //-----  Highlight Selected MAIN Category----- //
@@ -313,6 +313,16 @@ $('.CategoryProductsTrigger').click(function(){
   $('.CategoryRealState').addClass('Hidden');
   $('.CategoryServices').addClass('Hidden');
   $('.CategoryProducts').removeClass('Hidden');
+})
+
+$('.SelectCategory').click(function(){
+  $('.CategoryMain').addClass('Hidden');
+  $('.ProductDetails').removeClass('Hidden');
+})
+
+$('.ProductDescBtn').click(function(){
+  $('.ProductDetails').addClass('Hidden');
+  $('.ColorSizeStockMain').removeClass('Hidden');
 })
 
 
