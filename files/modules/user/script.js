@@ -220,7 +220,7 @@ function deleteListElement()
 				toggleLoader();
 				result = deleteElement(element);
 				toggleLoader();
-	
+
 				if(result)
 				{
 					notifySuccess(utf8_decode(title+' ha sido eliminado.'));
@@ -228,7 +228,7 @@ function deleteListElement()
 					notifyError('Hubo un problema al intentar eliminar a '+title);
 				}
 			}
-	
+
 		});
 		return false;
 	});
@@ -250,7 +250,7 @@ function activateListElement()
 				toggleLoader();
 				result = activateElement(element);
 				toggleLoader();
-	
+
 				if(result)
 				{
 					notifySuccess(utf8_decode(title+' ha sido activado.'));
@@ -258,7 +258,7 @@ function activateListElement()
 					notifyError('Hubo un problema al intentar activar al usuario '+title);
 				}
 			}
-	
+
 		});
 		return false;
 	});
@@ -276,7 +276,7 @@ function massiveElementDelete()
 	        		result = deleteListElement($(this));
 	        	});
 				toggleLoader();
-	
+
 	        	if(result)
 	        	{
 	        		$('.deleteSelectedAbs').addClass('Hidden');

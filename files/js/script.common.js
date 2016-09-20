@@ -598,3 +598,19 @@ $(function(){
 		window.history.back();
 	});
 });
+
+
+///////////////////////////////////  SEARCH RESULT ORDER /////////////////////////////////////
+
+$('.Search-order').click(function(){
+  if ($(this).hasClass('fa-sort-alpha-asc')) {
+      $('.Search-order').removeClass('sort-activated');
+      $(this).removeClass('fa-sort-alpha-asc sort-activated');
+      $(this).addClass('fa-sort-alpha-desc sort-activated');
+    }
+    else {
+      $('.Search-order').removeClass('sort-activated');
+      $(this).removeClass('fa-sort-alpha-desc sort-activated');
+      $(this).addClass('fa-sort-alpha-asc sort-activated');
+  }
+})

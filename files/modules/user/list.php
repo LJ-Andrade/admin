@@ -27,23 +27,33 @@
           <?php echo insertElement('hidden','view_type','list'); ?>
           <?php echo insertElement('hidden','view_page','1'); ?>
           <!-- Name -->
-          <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon order-arrows"><i class="Search-order fa fa-sort-alpha-asc"></i></span>
             <?php echo insertElement('text','name','','form-control','placeholder="Nombre"'); ?>
           </div>
           <!-- User -->
-          <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon order-arrows"><i class="Search-order fa fa-sort-alpha-asc"></i></span>
             <?php echo insertElement('text','user','','form-control','placeholder="Usuario"'); ?>
           </div>
           <!-- Email -->
-          <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon order-arrows"><i class="Search-order fa fa-sort-alpha-asc"></i></span>
             <?php echo insertElement('text','email','','form-control','placeholder="Email"'); ?>
           </div>
           <!-- Profile -->
-          <?php echo insertElement('select','profile','','form-control','',$DB->fetchAssoc('admin_profile','profile_id,title',"customer_id=".$_SESSION['customer_id']." AND status='A' AND profile_id >= ".$_SESSION['profile_id']),'', 'Perfil'); ?>
+          <div class="input-group">
+            <span class="input-group-addon order-arrows"><i class="Search-order fa fa-sort-alpha-asc"></i></span>
+            <?php echo insertElement('select','profile','','form-control','',$DB->fetchAssoc('admin_profile','profile_id,title',"customer_id=".$_SESSION['customer_id']." AND status='A' AND profile_id >= ".$_SESSION['profile_id']),'', 'Perfil'); ?>
+          </div>
           <!-- Group -->
-          <?php echo insertElement('select','group','','form-control','',$DB->fetchAssoc('admin_group','group_id,title',"customer_id=".$_SESSION['customer_id']." AND status='A' AND group_id IN (SELECT group_id FROM relation_group_profile WHERE profile_id >= ".$_SESSION['profile_id'].")","title"),'', 'Grupo'); ?>
+          <div class="input-group">
+            <span class="input-group-addon order-arrows"><i class="Search-order fa fa-sort-alpha-asc"></i></span>
+            <?php echo insertElement('select','group','','form-control','',$DB->fetchAssoc('admin_group','group_id,title',"customer_id=".$_SESSION['customer_id']." AND status='A' AND group_id IN (SELECT group_id FROM relation_group_profile WHERE profile_id >= ".$_SESSION['profile_id'].")","title"),'', 'Grupo'); ?>
+          </div>
           <!-- Submit Button -->
           <button type="button" class="btn btnGreen searchButton">Buscar</button>
+          <button type="button" class="btn btnGrey">Limpiar</button>
           <!-- Decoration Arrow -->
           <div class="arrow-right-border">
             <div class="arrow-right-sf"></div>
@@ -56,14 +66,14 @@
         <button class="ShowList GridElement btn Hidden"><i class="fa fa-list"></i></button>
         <button class="ShowGrid ListElement btn"><i class="fa fa-th-large"></i></button>
       </div>
-      
+
       <div class="contentContainer txC" id="SearchResult"><!-- List Container -->
         <div class="GridView row horizontal-list flex-justify-center GridElement Hidden animated fadeIn">
           <ul>
             <?php echo $Admin->MakeGrid(); ?>
           </ul>
         </div><!-- /.horizontal-list -->
-         
+
         <div class="row ListView ListElement animated fadeIn">
           <div class="container-fluid">
             <?php echo $Admin->MakeList(); ?>
@@ -71,7 +81,29 @@
         </div><!-- row -->
         <?php echo insertElement('hidden','totalregs',$Admin->GetTotalRegs()); ?>
       </div><!-- /Content Container -->
-      
+
+      <!-- ///// New Grid Item Demo  ////// -->
+      <li id="grid_99" class="RoundItemSelect roundItemBig" title="Violeta Raffin">
+        <div class="flex-allCenter imgSelector">
+          <div class="imgSelectorInner">
+            <img src="../../../skin/images/users/28/vio.jpg" alt="Violeta Raffin" class="img-responsive">
+            <div class="imgSelectorContent">
+              <div class="roundItemBigActions">
+                <span class="roundItemActionsGroup"><a href="edit.php?id=28"><button type="button" class="btn btnBlue"><i class="fa fa-pencil"></i></button></a>
+                <a class="deleteElement" process="process.php" id="delete_28"><button type="button" class="btn btnRed"><i class="fa fa-trash"></i></button></a></span>
+                <span class="roundItemCheckDiv"><a href="#"><button type="button" class="btn roundBtnIconGreen" name="button"><i class="fa fa-check"></i></button></a></span>
+              </div>
+            </div>
+          </div>
+          <div class="roundItemText">
+            <p><b>Violeta Raffin</b></p>
+            <p>(viole)</p>
+            <p>Superadministrador</p>
+          </div>
+        </div>
+      </li>
+        <!-- ///// New Grid Item Demo  ////// -->
+
     </div><!-- /.box-body -->
     <div class="box-footer clearfix">
       <!-- Paginator -->

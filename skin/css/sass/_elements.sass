@@ -148,6 +148,14 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
     background-color: rgb(205, 115, 113)
     color: #fff
 
+.btnGrey
+  background-color: rgb(223, 223, 223)
+  margin: 2px 2px
+  color: #000
+  &:hover,&:active,&:focus
+    background-color: rgb(200, 200, 200)
+    color: #000
+
 .btnYellow
   background-color: rgb(196, 199, 70)
   margin: 2px 2px
@@ -180,6 +188,14 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
 
 .smallBtn
   padding: 1px 10px
+
+.roundBtnIconGreen
+  width: 35px
+  height: 35px
+  padding: 5px
+  padding-top: 7px
+  border-radius: 100%
+  background-color: rgb(28, 152, 77)
 
 //////////////////////////////////////
 //                                  //
@@ -383,10 +399,23 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
     p
       margin: 0
   .fa
-    font-size: 14px !important
+    font-size: 22px !important
 
 .roundItemBigSelected img
   @include box-shadowDown
+
+.roundItemBigActions
+  position: relative
+  .roundItemCheckDiv
+    position: absolute
+    top: 5px
+    left: 5px
+  .roundItemActionsGroup
+    position: absolute
+    bottom: -10px
+    left: 0
+    width: 100%
+    text-align: center
 
 
 ///// List Row /////
@@ -400,10 +429,15 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
     background-color: rgb(152, 152, 152)
     color: #fff
     cursor: pointer
-    span.smallDetails
+    span.smallDetails,.smallTitle
       color: #fff !important
   .listRowInner
-    .itemRowtitle
+    span.smallTitle
+      display: block
+      color: #999
+      font-size: 13px
+
+    .listTextStrong
       font-size: 14px
   .listActions
     position: absolute
@@ -426,6 +460,8 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
   .listRowInner
     .smallDetails
       color: #000
+    .smallTitle
+      color: #000
 
 .post .listRowInner
   margin-bottom: 15px
@@ -442,20 +478,33 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
     width: 40px
     height: 40px
     float: left
-  .itemRowtitle, .smallDetails
+  .listTextStrong, .smallDetails
     display: block
-    margin-left: 50px
-  .itemRowtitle
+    // margin-left: 50px
+  .listTextStrong
     font-size: 16px
+    font-weight: 600
+  .emailTextResp
     font-weight: 600
   .smallDetails
     color: #999
     font-size: 13px
   &.listRowInner-sm
-    .itemRowtitle, .smallDetails
+    .listTextStrong, .smallDetails
       margin-left: 40px
-    .itemRowtitle
+    .listTextStrong
       font-size: 14px
+
+
+
+@media (max-width: 1150px)
+  .listRowInner .emailTextResp
+    max-width: 160px
+    font-size: 12px
+    display: block
+    white-space: nowrap
+    overflow: hidden !important
+    text-overflow: ellipsis
 
 .listRowInner.listRowInner-sm img
   float: left
@@ -755,6 +804,12 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
       top: 5px
       @include box-shadowSoft
       @include arrowRight(10px,10px,10px,rgb(230, 230, 230))
+  .order-arrows
+    &:hover
+      cursor: pointer
+  .sort-activated
+    color: rgb(86, 190, 115)
+
 
 @media (max-width: 765px)
   .searchFiltersHorizontal

@@ -321,6 +321,14 @@
     background-color: #cd7371;
     color: #fff; }
 
+.btnGrey {
+  background-color: #dfdfdf;
+  margin: 2px 2px;
+  color: #000; }
+  .btnGrey:hover, .btnGrey:active, .btnGrey:focus {
+    background-color: #c8c8c8;
+    color: #000; }
+
 .btnYellow {
   background-color: #c4c746;
   margin: 2px 2px;
@@ -351,6 +359,14 @@
     text-align: center; } }
 .smallBtn {
   padding: 1px 10px; }
+
+.roundBtnIconGreen {
+  width: 35px;
+  height: 35px;
+  padding: 5px;
+  padding-top: 7px;
+  border-radius: 100%;
+  background-color: #1c984d; }
 
 .select2-selection {
   width: auto !important; }
@@ -518,12 +534,25 @@
     .roundItemBig .roundItemText p {
       margin: 0; }
   .roundItemBig .fa {
-    font-size: 14px !important; }
+    font-size: 22px !important; }
 
 .roundItemBigSelected img {
   -webkit-box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75) !important;
   -moz-box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75) !important;
   box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75) !important; }
+
+.roundItemBigActions {
+  position: relative; }
+  .roundItemBigActions .roundItemCheckDiv {
+    position: absolute;
+    top: 5px;
+    left: 5px; }
+  .roundItemBigActions .roundItemActionsGroup {
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    text-align: center; }
 
 .listRow {
   background-color: #f8f8f8;
@@ -536,9 +565,13 @@
     background-color: #989898;
     color: #fff;
     cursor: pointer; }
-    .listRow:hover span.smallDetails {
+    .listRow:hover span.smallDetails, .listRow:hover .smallTitle {
       color: #fff !important; }
-  .listRow .listRowInner .itemRowtitle {
+  .listRow .listRowInner span.smallTitle {
+    display: block;
+    color: #999;
+    font-size: 13px; }
+  .listRow .listRowInner .listTextStrong {
     font-size: 14px; }
   .listRow .listActions {
     position: absolute;
@@ -562,6 +595,8 @@
     color: #fff !important; }
   .listRowSelected .listRowInner .smallDetails {
     color: #000; }
+  .listRowSelected .listRowInner .smallTitle {
+    color: #000; }
 
 .post .listRowInner {
   margin-bottom: 15px; }
@@ -577,20 +612,29 @@
   width: 40px;
   height: 40px;
   float: left; }
-.listRowInner .itemRowtitle, .listRowInner .smallDetails {
-  display: block;
-  margin-left: 50px; }
-.listRowInner .itemRowtitle {
+.listRowInner .listTextStrong, .listRowInner .smallDetails {
+  display: block; }
+.listRowInner .listTextStrong {
   font-size: 16px;
+  font-weight: 600; }
+.listRowInner .emailTextResp {
   font-weight: 600; }
 .listRowInner .smallDetails {
   color: #999;
   font-size: 13px; }
-.listRowInner.listRowInner-sm .itemRowtitle, .listRowInner.listRowInner-sm .smallDetails {
+.listRowInner.listRowInner-sm .listTextStrong, .listRowInner.listRowInner-sm .smallDetails {
   margin-left: 40px; }
-.listRowInner.listRowInner-sm .itemRowtitle {
+.listRowInner.listRowInner-sm .listTextStrong {
   font-size: 14px; }
 
+@media (max-width: 1150px) {
+  .listRowInner .emailTextResp {
+    max-width: 160px;
+    font-size: 12px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis; } }
 .listRowInner.listRowInner-sm img {
   float: left; }
 
@@ -911,6 +955,10 @@
       border-top: 10px solid transparent;
       border-bottom: 10px solid transparent;
       border-left: 10px solid #e6e6e6; }
+  .searchFiltersHorizontal .order-arrows:hover {
+    cursor: pointer; }
+  .searchFiltersHorizontal .sort-activated {
+    color: #56be73; }
 
 @media (max-width: 765px) {
   .searchFiltersHorizontal {

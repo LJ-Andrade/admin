@@ -89,26 +89,26 @@ class AdminData extends DataBase
 									<div class="col-lg-3 col-md-3 col-sm-10 col-xs-10">
 										<div class="listRowInner">
 											<img class="img-circle" src="'.$Row->Img.'" alt="'.$Row->FullName.'">
-											<span class="itemRowtitle">'.$Row->FullName.' ('.$Row->User.')</span>
+											<span class="listTextStrong">'.$Row->FullName.' ('.$Row->User.')</span>
 											<span class="smallDetails">'.$Row->LastAccess.'<!--22/25/24 | 22:00Hs.--></span>
 										</div>
 									</div>
 									<div class="col-lg-2 col-md-3 col-sm-2 hideMobile990">
 										<div class="listRowInner">
-											<span class="smallDetails">Email</span>
-											<span class="itemRowtitle">'.$Row->Email.'</span>
+											<span class="smallTitle">Email</span>
+											<span class="emailTextResp">'.$Row->Email.'</span>
 										</div>
 									</div>
 									<div class="col-lg-3 col-md-2 col-sm-2 hideMobile990">
 										<div class="listRowInner">
-											<span class="smallDetails">Perfil</span>
-											<span class="itemRowtitle"><span class="label label-primary">'.ucfirst($Row->ProfileName).'</span></span>
+											<span class="smallTitle">Perfil</span>
+											<span class="listTextStrong"><span class="label label-primary">'.ucfirst($Row->ProfileName).'</span></span>
 										</div>
 									</div>
 									<div class="col-lg-3 col-md-3 col-sm-3 hideMobile990">
 										<div class="listRowInner">
-											<span class="smallDetails">Grupos</span>
-											<span class="itemRowtitle">
+											<span class="smallTitle">Grupos</span>
+											<span class="listTextStrong">
 												'.$Groups.'
 											</span>
 										</div>
