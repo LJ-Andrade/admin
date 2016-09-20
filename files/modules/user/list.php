@@ -14,42 +14,36 @@
   }
 
   include('../../includes/inc.top.php');
-  include('../../includes/inc.modals.php');
  ?>
   <div class="box">
     <div class="box-body">
       <!-- New User Button -->
-      <button type="button" class="NewUser btn btnGreen animated fadeIn"><i class="fa fa-user-plus"></i> Nuevo Usuario</button>
+      <a href="new.php"><button type="button" class="NewUser btn btnGreen animated fadeIn"><i class="fa fa-user-plus"></i> Nuevo Usuario</button></a>
       <!-- /New User Button -->
       <!-- Search Filters -->
       <div class="SearFilters searchFiltersHorizontal animated fadeIn Hidden">
         <form class="form-inline">
+          <?php echo insertElement('hidden','action','search'); ?>
+          <?php echo insertElement('hidden','view_type','list'); ?>
+          <?php echo insertElement('hidden','view_page','1'); ?>
           <!-- Name -->
           <div class="form-group">
-            <input type="name" class="form-control" id="name" placeholder="Nombre">
+            <?php echo insertElement('text','name','','form-control','placeholder="Nombre"'); ?>
           </div>
           <!-- User -->
           <div class="form-group">
-            <input type="name" class="form-control" id="user" placeholder="Usuario">
+            <?php echo insertElement('text','user','','form-control','placeholder="Usuario"'); ?>
           </div>
           <!-- Email -->
           <div class="form-group">
-            <input type="name" class="form-control" id="email" placeholder="E-mail">
+            <?php echo insertElement('text','email','','form-control','placeholder="Email"'); ?>
           </div>
           <!-- Profile -->
-          <select id="profile" name="profile" class="form-control" placeholder="Perfil">
-            <option value="" disabled selected>Perfil</option>
-            <option value="1">Opcion 1</option>
-            <option value="2">Opcion 1</option>
-          </select>
+          <?php echo insertElement('select','profile','','form-control','',$DB->fetchAssoc('admin_profile','profile_id,title',"customer_id=".$_SESSION['customer_id']." AND status='A' AND profile_id >= ".$_SESSION['profile_id']),'', 'Perfil'); ?>
           <!-- Group -->
-          <select id="profile" name="profile" class="form-control" placeholder="Perfil">
-            <option value="" disabled selected>Grupo</option>
-            <option value="1">Opcion 1</option>
-            <option value="2">Opcion 1</option>
-          </select>
+          <?php echo insertElement('select','group','','form-control','',$DB->fetchAssoc('admin_group','group_id,title',"customer_id=".$_SESSION['customer_id']." AND status='A' AND group_id IN (SELECT group_id FROM relation_group_profile WHERE profile_id >= ".$_SESSION['profile_id'].")","title"),'', 'Grupo'); ?>
           <!-- Submit Button -->
-          <button type="submit" class="btn btnGreen">Buscar</button>
+          <button type="button" class="btn btnGreen searchButton">Buscar</button>
           <!-- Decoration Arrow -->
           <div class="arrow-right-border">
             <div class="arrow-right-sf"></div>
@@ -62,44 +56,40 @@
         <button class="ShowList GridElement btn Hidden"><i class="fa fa-list"></i></button>
         <button class="ShowGrid ListElement btn"><i class="fa fa-th-large"></i></button>
       </div>
-      <div class="contentContainer txC"><!-- List Container -->
+      
+      <div class="contentContainer txC" id="SearchResult"><!-- List Container -->
         <div class="GridView row horizontal-list flex-justify-center GridElement Hidden animated fadeIn">
           <ul>
             <?php echo $Admin->MakeGrid(); ?>
           </ul>
         </div><!-- /.horizontal-list -->
-        <!-- Item List View -->
+         
         <div class="row ListView ListElement animated fadeIn">
           <div class="container-fluid">
             <?php echo $Admin->MakeList(); ?>
           </div><!-- container-fluid -->
         </div><!-- row -->
+        <?php echo insertElement('hidden','totalregs',$Admin->GetTotalRegs()); ?>
       </div><!-- /Content Container -->
+      
     </div><!-- /.box-body -->
     <div class="box-footer clearfix">
       <!-- Paginator -->
 
       <div class="pull-left form-inline paginationLeft">
-          <label for="inputEmail3" class="control-label">Resultados </label>
-          <select class="form-control">
-            <option>10</option>
-            <option>20</option>
-            <option>30</option>
-            <option>40</option>
-            <option>50</option>
-          </select>
+          <label for="RegsPerView" class="control-label">Mostrar </label>
+          <?php echo insertElement('select','regsperview','','form-control','',array("5"=>"5","10"=>"10","25"=>"25","50"=>"50","100"=>"100")); ?>
+          de <b><span id="TotalRegs"><?php echo $Admin->GetTotalRegs(); ?></span></b>
       </div>
-
-
-        <ul class="paginationRight pagination no-margin pull-right">
-          <li><a href="#"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li>
-          <li><a href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></i></a></li>
-          <li class="active"><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></i></a></li>
-          <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
-        </ul>
+      <ul class="paginationRight pagination no-margin pull-right">
+      <!--  <li><a href="#"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li>-->
+      <!--  <li><a href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></i></a></li>-->
+      <!--  <li class="active"><a href="#">1</a></li>-->
+      <!--  <li><a href="#">2</a></li>-->
+      <!--  <li><a href="#">3</a></li>-->
+      <!--  <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></i></a></li>-->
+      <!--  <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>-->
+      </ul>
 
       <!-- Paginator -->
     </div>
@@ -149,5 +139,6 @@
 <!-- Help Modal -->
 
 <?php
+  $Foot->SetScript('../../js/script.searchlist.js');
   include('../../includes/inc.bottom.php');
 ?>

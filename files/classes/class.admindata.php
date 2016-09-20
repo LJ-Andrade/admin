@@ -43,32 +43,41 @@ class AdminData extends DataBase
 		$ProfileData		= $this->fetchAssoc('admin_profile','*'," profile_id = ".$this->ProfileID);
 		$this->ProfileName	= $ProfileData[0]['title'];
 
+		$this->SetTable('admin_user');
+		$this->SetFields('*');
 		$this->SetWhere("customer_id=".$_SESSION['customer_id']);
+		$this->SetOrder('first_name');
 	}
 
-	public function MakeRegs($Mode="List",$From=-1, $To=-1)
+	public function MakeRegs($Mode="List")
 	{
-		//$Where = $Where? " AND ".$Where : "";
-		//$ProfileFilter = $this->ProfileID!=333? " profile_id > ".$this->ProfileID." AND " : "";
-		$Order = "first_name";
-		$Limit = $From>=0 && $To>=0 ? $From.",".$To : "";
-
 		if($this->ProfileID!=333)
 		{
 			$this->SetWhereCondition("profile_id",">",$this->ProfileID);
 		}
-		$Rows	= $this->fetchAssoc('admin_user','*',$this->GetWhere(),$Order,$Limit);
+		$Rows	= $this->GetRegs();
 		for($i=0;$i<count($Rows);$i++)
 		{
 			$Row	=	new AdminData($Rows[$i]['admin_id']);
-			$Actions	= 	'<a href="edit.php?id='.$Row->AdminID.'"><button type="button" class="btn btnBlue"><i class="fa fa-pencil"></i></button></a>';
-
-			if($Row->AdminID!=$_SESSION['admin_id'])
+			$UserGroups = $Row->GetGroups();
+			$Groups='';
+			foreach($UserGroups as $Group)
 			{
-				$Actions	.= '<a class="deleteElement" process="process.php" id="delete_'.$Row->AdminID.'"><button type="button" class="btn btnRed"><i class="fa fa-trash"></i></button></a>';
-				$Restrict	= '';
+				$Groups .= '<span class="label label-warning">'.$Group['title'].'</span> ';
+			}
+			if(!$Groups) $Groups = 'Ninguno';
+			$Actions	= 	'<a href="edit.php?id='.$Row->AdminID.'"><button type="button" class="btn btnBlue"><i class="fa fa-pencil"></i></button></a>';
+			if($Row->AdminData['status']=="A")
+			{
+				if($Row->AdminID!=$_SESSION['admin_id'])
+				{
+					$Actions	.= '<a class="deleteElement" process="process.php" id="delete_'.$Row->AdminID.'"><button type="button" class="btn btnRed"><i class="fa fa-trash"></i></button></a>';
+					$Restrict	= '';
+				}else{
+					$Restrict	= ' undeleteable ';
+				}
 			}else{
-				$Restrict	= ' undeleteable ';
+				$Actions	.= '<a class="activateElement" process="process.php" id="activate_'.$Row->AdminID.'"><button type="button" class="btn btnGreen"><i class="fa fa-check-circle"></i></button></a>';
 			}
 
 			switch(strtolower($Mode))
@@ -93,21 +102,14 @@ class AdminData extends DataBase
 									<div class="col-lg-3 col-md-2 col-sm-2 hideMobile990">
 										<div class="listRowInner">
 											<span class="smallDetails">Perfil</span>
-											<span class="itemRowtitle">'.ucfirst($Row->ProfileName).'</span>
+											<span class="itemRowtitle"><span class="label label-primary">'.ucfirst($Row->ProfileName).'</span></span>
 										</div>
 									</div>
 									<div class="col-lg-3 col-md-3 col-sm-3 hideMobile990">
 										<div class="listRowInner">
 											<span class="smallDetails">Grupos</span>
 											<span class="itemRowtitle">
-												<div class="horizontal-list">
-													<ul>
-														<li class="mini-tag blueBack">Group1</li>
-														<li class="mini-tag greenBack">Group1</li>
-														<li class="mini-tag redBack">Group1</li>
-														<li class="mini-tag greyBack">Group1</li>
-													</ul>
-												</div>
+												'.$Groups.'
 											</span>
 										</div>
 									</div>
@@ -139,18 +141,18 @@ class AdminData extends DataBase
 				break;
 			}
         }
-        if(!$Regs) $Regs.= '<div class="callout callout-info"><h4><i class="icon fa fa-info-circle"></i> No existe ning&uacute;n usuario.</h4><p>Puede crear un nuevo usuario haciendo click <a href="new.php">aqui</a>.</p></div>';
+        if(!$Regs) $Regs.= '<div class="callout callout-info"><h4><i class="icon fa fa-info-circle"></i> No se encontraron usuarios.</h4><p>Puede crear un nuevo usuario haciendo click <a href="new.php">aqui</a>.</p></div>';
 		return $Regs;
 	}
 
-	public function MakeList($From=-1, $To=-1)
+	public function MakeList()
 	{
-		return $this->MakeRegs("List",$From, $To);
+		return $this->MakeRegs("List");
 	}
 
-	public function MakeGrid($From=-1, $To=-1)
+	public function MakeGrid()
 	{
-		return $this->MakeRegs("Grid",$From,$To);
+		return $this->MakeRegs("Grid");
 	}
 
 	public function GetData()
@@ -158,19 +160,26 @@ class AdminData extends DataBase
 		return $this->AdminData;
 	}
 
-	public function GetGroups()
+	private function GetGroups()
 	{
-		if($this->Groups){
-			return $this->Groups;
-		}else{
-			$Groups = array();
-			$Rs 	= $this->fetchAssoc('relation_admin_group','*',"admin_id=".$this->AdminID,"group_id");
+		// if($this->Groups){
+		// 	return $this->Groups;
+		// }else{
+		// 	$Groups = array();
+		// 	$Rs 	= $this->fetchAssoc('relation_admin_group','*',"admin_id=".$this->AdminID,"group_id");
 
-			foreach ($Rs as $Row) {
-				$Groups[] = $Row['group_id'];
-			}
-			$this->Groups = $Groups;
-			return $Groups;
+		// 	foreach ($Rs as $Row) {
+		// 		$Groups[] = $Row['group_id'];
+		// 	}
+		// 	$this->Groups = $Groups;
+		// 	return $Groups;
+		// }
+		if(!$this->Groups)
+		{
+			$Groups = array();
+			$Rs 	= $this->fetchAssoc('admin_group','*',"group_id IN (SELECT group_id FROM relation_admin_group WHERE admin_id=".$this->AdminID.")","title");
+			$this->Groups = $Rs;
+			return $this->Groups;
 		}
 
 	}
@@ -185,10 +194,10 @@ class AdminData extends DataBase
 		return $this->ProfileID;
 	}
 
-	public function GetTotalRegs($Where="",$Status="A")
-	{
-		return $this->numRows('admin_user','*',"status = '".$Status."' AND profile_id > ".$this->ProfileID." ".$Where);
-	}
+	// public function GetTotalRegs($Where="",$Status="A")
+	// {
+	// 	return $this->numRows('admin_user','*',"status = '".$Status."' AND profile_id > ".$this->ProfileID." ".$Where);
+	// }
 
 	public function AllowedSections()
 	{

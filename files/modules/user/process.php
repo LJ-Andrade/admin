@@ -17,7 +17,7 @@ if($_GET['action']=='newimage')
 
 switch(strtolower($_POST['action']))
 {
-	//////////////////////////////////////////// NEW ///////////////////////////////////////////////////////////////
+	//////////////////////////////////////////// CREATE ///////////////////////////////////////////////////////////////
 	case 'insert':
 	
 		$Image 		= $_POST['newimage'];
@@ -66,7 +66,7 @@ switch(strtolower($_POST['action']))
 		
 	break;
 
-	//////////////////////////////////////////// EDIT ///////////////////////////////////////////////////////////////
+	//////////////////////////////////////////// UPDATE ///////////////////////////////////////////////////////////////
 	case 'update': 
 		$ID 	= $_POST['id'];
 		$Edit	= new AdminData($ID);
@@ -120,7 +120,12 @@ switch(strtolower($_POST['action']))
 
 		die;
 	break;
-
+	//////////////////////////////////////////// ACTIVATE USER ///////////////////////////////////////////////////////////////
+	case 'activate': 
+		$ID	= $_POST['id'];
+		$DB->execQuery('update','admin_user',"status = 'A'","admin_id=".$ID);
+		die;
+	break;
 	//////////////////////////////////////////// DELETE ///////////////////////////////////////////////////////////////
 	case 'delete': 
 		$ID	= $_POST['id'];
@@ -169,20 +174,55 @@ switch(strtolower($_POST['action']))
 	break;
 	
 	//////////////////////////////////// SEARCHER & PAGER ////////////////////////////////////////////////////////
-	
-	if($_POST['name'])
-	{
-		$Name = $_POST['name'];
-		$Admin->AddWhereString(" AND (first_name LIKE '%".$Name."%' OR last_name LIKE '%".$Name."%')");	
-	}
-	if($_POST['email']) $Admin->SetWhereCondition("email","LIKE","%".$_POST['email']."%");
-	if($_POST['user']) $Admin->SetWhereCondition("user","LIKE","%".$_POST['user']."%");
-	if($_POST['status']) $Admin->SetWhereCondition("status","=", $_POST['status']);
-	if($_POST['profile']) $Admin->SetWhereCondition("profile","=", $_POST['profile']);
-	if($_POST['group'])
-	{
-		$Admin->AddWhereString(" AND admin_id IN (SELECT admin_id FROM realtion_admin_group WHERE group_id = ".$_POST['group'].")");	
-	}
+	case "search":
+		foreach($_POST as $Key => $Value)
+		{
+			$_POST[$Key] = htmlentities($Value);
+		}
+		
+		if($_POST['name'])
+		{
+			$Name = $_POST['name'];
+			$Admin->AddWhereString(" AND (first_name LIKE '%".$Name."%' OR last_name LIKE '%".$Name."%')");	
+		}
+		if($_POST['email']) $Admin->SetWhereCondition("email","LIKE","%".$_POST['email']."%");
+		if($_POST['user']) $Admin->SetWhereCondition("user","LIKE","%".$_POST['user']."%");
+		if($_POST['profile']) $Admin->SetWhereCondition("profile_id","=", $_POST['profile']);
+		if($_POST['group'])
+		{
+			$Admin->AddWhereString(" AND admin_id IN (SELECT admin_id FROM relation_admin_group WHERE group_id = ".$_POST['group'].")");	
+		}
+		if($_REQUEST['status'])
+		{
+			if($_POST['status']) $Admin->SetWhereCondition("status","=", $_POST['status']);
+			if($_GET['status']) $Admin->SetWhereCondition("status","=", $_GET['status']);	
+		}else{
+			$Admin->SetWhereCondition("status","=","A");
+		}
+		$Admin->SetRegsPerView($_POST['regsperview']);
+		if(intval($_POST['view_page'])>0)
+			$Admin->SetPage($_POST['view_page']);
+		
+		if($_POST['view_type']=='list')
+			$GridClass = 'Hidden';
+		else
+			$ListClass = 'Hidden';
+			
+		echo '<div class="contentContainer txC" id="SearchResult"><!-- List Container -->
+        <div class="GridView row horizontal-list flex-justify-center GridElement '.$GridClass.' animated fadeIn">
+          <ul>
+            '.$Admin->MakeGrid().'
+          </ul>
+        </div><!-- /.horizontal-list -->
+        <!-- Item List View -->
+        <div class="row ListView ListElement '.$ListClass.' animated fadeIn">
+          <div class="container-fluid">
+            '.$Admin->MakeList().'
+          </div><!-- container-fluid -->
+        </div><!-- row -->
+    	'.insertElement('hidden','totalregs',$Admin->GetTotalRegs()).'
+    	</div><!-- /Content Container -->';
+	break;
 	
 
 	//////////////////////////////////// PAGER ////////////////////////////////////////////////////////

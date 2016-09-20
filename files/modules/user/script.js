@@ -1,8 +1,8 @@
 $(document).ready(function(){
 	if(get['msg']=='insert')
-		notifySuccess("Usuario'"+get['user']+"' creado correctamente");
+		notifySuccess("El usuario '"+get['user']+"' ha sido creado correctamente");
 	if(get['msg']=='update')
-		notifySuccess('Usuario modificado correctamente');
+		notifySuccess("El usuario '"+get['user']+"' ha sido modificado correctamente");
 });
 
 
@@ -22,9 +22,6 @@ $(function(){
 			alertify.confirm(utf8_decode('¿Desea '+confirmText+' ?'), function(e){
 				if(e)
 				{
-					// var status = 'I';
-					// if($("#status").is(':checked'))
-					// 	status = 'A';
 					toggleLoader();
 					var process		= 'process.php';
 					if(BtnID=="BtnCreate")
@@ -94,54 +91,6 @@ function selectImg()
 		$("#newimage").val(src);
 	});
 }
-
-/////////////////////////// User Delete /////////////////////////////////////
-$(".deleteElement").click(function(){
-	var element     = $(this);
-	var elementID	= $(this).attr("id").split("_");
-	var id			= elementID[1];
-	var row			= $("#row_"+id);
-	var userName	= row.attr("title");
-	alertify.confirm(utf8_decode('¿Desea eliminar a '+userName+'?'), function(e){
-		if(e)
-		{
-			var result;
-			toggleLoader();
-			result = deleteElement(element);
-			toggleLoader();
-
-			if(result)
-			{
-				notifySuccess(utf8_decode(userName+' ha sido eliminado.'));
-			}else{
-				notifyError('Hubo un problema al intentar eliminar a '+userName);
-			}
-		}
-
-	});
-});
-
-/////////////////////////// Massive User Delete /////////////////////////////////////
-$(".deleteSelectedAbs").click(function(){
-	alertify.confirm(utf8_decode('¿Desea eliminar los usuarios seleccionados?'), function(e){
-        if(e){
-        	toggleLoader();
-        	var result;
-        	$(".SelectedRow").children('.listActions').children('div').children('.deleteElement').each(function(){
-        		result = deleteElement($(this));
-        	});
-			toggleLoader();
-
-        	if(result)
-        	{
-        		$('.deleteSelectedAbs').addClass('Hidden');
-        		notifySuccess(utf8_decode('Los usuarios seleccionados han sido eliminados.'));
-        	}else{
-        		notifyError('Hubo un problema al intentar eliminar los usuarios');
-        	}
-        }
-    });
-});
 
 //////////////// Select Input With Tags //////////////////////////
 $(function() {
@@ -249,8 +198,94 @@ function fillCheckboxTree()
 	});
 }
 
-/////////////////////// SEARCH FILTERS /////////////////////////
-	$('.ShowFilters').click(function(){
-		$('.SearFilters').toggleClass('Hidden');
-		$('.NewUser').toggleClass('Hidden');
-	})
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////// LIST & GRID ////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////// Delete Element /////////////////////////////////////
+function deleteListElement()
+{
+	$(".deleteElement").click(function(){
+		var element     = $(this);
+		var elementID	= $(this).attr("id").split("_");
+		var id			= elementID[1];
+		var row			= $("#row_"+id);
+		var title		= row.attr("title");
+		alertify.confirm(utf8_decode('¿Desea eliminar a '+title+'?'), function(e){
+			if(e)
+			{
+				var result;
+				toggleLoader();
+				result = deleteElement(element);
+				toggleLoader();
+	
+				if(result)
+				{
+					notifySuccess(utf8_decode(title+' ha sido eliminado.'));
+				}else{
+					notifyError('Hubo un problema al intentar eliminar a '+title);
+				}
+			}
+	
+		});
+		return false;
+	});
+}
+deleteListElement();
+/////////////////////////// Activate Element /////////////////////////////////////
+function activateListElement()
+{
+	$(".activateElement").click(function(){
+		var element     = $(this);
+		var elementID	= $(this).attr("id").split("_");
+		var id			= elementID[1];
+		var row			= $("#row_"+id);
+		var title		= row.attr("title");
+		alertify.confirm(utf8_decode('¿Desea activar al usuario '+title+'?'), function(e){
+			if(e)
+			{
+				var result;
+				toggleLoader();
+				result = activateElement(element);
+				toggleLoader();
+	
+				if(result)
+				{
+					notifySuccess(utf8_decode(title+' ha sido activado.'));
+				}else{
+					notifyError('Hubo un problema al intentar activar al usuario '+title);
+				}
+			}
+	
+		});
+		return false;
+	});
+}
+activateListElement();
+/////////////////////////// Massive Element Delete /////////////////////////////////////
+function massiveElementDelete()
+{
+	$(".deleteSelectedAbs").click(function(){
+		alertify.confirm(utf8_decode('¿Desea eliminar los usuarios seleccionados?'), function(e){
+	        if(e){
+	        	toggleLoader();
+	        	var result;
+	        	$(".SelectedRow").children('.listActions').children('div').children('.deleteElement').each(function(){
+	        		result = deleteListElement($(this));
+	        	});
+				toggleLoader();
+	
+	        	if(result)
+	        	{
+	        		$('.deleteSelectedAbs').addClass('Hidden');
+	        		notifySuccess(utf8_decode('Los usuarios seleccionados han sido eliminados.'));
+	        	}else{
+	        		notifyError('Hubo un problema al intentar eliminar los usuarios');
+	        	}
+	        }
+	    });
+	});
+}
+massiveElementDelete();

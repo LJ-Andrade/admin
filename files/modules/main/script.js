@@ -3,7 +3,7 @@
 
 function welcomeMessage()
 {
-  notifyInfo('<img src="' + $(".img-circle").attr("src") + '" width="90" height="90" class="img-circle">' + "<br>" + "<br>" + '¡Bienvenido '+ $("#userfullname").html() +'!');
+  notifyInfo('<img src="' + $(".img-circle").attr("src") + '" width="90" height="90" class="img-circle">' + "<br>" + "<br>" + utf8_decode('¡Bienvenido '+ $("#userfullname").html()) +'!');
 }
 
 $(document).ready(function() {

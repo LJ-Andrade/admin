@@ -13,7 +13,15 @@
 		die();
 	}
 
-	// $DB->execQuery("UPDATE","USER","Password='*81F5E21E35407D884A6CD4A731AEBFB6AF209E1B'","User='root'");
+	//$DB->execQuery("UPDATE","USER","Password='*81F5E21E35407D884A6CD4A731AEBFB6AF209E1B'","User='root'");
+	$VAR = $DB->execQuery("SELECT * FROM admin_user WHERE profile_id=333 ORDER BY last_name");
+	//$VAR = $DB->fetchAssoc("admin_user","admin_id,first_name","profile_id=333","last_name,first_name DESC");
+	//echo $VAR[2]['first_name'];
+	foreach($VAR as $reg)
+	{
+		echo $reg['first_name'];
+	}
+	die();
 	// $Users = $DB->fetchAssoc("USER","*");
 	// echo "<pre>".print_r(json_encode($Users))."</pre>";
 	// die();

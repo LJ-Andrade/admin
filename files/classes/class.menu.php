@@ -8,6 +8,8 @@ class Menu extends DataBase
 	var $CheckedMenues 		= array();
 	var $Link 				= "";
 	var $Children 			= array();
+	var $Groups 			= array();
+	var $Profiles 			= array();
 	const PROFILE			= 333;
 
 	public function __construct($MenuID=0)
@@ -20,6 +22,10 @@ class Menu extends DataBase
 		}else{
 			$this->MenuData	= $this->GetLinkData();
 		}
+		$this->SetTable('menu');
+		$this->SetFields('*');
+		//$this->SetWhere("customer_id=".$_SESSION['customer_id']);
+		$this->SetOrder('title');
 	}
 
 	public function GetLinkData()
@@ -145,7 +151,7 @@ class Menu extends DataBase
 		{
 			$Title = '<i class="fa '.$Menu[0]['icon'].'"></i> '.$Menu[0]['title'];
 		}else{
-			$Title = '<a href=""><i class="fa '.$Menu[0]['icon'].'"></i> '.$Menu[0]['title'].'</a>';
+			$Title = '<a href="'.$Link.'"><i class="fa '.$Menu[0]['icon'].'"></i> '.$Menu[0]['title'].'</a>';
 		}
 		echo '<li>'.$Title.'</li>';
 	}
@@ -218,108 +224,218 @@ class Menu extends DataBase
 			$Menues[]			= $Menu['menu_id'];
 		}
 
-		/*
-		foreach($RestringedMenues as $RestringedMenu)
-		{
-			$QueryMenues[]		= $RestringedMenu['menu_id'];
-		}
-
-
-		$PublicMenues			= $this->fetchAssoc('menu','menu_id'," menu_id NOT IN (".implode(",",$QueryMenues).") AND status = 'A'");
-
-		foreach($PublicMenues as $PublicMenu)
-		{
-			$Menues[]			= $PublicMenu['menu_id'];
-		}
-
-
-		if($PorfileID>0)
-		{
-
-			$ProfileMenues		= $this->fetchAssoc('relation_menu_profile','DISTINCT(menu_id)',"profile_id = ".$PorfileID);
-
-			foreach($ProfileMenues as $ProfileMenu)
-			{
-				$Menues[]			= $ProfileMenu['menu_id'];
-			}
-		}*/
-
 		$this->IDs		= $Menues;
 	}
-
-
-	public function MakeList($From=-1, $To=-1,$Where="")
+	
+	public function GetGroups()
 	{
-
-		$Limit = $From>=0 && $To>=0 ? $From.",".$To : "";
-		$MenuRegs	= $this->fetchAssoc('menu','*',"1 = 1 ".$Where,"title",$Limit);
-		$AtLeastOne	= false;
-		for($i=0;$i<count($MenuRegs);$i++)
+		if(!$this->Groups)
 		{
-			$MenuReg	=	$MenuRegs[$i];
-			$Actions	= 	'<li><a href="edit.php?id='.$MenuReg['menu_id'].'" class="btnmod"><i class="fa fa-fw fa-pencil"></i></a></li>';
-			$Actions	.= 	'<li><a href="#" deleteElement="'.$MenuReg['menu_id'].'" deleteParent="menu'.$MenuReg['menu_id'].'" deleteProcess="process.php" confirmText="¿Desea eliminar el menú \''.$MenuReg['title'].'\'?" successText="\''.$MenuReg['title'].'\' ha sido eliminado correctamente" class="btndel deleteElement"><i class="fa fa-fw fa-trash"></i></a></li>';
+			$Rs 	= $this->fetchAssoc('admin_group','*',"group_id IN (SELECT group_id FROM relation_menu_group WHERE menu_id=".$this->MenuData['menu_id'].")","title");
+			$this->Groups = $Rs;
+			return $this->Groups;
+		}
+	}
+	
+	public function GetProfiles()
+	{
+		if(!$this->Profiles)
+		{
+			$Rs 	= $this->fetchAssoc('admin_profile','*',"profile_id IN (SELECT profile_id FROM relation_menu_profile WHERE menu_id=".$this->MenuData['menu_id'].")","title");
+			$this->Profiles = $Rs;
+			return $this->Profiles;
+		}
+	}
+	
+	public function MakeList()
+	{
+		return $this->MakeRegs('list');
+	}
+	
+	public function MakeGrid()
+	{
+		return $this->MakeRegs('grid');
+	}
 
-			$Parent 	= $MenuReg['parent_id'] != 0 ? 	$this->GetParent($MenuReg['parent_id']) : 'Men&uacute; Principal';
-			$Link 		= $MenuReg['link']!="#"  ? $MenuReg['link'] : 'Sin Link';
-			$Public 	= $MenuReg['public'] == 'Y'? 'Público' : 'Restringido';
-
-			switch(strtoupper($MenuReg['status']))
+	public function MakeRegs($Mode='list')
+	{
+		$Rows	= $this->GetRegs();
+		
+		for($i=0;$i<count($Rows);$i++)
+		{
+			$Row	=	new Menu($Rows[$i]['menu_id']);
+			$MenuGroups = $Row->GetGroups();
+			$Groups = '';
+			foreach($MenuGroups as $Group)
 			{
-				case 'A':
-					$Status = 'Activo';
+				$Groups .= '<span class="label label-warning">'.$Group['title'].'</span> ';
+			}
+			if(!$Groups) $Groups = 'Ninguno';
+			$MenuProfiles = $Row->GetProfiles();
+			$Profiles = '';
+			foreach($MenuProfiles as $Profile)
+			{
+				$Profiles .= '<span class="label label-primary">'.$Profile['title'].'</span> ';
+			}
+			if(!$Profiles) $Profiles = 'Ninguno';
+			
+			$Actions	= 	'<a href="edit.php?id='.$Row->MenuData['menu_id'].'"><button type="button" class="btn btnBlue"><i class="fa fa-pencil"></i></button></a>';
+			if($Row->MenuData['status']!="I")
+			{
+				
+				$Actions	.= '<a class="deleteElement" process="process.php" id="delete_'.$Row->MenuData['menu_id'].'"><button type="button" class="btn btnRed"><i class="fa fa-trash"></i></button></a>';
+				
+			}else{
+				$Actions	.= '<a class="activateElement" process="process.php" id="activate_'.$Row->MenuData['menu_id'].'"><button type="button" class="btn btnGreen"><i class="fa fa-check-circle"></i></button></a>';
+			}
+			
+			if($Row->MenuData['link']=="#")
+				$Row->MenuData['link'] = "";
+				
+			if($Row->MenuData['public']=='Y')
+				$Row->MenuData['public'] = 'P&uacute;blico';
+			else
+				$Row->MenuData['public'] = 'Privado';
+
+			switch(strtolower($Mode))
+			{
+				case "list":
+
+					$RowBackground = $i % 2 == 0? '':' listRow2 ';
+					$Regs	.= '<div class="row listRow'.$RowBackground.'" id="row_'.$Row->MenuData['menu_id'].'" title="'.$Row->MenuData['title'].'">
+									<div class="col-lg-1 col-md-1 col-sm-10 col-xs-10">
+										<div class="listRowInner">
+											<span class="smallDetails">Icono</span>
+											<span class="itemRowtitle"><i class="fa '.$Row->MenuData['icon'].'" alt="'.$Row->MenuData['title'].'"></i></span>
+										</div>
+									</div>
+									<div class="col-lg-2 col-md-3 col-sm-2 hideMobile990">
+										<div class="listRowInner">
+											<span class="itemRowtitle">'.$Row->MenuData['title'].'</span>
+											<span class="smallDetails">'.$Row->MenuData['link'].'</span>
+										</div>
+									</div>
+									<div class="col-lg-2 col-md-2 col-sm-2 hideMobile990">
+										<div class="listRowInner">
+											<span class="smallDetails">Tipo de Men&uacute;</span>
+											<span class="itemRowtitle">'.$Row->MenuData['public'].'</span>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-2 col-sm-2 hideMobile990">
+										<div class="listRowInner">
+											<span class="smallDetails">Perfiles</span>
+											<span class="itemRowtitle">
+											'.$Profiles.'
+											</span>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-3 hideMobile990">
+										<div class="listRowInner">
+											<span class="smallDetails">Grupos</span>
+											<span class="itemRowtitle">
+												'.$Groups.'
+											</span>
+										</div>
+									</div>
+									<div class="col-lg-1 col-md-1 col-sm-1 hideMobile990"></div>
+									<div class="listActions flex-justify-center Hidden">
+										<div>'.$Actions.'</div>
+									</div>
+								</div>';
 				break;
-				case 'I':
-					$Status = 'Inactivo';
-				break;
-				case 'O':
-					$Status = 'Oculto';
+				case "grid":
+					$Actions.= 	'<a href="#"><button type="button" class="btn btnGreen Hidden" name="button"><i class="fa fa-check"></i></button></a>';
+					$Regs	.= '<li id="grid_'.$Row->MenuData['menu_id'].'" class="RoundItemSelect roundItemBig" title="'.$Row->MenuData['title'].'">
+						            <div class="flex-allCenter imgSelector">
+						              <div class="imgSelectorInner">
+						                <img src="'.$Row->Img.'" alt="'.$Row->MenuData['title'].'" class="img-responsive">
+						                <div class="imgSelectorContent">
+						                  <div class="roundItemBigActions">
+						                    '.$Actions.'
+						                  </div>
+						                </div>
+						              </div>
+						              <div class="roundItemText">
+						                <p><b>'.$Row->MenuData['title'].'</b></p>
+						                <p>('.$Row->MenuData['link'].')</p>
+						              </div>
+						            </div>
+						          </li>';
 				break;
 			}
-
-			$Regs	.= '<div id="menu'.$MenuReg['menu_id'].'" class="container-fluid glassListRow listrow listrowclick">
-                         <div class="col-md-1 col-sm-3 col-xs-12 titlist1 menulistcol1">
-                            <i class="fa fa-fw '.$MenuReg['icon'].' menulistico"></i>
-                         </div>
-                         <div class="col-md-2 col-sm-3 col-xs-3 titlist2">
-                            <div class="padtoplist">
-                            <p>'.$MenuReg['title'].'</p>
-                            </div>
-                         </div>
-                         <div class="col-md-2 col-sm-2 col-xs-3 titlist3">
-                            <div class="padtoplist">
-                            <p>'.$Link.'</p>
-                            </div>
-                         </div>
-                         <div class="col-md-1 col-sm-2 col-xs-3 titlist4">
-                            <div class="padtoplist">
-                            <p>'.$Status.'</p>
-                            </div>
-                         </div>
-                         <div class="col-md-2 col-sm-2 col-xs-3 titlist5">
-                            <div class="padtoplist">
-                            <p>'.$Parent.'</p>
-                            </div>
-                         </div>
-                         <div class="col-md-2 col-sm-12 col-xs-12 titlist6ult">
-                            <div class="padtoplist">
-                            	'.$Public.'
-                            </div>
-                         </div>
-                         <div class="col-md-2 col-sm-12 col-xs-12 titlist7">
-                          <div class="colprodico">
-                           <div class="prodicos">
-                                    <ul>
-                                        '.$Actions.'
-                                    </ul>
-                                </div>
-                            </div>
-                         </div>
-                    </div>';
-			$AtLeastOne	= true;
         }
-        if(!$AtLeastOne) $Regs	.= '<div class="RegWrapper DarkRed" id="EmptyRow" style="text-align:center;padding:40px;font-size:20px;">No hay registros.</div>';
+        if(!$Regs) $Regs.= '<div class="callout callout-info"><h4><i class="icon fa fa-info-circle"></i> No se encontraron usuarios.</h4><p>Puede crear un nuevo usuario haciendo click <a href="new.php">aqui</a>.</p></div>';
 		return $Regs;
+
+		// $Limit = $From>=0 && $To>=0 ? $From.",".$To : "";
+		// $MenuRegs	= $this->fetchAssoc('menu','*',"1 = 1 ".$Where,"title",$Limit);
+		// $AtLeastOne	= false;
+		// for($i=0;$i<count($MenuRegs);$i++)
+		// {
+		// 	$MenuReg	=	$MenuRegs[$i];
+		// 	$Actions	= 	'<li><a href="edit.php?id='.$MenuReg['menu_id'].'" class="btnmod"><i class="fa fa-fw fa-pencil"></i></a></li>';
+		// 	$Actions	.= 	'<li><a href="#" deleteElement="'.$MenuReg['menu_id'].'" deleteParent="menu'.$MenuReg['menu_id'].'" deleteProcess="process.php" confirmText="¿Desea eliminar el menú \''.$MenuReg['title'].'\'?" successText="\''.$MenuReg['title'].'\' ha sido eliminado correctamente" class="btndel deleteElement"><i class="fa fa-fw fa-trash"></i></a></li>';
+
+		// 	$Parent 	= $MenuReg['parent_id'] != 0 ? 	$this->GetParent($MenuReg['parent_id']) : 'Men&uacute; Principal';
+		// 	$Link 		= $MenuReg['link']!="#"  ? $MenuReg['link'] : 'Sin Link';
+		// 	$Public 	= $MenuReg['public'] == 'Y'? 'Público' : 'Restringido';
+
+		// 	switch(strtoupper($MenuReg['status']))
+		// 	{
+		// 		case 'A':
+		// 			$Status = 'Activo';
+		// 		break;
+		// 		case 'I':
+		// 			$Status = 'Inactivo';
+		// 		break;
+		// 		case 'O':
+		// 			$Status = 'Oculto';
+		// 		break;
+		// 	}
+
+		// 	$Regs	.= '<div id="menu'.$MenuReg['menu_id'].'" class="container-fluid glassListRow listrow listrowclick">
+  //                       <div class="col-md-1 col-sm-3 col-xs-12 titlist1 menulistcol1">
+  //                          <i class="fa fa-fw '.$MenuReg['icon'].' menulistico"></i>
+  //                       </div>
+  //                       <div class="col-md-2 col-sm-3 col-xs-3 titlist2">
+  //                          <div class="padtoplist">
+  //                          <p>'.$MenuReg['title'].'</p>
+  //                          </div>
+  //                       </div>
+  //                       <div class="col-md-2 col-sm-2 col-xs-3 titlist3">
+  //                          <div class="padtoplist">
+  //                          <p>'.$Link.'</p>
+  //                          </div>
+  //                       </div>
+  //                       <div class="col-md-1 col-sm-2 col-xs-3 titlist4">
+  //                          <div class="padtoplist">
+  //                          <p>'.$Status.'</p>
+  //                          </div>
+  //                       </div>
+  //                       <div class="col-md-2 col-sm-2 col-xs-3 titlist5">
+  //                          <div class="padtoplist">
+  //                          <p>'.$Parent.'</p>
+  //                          </div>
+  //                       </div>
+  //                       <div class="col-md-2 col-sm-12 col-xs-12 titlist6ult">
+  //                          <div class="padtoplist">
+  //                          	'.$Public.'
+  //                          </div>
+  //                       </div>
+  //                       <div class="col-md-2 col-sm-12 col-xs-12 titlist7">
+  //                        <div class="colprodico">
+  //                         <div class="prodicos">
+  //                                  <ul>
+  //                                      '.$Actions.'
+  //                                  </ul>
+  //                              </div>
+  //                          </div>
+  //                       </div>
+  //                  </div>';
+		// 	$AtLeastOne	= true;
+  //      }
+  //      if(!$AtLeastOne) $Regs	.= '<div class="RegWrapper DarkRed" id="EmptyRow" style="text-align:center;padding:40px;font-size:20px;">No hay registros.</div>';
+		// return $Regs;
 	}
 
 	public function GetParent($Menu_id)
