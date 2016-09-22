@@ -23,7 +23,7 @@ $(function(){
 				if(e)
 				{
 					toggleLoader();
-					var process		= 'process.php';
+					var process		= '../processes/proc.common.php?object=AdminData';
 					if(BtnID=="BtnCreate")
 					{
 						var target		= 'list.php?user='+$('#user').val()+'&msg='+ $("#action").val();
@@ -57,7 +57,7 @@ $(function(){
 $(function(){
 	$("#image").change(function(){
 		toggleLoader();
-		var process		= 'process.php?action=newimage';
+		var process		= '../processes/proc.common.php?action=newimage&object=AdminData';
 		var haveData	= function(returningData)
 		{
 			$('#newimage').val(returningData);
@@ -137,9 +137,9 @@ function fillGroups()
 	toggleLoader();
 	var profile = $('#profile').val();
 	var admin 	= $('#id').val();
-	var process = 'process.php';
+	var process = '../processes/proc.common.php';
 
-	var string      = 'profile='+ profile +'&admin='+ admin +'&action=fillgroups';
+	var string      = 'profile='+ profile +'&admin='+ admin +'&action=fillgroups&object=AdminData';
 
     var data;
     $.ajax({
@@ -198,94 +198,3 @@ function fillCheckboxTree()
 	});
 }
 
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////// LIST & GRID ////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-/////////////////////////// Delete Element /////////////////////////////////////
-function deleteListElement()
-{
-	$(".deleteElement").click(function(){
-		var element     = $(this);
-		var elementID	= $(this).attr("id").split("_");
-		var id			= elementID[1];
-		var row			= $("#row_"+id);
-		var title		= row.attr("title");
-		alertify.confirm(utf8_decode('¿Desea eliminar a '+title+'?'), function(e){
-			if(e)
-			{
-				var result;
-				toggleLoader();
-				result = deleteElement(element);
-				toggleLoader();
-
-				if(result)
-				{
-					notifySuccess(utf8_decode(title+' ha sido eliminado.'));
-				}else{
-					notifyError('Hubo un problema al intentar eliminar a '+title);
-				}
-			}
-
-		});
-		return false;
-	});
-}
-deleteListElement();
-/////////////////////////// Activate Element /////////////////////////////////////
-function activateListElement()
-{
-	$(".activateElement").click(function(){
-		var element     = $(this);
-		var elementID	= $(this).attr("id").split("_");
-		var id			= elementID[1];
-		var row			= $("#row_"+id);
-		var title		= row.attr("title");
-		alertify.confirm(utf8_decode('¿Desea activar al usuario '+title+'?'), function(e){
-			if(e)
-			{
-				var result;
-				toggleLoader();
-				result = activateElement(element);
-				toggleLoader();
-
-				if(result)
-				{
-					notifySuccess(utf8_decode(title+' ha sido activado.'));
-				}else{
-					notifyError('Hubo un problema al intentar activar al usuario '+title);
-				}
-			}
-
-		});
-		return false;
-	});
-}
-activateListElement();
-/////////////////////////// Massive Element Delete /////////////////////////////////////
-function massiveElementDelete()
-{
-	$(".deleteSelectedAbs").click(function(){
-		alertify.confirm(utf8_decode('¿Desea eliminar los usuarios seleccionados?'), function(e){
-	        if(e){
-	        	toggleLoader();
-	        	var result;
-	        	$(".SelectedRow").children('.listActions').children('div').children('.deleteElement').each(function(){
-	        		result = deleteListElement($(this));
-	        	});
-				toggleLoader();
-
-	        	if(result)
-	        	{
-	        		$('.deleteSelectedAbs').addClass('Hidden');
-	        		notifySuccess(utf8_decode('Los usuarios seleccionados han sido eliminados.'));
-	        	}else{
-	        		notifyError('Hubo un problema al intentar eliminar los usuarios');
-	        	}
-	        }
-	    });
-	});
-}
-massiveElementDelete();

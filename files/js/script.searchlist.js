@@ -41,8 +41,9 @@ function toggleGrid(element)
 {
     element.toggleClass('SelectedGrid');
     element.children('div').children('div').children('div').toggleClass('imgSelectorClicked');
-    element.children('div').children('div').children('div').children('div').children('a').children('button').each(function(){
-        $(this).toggleClass('Hidden');
+    element.children('div').children('div').children('div').children('div').children('.roundItemCheckDiv').children('a').children('button').toggleClass('Hidden');
+    element.children('div').children('div').children('div').children('div').children('.roundItemActionsGroup').children('a').children('button').each(function(){
+        //$(this).toggleClass('Hidden');
     });
 }
 
@@ -82,7 +83,8 @@ function deleteElement(element)
 	var row			= $("#row_"+id);
 	var grid		= $("#grid_"+id);
 	var process 	= element.attr('process');
-	var string      = 'id='+ id + '&action=delete';
+	var object		= $("#SearchResult").attr("object");
+	var string      = 'id='+ id + '&action=delete&object='+object;
 	var result;
 
     $.ajax({
@@ -114,7 +116,8 @@ function activateElement(element)
 	var row			= $("#row_"+id);
 	var grid		= $("#grid_"+id);
 	var process 	= element.attr('process');
-	var string      = 'id='+ id + '&action=activate';
+	var object		= $("#SearchResult").attr("object");
+	var string      = 'id='+ id + '&action=activate&object='+object;
 	var result;
 
     $.ajax({
@@ -138,13 +141,104 @@ function activateElement(element)
     console.log(result);
     return result;
 }
+
+
+function deleteListElement()
+{
+	$(".deleteElement").click(function(){
+		
+		var element     = $(this);
+		var elementID	= $(this).attr("id").split("_");
+		var id			= elementID[1];
+		var row			= $("#row_"+id);
+		var title		= utf8_encode(row.attr("title"));
+		alertify.confirm(utf8_decode('Está a punto de eliminar a '+title+' ¿Desea continuar?'), function(e){
+			if(e)
+			{
+				var result;
+				toggleLoader();
+				result = deleteElement(element);
+				toggleLoader();
+
+				if(result)
+				{
+					notifySuccess(utf8_decode(title+' ha sido eliminado.'));
+					submitSearch();
+				}else{
+					notifyError('Hubo un problema. '+title+' no pudo ser eliminado.');
+				}
+			}
+
+		});
+		return false;
+	});
+}
+deleteListElement();
+
+function activateListElement()
+{
+	$(".activateElement").click(function(){
+		var element     = $(this);
+		var elementID	= $(this).attr("id").split("_");
+		var id			= elementID[1];
+		var row			= $("#row_"+id);
+		var title		= utf8_encode(row.attr("title"));
+		alertify.confirm(utf8_decode('Está a punto de activar a '+title+' ¿Desea continuar?'), function(e){
+			if(e)
+			{
+				var result;
+				toggleLoader();
+				result = activateElement(element);
+				toggleLoader();
+
+				if(result)
+				{
+					notifySuccess(utf8_decode(title+' ha sido activado.'));
+					submitSearch();
+				}else{
+					notifyError('Hubo un problema. '+title+' no pudo ser activado.');
+				}
+			}
+
+		});
+		return false;
+	});
+}
+activateListElement();
+
+function massiveElementDelete()
+{
+	$(".deleteSelectedAbs").click(function(){
+		alertify.confirm(utf8_decode('¿Desea eliminar los registros seleccionados?'), function(e){
+	        if(e){
+	        	toggleLoader();
+	        	var result;
+	        	$(".SelectedRow").children('.listActions').children('div').children('.roundItemActionsGroup').children('.deleteElement').each(function(){
+	        		result = deleteElement($(this));
+	        	});
+				toggleLoader();
+
+	        	if(result)
+	        	{
+	        		$('.deleteSelectedAbs').addClass('Hidden');
+	        		notifySuccess(utf8_decode('Los registros seleccionados han sido eliminados.'));
+	        		submitSearch();
+	        	}else{
+	        		notifyError('Hubo un problema al intentar eliminar los registros.');
+	        	}
+	        }
+	    });
+	    return false;
+	});
+}
+massiveElementDelete();
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////// SEARCHER ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 $(function(){
 	$('.ShowFilters').click(function(){
 		$('.SearFilters').toggleClass('Hidden');
-		$('.NewUser').toggleClass('Hidden');
+		$('.NewElementButton').toggleClass('Hidden');
 	});
 	
 	$(".searchButton").click(function(){
@@ -161,6 +255,10 @@ $(function(){
 			$(".searchButton").click();
 		}
 	});
+	
+	$("#ClearSearchFields").click(function(){
+		$("#SearchFieldsForm").children('.input-group').children('input,select,textarea').val('');
+	})
 });
 
 function submitSearch()
@@ -175,9 +273,10 @@ function submitSearch()
 			$("#view_type").val('grid');
 		}
 		var status		= get['status'];
-		if(status) status = '?status='+status;
+		var object		= $("#SearchResult").attr("object");
+		if(status) status = '&status='+status;
 		else status 	= '';
-		var process		= 'process.php'+status;
+		var process		= '../processes/proc.common.php?action=search&object='+object+status;
 		var haveData	= function(returningData)
 		{
 			$("input,select").blur();
@@ -202,6 +301,26 @@ function submitSearch()
 		return false;
 	}
 }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////// ORDERER ///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+$(function(){
+	$(".order-arrows").click(function(){
+		$(".sort-activated").removeClass("sort-activated");
+		var mode = $(this).attr("mode");
+		$(this).children("i").removeClass("fa-sort-alpha-"+mode);
+		if(mode=="desc") mode = "asc";
+		else mode = "desc";
+		$("#view_order_field").val($(this).attr("order"));
+		$("#view_order_mode").val(mode);
+		$(this).attr("mode",mode);
+		$(this).children("i").addClass("fa-sort-alpha-"+mode);
+		$(this).addClass("sort-activated");
+		$("#view_page").val("1");
+		submitSearch();
+	});
+});
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////// PAGER //////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

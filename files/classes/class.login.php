@@ -20,16 +20,56 @@ class Login extends DataBase
 	const 	MAX_TRIES	= 13;
 	const 	LOGIN		= 'login/process.login.php';
 
-	public function __construct($User,$Password='',$Remember=0,$PasswordHash='')
+	public function __construct($User='',$Password='',$Remember=0,$PasswordHash='')
 	{
 		$this->Connect();
 		$this->getLink();
+		if($User)
+			$this->setData($User,$Password,$Remember,$PasswordHash);
+		$this->IP 			= getenv("REMOTE_ADDR");
+	}
+	
+	public function setData($User,$Password='',$Remember=0,$PasswordHash='')
+	{
 		$this->User			= $User;
 		$this->Password		= $Password;
 		$this->PasswordHash	= $PasswordHash? $PasswordHash : md5($Password);
 		$this->AdminData 	= $this->fetchAssoc('admin_user','*'," (user = '".$this->User."' OR email='".$this->User."' )AND status = 'A'");
 		$this->RememberUser = $Remember==1;
-		$this->IP 			= getenv("REMOTE_ADDR");
+	}
+	
+	public function Startlogin()
+	{
+		$this->setData($_POST['user'],$_POST['password'],$_POST['rememberuser']);
+		$this->setLogin();
+
+		/* PROCESS */
+		if($this->UserExists)/* User Existence */
+		{
+			if($this->IsMaxTries)/* Attempts to Login */
+			{
+				$this->queryMaxTries(); /* Max Tries Reached */
+				echo "1";
+			}else{
+				if($this->PassMatch) /* Password Match*/
+				{
+					if($this->checkCustomer())
+					{
+						$this->setSessionVars();
+						$this->setCookies();
+						$this->queryLogin();
+					}else{
+						echo "4";
+					}
+				}else{
+					$this->queryPasswordFail(); /* Password does not Match*/
+					echo "2";
+				}
+			}
+		}else{
+			$this->queryWrongUser(); /* Nonexistent User */
+			echo "3";
+		}
 	}
 
 	public function setLogin()

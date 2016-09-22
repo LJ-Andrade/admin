@@ -18,6 +18,7 @@ class DataBase
 	var $Page = 1;
 	var $RegsPerView = 5;
 	var $Order;
+	//var $GroupBy;
 	var $Table;
 	var $Fields = '*';
 	
@@ -112,13 +113,13 @@ class DataBase
 			break;
 		}
 	}
-	public function getQuery($Operation,$Table='',$Fields='',$Where='',$Order='',$Limit='')
+	public function getQuery($Operation,$Table='',$Fields='',$Where='',$Order='',$GroupBy='',$Limit='')
 	{
-		return $Query	= $this->queryBuild($Operation,$Table,$Fields,$Where,$Order,$Limit);
+		return $Query	= $this->queryBuild($Operation,$Table,$Fields,$Where,$Order,$GroupBy,$Limit);
 	}
-	public function execQuery($Operation,$Table='',$Fields='',$Where='',$Order='',$Limit='')
+	public function execQuery($Operation,$Table='',$Fields='',$Where='',$Order='',$GroupBy='',$Limit='')
 	{
-		$Query	= $this->queryBuild($Operation,$Table,$Fields,$Where,$Order,$Limit);
+		$Query	= $this->queryBuild($Operation,$Table,$Fields,$Where,$Order,$GroupBy,$Limit);
 		switch($this->TypeDB)
 		{
 			case "Mysql":
@@ -128,9 +129,9 @@ class DataBase
 			break;
 		}
 	}
-	public function fetchAssoc($Table,$Fields='',$Where='',$Order='',$Limit='')
+	public function fetchAssoc($Table,$Fields='',$Where='',$Order='',$GroupBy='',$Limit='')
 	{
-		$Query	= $this->queryBuild("SELECT",$Table,$Fields,$Where,$Order,$Limit);
+		$Query	= $this->queryBuild("SELECT",$Table,$Fields,$Where,$Order,$GroupBy,$Limit);
 		switch($this->TypeDB)
 		{
 			case "Mysql":
@@ -142,9 +143,9 @@ class DataBase
 			break;
 		}
 	}
-	public function fetchRow($Table,$Fields='',$Where='',$Order='',$Limit='')
+	public function fetchRow($Table,$Fields='',$Where='',$Order='',$GroupBy='',$Limit='')
 	{
-		$Query	= $this->queryBuild("SELECT",$Table,$Fields,$Where,$Order,$Limit);
+		$Query	= $this->queryBuild("SELECT",$Table,$Fields,$Where,$Order,$GroupBy,$Limit);
 		switch($this->TypeDB)
 		{
 			case "Mysql":
@@ -156,12 +157,12 @@ class DataBase
 			break;
 		}
 	}
-	public function numRows($Table,$Fields='',$Where='',$Order='',$Limit='')
+	public function numRows($Table,$Fields='',$Where='',$Order='',$GroupBy='',$Limit='')
 	{
 		switch($this->TypeDB)
 		{
 			case "Mysql":
-				$Result = mysqli_num_rows($this->execQuery("SELECT",$Table,$Fields,$Where,$Order,$Limit));
+				$Result = mysqli_num_rows($this->execQuery("SELECT",$Table,$Fields,$Where,$Order,$GroupBy,$Limit));
 				if(!$Result) $this->Error = mysqli_error($this->StreamConnection);
 				return $Result;
 			break;
@@ -176,7 +177,7 @@ class DataBase
 			break;
 		}
 	}
-	public function queryBuild($Operation,$Table,$Fields='',$Where='',$Order='',$Limit='')
+	public function queryBuild($Operation,$Table,$Fields='',$Where='',$Order='',$GroupBy='',$Limit='')
 	{
 		if($Fields)
 			$Fields	= utf8_decode($Fields);
@@ -185,7 +186,7 @@ class DataBase
 		switch(strtolower($Operation))
 		{
 			case "select":
-				$Query = $this->selectBuild($Table,$Fields,$Where,$Order,$Limit);
+				$Query = $this->selectBuild($Table,$Fields,$Where,$Order,$GroupBy,$Limit);
 			break;
 			case "insert":
 				$Query = $this->insertBuild($Table,$Fields,$Where);
@@ -206,16 +207,17 @@ class DataBase
 		$this->LastQuery = $Query;
 		return $Query;
 	}
-	public function selectBuild($Table,$Fields,$Where='',$Order='',$Limit='')
+	public function selectBuild($Table,$Fields,$Where='',$Order='',$GroupBy='',$Limit='')
 	{
 		switch($this->TypeDB)
 		{
 			case "Mysql":
 				$Fields	= $Fields ? $Fields : '*';
 				$Where	= $Where ? ' WHERE '.$Where : '';
+				$GroupBy= $GroupBy ? ' GROUP BY '.$GroupBy : '';
 				$Order	= $Order ? ' ORDER BY '.$Order : '';
 				$Limit	= $Limit ? ' LIMIT '.$Limit : '';
-				return 'SELECT '.$Fields.' FROM '.$Table.$Where.$Order.$Limit;
+				return 'SELECT '.$Fields.' FROM '.$Table.$Where.$GroupBy.$Order.$Limit;
 			break;
 		}
 	}
@@ -308,7 +310,7 @@ class DataBase
 	{
 		if(!$this->Regs)
 		{
-			$this->Regs = $this->fetchAssoc($this->GetTable(),$this->GetFields(),$this->GetWhere(),$this->GetOrder(),$this->GetLimit());
+			$this->Regs = $this->fetchAssoc($this->GetTable(),$this->GetFields(),$this->GetWhere(),$this->GetOrder(),$this->GetGroupBy(),$this->GetLimit());
 			
 		}
 		return $this->Regs;
@@ -324,7 +326,7 @@ class DataBase
 	
 	public function CalculateTotalRegs()
 	{
-		$this->TotalRegs = $this->numRows($this->GetTable(),$this->GetFields(),$this->GetWhere());
+		$this->TotalRegs = $this->numRows($this->GetTable(),$this->GetFields(),$this->GetWhere(),$this->GetOrder(),$this->GetGroupBy());
 		if($this->TotalRegs)
 			return $this->TotalRegs;
 		else
@@ -349,6 +351,16 @@ class DataBase
 	public function GetOrder()
 	{
 		return $this->Order;
+	}
+	
+	public function SetGroupBy($GroupBy)
+	{
+		$this->GroupBy = $GroupBy;
+	}
+	
+	public function GetGroupBy()
+	{
+		return $this->GroupBy;
 	}
 	
 	public function SetTable($Table)
@@ -404,5 +416,77 @@ class DataBase
 		return $From.", ".$To;
 	}
 	
+	public function InsertSearchList()
+	{
+		return '<div class="box">
+    		<div class="box-body">
+    			'.$this->InsertSearchButtons().'
+		    	<!-- Search Filters -->
+		    	<div class="SearFilters searchFiltersHorizontal animated fadeIn Hidden">
+			        <form class="form-inline" id="SearchFieldsForm">
+			        	'.insertElement('hidden','view_type','list').'
+			        	'.insertElement('hidden','view_page','1').'
+			        	'.insertElement('hidden','view_order_field','first_name').'
+			        	'.insertElement('hidden','view_order_mode','asc').'
+			        	'.$this->InsertSearchField().'
+			          <!-- Submit Button -->
+			          <button type="button" class="btn btnGreen searchButton">Buscar</button>
+			          <button type="button" class="btn btnGrey" id="ClearSearchFields">Limpiar</button>
+			          <!-- Decoration Arrow -->
+			          <div class="arrow-right-border">
+			            <div class="arrow-right-sf"></div>
+			          </div>
+			        </form>
+			      </div>
+			      <!-- /Search Filters -->
+			      <div class="changeView">
+			        <button class="ShowFilters SearchElement btn"><i class="fa fa-search"></i></button>
+			        <button class="ShowList GridElement btn Hidden"><i class="fa fa-list"></i></button>
+			        <button class="ShowGrid ListElement btn"><i class="fa fa-th-large"></i></button>
+			      </div>
+			      '.$this->InsertSearchResults().'
+			    </div><!-- /.box-body -->
+			    <div class="box-footer clearfix">
+			      <!-- Paginator -->
+			      <div class="pull-left form-inline paginationLeft">
+			          <label for="RegsPerView" class="control-label">Mostrar </label>
+			          '.insertElement('select','regsperview','','form-control','',array("5"=>"5","10"=>"10","25"=>"25","50"=>"50","100"=>"100")).'
+			          de <b><span id="TotalRegs">'.$this->GetTotalRegs().'</span></b>
+			      </div>
+			      <ul class="paginationRight pagination no-margin pull-right">
+			      </ul>
+			      <!-- Paginator -->
+			    </div>
+			  </div><!-- /.box -->
+			  <!-- DELETE SELECTED BUTTON -->
+			  <a href="#">
+			    <div class="deleteSelectedAbs Hidden">
+			      Eliminar Seleccionados
+			    </div>
+			  </a>
+			  <!-- DELETE SELECTED BUTTON-->';
+	}
+	
+	public function InsertSearchResults()
+	{
+		if($_POST['view_type']=='grid')
+			$ListClass = 'Hidden';
+		else
+			$GridClass = 'Hidden';
+			
+		return '<div class="contentContainer txC" id="SearchResult" object="'.get_class ($this).'"><!-- List Container -->
+			        <div class="GridView row horizontal-list flex-justify-center GridElement '.$GridClass.' animated fadeIn">
+			          <ul>
+			            '.$this->MakeGrid().'
+			          </ul>
+			        </div><!-- /.horizontal-list -->
+			        <div class="row ListView ListElement animated fadeIn '.$ListClass.'">
+			          <div class="container-fluid">
+			            '.$this->MakeList().'
+			          </div><!-- container-fluid -->
+			        </div><!-- row -->
+			        '.insertElement('hidden','totalregs',$this->GetTotalRegs()).'
+			      </div><!-- /Content Container -->';
+	}
 }
 ?>

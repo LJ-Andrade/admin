@@ -348,7 +348,7 @@ class Menu extends DataBase
 					$Regs	.= '<li id="grid_'.$Row->MenuData['menu_id'].'" class="RoundItemSelect roundItemBig" title="'.$Row->MenuData['title'].'">
 						            <div class="flex-allCenter imgSelector">
 						              <div class="imgSelectorInner">
-						                <img src="'.$Row->Img.'" alt="'.$Row->MenuData['title'].'" class="img-responsive">
+						                <img src="../../../skin/images/body/pictures/img-back-gen.jpg" alt="'.$Row->MenuData['title'].'" class="img-responsive">
 						                <div class="imgSelectorContent">
 						                  <div class="roundItemBigActions">
 						                    '.$Actions.'
