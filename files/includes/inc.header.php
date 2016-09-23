@@ -60,7 +60,7 @@
                 <a href="#" class="btn btn-primary btn-flat">Perfil</a>
               </div>
               <div class="pull-right">
-                <a href="../login/process.logout.php" class="btn btn-danger btn-flat">Cerrar Sesi&oacute;n</a>
+                <a id="Logout" class="btn btn-danger btn-flat">Cerrar Sesi&oacute;n</a>
               </div>
             </li>
           </ul>

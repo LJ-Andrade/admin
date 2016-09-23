@@ -24,7 +24,7 @@ function sumbitLogin(){
 	var errorLogin		= 'Verifique los datos ingresados.';
 	var errorCustomer	= 'El cliente se encuentra deshabilitado por falta de pago.';
 	var values			= 'user='+ user + '&password=' + password + '&action=startlogin&object=login' +  '&rememberuser=' + rememberuser ;
-	var	process			= "../processes/proc.common.php";
+	var	process			= "../../library/processes/proc.common.php";
 	toggleLoader();
 	$.ajax({
 			type: "POST",

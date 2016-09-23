@@ -37,46 +37,12 @@ class Login extends DataBase
 		$this->AdminData 	= $this->fetchAssoc('admin_user','*'," (user = '".$this->User."' OR email='".$this->User."' )AND status = 'A'");
 		$this->RememberUser = $Remember==1;
 	}
-	
-	public function Startlogin()
-	{
-		$this->setData($_POST['user'],$_POST['password'],$_POST['rememberuser']);
-		$this->setLogin();
-
-		/* PROCESS */
-		if($this->UserExists)/* User Existence */
-		{
-			if($this->IsMaxTries)/* Attempts to Login */
-			{
-				$this->queryMaxTries(); /* Max Tries Reached */
-				echo "1";
-			}else{
-				if($this->PassMatch) /* Password Match*/
-				{
-					if($this->checkCustomer())
-					{
-						$this->setSessionVars();
-						$this->setCookies();
-						$this->queryLogin();
-					}else{
-						echo "4";
-					}
-				}else{
-					$this->queryPasswordFail(); /* Password does not Match*/
-					echo "2";
-				}
-			}
-		}else{
-			$this->queryWrongUser(); /* Nonexistent User */
-			echo "3";
-		}
-	}
 
 	public function setLogin()
 	{
-		$this->UserExists = count($this->AdminData) > 0;
+		$this->UserExists	= count($this->AdminData) > 0;
 		$this->PassMatch	= $this->AdminData[0]['password'] == $this->PasswordHash;
-		$this->Tries			= $this->AdminData[0]['tries']+1;
+		$this->Tries		= $this->AdminData[0]['tries']+1;
 		$this->IsMaxTries	= $PasswordHash? false : $this->Tries > $this->getMaxTries();
 	}
 
@@ -191,6 +157,58 @@ class Login extends DataBase
 	public static function getMaxTries()
 	{
   	return self::MAX_TRIES;
+	}
+	
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////// PROCESS METHODS ///////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	public function Startlogin()
+	{
+		$this->setData($_POST['user'],$_POST['password'],$_POST['rememberuser']);
+		$this->setLogin();
+
+		/* PROCESS */
+		if($this->UserExists)/* User Existence */
+		{
+			if($this->IsMaxTries)/* Attempts to Login */
+			{
+				$this->queryMaxTries(); /* Max Tries Reached */
+				echo "1";
+			}else{
+				if($this->PassMatch) /* Password Match*/
+				{
+					if($this->checkCustomer())
+					{
+						$this->setSessionVars();
+						$this->setCookies();
+						$this->queryLogin();
+					}else{
+						echo "4";
+					}
+				}else{
+					$this->queryPasswordFail(); /* Password does not Match*/
+					echo "2";
+				}
+			}
+		}else{
+			$this->queryWrongUser(); /* Nonexistent User */
+			echo "3";
+		}
+	}
+	
+	public function Logout()
+	{
+		session_destroy();
+		//Unset Cookies
+		setcookie("renovatio", "", 0 ,"/");
+		setcookie("user", "", 0 ,"/");
+		setcookie("password", "", 0 ,"/");
+		setcookie("admin_id", "", 0 ,"/");
+		setcookie("profile_id", "", 0 ,"/");
+		setcookie("first_name", "", 0 ,"/");
+		setcookie("last_name", "", 0 ,"/");
+		setcookie("password", "", 0 ,"/");
 	}
 }
 

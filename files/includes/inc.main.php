@@ -27,7 +27,7 @@
 	// die();
 
 	include_once("../../classes/class.api.rest.php");
-	include_once("../../functions/func.common.php");
+	include_once("../../library/functions/func.common.php");
 	include_dir("../../classes");
 
 

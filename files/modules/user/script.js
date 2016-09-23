@@ -23,7 +23,7 @@ $(function(){
 				if(e)
 				{
 					toggleLoader();
-					var process		= '../processes/proc.common.php?object=AdminData';
+					var process		= '../../library/processes/proc.common.php?object=AdminData';
 					if(BtnID=="BtnCreate")
 					{
 						var target		= 'list.php?user='+$('#user').val()+'&msg='+ $("#action").val();
@@ -57,7 +57,7 @@ $(function(){
 $(function(){
 	$("#image").change(function(){
 		toggleLoader();
-		var process		= '../processes/proc.common.php?action=newimage&object=AdminData';
+		var process		= '../../library/processes/proc.common.php?action=newimage&object=AdminData';
 		var haveData	= function(returningData)
 		{
 			$('#newimage').val(returningData);
@@ -137,7 +137,7 @@ function fillGroups()
 	toggleLoader();
 	var profile = $('#profile').val();
 	var admin 	= $('#id').val();
-	var process = '../processes/proc.common.php';
+	var process = '../../library/processes/proc.common.php';
 
 	var string      = 'profile='+ profile +'&admin='+ admin +'&action=fillgroups&object=AdminData';
 

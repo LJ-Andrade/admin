@@ -276,7 +276,7 @@ function submitSearch()
 		var object		= $("#SearchResult").attr("object");
 		if(status) status = '&status='+status;
 		else status 	= '';
-		var process		= '../processes/proc.common.php?action=search&object='+object+status;
+		var process		= '../../library/processes/proc.common.php?action=search&object='+object+status;
 		var haveData	= function(returningData)
 		{
 			$("input,select").blur();
