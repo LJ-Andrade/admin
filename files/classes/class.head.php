@@ -109,7 +109,7 @@ class Head
     						<link rel="apple-touch-icon" sizes="144x144" href="'.$Rute.'">
     						<link rel="shortcut icon" href="'.$Rute.'" type="image/x-icon">';
 	}
-	
+
 	function setIcon($HTML)
 	{
 		$this->Icon = $HTML;
@@ -124,7 +124,7 @@ class Head
 	{
 		return $this->Title;
 	}
-	
+
 	function getIcon()
 	{
 		return $this->Icon;

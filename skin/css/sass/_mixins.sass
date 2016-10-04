@@ -40,13 +40,19 @@
   -moz-box-shadow: $horiz $vert $blur $spread $color
   box-shadow: $horiz $vert $blur $spread $color
 
-@mixin border-radius($radio)
-  -webkit-border-radius: $radio
-  -moz-border-radius: $radio
-  border-radius: $radio
+@mixin box-shadowFloor( $horiz : 0px , $vert : 25px , $blur : 14px , $spread : -24px , $color : rgba(0, 0, 0, 0.4))
+  -webkit-box-shadow: $horiz $vert $blur $spread $color
+  -moz-box-shadow: $horiz $vert $blur $spread $color
+  box-shadow: $horiz $vert $blur $spread $color
+
+////////////////////////////////////////
+//                                    //
+//            TEXT SHADOW             //
+//                                    //
+////////////////////////////////////////
 
 
-// TEXT SHADOW //
+
 //1. value = The X-coordinate - 2. value = The Y-coordinate - 3. value = The blur radius - 4. value = The color of the shadow
 
 //  @include tShadow(5px,5px,5px, rgb(46, 46, 46))
@@ -94,7 +100,7 @@
   -webkit-box-pack: center
   -ms-flex-pack: center
   justify-content: center
-      
+
 
 @mixin flex-inline-centered
   display: -webkit-box
@@ -179,3 +185,14 @@
   border-right: $right solid transparent
   border-left: $left solid transparent
   border-bottom: $bottom solid $color
+
+////////////////////////////////////////
+//                                    //
+//             MISC                   //
+//                                    //
+////////////////////////////////////////
+
+@mixin border-radius($radio)
+  -webkit-border-radius: $radio
+  -moz-border-radius: $radio
+  border-radius: $radio

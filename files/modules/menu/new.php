@@ -12,82 +12,67 @@
   <?php echo insertElement("hidden","menues",""); ?>
   <?php echo insertElement("hidden","groups",""); ?>
   <?php echo insertElement("hidden","newimage",$Admin->DefaultImg); ?>
-
-  <div class="box">
-    <div class="box-header with-border">
-      <h3 class="box-title">Complete el formulario para crear un nuevo men&uacute;</h3>
-    </div>
-    <div class="box-body">
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-lg-4">
-          <div class="form-group">
-            <div class="input-group">
-              <div class="input-group-btn">
-                <button type="button" class="btn btn-danger">T&iacute;tulo</button>
+  <div class="ProductDetails box animated fadeIn">
+    <div class="box-header flex-justify-center">
+      <div class="col-lg-8 col-sm-12">
+        <div class="innerContainer">
+          <h4 class="subTitleB"><i class="fa fa-plus-circle"></i> Rellene los campos para agregar un nuevo men&uacute;</h4>
+          <form method="post">
+            <!-- <div class="form-group">
+              <input type="name" class="form-control" placeholder="Nombre del Producto">
+            </div> -->
+            <div class="row form-group inline-form-custom-2">
+              <div class="col-xs-12 col-sm-4 inner">
+                <input type="name" class="form-control" placeholder="Nombre de Men&uacute; ">
               </div>
-              <!-- /btn-group -->
-              <input class="form-control" type="text" placeholder="Ingrese el nombre del Men&uacute;">
-            </div>
-          </div>
-          <!-- <div class="form-group">
-            <input type="text" class="form-control" placeholder="T&iacute;tulo del Men&uacute;">
-          </div> -->
-          <div class="form-group">
-            <select class="form-control">
-              <option>Men&uacute; Principal</option>
-              <option>option 2</option>
-              <option>option 3</option>
-              <option>option 4</option>
-              <option>option 5</option>
-            </select>
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-lg-4">
-          <div class="form-group">
-            <div class="input-group">
-              <div class="input-group-btn">
-                <button type="button" class="btn btn-danger" >Link</button>
+              <div class="col-xs-12 col-sm-4 inner">
+                <input type="name" class="form-control" placeholder="Tipo de Men&uacute;">
               </div>
-              <!-- /btn-group -->
-              <input class="form-control" type="text" placeholder="Especifique la ruta del Men&uacute;">
-            </div>
-          </div>
-          <div class="form-group">
-            <select class="form-control selectpicker">
-              <option>Activo</option>
-              <option>Inactivo</option>
-              <option>Oculto</option>
-            </select>
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-lg-4">
-          <div class="form-group">
-            <div class="input-group">
-              <div class="input-group-btn">
-                <button type="button" class="btn btn-danger">Posici&oacute;n</button>
+              <div class="col-xs-12 col-sm-4 inner">
+                <input type="name" class="form-control" placeholder="Ruta del Men&uacute;">
               </div>
-              <!-- /btn-group -->
-              <input class="form-control" type="text" placeholder="Ingrese la posici&oacute;n">
+              <div class="col-xs-12 col-sm-4 txC">
+                <div class="custom-input-box">
+                  <h4>Perfiles</h4>
+                  <span class="label label-primary">Perfil 1</span>
+                  <span class="label label-primary">Perfil 2</span>
+                  <span class="label label-primary">Perfil 3</span>
+                  <span class="label label-primary">Perfil 4</span><br>
+                  <button type="button" data-toggle="modal" data-target="#groups-modal" class="btn btnBlue">Seleccionar</button>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-4">
+                <div class="custom-input-box">
+                  <h4>Grupos</h4>
+                  <span class="label label-primary">Grupo 1</span>
+                  <span class="label label-primary">Grupo 2</span>
+                  <span class="label label-primary">Grupo 3</span>
+                  <span class="label label-primary">Grupo 4</span><br>
+                  <button type="button" data-toggle="modal" data-target="#groups-modal" class="btn btnBlue">Seleccionar</button>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-4 txC">
+                <div class="custom-input-box">
+                  <h4>&Iacute;cono</h4>
+                  <div><i class="fa fa-plus"></i></div>
+                  <button type="button"  data-toggle="modal" data-target="#iconModal" class="btn btnBlue">Seleccionar</button>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="iconMenu">
-            <span class="iconMenuText">&Iacute;cono Actual: </span><span class="iconMenuIcon"><i class="fa fa-coffee"></i></span>
-          </div>
-          <button type="button" name="button" class="btn btnBlue" data-toggle="modal" data-target="#iconModal">Seleccionar &Iacute;cono</button>
+            <hr>
+            <div class="txC">
+              <button type="button" class="btn btn-success btnGreen" id="BtnCreate"><i class="fa fa-plus"></i> Crear Nuevo Men&uacute;</button>
+              <button type="button" class="btn btn-success btnBlue" id="BtnCreateNext"><i class="fa fa-plus"></i> Crear y Agregar Otro</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
-    <!-- /.box-body -->
-    <div class="box-footer btnRightMobCent">
-      <button type="button" class="btn btn-success btnGreen" id="BtnCreate"><i class="fa fa-plus"></i> Crear Nuevo Men&uacute;</button>
-      <button type="button" class="btn btn-success btnBlue" id="BtnCreateNext"><i class="fa fa-plus"></i> Crear y Agregar Otro</button>
-      <button type="button" class="btn btn-danger btnRed" id="BtnCancel"><i class="fa fa-times"></i> Cancelar</button>
-    </div><!-- box-footer -->
-  </div><!-- /.box -->
-  <!-- Help Modal Trigger -->
-  <button type="button" class="btn btn-success btnGrey" data-toggle="modal" data-target="#helpModal" ><i class="fa fa-question-circle"></i> Ayuda</button>
+  </div>
 
   <!-- Help Modal Trigger -->
+  <!-- <button type="button" class="btn btn-success btnGrey" data-toggle="modal" data-target="#helpModal" ><i class="fa fa-question-circle"></i> Ayuda</button> -->
+
   <!-- //// ICON MODAL //// -->
   <div id="iconModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -112,11 +97,31 @@
       </div>
     </div>
   </div>
-  <!-- Help Modal -->
-  <!-- //// HELP MODAL //// -->
-  <div id="helpModal" class="modal fade" role="dialog">
+
+  <!-- //// GROUP MODAL //// -->
+  <div id="groups-modal" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Seleccione los grupos</i></h4>
+        </div>
+        <div class="modal-body">
+          <?php include ('../../includes/inc.groups.modal.php'); ?>
+        </div>
+        <div class="modal-footer">
+          <button type="button" name="button" class="btn btn-success btnBlue" data-dismiss="modal">Seleccionar</button><br>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- GROUP MODAL -->
+
+  <!-- //// HELP MODAL //// -->
+  <!--<div id="helpModal" class="modal fade" role="dialog">
+     <div class="modal-dialog">
+
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -132,7 +137,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- Help Modal -->
 <?php
 $Foot->setScript('../../../vendors/bootstrap-switch/script.bootstrap-switch.min.js');
