@@ -67,8 +67,8 @@
               <div class="col-xs-12 col-sm-4 inner">
                 <label for="">Icono</label>
                 <div class="input-group">
-                  <span class="input-group-addon cursor-pointer"><i class="fa fa-bookmark IconInput"></i></span>
-                  <input class="IconInput form-control cursor-pointer" placeholder="Seleccione un &iacute;cono" type="text">
+                  <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                  <input class="form-control" placeholder="Seleccione un &iacute;cono" type="text">
                 </div>
               </div>
               <div class="col-md-12 padL0">
@@ -81,6 +81,16 @@
                   <input type="checkbox" name="switchCheckbox" data-on-text="Visible" data-off-text="Oculto" data-size="mini" checked>
                 </div>
               </div>
+
+
+              <!-- <div class="col-xs-12 col-sm-4 txC">
+                <div class="custom-input-box">
+                  <h4>&Iacute;cono</h4>
+                  <div><i class="fa fa-plus"></i></div>
+                  <button type="button"  data-toggle="modal" data-target="#iconModal" class="btn btnBlue">Seleccionar</button>
+                </div>
+              </div> -->
+
             </div><!-- inline-form -->
             <hr>
             <div class="txC">
@@ -121,7 +131,25 @@
     </div>
   </div>
 
-
+  <!-- //// GROUP MODAL //// -->
+  <div id="groups-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Seleccione los grupos</i></h4>
+        </div>
+        <div class="modal-body">
+          <?php include ('../../includes/inc.groups.modal.php'); ?>
+        </div>
+        <div class="modal-footer">
+          <button type="button" name="button" class="btn btn-success btnBlue" data-dismiss="modal">Seleccionar</button><br>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- GROUP MODAL -->
 
   <!-- //// HELP MODAL //// -->
   <!--<div id="helpModal" class="modal fade" role="dialog">

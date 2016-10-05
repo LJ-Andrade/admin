@@ -165,13 +165,14 @@
   padding: 15px;
   padding-top: 5px;
   margin: 10px 0; }
-  .innerContainer .bootstrap-switch {
-    margin-bottom: 15px;
-    margin-left: 25px; }
 
 @media (max-width: 990px) {
   .innerContainer {
     margin: 10px 0; } }
+.lineContainer {
+  border: 1px solid rgba(228, 228, 228, 0.8);
+  padding: 20px; }
+
 .contentContainer {
   margin-top: 35px; }
 
@@ -1045,6 +1046,9 @@
     .textWithCounter .indicator.full span {
       color: #fff; }
 
+.cursor-pointer:hover {
+  cursor: pointer; }
+
 @media (max-width: 765px) {
   .paginationLeft label {
     display: none; } }
@@ -1083,6 +1087,13 @@
   color: #fff;
   position: absolute;
   z-index: 9500; }
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+  color: #fff !important; }
+
+.select2-selection__choice {
+  border: 0 !important;
+  background-color: #6f69bd !important; }
 
 .alertok {
   background-color: rgba(233, 233, 233, 0.9);

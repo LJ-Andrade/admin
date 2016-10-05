@@ -230,3 +230,8 @@ $(function(){
 	$("[name='status']").bootstrapSwitch();
 
 });
+
+///////////////// GROUPS TAG ////////////////////////
+$(function(){
+	$('.selectTags').select2();
+});

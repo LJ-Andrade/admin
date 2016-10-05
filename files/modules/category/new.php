@@ -5,6 +5,7 @@
     $Group  = new GroupData();
     $Head->setTitle($Menu->GetTitle());
     $Head->setStyle('../../../vendors/bootstrap-switch/bootstrap-switch.css'); // Switch On Off
+    $Head->setStyle('../../../vendors/colorpicker/bootstrap-colorpicker.min.css'); // Color Picker
     $Head->setHead();
     include('../../includes/inc.top.php');
 
@@ -15,150 +16,286 @@
   <?php echo insertElement("hidden","groups",""); ?>
   <?php echo insertElement("hidden","newimage",$Admin->DefaultImg); ?>
 
-   <div class="box"> <!--box-success-->
-    <div class="box-header with-border">
+  <!-- ///////// FIRST SCREEN ////////// -->
+  <div class="CategoryMain box">
+    <!--box-success-->
+    <!-- <div class="box-header with-border">
       <h3 class="box-title">Complete el formulario</h3>
-    </div><!-- /.box-header -->
-    <div class="box-body">
-      <div class="row">
-        <div class="col-md-4">
-          <div class="flex-allCenter innerContainer">
-            <div class="mw100">
-              <h4 class="subTitleB"><i class="fa fa-tag"></i> Nombre de Categor&iacute;a</h4>
-              <div class="form-group">
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Ingrese el nombre de la Categor&iacute;a">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="flex-allCenter innerContainer">
-            <div class="mw100">
-              <h4 class="subTitleB"><i class="fa fa-tag"></i> Categor&iacute;a Principal</h4>
-              <div class="form-group">
-                <select class="form-control">
-                  <option>option 1</option>
-                  <option>option 2</option>
-                  <option>option 3</option>
-                  <option>option 4</option>
-                  <option>option 5</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="flex-allCenter innerContainer">
-            <div class="mw100">
-              <h4 class="subTitleB"><i class="fa fa-tag"></i> Estado Inicial</h4>
-              <div class="switchCheckbox">
-                <input type="checkbox" name="switchCheckbox" data-on-text="Activo" data-off-text="Inactivo" data-label-width="auto" checked>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div><!-- row -->
-      <!-- IMAGES -->
-      <!-- Actual Image -->
-      <div class="row imagesMain">
-        <div class="col-lg-3 col-md-12 col-sm-6 col-xs-12">
-          <div class="imagesContainer">
-            <h4 class="subTitleB"><i class="fa fa-picture-o"></i> Im&aacute;gen Actual</h4>
-            <div class="flex-allCenter imgSelector">
-              <div class="imgSelectorInner">
-                <img src="<?php echo $Admin->DefaultImg ?>" class="img-responsive MainImg">
-                <?php echo insertElement('file','image','','Hidden'); ?>
-                <div class="imgSelectorContent">
-                  <div id="SelectImg">
-                    <i class="fa fa-upload"></i><br>
-                   <p>Cargar Nueva Im&aacute;gen</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="text-bottom">
-              <p><i class="fa fa-upload" aria-hidden="true"></i>
-              Haga Click sobre la im&aacute;gen </br> para cargar una desde su dispositivo</p>
-            </div>
-          </div>
-        </div><!-- /Actual Image -->
-        <!-- Generic Images -->
-        <div class="col-lg-5 col-md-12 col-sm-6 col-xs-12">
-          <div class="imagesContainer">
-            <h4 class="subTitleB"><i class="fa fa-picture-o"></i> Im&aacute;genes Gen&eacute;ricas</h4>
-            <div class="smallThumbsList flex-justify-center">
-              <ul>
-                <?php
-                  foreach($Admin->DefaultImages() as $Image)
-                  {
-                    echo '<li><img src="'.$Image.'" class="ImgSelecteable"></li>';
-                  }
-                ?>
-              </ul>
-            </div>
-             <div class="text-bottom">
-               <p><i class="fa fa-check" aria-hidden="true"></i>
-               Seleccione una im&aacute;gen para utilizarla</p>
-            </div>
-          </div>
-        </div><!-- /Generic Images -->
-        <!-- Recent Images -->
-        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-          <div class="imagesContainer">
-            <h4 class="subTitleB"><i class="fa fa-picture-o"></i> Im&aacute;genes usadas anteriormente</h4>
-            <div class="smallThumbsList flex-justify-center">
-              <ul id="UserImages">
-                <?php
-                  foreach($Admin->UserImages() as $Image)
-                  {
-                    echo '<li><img src="'.$Image.'" class="ImgSelecteable"></li>';
-                  }
-                ?>
-              </ul>
-            </div>
-             <div class="text-bottom">
-               <p><i class="fa fa-check" aria-hidden="true"></i>
-              Seleccione una im&aacute;gen para utilizarla</p>
-            </div>
-          </div>
-        </div><!-- /Recent Images -->
-      </div><!-- IMAGES -->
-    </div><!-- /.box-body -->
-    <div class="box-footer btnRightMobCent">
-      <button type="button" class="btn btn-success btnGreen" id="BtnCreate"><i class="fa fa-plus"></i> Crear Nuevo Usuario</button>
-      <button type="button" class="btn btn-success btnBlue" id="BtnCreateNext"><i class="fa fa-plus"></i> Crear y Agregar Otro</button>
-      <button type="button" class="btn btn-danger btnRed" id="BtnCancel"><i class="fa fa-times"></i> Cancelar</button>
-    </div><!-- box-footer -->
-  </div><!-- /.box -->
-  <!-- Help Modal Trigger -->
-  <button type="button" class="btn btn-success btnGrey" data-toggle="modal" data-target="#helpModal" ><i class="fa fa-question-circle"></i> Ayuda</button>
-  <!-- Help Modal Trigger -->
-  <!-- //// HELP MODAL //// -->
-  <div id="helpModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Ayuda para el usuario</i></h4>
-        </div>
-        <div class="modal-body">
-          <p>
-            Ayuda sobre categorias
-          </p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" name="button" class="btn btn-success btnBlue" data-dismiss="modal">Comprendido</button><br>
-        </div>
-      </div>
     </div>
-  </div>
-  <!-- Help Modal -->
+    <! .box-header -->
+    <div class="box-body categoryBoxBody">
+      <div class="row"><!-- First Screen Row -->
+        <!-- CONTENT -->
+        <!-- Categories Menu -->
+        <div class="container productCategory1">
+          <h4>Seleccione una categor&iacute;a (Seccion en desarrollo)</h4>
+          <div class="squareMenuMain">
+            <div class="CategoryVehicleTrigger col-lg-3 col-md-6 col-xs-12 squareItemMenu squareYellow">
+              <span>Veh&iacute;culos</span>
+              <img src="../../../skin/images/body/pictures/category-vehicles.jpg" alt="" />
+              <span class="arrow-css Hidden"><div class="squareItemArrowYellow"></div></span>
+            </div>
+            <div class="CategoryRealStateTrigger col-lg-3 col-md-6 col-xs-12 squareItemMenu squareRed">
+              <span>Inmuebles</span>
+              <img src="../../../skin/images/body/pictures/category-real-estate.jpg" alt="" />
+              <span class="arrow-css Hidden"><div class="squareItemArrowRed"></div></span>
+            </div>
+            <div class="CategoryServicesTrigger col-lg-3 col-md-6 col-xs-12 squareItemMenu squareBlue">
+              <span>Servicios</span>
+              <img src="../../../skin/images/body/pictures/category-services.jpg" alt="" />
+              <span class="arrow-css Hidden"><div class="squareItemArrowBlue"></div></span>
+            </div>
+            <div class="CategoryProductsTrigger col-lg-3 col-md-6 col-xs-12 squareItemMenu squareGreen">
+              <span>Productos</span>
+              <img src="../../../skin/images/body/pictures/category-products.jpg" alt="" />
+              <span class="arrow-css Hidden"><div class="squareItemArrowGreen"></div></span>
+            </div>
+          </div>
+        </div>
+        <!-- / Categories Menu -->
+        <!-- Categories Vehicles -->
+        <div class="CategoryVehicles container productCategory2 animated fadeIn Hidden">
+          <!-- Item -->
+          <div class="categoryList">
+            <div class="categoryTitle"><span><b>Veh&iacute;culos</b> | Seleccione una opci&oacute;n</span></div>
+            <ul>
+              <li>
+                <select name="" size='20' title="Elige una categor&iacute;a">
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                </select>
+              </li>
+              <li>
+                <select name="" size='20' title="Elige una categor&iacute;a">
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                </select>
+              </li>
+              <li>
+                <select name="" size='20' title="Elige una categor&iacute;a">
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                </select>
+              </li>
+              <li>
+                <select name="" size='20' title="Elige una categor&iacute;a">
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                </select>
+              </li>
+              <li>
+                <span>
+                  <i class="fa fa-check"></i>
+                  <button type="button" class="SelectCategory btn btnBlue categorySelectBtn">Continuar</button>
+                </span>
+              </li>
+            </ul>
+          </div>
+          <!-- / Item -->
+        </div>
+        <!-- Categories Vehicles -->
+        <!-- Categories Real State -->
+        <div class="CategoryRealState container productCategory2 animated fadeIn Hidden">
+          <!-- Item -->
+          <div class="categoryList">
+            <div class="categoryTitle"><span><b>Inmuebles</b> | Seleccione una opci&oacute;n</span></div>
+            <ul>
+              <li>
+                <select name="" size='20' title="Elige una categor&iacute;a">
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                </select>
+              </li>
+              <li>
+                <select name="" size='20' title="Elige una categor&iacute;a">
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                </select>
+              </li>
+              <li>
+                <span>
+                  <i class="fa fa-check"></i>
+                  <button type="button" class="SelectCategory btn btnBlue categorySelectBtn">Continuar</button>
+                </span>
+              </li>
+            </ul>
+          </div>
+          <!-- / Item -->
+        </div>
+        <!-- /Categories Real State -->
+        <!-- Categories Services -->
+        <div class="CategoryServices container productCategory2 animated fadeIn Hidden">
+          <!-- Item -->
+          <div class="categoryList">
+            <div class="categoryTitle"><span><b>Servicios</b> | Seleccione una opci&oacute;n</span></div>
+            <ul>
+              <li>
+                <select name="" size='20' title="Elige una categor&iacute;a">
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                </select>
+              </li>
+              <li>
+                <select name="" size='20' title="Elige una categor&iacute;a">
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                  <option value="">Item 1</option>
+                </select>
+              </li>
+              <li>
+                <span>
+                  <i class="fa fa-check"></i>
+                  <button type="button" class="SelectCategory btn btnBlue categorySelectBtn">Continuar</button>
+                </span>
+              </li>
+            </ul>
+          </div>
+          <!-- / Item -->
+        </div>
+        <!-- /Services -->
+        <!-- Products -->
+        <div class="CategoryProducts container productCategory2 animated fadeIn Hidden">
+          <!-- Item -->
+          <div class="categoryList">
+            <div class="categoryTitle"><span><b>Productos</b> | Seleccione una opci&oacute;n</span></div>
+            <div class="form-group">
+              <ul>
+                <li>
+                  <select name="" size='20' title="Elige una categor&iacute;a">
+                    <option value="">Item 1</option>
+                    <option value="">Item 1</option>
+                    <option value="">Item 1</option>
+                    <option value="">Item 1</option>
+                    <option value="">Item 1</option>
+                    <option value="">Item 1</option>
+                    <option value="">Item 1</option>
+                    <option value="">Item 1</option>
+                    <option value="">Item 1</option>
+                    <option value="">Item 1</option>
+                    <option value="">Item 1</option>
+                    <option value="">Item 1</option>
+                    <option value="">Item 1</option>
+                    <option value="">Item 1</option>
+                    <option value="">Item 1</option>
+                    <option value="">Item 1</option>
+                    <option value="">Item 1</option>
+                    <option value="">Item 1</option>
+                    <option value="">Item 1</option>
+                    <option value="">Item 1</option>
+                  </select>
+                </li>
+
+                <li>
+                  <span>
+                    <i class="fa fa-check"></i>
+                    <button type="button" class="SelectCategory btn btnBlue categorySelectBtn">Continuar</button>
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- / Item -->
+        </div>
+        <!-- /Products -->
+      </div><!-- Firs Screen Row -->
+    </div><!-- /.box-body -->
+  </div><!-- /.box -->
+
+
+
 <?php
 $Foot->setScript('../../../vendors/bootstrap-switch/script.bootstrap-switch.min.js');
+// $Foot->setScript('../../../vendors/colorpicker/bootstrap-colorpicker.min.js');
 include('../../includes/inc.bottom.php');
 ?>
 <script type="text/javascript">
 ////////////////// Bootstrap Switch ////////////
 $("[name='switchCheckbox']").bootstrapSwitch();
+
+/////////////// Color picker ///////////////////
+// Documentation > http://mjolnic.com/bootstrap-colorpicker/
+// $(".colorpicker").colorpicker();
 </script>

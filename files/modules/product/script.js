@@ -326,4 +326,14 @@ $('.ProductDescBtn').click(function(){
 })
 
 
-//
+/////////  DATE MASK ////////////
+
+$(function () {
+  //Datemask dd/mm/yyyy
+  $(".Datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+});
+
+//Date picker
+ $('.Datepicker').datepicker({
+   autoclose: true
+ });

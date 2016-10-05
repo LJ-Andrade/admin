@@ -81,10 +81,26 @@ $(function() {
 });
 
 
-//////// Menu Icon Selection /////////
+/////////////// Bootstrap Switch ////////////////////
+$("[name='switchCheckbox']").bootstrapSwitch();
+
+
+///////////////// GRUOPS TAG ////////////////////////
+$(function(){
+	$('.selectTags').select2();
+});
+
+/////////////// ICON SELECTION //////////////////////
+
+$('.IconInput').click(function() {
+	$('#iconModal').modal('show');
+});
+
+
+////////// Menu Icon Selection Marker ///////////////
 $('.iconModalContent i').click(function(e){
 	if ($(this).hasClass('iconSelected')) {
-    $(this).removeClass('iconSelected');
+		$(this).removeClass('iconSelected');
 	} else {
 		$('.iconModalContent i').removeClass('iconSelected' );
 		$(this).addClass('iconSelected');

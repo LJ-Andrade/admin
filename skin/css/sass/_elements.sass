@@ -17,13 +17,17 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
   padding: 15px
   padding-top: 5px
   margin: 10px 0
-  .bootstrap-switch
-    margin-bottom: 15px
-    margin-left: 25px
+  // .bootstrap-switch
+  //   margin-bottom: 15px
+  //   margin-left: 25px
 
 @media (max-width: 990px)
   .innerContainer
     margin: 10px 0
+
+.lineContainer
+  border: $lightLine
+  padding: 20px
 
 .contentContainer
   margin-top: 35px
@@ -944,6 +948,11 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
     span
       color: #fff
 
+// CURSOR //
+
+.cursor-pointer:hover
+  cursor: pointer
+
 //////////////////////////////////////
 //                                  //
 //          PAGINATOR               //
@@ -1000,3 +1009,10 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
   color: #fff
   position: absolute
   z-index: 9500
+
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove
+  color: #fff !important
+.select2-selection__choice
+  border: 0 !important
+  background-color: $mainblue !important
