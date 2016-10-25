@@ -29,8 +29,10 @@ function toggleRow(element)
     var actions = element.children('.listActions');
     actions.toggleClass('Hidden');
 
-    showDeleteButton();
-
+	if(get['status'] && get['status'].toUpperCase()=='I')
+    	showActivateButton();
+    else
+		showDeleteButton();
     //Toggle grid
     var id = element.attr("id").split("_");
     var grid = $("#grid_"+id[1]);
@@ -51,9 +53,19 @@ function showDeleteButton()
 {
     if($('.SelectedRow').length>1 && checkDeleteRestrictions())
     {
-        $('.deleteSelectedAbs').removeClass('Hidden');
+        $('.DeleteSelectedElements').removeClass('Hidden');
     }else{
-        $('.deleteSelectedAbs').addClass('Hidden');
+        $('.DeleteSelectedElements').addClass('Hidden');
+    }
+}
+
+function showActivateButton()
+{
+    if($('.SelectedRow').length>1 && checkDeleteRestrictions())
+    {
+        $('.ActivateSelectedElements').removeClass('Hidden');
+    }else{
+        $('.ActivateSelectedElements').addClass('Hidden');
     }
 }
 
@@ -208,7 +220,8 @@ activateListElement();
 
 function massiveElementDelete()
 {
-	$(".deleteSelectedAbs").click(function(){
+	$(".DeleteSelectedElements").click(function(){
+		var delBtn = $(this)
 		alertify.confirm(utf8_decode('¿Desea eliminar los registros seleccionados?'), function(e){
 	        if(e){
 	        	toggleLoader();
@@ -220,7 +233,7 @@ function massiveElementDelete()
 
 	        	if(result)
 	        	{
-	        		$('.deleteSelectedAbs').addClass('Hidden');
+	        		delBtn.addClass('Hidden');
 	        		notifySuccess(utf8_decode('Los registros seleccionados han sido eliminados.'));
 	        		submitSearch();
 	        	}else{
@@ -232,6 +245,35 @@ function massiveElementDelete()
 	});
 }
 massiveElementDelete();
+
+function massiveElementActivate()
+{
+	$(".ActivateSelectedElements").click(function(){
+		var delBtn = $(this)
+		alertify.confirm(utf8_decode('¿Desea activar los registros seleccionados?'), function(e){
+	        if(e){
+	        	toggleLoader();
+	        	var result;
+	        	$(".SelectedRow").children('.listActions').children('div').children('.roundItemActionsGroup').children('.activateElement').each(function(){
+	        		result = activateElement($(this));
+	        	});
+				toggleLoader();
+
+	        	if(result)
+	        	{
+	        		delBtn.addClass('Hidden');
+	        		notifySuccess(utf8_decode('Los registros seleccionados han sido activados.'));
+	        		submitSearch();
+	        	}else{
+	        		notifyError('Hubo un problema al intentar activar los registros.');
+	        	}
+	        }
+	    });
+	    return false;
+	});
+}
+massiveElementActivate();
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////// SEARCHER ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

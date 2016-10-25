@@ -22,10 +22,10 @@ class Menu extends DataBase
 		}else{
 			$this->MenuData	= $this->GetLinkData();
 		}
-		$this->SetTable('menu');
-		$this->SetFields('*');
+		// $this->SetTable('menu');
+		// $this->SetFields('*');
 		//$this->SetWhere("customer_id=".$_SESSION['customer_id']);
-		$this->SetOrder('title');
+		// $this->SetOrder('title');
 	}
 
 	public function GetLinkData()
@@ -49,20 +49,15 @@ class Menu extends DataBase
 		return '<i class="icon fa '.$this->MenuData['icon'].'"></i>';
 	}
 
-	public function GetData()
-	{
-		return $this->MenuData;
-	}
-
 	public function hasChild($MenuID)
 	{
-		return count($this->fetchAssoc('menu','menu_id',"parent_id = ".$MenuID." AND status = 'A' AND menu_id IN (".implode(",",$this->IDs).")"))>0;
+		return count($this->fetchAssoc('menu','menu_id',"parent_id = ".$MenuID." AND status = 'A' AND view_status = 'A' AND menu_id IN (".implode(",",$this->IDs).")"))>0;
 	}
 
 	public function insertMenu($PorfileID=0,$AdminID=0)
 	{
 		$this->GetMenues($PorfileID,$AdminID);
-		$Rows	= $this->fetchAssoc('menu','*',"parent_id = 0 AND status = 'A' AND menu_id IN (".implode(",",$this->IDs).")","position");
+		$Rows	= $this->fetchAssoc('menu','*',"parent_id = 0 AND status = 'A' AND view_status = 'A' AND menu_id IN (".implode(",",$this->IDs).")","position");
 
 
 		foreach($Rows as $Row)
@@ -92,7 +87,7 @@ class Menu extends DataBase
 
 	public function insertSubMenu($Parent_id)
 	{
-		$Rows		= $this->fetchAssoc('menu','*',"parent_id = ".$Parent_id." AND status='A' AND menu_id IN (".implode(",",$this->IDs).")","position");
+		$Rows		= $this->fetchAssoc('menu','*',"parent_id = ".$Parent_id." AND status='A' AND view_status = 'A' AND menu_id IN (".implode(",",$this->IDs).")","position");
 		$NumRows	= count($Rows);
 		if($NumRows>0)
 		{
@@ -195,10 +190,10 @@ class Menu extends DataBase
 		//$RestringedMenues		= $this->fetchAssoc('relation_menu_profile','DISTINCT(menu_id)');
 		//$RestringedMenues		= $this->fetchAssoc('menu','menu_id',"public <> 'Y'");
 
-		//$AllowedMenues 			= $this->fetchAssoc('menu m, realtion_menu_profile r, menu_exception e','DISTINCT(m.menu_id)',"m.public = 'Y' OR ()");
+		//$AllowedMenues 			= $this->fetchAssoc('menu m, realtion_menu_profile r, relation_admin_menu e','DISTINCT(m.menu_id)',"m.public = 'Y' OR ()");
 		if($PorfileID==self::PROFILE)
 		{
-			$AllowedMenues 	= $this->fetchAssoc('menu','menu_id');
+			$AllowedMenues 	= $this->fetchAssoc('menu','menu_id',"status = 'A'");
 		}else{
 			if($PorfileID>0)
 			{
@@ -212,10 +207,10 @@ class Menu extends DataBase
 				}
 				$MenuesGroup = implode(",",$MGroup);
 
-				$AllowedMenues 	= $this->fetchAssoc('menu','DISTINCT(menu_id)',"public = 'Y' OR menu_id IN (SELECT menu_id FROM relation_menu_profile WHERE profile_id= ".$PorfileID.") OR menu_id IN (SELECT menu_id FROM menu_exception WHERE admin_id = ".$AdminID.") OR menu_id IN (".$MenuesGroup.")");
+				$AllowedMenues 	= $this->fetchAssoc('menu','DISTINCT(menu_id)',"public = 'Y' OR menu_id IN (SELECT menu_id FROM relation_menu_profile WHERE profile_id= ".$PorfileID.") OR menu_id IN (SELECT menu_id FROM relation_admin_menu WHERE admin_id = ".$AdminID.") OR menu_id IN (".$MenuesGroup.")  AND status = 'A'");
 
 			}else{
-				$AllowedMenues 	= $this->fetchAssoc('menu','menu_id',"public = 'Y'");
+				$AllowedMenues 	= $this->fetchAssoc('menu','menu_id',"public = 'Y' AND status = 'A'");
 			}
 		}
 
@@ -226,227 +221,11 @@ class Menu extends DataBase
 
 		$this->IDs		= $Menues;
 	}
-	
-	public function GetGroups()
-	{
-		if(!$this->Groups)
-		{
-			$Rs 	= $this->fetchAssoc('admin_group','*',"group_id IN (SELECT group_id FROM relation_menu_group WHERE menu_id=".$this->MenuData['menu_id'].")","title");
-			$this->Groups = $Rs;
-			return $this->Groups;
-		}
-	}
-	
-	public function GetProfiles()
-	{
-		if(!$this->Profiles)
-		{
-			$Rs 	= $this->fetchAssoc('admin_profile','*',"profile_id IN (SELECT profile_id FROM relation_menu_profile WHERE menu_id=".$this->MenuData['menu_id'].")","title");
-			$this->Profiles = $Rs;
-			return $this->Profiles;
-		}
-	}
-	
-	public function MakeList()
-	{
-		return $this->MakeRegs('list');
-	}
-	
-	public function MakeGrid()
-	{
-		return $this->MakeRegs('grid');
-	}
-
-	public function MakeRegs($Mode='list')
-	{
-		$Rows	= $this->GetRegs();
-		
-		for($i=0;$i<count($Rows);$i++)
-		{
-			$Row	=	new Menu($Rows[$i]['menu_id']);
-			$MenuGroups = $Row->GetGroups();
-			$Groups = '';
-			foreach($MenuGroups as $Group)
-			{
-				$Groups .= '<span class="label label-warning">'.$Group['title'].'</span> ';
-			}
-			if(!$Groups) $Groups = 'Ninguno';
-			$MenuProfiles = $Row->GetProfiles();
-			$Profiles = '';
-			foreach($MenuProfiles as $Profile)
-			{
-				$Profiles .= '<span class="label label-primary">'.$Profile['title'].'</span> ';
-			}
-			if(!$Profiles) $Profiles = 'Ninguno';
-			
-			$Actions	= 	'<a href="edit.php?id='.$Row->MenuData['menu_id'].'"><button type="button" class="btn btnBlue"><i class="fa fa-pencil"></i></button></a>';
-			if($Row->MenuData['status']!="I")
-			{
-				
-				$Actions	.= '<a class="deleteElement" process="process.php" id="delete_'.$Row->MenuData['menu_id'].'"><button type="button" class="btn btnRed"><i class="fa fa-trash"></i></button></a>';
-				
-			}else{
-				$Actions	.= '<a class="activateElement" process="process.php" id="activate_'.$Row->MenuData['menu_id'].'"><button type="button" class="btn btnGreen"><i class="fa fa-check-circle"></i></button></a>';
-			}
-			
-			if($Row->MenuData['link']=="#")
-				$Row->MenuData['link'] = "";
-				
-			if($Row->MenuData['public']=='Y')
-				$Row->MenuData['public'] = 'P&uacute;blico';
-			else
-				$Row->MenuData['public'] = 'Privado';
-
-			switch(strtolower($Mode))
-			{
-				case "list":
-
-					$RowBackground = $i % 2 == 0? '':' listRow2 ';
-					$Regs	.= '<div class="row listRow'.$RowBackground.'" id="row_'.$Row->MenuData['menu_id'].'" title="'.$Row->MenuData['title'].'">
-									<div class="col-lg-1 col-md-1 col-sm-10 col-xs-10">
-										<div class="listRowInner">
-											<span class="smallDetails">Icono</span>
-											<span class="itemRowtitle"><i class="fa '.$Row->MenuData['icon'].'" alt="'.$Row->MenuData['title'].'"></i></span>
-										</div>
-									</div>
-									<div class="col-lg-2 col-md-3 col-sm-2 hideMobile990">
-										<div class="listRowInner">
-											<span class="itemRowtitle">'.$Row->MenuData['title'].'</span>
-											<span class="smallDetails">'.$Row->MenuData['link'].'</span>
-										</div>
-									</div>
-									<div class="col-lg-2 col-md-2 col-sm-2 hideMobile990">
-										<div class="listRowInner">
-											<span class="smallDetails">Tipo de Men&uacute;</span>
-											<span class="itemRowtitle">'.$Row->MenuData['public'].'</span>
-										</div>
-									</div>
-									<div class="col-lg-3 col-md-2 col-sm-2 hideMobile990">
-										<div class="listRowInner">
-											<span class="smallDetails">Perfiles</span>
-											<span class="itemRowtitle">
-											'.$Profiles.'
-											</span>
-										</div>
-									</div>
-									<div class="col-lg-3 col-md-3 col-sm-3 hideMobile990">
-										<div class="listRowInner">
-											<span class="smallDetails">Grupos</span>
-											<span class="itemRowtitle">
-												'.$Groups.'
-											</span>
-										</div>
-									</div>
-									<div class="col-lg-1 col-md-1 col-sm-1 hideMobile990"></div>
-									<div class="listActions flex-justify-center Hidden">
-										<div>'.$Actions.'</div>
-									</div>
-								</div>';
-				break;
-				case "grid":
-					$Actions.= 	'<a href="#"><button type="button" class="btn btnGreen Hidden" name="button"><i class="fa fa-check"></i></button></a>';
-					$Regs	.= '<li id="grid_'.$Row->MenuData['menu_id'].'" class="RoundItemSelect roundItemBig" title="'.$Row->MenuData['title'].'">
-						            <div class="flex-allCenter imgSelector">
-						              <div class="imgSelectorInner">
-						                <img src="../../../skin/images/body/pictures/img-back-gen.jpg" alt="'.$Row->MenuData['title'].'" class="img-responsive">
-						                <div class="imgSelectorContent">
-						                  <div class="roundItemBigActions">
-						                    '.$Actions.'
-						                  </div>
-						                </div>
-						              </div>
-						              <div class="roundItemText">
-						                <p><b>'.$Row->MenuData['title'].'</b></p>
-						                <p>('.$Row->MenuData['link'].')</p>
-						              </div>
-						            </div>
-						          </li>';
-				break;
-			}
-        }
-        if(!$Regs) $Regs.= '<div class="callout callout-info"><h4><i class="icon fa fa-info-circle"></i> No se encontraron usuarios.</h4><p>Puede crear un nuevo usuario haciendo click <a href="new.php">aqui</a>.</p></div>';
-		return $Regs;
-
-		// $Limit = $From>=0 && $To>=0 ? $From.",".$To : "";
-		// $MenuRegs	= $this->fetchAssoc('menu','*',"1 = 1 ".$Where,"title",$Limit);
-		// $AtLeastOne	= false;
-		// for($i=0;$i<count($MenuRegs);$i++)
-		// {
-		// 	$MenuReg	=	$MenuRegs[$i];
-		// 	$Actions	= 	'<li><a href="edit.php?id='.$MenuReg['menu_id'].'" class="btnmod"><i class="fa fa-fw fa-pencil"></i></a></li>';
-		// 	$Actions	.= 	'<li><a href="#" deleteElement="'.$MenuReg['menu_id'].'" deleteParent="menu'.$MenuReg['menu_id'].'" deleteProcess="process.php" confirmText="¿Desea eliminar el menú \''.$MenuReg['title'].'\'?" successText="\''.$MenuReg['title'].'\' ha sido eliminado correctamente" class="btndel deleteElement"><i class="fa fa-fw fa-trash"></i></a></li>';
-
-		// 	$Parent 	= $MenuReg['parent_id'] != 0 ? 	$this->GetParent($MenuReg['parent_id']) : 'Men&uacute; Principal';
-		// 	$Link 		= $MenuReg['link']!="#"  ? $MenuReg['link'] : 'Sin Link';
-		// 	$Public 	= $MenuReg['public'] == 'Y'? 'Público' : 'Restringido';
-
-		// 	switch(strtoupper($MenuReg['status']))
-		// 	{
-		// 		case 'A':
-		// 			$Status = 'Activo';
-		// 		break;
-		// 		case 'I':
-		// 			$Status = 'Inactivo';
-		// 		break;
-		// 		case 'O':
-		// 			$Status = 'Oculto';
-		// 		break;
-		// 	}
-
-		// 	$Regs	.= '<div id="menu'.$MenuReg['menu_id'].'" class="container-fluid glassListRow listrow listrowclick">
-  //                       <div class="col-md-1 col-sm-3 col-xs-12 titlist1 menulistcol1">
-  //                          <i class="fa fa-fw '.$MenuReg['icon'].' menulistico"></i>
-  //                       </div>
-  //                       <div class="col-md-2 col-sm-3 col-xs-3 titlist2">
-  //                          <div class="padtoplist">
-  //                          <p>'.$MenuReg['title'].'</p>
-  //                          </div>
-  //                       </div>
-  //                       <div class="col-md-2 col-sm-2 col-xs-3 titlist3">
-  //                          <div class="padtoplist">
-  //                          <p>'.$Link.'</p>
-  //                          </div>
-  //                       </div>
-  //                       <div class="col-md-1 col-sm-2 col-xs-3 titlist4">
-  //                          <div class="padtoplist">
-  //                          <p>'.$Status.'</p>
-  //                          </div>
-  //                       </div>
-  //                       <div class="col-md-2 col-sm-2 col-xs-3 titlist5">
-  //                          <div class="padtoplist">
-  //                          <p>'.$Parent.'</p>
-  //                          </div>
-  //                       </div>
-  //                       <div class="col-md-2 col-sm-12 col-xs-12 titlist6ult">
-  //                          <div class="padtoplist">
-  //                          	'.$Public.'
-  //                          </div>
-  //                       </div>
-  //                       <div class="col-md-2 col-sm-12 col-xs-12 titlist7">
-  //                        <div class="colprodico">
-  //                         <div class="prodicos">
-  //                                  <ul>
-  //                                      '.$Actions.'
-  //                                  </ul>
-  //                              </div>
-  //                          </div>
-  //                       </div>
-  //                  </div>';
-		// 	$AtLeastOne	= true;
-  //      }
-  //      if(!$AtLeastOne) $Regs	.= '<div class="RegWrapper DarkRed" id="EmptyRow" style="text-align:center;padding:40px;font-size:20px;">No hay registros.</div>';
-		// return $Regs;
-	}
 
 	public function GetParent($Menu_id)
 	{
 		$Parent = $this->fetchAssoc('menu','title','menu_id='.$Menu_id);
 		return $Parent[0]['title'];
-	}
-
-	public function GetTotalRegs($Where="")
-	{
-		return $this->numRows('menu','*',"1 = 1 ".$Where);
 	}
 
 	public function SetCheckedMenues($CheckedMenues)
@@ -489,7 +268,360 @@ class Menu extends DataBase
 		}
 		return $this->Parents;
 	}
+	
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////// SEARCHLIST FUNCTIONS ///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	public function GetGroups()
+	{
+		if(!$this->Groups)
+		{
+			$Rs 	= $this->fetchAssoc('admin_group','*',"status = 'A' AND group_id IN (SELECT group_id FROM relation_menu_group WHERE menu_id=".$this->MenuData['menu_id'].") AND customer_id = ".$_SESSION['customer_id'],"title");
+			$this->Groups = $Rs;
+			return $this->Groups;
+		}
+	}
+	
+	public function GetProfiles()
+	{
+		if(!$this->Profiles)
+		{
+			$Rs 	= $this->fetchAssoc('admin_profile','*',"status = 'A' AND profile_id IN (SELECT profile_id FROM relation_menu_profile WHERE menu_id=".$this->MenuData['menu_id'].") AND customer_id = ".$_SESSION['customer_id'],"title");
+			$this->Profiles = $Rs;
+			return $this->Profiles;
+		}
+	}
 
+	public function MakeRegs($Mode="List")
+	{
+		$Rows	= $this->GetRegs();
+		//echo $this->lastQuery();
+		for($i=0;$i<count($Rows);$i++)
+		{
+			$Row	=	new Menu($Rows[$i]['menu_id']);
+			$MenuGroups = $Row->GetGroups();
+			$Groups = '';
+			foreach($MenuGroups as $Group)
+			{
+				$Groups .= '<span class="label label-warning">'.$Group['title'].'</span> ';
+			}
+			if(!$Groups) $Groups = 'Ninguno';
+			$MenuProfiles = $Row->GetProfiles();
+			$Profiles = '';
+			foreach($MenuProfiles as $Profile)
+			{
+				$Profiles .= '<span class="label label-primary">'.$Profile['title'].'</span> ';
+			}
+			if(!$Profiles) $Profiles = 'Ninguno';
+			
+			if($Row->MenuData['link']=="#")
+				$Row->MenuData['link'] = "";
+				
+			if($Row->MenuData['public']=='Y')
+				$Row->MenuData['public'] = 'P&uacute;blico';
+			else
+				$Row->MenuData['public'] = 'Privado';
+			
+			
+			$Actions	= 	'<span class="roundItemActionsGroup"><a href="edit.php?id='.$Row->MenuData['menu_id'].'"><button type="button" class="btn btnBlue"><i class="fa fa-pencil"></i></button></a>';
+			if($Row->MenuData['status']=="A")
+			{
+				$Actions	.= '<a class="deleteElement" process="../../library/processes/proc.common.php" id="delete_'.$Row->MenuData['menu_id'].'"><button type="button" class="btn btnRed"><i class="fa fa-trash"></i></button></a>';
+			}else{
+				$Actions	.= '<a class="activateElement" process="../../library/processes/proc.common.php" id="activate_'.$Row->MenuData['menu_id'].'"><button type="button" class="btn btnGreen"><i class="fa fa-check-circle"></i></button></a>';
+			}
+			$Actions	.= '</span>';
+			switch(strtolower($Mode))
+			{
+				case "list":
+					$RowBackground = $i % 2 == 0? '':' listRow2 ';
+					$Regs	.= '<div class="row listRow'.$RowBackground.'" id="row_'.$Row->MenuData['menu_id'].'" title="'.$Row->MenuData['title'].'">
+									<div class="col-lg-2 col-md-2 col-sm-10 col-xs-10">
+										<div class="listRowInner">
+											<span class="smallDetails">Icono</span>
+											<span class="itemRowtitle"><i class="fa '.$Row->MenuData['icon'].'" alt="'.$Row->MenuData['title'].'"></i></span>
+										</div>
+									</div>
+									<div class="col-lg-2 col-md-2 col-sm-2 hideMobile990">
+										<div class="listRowInner">
+											<span class="itemRowtitle">'.$Row->MenuData['title'].'</span>
+											<span class="smallDetails">'.$Row->MenuData['link'].'</span>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-2 col-sm-2 hideMobile990">
+										<div class="listRowInner">
+											<span class="smallDetails">Privacidad</span>
+											<span class="itemRowtitle">'.$Row->MenuData['public'].'</span>
+										</div>
+									</div>
+									<div class="col-lg-2 col-md-2 col-sm-2 hideMobile990">
+										<div class="listRowInner">
+											<span class="smallDetails">Perfiles</span>
+											<span class="itemRowtitle">
+											'.$Profiles.'
+											</span>
+										</div>
+									</div>
+									<div class="col-lg-2 col-md-2 col-sm-2 hideMobile990">
+										<div class="listRowInner">
+											<span class="smallTitle">Grupos</span>
+											<span class="listTextStrong">
+												'.$Groups.'
+											</span>
+										</div>
+									</div>
+									<div class="col-lg-2 col-md-2 col-sm-2 hideMobile990"></div>
+									<div class="listActions flex-justify-center Hidden">
+										<div>'.$Actions.'</div>
+									</div>
+								</div>';
+				break;
+				case "grid":
+					if($Row->MenuData['link']) $Row->MenuData['link'] = '<p>('.$Row->MenuData['link'].')</p>';
+					$Regs	.= '<li id="grid_'.$Row->MenuData['menu_id'].'" class="RoundItemSelect roundItemBig" title="'.$Row->MenuData['title'].'">
+						            <div class="flex-allCenter imgSelector">
+						              <div class="imgSelectorInner">
+						                <img src="../../../skin/images/body/pictures/img-back-gen.jpg" alt="'.$Row->MenuData['title'].'" class="img-responsive">
+						                <div class="imgSelectorContent">
+						                  <div class="roundItemBigActions">
+						                    '.$Actions.'
+						                    <span class="roundItemCheckDiv"><a href="#"><button type="button" class="btn roundBtnIconGreen Hidden" name="button"><i class="fa fa-check"></i></button></a></span>
+						                  </div>
+						                </div>
+						              </div>
+						              <div class="roundItemText">
+						                <p><b>'.$Row->MenuData['title'].'</b></p>
+							            '.$Row->MenuData['link'].'
+						              </div>
+						            </div>
+						          </li>';
+				break;
+			}
+        }
+        if(!$Regs) $Regs.= '<div class="callout callout-info"><h4><i class="icon fa fa-info-circle"></i> No se encontraron menues.</h4><p>Puede crear un nuevo usuario haciendo click <a href="new.php">aqui</a>.</p></div>';
+		return $Regs;
+	}
+	
+	protected function InsertSearchField()
+	{
+		$Parents = $this->GetParents();
+		$Parents = $this->fetchAssoc('menu','menu_id,title',"status<>'I' AND menu_id IN (".implode(",",$Parents).")");
+		$Parents[] = array("menu_id"=>"0","title"=>"Men&uacute; Principal");
+		
+		return '<!-- Title -->
+          <div class="input-group">
+            <span class="input-group-addon order-arrows sort-activated" order="title" mode="asc"><i class="fa fa-sort-alpha-asc"></i></span>
+            '.insertElement('text','title','','form-control','placeholder="T&iacute;tulo"').'
+          </div>
+          <!-- Link -->
+          <div class="input-group">
+            <span class="input-group-addon order-arrows" order="link" mode="asc"><i class="fa fa-sort-alpha-asc"></i></span>
+            '.insertElement('text','link','','form-control','placeholder="Link"').'
+          </div>
+          <!-- Parent -->
+          <div class="input-group">
+            <span class="input-group-addon order-arrows" order="parent" mode="asc"><i class="fa fa-sort-alpha-asc"></i></span>
+            '.insertElement('select','parent','','form-control','',$Parent,'', 'Ubicaci&oacute;n').'
+          </div>
+          <!-- Public -->
+          <div class="input-group">
+            <span class="input-group-addon order-arrows" order="public" mode="asc"><i class="fa fa-sort-alpha-asc"></i></span>
+            '.insertElement('select','public','','form-control','',array("N"=>"Privado","Y"=>"P&uacute;blico"),'',"Privacidad").'
+          </div>
+          <!-- Type -->
+          <div class="input-group">
+            <span class="input-group-addon order-arrows" order="status" mode="asc"><i class="fa fa-sort-alpha-asc"></i></span>
+            '.insertElement('select','view_status','','form-control','',array("A"=>"Visible","O"=>"Oculto"),'',"Visibilidad").'
+          </div>
+          <!-- Profile -->
+          <div class="input-group">
+            <span class="input-group-addon order-arrows" order="profile" mode="asc"><i class="fa fa-sort-alpha-asc"></i></span>
+            '.insertElement('select','profile','','form-control','',$this->fetchAssoc('admin_profile','profile_id,title',"customer_id=".$_SESSION['customer_id']." AND status='A'"),'', 'Perfil').'
+          </div>
+          <!-- Group -->
+          <div class="input-group">
+            <span class="input-group-addon order-arrows" order="group" mode="asc"><i class="fa fa-sort-alpha-asc"></i></span>
+            '.insertElement('select','group','','form-control','',$this->fetchAssoc('admin_group','group_id,title',"customer_id=".$_SESSION['customer_id']." AND status='A'","title"),'', 'Grupo').'
+          </div>';
+	}
+	
+	protected function InsertSearchButtons()
+	{
+		return '<!-- New User Button -->
+		    	<a href="new.php"><button type="button" class="NewElementButton btn btnGreen animated fadeIn"><i class="fa fa-user-plus"></i> Nuevo Men&uacute;</button></a>
+		    	<!-- /New User Button -->';
+	}
+	
+	public function ConfigureSearchRequest()
+	{
+		$this->SetTable('menu AS m, admin_group AS g, relation_menu_group AS rg, admin_profile AS p, relation_menu_profile AS rp');
+		$this->SetFields('m.*,p.title as profile, g.title as group_title');
+		$this->SetWhere("1=1");
+		//$this->AddWhereString(" AND a.profile_id = p.profile_id");
+		$this->SetOrder('title');
+		$this->SetGroupBy("m.menu_id");
+		// if($this->ProfileID!=333)
+		// {
+		// 	$this->SetWhereCondition("a.profile_id",">",$this->ProfileID);
+		// }
+		
+		foreach($_POST as $Key => $Value)
+		{
+			$_POST[$Key] = htmlentities($Value);
+		}
+			
+		if($_POST['title']) $this->SetWhereCondition("m.title","LIKE","%".$_POST['title']."%");
+		if($_POST['link']) $this->SetWhereCondition("m.link","LIKE","%".$_POST['link']."%");
+		if($_POST['parent'] || $_POST['parent']=="0") $this->SetWhereCondition("m.parent_id","=",$_POST['parent']);
+		if($_POST['public']) $this->SetWhereCondition("m.public","=",$_POST['public']);
+		if($_POST['view_status']) $this->SetWhereCondition("m.view_status","=", $_POST['view_status']);
+		if($_POST['group'])
+		{
+			$this->AddWhereString(" AND m.menu_id = rg.menu_id AND rg.group_id = g.group_id AND g.group_id = ".$_POST['group']);	
+		}
+		if($_POST['profile'])
+		{
+			$this->AddWhereString(" AND m.menu_id = rp.menu_id AND rp.profile_id = p.profile_id AND p.profile_id = ".$_POST['profile']);	
+		}
+		if($_REQUEST['status'])
+		{
+			if($_POST['status']) $this->SetWhereCondition("m.status","=", $_POST['status']);
+			if($_GET['status']) $this->SetWhereCondition("m.status","=", $_GET['status']);	
+		}else{
+			$this->SetWhereCondition("m.status","<>","I");
+		}
+		if($_POST['view_order_field'])
+		{
+			if(strtolower($_POST['view_order_mode'])=="desc")
+				$Mode = "DESC";
+			else
+				$Mode = $_POST['view_order_mode'];
+			
+			$Order = strtolower($_POST['view_order_field']);
+			switch($Order)
+			{
+				case "group": 
+					$this->AddWhereString(" AND m.menu_id = rg.menu_id AND rg.group_id = g.group_id");
+					$Order = 'title';
+					$Prefix = "g.";
+				break;
+				case "profile": 
+					$this->AddWhereString(" AND m.menu_id = rp.menu_id AND rp.profile_id = p.profile_id");
+					$Order = 'title';
+					$Prefix = "p.";
+				break;
+				default:
+					$Prefix = "m.";
+				break;
+			}
+			$this->SetOrder($Prefix.$Order." ".$Mode);
+		}
+		if($_POST['regsperview'])
+		{
+			$this->SetRegsPerView($_POST['regsperview']);
+		}
+		if(intval($_POST['view_page'])>0)
+			$this->SetPage($_POST['view_page']);
+	}
+
+	public function MakeList()
+	{
+		return $this->MakeRegs("List");
+	}
+
+	public function MakeGrid()
+	{
+		return $this->MakeRegs("Grid");
+	}
+
+	public function GetData()
+	{
+		return $this->MenuData;
+	}
+	
+	
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////// PROCESS METHODS ///////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	public function Insert()
+	{
+		$Title		= htmlentities($_POST['title']);
+		$Link		= $_POST['link'];
+		$Position	= $_POST['position']? intval($_POST['position']) : 0;
+		$Parent		= $_POST['parent'];
+		$Icon		= $_POST['icon'];
+		$Groups 	= $_POST['groups'] ? explode(",",$_POST['groups']) : array();
+		$Profiles 	= $_POST['profiles'] ? explode(",",$_POST['profiles']) : array();
+		$Status		= $_POST['status']=='on'? 'A':'O';
+		$Public		= $_POST['public']=='on'? 'N':'Y';
+		if(!$Link) $Link="#";
+		$this->execQuery('insert','menu','title,link,position,icon,parent_id,status,public',"'".$Title."','".$Link."',".$Position.",'".$Icon."',".$Parent.",'".$Status."','".$Public."'");
+		$ID 		= $this->GetInsertId();
+		foreach($Groups as $Group)
+		{
+			if(intval($Group)>0)
+				$Values .= !$Values? $ID.",".$Group : "),(".$ID.",".$Group;
+		}
+		$this->execQuery('insert','relation_menu_group','menu_id,group_id',$Values);
+		$Values="";
+		foreach($Profiles as $Profile)
+		{
+			if(intval($Profile)>0)
+				$Values .= !$Values? $ID.",".$Profile : "),(".$ID.",".$Profile;
+		}
+		$this->execQuery('insert','relation_menu_profile','menu_id,profile_id',$Values);
+	}
+	
+	public function Update()
+	{
+		$ID	= $_POST['id'];
+		
+		$Title		= htmlentities($_POST['title']);
+		$Link		= $_POST['link']==""? "#" : $_POST['link'];
+		$Position	= $_POST['position']? intval($_POST['position']) : 0;
+		$ParentID	= $_POST['parent'];
+		$Status		= $_POST['status'];
+		$Icon		= $_POST['icon'];
+		$Groups 	= $_POST['groups'] ? explode(",",$_POST['groups']) : array();
+		$Profiles 	= $_POST['profiles'] ? explode(",",$_POST['profiles']) : array();
+		$Status		= $_POST['status']? 'A':'O';
+		$Public		= $_POST['public']? 'N':'Y';
+		if(!$Link) $Link="#";
+		$this->execQuery('update','menu',"title='".$Title."',link='".$Link."',position='".$Position."',icon='".$Icon."',status='".$Status."',parent_id=".$ParentID.",public='".$Public."'","menu_id=".$ID);
+		$this->execQuery('delete','relation_menu_group',"menu_id = ".$ID);
+		$this->execQuery('delete','relation_menu_profile',"menu_id = ".$ID);
+		foreach($Groups as $Group)
+		{
+			if(intval($Group)>0)
+				$Values .= !$Values? $ID.",".$Group : "),(".$ID.",".$Group;
+		}
+		$this->execQuery('insert','relation_menu_group','menu_id,group_id',$Values);
+		$Values="";
+		foreach($Profiles as $Profile)
+		{
+			if(intval($Profile)>0)
+				$Values .= !$Values? $ID.",".$Profile : "),(".$ID.",".$Profile;
+		}
+		$this->execQuery('insert','relation_menu_profile','menu_id,profile_id',$Values);
+	}
+	
+	public function Activate()
+	{
+		$ID	= $_POST['id'];
+		$this->execQuery('update','menu',"status = 'A'","menu_id=".$ID);
+	}
+	
+	public function Delete()
+	{
+		$ID	= $_POST['id'];
+		$this->execQuery('update','menu',"status = 'I'","menu_id=".$ID);
+	}
+	
+	public function Search()
+	{
+		$this->ConfigureSearchRequest();
+		echo $this->InsertSearchResults();
+	}
 }
-
 ?>

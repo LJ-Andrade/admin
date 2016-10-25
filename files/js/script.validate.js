@@ -9,12 +9,12 @@ VALIDATION ATRIBUTES:
 	Data: Text
 
 2)	validateMinLength: Checks if the field have a minimum quantity of characters.
-	Declaration: 'validateMinLenght="5/Please, enter at least 5 characters"'
-	Data: MinVal/Text
+	Declaration: 'validateMinLenght="5///Please, enter at least 5 characters"'
+	Data: MinVal///Text
 
 3)	validateMaxLength: Checks if the field reaches a maximum quantity of characters.
-	Declaration: 'validateMaxLenght="25/Please, enter less than 25 characters"'
-	Data: MaxVal/Text
+	Declaration: 'validateMaxLenght="25///Please, enter less than 25 characters"'
+	Data: MaxVal///Text
 
 4)	validateEmail: Checks if the field contains a valid email.
 	Declaration: 'validateEmail:"Please, enter a valid email"'
@@ -25,18 +25,18 @@ VALIDATION ATRIBUTES:
 	Data: Text
 
 6) validateEqualToField: Checks if the field value is equal to the value of the field specificated in the argument.
-	Declaration: 'validateEqualToField="fieldID/Both fields must match"'
-	Data: TargetField/Text
+	Declaration: 'validateEqualToField="fieldID///Both fields must match"'
+	Data: TargetField///Text
 
 7)	validateFromFile: Matchs the field value with a file.
-	Declaration: 'validateFromFile="process.php/User already exists/otherfieldid/variable:=value"'
-	Data: File/Text/(FieldID)/.../(Key:=Value)/...
+	Declaration: 'validateFromFile="process.php///User already exists///otherfieldid///variable:=value"'
+	Data: File///Text///(FieldID)///...///(Key:=Value)///...
 
 8)	mustBeChecked: Checks if a number of checkboxes are checked.
-	Declaration: 'mustBeChecked="1/At least 1 of the checkboxes must be checked"'
-	Declaration: 'mustBeChecked="3/Only 3 of the checkboxes can be checked/limited"'
-	Declaration: 'mustBeChecked="2/Only 2 of the checkboxes can be checked/strict"'
-	Data: Value/Text/(Mode)
+	Declaration: 'mustBeChecked="1///At least 1 of the checkboxes must be checked"'
+	Declaration: 'mustBeChecked="3///Only 3 of the checkboxes can be checked///limited"'
+	Declaration: 'mustBeChecked="2///Only 2 of the checkboxes can be checked///strict"'
+	Data: Value///Text///(Mode)
 
 
 \****************************************************************/
@@ -47,7 +47,7 @@ VALIDATION ATRIBUTES:
 	var validateTag;
 	var validateValid;
 	var validateElements;
-	var validateDelimiter	= '/';
+	var validateDelimiter	= '///';
 	var checkboxGroups		= new Array();
 
 	function ValidateFields() {
@@ -213,7 +213,10 @@ VALIDATION ATRIBUTES:
 
 	ValidateFields.prototype.isOnlyNumbers	= function(value)
 	{
+		if(value.length > 0)
 		  return !isNaN(parseFloat(value)) && isFinite(value);
+		else
+			return true;
 	}
 
 	ValidateFields.prototype.isNotFilled	= function(object)
@@ -387,14 +390,14 @@ VALIDATION ATRIBUTES:
 			if(valid && ValidateFields.prototype.equalToField(object))
 			{
 				valid	= false;
-				var text	= $(object).attr("validateEqualToField").substring($(object).attr("validateEqualToField").indexOf(validateDelimiter)+1);
+				var text	= $(object).attr("validateEqualToField").substring($(object).attr("validateEqualToField").indexOf(validateDelimiter)+validateDelimiter.length);
 				$("#"+$(object).attr("id")+"ErrorDiv").html(text);
 			}
 
 			if(valid && ValidateFields.prototype.mustBeChecked(object))
 			{
 				valid			= false;
-				var text		= $(object).attr("mustBeChecked").substring($(object).attr("mustBeChecked").indexOf(validateDelimiter)+1);
+				var text		= $(object).attr("mustBeChecked").substring($(object).attr("mustBeChecked").indexOf(validateDelimiter)+validateDelimiter.length);
 				var errormsg	= new Message();
 				errormsg.error(text,1500);
 				//$("#"+$(object).attr("id")+"ErrorDiv").html(text);
@@ -403,7 +406,7 @@ VALIDATION ATRIBUTES:
 			if(valid && ValidateFields.prototype.fromFile(object))
 			{
 				valid		= false;
-				var text	= $(object).attr("validateFromFile").substring($(object).attr("validateFromFile").indexOf(validateDelimiter)+1);
+				var text	= $(object).attr("validateFromFile").substring($(object).attr("validateFromFile").indexOf(validateDelimiter)+validateDelimiter.length);
 				text		= text.substring(0,text.indexOf(validateDelimiter))
 				$("#"+$(object).attr("id")+"ErrorDiv").html(text);
 			}

@@ -423,10 +423,10 @@ class DataBase
     			'.$this->InsertSearchButtons().'
 		    	<!-- Search Filters -->
 		    	<div class="SearFilters searchFiltersHorizontal animated fadeIn Hidden">
-			        <form class="form-inline" id="SearchFieldsForm">
+			        <div class="form-inline" id="SearchFieldsForm">
 			        	'.insertElement('hidden','view_type','list').'
 			        	'.insertElement('hidden','view_page','1').'
-			        	'.insertElement('hidden','view_order_field','first_name').'
+			        	'.insertElement('hidden','view_order_field',$this->GetOrder()).'
 			        	'.insertElement('hidden','view_order_mode','asc').'
 			        	'.$this->InsertSearchField().'
 			          <!-- Submit Button -->
@@ -436,7 +436,7 @@ class DataBase
 			          <div class="arrow-right-border">
 			            <div class="arrow-right-sf"></div>
 			          </div>
-			        </form>
+			        </div>
 			      </div>
 			      <!-- /Search Filters -->
 			      <div class="changeView">
@@ -459,12 +459,15 @@ class DataBase
 			    </div>
 			  </div><!-- /.box -->
 			  <!-- DELETE SELECTED BUTTON -->
-			  <a href="#">
-			    <div class="deleteSelectedAbs Hidden">
-			      Eliminar Seleccionados
+			    <div class="deleteSelectedAbs Hidden DeleteSelectedElements">
+			      <i class="fa fa-trash-o"></i> Eliminar Seleccionados
 			    </div>
-			  </a>
-			  <!-- DELETE SELECTED BUTTON-->';
+			  <!-- DELETE SELECTED BUTTON-->
+			  <!-- ACTIVATE SELECTED BUTTON -->
+			    <div class="deleteSelectedAbs Hidden ActivateSelectedElements">
+			      <i class="fa fa-check-circle"></i> Activar Seleccionados
+			    </div>
+			  <!-- ACTIVATE SELECTED BUTTON-->';
 	}
 	
 	public function InsertSearchResults()

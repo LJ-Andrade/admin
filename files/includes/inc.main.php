@@ -49,6 +49,7 @@
 			header("Location: ../login/process.logout.php?error=customer");
 			die();
 		}
+		// MELI SESSION
 		if($_SESSION['meli'])
 		{
 			$Meli = new Meli($_SESSION['meli_application_id'],$_SESSION['meli_secret'],$_SESSION['meli_access_token'],$_SESSION['meli_refresh_token']);
@@ -66,4 +67,6 @@
 	$Head	-> setFavicon("../../../skin/images/body/icons/favicon.png");
 	/* SETTING FOOT OF THE DOCUMENT */
 	$Foot	= new Foot();
+	/* SETTING MENU OF THE DOCUMENT */
+	$Menu = new Menu();
 ?>

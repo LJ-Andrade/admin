@@ -17,6 +17,7 @@ class AdminData extends DataBase
 	var $DefaultImgDir = '../../../skin/images/users/default';
 	var $ImgGalDir = '../../../skin/images/users/';
 	var $LastAccess;
+	var $Customer 		= array();
 	var $Groups 		= array();
 	var $Parent 		= array();
 	var $Menues 		= array();
@@ -41,16 +42,25 @@ class AdminData extends DataBase
 		$ProfileData		= $this->fetchAssoc('admin_profile','*'," profile_id = ".$this->ProfileID);
 		$this->ProfileName	= $ProfileData[0]['title'];
 	}
+	
+	public function GetCustomer()
+	{
+		if(!$this->Customer)
+		{
+			$Rs 	= $this->fetchAssoc('customer','*',"customer_id =".$this->AdminData['customer_id']);
+			$this->Customer = $Rs[0];
+		}
+		return $this->Customer;
+	}
 
-	private function GetGroups()
+	public function GetGroups()
 	{
 		if(!$this->Groups)
 		{
-			$Groups = array();
-			$Rs 	= $this->fetchAssoc('admin_group','*',"group_id IN (SELECT group_id FROM relation_admin_group WHERE admin_id=".$this->AdminID.")","title");
+			$Rs 	= $this->fetchAssoc('admin_group','*',"status = 'A' AND group_id IN (SELECT group_id FROM relation_admin_group WHERE admin_id=".$this->AdminID.")","title");
 			$this->Groups = $Rs;
-			return $this->Groups;
 		}
+		return $this->Groups;
 
 	}
 
@@ -64,51 +74,13 @@ class AdminData extends DataBase
 		return $this->ProfileID;
 	}
 
-	public function MakeMenuList($Parent=0)
-	{
-		if($Parent==0)
-		{
-			$this->GetCheckedMenues($this->AdminID);
-			$this->GetParents();
-		}
-
-		$Menues	= $this->fetchAssoc('menu','*',"parent_id = ".$Parent." AND status <> 'I'");
-
-		foreach($Menues as $Menu)
-		{
-			$IsParent = in_array($Menu['menu_id'],$this->Parents);
-
-			if(in_array($Menu['menu_id'],$this->Menues))
-			{
-				$Hidden 	= '';
-				$Selected	= ' checked = "checked" ';
-				$Arrow	= $IsParent? '<div class="Arrow ArrowLeft" id="img'.$Menu['menu_id'].'"></div>' : "";
-
-			}else{
-				$Hidden 	= ' Hidden ';
-				$Selected	= '';
-				$Arrow	= $IsParent? '<div class="Arrow ArrowDown" id="img'.$Menu['menu_id'].'"></div>' : "";
-			}
-
-			if($Parent!=0)$Disabled	= $this->IsDisabled($Menu['parent_id']);
-
-			$HTML	.= '<div>'.insertElement('checkbox','menu',$Menu['menu_id'],'Left Pointer MenuCheckbox Menu'.$Menu['parent_id'],$Selected.$Disabled).'<div class="Parent Left Frutiger12px BlueCyan" id="'.$Menu['menu_id'].'">'.$Menu['title'].'</div>'.$Arrow.'<div class="Clear"></div></div>';
-			if($IsParent)
-			{
-				$HTML	.= '<div class="ProfileChild '.$Hidden.'" id="Child'.$Menu['menu_id'].'" >';
-				$HTML	.= $this->MakeMenuList($Menu['menu_id']);
-				$HTML	.= "</div>";
-			}
-		}
-
-		return $HTML;
-	}
+	
 
 	public function GetCheckedMenues()
 	{
 		if(count($this->Menues)<1)
 		{
-			$Relations	= $this->fetchAssoc('menu_exception','*',"admin_id = ".$this->AdminID);
+			$Relations	= $this->fetchAssoc('relation_admin_menu','*',"admin_id = ".$this->AdminID);
 			foreach($Relations as $Relation)
 			{
 				$this->Menues[]	= $Relation['menu_id'];
@@ -183,6 +155,7 @@ class AdminData extends DataBase
 public function MakeRegs($Mode="List")
 	{
 		$Rows	= $this->GetRegs();
+		//echo $this->lastQuery();
 		for($i=0;$i<count($Rows);$i++)
 		{
 			$Row	=	new AdminData($Rows[$i]['admin_id']);
@@ -198,13 +171,13 @@ public function MakeRegs($Mode="List")
 			{
 				if($Row->AdminID!=$_SESSION['admin_id'])
 				{
-					$Actions	.= '<a class="deleteElement" process="../processes/proc.common.php" id="delete_'.$Row->AdminID.'"><button type="button" class="btn btnRed"><i class="fa fa-trash"></i></button></a>';
+					$Actions	.= '<a class="deleteElement" process="../../library/processes/proc.common.php" id="delete_'.$Row->AdminID.'"><button type="button" class="btn btnRed"><i class="fa fa-trash"></i></button></a>';
 					$Restrict	= '';
 				}else{
 					$Restrict	= ' undeleteable ';
 				}
 			}else{
-				$Actions	.= '<a class="activateElement" process="../processes/proc.common.php" id="activate_'.$Row->AdminID.'"><button type="button" class="btn btnGreen"><i class="fa fa-check-circle"></i></button></a>';
+				$Actions	.= '<a class="activateElement" process="../../library/processes/proc.common.php" id="activate_'.$Row->AdminID.'"><button type="button" class="btn btnGreen"><i class="fa fa-check-circle"></i></button></a>';
 			}
 			$Actions	.= '</span>';
 			switch(strtolower($Mode))
@@ -318,9 +291,9 @@ public function MakeRegs($Mode="List")
 		$this->SetFields('a.*,p.title as profile, g.title as group_title');
 		$this->SetWhere("a.customer_id=".$_SESSION['customer_id']);
 		$this->AddWhereString(" AND a.profile_id = p.profile_id");
-		$this->SetOrder('a.first_name');
+		$this->SetOrder('first_name');
 		$this->SetGroupBy("a.admin_id");
-		if($this->ProfileID!=333)
+		if($_SESSION['profile_id']!=333)
 		{
 			$this->SetWhereCondition("a.profile_id",">",$this->ProfileID);
 		}
@@ -330,12 +303,12 @@ public function MakeRegs($Mode="List")
 			$_POST[$Key] = htmlentities($Value);
 		}
 		
-		if($_REQUEST['status'])
-		{
-			$this->SetWhereCondition("a.status","=",$_REQUEST['status']);
-		}else{
-			$this->SetWhereCondition("a.status","=","A");
-		}
+		// if($_REQUEST['status'])
+		// {
+		// 	$this->SetWhereCondition("a.status","=",$_REQUEST['status']);
+		// }else{
+		// 	$this->SetWhereCondition("a.status","=","A");
+		// }
 			
 		if($_POST['first_name']) $this->SetWhereCondition("a.first_name","LIKE","%".$_POST['first_name']."%");
 		if($_POST['last_name']) $this->SetWhereCondition("a.last_name","LIKE","%".$_POST['last_name']."%");
@@ -400,8 +373,7 @@ public function MakeRegs($Mode="List")
 	{
 		return $this->AdminData;
 	}
-	
-	
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////// PROCESS METHODS ///////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -415,10 +387,10 @@ public function MakeRegs($Mode="List")
 		$LastName	= htmlentities(ucfirst($_POST['last_name']));
 		$Email 		= htmlentities(strtolower($_POST['email']));
 		$ProfileID	= $_POST['profile'];
-		$Status		= 'A';//= $_POST['status']=="on"? 'A': 'I';
 		$Groups		= $_POST['groups'] ? explode(",",$_POST['groups']) : array();
 		$Menues		= $_POST['menues'] ? explode(",",$_POST['menues']) : array();
 		$Insert		= $this->execQuery('insert','admin_user','user,password,first_name,last_name,email,status,profile_id,img,creation_date,creator_id,customer_id',"'".$User."','".$Password."','".$FirstName."','".$LastName."','".$Email."','".$Status."','".$ProfileID."','".$Image."',NOW(),".$_SESSION['admin_id'].",".$_SESSION['customer_id']);
+		//echo $this->lastQuery();
 		$NewID 		= $this->GetInsertId();
 		$New 	= new AdminData($NewID);
 		$Dir 	= array_reverse(explode("/",$Image));
@@ -441,7 +413,7 @@ public function MakeRegs($Mode="List")
 			if(intval($Menues[$i])>0)
 				$Values .= !$Values? $NewID.",".$Menues[$i] : "),(".$NewID.",".$Menues[$i];
 		}
-		$this->execQuery('insert','menu_exception','admin_id,menu_id',$Values);
+		$this->execQuery('insert','relation_admin_menu','admin_id,menu_id',$Values);
 	}
 	
 	public function Update()
@@ -459,7 +431,6 @@ public function MakeRegs($Mode="List")
 		$LastName	= htmlentities($_POST['last_name']);
 		$Email 		= htmlentities($_POST['email']);
 		$ProfileID	= $_POST['profile'];
-		$Status		= 'A';//$_POST['status']=="on"? 'A': 'I';
 		$Groups		= $_POST['groups'] ? explode(",",$_POST['groups']) : array();
 		$Menues		= $_POST['menues'] ? explode(",",$_POST['menues']) : array();
 		$Dir 		= array_reverse(explode("/",$Image));
@@ -469,20 +440,24 @@ public function MakeRegs($Mode="List")
 			$Image 	= $Edit->ImgGalDir().$Dir[0];
 			copy($Temp,$Image);
 		}
-		$Insert		= $this->execQuery('update','admin_user',"user='".$User."'".$PasswordFilter.",first_name='".$FirstName."',last_name='".$LastName."',email='".$Email."',status='".$Status."',profile_id='".$ProfileID."',img='".$Image."'","admin_id=".$ID);
+		$Update		= $this->execQuery('update','admin_user',"user='".$User."'".$PasswordFilter.",first_name='".$FirstName."',last_name='".$LastName."',email='".$Email."',profile_id='".$ProfileID."',img='".$Image."'","admin_id=".$ID);
+		//echo $this->lastQuery();
 		$this->execQuery('delete','relation_admin_group',"admin_id = ".$ID);
-		$this->execQuery('delete','menu_exception',"admin_id = ".$ID);
-		for($i=0;$i<count($Groups);$i++)
+		$this->execQuery('delete','relation_admin_menu',"admin_id = ".$ID);
+		foreach($Groups as $Group)
 		{
-			$Values .= $i==0? $ID.",".$Groups[$i] : "),(".$ID.",".$Groups[$i];
+			if(intval($Group)>0)
+				$Values .= !$Values? $ID.",".$Group : "),(".$ID.",".$Group;
 		}
 		$this->execQuery('insert','relation_admin_group','admin_id,group_id',$Values);
+		//echo $this->lastQuery();
 		$Values = "";
-		for($i=0;$i<count($Menues);$i++)
+		foreach($Menues as $Menu)
 		{
-			$Values .= $i==0? $ID.",".$Menues[$i] : "),(".$ID.",".$Menues[$i];
+			if(intval($Menu)>0)
+				$Values .= !$Values? $ID.",".$Menu : "),(".$ID.",".$Menu;
 		}
-		$this->execQuery('insert','menu_exception','admin_id,menu_id',$Values);
+		$this->execQuery('insert','relation_admin_menu','admin_id,menu_id',$Values);
 	}
 	
 	public function Activate()

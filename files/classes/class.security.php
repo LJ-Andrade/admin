@@ -47,7 +47,7 @@ class Security extends dataBase
 				}
 				$MenuGroups 	= implode(",",$AdminGroups);
 				$Rows			= $this->numRows("relation_menu_profile","*","menu_id = ".$this->MenuData['menu_id']." AND profile_id = ".$this->ProfileData['profile_id']);
-				$Exceptions 	= $this->numRows("menu_exception","*","menu_id = ".$this->MenuData['menu_id']." AND admin_id = ".$AdminID);
+				$Exceptions 	= $this->numRows("relation_admin_menu","*","menu_id = ".$this->MenuData['menu_id']." AND admin_id = ".$AdminID);
 				$GroupsAllowed 	= $this->numRows("relation_menu_group","*","menu_id = ".$this->MenuData['menu_id']." AND group_id IN (".$MenuGroups.")");
 
 				if($Rows<1 && $Exceptions<1 && $GroupsAllowed<1){header("Location: ".$_SERVER['HTTP_REFERER']); echo '<script>window.history.go(-1)</script>';}

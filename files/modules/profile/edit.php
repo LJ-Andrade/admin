@@ -1,69 +1,107 @@
 <?php
     include("../../includes/inc.main.php");
-    $ID = $_GET['id'];
-    $Edit  = new ProfileData($ID);
-    $MenuTree = new Menu();
-    $MenuTree->SetCheckedMenues($Edit->GetCheckedMenues());
-    $Data  = $Edit->GetData();
-
-    $Title = "Modificar perfil '".$Data['title']."'";
-
-    $Head->setTitle("Modificar Perfil");
+    $ID           = $_GET['id'];
+    $Edit         = new ProfileData($ID);
+    $Data         = $Edit->GetData();
+    ValidateID($Data);
+    
+    foreach($Edit->GetGroups() as $Group)
+    {
+      $Groups .= $Groups? ','.$Group['group_id'] : $Group['group_id']; 
+    }
+    $Menues = $DB->fetchAssoc("relation_menu_profile","DISTINCT(menu_id)","profile_id=".$ID);
+    foreach($Menues as $MenuData)
+    {
+      $MenuArray[] = $MenuData['menu_id'];
+    }
+    if(is_array($MenuArray))
+      $Menues = implode(",",$MenuArray);
+    else
+      $Menues = 0;
+    
+    $Head->setTitle($Menu->GetTitle());
+    $Head->setStyle('../../../vendors/select2/select2.min.css'); // Select Inputs With Tags
+    $Head->setStyle('../../../vendors/bootstrap-switch/bootstrap-switch.css'); // Switch On Off
     $Head->setHead();
+    include('../../includes/inc.top.php');
 ?>
-<body>
-  <div id="wrapper">
-    <?php include('../../includes/inc.nav.php'); ?> <!-- Nav -->
-      <?php echo insertElement("hidden","action",'update'); ?>
-      <?php echo insertElement("hidden","id",$ID); ?>
-      <?php echo insertElement("hidden","oldimage",$Data['image']); ?>
-      <?php echo insertElement("hidden","profileimage",$Data['image']); ?>
-      <?php echo insertElement("hidden","menues",''); ?>
-    <div class="container-fluid pageWrapper">
-      <!-- WindowHead -->
-      <div class="row windowHead animated fadeInDown">
-        <button type="button" name="button" class="btn closeBtn MainButton BackToLastPage"><i class="fa fa-times"></i></button>
-        <div class="col-md-6 col-xs-12">
-          <div class="maintitle"><h3><?php echo $Title; ?></h3></div>
-        </div>
-        <div class="col-md-6 col-xs-12 switchDiv switchHead">
-          <input type="checkbox" name="status" id="status" data-on-text="Activo" data-off-text="Inactivo" data-size="mini" data-label-width="auto" checked>
-        </div>
-      </div><!-- /WindowHead -->
-      <div class="container additemdiv animated fadeIn">
-        <div class="col-sm-12 form-box formitems">
-          <div class="row">
-            <div class="col-md-3 form-group animated bounceInLeft">
+  <?php echo insertElement("hidden","action",'update'); ?>
+  <?php echo insertElement("hidden","menues",$Menues); ?>
+  <?php echo insertElement("hidden","groups",$Groups); ?>
+  <?php echo insertElement("hidden","id",$ID); ?>
+  <?php echo insertElement("hidden","newimage",$Edit->GetImg()); ?>
+  <div class="box animated fadeIn">
+    <div class="box-header flex-justify-center">
+      <div class="col-lg-8 col-sm-12">
+        <div class="innerContainer">
+          <h4 class="subTitleB"><i class="fa fa-plus-circle"></i> Modifique los campos para editar al perfil <?php echo $Data['title']; ?></h4>
+            <div class="row form-group inline-form-custom-2">
+              <div class="col-xs-12 col-sm-6 inner">
+                <label>T&iacute;tulo</label>
+                <?php echo insertElement('text','title',$Data['title'],'form-control','placeholder="Ingrese un T&iacute;tulo" validateEmpty="Ingrese un t&iacute;tulo." validateFromFile="../../library/processes/proc.common.php///El perfil ya existe///action:=validate///actualtitle:='.$Data['title'].'///object:=ProfileData"'); ?>
+              </div>
+              <div class="col-xs-12 col-sm-6 inner">
+                <label for="">Grupos</label>
+                <div class="form-group" id="groups-wrapper">
+                  <?php echo insertElement('multiple','group',$Groups,'form-control select2 selectGroupTags','data-placeholder="Seleccione Grupos" style="width: 100%;"',$DB->fetchAssoc('admin_group','group_id,title',"status<>'I' AND customer_id = ".$_SESSION['customer_id'])); ?>
+                </div>
+              </div>
+              <!--<div class="col-xs-12 col-sm-12 inner">-->
+              <!--  <label for="">Usuarios</label>-->
+              <!--  <div class="form-group" id="groups-wrapper">-->
+              <!--    <?php //echo insertElement('multiple','user','','form-control select2 selectUserTags','data-placeholder="Seleccione Usuarios" style="width: 100%;"',$DB->fetchAssoc('admin_user','admin_id,user',"status='A' AND customer_id = ".$_SESSION['customer_id'])); ?>-->
+              <!--  </div>-->
+              <!--</div>-->
+              <div class="col-xs-12 col-sm-6 inner">
+                <label for="">Im&aacute;gen</label>
+                <div class="lineContainer txC">
 
+                  <div class="flex-allCenter imgSelector">
+                    <div class="imgSelectorInner">
+                      <img src="<?php echo $Edit->GetImg(); ?>" class="img-responsive MainImg animated">
+                      <?php echo insertElement('file','image','','Hidden'); ?>
+                      <input readonly="readonly" id="Fileimage" name="FileField" class="Hidden" type="text">
+                      <div style="height: 0px; width: 0px; overflow: hidden;">
+                        <input id="image" name="image" class="Hidden" type="file">
+                      </div>
+                      <div class="imgSelectorContent">
+                        <div id="SelectImg">
+                          <i class="fa fa-upload"></i><br>
+                           <p>Cargar Nueva Im&aacute;gen</p>
+                        </div>
+                      </div>
+                      <div id="FileimageErrorDiv" class="ErrorText Red"></div>
+                      <div id="imageErrorDiv" class="ErrorText Red"></div>
+                    </div>
+                  </div>
+                  <div class="text-bottom">
+                    <p><i class="fa fa-upload" aria-hidden="true"></i>
+                    Haga Click sobre la im&aacute;gen </br> para cargar una desde su dispositivo</p>
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 inner">
+                <div id="treeview-checkbox" class="treeCheckBoxDiv">
+                  <label for="">Permisos</label>
+                  <?php echo $Menu->MakeTree(); ?>
+                </div><!-- treeview-checkbox -->
+              </div>
+            </div><!-- inline-form -->
+            <hr>
+            <div class="txC">
+              <button type="button" class="btn btn-success btnGreen" id="BtnCreate"><i class="fa fa-check"></i> Editar Perfil</button>
+              <button type="button" class="btn btn-error btnRed" id="BtnCancel"><i class="fa fa-times"></i> Cancelar</button>
             </div>
-            <div class="col-md-6 form-group animated bounceInLeft">
-              <?php echo insertElement('text','title',$Data['title'],'form-first-name form-controlusers text-center','placeholder="Nombre del perfil" tabindex="1" validateEmpty="El nombre es obligatorio." validateMinLength="3/El nombre debe contener 3 caracteres como mínimo." validateFromFile="process.php/El perfil ya existe/action:=validate/actual:='.$Data['title'].'"'); ?>
-            </div>
-            <div class="col-md-3 form-group animated bounceInRight">
-              <?php echo insertElement('file','image','','form-first-name form-controlusers Hidden','placeholder="Imagen" tabindex="3"'); ?>
-              <!-- <button type="button" name="buttonimg" id="buttonimg" class="btn mainbtn">Seleccionar Im&aacute;gen</button> -->
-            </div>
-          </div>
-          <!-- PROFILE TREE -->
-          <div class="row">
-            <div class="col-md-7 form-group animated bounceInBottom">
-              <?php $Hidden = $Data['image']? '':'Hidden'; ?>
-              <img src="<?php echo $Data['image']; ?>" width="200" height="200" class="<?php echo $Hidden ?>" id="profileimg" class="img-responsive imgBox" />
-            </div>
-            <div class="col-md-5 form-group animated bounceInBottom" id="ProfileTree">
-              <?php echo $MenuTree->MakeTree(); ?>
-            </div>
-          </div>
-          <!-- PROFILE TREE -->
         </div>
-      </div>
-       <!--  Add Img & Done Button Div  -->
-      <div class="container centrarbtn animated fadeInUp donediv">
-           <div class="form-group">
-             <a href="#" class="btn mainbtn" role="button" id="create"><i class="fa fa-check-square-o fa-fw"></i> Modificar Perfil</a>
-           </div>
       </div>
     </div>
   </div>
-<!-- /#wrapper -->
-<?php $Foot->setFoot(); ?>
+
+<?php
+  $Foot->setScript('../../../vendors/bootstrap-switch/script.bootstrap-switch.min.js');
+  $Foot->setScript('../../../vendors/select2/select2.min.js');
+  $Foot->setScript('../../../vendors/treemultiselect/logger.min.js');
+  $Foot->setScript('../../../vendors/treemultiselect/treeview.min.js');
+  include('../../includes/inc.bottom.php');
+?>

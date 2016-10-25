@@ -150,7 +150,8 @@
 		if($Type=="checkbox")  $Class = 'CheckBox '.$Class;
 		$Class	= $Class? ' class="'.$Class.'" ': '';
 		if($Type!="textarea")
-			if($Type!="select" && $Type!="button")  $Value	= $Value? ' value="'.$Value.'" ': '';
+			if(!in_array($Type,array("select","button","multiple")))  $Value	= $Value? ' value="'.$Value.'" ': '';
+			//if($Type!="select" && $Type!="button")  $Value	= $Value? ' value="'.$Value.'" ': '';
 
 
 		
@@ -192,7 +193,38 @@
 									
 								}
 								$Select	.=	'</select>';
-								return	$Select; break;
+								return	$Select;
+			break;
+			case 'multiple': 	$Select	= 	'<select id="'.$ID.'" multiple="multiple" name="'.$ID.'"'.$Class.$Extra.' firstvalue="'.$FirstValue.'" firsttext="'.$FirstText.'" >';
+								$Select	.= $FirstValue || $FirstText ? '<option value="'.$FirstValue.'" >'.$FirstText.'</option>' : '' ;
+								$Values	= explode(",",$Value);
+								if(is_array($Query))
+								{
+									while ($Data = current($Query))
+									{
+										if(is_array($Data))
+										{
+												$Selected 	= in_array($Data[key($Data)],$Values) ? ' selected="selected" ' : '';
+												$Select	   .= '<option value="'.$Data[key($Data)].'" '.$Selected.' >';
+												next($Data);
+												$Select .= $Data[key($Data)].'</option>';
+											
+										}else{
+											
+											$Selected	 = in_array(key($Query),$Values) ? ' selected="selected" ' : '';
+											$Select		.= '<option value="'.key($Query).'" '.$Selected.' >'.$Data.'</option>';
+											
+										}
+										next($Query);
+									}
+								}else{
+									
+									if($Query) include($Query);
+									
+								}
+								$Select	.=	'</select>';
+								return	$Select;
+			break;
 								
 			default: 			return '<input type="'.$Type.'" id="'.$ID.'" name="'.$ID.'"'.$Value.$Class.$Extra.' />'; break;
 		}
@@ -388,6 +420,15 @@
 			unlink($Temp);
 		}
 		return file_exists($New);
+	}
+	
+	function ValidateID($Data)
+	{
+		if(!$_GET['id'] || empty($Data))
+	    {
+	      header('Location: list.php?error=user');
+	      die();
+	    }
 	}
 	
 ?>

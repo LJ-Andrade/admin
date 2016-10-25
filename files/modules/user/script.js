@@ -1,21 +1,17 @@
-$(document).ready(function(){
-	if(get['msg']=='insert')
-		notifySuccess("El usuario '"+get['user']+"' ha sido creado correctamente");
-	if(get['msg']=='update')
-		notifySuccess("El usuario '"+get['user']+"' ha sido modificado correctamente");
-});
-
-
-///////////////////////// CREATE/EDIT USER ////////////////////////////////////
+///////////////////////// CREATE/EDIT ////////////////////////////////////
 $(function(){
 	$("#BtnCreate,#BtnCreateNext").click(function(){
 		if(validate.validateFields(''))
 		{
 			var BtnID = $(this).attr("id")
 			if(get['id']>0)
+			{
 				confirmText = "modificar";
-			else
+				procText = "modificaci&oacute;n"
+			}else{
 				confirmText = "crear";
+				procText = "creaci&oacute;n"
+			}
 
 			confirmText += " el usuario '"+$("#user").val()+"'";
 
@@ -26,14 +22,14 @@ $(function(){
 					var process		= '../../library/processes/proc.common.php?object=AdminData';
 					if(BtnID=="BtnCreate")
 					{
-						var target		= 'list.php?user='+$('#user').val()+'&msg='+ $("#action").val();
+						var target		= 'list.php?element='+$('#user').val()+'&msg='+ $("#action").val();
 					}else{
-						var target		= 'new.php?user='+$('#user').val()+'&msg='+ $("#action").val();
+						var target		= 'new.php?element='+$('#user').val()+'&msg='+ $("#action").val();
 					}
 					var haveData	= function(returningData)
 					{
 						$("input,select").blur();
-						notifyError("Ha ocurrido un error durante el proceso de creaci&oacute;n.");
+						notifyError("Ha ocurrido un error durante el proceso de "+procText+".");
 						console.log(returningData);
 					}
 					var noData		= function()
@@ -53,7 +49,7 @@ $(function(){
 		}
 	});
 });
-// /////////////////////////// Upload Image /////////////////////////////////////
+///////////////////////////// Upload Image /////////////////////////////////////
 $(function(){
 	$("#image").change(function(){
 		toggleLoader();
@@ -91,17 +87,6 @@ function selectImg()
 		$("#newimage").val(src);
 	});
 }
-
-//////////////// Select Input With Tags //////////////////////////
-$(function() {
-	if($('.selectTags').length)
-	{
-		$('.selectTags').select2({
-			tags: true
-		});
-		$('.selectTags').on("change", function (e) { setGroups(); });
-	}
-});
 
 // /////////////////////////// Fill Groups /////////////////////////////////////
 $(document).ready(function(){
@@ -152,12 +137,13 @@ function fillGroups()
             {
                 $('#groups-wrapper').html(data);
             }else{
-                $('#groups').html('<h4 class="subTitleB"><i class="fa fa-users"></i> Grupos</h4><select id="group" class="form-control select2 selectTags" multiple="multiple" disabled="disabled" data-placeholder="Seleccione los grupos" style="width: 100%;"></select>');
+                $('#groups-wrapper').html('<h4 class="subTitleB"><i class="fa fa-users"></i> Grupos</h4><select id="group" class="form-control select2 selectTags" multiple="multiple" disabled="disabled" data-placeholder="Seleccione los grupos" style="width: 100%;"></select>');
             }
             if($('.selectTags').length)
 			{
 				$('.selectTags').select2();
 	            $('.selectTags').on("change", function () { setGroups(); });
+	            setGroups();
 			}
         }
     });

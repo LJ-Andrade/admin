@@ -1,237 +1,137 @@
-/*
-$(window).scroll(function(){
-  $('#wrapper')[0].scrollTop=$(window).scrollTop();
-});*/
-
-$(document).ready(function(){
-	if(get['msg']=='insert')
-		notifySuccess('Perfil creado correctamente');
-	if(get['msg']=='update')
-		notifySuccess('Perfil modificado correctamente');
-	$('#newuser').fadeIn(500);
-	$('#viewlistbt').show();
-	$('#viewlist').hide();
-	$('#delselected').hide();
-});
-
+///////////////////////// CREATE/EDIT ////////////////////////////////////
 $(function(){
-	////////////////////////////////////// Create/Update Profile ///////////////////////////
-	$("#create").click(function(){
-		if(validate.validateFields('')){
-			var process		= 'process.php';
-			var target		= 'list.php?msg='+ $("#action").val();
-			var haveData	= function(returningData)
+	$("#BtnCreate,#BtnCreateNext").click(function(){
+		if(validate.validateFields(''))
+		{
+			var BtnID = $(this).attr("id")
+			if(get['id']>0)
 			{
-				$("input,select").blur();
-				notifyError(returningData);
-				//alert(returningData);
+				confirmText = "modificar";
+				procText = "modificaci&oacute;n"
+			}else{
+				confirmText = "crear";
+				procText = "creaci&oacute;n"
 			}
-			var noData		= function()
-			{
-				document.location = target;
-			}
-			sumbitFields(process,haveData,noData);
+
+			confirmText += " el perfil '"+$("#title").val()+"'";
+
+			alertify.confirm(utf8_decode('¿Desea '+confirmText+' ?'), function(e){
+				if(e)
+				{
+					toggleLoader();
+					var process		= '../../library/processes/proc.common.php?object=ProfileData';
+					if(BtnID=="BtnCreate")
+					{
+						var target		= 'list.php?element='+$('#title').val()+'&msg='+ $("#action").val();
+					}else{
+						var target		= 'new.php?element='+$('#title').val()+'&msg='+ $("#action").val();
+					}
+					var haveData	= function(returningData)
+					{
+						$("input,select").blur();
+						notifyError("Ha ocurrido un error durante el proceso de "+procText+".");
+						console.log(returningData);
+					}
+					var noData		= function()
+					{
+						document.location = target;
+					}
+					sumbitFields(process,haveData,noData);
+					toggleLoader();
+				}
+			});
 		}
 	});
 
 	$("input").keypress(function(e){
 		if(e.which==13){
-			$("#create").click();
+			$("#BtnCreate").click();
 		}
 	});
-
-	///////////////////////////////////// Load Image ///////////////////////////
-$("#profileimg").click(function(){
-	$("#image").click();
 });
 
-	$("#image").change(function(){
-		//notifyInfo($(this).val());
-		var process		= 'process.php?action=newimage';
+///////////////// TREECHECKBOXES ///////////////////
+$(document).ready(function(){
+	if($('#treeview-checkbox').length)
+	{
+		$('#treeview-checkbox').treeview();
+		fillCheckboxTree();
+	}
+});
+$(function() {
+	$(".tw-control").click(function(){
+		var selected = "0"
+		$(".tw-control").each(function(){
+			if($(this).is(":checked"))
+			{
+				selected += ","+$(this).parent().attr("data-value");
+			}
+		});
+		$("#menues").val(selected);
+	});
+});
+function fillCheckboxTree()
+{
+	var menues = $("#menues").val().split(',');
+	$(".tw-control").each(function(menu){
+		if(inArray($(this).parent().attr("data-value"),menues))
+		{
+			//alert($(this).parent().attr("data-value"));
+			$(this).click();
+		}
+	});
+}
 
+///////////////// SELECT GROUPS /////////////////////
+$(function(){
+	$('.selectGroupTags').select2();
+
+	if($('.selectGroupTags').length)
+	{
+		$('.selectGroupTags').select2({
+			tags: true
+		});
+		$('.selectGroupTags').on("change", function (e) { selectGroups(); });
+	}
+});
+
+function selectGroups()
+{
+	var groups = "0";
+	$("#group").next('span').children('span').children('span').children('ul').children('.select2-selection__choice').each(function(){
+		var optionName = $(this).attr("title");
+		$("#group").children("option").each(function(){
+			if($(this).html()==optionName)
+			{
+				groups += ","+$(this).attr("value");
+			}
+		});
+	});
+	$("#groups").val(groups);
+}
+
+///////////////////////////// UPLOAD IMAGE /////////////////////////////////////
+$(function(){
+	$("#image").change(function(){
+		toggleLoader();
+		var process		= '../../library/processes/proc.common.php?action=newimage&object=ProfileData';
 		var haveData	= function(returningData)
 		{
-			//$("input,select").blur();
-			//alert(returningData);
-			//alert(returningData);
-			$('#profileimage').val(returningData);
-			$('#profileimg').attr('src',returningData);
-			$('#profileimg').removeClass('Hidden');
-			$('#image').parent().parent().children('input[type="text"]').val('');
-			//notifyInfo(returningData);
-			return false;
-
+			$('#newimage').val(returningData);
+			$(".MainImg").attr("src",returningData);
+			$('.MainImg').addClass('pulse').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+		      $(this).removeClass('pulse');
+		    });
+		    //console.log(returningData);
+			// $('#UserImages').append('<li><img src="'+returningData+'" class="ImgSelecteable"></li>');
+			// selectImg();
 		}
-		var noData		= function()
-		{
-			//document.location = target;
-		}
+		var noData		= function(){alert("No data");}
 		sumbitFields(process,haveData,noData);
+		toggleLoader();
 	});
 
-
-});
-
-/////////////////////////// Massive Delete /////////////////////////////////////
-	$("#delselected").click(function(){
-		alertify.confirm(utf8_decode('¿Desea eliminar los usuarios seleccionados?'), function(e){
-            if(e){
-            	var result;
-            	$(".deleteThis").each(function(){
-            		var elem 	= $(this).find('.btndel');
-            		var id 		= elem.attr('deleteElement');
-            		var parents = elem.attr('deleteParent').split("/");
-            		var process = elem.attr('deleteProcess');
-
-                	var string      = 'id='+ id + '&action=delete';
-                	console.log(elem);
-			        var data;
-			        $.ajax({
-			            type: "POST",
-			            url: process,
-			            data: string,
-			            cache: false,
-			            success: function(data){
-		                    if(data)
-		                    {
-		                        notifyError('Hubo un problema al eliminar los usuarios: '+data);
-		                        result = data;
-		                        return false;
-		                    }else{
-		                        parents.forEach(function(parent){
-			                        $("#"+parent).slideUp();
-			                    });
-		                    }
-		                }
-			        });
-            	});
-
-
-            	if(result)
-            	{
-            		notifyError('Hubo un problema al eliminar los usuarios: '+result);
-            	}else{
-            		$('#delselected').hide();
-            		$(".deleteThis").each(function(){ $(this).removeClass('deleteThis'); });
-            		notifySuccess(utf8_decode('Los usuarios seleccionados han sido eliminados.'));
-            	}
-            }
-        });
-	})
-
-/////////////////////////// Switch View Mode /////////////////////////////////////
-	$("#viewlistbt").on( "click", function() {
-		$(".usergralselect").each(function(){
-			$(this).removeClass('deleteThis');
-			$(this).removeClass('usergralselect');
-			$(this).find('.userButtons').toggle();
-			$(this).find('.userMainSection').toggleClass("usergralselect", 500);
-		});
-
-		$('div[id="viewgrid"]').hide( 500 );
-		$('div[id="viewlist"]').show( 500 );
-		$("#viewlistbt").hide();
-		$("#viewgridbt").show( 0 );
-		$('#delselected').hide();
+	$('.imgSelectorContent').click(function(){
+		$("#image").click();
 	});
-
-	$("#viewgridbt").on( "click", function() {
-		$(".listselect").each(function(){
-			$(this).removeClass('deleteThis');
-			$(this).removeClass('listselect');
-		});
-		$('div[id="viewgrid"]').show( 500 );
-		$('div[id="viewlist"]').hide( 500 );
-		$("#viewgridbt").hide();
-		$("#viewlistbt").show( 0 );
-		$('#delselected').hide();
-	});
-
-
-///////////////////// User Icos Del Modify Appears On Hover ///////////////////////
-
- // Del & Mod User Icons appearing onclick
-$(function(){
-	$('.userButtons').hide();
-	$('.usergral').click(function() {
-		$(this).find('.userButtons').toggle();
-		$(this).find('.userMainSection').toggleClass("usergralselect", 500);
-		$(this).find('.userMainSection').toggleClass("usergralselect", 500);
-});
-
-	// Select Users
-	$(".usergral").click(function(){
-		$(this).toggleClass("deleteThis");
-		$(this).toggleClass("usergralselect");
-		var totalSelected = 0;
-		var admDelBtn;
-		$(".usergralselect").each(function(){
-			if($(this).hasClass('undeleteable'))
-			{
-				admDelBtn = $(this);
-			}else{
-				totalSelected++;
-			}
-
-		});
-		if(totalSelected>1 && !admDelBtn){
-			$('#delselected').show();
-		}else{
-			$('#delselected').hide();
-		}
-	});
-
-	$(".listrow").click(function(){
-		$(this).toggleClass("deleteThis");
-		$(this).toggleClass("listselect");
-		var totalSelected = 0;
-		var admDelBtn;
-		$(".listselect").each(function(){
-			if($(this).hasClass('undeleteable'))
-			{
-				admDelBtn = $(this);
-			}else{
-				totalSelected++;
-			}
-
-		});
-		if(totalSelected>1 && !admDelBtn){
-			$('#delselected').show();
-		}else{
-			$('#delselected').hide();
-		}
-	});
-
-	// Hover Effect
-	$('.userMainSection').hover(function() {
-		$(this).addClass('userHover');
-	});
-
-	$('.userMainSection').mouseleave(function() {
-		$(this).removeClass('userHover');
-	});
-
-////////////////// User Creation Window /////////////////////////
-
-	// Insert Img
-	var wrapper = $('<div/>').css({height:0,width:0,'overflow':'hidden'});
-	var fileInput = $(':file').wrap(wrapper);
-
-	fileInput.change(function(){
-	  $this = $(this);
-	  $('#file').text($this.val());
-	})
-
-	$('#file').click(function(){
-	  fileInput.click();
-	}).show();
-
-	// Active Paused Product Switch
-	$("[name='status']").bootstrapSwitch();
-
-});
-
-///////////////// GROUPS TAG ////////////////////////
-$(function(){
-	$('.selectTags').select2();
 });

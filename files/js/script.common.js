@@ -1,11 +1,10 @@
                                             ////// JavaScript Document //////
-// $(document).ready(function(){
-//   var sidebarMenu = getCookie("sidebarmenu");
-//   if(sidebarMenu)
-//   {
-//     $("body").addClass(sidebarMenu);
-//   }
-// });
+$(document).ready(function(){
+	if(get['msg']=='insert')
+		notifySuccess("'"+get['element']+"' ha sido creado correctamente");
+	if(get['msg']=='update')
+		notifySuccess("'"+get['element']+"' ha sido modificado correctamente");
+});
 
 //////////////////////////////////////////////////// Notify //////////////////////////////////////////////////////
 function notifyError(msgNotify)

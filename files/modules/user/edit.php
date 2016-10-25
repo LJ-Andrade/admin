@@ -1,29 +1,27 @@
 <?php
     include("../../includes/inc.main.php");
-    $Admin_id   = $_GET['id'];
-    $Edit       = new AdminData($Admin_id);
-    $Data       = $Edit->GetData();
+    $ID   = $_GET['id'];
+    $Edit = new AdminData($ID);
+    $Data = $Edit->GetData();
+    ValidateID($Data);
     
-    if(!$_GET['id'] || empty($Data))
-    {
-      header('Location: list.php?error=user');
-      die();
-    }
-    
-    //$Head->setTitle("Nuevo Usuario");
-    $Menu   = new Menu();
-    $Group  = new GroupData();
     $Head->setTitle($Menu->GetTitle());
     $Head->setIcon($Menu->GetHTMLicon());
     $Head->setStyle('../../../vendors/select2/select2.min.css'); // Select Inputs With Tags
     $Head->setHead();
     
     
-    $Exceptions = $DB->fetchAssoc("menu_exception","menu_id","admin_id=".$Admin_id);
+    $Exceptions = $DB->fetchAssoc("relation_admin_menu","menu_id","admin_id=".$ID);
     $Menues     = "0";
     foreach($Exceptions as $Exception)
     {
       $Menues .= ",".$Exception['menu_id'];
+    }
+    $RelatedGroups = $DB->fetchAssoc("relation_admin_group","group_id","admin_id=".$ID);
+    $Groups     = "0";
+    foreach($RelatedGroups as $Group)
+    {
+      $Groups .= ",".$Group['group_id'];
     }
     
     include('../../includes/inc.top.php');
@@ -31,10 +29,10 @@
 
 ?>
   <?php echo insertElement("hidden","action",'update'); ?>
-  <?php echo insertElement("hidden","id",$Admin_id); ?>
+  <?php echo insertElement("hidden","id",$ID); ?>
   <?php echo insertElement("hidden","menues",$Menues); ?>
-  <?php echo insertElement("hidden","groups",""); ?>
-  <?php echo insertElement("hidden","newimage",$Admin->Img); ?>
+  <?php echo insertElement("hidden","groups",$Groups); ?>
+  <?php echo insertElement("hidden","newimage",$Edit->Img); ?>
 
    <div class="box"> <!--box-success-->
     <div class="box-header with-border">
@@ -48,22 +46,22 @@
             <div class="mw100">
               <h4 class="subTitleB"><i class="fa fa-pencil"></i> Datos Principales</h4>
               <div class="form-group">
-                <?php echo insertElement('text','user',$Data['user'],'form-control','placeholder="Usuario" tabindex="1" validateEmpty="El usuario es obligatorio." validateMinLength="3/El usuario debe contener 3 caracteres como m&iacute;nimo." validateFromFile="process.php/El usuario ya existe/actualuser:='.$Data['user'].'/action:=validate"'); ?>
+                <?php echo insertElement('text','user',$Data['user'],'form-control','placeholder="Usuario" tabindex="1" validateEmpty="El usuario es obligatorio." validateMinLength="3///El usuario debe contener 3 caracteres como m&iacute;nimo." validateFromFile="../../library/processes/proc.common.php///El usuario ya existe///actualuser:='.$Data['user'].'///action:=validate///object:=AdminData"'); ?>
               </div>
               <div class="form-group">
-                <?php echo insertElement('password','password','','form-control','placeholder="Contrase&ntilde;a" validateMinLength="4/La contrase&ntilde;a debe contener 4 caracteres como m&iacute;nimo." tabindex="2"'); ?>
+                <?php echo insertElement('password','password','','form-control','placeholder="Contrase&ntilde;a" validateMinLength="4///La contrase&ntilde;a debe contener 4 caracteres como m&iacute;nimo." tabindex="2"'); ?>
               </div>
               <div class="form-group">
-                <?php echo insertElement('password','password_confirm','','form-control','placeholder="Confirmar Contrase&ntilde;a" validateEqualToField="password/Las contrase&ntilde;as deben coincidir." tabindex="3"'); ?>
+                <?php echo insertElement('password','password_confirm','','form-control','placeholder="Confirmar Contrase&ntilde;a" validateEqualToField="password///Las contrase&ntilde;as deben coincidir." tabindex="3"'); ?>
               </div>
               <div class="form-group">
-                <?php echo insertElement('text','email',$Data['email'],'form-control','placeholder="Email" validateEmail="Ingrese un email v&aacute;lido." validateMinLength="4/El email debe contener 4 caracteres como m&iacute;nimo." tabindex="4" validateFromFile="process.php/El email ya existe/actualemail:='.$Data['email'].'/action:=validate_email"'); ?>
+                <?php echo insertElement('text','email',$Data['email'],'form-control','placeholder="Email" validateEmail="Ingrese un email v&aacute;lido." validateMinLength="4///El email debe contener 4 caracteres como m&iacute;nimo." tabindex="4" validateFromFile="../../library/processes/proc.common.php///El email ya existe///actualemail:='.$Data['email'].'///action:=validate_email///object:=AdminData"'); ?>
               </div>
               <div class="form-group">
-                <?php echo insertElement('text','first_name',$Data['first_name'],'form-control','placeholder="Nombre" validateEmpty="El nombre es obligatorio." validateMinLength="2/El nombre debe contener 2 caracteres como m&iacute;nimo." tabindex="5"'); ?>
+                <?php echo insertElement('text','first_name',$Data['first_name'],'form-control','placeholder="Nombre" validateEmpty="El nombre es obligatorio." validateMinLength="2///El nombre debe contener 2 caracteres como m&iacute;nimo." tabindex="5"'); ?>
               </div>
               <div class="form-group">
-                <?php echo insertElement('text','last_name',$Data['last_name'],'form-control','placeholder="Apellido" validateEmpty="El apellido es obligatorio." validateMinLength="2/El apellido debe contener 2 caracteres como m&iacute;nimo." tabindex="6"'); ?>
+                <?php echo insertElement('text','last_name',$Data['last_name'],'form-control','placeholder="Apellido" validateEmpty="El apellido es obligatorio." validateMinLength="2///El apellido debe contener 2 caracteres como m&iacute;nimo." tabindex="6"'); ?>
               </div>
             </div>
           </div>
@@ -76,20 +74,16 @@
                 <div class="form-group">
                   <h4 class="subTitleB"><i class="fa fa-eye"></i> Perfiles</h4>
                   <?php echo insertElement('select','profile',$Data['profile_id'],'form-control','validateEmpty="El perfil es obligatorio." tabindex="7"',$DB->fetchAssoc('admin_profile','profile_id,title',"status='A' AND customer_id=".$_SESSION['customer_id']),'',"Seleccione un perfil.."); ?>
-
                 </div>
               </div>
               <!-- Groups -->
               <div class="col-lg-6 col-md-12">
                 <div class="form-group" id="groups-wrapper">
                   <h4 class="subTitleB"><i class="fa fa-users"></i> Grupos</h4>
-
                   <select id="group" class="form-control select2 selectTags" multiple="multiple" data-placeholder="Seleccione los grupos" style="width: 100%;">
                   </select>
-
                 </div>
               </div>
-
             </div>
           </div>
         </div><!-- User Data -->
@@ -137,7 +131,7 @@
             <div class="smallThumbsList flex-justify-center">
               <ul>
                 <?php
-                  foreach($Admin->DefaultImages() as $Image)
+                  foreach($Edit->DefaultImages() as $Image)
                   {
                     echo '<li><img src="'.$Image.'" class="ImgSelecteable"></li>';
                   }
@@ -157,7 +151,7 @@
             <div class="smallThumbsList flex-justify-center">
               <ul id="UserImages">
                 <?php
-                  foreach($Admin->UserImages() as $Image)
+                  foreach($Edit->UserImages() as $Image)
                   {
                     echo '<li><img src="'.$Image.'" class="ImgSelecteable"></li>';
                   }
@@ -177,41 +171,8 @@
       <button type="button" class="btn btn-danger btnRed" id="BtnCancel"><i class="fa fa-times"></i> Cancelar</button>
     </div><!-- box-footer -->
   </div><!-- /.box -->
-  <!-- Help Modal Trigger -->
-  <button type="button" class="btn btn-success btnGrey" data-toggle="modal" data-target="#helpModal" ><i class="fa fa-question-circle"></i> Ayuda</button>
-  <!-- Help Modal Trigger -->
-  <!-- //// HELP MODAL //// -->
-  <div id="helpModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Ayuda para el usuario</i></h4>
-        </div>
-        <div class="modal-body">
-          <p><b><i class="fa fa-pencil"></i> DATOS PRINCIPALES:</b> Complete los campos con la informaci&oacute;n sobre el usuario</p>
-          <hr>
-          <p><b><i class="fa fa-sitemap"></i> GRUPOS:</b> Para seleccionar los grupos haga click sobre el campo "Grupos" y presione ENTER. Repita la operaci&oacute;n hasta
-            seleccionar todos los grupos pertinentes.</p>
-          <hr>
-          <p><b><i class="fa fa-eye"></i> PERFILES:</b> Haga click en el campo y seleccione un perfil</p>
-          <hr>
-          <p><b><i class="fa fa-key"></i> PERMISOS:</b> Tilde las cajas correspondientes a los permisos a otorgar.</p>
-          <hr>
-          <p><i class="fa fa-file-image-o"></i><b> SELECCI&Oacute;N DE IM&Aacute;GENES:</b><br>
-            <b>Subir Im&aacute;gen:</b> Haga click en "Im&aacute;gen Actual" para subir una im&aacute;gen desde su dispositivo <br>
-            <b>Im&aacute;gen Gen&eacute;rica:</b> Si no tiene una i&aacute;gen puede utilizar una porporcionada por el sistema <br>
-            <b>&Uacute;ltimas Im&aacute;genes:</b> Puede volver a utilizar una im&aacute;en utilizada anteriormente<br>
-          </p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" name="button" class="btn btn-success btnBlue" data-dismiss="modal">Comprendido</button><br>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Help Modal -->
+  
+<?php include_once('modal.help.php'); ?>
 
 <?php
 // Select Inputs With Tags
