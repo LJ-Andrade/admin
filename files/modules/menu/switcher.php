@@ -1,7 +1,6 @@
 <?php
     include("../../includes/inc.main.php");
     
-
     if($_GET['id'])
     {
       $MenuID   = $_GET['id'];
@@ -19,31 +18,28 @@
       header("Location: ../main/main.php");
       die();
     }
-
-    $Head->setTitle($Switcher->MenuData['title']);
+    
+    $Head->setTitle($Switcher->GetTitle());
     $Head->setHead();
+    include('../../includes/inc.top.php');
 ?>
-<body>
-  <div id="wrapper">
-    <?php include('../../includes/inc.subtop.php');?>
-    <div class="container">
-      
-      <div class="mainDemoTitles"><h2><?php echo $Switcher->MenuData['title'] ?></h2></div>
+
+  <div class="box box-success">
+    <div class="box-body">
       <?php foreach ($Children as $Child) { ?>
-      <div class="col-md-4 genCard">
-        <a href="<?php echo $Child['link']; ?>">
-          <div class="genCardHead">
-            <i class="fa <?php echo $Child['icon']; ?>"></i>
+        <div class="col-md-4 col-sm-6">
+          <a href="<?php echo $Child['link']; ?>">
+          <div class="info-box bg-blue">
+              <span class="info-box-icon"><i class="fa <?php echo $Child['icon']; ?>"></i></span>
+              <div class="info-box-content">
+                <h3><?php echo $Child['title']; ?></h3>
+              </div>
           </div>
-        </a>
-        <div class="genCardContent">
-          <span><?php echo $Child['title']; ?></span>
+          </a>
         </div>
-      </div>
       <?php } ?>
-
     </div>
-
-
-  </div><!-- /#wrapper -->
-<?php $Foot->setFoot(); ?>
+  </div>
+<?php
+include('../../includes/inc.bottom.php');
+?>

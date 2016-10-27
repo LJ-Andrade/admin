@@ -28,7 +28,6 @@
   <?php echo insertElement("hidden","profiles",$Profiles); ?>
   <?php echo insertElement("hidden","id",$ID); ?>
   <?php echo insertElement("hidden","icon",$Data['icon']); ?>
-  <?php //echo insertElement("hidden","newimage",$Admin->DefaultImg); ?>
   <div class="ProductDetails box animated fadeIn">
     <div class="box-header flex-justify-center">
       <div class="col-lg-8 col-sm-12">
@@ -96,24 +95,7 @@
   </div>
 
   <!-- Help Modal Trigger -->
-  <!-- //// ICON MODAL //// -->
-  <div id="iconModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Seleccione un &Iacute;cono</i></h4>
-        </div>
-        <div class="modal-body">
-          <div class="iconModalContent">
-            <?php include ('../../includes/inc.icons.php'); ?>
-            <!-- ///////// JS of this is in menu/main.js ////////////-->
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <?php include ('modal.icon.php'); ?>
   <!-- //// HELP MODAL //// -->
   <!-- Help Modal -->
 <?php

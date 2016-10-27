@@ -1,10 +1,11 @@
                                             ////// JavaScript Document //////
-$(document).ready(function(){
-	if(get['msg']=='insert')
-		notifySuccess("'"+get['element']+"' ha sido creado correctamente");
-	if(get['msg']=='update')
-		notifySuccess("'"+get['element']+"' ha sido modificado correctamente");
-});
+// $(document).ready(function(){
+//   var sidebarMenu = getCookie("sidebarmenu");
+//   if(sidebarMenu)
+//   {
+//     $("body").addClass(sidebarMenu);
+//   }
+// });
 
 //////////////////////////////////////////////////// Notify //////////////////////////////////////////////////////
 function notifyError(msgNotify)
@@ -283,6 +284,7 @@ function sumbitFields(process,haveData,noData){
         data:data,
         processData:false,
         cache:false,
+        async:true,
         success: function(rs){
             if(rs)
             {
@@ -574,6 +576,17 @@ function getLocal(name) {
 }
 
 //////////////////////////////////////// LOADER ////////////////////////////////////////
+$(document).ready(function(){
+  // $('.loader')
+  //   .hide()  // Hide it initially
+  //   .ajaxStart(function() {
+  //       $(this).show();
+  //   })
+  //   .ajaxStop(function() {
+  //       $(this).hide();
+  //   });
+});
+
 $('.activateLoader').click(function(){
   toggleLoader();
 })

@@ -47,7 +47,7 @@ class AdminData extends DataBase
 	{
 		if(!$this->Customer)
 		{
-			$Rs 	= $this->fetchAssoc('customer','*',"customer_id =".$this->AdminData['customer_id']);
+			$Rs 	= $this->fetchAssoc("admin_customer",'*',"customer_id =".$this->AdminData['customer_id']);
 			$this->Customer = $Rs[0];
 		}
 		return $this->Customer;

@@ -155,7 +155,7 @@ class Menu extends DataBase
 	{
 		if(count($this->Children)<1)
 		{
-			$Children = $this->fetchAssoc('menu','*'," status = 'A' AND parent_id = ".$this->MenuData['menu_id']);
+			$Children = $this->fetchAssoc('menu','*'," status = 'A' AND view_status='A' AND parent_id = ".$this->MenuData['menu_id']);
 			foreach ($Children as $Child)
 			{
 				if(!$Child['link'] || $Child['link']=="#")

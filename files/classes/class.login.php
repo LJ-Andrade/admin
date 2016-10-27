@@ -124,7 +124,7 @@ class Login extends DataBase
 
 	public function checkCustomer()
 	{
-		$Data 		= $this->fetchAssoc("customer","status","customer_id=".$this->AdminData[0]['customer_id']);
+		$Data 		= $this->fetchAssoc("admin_customer","status","customer_id=".$this->AdminData[0]['customer_id']);
 		$Customer = $Data[0];
 		$Result 	= self::isValidCustomerStatus($Customer['status']);
 		return $Result;

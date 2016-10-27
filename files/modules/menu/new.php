@@ -10,7 +10,6 @@
   <?php echo insertElement("hidden","groups",""); ?>
   <?php echo insertElement("hidden","profiles",""); ?>
   <?php echo insertElement("hidden","icon","fa-bars"); ?>
-  <?php //echo insertElement("hidden","newimage",$Admin->DefaultImg); ?>
   <div class="ProductDetails box animated fadeIn">
     <div class="box-header flex-justify-center">
       <div class="col-lg-8 col-sm-12">
@@ -75,50 +74,8 @@
       </div>
     </div>
   </div>
-
-  <!-- Help Modal Trigger -->
-  <!-- //// ICON MODAL //// -->
-  <div id="iconModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Seleccione un &Iacute;cono</i></h4>
-        </div>
-        <div class="modal-body">
-          <div class="iconModalContent">
-            <?php include ('../../includes/inc.icons.php'); ?>
-            <!-- ///////// JS of this is in menu/main.js ////////////-->
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-  <!-- //// HELP MODAL //// -->
-  <!--<div id="helpModal" class="modal fade" role="dialog">
-     <div class="modal-dialog">
-
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Ayuda para el usuario</i></h4>
-        </div>
-        <div class="modal-body">
-          <p>
-            Ayuda sobre Men&uacute;es
-          </p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" name="button" class="btn btn-success btnBlue" data-dismiss="modal">Comprendido</button><br>
-        </div>
-      </div>
-    </div>
-  </div> -->
-  <!-- Help Modal -->
+  
+<?php include ('modal.icon.php'); ?>
 <?php
 $Foot->setScript('../../../vendors/bootstrap-switch/script.bootstrap-switch.min.js');
 $Foot->setScript('../../../vendors/select2/select2.min.js');
