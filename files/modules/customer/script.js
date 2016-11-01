@@ -18,3 +18,19 @@ $('.Info-Card-Form-Done').click(function(){
   $('.Demo-Card').removeClass('Hidden');
   $('.Info-Card-Empty').addClass('Hidden');
 });
+
+$(document).ready(function () {
+
+    // Remove Date Column in account.php from 400px  
+    if (screen.width < 400) {
+        $(".Sheet-Date").addClass('Hidden');
+        $(".Sheet-Col").removeClass('col-xs-3');
+        $(".Sheet-Col").addClass('col-xs-4');
+    }
+    else {
+        $(".Sheet-Date").removeClass('Hidden');
+        $(".Sheet-Col").addClass('col-xs-3');
+        $(".Sheet-Col").removeClass('col-xs-4');
+    }
+
+});

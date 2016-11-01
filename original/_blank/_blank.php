@@ -8,17 +8,11 @@
     $Head->setStyle('../../../vendors/colorpicker/bootstrap-colorpicker.min.css'); // Color Picker
     $Head->setHead();
     include('../../includes/inc.top.php');
-
-
 ?>
   <?php echo insertElement("hidden","action",'insert'); ?>
   <?php echo insertElement("hidden","menues",""); ?>
   <?php echo insertElement("hidden","groups",""); ?>
   <?php echo insertElement("hidden","newimage",$Admin->DefaultImg); ?>
-
-
-
-
 
   <div class="box animated fadeIn">
     <div class="box-header flex-justify-center">
@@ -55,9 +49,6 @@
       </div>
     </div><!-- box -->
   </div><!-- box -->
-
-
-
   <!-- Help Modal -->
 <?php
 $Foot->setScript('../../../vendors/bootstrap-switch/script.bootstrap-switch.min.js');

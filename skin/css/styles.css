@@ -1,19 +1,46 @@
 @charset "UTF-8";
 .blueBack {
   background-color: #9795ef;
-  color: #fff; }
+  color: #fff;
+  -webkit-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s; }
+  .blueBack:hover, .blueBack:focus, .blueBack:active {
+    background-color: #a9a7ed; }
 
 .greenBack {
   background-color: #84b68a;
-  color: #fff; }
+  color: #fff;
+  -webkit-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s; }
+  .greenBack:hover, .greenBack:focus, .greenBack:active {
+    background-color: #a3cba8; }
 
 .redBack {
   background-color: #cd6767;
-  color: #fff; }
+  color: #fff;
+  -webkit-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s; }
+  .redBack:hover, .redBack:focus, .redBack:active {
+    background-color: #d58181; }
 
 .greyBack {
   background-color: #cdcdcd;
-  color: #fff; }
+  color: #000;
+  -webkit-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s; }
+  .greyBack:hover, .greyBack:focus, .greyBack:active {
+    background-color: #dad8d8; }
+
+.yellowBack {
+  background-color: #f0ad4e;
+  color: #fff;
+  -webkit-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s; }
+  .yellowBack:hover, .yellowBack:focus, .yellowBack:active {
+    background-color: #f4b863; }
+
+html {
+  font-size: 100%; }
 
 .Hidden {
   display: none !important; }
@@ -372,8 +399,10 @@
   border-radius: 100%;
   background-color: #1c984d; }
 
-.activateSelectedAbs {
-  background-color: #57ba6d; }
+.action-btn {
+  border-radius: 2px;
+  padding: 2px 8px;
+  margin: 2px 4px; }
 
 .disabled-btn {
   background-color: #e7e7e7;
@@ -416,6 +445,13 @@
   border: 1px solid rgba(228, 228, 228, 0.8); }
   .treeCheckBoxDiv input {
     margin-right: 10px; }
+
+.subtitle {
+  display: block;
+  padding: 15px 0; }
+  .subtitle span {
+    font-size: 1.2rem;
+    border-bottom: 1px solid #d9d9d9; }
 
 .imagesMain {
   margin-top: 20px; }
@@ -586,8 +622,8 @@
   -webkit-transition: all 0.1s ease 0s;
   transition: all 0.1s ease 0s; }
   .listRow:hover {
-    background-color: #989898;
-    color: #fff;
+    background-color: #C9C3C3;
+    color: #000;
     cursor: pointer; }
     .listRow:hover span.smallDetails, .listRow:hover .smallTitle {
       color: #fff !important; }
@@ -602,7 +638,8 @@
     right: 0;
     top: 0;
     height: 100%;
-    padding: 5px; }
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.64); }
 
 .listRow2 {
   background-color: #e7e7e7; }
@@ -653,7 +690,7 @@
 
 @media (max-width: 1150px) {
   .listRowInner .emailTextResp {
-    max-width: 160px;
+    max-width: 140px;
     font-size: 12px;
     display: block;
     white-space: nowrap;
@@ -665,27 +702,6 @@
 .listRowInner.listRowInner-sm img {
   width: 30px !important;
   height: 30px !important; }
-
-.deleteSelectedAbs {
-  position: absolute;
-  background-color: #c25252;
-  border-radius: 5px;
-  -webkit-box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75) !important;
-  -moz-box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75) !important;
-  box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75) !important;
-  padding: 15px;
-  font-size: 20px;
-  color: #fff;
-  bottom: 15px;
-  right: 15px;
-  -webkit-transition: all 0.2s ease 0s;
-  transition: all 0.2s ease 0s; }
-  .deleteSelectedAbs a {
-    color: #fff; }
-  .deleteSelectedAbs:hover {
-    background-color: #8b3636; }
-    .deleteSelectedAbs:hover a {
-      color: #e0e0e0; }
 
 @media (max-width: 400px) {
   .listRow {
@@ -720,6 +736,58 @@
     .changeView .btn:hover {
       background-color: #cbcbcb; }
 
+.listRowSheet {
+  padding: 10px;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis; }
+  .listRowSheet .listRowInner {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis; }
+  .listRowSheet .sheet-column {
+    padding: 2px; }
+  .listRowSheet .sheet-notes hr {
+    margin: 8px 0 5px; }
+
+.list-sheet-title {
+  background-color: #e9e9e9;
+  border-bottom: 3px solid #d8d8d8;
+  padding: 10px;
+  margin: 5px 0; }
+  .list-sheet-title span {
+    font-weight: 600;
+    font-size: 1rem; }
+
+.list-sheet-resuls {
+  background-color: #e9e9e9;
+  border-bottom: 3px solid #d8d8d8;
+  padding: 10px;
+  margin: 5px 0;
+  text-align: right; }
+  .list-sheet-resuls > div {
+    float: right; }
+  .list-sheet-resuls .result-title {
+    margin-right: 10px; }
+  .list-sheet-resuls .result-number {
+    padding: 5px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #99b483; }
+  .list-sheet-resuls .result-debt {
+    padding: 3px 6px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #b16666; }
+
+@media (max-width: 765px) {
+  .list-sheet-resuls {
+    text-align: right;
+    padding: 4px; }
+    .list-sheet-resuls > div {
+      margin: 5px 0; } }
 .iconMenu {
   border: 1px solid #ccc;
   padding-left: 10px;
@@ -745,6 +813,52 @@
   padding: 5px; }
   .iconSelected .fa {
     font-size: 25px !important; }
+
+.deleteSelectedAbs {
+  position: fixed;
+  border-radius: 5px;
+  padding: 15px;
+  font-size: 20px;
+  bottom: 15px;
+  right: 15px;
+  z-index: 500;
+  background-color: #9c5d4f;
+  color: #fff;
+  -webkit-box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75) !important;
+  -moz-box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75) !important;
+  box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75) !important;
+  -webkit-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s; }
+  .deleteSelectedAbs a {
+    color: #fff; }
+  .deleteSelectedAbs:hover {
+    background-color: #9f4f3d;
+    cursor: pointer; }
+    .deleteSelectedAbs:hover a {
+      color: #e0e0e0; }
+
+.activateSelectedAbs {
+  position: fixed;
+  border-radius: 5px;
+  padding: 15px;
+  font-size: 20px;
+  bottom: 15px;
+  right: 15px;
+  z-index: 500;
+  background-color: #5cb85c;
+  color: #fff;
+  -webkit-box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75) !important;
+  -moz-box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75) !important;
+  box-shadow: 7px 6px 5px -6px rgba(0, 0, 0, 0.75) !important;
+  -webkit-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s; }
+  .activateSelectedAbs a {
+    color: #fff; }
+  .activateSelectedAbs:hover {
+    background-color: #8bcc8b;
+    cursor: pointer; }
+    .activateSelectedAbs:hover a {
+      color: #e0e0e0; }
 
 /*------- BOXED CHECKBOXES  SIZES (XS, S, SM, L, etc.) ------- / */
 .boxed-horiz-list {

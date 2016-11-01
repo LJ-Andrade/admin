@@ -205,8 +205,11 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
   border-radius: 100%
   background-color: rgb(28, 152, 77)
 
-.activateSelectedAbs
-  background-color: $Green
+.action-btn
+  border-radius: 2px
+  padding: 2px 8px
+  margin: 2px 4px
+
 
 .disabled-btn
   background-color: rgb(231, 231, 231)
@@ -265,6 +268,21 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
   border: $lightLine
   input
     margin-right: 10px
+
+
+//////////////////////////////////////
+//                                  //
+//           SUBTITLE               //
+//                                  //
+//////////////////////////////////////
+
+
+.subtitle
+  display: block
+  padding: 15px 0
+  span
+    font-size: 1.2rem
+    border-bottom: 1px solid rgb(217, 217, 217)
 
 
 //////////////////////////////////////
@@ -419,6 +437,11 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
       display: inline-block
       list-style: none
 
+
+
+
+////// Round Item (Grid) //////
+
 .roundItemBig
   margin: 15px
   // li
@@ -455,8 +478,8 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
   position: relative
   @include transition(0.1s)
   &:hover
-    background-color: rgb(152, 152, 152)
-    color: #fff
+    background-color: #C9C3C3
+    color: #000
     cursor: pointer
     span.smallDetails,.smallTitle
       color: #fff !important
@@ -474,6 +497,8 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
     top: 0
     height: 100%
     padding: 5px
+    background-color: rgba(255, 255, 255, 0.64)
+
 
 .listRow2
   background-color: #e7e7e7
@@ -524,11 +549,9 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
     .listTextStrong
       font-size: 14px
 
-
-
 @media (max-width: 1150px)
   .listRowInner .emailTextResp
-    max-width: 160px
+    max-width: 140px
     font-size: 12px
     display: block
     white-space: nowrap
@@ -542,24 +565,8 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
   width: 30px !important
   height: 30px !important
 
-// Absolute Positioned DeleteAll Button
-.deleteSelectedAbs
-  position: absolute
-  background-color: rgb(194, 82, 82)
-  border-radius: 5px
-  @include box-shadowDown
-  padding: 15px
-  font-size: 20px
-  color: #fff
-  bottom: 15px
-  right: 15px
-  @include transition(0.2s)
-  a
-    color: #fff
-  &:hover
-    background-color: rgb(139, 54, 54)
-    a
-      color: rgb(224, 224, 224)
+// ListRow Mobile
+/////////////
 
 @media (max-width: 400px)
   .listRow
@@ -599,6 +606,65 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
 
 
 
+/// Sheet List
+.listRowSheet
+  padding: 10px
+  display: block
+  white-space: nowrap
+  overflow: hidden !important
+  text-overflow: ellipsis
+  .listRowInner
+    display: block
+    white-space: nowrap
+    overflow: hidden !important
+    text-overflow: ellipsis
+  .sheet-column
+    padding: 2px
+  .sheet-notes
+    hr
+      margin: 8px 0 5px
+
+.list-sheet-title
+  background-color: #e9e9e9
+  border-bottom: 3px solid #d8d8d8
+  padding: 10px
+  margin: 5px 0
+  span
+    font-weight: 600
+    font-size: 1rem
+
+.list-sheet-resuls
+  background-color: #e9e9e9
+  border-bottom: 3px solid #d8d8d8
+  padding: 10px
+  margin: 5px 0
+  text-align: right
+  >div
+    float: right
+  .result-title
+    margin-right: 10px
+  .result-number
+    padding: 5px
+    border-radius: 5px
+    color: #fff
+    background-color: rgb(153, 180, 131)
+  .result-debt
+    padding: 3px 6px
+    border-radius: 5px
+    color: #fff
+    background-color: rgb(177, 102, 102)
+
+@media (max-width: 765px)
+  .list-sheet-resuls
+    text-align: right
+    padding: 4px
+    >div
+      margin: 5px 0
+
+
+
+
+
 // Icon Menu //
 .iconMenu
   border: 1px solid #ccc
@@ -627,6 +693,50 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
   padding: 5px
   .fa
     font-size: 25px !important
+
+
+
+
+// Absolute Positioned DeleteAll Button
+.deleteSelectedAbs
+  position: fixed
+  border-radius: 5px
+  padding: 15px
+  font-size: 20px
+  bottom: 15px
+  right: 15px
+  z-index: 500
+  background-color: $mainred
+  color: #fff
+  @include box-shadowDown
+  @include transition(0.2s)
+  a
+    color: #fff
+  &:hover
+    background-color: $mainredHover
+    cursor: pointer
+    a
+      color: rgb(224, 224, 224)
+
+.activateSelectedAbs
+  position: fixed
+  border-radius: 5px
+  padding: 15px
+  font-size: 20px
+  bottom: 15px
+  right: 15px
+  z-index: 500
+  background-color: $mainGreen
+  color: #fff
+  @include box-shadowDown
+  @include transition(0.2s)
+  a
+    color: #fff
+  &:hover
+    background-color: $mainGreenHover
+    cursor: pointer
+    a
+      color: rgb(224, 224, 224)
 
 //////////////////////////////////////
 //                                  //
