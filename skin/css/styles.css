@@ -28,7 +28,7 @@
   padding-left: 0px; }
 
 .padR0 {
-  padding-right: 0px; }
+  padding-right: 0px !important; }
 
 .brd {
   border: 2px solid red; }
@@ -371,6 +371,17 @@
   padding-top: 7px;
   border-radius: 100%;
   background-color: #1c984d; }
+
+.activateSelectedAbs {
+  background-color: #57ba6d; }
+
+.disabled-btn {
+  background-color: #e7e7e7;
+  color: #b1b1b1; }
+  .disabled-btn:hover, .disabled-btn:active, .disabled-btn:focus {
+    background-color: #e7e7e7;
+    color: #b1b1b1;
+    cursor: not-allowed; }
 
 .select2-selection {
   width: auto !important; }
@@ -1531,5 +1542,74 @@
 .profile-section .profile-bussines-logo img {
   max-width: 100%;
   width: 250px; }
+
+.main_form button {
+  margin: 10px 0px; }
+.main_form hr {
+  margin-bottom: 0; }
+.main_form .simple_upload_image {
+  padding: 15px; }
+  .main_form .simple_upload_image .image_sector {
+    position: relative;
+    text-align: center; }
+    .main_form .simple_upload_image .image_sector .overlay-text {
+      opacity: 0;
+      background-color: rgba(32, 32, 32, 0.62);
+      border: 10px solid rgba(83, 83, 83, 0.5);
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      color: #fff;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -ms-grid-row-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-transition: all 0.2s ease 0s;
+      transition: all 0.2s ease 0s; }
+      .main_form .simple_upload_image .image_sector .overlay-text span {
+        text-align: center; }
+      .main_form .simple_upload_image .image_sector .overlay-text:hover {
+        cursor: pointer;
+        opacity: 1; }
+  .main_form .simple_upload_image img {
+    max-width: 100%; }
+.main_form .fa {
+  min-width: 14px; }
+
+@media (max-width: 767px) {
+  .main_form .row {
+    margin-bottom: 0; }
+  .main_form .input-group {
+    margin-bottom: 15px; } }
+.info-card button {
+  margin: 10px 0px; }
+.info-card .info-card-item {
+  background-color: #e8e8e8;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px; }
+.info-card .info-card-data {
+  width: 100%;
+  background-color: #f6f6f6; }
+.info-card .info-card-form {
+  border: 1px solid #eeeeee;
+  padding: 15px 10px 0; }
+
+.info-card-arrow {
+  width: 5px; }
+  .info-card-arrow .arrow-up {
+    height: 0;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-bottom: 10px solid #e6e6e6; }
 
 /*# sourceMappingURL=styles.css.map */

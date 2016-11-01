@@ -22,37 +22,34 @@
 
   <div class="box animated fadeIn">
     <div class="box-header flex-justify-center">
-      <div class="col-md-6 ">
+      <div class="col-md-8 col-sm-12">
         <div class="innerContainer">
           <h4 class="subTitleB"><i class="fa fa-tag"></i> Detalles del Producto</h4>
-          <form method="post">
-            <div class="form-group">
-              <input type="name" class="form-control" placeholder="Nombre del Producto">
+          <div class="form-group">
+            <input type="name" class="form-control" placeholder="Nombre del Producto">
+          </div>
+          <div class="row form-group inline-form-custom">
+            <div class="col-xs-12 col-sm-4">
+              <input type="name" class="form-control" placeholder="Composici&oacute;n">
             </div>
-            <div class="row form-group inline-form-custom">
-              <div class="col-xs-12 col-sm-4">
-                <input type="name" class="form-control" placeholder="Composici&oacute;n">
-              </div>
-              <div class="col-xs-12 col-sm-4">
-                <input type="name" class="form-control" placeholder="C&oacute;digo">
-              </div>
-              <div class="col-xs-12 col-sm-4">
-                <input type="name" class="form-control" placeholder="Precio">
-              </div>
+            <div class="col-xs-12 col-sm-4">
+              <input type="name" class="form-control" placeholder="C&oacute;digo">
             </div>
-
-            <!-- Description (Character Counter)-->
-            <div class="form-group textWithCounter">
-              <textarea id="description" name="description" class="text-center" placeholder="Descripción" rows="4" maxlength="150"></textarea>
-              <div class="indicator-wrapper">
-                <p>Caracteres restantes</p>
-                <div class="indicator"><span class="current-length">150</span></div>
-              </div>
+            <div class="col-xs-12 col-sm-4">
+              <input type="name" class="form-control" placeholder="Precio">
             </div>
-            <div class="txC">
-              <button type="button" class="ProductDescBtn btn btnBlue">Continuar</button>
+          </div>
+          <!-- Description (Character Counter)-->
+          <div class="form-group textWithCounter">
+            <textarea id="description" name="description" class="text-center" placeholder="Descripción" rows="4" maxlength="150"></textarea>
+            <div class="indicator-wrapper">
+              <p>Caracteres restantes</p>
+              <div class="indicator"><span class="current-length">150</span></div>
             </div>
-          </form>
+          </div>
+          <div class="txC">
+            <button type="button" class="ProductDescBtn btn btnBlue">Continuar</button>
+          </div>
         </div>
         <!-- Description (Character Counter) -->
       </div>

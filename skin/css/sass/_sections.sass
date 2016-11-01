@@ -153,3 +153,74 @@
   .profile-bussines-logo img
     max-width: 100%
     width: 250px
+
+
+/////////////////////////////////////
+//                                 //
+//            NEW ITEMS            //
+//                                 //
+/////////////////////////////////////
+
+.main_form
+  button
+    margin: 10px 0px
+  hr
+    margin-bottom: 0
+  .simple_upload_image
+    padding: 15px
+    .image_sector
+      position: relative
+      text-align: center
+      .overlay-text
+        opacity: 0
+        background-color: rgba(32, 32, 32, 0.62)
+        border: 10px solid rgba(83, 83, 83, 0.5)
+        position: absolute
+        left: 0
+        top: 0
+        height: 100%
+        width: 100%
+        color: #fff
+        @include flex-center
+        @include transition(0.2s)
+        span
+          text-align: center
+        &:hover
+          cursor: pointer
+          opacity: 1
+    img
+      max-width: 100%
+  .fa
+    min-width: 14px
+
+
+
+@media (max-width: 767px)
+  .main_form
+    .row
+      margin-bottom: 0
+    .input-group
+      margin-bottom: 15px
+
+
+.info-card
+  button
+    margin: 10px 0px
+  .info-card-item
+    background-color: rgb(232, 232, 232)
+    border-radius: 5px
+    padding: 10px
+    margin-top: 5px
+    margin-bottom: 5px
+  .info-card-empty
+  .info-card-data
+    width: 100%
+    background-color: rgb(246, 246, 246)
+  .info-card-form
+    border: 1px solid rgb(238, 238, 238)
+    padding: 15px 10px 0
+
+.info-card-arrow
+  width: 5px
+  .arrow-up
+    @include arrowUp(10px,10px,10px,rgb(230, 230, 230))
