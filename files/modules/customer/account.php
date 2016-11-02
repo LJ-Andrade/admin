@@ -29,12 +29,17 @@
   							<span>Concepto</span>
   						</div>
   					</div>
-  					<div class="Sheet-Col sheet-column col-xs-4">
+  					<div class="Sheet-Col sheet-column col-xs-3">
   						<div class="listRowInner">
   							<span>Forma de Pago</span>
   						</div>
   					</div>
-  					<div class="Sheet-Col sheet-column col-xs-3">
+            <div class="Sheet-Col sheet-column col-xs-2">
+  						<div class="listRowInner">
+  							<span>Estado</span>
+  						</div>
+  					</div>
+  					<div class="Sheet-Col sheet-column col-xs-2">
   						<div class="listRowInner">
   							<span>Monto</span>
   						</div>
@@ -59,12 +64,17 @@
   							<span>Sitio Web</span>
   						</div>
   					</div>
-  					<div class="Sheet-Col sheet-column col-xs-4">
+  					<div class="Sheet-Col sheet-column col-xs-3">
   						<div class="listRowInner">
   							<span>Debito</span>
   						</div>
   					</div>
-  					<div class="Sheet-Col sheet-column col-xs-3">
+            <div class="Sheet-Col sheet-column col-xs-2">
+  						<div class="listRowInner">
+  							<span>Pago</span>
+  						</div>
+  					</div>
+  					<div class="Sheet-Col sheet-column col-xs-2">
   						<div class="listRowInner">
   							<span>$10</span>
   						</div>
@@ -94,12 +104,17 @@
                 <span>Sitio Web</span>
               </div>
             </div>
-            <div class="Sheet-Col sheet-column col-xs-4">
+            <div class="Sheet-Col sheet-column col-xs-3">
               <div class="listRowInner">
                 <span>Debito</span>
               </div>
             </div>
-            <div class="Sheet-Col sheet-column col-xs-3">
+            <div class="Sheet-Col sheet-column col-xs-2">
+  						<div class="listRowInner">
+  							<span>Pago</span>
+  						</div>
+  					</div>
+            <div class="Sheet-Col sheet-column col-xs-2">
               <div class="listRowInner">
                 <span>$10</span>
               </div>

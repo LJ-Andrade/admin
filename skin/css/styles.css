@@ -429,6 +429,8 @@ html {
     padding-left: 15px;
     padding-right: 15px; }
   .inline-form-custom input {
+    margin-bottom: 15px; }
+  .inline-form-custom select {
     margin-bottom: 15px; } }
 .inline-form-custom-2 .inner {
   margin-bottom: 10px; }
@@ -738,10 +740,7 @@ html {
 
 .listRowSheet {
   padding: 10px;
-  display: block;
-  white-space: nowrap;
-  overflow: hidden !important;
-  text-overflow: ellipsis; }
+  display: block; }
   .listRowSheet .listRowInner {
     display: block;
     white-space: nowrap;
