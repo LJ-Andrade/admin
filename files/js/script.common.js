@@ -576,20 +576,17 @@ function getLocal(name) {
 }
 
 //////////////////////////////////////// LOADER ////////////////////////////////////////
-$(document).ready(function(){
-  // $('.loader')
-  //   .hide()  // Hide it initially
-  //   .ajaxStart(function() {
-  //       $(this).show();
-  //   })
-  //   .ajaxStop(function() {
-  //       $(this).hide();
-  //   });
+$(document).ajaxStart(function(){
+    // $(".loader").removeClass("Hidden");
+    // $('html').css({ 'overflow': 'hidden', 'height': '100%' });
+    toggleLoader();
 });
 
-$('.activateLoader').click(function(){
-  toggleLoader();
-})
+$(document).ajaxComplete(function(){
+    // $(".loader").addClass("Hidden");
+    // $('html').css({ 'overflow-Y': 'scroll', 'height': '100%' });
+    toggleLoader();
+});
 
 function toggleLoader()
 {

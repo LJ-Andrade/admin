@@ -44,7 +44,7 @@
 		$Admin 		= new AdminData();
 		$Cookies 	= new Login($Admin->User);
 		$Cookies->setCookies();
-		if(!$Security->checkCustomer($_SESSION['customer_id']))
+		if(!$Security->checkCustomer($_SESSION['company_id']))
 		{
 			header("Location: ../login/process.logout.php?error=customer");
 			die();

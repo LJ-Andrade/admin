@@ -18,7 +18,6 @@ $(function(){
 			alertify.confirm(utf8_decode('¿Desea '+confirmText+' ?'), function(e){
 				if(e)
 				{
-					toggleLoader();
 					var process		= '../../library/processes/proc.common.php?object=ProfileData';
 					if(BtnID=="BtnCreate")
 					{
@@ -37,7 +36,6 @@ $(function(){
 						document.location = target;
 					}
 					sumbitFields(process,haveData,noData);
-					toggleLoader();
 				}
 			});
 		}
@@ -113,7 +111,6 @@ function selectGroups()
 ///////////////////////////// UPLOAD IMAGE /////////////////////////////////////
 $(function(){
 	$("#image").change(function(){
-		toggleLoader();
 		var process		= '../../library/processes/proc.common.php?action=newimage&object=ProfileData';
 		var haveData	= function(returningData)
 		{
@@ -122,13 +119,9 @@ $(function(){
 			$('.MainImg').addClass('pulse').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
 		      $(this).removeClass('pulse');
 		    });
-		    //console.log(returningData);
-			// $('#UserImages').append('<li><img src="'+returningData+'" class="ImgSelecteable"></li>');
-			// selectImg();
 		}
 		var noData		= function(){alert("No data");}
 		sumbitFields(process,haveData,noData);
-		toggleLoader();
 	});
 
 	$('.imgSelectorContent').click(function(){

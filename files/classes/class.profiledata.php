@@ -171,7 +171,7 @@ public function MakeRegs($Mode="List")
           <!-- Group -->
           <div class="input-group">
             <span class="input-group-addon order-arrows" order="group" mode="asc"><i class="fa fa-sort-alpha-asc"></i></span>
-            '.insertElement('select','group','','form-control','',$this->fetchAssoc('admin_group','group_id,title',"customer_id=".$_SESSION['customer_id']." AND status='A'","title"),'', 'Grupo').'
+            '.insertElement('select','group','','form-control','',$this->fetchAssoc('admin_group','group_id,title',"company_id=".$_SESSION['company_id']." AND status='A'","title"),'', 'Grupo').'
           </div>';
 	}
 	
@@ -186,7 +186,7 @@ public function MakeRegs($Mode="List")
 	{
 		$this->SetTable('admin_profile AS p,admin_group AS g, relation_group_profile AS r');
 		$this->SetFields('p.*,g.title AS group_title');
-		$this->SetWhere("p.customer_id = ".$_SESSION['customer_id']);
+		$this->SetWhere("p.company_id = ".$_SESSION['company_id']);
 		//$this->AddWhereString(" AND a.profile_id = p.profile_id");
 		$this->SetOrder('title');
 		$this->SetGroupBy("p.profile_id");
@@ -267,7 +267,7 @@ public function MakeRegs($Mode="List")
 		$Title		= htmlentities(ucfirst($_POST['title']));
 		$Groups		= $_POST['groups'] ? explode(",",$_POST['groups']) : array();
 		$Menues		= $_POST['menues'] ? explode(",",$_POST['menues']) : array();
-		$Insert		= $this->execQuery('insert','admin_profile','customer_id,title,creation_date',$_SESSION['customer_id'].",'".$Title."',NOW()");
+		$Insert		= $this->execQuery('insert','admin_profile','company_id,title,creation_date',$_SESSION['company_id'].",'".$Title."',NOW()");
 		$NewID 		= $this->GetInsertId();
 		$New 		= new ProfileData($NewID);
 		$Dir 		= array_reverse(explode("/",$Image));
@@ -378,9 +378,9 @@ public function MakeRegs($Mode="List")
 		$ActualTitle 	= strtolower(utf8_encode($_POST['actualtitle']));
 
 	    if($ActualTitle)
-	    	$TotalRegs  = $this->numRows('admin_profile','*',"title = '".$Title."' AND title <> '".$ActualTitle."' AND customer_id = ".$_SESSION['customer_id']);
+	    	$TotalRegs  = $this->numRows('admin_profile','*',"title = '".$Title."' AND title <> '".$ActualTitle."' AND company_id = ".$_SESSION['company_id']);
     	else
-		    $TotalRegs  = $this->numRows('admin_profile','*',"title = '".$Title."' AND customer_id = ".$_SESSION['customer_id']);
+		    $TotalRegs  = $this->numRows('admin_profile','*',"title = '".$Title."' AND company_id = ".$_SESSION['company_id']);
 		if($TotalRegs>0) echo $TotalRegs;
 	}
 	

@@ -168,9 +168,7 @@ function deleteListElement()
 			if(e)
 			{
 				var result;
-				toggleLoader();
 				result = deleteElement(element);
-				toggleLoader();
 
 				if(result)
 				{
@@ -199,9 +197,7 @@ function activateListElement()
 			if(e)
 			{
 				var result;
-				toggleLoader();
 				result = activateElement(element);
-				toggleLoader();
 
 				if(result)
 				{
@@ -224,12 +220,10 @@ function massiveElementDelete()
 		var delBtn = $(this)
 		alertify.confirm(utf8_decode('¿Desea eliminar los registros seleccionados?'), function(e){
 	        if(e){
-	        	toggleLoader();
 	        	var result;
 	        	$(".SelectedRow").children('.listActions').children('div').children('.roundItemActionsGroup').children('.deleteElement').each(function(){
 	        		result = deleteElement($(this));
 	        	});
-				toggleLoader();
 
 	        	if(result)
 	        	{
@@ -252,12 +246,10 @@ function massiveElementActivate()
 		var delBtn = $(this)
 		alertify.confirm(utf8_decode('¿Desea activar los registros seleccionados?'), function(e){
 	        if(e){
-	        	toggleLoader();
 	        	var result;
 	        	$(".SelectedRow").children('.listActions').children('div').children('.roundItemActionsGroup').children('.activateElement').each(function(){
 	        		result = activateElement($(this));
 	        	});
-				toggleLoader();
 
 	        	if(result)
 	        	{
@@ -307,7 +299,6 @@ function submitSearch()
 {
 	if(validate.validateFields(''))
 	{
-		toggleLoader();
 		if($(".ShowList").hasClass("Hidden"))
 		{
 			$("#view_type").val('list');
@@ -339,7 +330,6 @@ function submitSearch()
 			//Empty action
 		}
 		sumbitFields(process,haveData,noData);
-		toggleLoader();
 		return false;
 	}
 }
@@ -387,7 +377,7 @@ function appendPager()
 
 function appendPagerUnder7(page)
 {
-	var html = '<li class="PrevPage"><a href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></i></a></li>';
+	var html = '<li class="PrevPage"><a href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>';
 	var totalpages = calculateTotalPages();
 	for (var i = 1; i <= totalpages; i++)
 	{
@@ -397,12 +387,12 @@ function appendPagerUnder7(page)
 			var pageClass = '';
 		html = html + '<li class="'+pageClass+' pageElement" page="'+i+'"><a href="#" class="">'+i+'</a></li>';
 	}
-	return html + '<li class="NextPage"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></i></a></li>';
+	return html + '<li class="NextPage"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>';
 }
 
 function appendPagerUnder30(page)
 {
-	var html = '<li class="PrevPage"><a href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></i></a></li>';
+	var html = '<li class="PrevPage"><a href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>';
 	var totalpages = calculateTotalPages();
 	var separatorA = '';
 	var separatorB = '';
@@ -427,7 +417,7 @@ function appendPagerUnder30(page)
 	if((page+2)<totalpages)
 		html = html + '<li class="pageElement" page="'+totalpages+'"><a href="#">'+separatorB+totalpages+'</a></li>';
 		
-	return html + '<li class="NextPage"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></i></a></li>';
+	return html + '<li class="NextPage"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>';
 }
 
 function appendPagerUnlimited(page)
@@ -474,7 +464,7 @@ function appendPagerUnlimited(page)
 	if((page+2)<totalpages)
 		html = html + '<li class="pageElement" page="'+totalpages+'"><a href="#">'+separatorB+totalpages+'</a></li>';
 		
-	return html + '<li class="NextPage"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></i></a></li><li class="Next10Page"><a href="#"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li>';
+	return html + '<li class="NextPage"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li><li class="Next10Page"><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>';
 }
 
 function switchPage()
@@ -510,7 +500,7 @@ function switchPrevNextPage()
 	
 	$('.Next10Page').click(function(){
 		var page = parseInt($("#view_page").val())+10;
-		if(page<=calculateTotalPages())
+		if(page<calculateTotalPages())
 			$(".pageElement[page='"+page+"']").click();
 		else
 			$(".pageElement[page='"+calculateTotalPages()+"']").click();

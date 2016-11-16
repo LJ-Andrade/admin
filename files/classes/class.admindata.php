@@ -47,7 +47,7 @@ class AdminData extends DataBase
 	{
 		if(!$this->Customer)
 		{
-			$Rs 	= $this->fetchAssoc("admin_customer",'*',"customer_id =".$this->AdminData['customer_id']);
+			$Rs 	= $this->fetchAssoc("admin_company",'*',"company_id =".$this->AdminData['company_id']);
 			$this->Customer = $Rs[0];
 		}
 		return $this->Customer;
@@ -269,12 +269,12 @@ public function MakeRegs($Mode="List")
           <!-- Profile -->
           <div class="input-group">
             <span class="input-group-addon order-arrows" order="profile" mode="asc"><i class="fa fa-sort-alpha-asc"></i></span>
-            '.insertElement('select','profile','','form-control','',$this->fetchAssoc('admin_profile','profile_id,title',"customer_id=".$_SESSION['customer_id']." AND status='A' AND profile_id >= ".$_SESSION['profile_id']),'', 'Perfil').'
+            '.insertElement('select','profile','','form-control','',$this->fetchAssoc('admin_profile','profile_id,title',"company_id=".$_SESSION['company_id']." AND status='A' AND profile_id >= ".$_SESSION['profile_id']),'', 'Perfil').'
           </div>
           <!-- Group -->
           <div class="input-group">
             <span class="input-group-addon order-arrows" order="group" mode="asc"><i class="fa fa-sort-alpha-asc"></i></span>
-            '.insertElement('select','group','','form-control','',$this->fetchAssoc('admin_group','group_id,title',"customer_id=".$_SESSION['customer_id']." AND status='A' AND group_id IN (SELECT group_id FROM relation_group_profile WHERE profile_id >= ".$_SESSION['profile_id'].")","title"),'', 'Grupo').'
+            '.insertElement('select','group','','form-control','',$this->fetchAssoc('admin_group','group_id,title',"company_id=".$_SESSION['company_id']." AND status='A' AND group_id IN (SELECT group_id FROM relation_group_profile WHERE profile_id >= ".$_SESSION['profile_id'].")","title"),'', 'Grupo').'
           </div>';
 	}
 	
@@ -289,7 +289,7 @@ public function MakeRegs($Mode="List")
 	{
 		$this->SetTable('admin_user AS a,admin_group AS g, relation_admin_group AS r, admin_profile AS p');
 		$this->SetFields('a.*,p.title as profile, g.title as group_title');
-		$this->SetWhere("a.customer_id=".$_SESSION['customer_id']);
+		$this->SetWhere("a.company_id=".$_SESSION['company_id']);
 		$this->AddWhereString(" AND a.profile_id = p.profile_id");
 		$this->SetOrder('first_name');
 		$this->SetGroupBy("a.admin_id");
@@ -389,7 +389,7 @@ public function MakeRegs($Mode="List")
 		$ProfileID	= $_POST['profile'];
 		$Groups		= $_POST['groups'] ? explode(",",$_POST['groups']) : array();
 		$Menues		= $_POST['menues'] ? explode(",",$_POST['menues']) : array();
-		$Insert		= $this->execQuery('insert','admin_user','user,password,first_name,last_name,email,status,profile_id,img,creation_date,creator_id,customer_id',"'".$User."','".$Password."','".$FirstName."','".$LastName."','".$Email."','".$Status."','".$ProfileID."','".$Image."',NOW(),".$_SESSION['admin_id'].",".$_SESSION['customer_id']);
+		$Insert		= $this->execQuery('insert','admin_user','user,password,first_name,last_name,email,status,profile_id,img,creation_date,creator_id,company_id',"'".$User."','".$Password."','".$FirstName."','".$LastName."','".$Email."','".$Status."','".$ProfileID."','".$Image."',NOW(),".$_SESSION['admin_id'].",".$_SESSION['company_id']);
 		//echo $this->lastQuery();
 		$NewID 		= $this->GetInsertId();
 		$New 	= new AdminData($NewID);

@@ -31,16 +31,20 @@ $(function(){
 /// Alert Demo ///
 $('#alertDemoError').click(function(){
   notifyError();
-})
+});
 
 $('#alertDemoSuccess').click(function(){
   notifySuccess();
-})
+});
 
 $('#alertDemoInfo').click(function(){
   notifyInfo();
-})
+});
 
 $('#alertDemoWarning').click(function(){
   notifyWarning();
-})
+});
+
+$('.activateLoader').click(function(){
+  toggleLoader();
+});

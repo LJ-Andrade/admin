@@ -18,7 +18,6 @@ $(function(){
 			alertify.confirm(utf8_decode('¿Desea '+confirmText+' ?'), function(e){
 				if(e)
 				{
-					toggleLoader();
 					var process		= '../../library/processes/proc.common.php?object=AdminData';
 					if(BtnID=="BtnCreate")
 					{
@@ -37,7 +36,6 @@ $(function(){
 						document.location = target;
 					}
 					sumbitFields(process,haveData,noData);
-					toggleLoader();
 				}
 			});
 		}
@@ -52,7 +50,6 @@ $(function(){
 ///////////////////////////// Upload Image /////////////////////////////////////
 $(function(){
 	$("#image").change(function(){
-		toggleLoader();
 		var process		= '../../library/processes/proc.common.php?action=newimage&object=AdminData';
 		var haveData	= function(returningData)
 		{
@@ -66,7 +63,6 @@ $(function(){
 		}
 		var noData		= function(){}
 		sumbitFields(process,haveData,noData);
-		toggleLoader();
 	});
 
 	$('.imgSelectorContent').click(function(){
@@ -96,9 +92,7 @@ $(document).ready(function(){
 
 $(function(){
 	$('#profile').change(function(){
-		toggleLoader();
 		fillGroups();
-		toggleLoader();
 	});
 });
 
@@ -119,7 +113,6 @@ function setGroups()
 
 function fillGroups()
 {
-	toggleLoader();
 	var profile = $('#profile').val();
 	var admin 	= $('#id').val();
 	var process = '../../library/processes/proc.common.php';
@@ -147,7 +140,6 @@ function fillGroups()
 			}
         }
     });
-    toggleLoader();
 }
 
 ///////////////// TreeCheckboxes Multiple Select ///////////////////

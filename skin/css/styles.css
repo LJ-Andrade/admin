@@ -412,6 +412,21 @@ html {
     color: #b1b1b1;
     cursor: not-allowed; }
 
+.close-btn {
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  background-color: #e7e7e7;
+  padding: 2px 2px;
+  padding-left: 5px;
+  z-index: 999;
+  -webkit-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s; }
+  .close-btn:hover {
+    cursor: pointer;
+    color: red;
+    background-color: #c2c2c2; }
+
 .select2-selection {
   width: auto !important; }
 
@@ -1705,15 +1720,24 @@ html {
 .info-card button {
   margin: 10px 0px; }
 .info-card .info-card-item {
-  background-color: #e8e8e8;
+  background-color: #f9f4f4;
   border-radius: 5px;
   padding: 10px;
   margin-top: 5px;
-  margin-bottom: 5px; }
+  margin-bottom: 5px;
+  position: relative;
+  -webkit-box-shadow: 1px 3px 5px -5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 3px 5px -5px rgba(0, 0, 0, 0.75);
+  box-shadow: 1px 3px 5px -5px rgba(0, 0, 0, 0.75); }
+  .info-card .info-card-item .fa {
+    margin-right: 8px; }
+  .info-card .info-card-item .fa-times {
+    margin-right: 0; }
 .info-card .info-card-data {
   width: 100%;
   background-color: #f6f6f6; }
 .info-card .info-card-form {
+  position: relative;
   border: 1px solid #eeeeee;
   padding: 15px 10px 0; }
 

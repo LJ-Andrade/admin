@@ -58,7 +58,7 @@ INSERT INTO `admin_group` (`group_id`, `title`, `image`, `status`, `creation_dat
 
 CREATE TABLE `admin_profile` (
   `profile_id` int(11) NOT NULL,
-  `customer_id` int(11) NOT NULL,
+  `company_id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
   `status` char(1) DEFAULT 'A',
@@ -70,7 +70,7 @@ CREATE TABLE `admin_profile` (
 -- Dumping data for table `admin_profile`
 --
 
-INSERT INTO `admin_profile` (`profile_id`, `customer_id`, `title`, `image`, `status`, `creation_date`, `last_modification`) VALUES
+INSERT INTO `admin_profile` (`profile_id`, `company_id`, `title`, `image`, `status`, `creation_date`, `last_modification`) VALUES
 (333, 1, 'superadministrador', '../../../skin/images/body/pictures/usergen.png', 'A', '2013-03-03 03:03:03', '2016-08-01 21:06:20'),
 (350, 1, 'prueba', '../../../skin/images/profiles/profile1141210916.png', 'I', '2016-04-06 20:03:28', '2016-08-01 21:06:20'),
 (351, 1, 'pepe', '../../../skin/images/profiles/profile112263729.jpeg', 'I', '2016-04-06 20:05:21', '2016-08-01 21:06:20'),
@@ -86,7 +86,7 @@ INSERT INTO `admin_profile` (`profile_id`, `customer_id`, `title`, `image`, `sta
 
 CREATE TABLE `admin_user` (
   `admin_id` int(11) NOT NULL,
-  `customer_id` int(11) NOT NULL,
+  `company_id` int(11) NOT NULL,
   `user` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `first_name` varchar(255) NOT NULL,
@@ -105,7 +105,7 @@ CREATE TABLE `admin_user` (
 -- Dumping data for table `admin_user`
 --
 
-INSERT INTO `admin_user` (`admin_id`, `customer_id`, `user`, `password`, `first_name`, `last_name`, `email`, `profile_id`, `img`, `status`, `tries`, `last_access`, `creation_date`, `creator_id`) VALUES
+INSERT INTO `admin_user` (`admin_id`, `company_id`, `user`, `password`, `first_name`, `last_name`, `email`, `profile_id`, `img`, `status`, `tries`, `last_access`, `creation_date`, `creator_id`) VALUES
 (3, 1, 'javzero', 'a01610228fe998f515a72dd730294d87', 'Leandro', 'Andrade', '', 333, '../../../skin/images/users/3/user69110__3.jpeg', 'A', 0, '2016-06-04 03:19:08', '0000-00-00 00:00:00', 0),
 (8, 1, 'cheketo', '72373a57bdf3807c0a1ac9c30bbf3045', 'Alejandro', 'Romero', 'romero.m.alejandro@gmail.com', 333, '../../../skin/images/users/8/ale.jpg', 'A', 0, '2016-08-01 19:59:21', '0000-00-00 00:00:00', 0),
 (28, 1, 'viole', '9d7311ba459f9e45ed746755a32dcd11', 'Violeta', 'Raffin', '', 333, '../../../skin/images/users/28/vio.jpg', 'A', 0, '2016-03-07 06:01:47', '0000-00-00 00:00:00', 0);
@@ -152,7 +152,7 @@ INSERT INTO `category` (`category_id`, `parent_id`, `title`, `image`, `status`, 
 --
 
 CREATE TABLE `customer` (
-  `customer_id` int(11) NOT NULL,
+  `company_id` int(11) NOT NULL,
   `parent_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `logo` varchar(255) NOT NULL,
@@ -168,7 +168,7 @@ CREATE TABLE `customer` (
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`customer_id`, `parent_id`, `name`, `logo`, `link`, `phone`, `status`, `creation_date`, `last_update`, `creator_id`) VALUES
+INSERT INTO `customer` (`company_id`, `parent_id`, `name`, `logo`, `link`, `phone`, `status`, `creation_date`, `last_update`, `creator_id`) VALUES
 (1, 0, 'Innova Studios', '', 'www.innovastudio.com.ar', '', 'P', '2016-08-01 18:00:00', '2016-08-01 21:09:32', 8);
 
 -- --------------------------------------------------------
@@ -552,7 +552,7 @@ INSERT INTO `menu_exception` (`exception_id`, `menu_id`, `admin_id`) VALUES
 
 CREATE TABLE `product` (
   `product_id` int(11) NOT NULL,
-  `customer_id` int(11) NOT NULL,
+  `company_id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `code` varchar(255) NOT NULL,
   `model` varchar(255) NOT NULL,
@@ -746,7 +746,7 @@ ALTER TABLE `category`
 -- Indexes for table `customer`
 --
 ALTER TABLE `customer`
-  ADD PRIMARY KEY (`customer_id`);
+  ADD PRIMARY KEY (`company_id`);
 
 --
 -- Indexes for table `login_log`
@@ -840,7 +840,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `company_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `login_log`
 --

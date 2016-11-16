@@ -18,7 +18,6 @@ $(function(){
 			alertify.confirm(utf8_decode('¿Desea '+confirmText+' ?'), function(e){
 				if(e)
 				{
-					toggleLoader();
 					var process		= '../../library/processes/proc.common.php?object=GroupData';
 					if(BtnID=="BtnCreate")
 					{
@@ -37,7 +36,6 @@ $(function(){
 						document.location = target;
 					}
 					sumbitFields(process,haveData,noData);
-					toggleLoader();
 				}
 			});
 		}
@@ -139,7 +137,6 @@ function selectUsers()
 ///////////////////////////// UPLOAD IMAGE /////////////////////////////////////
 $(function(){
 	$("#image").change(function(){
-		toggleLoader();
 		var process		= '../../library/processes/proc.common.php?action=newimage&object=GroupData';
 		var haveData	= function(returningData)
 		{
@@ -151,7 +148,6 @@ $(function(){
 		}
 		var noData		= function(){alert("No data");}
 		sumbitFields(process,haveData,noData);
-		toggleLoader();
 	});
 
 	$('.imgSelectorContent').click(function(){

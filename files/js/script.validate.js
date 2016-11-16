@@ -52,7 +52,7 @@ VALIDATION ATRIBUTES:
 
 	function ValidateFields() {
 		validateErrorClass 	= "ErrorText Red";
-		validateElements	= "input, select, textarea";
+		validateElements	= "input[type!='hidden'], select, textarea";
 		validateTag			= "div";
 		validateValid;
 	}
@@ -325,7 +325,8 @@ VALIDATION ATRIBUTES:
 			validateObject	= $(validateElements);
 		else
 			validateObject	= $('#'+Form+' '+validateElements);
-
+		//console.log($('#'+Form+' '+validateElements));
+		//validateObject	= $('#'+Form).find(validateElements);
 		if(!validateObject.attr('id')) validateValid	= false;
 
 
@@ -364,14 +365,14 @@ VALIDATION ATRIBUTES:
 			if(valid && ValidateFields.prototype.minLength(object))
 			{
 				valid	= false;
-				var text	= $(object).attr("validateMinLength").substring($(object).attr("validateMinLength").indexOf(validateDelimiter)+1);
+				var text	= $(object).attr("validateMinLength").substring($(object).attr("validateMinLength").indexOf(validateDelimiter)+validateDelimiter.length);
 				$("#"+$(object).attr("id")+"ErrorDiv").html(text);
 			}
 
 			if(valid && ValidateFields.prototype.maxLength(object))
 			{
 				valid	= false;
-				var text	= $(object).attr("validateMaxLength").substring($(object).attr("validateMaxLength").indexOf(validateDelimiter)+1);
+				var text	= $(object).attr("validateMaxLength").substring($(object).attr("validateMaxLength").indexOf(validateDelimiter)+validateDelimiter.length);
 				$("#"+$(object).attr("id")+"ErrorDiv").html(text);
 			}
 

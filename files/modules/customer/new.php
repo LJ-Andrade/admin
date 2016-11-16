@@ -75,19 +75,23 @@
               </div>
               <span class="Info-Card-Empty info-card-empty">No hay representantes ingresados</span>
               <div class="row">
-                <div class="col-md-3 Demo-Card Hidden">
+                <!-- Representative ITEM -->
+                <div class="col-md-3">
                   <div class="info-card-item">
-                    <span><b>Nombre y Apellido</b></span> <br>
-                    <span>Empleado</span> <br>
-                    <span>pedro@mulo.com</span> <br>
-                    <span>4545-4545</span> <br>
+                    <div class="close-btn"><i class="fa fa-times"></i></div>
+                    <span><b><i class="fa fa-user"></i> Nombre y Apellido</b></span> <br>
+                    <span><i class="fa fa-briefcase"></i> Empleado</span> <br>
+                    <span><i class="fa fa-envelope"></i> pedro@mulo.com</span> <br>
+                    <span><i class="fa fa-phone"></i> 4545-4545</span> <br>
                   </div>
                 </div>
+                <!-- // Representative ITEM -->
               </div>
               <button type="button" class="btn btnGreen Info-Card-Form-Btn"><i class="fa fa-plus"></i> Agregar un representante</button>
 
               <!-- New representative form -->
               <div class="Info-Card-Form Hidden">
+                
                 <div class="info-card-arrow">
                   <div class="arrow-up"></div>
                 </div>

@@ -219,6 +219,23 @@ $lightLine: 1px solid rgba(228, 228, 228, 0.8)
     color: rgb(177, 177, 177)
     cursor: not-allowed
 
+
+.close-btn
+  position: absolute
+  right: 1px
+  top: 1px
+  background-color: #e7e7e7
+  padding: 2px 2px
+  padding-left: 5px
+  z-index: 999
+  @include transition(0.2s)
+  &:hover
+    cursor: pointer
+    color: red
+    background-color: #c2c2c2
+    
+
+    
 //////////////////////////////////////
 //                                  //
 //           FORMS                  //

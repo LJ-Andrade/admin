@@ -207,18 +207,27 @@
   button
     margin: 10px 0px
   .info-card-item
-    background-color: rgb(232, 232, 232)
+    background-color: #f9f4f4
     border-radius: 5px
     padding: 10px
     margin-top: 5px
     margin-bottom: 5px
+    position: relative
+    @include box-shadowSoft
+    .fa
+      margin-right: 8px
+    .fa-times
+      margin-right: 0
   .info-card-empty
   .info-card-data
     width: 100%
     background-color: rgb(246, 246, 246)
   .info-card-form
+    position: relative
     border: 1px solid rgb(238, 238, 238)
     padding: 15px 10px 0
+    
+ 
 
 .info-card-arrow
   width: 5px

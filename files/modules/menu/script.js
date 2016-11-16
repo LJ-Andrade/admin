@@ -18,7 +18,6 @@ $(function(){
 			alertify.confirm(utf8_decode('¿Desea '+confirmText+' ?'), function(e){
 				if(e)
 				{
-					toggleLoader();
 					var process		= '../../library/processes/proc.common.php?object=Menu';
 					if(BtnID=="BtnCreate")
 					{
@@ -37,7 +36,6 @@ $(function(){
 						document.location = target;
 					}
 					sumbitFields(process,haveData,noData);
-					toggleLoader();
 				}
 			});
 		}
@@ -82,8 +80,10 @@ $(function(){
 
 /////////////// Bootstrap Switch ////////////////////
 $(function(){
-	$("#public").bootstrapSwitch();
-	$("#status").bootstrapSwitch();
+	if($("#public[type='checkbox']").length>0)
+		$("#public").bootstrapSwitch();
+	if($("#status[type='checkbox']").length>0)
+		$("#status").bootstrapSwitch();
 });
 
 
@@ -105,14 +105,17 @@ $('.iconModalContent i').click(function(e){
 
 ///////////////// SELECT GROUPS /////////////////////
 $(function(){
-	$('.selectGroupTags').select2();
-
-	if($('.selectGroupTags').length)
+	if($('.selectGroupTags').length>0)
 	{
-		$('.selectGroupTags').select2({
-			tags: true
-		});
-		$('.selectGroupTags').on("change", function (e) { selectGroups(); });
+		$('.selectGroupTags').select2();
+
+		if($('.selectGroupTags').length)
+		{
+			$('.selectGroupTags').select2({
+				tags: true
+			});
+			$('.selectGroupTags').on("change", function (e) { selectGroups(); });
+		}
 	}
 });
 
@@ -133,14 +136,17 @@ function selectGroups()
 
 ///////////////// SELECT PROFILES /////////////////////
 $(function(){
-	$('.selectProfileTags').select2();
-
-	if($('.selectProfileTags').length)
+	if($('.selectProfileTags').length>0)
 	{
-		$('.selectProfileTags').select2({
-			tags: true
-		});
-		$('.selectProfileTags').on("change", function (e) { selectProfiles(); });
+		$('.selectProfileTags').select2();
+	
+		if($('.selectProfileTags').length)
+		{
+			$('.selectProfileTags').select2({
+				tags: true
+			});
+			$('.selectProfileTags').on("change", function (e) { selectProfiles(); });
+		}
 	}
 });
 

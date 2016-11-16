@@ -50,13 +50,13 @@
               <div class="col-xs-12 col-sm-4 inner">
                 <label for="">Perfiles</label>
                 <div class="form-group" id="groups-wrapper">
-                  <?php echo insertElement('multiple','profile',$Profiles,'form-control select2 selectProfileTags','data-placeholder="Seleccione Perfiles" style="width: 100%;"',$DB->fetchAssoc('admin_profile','profile_id,title',"status<>'I' AND customer_id = ".$_SESSION['customer_id'])); ?>
+                  <?php echo insertElement('multiple','profile',$Profiles,'form-control select2 selectProfileTags','data-placeholder="Seleccione Perfiles" style="width: 100%;"',$DB->fetchAssoc('admin_profile','profile_id,title',"status<>'I' AND company_id = ".$_SESSION['company_id'])); ?>
                 </div>
               </div>
               <div class="col-xs-12 col-sm-4 inner">
                 <label for="">Grupos</label>
                 <div class="form-group" id="groups-wrapper">
-                  <?php echo insertElement('multiple','group',$Groups,'form-control select2 selectGroupTags','data-placeholder="Seleccione Grupos" style="width: 100%;"',$DB->fetchAssoc('admin_group','group_id,title',"status<>'I' AND customer_id = ".$_SESSION['customer_id'])); ?>
+                  <?php echo insertElement('multiple','group',$Groups,'form-control select2 selectGroupTags','data-placeholder="Seleccione Grupos" style="width: 100%;"',$DB->fetchAssoc('admin_group','group_id,title',"status<>'I' AND company_id = ".$_SESSION['company_id'])); ?>
                 </div>
               </div>
               <div class="col-xs-12 col-sm-4 inner">

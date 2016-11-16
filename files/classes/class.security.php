@@ -85,7 +85,7 @@ class Security extends dataBase
 
 	public function checkCustomer($CustomerID)
 	{
-		$Data 		= $this->fetchAssoc("admin_customer","status","customer_id=".$CustomerID);
+		$Data 		= $this->fetchAssoc("admin_company","status","company_id=".$CustomerID);
 		$Customer = $Data[0];
 		$Result 	= Login::isValidCustomerStatus($Customer['status']);
 		return $Result;

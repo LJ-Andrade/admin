@@ -50,7 +50,7 @@ class Login extends DataBase
 	{
 		$_SESSION['user'] 			= $this->AdminData[0]['user'];
 		$_SESSION['admin_id'] 		= $this->AdminData[0]['admin_id'];
-		$_SESSION['customer_id'] 	= $this->AdminData[0]['customer_id'];
+		$_SESSION['company_id'] 	= $this->AdminData[0]['company_id'];
 		$_SESSION['first_name'] 	= $this->AdminData[0]['first_name'];
 		$_SESSION['last_name'] 		= $this->AdminData[0]['last_name'];
 		$_SESSION['profile_id'] 	= $this->AdminData[0]['profile_id'];
@@ -124,7 +124,7 @@ class Login extends DataBase
 
 	public function checkCustomer()
 	{
-		$Data 		= $this->fetchAssoc("admin_customer","status","customer_id=".$this->AdminData[0]['customer_id']);
+		$Data 		= $this->fetchAssoc("admin_company","status","company_id=".$this->AdminData[0]['company_id']);
 		$Customer = $Data[0];
 		$Result 	= self::isValidCustomerStatus($Customer['status']);
 		return $Result;

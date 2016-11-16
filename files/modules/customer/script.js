@@ -34,3 +34,57 @@ $(document).ready(function () {
     }
 
 });
+
+// Date Picker (Date and Time)
+$(function () {
+  $('#date-picker').daterangepicker({
+    timePicker: true, 
+    timePickerIncrement: 30,
+    timePicker24Hour: true,
+    showDropdowns: true,
+    startDate: "04/11/2016",
+    endDate: "11/11/2016",
+    locale: {
+        "format": "DD/MM/YYYY",
+        "separator": " - ",
+        "applyLabel": "Aceptar",
+        "cancelLabel": "Cancelar",
+        "fromLabel": "Desde",
+        "toLabel": "A",
+        "customRangeLabel": "Custom",
+        "weekLabel": "S",
+        "daysOfWeek": [
+            "Do",
+            "Lu",
+            "Ma",
+            "Mi",
+            "Ju",
+            "Vi",
+            "Sa"
+        ],
+        "monthNames": [
+            "Enero",
+            "Febrero",
+            "Marzo",
+            "Abril",
+            "Mayo",
+            "Junio",
+            "Julio",
+            "Agosto",
+            "Septiembre",
+            "Octubre",
+            "Noviembre",
+            "Diciembre"
+        ],
+        "firstDay": 1
+    },
+    minDate: "DD/MM/YYY",
+    maxDate: "DD/MM/YYY"
+} 
+// function(start, end, label) {
+//   console.log("Nueva Fecha seleccionada: ' + start.format('DD/MM/YYYY') + ' to ' + end.format('DD/MM/YYYY') + ' (predefined range: ' + label + ')");
+    
+    
+//   }
+  );
+});

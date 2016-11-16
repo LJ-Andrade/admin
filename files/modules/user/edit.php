@@ -73,7 +73,7 @@
               <div class="col-lg-6 col-md-12">
                 <div class="form-group">
                   <h4 class="subTitleB"><i class="fa fa-eye"></i> Perfiles</h4>
-                  <?php echo insertElement('select','profile',$Data['profile_id'],'form-control','validateEmpty="El perfil es obligatorio." tabindex="7"',$DB->fetchAssoc('admin_profile','profile_id,title',"status='A' AND customer_id=".$_SESSION['customer_id']),'',"Seleccione un perfil.."); ?>
+                  <?php echo insertElement('select','profile',$Data['profile_id'],'form-control','validateEmpty="El perfil es obligatorio." tabindex="7"',$DB->fetchAssoc('admin_profile','profile_id,title',"status='A' AND company_id=".$_SESSION['company_id']),'',"Seleccione un perfil.."); ?>
                 </div>
               </div>
               <!-- Groups -->
@@ -151,7 +151,7 @@
             <div class="smallThumbsList flex-justify-center">
               <ul id="UserImages">
                 <?php
-                  foreach($Edit->UserImages() as $Image)
+                  foreach($Admin->UserImages() as $Image)
                   {
                     echo '<li><img src="'.$Image.'" class="ImgSelecteable"></li>';
                   }

@@ -93,7 +93,7 @@ class GroupData extends DataBase
 		if($ProfileID!=0)
 		{
 			$CheckedGroups 	= $this->GetAdminGroups($AdminID);
-			$Groups			= $this->fetchAssoc('admin_group','*',"customer_id=".$_SESSION['customer_id']." AND status='A'  AND group_id IN (SELECT group_id FROM relation_group_profile WHERE profile_id = ".$ProfileID.")","title");			
+			$Groups			= $this->fetchAssoc('admin_group','*',"company_id=".$_SESSION['company_id']." AND status='A'  AND group_id IN (SELECT group_id FROM relation_group_profile WHERE profile_id = ".$ProfileID.")","title");			
 
 			foreach($Groups as $Group)
 			{
@@ -205,7 +205,7 @@ public function MakeRegs($Mode="List")
           <!-- Group -->
           <div class="input-group">
             <span class="input-group-addon order-arrows" order="profile" mode="asc"><i class="fa fa-sort-alpha-asc"></i></span>
-            '.insertElement('select','profile','','form-control','',$this->fetchAssoc('admin_profile','profile_id,title',"customer_id=".$_SESSION['customer_id']." AND status='A'","title"),'', 'Perfil').'
+            '.insertElement('select','profile','','form-control','',$this->fetchAssoc('admin_profile','profile_id,title',"company_id=".$_SESSION['company_id']." AND status='A'","title"),'', 'Perfil').'
           </div>';
 	}
 	
@@ -220,7 +220,7 @@ public function MakeRegs($Mode="List")
 	{
 		$this->SetTable('admin_profile AS p,admin_group AS g, relation_group_profile AS r');
 		$this->SetFields('g.*,p.title AS profile_title');
-		$this->SetWhere("g.customer_id = ".$_SESSION['customer_id']);
+		$this->SetWhere("g.company_id = ".$_SESSION['company_id']);
 		//$this->AddWhereString(" AND a.profile_id = p.profile_id");
 		$this->SetOrder('title');
 		$this->SetGroupBy("g.group_id");
@@ -303,7 +303,7 @@ public function MakeRegs($Mode="List")
 		$Profiles	= $_POST['profiles'] ? explode(",",$_POST['profiles']) : array();
 		$Menues		= $_POST['menues'] ? explode(",",$_POST['menues']) : array();
 		//$Users		= $_POST['users'] ? explode(",",$_POST['users']) : array();
-		$Insert		= $this->execQuery('insert','admin_group','customer_id,title,creation_date',$_SESSION['customer_id'].",'".$Title."',NOW()");
+		$Insert		= $this->execQuery('insert','admin_group','company_id,title,creation_date',$_SESSION['company_id'].",'".$Title."',NOW()");
 		$NewID 		= $this->GetInsertId();
 		$New 		= new GroupData($NewID);
 		$Dir 		= array_reverse(explode("/",$Image));
@@ -312,7 +312,7 @@ public function MakeRegs($Mode="List")
 			$Temp 	= $Image;
 			if(file_exists($Image))
 				unlink($Image);
-			$Image 	= $New->ImgGalDir().$Dir[0];
+			$Image 	= $New->ImgGalDir.$Dir[0];
 			copy($Temp,$Image);
 			
 		}
@@ -353,7 +353,7 @@ public function MakeRegs($Mode="List")
 			$Temp 	= $Image;
 			if(file_exists($Image))
 				unlink($Image);
-			$Image 	= $Edit->ImgGalDir().$Dir[0];
+			$Image 	= $Edit->ImgGalDir.$Dir[0];
 			copy($Temp,$Image);
 		}
 		$Title		= htmlentities(ucfirst($_POST['title']));
@@ -431,9 +431,9 @@ public function MakeRegs($Mode="List")
 		$ActualTitle 	= strtolower(utf8_encode($_POST['actualtitle']));
 
 	    if($ActualTitle)
-	    	$TotalRegs  = $this->numRows('admin_group','*',"title = '".$Title."' AND title <> '".$ActualTitle."' AND customer_id = ".$_SESSION['customer_id']);
+	    	$TotalRegs  = $this->numRows('admin_group','*',"title = '".$Title."' AND title <> '".$ActualTitle."' AND company_id = ".$_SESSION['company_id']);
     	else
-		    $TotalRegs  = $this->numRows('admin_group','*',"title = '".$Title."' AND customer_id = ".$_SESSION['customer_id']);
+		    $TotalRegs  = $this->numRows('admin_group','*',"title = '".$Title."' AND company_id = ".$_SESSION['company_id']);
 		if($TotalRegs>0) echo $TotalRegs;
 	}
 }

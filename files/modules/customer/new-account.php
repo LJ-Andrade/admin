@@ -4,7 +4,7 @@
     $Menu   = new Menu();
     $Group  = new GroupData();
     $Head->setTitle($Menu->GetTitle());
-    $Head->setStyle('../../../vendors/bootstrap-switch/bootstrap-switch.css'); // Switch On Off
+    $Head->setStyle('../../../vendors/daterangepicker/daterangepicker.css');
     $Head->setHead();
     include('../../includes/inc.top.php');
 ?>
@@ -48,9 +48,10 @@
               <input class="form-control" placeholder="$">
             </div>
             <div class="col-xs-12 col-sm-4">
-              <label for="">Fecha</label>
-              <input class="form-control" placeholder="Fecha">
+              <label>Fecha</label>
+              <input class="form-control pull-right" id="date-picker" type="text">
             </div>
+            
           </div>
           <div class="row form-group inline-form-custom">
             <div class="col-xs-12 col-sm-4">
@@ -95,11 +96,7 @@
   </div><!-- box -->
 
 <?php
-$Foot->setScript('../../../vendors/bootstrap-switch/script.bootstrap-switch.min.js');
+$Foot->setScript('https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js');
+$Foot->setScript('../../../vendors/daterangepicker/daterangepicker.js');
 include('../../includes/inc.bottom.php');
 ?>
-<script type="text/javascript">
-////////////////// Bootstrap Switch ////////////
-$("[name='switchCheckbox']").bootstrapSwitch();
-
-</script>
