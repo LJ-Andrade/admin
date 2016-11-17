@@ -389,8 +389,8 @@ public function MakeRegs($Mode="List")
 		$ProfileID	= $_POST['profile'];
 		$Groups		= $_POST['groups'] ? explode(",",$_POST['groups']) : array();
 		$Menues		= $_POST['menues'] ? explode(",",$_POST['menues']) : array();
-		$Insert		= $this->execQuery('insert','admin_user','user,password,first_name,last_name,email,status,profile_id,img,creation_date,creator_id,company_id',"'".$User."','".$Password."','".$FirstName."','".$LastName."','".$Email."','".$Status."','".$ProfileID."','".$Image."',NOW(),".$_SESSION['admin_id'].",".$_SESSION['company_id']);
-		//echo $this->lastQuery();
+		$Insert		= $this->execQuery('insert','admin_user','user,password,first_name,last_name,email,profile_id,img,creation_date,creator_id,company_id',"'".$User."','".$Password."','".$FirstName."','".$LastName."','".$Email."','".$ProfileID."','".$Image."',NOW(),".$_SESSION['admin_id'].",".$_SESSION['company_id']);
+		echo $this->lastQuery();
 		$NewID 		= $this->GetInsertId();
 		$New 	= new AdminData($NewID);
 		$Dir 	= array_reverse(explode("/",$Image));

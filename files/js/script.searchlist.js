@@ -49,6 +49,23 @@ function toggleGrid(element)
     });
 }
 
+function toggleRowDetailedInformation()
+{
+	$('.ExpandButton,ContractButton').on('click',function(event){
+		event.stopPropagation();
+		var ElementID = $(this).attr("id");
+		var ID = ElementID.split('_');
+		var RowID = ID[1];
+		var InfoDetail = $("#row_"+RowID).children(".DetailedInformation");
+		$(this).toggleClass('ContractButton');
+		$(this).toggleClass('ExpandButton');
+		$(this).children('i').toggleClass('fa-plus');
+		$(this).children('i').toggleClass('fa-minus');
+		InfoDetail.toggleClass('Hidden');
+	});
+}
+toggleRowDetailedInformation();
+
 function showDeleteButton()
 {
     if($('.SelectedRow').length>1 && checkDeleteRestrictions())

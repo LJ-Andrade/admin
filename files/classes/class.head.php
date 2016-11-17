@@ -11,7 +11,7 @@ class Head
 	var $Meta		= array();
 	var $Favicon	= '';
 	var $Icon		= '';
-	var $Charset	= "iso-8859-1";
+	var $Charset	= "utf-8";
 
 	function __construct()
 	{

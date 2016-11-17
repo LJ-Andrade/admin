@@ -79,7 +79,7 @@ public function MakeRegs($Mode="List")
 			// 	$Groups .= '<span class="label label-warning">'.$Group['title'].'</span> ';
 			// }
 			// if(!$Groups) $Groups = 'Ninguno';
-			$Actions	= 	'<span class="roundItemActionsGroup"><a><button type="button" class="btn btnGreen"><i class="fa fa-plus"></i></button></a>';
+			$Actions	= 	'<span class="roundItemActionsGroup"><a><button type="button" class="btn btnGreen ExpandButton" id="expand_'.$Row->ID.'"><i class="fa fa-plus"></i></button></a>';
 			$Actions	.= 	'<a href="edit.php?id='.$Row->ID.'"><button type="button" class="btn btnBlue"><i class="fa fa-pencil"></i></button></a>';
 			if($Row->Data['status']=="A")
 			{
@@ -119,9 +119,17 @@ public function MakeRegs($Mode="List")
 										</div>
 									</div>
 									<div class="col-lg-1 col-md-1 col-sm-1 hideMobile990"></div>
+									<div class="animated DetailedInformation Hidden col-md-11">
+										<br>a
+										<br>a
+										<br>aa
+										<br>a
+										<br>as
+									</div>
 									<div class="listActions flex-justify-center Hidden">
 										<div>'.$Actions.'</div>
 									</div>
+									
 								</div>';
 				break;
 				case "grid":
@@ -275,7 +283,7 @@ public function MakeRegs($Mode="List")
 
 	public function GetData()
 	{
-		return $this->AdminData;
+		return $this->Data;
 	}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
